@@ -75,7 +75,7 @@ $loadtestingId = $output.Outputs.loadtestingId.Value
 $loadTestFilename = $output.Outputs.loadTestingNewTestFileId.Value
 $loadTestNewTestId = $output.Outputs.loadTestingNewTestId.Value
 
-$loadTestingTestEndpoint = "https://" + $output.Outputs.loadTestingDataPlaneUri.Value + "/loadtests/" + $loadTestNewTestId
+$loadTestingTestEndpoint = "https://" + $output.Outputs.loadTestingDataPlaneUri.Value + "/tests/" + $loadTestNewTestId
 
 
 $tokenResourceUrl = "https://loadtest.azure-dev.com"
@@ -84,7 +84,7 @@ $azToken = (Get-AzAccessToken -Resource $tokenResourceUrl)
 # As first we create a test
 
 $createTestInvokeParams = @{
-    'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-06-01-preview"
+    'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-11-01"
     'Method'  = 'PATCH'
     'Headers' = @{ 
         'Authorization' = $azToken.Type + ' ' + $azToken.Token 
@@ -120,7 +120,7 @@ if ( [int]($statusCode) -ne 200 -and [int]($statusCode) -ne 201) {
 }
 
 # next is uploading a file
-$loadTestingTestFilesEndpoint = $loadTestingTestEndpoint + "/files/" + $loadTestFilename + "?fileType=0&api-version=2022-06-01-preview"
+$loadTestingTestFilesEndpoint = $loadTestingTestEndpoint + "/files/simulate-load-eshop.jmx?fileType=JMX_FILE&api-version=2022-11-01"
 if ($showDebugOutput) {
     Write-Host "Load testing files endpoing: "
     Write-Host $loadTestingTestFilesEndpoint
@@ -131,11 +131,15 @@ $uploadInvokeParams = @{
     'Method' = 'PUT'   
 }
 
-$uploadInvokeForm = @{
-    file = Get-Item -Path './WTHAzureCosmosDB.IaC/simulate-load-eshop.jmx'
-}
+# $uploadInvokeForm = @{
+#     file = 
+# }
 
-$output = Invoke-RestMethod @uploadInvokeParams -Form $uploadInvokeForm -StatusCodeVariable "statusCode" -Authentication $azToken.Type -Token (ConvertTo-SecureString $azToken.Token  -AsPlainText)
+$output = Invoke-RestMethod @uploadInvokeParams `
+                            -InFile (Get-Item -Path './WTHAzureCosmosDB.IaC/simulate-load-eshop.jmx') `
+                            -ContentType 'application/octet-stream' `
+                            -StatusCodeVariable "statusCode" `
+                            -Authentication $azToken.Type -Token (ConvertTo-SecureString $azToken.Token  -AsPlainText)
 
 if ( [int]($statusCode) -ne 200 -and [int]($statusCode) -ne 201) {
     Write-Error -Message "Azure Load Testing dataplane returned different status code (${statusCode}, was expecting 200 or 201) for test plan upload.\n${output}" -ErrorAction Stop
@@ -159,7 +163,7 @@ while ((get-date) -lt $waitUntilDatetime) {
 
 
     $getTestInfoInvokeParams = @{
-        'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-06-01-preview"
+        'Uri'     = "${loadTestingTestEndpoint}?api-version=2022-11-01"
         'Method'  = 'GET'
         'Headers' = @{ 
             'Authorization' = $azToken.Type + ' ' + $azToken.Token

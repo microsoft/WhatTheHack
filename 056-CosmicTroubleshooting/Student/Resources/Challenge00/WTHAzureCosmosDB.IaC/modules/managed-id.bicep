@@ -10,7 +10,7 @@ param location string
 /*
 Managed Identity
 */
-resource msi 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-31-preview' = {
+resource msi 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: managedIdentityName
   location: location
 }
