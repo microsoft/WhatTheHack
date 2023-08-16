@@ -26,7 +26,7 @@ The participants will learn how to:
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure.
-- Challenge 01: **[Auto-Vectorization of Data Sources: Automatic Processing of Document Embeddings](Student/Challenge-01.md)**
+- Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
 	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary) and stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search. This challenge covers vector store selection based on performance, capacity, available algorithms etc.
 - Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
 	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the Contoso Travel website backed by Cosmos DB and Azure Cognitive Search.
