@@ -1,6 +1,8 @@
-# Challenge 05 - Configure CD - Coach's guide
+# Challenge 05 - Deploying The Project - Coach's Guide 
 
-## Notes & guidance
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)**
+
+## Notes & Guidance
 
 - [deploy.yml](./deploy.yml) workflow file
 - Workflows need to be created in **.github/workflows**
@@ -11,5 +13,3 @@
   - **AZURE_CONTAINER_APP**
   - **AZURE_CONTAINER_APP_ENVIRONMENT**
 - Ensure the path to the source is correct as **${{ github.workspace }}/src**
-
-[< Previous Solution](./solution03.md) - **[Home](./README.md)** - [Next Solution >](./solution05.md)
