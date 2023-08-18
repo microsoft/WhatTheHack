@@ -1,12 +1,12 @@
-# Modern development and DevOps with GitHub: Creating a deployment environment
+# Challenge 04 - Creating A Deployment Environment
 
-[< Previous](challenge03.md) - [Home](../readme.md) - [Next >](challenge05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-## Scenario
+## Introduction
 
 With the application updated, the shelter is ready to begin configuring deployment! They have elected to use Azure to host the application. The website will be hosted on [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview), and the database on [Azure Cosmos DB for MongoDB](https://learn.microsoft.com/azure/cosmos-db/mongodb/introduction). The first step of the process will be creating and configuring the environment on Azure. In a later challenge you'll configure continuous deployment for the project.
 
-## Challenge
+## Description
 
 For this challenge, you will create a [GitHub Action](https://docs.github.com/actions/learn-github-actions/understanding-github-actions) which uses an [Azure Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview?tabs=bicep) file to configure the necessary resources on Azure. You will create a resource group to house the Azure resources, configure a service identity to grant permissions to the Action, and run the Action to create the resources.
 
@@ -21,34 +21,23 @@ This challenge uses [Azure Bicep](https://learn.microsoft.com/azure/azure-resour
 
 The Bicep file accepts one parameter named `prefixName`, which is to be set to 6 random alphanumeric characters. This will ensure all resources created have a unique name.
 
-## Success Criteria
-
-- A prefix is created of 6 random alphanumeric characters to ensure uniqueness
-- You created a new GitHub Action named **create-cloud.yml** with the following options:
-  - Workflow can be run manually
-  - Reads the prefix and other parameters from secrets
-- Navigating to the URL for the Azure Container App displays a screen with the message **Welcome to Azure Container Apps**
-
-> **IMPORTANT:** The default image configured in the Bicep file has the appropriate message configured. **No** code needs to be updated in the application. You will deploy the application in a later challenge.
-
-## Tips
-
-### Commands
-
-- To login with the [Azure CLI](https://learn.microsoft.com/cli/azure/what-is-azure-cli) in your codespace, use `az login --use-device-code`
-- To find your Azure subscription ID, use `az account show --query id -o tsv`
-- To display the URL for the newly generated Azure Container App, use the command `az containerapp list --query "[].properties.configuration.ingress.fqdn" -o tsv`
-
-### Configuration
-
 - Use **westus** as the location for the resource group
 - You will need to create the following secrets for the Action:
   - **AZURE_CREDENTIALS**
   - **AZURE_SUBSCRIPTION**
   - **AZURE_RG**
   - **AZURE_PREFIX**
+    
+## Success Criteria
 
-## Learning resources
+- Demonstrate that you created a new GitHub Action named **create-cloud.yml** with the following options:
+  - Workflow can be run manually
+  - Reads the prefix and other parameters from secrets
+- Demonstrate that navigating to the URL for the Azure Container App displays a screen with the message **Welcome to Azure Container Apps**
+
+> **IMPORTANT:** The default image configured in the Bicep file has the appropriate message configured. **No** code needs to be updated in the application. You will deploy the application in a later challenge.
+
+## Learning Resources
 
 - [What is Infrastructure as Code?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
 - [Introduction to GitHub Actions](https://docs.github.com/actions/learn-github-actions/understanding-github-actions)
@@ -58,4 +47,9 @@ The Bicep file accepts one parameter named `prefixName`, which is to be set to 6
 - [GitHub Actions encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets)
 - [Create Actions secrets using GitHub CLI](https://cli.github.com/manual/gh_secret_set)
 
-[< Previous](challenge03.md) - [Home](../readme.md) - [Next >](challenge05.md)
+*Sample IoT advanced challenges:*
+
+Too comfortable?  Eager to do more?  Try these additional challenges!
+
+- Observe what happens if your IoTDevice is separated from its thingamajig.
+- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
