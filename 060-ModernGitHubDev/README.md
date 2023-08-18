@@ -20,25 +20,23 @@ This DevOps with GitHub hack will help you learn how to use:
 
 ## Challenges
 
-- [Challenge 0](./Student/challenge00.md) - Setup and introduction
-- [Challenge 1](./Student/challenge01.md) - Configure your development environment
-- [Challenge 2](./Student/challenge02.md) - Add a feature to the existing application
-- [Challenge 3](./Student/challenge03.md) - Setup continuous integration and ensure security
-- [Challenge 4](./Student/challenge04.md) - Create a deployment environment
-- [Challenge 5](./Student/challenge05.md) - Setup continuous deployment
-
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+	 - Prepare your workstation to work with Azure.
+- Challenge 01: **[Configure Your Development Environment](Student/Challenge-01.md)**
+	 - Setup your development environment in the cloud
+- Challenge 02: **[Add A Feature To The Existing Application](Student/Challenge-02.md)**
+	 - Leverage GitHub Copilot to help you add features to your application
+- Challenge 03: **[Setup Continuous Integration And Ensure Security](Student/Challenge-03.md)**
+	 - Setup continuous integration and integrate GitHub Advanced Security into your pipeline
+- Challenge 04: **[Create A Deployment Environment](Student/Challenge-04.md)**
+	 - Use IaC to provision your clound environment
+- Challenge 05: **[Setup Continuous Deployment](Student/Challenge-05.md)**
+	 - Deploy your application to Azure with Continuous Delivery
 
 ## Prerequisites
 
 - Your own Azure subscription with **owner** access. See considerations below for additional guidance.
 - A GitHub Enterprise account if using internal repositories, or a standard GitHub account if using public repositories.
-
-## Repository Contents
-
-- `../Student`
-  - Student Challenge Guides
-- `../Student/Resources`
-  - Student's resource files, code, and templates to aid with challenges
 
 ## Considerations
 
@@ -52,7 +50,7 @@ Regardless of the option you choose, you'll have to consider:
 
 - [Azure default quotas and resource limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits) (for example, # of VMs allowed per region or subscription)
 - Unique naming of resources - many services may require a globally unique name, for example, App service, container registry.
-
+  
 ## Contributors
 
 - [Christopher Harrison](https://github.com/geektrainer)
