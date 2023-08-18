@@ -29,7 +29,7 @@ This DevOps with GitHub hack will help you learn how to use:
 - Challenge 03: **[Setup Continuous Integration And Ensure Security](Student/Challenge-03.md)**
 	 - Setup continuous integration and integrate GitHub Advanced Security into your pipeline
 - Challenge 04: **[Create A Deployment Environment](Student/Challenge-04.md)**
-	 - Use IaC to provision your clound environment
+	 - Use IaC to provision your cloud environment
 - Challenge 05: **[Setup Continuous Deployment](Student/Challenge-05.md)**
 	 - Deploy your application to Azure with Continuous Delivery
 
