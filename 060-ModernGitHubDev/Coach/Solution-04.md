@@ -1,6 +1,8 @@
-# Challenge 04 - Create a deployment environment - Coach's guide
+# Challenge 04 - Creating A Deployment Environment - Coach's Guide 
 
-## Notes & guidance
+[< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
+
+## Notes & Guidance
 
 - [create-azure-resources.yml](./create-azure-resources.yml) workflow file
 - Workflows need to be created in **.github/workflows**
@@ -11,5 +13,3 @@
   - AZURE_PREFIX
 - `workflow_dispatch` must be used for the trigger for the workflow to run manually
 - The path to the config file 8s **${{ github.workspace }}/config/main.bicep**
-
-[< Previous Solution](./solution03.md) - **[Home](./README.md)** - [Next Solution >](./solution05.md)
