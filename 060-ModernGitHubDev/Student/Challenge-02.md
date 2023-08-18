@@ -10,7 +10,7 @@ The shelter's board knows there's a lot of work to be done on the application. B
 
 With the development environment created and configured, it's time for some development. While the project uses [Next.js](https://nextjs.org)/[React](https://reactjs.org), not everyone is an expert in those frameworks. Even experts can struggle at times to remember syntax. And no developer likes enjoys the tedious tasks which often arise when writing code. [GitHub Copilot](https://github.com/features/copilot) is an AI pair programmer trained on billions of lines of publicly available code and text, designed to offer code suggestions to enhance and streamline your development process.
 
-> **IMPORTANT:** As highlighted earlier, coding experience is **not** required for this hack. You can use the [solution mentioned in challenge notes](#challenge-notes).
+> **IMPORTANT:** As highlighted earlier, coding experience is **not** required for this hack. A solution can be provided to you by your coach.
 
 For this challenge, you will create a new React component named **Hours.js** in the **components** folder. You will add the code necessary to display the hours for the current day of the week. After creating the component, you will update **index.js** in the **pages** folder to import the newly created component and display it on the page.
 
