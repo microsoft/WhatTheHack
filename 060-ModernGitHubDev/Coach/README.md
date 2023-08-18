@@ -19,7 +19,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 - Challenge 03: **[Setup Continuous Integration And Ensure Security](./Solution-03.md)**
 	 - Setup continuous integration and integrate GitHub Advanced Security into your pipeline
 - Challenge 04: **[Create A Deployment Environment](./Solution-04.md)**
-	 - Use IaC to provision your clound environment
+	 - Use IaC to provision your cloud environment
 - Challenge 05: **[Setup Continuous Deployment](./Solution-05.md)**
 	 - Deploy your application to Azure with Continuous Delivery
 
