@@ -1,12 +1,13 @@
-# Modern development and DevOps with GitHub: Configure your development environment
+# Challenge 01 - Configure Your Development Environment
 
-[< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
+[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Scenario
+
+## Introduction
 
 With a copy of the project obtained, it's time to turn your attention to setting up your development environment. The shelter's board is keen on ensuring developers are able to contribute to the project as seamlessly as possible, avoiding tedious setup. To meet this requirement, setting up the project on a developer's box isn't the best option. You will want to find a cloud based solution which allows for a centrally configured development environment.
 
-## Challenge
+## Description
 
 You will create a development environment which meets the needs listed above. You want to be able to begin writing code without having to install any resources locally on your machine.
 
@@ -21,7 +22,7 @@ npm install
 npm run dev
 ```
 
-## Success criteria
+## Success Criteria
 
 - You have created and configured a cloud-based development environment with the following resources installed:
   - GitHub CLI
@@ -31,11 +32,6 @@ npm run dev
 - You are able to launch and view the application in the cloud-based development environment
 - All changes are merged into `main`
 - **No** resources were installed on your machine
-
-## Hints
-
-- **Ctl-\`** will display the terminal window in Codespaces
-- **Cmd-Shift-P** (Mac) or **Ctl-Shift-P** (PC) will open the command palette
 
 ## Learning Resources
 
@@ -48,4 +44,7 @@ npm run dev
 - [Developing in a codespace](https://docs.github.com/codespaces/developing-in-codespaces/developing-in-a-codespace)
 - [Prebuilding your codespaces](https://docs.github.com/codespaces/prebuilding-your-codespaces)
 
-[< Previous](challenge00.md) - [Home](../readme.md) - [Next >](challenge02.md)
+## Tips
+
+- **Ctl-\`** will display the terminal window in Codespaces
+- **Cmd-Shift-P** (Mac) or **Ctl-Shift-P** (PC) will open the command palette
