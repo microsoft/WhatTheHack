@@ -1,4 +1,4 @@
-# What The Hack - ModernGitHubDev - Coach Guide
+# What The Hack - Modern GitHub Dev - Coach Guide
 
 ## Introduction
 
