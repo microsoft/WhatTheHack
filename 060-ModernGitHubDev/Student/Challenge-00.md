@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the ModernGitHubDev What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Modern Development and DevOps with GitHub What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
