@@ -133,7 +133,7 @@ Finally, attendees can create a free trial Azure account to participate in the h
 
 #### Workstation Security
 
-Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with adminstrator privileges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.  
+Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with administrator privileges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.  
 
 One workaround is to use the Azure Cloud Shell. However, some organizations may disable access to the Azure Cloud Shell.  Another workaround is to provision a workstation VM in Azure that attendees can RDP into to complete the hack.
 
