@@ -2,20 +2,36 @@
 
 We've structured the What The Hack format to make it easy to deliver to students both in person and virtually. The following are instructions, tips and tricks to hosting your own What The Hack event and have it go off without a hitch. You may choose to adopt as much or little as you would like. This guidance has been cobbled together from experience based on what has worked before.
 
-With the Covid-19 pandemic, virtual events will be the way of the future for some time. Participating in a team-based hands-on event virtually may be a new concept for many. However, we have found that virtual What The Hack events are often more collaborative than a traditional in-person event.
-
 This document has the following sections:
+
+- [WTH Planning Timeline](#suggested-planning-timeline)
 - [WTH Event Requirements](#what-do-you-need-to-host-a-what-the-hack-event)
 - [WTH Event Preparation](#event-preparation)
 - [WTH Event Day](#event-day)
 
+## Suggested Planning Timeline
 
-## What do you need to host a What The Hack event?
+| Start Date | End Date | Task | Notes |
+| ---------- | ---------- | ---------- | ---------- |
+| T-8 Weeks | | Identify coaches | |
+| T-8 Weeks | T-4 Weeks | Confirm WTH content and augment as needed | |
+| T-2 Weeks | | Create Teams (or altnerative) collaboration environment | |
+| T-2 Weeks | | Coaches training | |
+| T-1 Weeks | | Confirm hacking environment and perform any setup required | |
+| T-1 Weeks | | Cloud Skills Challenge (optional) | |
+| T | T + Hack Days| Track attendance and participation | |
+| T + Last Day of Hack | | Send survey/solicit feedback | |
+| T + 1 Week | | Send readout to leadership | |
+| T + 30 Days | | Tear down Teams environment | |
+
+## What do you need to run a What The Hack event?
 
 At a minimum, three things:
 1. [Hack Content](#hack-content)
 1. [Microsoft Teams](#microsoft-teams)
 1. [People](#people)
+
+Optionally, consider doing a Cloud Skills Challenge leading up to the WhatTheHack event to help attendees prepare.
 
 ### Hack Content
 
@@ -105,7 +121,7 @@ Most of the hacks in the What The Hack collection require attendees to have "Con
 
 It is important to work with the event stakeholder to decide how attendees will access Azure. Some organizations may provide individuals with their own subscriptions.  Other organizations may provide access to a shared subscription created specifically for attendees to use during the hack event. 
 
-If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end.
+If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end.  It is also important to make sure the subscription is not tied to any Azure Policy definitions that may impact the creation of necessary resources.
 
 If the organization is not providing access to an Azure subscription for the hack, attendees will need to provide there own.
 
