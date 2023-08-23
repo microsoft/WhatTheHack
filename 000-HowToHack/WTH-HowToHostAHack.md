@@ -15,7 +15,7 @@ This document has the following sections:
 | ---------- | ---------- | ---------- | ---------- |
 | T-8 Weeks | | Identify coaches | |
 | T-8 Weeks | T-4 Weeks | Confirm WTH content and augment as needed | |
-| T-2 Weeks | | Create Teams (or altnerative) collaboration environment | |
+| T-2 Weeks | | Create Teams (or alternative) collaboration environment | |
 | T-2 Weeks | | Coaches training | |
 | T-1 Weeks | | Confirm hacking environment and perform any setup required | |
 | T-1 Weeks | | Cloud Skills Challenge (optional) | |
@@ -95,7 +95,7 @@ Adding external users as guests in Microsoft Teams requires you to add each user
 
 For more information, see [Guest access in Microsoft Teams](https://docs.microsoft.com/en-us/MicrosoftTeams/guest-access)
 
-**NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest acccess is typically managed by someone in the IT department who is **NOT** you.  If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
+**NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest access is typically managed by someone in the IT department who is **NOT** you.  If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
 
 #### Reverse Guest Access
 
@@ -133,13 +133,13 @@ Finally, attendees can create a free trial Azure account to participate in the h
 
 #### Workstation Security
 
-Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with adminstrator priviledges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.  
+Some organizations have tight security policies enforced on their employees' workstations. A common one is to not provide users with adminstrator privileges on their workstation. If this is the case, it may prevent them from installing tools or software needed to complete the hack.  
 
 One workaround is to use the Azure Cloud Shell. However, some organizations may disable access to the Azure Cloud Shell.  Another workaround is to provision a workstation VM in Azure that attendees can RDP into to complete the hack.
 
 Tight firewalls may make it challenging to access Azure itself from an organization's workstations. This is when you bang your head against the wall, give up, and be thankful you don't work for that organization! :)
 
-All of these security concerns and their mitigations should be identified and addressed with the organization event stakeholder ahead of time.
+All of these security concerns and their mitigation should be identified and addressed with the organization event stakeholder ahead of time.
 
 ### Microsoft Team Creation
 
@@ -173,7 +173,7 @@ Most hacks in the [What The Hack Collection](../readme.md#what-the-hack-collecti
 
 The challenges for each hack are published in the `/Student` folder of your What The Hack.
 
-Some hacks have published their Challenges in a Word or PDF document. Other hacks have published their hacks in navigatable Markdown files which can be viewed on the web via GitHub pages.
+Some hacks have published their Challenges in a Word or PDF document. Other hacks have published their hacks in navigable Markdown files which can be viewed on the web via GitHub pages.
 
 If the challenges are published in a Word or PDF document, copy the document from the What The Hack repo and upload it into the General Channel's Files tab. We recommend pinning the document as a Tab in the General Channel so it is easily accessible to attendees.
 
@@ -249,7 +249,7 @@ To add external guests, see: [Add guests to a team in Teams](https://support.off
 
 ![How to Add Team Member - Part 2](images/wth-add-team-member-02am.jpg)
 
-We recommend creating a "join code" to share with internal organization attendeess which they can use to add themselves to the event team. The join code can be shared in the event invite or calendar meeting you will put together in the next section.
+We recommend creating a "join code" to share with internal organization attendees which they can use to add themselves to the event team. The join code can be shared in the event invite or calendar meeting you will put together in the next section.
 
 For an in-person event, you can share the join code on the screen during the kick off meeting on event day.
 
@@ -372,7 +372,7 @@ Determine how you want to break the attendees up into the smaller groups to form
 - At an in-person event, the squads can be set by the table the attendees sit at.
 - Load balanced by skill level - This encourages a mix of experts and novices so that there is shared learning. Experts are encouraged to help novices.
 - Segregated by skill level - This enables advanced participants to progress at a faster pace or take on additional challenges, while allowing novices to move at a less stressful pace as they work together to learn.
-- Play Dodgeball - The lead coach nominates a few attendees as squad leaders. Allow the squad leaders to pick their squadmembers like in gym class at school.
+- Play dodgeball - The lead coach nominates a few attendees as squad leaders. Allow the squad leaders to pick their squad members like in gym class at school.
 - At a virtual event, given various attendee locations, you may form squads by timezone. This enables squads to take break times that align to their timezone.
 - Random
 
@@ -439,7 +439,7 @@ A coach's main over-arching role is to act as a technical advisor to the attende
 
 At an in-person event, the coaches should be sitting at the table with their squad. At a virtual event, they should be engaged in their squad's channel meeting for the duration of the event.
 
-Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coachs may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
+Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coaches may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
 
 At a virtual event, the coaches can quickly jump in and out of the various Squad channels to check in on the squad and provide support as required by joining the various channel meetings.
 
@@ -484,7 +484,7 @@ The lead coach should close out the What The Hack event with a final stand-up th
 - Thank the attendees for their time and dedication during the hack
 - Finally, share the content by directing the attendees to visit the What The Hack repo on Github: <http://aka.ms/wth>
 
-You have now surived a What The Hack!
+You have now survived a What The Hack!
 
 ### Tips for In Person
 
