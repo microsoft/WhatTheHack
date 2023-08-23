@@ -460,7 +460,7 @@ During the hack, a coach's responsibilities include:
     - Use the solutions in the Coach’s guide to provide guidance, but do not share with the attendees
     - The Coach’s guide will not be comprehensive. As subject matter experts, coaches should share their knowledge and explain key concepts to help the attendees
 - Notify the lead coach of unexpected blockers that arise during the event so they can be communicated to all squads and recorded for future reference.
-- Verify that a squad has completed each challenge by checking that they have met all of the success criterias.
+- Verify that a squad has completed each challenge by checking that they have met all of the success criteria.
 - Solicit continuous feedback from the attendees on their experience, the content, and what can be done to improve it. Encourage them to use the Feedback channel to share with all of the coaches.
 
 **NOTE:** Attendees should not be judged on how far they get.  No trophies should be given for challenge completion.  If event hosts want to gamify/incentivize attendees, they should focus on encouraging attendees to share with each other.
