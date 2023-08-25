@@ -41,7 +41,7 @@ Sections in this Challenge:
    3.2 Give the model time to “think”
 
 Link to the Notebook: 
-- [Challenge 01](https://github.com/izzymsft/WhatTheHack/blob/xxx-OpenAIFundamentals/066-OpenAIFundamentals/Student/Resources/Notebooks/CH-01-PromptEngineering.ipynb)
+- [Challenge 01](https://github.com/izzymsft/WhatTheHack/blob/066-OpenAIFundamentals/066-OpenAIFundamentals/Student/Resources/Notebooks/CH-01-PromptEngineering.ipynb)
 
 
 ## Success Criteria
