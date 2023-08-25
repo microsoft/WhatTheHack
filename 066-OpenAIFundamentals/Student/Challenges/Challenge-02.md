@@ -63,7 +63,7 @@ Sections in this Challenge:
     2.5 Embeddings
 
 Link to the Notebook:
-- [Challenge 02](https://github.com/izzymsft/WhatTheHack/blob/xxx-OpenAIFundamentals/xxx-OpenAIFundamentals/Student/Resources/Notebooks/CH-02-ModelComparison.ipynb)
+- [Challenge 02](https://github.com/izzymsft/WhatTheHack/blob/066-OpenAIFundamentals/066-OpenAIFundamentals/Student/Resources/Notebooks/CH-02-ModelComparison.ipynb)
 
 ## Success Criteria
 
