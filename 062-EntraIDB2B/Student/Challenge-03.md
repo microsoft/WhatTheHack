@@ -13,11 +13,15 @@ Azure Active Directory (Entra ID) B2B collaboration is a feature within External
 
 With Entra ID B2B, the partner uses their own identity management solution, so there's no external administrative overhead for your organization. Guest users sign in to your apps and services with their own work, school, or social identities.
 
-- The partner uses their own identities and credentials, whether or not they have an Entra ID account.
-- You don't need to manage external accounts or passwords.
-- You don't need to sync accounts or manage account lifecycle.
+As an administrator, you can easily add guest users to your organization in the Azure portal.
 
-When sharing an application with external users, you might not always know in advance who will need access to the application. As an alternative to sending invitations directly to individuals, you can allow external users to sign up for specific applications themselves by enabling self-service sign-up user flow. You can create a personalized sign-up experience by customizing the self-service sign-up user flow. For example, you can provide options to sign up with Entra ID or social identity providers and collect information about the user during the sign-up process.
+- Create a new guest user in Entra ID, similar to how you'd add a new user.
+- Assign guest users to apps or groups.
+- Send an invitation email that contains a redemption link, or send a direct link to an app you want to share.
+
+Guest users follow a few simple redemption steps to sign in.
+
+Additionally, with a self-service sign-up user flow, you can create a sign-up experience for external users who want to access your apps. As part of the sign-up flow, you can provide options for different social or enterprise identity providers, and collect information about the user.
 
 ## Success Criteria
 

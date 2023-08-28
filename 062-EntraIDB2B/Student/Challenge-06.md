@@ -14,7 +14,9 @@ During this scenario, you will modernize an existing intranet web application fr
 
 ## Description
 
-Depending on your business needs, the platform offers you flexibility in terms of what type of users (sign in audience) can sign-in to your application.
+You will be deploying the application you built in challenge 5. You can deploy your ASP.Net, ASP.Net Core and Single Page Application to Azure App Service. Your application in Azure will be secured with Entra ID using OpenID.
+
+Additionally, you can create a SQL Database and connect with your web app with/without Managed Service Identity.Managed Service Identity removes the need to maintain and store any credentials to access the database, instead using the identity of the App Service Web App itself to authenticate to Azure SQL Database.
 
 ## Success Criteria
 
