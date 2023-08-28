@@ -18,3 +18,5 @@ Bappaditya
 Banerjee
 McCollum
 natively
+quickstarts
+QuickStarts
