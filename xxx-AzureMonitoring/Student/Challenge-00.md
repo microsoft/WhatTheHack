@@ -72,7 +72,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     
     - We recommend you use your initials for the  `<deploymentName>` value.
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
-    - You will be prompted to enter values for the local admin Username and Password for the Azure virtual machines and scale set instances.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - You will be prompted to enter a value for a Password which will be used for the Azure virtual machines, VM Scale Set instances, and SQL Server.  Enter a password that adheres to the [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
     - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 #### PowerShell with the AZ Module
@@ -92,7 +92,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     ```
     - We recommend you use your initials for the  `<deploymentName>` value.
     - The `<azure-region>` value must be one of the pre-defined Azure Region names. You can view the list of available region names by running the following command: `az account list-locations -o table`
-    - You will be prompted to enter a value for a Password which will be used for the Azure virtual machines, VM Scale Set instances, and SQL Server.  Enter a username and password that adheres to [Azure VM Username Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) and [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
+    - You will be prompted to enter a value for a Password which will be used for the Azure virtual machines, VM Scale Set instances, and SQL Server.  Enter a password that adheres to the [Azure VM Password Requirements](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-)
     - **NOTE:** This deployment will take approximately 20-25 minutes.
 
 ### View Deployed Resources
