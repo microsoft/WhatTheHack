@@ -64,6 +64,10 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     ```
     **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as the Azure CLI is already logged into your Azure subscription.
 
+1. The deployment files require the `Microsoft.OperationsManagement` resource provider to be registered in your Azure subscription. This is not registered by default in a new Azure subscription. You can register it by running the following command:
+
+    ```az provider register -n "Microsoft.OperationsManagement"```
+
 1. Deploy the template by running the following Azure CLI command from wherever you have unpacked the `/Challenge-00/` folder:
 
     ```bash
@@ -84,6 +88,10 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
     ```
 
     **NOTE:** If you are using the Azure Cloud Shell, you can skip this step as PowerShell is already logged into your Azure subscription.
+
+1. The deployment files require the `Microsoft.OperationsManagement` resource provider to be registered in your Azure subscription. This is not registered by default in a new Azure subscription. You can register it by running the following command:
+
+    ```INSERT RESOURCE PROVIDER REGISTRATION POWERSHELL COMMAND HERE```
 
 1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
