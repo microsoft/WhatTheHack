@@ -38,7 +38,7 @@ helm repo add stable https://charts.helm.sh/stable
 # Update Helm repositories
 helm repo update
 
-# Install eShop on AKS with Helm
+# Install eShop on AKS with Helm from the What The Hack Docker Hub account
 helm install eshopaks oci://registry-1.docker.io/whatthehackmsft/eshopaks \
     --version '0.1.0' \
     --set connectionStrings.catalogConnection=\""$catalogConnection\"" \
