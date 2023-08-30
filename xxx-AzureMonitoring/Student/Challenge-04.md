@@ -14,7 +14,7 @@ An Application Insights resource has been pre-deployed in your eShopOnWeb Azure 
 
 For this challenge, you will need to complete the following high level tasks:
 
-- Create a URL ping availability test for your eShopOnWeb webpage.
+- Create a URL ping availability test
 - Enable server-side telemetry for eShopOnWeb.
 - Enable client-side telemetry for eShopOnWeb.
 - Test eShopOnWeb on the Development Server.
@@ -56,7 +56,7 @@ This can be done simply by adding a JavaScript snippet that loads on all pages o
 ### Test eShopOnWeb on the Development Server
 
 We have added an "Easter Egg" in the eShopOnWeb application that will trigger an exception.
-  - Run the eShopOnWeb Web project locally and check out the App Insights tooling in VS and the Azure Portal
+  - Run the eShopOnWeb Web project in Visual Studio on the Visual Studio VM and check out the App Insights tooling in VS and the Azure Portal
   - To create an exception, try to change the user login password on the eShopOnWeb web page.
   - Find the exception in App Insights
 
