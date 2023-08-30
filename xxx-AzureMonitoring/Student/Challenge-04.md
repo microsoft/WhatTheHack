@@ -21,6 +21,12 @@ For this challenge, you will need to complete the following high level tasks:
 - Publish the updated eShopOnWeb website to the "production" VM Scale Set.
 - Observe telemetry for eShopOnWeb from the "production" VM Scale Set
 
+### Create a URL Ping Availablity Test
+
+A line here about what a URL ping test is...
+
+- Create a URL ping availability test for your eShopOnWeb webpage.
+
 ### Enable Application Insights Server-Side Telemetry for eShopOnWeb
 
 The source code for the eShopOnWeb application is located on the Visual Studio VM (`vmwthvsdXX`). 
@@ -39,21 +45,27 @@ The source code for the eShopOnWeb application is located on the Visual Studio V
 
 ### Enable Application Insights Client-Side Telemetry for eShopOnWeb
 
-Application Insights allows you to collect client-side telemetry for your application such as... ???  This can be done simply by adding a JavaScript snippet that loads on all pages of your website.
+Application Insights allows you to collect client-side telemetry for your application such as... ???  
+
+This can be done simply by adding a JavaScript snippet that loads on all pages of your website.
 
 - Inject the Application Insights .NET Core JavaScript snippet.
-  **HINT:** There is a standard file location in an ASP.NET Core Application where you should add the JavaScript snippet. Check the docs!
-
-### Create an Alert
-
-- Create an Alert to get triggered once an exception happens.
+  
+**HINT:** There is a standard file location in an ASP.NET Core Application where you should add the JavaScript snippet. Check the docs!
 
 ### Test eShopOnWeb on the Development Server
 
+We have added an "Easter Egg" in the eShopOnWeb application that will trigger an exception.
   - Run the eShopOnWeb Web project locally and check out the App Insights tooling in VS and the Azure Portal
   - To create an exception, try to change the user login password on the eShopOnWeb web page.
   - Find the exception in App Insights
-  - Create Alerts based on the URL availability and exceptions
+
+### Create Alerts
+
+Now that you have Application Insights configured and are able to view that the exceptions appear in the Azure Portal, you want to be able to respond to them.
+
+  - Create an Alert based on the URL availability
+  - Create an Alert to get triggered once an exception happens.
 
 ### Publish the Updated eShopOnWeb Website to the VM Scale Set
 
