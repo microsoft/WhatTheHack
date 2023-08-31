@@ -3,7 +3,6 @@
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
 ## Introduction
-Your company's eShopOnWeb website is going to launch soon and as one of the application owners you are responsible for ensuring that the site is performant, available, and overall provides a good user experience. Together with your team you have decided to use Azure Workbooks to visualize the most important metrics of your application, as Workbooks are a flexible canvas and seem to provide all the functionality you need. 
 
 ### What is an Azure Monitor Workbook?
 An Azure Monitor workbook is a customizable dashboard in the Azure portal that helps you visualize, analyze, and correlate data from multiple sources, including Azure resources, third-party services, and custom data sources. With Azure Monitor workbooks, you can create rich visualizations, such as tables, charts, and graphs, that provide insights into your application and infrastructure performance, health, and security.
@@ -16,6 +15,20 @@ Some common scenarios where Azure Monitor workbooks can be useful include:
 * Analyzing infrastructure and resource utilization
 * Identifying and responding to security threats and anomalies
 * Creating custom reports and visualizations for different stakeholders and audiences
+
+## Description
+In this challenge you need to create an Azure Montitor Workbook that will allow you to see the following information from any of your VMs on a single page. You must be able to change the time range and switch between the various VMs without editing your KQL code.
+
+* CPU %
+* Available Memory
+* Free Disk Space
+
+## Success Criteria
+You have successfully created a new workbook showing the performance characteristics of the virtual machines in your environment.
+
+
+# Bonus Challenge (requires completion of all previous challenges)
+Your company's eShopOnWeb website is going to launch soon and as one of the application owners you are responsible for ensuring that the site is performant, available, and overall provides a good user experience. Together with your team you have decided to use Azure Workbooks to visualize the most important metrics of your application, as Workbooks are a flexible canvas and seem to provide all the functionality you need. 
 
 ## Description
 In this challenge, you will therefore create a workbook that combines browser, web server and infrastructure performance data for your eShopOnWeb application on the AKS cluster.  
@@ -38,3 +51,4 @@ You have successfully created a new workbook showing the relevant metrics and no
 
 ## Learning Resources
 * [Azure Monitor Workbooks](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
+* [Workbook Parameters](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-parameters)
