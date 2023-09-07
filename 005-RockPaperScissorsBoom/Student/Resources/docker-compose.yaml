@@ -1,0 +1,30 @@
+name: rpsb
+services:
+  rockpaperscissors-sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: rockpaperscissors-sql
+    environment:
+      MSSQL_SA_PASSWORD: ""
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "" -Q "SELECT 1" -b
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+  rockpaperscissors-server:
+    build:
+      context: .
+      dockerfile: RockPaperScissorsBoom.Server/Dockerfile
+    container_name: rockpaperscissors-server
+    environment:
+      "ConnectionStrings__DefaultConnection": "Server=rockpaperscissors-sql,1433;Database=RockPaperScissorsBoom;User Id=SA;Password=;Encrypt=False;Persist Security Info=False;trusted_connection=False"
+    ports:
+      - "80:80"
+    depends_on:
+      rockpaperscissors-sql:
+        condition: service_healthy
+        restart: true
