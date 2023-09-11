@@ -19,7 +19,7 @@ Application Insights is enabled by adding the Application Insights SDK or Azure 
 
 An Application Insights resource has been pre-deployed in your eShopOnWeb Azure environment. It is named: `ai-wth-monitor-d-XX`
 
-The source code for the eShopOnWeb application is located on the Visual Studio VM (`vmwthvsdXX`). For this challenge, you will connect to this VM via Azure Bastion and use Visual Studio to complete the tasks. 
+The source code for the eShopOnWeb application is located on the Visual Studio VM (`vmwthvsdXX`). You will connect to this VM via Azure Bastion and use Visual Studio to complete the tasks of this challenge. 
 
 For this challenge, you will need to complete the following high level tasks:
 
