@@ -1,14 +1,11 @@
-# Challenge 04 - Azure Pipelines: Infrastructure as Code - Coach's Guide 
+# Challenge 04 - Azure Pipelines: Continuous Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
 
-- Use classic version in the ARM deployment
-- Override template parameters, student should have this solution:
-  - Students can archive this item clicking in the 3 dots, open a new window with the name/value table.
-  - Solution tested: -webAppName "updevdevops-dev" -hostingPlanName "updevdevops-asp" -appInsightsLocation "Central US" -appInsightsName "updevdevops-ai" -sku "S1" -registryName "updevdevopsreg" -imageName "updevdevopsimage" -registryLocation "Central US" -registrySku "Standard" -startupCommand ""
-  - check the YAML in the solutions **[S04ARMtemplatedeployment.yaml](./Solutions/S04ARMtemplatedeployment.yaml)** for the prefix part
-- Check the **[Solution-04](./Solutions/Solution-04.json)** for entire possible solution for this challenge. 
+- Students can create a new pipeline to perform a CI build.  They should leverage the Dot Net Core CLI task to perform the dotnet actions
+- We don't want to continue from our last pipeline as we don't want to build our infrastructure at the same time as building our code.  You could have conditions but this may be too far than the students need to go
 
+- Check the solution file as ADO pipeline solution sample [Solution-04.yaml](./Solutions/Solution-04.yaml)
 

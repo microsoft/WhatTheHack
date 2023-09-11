@@ -12,18 +12,16 @@ In DevOps after we automate our build process, we want to automate our release p
 
 In Azure DevOps we use an Azure Pipeline to release our software. In this challenge we will deploy our container out to our dev, test, and prod environments. 
 
-- Create a new Release Pipeline using the Azure App Service Deployment Template
-- To start off our deployment will only have one stage, lets call it `dev`
-- The output of our CI Build pipeline will be the input artifact to our CD Release pipeline, add it. 
-- Enable Continuous deployment so that each time the CI pipeline finishes successfully, this pipeline will start. 
-- If you look at the tasks for our `dev` stage you will see a single `Deploy Azure App Service` task, we just need to configure it. 
-   - Select your subscription, a app service type of `Web App for Containers (Linux)`, point it at your dev instance, enter your registry name `<prefix>devopsreg.azurecr.io` (NOTE: here we need to fully qualify it), your image/repository name `<prefix>devopsimage`, and your tag `$(Build.BuildId)` (NOTE: here we are dynamically pulling the build number from Azure DevOps at run time)
-- Manually kick off a release and check that your application got deployed to your dev instance. 
-- If everything worked, go ahead and clone the `dev` stage two more times for `test` and `prod`.
-   - The only change you need to make in the `test` and `prod` stages is pointing to the `test` and `prod` respectively. 
+- Continue using our CI Build pipeline, we will add our release to this pipeline.
+- Leverage the Azure App Service Deploy task in the assistant to deploy your application.  We will be deploying our application using the images we pushed to the Azure Container Registry.
+- If your deployment look good, go ahead and create the deployment for test and prod as well.
 - For the test and prod stages, set a pre-deployment condition so that one of your teammates has to approve any deployment before it goes to production. 
 
 ## Success Criteria
 
-1. Make a small change to your code (for example: update some fo the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release to your `dev` environment. If the change looks good, get your teammate to approve it to release to `test`. Repeat again for `prod`.
+1. Make a small change to your code (for example: update some of the HTML on the Index page `/Application/aspnet-core-dotnet-core/Views/Home/Index.cshtml`), it should automatically trigger a build and release to your `dev` environment. If the change looks good, get your teammate to approve it to release to `test`. Repeat again for `prod`.
    
+### Learning Resources
+
+1. [Azure DevOps Stages](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/stages?view=azure-devops&tabs=yaml)
+1. [Azure DevOps Environments](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
