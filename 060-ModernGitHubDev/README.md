@@ -10,13 +10,13 @@ As part of a give-back campaign, your organization is supporting a local pet she
 
 ## Learning Objectives
 
-This DevOps with GitHub hack will help you learn how to use:
+This DevOps with GitHub hack will help you learn how to:
 
-1. manage source control with GitHub
-1. contribute code without installing resources locally with GitHub Codespaces
-1. gain the support of an AI pair programmer with GitHub Copilot
-1. automate deployment with GitHub Actions
-1. ensure code security with GitHub Advanced Security
+1. Manage source control with GitHub
+1. Contribute code without installing resources locally with GitHub Codespaces
+1. Gain the support of an AI pair programmer with GitHub Copilot
+1. Automate deployment with GitHub Actions
+1. Ensure code security with GitHub Advanced Security
 
 ## Challenges
 
