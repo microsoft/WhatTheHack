@@ -60,7 +60,7 @@ This can be done simply by adding a JavaScript snippet that loads on all pages o
 
 - Inject the Application Insights .NET Core JavaScript snippet on the eShopOnWeb website.
   
-**HINT:** There is a standard file location in an ASP.NET Core Application where you should add the JavaScript snippet. Check the docs!
+  **HINT:** There is a standard file location in an ASP.NET Core Application where you should add the JavaScript snippet. Check the docs!
 
 ### Test eShopOnWeb on the Development Server
 
