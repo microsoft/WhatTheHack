@@ -16,24 +16,24 @@ This hack will help you learn:
 ## Challenges
 
 - Challenge 00: **[Setup](Student/Challenge-00.md)**
-	 - Prepare your workstation to be a devops master!
-- Challenge 01: **[Azure DevOps: Introduction](Student/Challenge-01.md)**
-	 - Learn motivations for DevOps & assess yourself
-- Challenge 02: **[Azure Boards: Agile Project Management](Student/Challenge-02.md)**
+	 - Prepare your workstation to be a DevOps master!
+- Challenge 01: **[Azure Boards: Agile Project Management](Student/Challenge-01.md)**
 	 - Learn how to work with Azure Boards
-- Challenge 03: **[Azure Repos: Introduction](Student/Challenge-03.md)**
+- Challenge 02: **[Azure Repos: Introduction](Student/Challenge-02.md)**
 	 - Setup an Azure Repo and learn how to integrate it with Azure Board task items
-- Challenge 04: **[Azure Pipelines: Infrastructure as Code](Student/Challenge-04.md)**
+- Challenge 03: **[Azure Pipelines: Infrastructure as Code](Student/Challenge-03.md)**
 	 - Deploy an ARM template via an Azure Pipelines job
-- Challenge 05: **[Azure Pipelines: Continuous Integration](Student/Challenge-05.md)**
+- Challenge 04: **[Azure Pipelines: Continuous Integration](Student/Challenge-04.md)**
 	 - Learn how to automate a build process for a sample app
+- Challenge 05: **[Azure Pipelines: Build and Push Docker Images to a Container Registry](Student/Challenge-05.md)**
+	 - Build and push Docker images to a container registry(ACR)
 - Challenge 06: **[Azure Pipelines: Continuous Delivery](Student/Challenge-06.md)**
 	 - Automate the deployment of an application into Azure
 - Challenge 07: **[Azure Repos: Branching & Policies](Student/Challenge-07.md)**
 	 - Learn about Git branching and configure policies to ensure developers follow the rules
 - Challenge 08: **[Azure Monitoring: Application Insights](Student/Challenge-08.md)**
 	 - Configure Application Insights to create work items in Azure Boards
-- Challenge 09: **[Azure Pipelines: OSS Scanning with WhiteSource Bolt](Student/Challenge-09.md)**
+- Challenge 09: **[Azure Pipelines: OSS Scanning with Mend Bolt](Student/Challenge-09.md)**
 	 - Get a taste of DevSecOps by configuring a code scanning tool in your CI Pipeline
 
 
@@ -46,3 +46,4 @@ This hack will help you learn:
 ## Contributors
 
 - [Shawn Weisfeld](https://github.com/shawnweisfeld)
+- [Andy Huang](https://github.com/whowong)
