@@ -1,83 +1,58 @@
-# Azure Monitoring Hackathon
+# What The Hack - Azure Monitoring
 
-## Overview
+## Introduction
 
-### This challenged based Azure Monitoring Hackathon is intended to teach how to monitor Azure workloads. During these three days you will be working Azure Monitor, Log Analytics and Application Insights.
+The Azure Monitoring v2.0 What the Hack provides hands on experience on how to monitor Azure workloads using Azure Monitor, Log Analytics, Application Insights, and Azure Monitor Workbooks. This hack was designed specifically for infrastructure engineers, DevOps engineers, administrators and IT architects who want to build their knowledge on Azure Monitor. However, anyone with a passion for Monitoring is welcome!  
 
-[Setup Guide](https://github.com/rkuehfus/AzureMonitoringHackathon/blob/master/Student/Guides/Deployment%20Setup%20Guide.docx?raw=true)
+![Hack Intro](./Images/header.png) 
 
-[Challenges](https://github.com/rkuehfus/AzureMonitoringHackathon/blob/master/Student/Guides/Challenges.pptx?raw=true)
+## Learning Objectives
 
-[Proctors Guide](https://github.com/rkuehfus/AzureMonitoringHackathon/blob/master/Host/Guides/Proctors%20Guide.docx?raw=true)
+In this hack, you will be getting hands on experience with monitoring resources (VMs, applications and containers) using Azure Monitor capabilities such as log analytics, dashboards and Kusto Query Language (KQL).
 
-## Goals
+## Challenges
 
-### 1. Build attendees technical skills on Monitoring workloads in Azure
-
-### 2. Understand what Monitoring Tools are available in Azure and how to implement them.  
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+	 - Prepare your Azure environment and deploy your eShopOnWeb application.
+- Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](Student/Challenge-01.md)**
+	 - Configure basic monitoring and alerting
+- Challenge 02: **[Setting up Monitoring via Automation](Student/Challenge-02.md)**
+	 - Automate deployment of Azure Monitor at scale
+- Challenge 03: **[Azure Monitor for Virtual Machines](Student/Challenge-03.md)**
+	 - Configure VM Insights and monitoring of virtual machine performance
+- Challenge 04: **[Azure Monitor for Applications](Student/Challenge-04.md)**
+	 - Monitoring applications for issues
+- Challenge 05: **[Azure Monitor for Containers](Student/Challenge-05.md)**
+	 - Monitoring containers performance and exceptions
+- Challenge 06: **[Log Queries with Kusto Query Language (KQL)](Student/Challenge-06.md)**
+	 - Use the Kusto Query Language (KQL) to write and save queries
+- Challenge 07: **[Visualizations](Student/Challenge-07.md)**
+	 - Create visualizations to build insights from the data collected in the previous challenges
 
 ## Prerequisites
 
-### 1. Attendees have access to an Azure Subscription where they can each deploy the provided ARM template that will build a very detailed infrastructure to monitor.  This includes the Vnet, subnets, NSG(s), LB(s), NAT rules, Scales Set and a fully functional .NET Core Application (eShopOnWeb) to monitor.
+- Access to an Azure subscription with "contributor" access
+    - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
+    - Students will deploy an ARM Bicep template that a set of Azure resources to monitor
+        - This includes a VNet, subnets, NSG(s), LB(s), NAT rules, VM scale set, AKS cluster, and a fully functional .NET Core Application (eShopOnWeb) to monitor.
+- Attendees should have a level 200-300 understanding of the Azure platform.  
+    - Including concepts like PowerShell, Azure CLI, ARM, resource groups, RBAC, network, storage, compute, scale sets, virtual machines and security.  
+    - Previous experience working with ARM templates is recommended.
+- Access to a machine with Visual Studio Code, and the Azure CLI or Azure PowerShell Modules installed.
+- Alternatively, students can use the [**Azure Cloud Shell**](https://shell.azure.com/)
 
-### 2.Attendees should have a level 200-300 understanding of the Azure platform.  Understand concepts like PowerShell, Azure Cli, ARM, resource groups, RBAC, network, storage, compute, Scale Sets, virtual machines and security.  Previous experience working with ARM templates is recommended.
+For more details on the prerequisites for this hack, see [Challenge 00](Student/Challenge-00.md). 
 
-### 3. Access to a machine with Visual Studio Code and the Azure PowerShell Modules loaded or Azure CLI.  VS Code ARM and PowerShell extensions should be configured.
+## Contributors
 
-![alt text](https://raw.githubusercontent.com/rkuehfus/AzureMonitoringHackathon/master/monitoringhackdiagram.png)
-
-# Agenda
-
-## Day 1
-
-### 9 – 9:30 AM: Kickoff & Introductions
-
-### 9:30  - 10:30 AM: Deploy Lab
-
-### 10:30 - 10:45 AM: Break
-
-### 10:45  - Noon: Azure Security & Management and Monitor Overviews
-
-### Noon – 1 PM: Lunch
-
-### 1 – 3 PM: Monitor and Alert Rule Challenges begin
-
-### 3 – 3:15 PM: Break
-
-### 3:15 – 5 PM: Monitor and Alert Rule Automation Challenges begins
-
-## Day 2
-
-### 9 – 9:30 AM: Team Sync up (what did you learn from Day 1?, how did it go?, blocked?)
-
-### 9:30  - 10:15 AM: Log Analytics Overview
-
-### 10:15 - 10:30 AM: Break
-
-### 10:30 - Noon: Log Analytics Challenges Start
-
-### Noon – 1 PM: Lunch
-
-### 1  – 3 PM: Log Analytics Dashboard Challenges Start
-
-### 3 – 3:15 PM: break
-
-### 3:15 – 5 PM: Log Analytics Challanges (complete)
-
-## Day 3
-
-### 9 – 9:30 AM: Team Sync up (what did you learn from Day 2?, how did it go?, blocked?)
-
-### 9:30  - 10:15 AM: App Insights Overview
-
-### 10:15 - 10:30 AM: Break
-
-### 10:30 - Noon: App Insights Challenges Start
-
-### Noon – 1 PM: Lunch
-
-### 1  – 3 PM: App Insights Challenges Continues 
-
-### 3 – 4 PM: Plan & Whiteboard Monitoring for existing Application 
-
+- [Robert Kuehfus](https://github.com/rkuehfus)
+- [Kayode Prince](https://github.com/kayodeprinceMS)
+- [Mohamed Ghaleb](https://github.com/msghaleb)
+- [Jason Masten](https://github.com/jamasten)
+- [Vanessa Bruwer](https://github.com/vanessabruwer)
+- [Martina Lang](https://github.com/martinalang)
+- [Sherri Babylon](https://github.com/shbabylo)
+- [Peter Laudati](https://github.com/jrzyshr)
+- [Maria Botova](https://github.com/MariaBTV)
+- [Warren Kahn](https://github.com/WKahnZA)
 
