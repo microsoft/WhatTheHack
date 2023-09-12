@@ -16,7 +16,7 @@ Your job will be to use Azure Monitoring to configure the eShopOnWeb solution to
 
 ## Prerequisites
 
-You will need an Azure Subscription with the "Owner" role assigned to deploy the eShopOnWeb Azure environment at the subscription scope.
+You will need an Azure Subscription with the "Contributor" role assigned to deploy the eShopOnWeb Azure environment at the subscription scope.
 
 You can complete this entire hack in a web browser using the [Azure Portal](https://portal.azure.com) and [Azure Cloud Shell](https://shell.azure.com). 
 
@@ -91,7 +91,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 
 1. The deployment files require the `Microsoft.OperationsManagement` resource provider to be registered in your Azure subscription. This is not registered by default in a new Azure subscription. You can register it by running the following command:
 
-    ```INSERT RESOURCE PROVIDER REGISTRATION POWERSHELL COMMAND HERE```
+    ```Register-AzResourceProvider -ProviderNamespace Microsoft.OperationsManagement```
 
 1. Deploy the template by running the following PowerShell command from wherever you have unpacked the `/Challenge-00/` folder:
 
