@@ -53,14 +53,14 @@ The Bicep template requires the `Microsoft.OperationsManagement` resource provid
 
 The Bicep template deploys the following resources:
 - 2 x 2 vCPUs VMs for the Visual Studio & SQL Server VMs
-- 2 x 2 vCPUs VMSS for the web server
+- 2 x 2 vCPUs VM Scale Set for the web server
 - 1 x 2 vCPUs VM for the AKS cluster
 - Azure Bastion
 - Log Analytics
 - Application Insights
 - Azure Storage Account
 
-These resources may consume more than the monthly allowance in a trial Azure Subscription if left running for the typical 3 day duration of a hack.  It is important for coaches to remind students to shut down all VMs, the VM Scale Set, and AKS cluster at the end of each hack day to conserve resources.
+**NOTE:** These resources may consume more than the monthly allowance in a trial Azure Subscription if left running for the typical 3 day duration of a hack.  It is important for coaches to remind students to shut down all VMs, the VM Scale Set, and AKS cluster at the end of each hack day to conserve resources.
 
 ## Suggested Hack Agenda
 
