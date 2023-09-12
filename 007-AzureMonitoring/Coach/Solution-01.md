@@ -10,7 +10,7 @@
 
 Some students may struggle with this particular task if they do not have previous experience with SQL Server. If that is the case, please make sure you guide them on how to create an empty database (as the key goal of the challenge is to learn Azure Monitor, not SQL Server).
 
->**Note** Use SQL Auth with the username being sqladmin and password being whatever you used during deployment
+>**Note** Use SQL Authentication with the username being `sqladmin` and password being whatever you used during deployment
 
 >**Note** The `XX` in each resource name will vary based on the Azure region the eShopOnWeb Azure environment has been deployed to.
 
@@ -36,13 +36,13 @@ You can use SQL Management Studio on either the SQL Server VM or the Visual Stud
 
 ### Send the SQL Server VM performance counters to Azure Monitor
 
->**Note** This task may be quite challenging for some students. Provide hints ealrly on if you notice that the students are getting stuck.
+>**Note** This task may be quite challenging for some students. Provide hints early on if you notice that the students are getting stuck.
   
 To find the correct name of the SQL DB counter, go to your Azure Portal, open the VM, then open Run Command as shown in the screen below. 
   
 ![Running a PowerShell script in Azure Portal](../Images/01-05-Run-cmdlet.png)
 
-Run the command - (Get-Counter -ListSet SQLServer:Databases).Paths
+Run the command - ```PowerShell(Get-Counter -ListSet SQLServer:Databases).Paths```
   
 Once its finished, review the results (scroll up) and copy the output for the 
   
@@ -75,7 +75,7 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 
 - Select Add data source.
 - Click on the newly created Data Source called Performance Counters to open it.
-- Select Custom, add the SQL DB performance counter (\SQLServer:Databases(tpcc)\Active Transactions) to the list, make sure it is selected by the tick and click Save.
+- Select Custom, add the SQL DB performance counter (`\SQLServer:Databases(tpcc)\Active Transactions`) to the list, make sure it is selected by the tick and click Save.
 
 ![Adding Custom performance counters to a Data collection rule in Azure Portal](../Images/01-17-Create-DCR.png)
 
@@ -102,7 +102,7 @@ You can click on Pin to dashboard, then customize it to show the last 1 hour (se
   
 ![Pinning metrics charts to a dashboard](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/pin_to_dashboard.jpg)  
 
-Do this for both the SQL Server Active Transactions and the Percent CPU of the VM ScaleSet
+Do this for both the SQL Server Active Transactions and the Percent CPU of the VM Scale Set
 
 - SQL Server Active Transactions
 
@@ -137,7 +137,7 @@ Follow the same steps that you used previously to create another data collection
   
 ![Creating an Action group in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image25.png)
     
-- Create an Alert if Active Transactions goes over 40 on the SQL Server tpcc database.
+- Create an Alert if Active Transactions goes over 40 on the SQL Server `tpcc` database.
     
  ![Creating an Alert rule in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image26.png)  
   
@@ -194,7 +194,7 @@ Follow the same steps that you used previously to create another data collection
 - Download and Install HammerDB tool on the Visual Studio VM. 
 -  [www.hammerdb.com](http://www.hammerdb.com/)
   
->**Note:** HammerDB does not have native support for Windows Display Scaling. This may result in a smaller than usual UI that is difficult to read over high resolution RDP sessions. If you run into this issue later, close and re-open your RDP session to the VSServer with a lower display resolution. After the RDP session connects, you can zoom into to adjust the size.
+>**Note:** HammerDB does not have native support for Windows Display Scaling. This may result in a smaller than usual UI that is difficult to read over high resolution RDP sessions. If you run into this issue later, close and re-open your RDP session to the VS Server with a lower display resolution. After the RDP session connects, you can zoom into to adjust the size.
 
 ![Remote Desktop Connection settings](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image11.png)  
 
@@ -234,9 +234,9 @@ Follow the same steps that you used previously to create another data collection
 	- Encrypt Connection: No
 	- SQL Server ODBC Driver: SQL Server
 	- Authentication: SQL Server Authentication
-	- SQL Server User ID: sqladmin
+	- SQL Server User ID: `sqladmin`
 	- SQL Server User Password: \<password  you  used during the deployment\>
-	- SQL Server Database: tpcc
+	- SQL Server Database: `tpcc`
 	- Number of Warehouses: 50
 	- Virtual Users to Build Schema: 50  
 >**Note: **Setting the last two at 50 should generate enough load to trip a threshold and run long enough for you to graph to show a spike
@@ -256,15 +256,15 @@ When the test is running it should look like the screenshot below:
 
 ![Email alert received](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
   
-If you re-run the stress test keep in mind, you will need to delete the tpcc DB and re-create it.
+If you re-run the stress test keep in mind, you will need to delete the `tpcc` DB and re-create it.
 
 
 
 ### Generate load on the Virtual Machine Scale Set
 
-Now you need to generate load on your VMSS to do this in the repo you cloned navigate to the folder called **loadscripts** under the **sources** folder and copy the **cpuGenLoadwithPS.ps1** script to both instances running in the Scale Set and run them.
+Now you need to generate load on your VMSS. To do this, in the repo you cloned navigate to the `Student/Resources/Challenge-01` folder and copy the `**cpuGenLoadwithPS.ps1**` script to both instances running in the Scale Set and run them.
 
-> **Tip:** This may be a bit of a challenge to those not used to working with a scale set. If you just grabed the public IP address and then RDP to it. You will end up on one of the instances but because you are going through the Load Balancer, you cannot control which one. Or can you?
+> **Tip:** This may be a bit of a challenge to those not used to working with a scale set. If you just grabbed the public IP address and then RDP to it. You will end up on one of the instances but because you are going through the Load Balancer, you cannot control which one. Or can you?
   
 If you look at the configuration of the LB in the bicep code, it is configured with an inbound NAT rule that will map starting at port 50000 to each instance in the Scale Set. So if you should RDP using the Public_IP:5000x for instance 1 and PIP:5000y for instance 2.
   
