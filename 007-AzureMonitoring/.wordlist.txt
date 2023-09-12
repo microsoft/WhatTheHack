@@ -1,0 +1,6 @@
+KQL
+iteratively
+MMA
+Telegraf
+TPC
+ODBC
