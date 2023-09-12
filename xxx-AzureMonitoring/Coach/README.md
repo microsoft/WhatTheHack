@@ -11,7 +11,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your Azure environement and deploy your eShopOnWeb application.
+	 - Prepare your Azure environment and deploy your eShopOnWeb application.
 - Challenge 01: **[Monitoring Basics: Metrics, Logs, Alerts and Dashboards](./Solution-01.md)**
 	 - Configure basic monitoring and alerting
 - Challenge 02: **[Setting up Monitoring via Automation](./Solution-02.md)**
@@ -41,36 +41,36 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- Students should have the Azure "contributor" role on their Azure subscription
 
-_For example:_
+In Challenge 00, students will deploy a provided Bicep template that deploys multiple Azure resources for the eShopOnWeb sample application. The students will work to configure Azure Monitor to monitor those resources during the hack.
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+The Bicep template requires the `Microsoft.OperationsManagement` resource provider to be registered in the student's Azure subscription in order to run. Details on this are included in Challenge 00.
 
-## Suggested Hack Agenda (Optional)
+The Bicep template deploys the following resources:
+- 2 x 2 vCPUs VMs for the Visual Studio & SQL Server VMs
+- 2 x 2 vCPUs VMSS for the web server
+- 1 x 2 vCPUs VM for the AKS cluster
+- Azure Bastion
+- Log Analytics
+- Application Insights
+- Azure Storage Account
 
-### Note: For a "choose your own adventure" hack experience after completing challenge 02, you can complete any combination of challenges 03, 04 and 05 but must do a minimum of one of them in order to proceed to challenge 06
+These resources may consume more than the monthly allowance in a trial Azure Subscription if left running for the typical 3 day duration of a hack.  It is important for coaches to remind students to shut down all VMs, the VM Scale Set, and AKS cluster at the end of each hack day to conserve resources.
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
+## Suggested Hack Agenda
 
-Recommended maximum time spent on each challenge:
-  - Challenge 0 (1 hour)
-  - Challenge 1 (2 hour)
-  - Challenge 2 (2 hour)
-  - Challenge 3 (1 hour)
-  - Challenge 4 ()
-  - Challenge 5 ()
-  - Challenge 6 ()
-  - Challenge 7 ()
+This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Azure and/or using Command Line Interface (CLI) tools. This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
+
+While the challenges are designed to build the students' knowledge iteratively, you can shorten the hack based on the organization's learning objectives. 
+
+Challenges 00, 01, and 02 must be completed in order.
+
+For a "choose your own adventure" hack experience after completing challenge 02, you can complete any combination of challenges 03, 04, and/or 05 but must do a minimum of one of them in order to proceed to challenge 06.
 
 ## Repository Contents
 
