@@ -34,7 +34,7 @@ In this hack, you will be getting hands on experience with monitoring resources 
 - Access to an Azure subscription with "contributor" access
     - If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/)
     - Students will deploy an ARM Bicep template that a set of Azure resources to monitor
-        - This includes a VNet, subnets, NSG(s), LB(s), NAT rules, VM scale set, AKS cluster, and a fully functional ..NET Core Application (eShopOnWeb) to monitor.
+        - This includes a VNet, subnets, NSG(s), LB(s), NAT rules, VM scale set, AKS cluster, and a fully functional .NET Core Application (eShopOnWeb) to monitor.
 - Attendees should have a level 200-300 understanding of the Azure platform.  
     - Including concepts like PowerShell, Azure CLI, ARM, resource groups, RBAC, network, storage, compute, scale sets, virtual machines and security.  
     - Previous experience working with ARM templates is recommended.
