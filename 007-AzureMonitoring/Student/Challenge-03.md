@@ -19,7 +19,7 @@ In this challenge you need to complete the following management tasks:
 - For the SQL Server VM pin the Available Memory chart from the VM Insights workbook to your Azure dashboard.
 
 Bonus task:
-- Set up Azure Policy to automatically enable VM Insights on VMs and VMSSs within the scope of the main hackathon Resource Group `xxx-rg-wth-monitor-d-xx`. 
+- Set up Azure Policy to automatically enable VM Insights on VMs and VM Scale Sets within the scope of the main hackathon Resource Group `xxx-rg-wth-monitor-d-xx`. 
 >**Note** Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available (this can take from several minutes to several hours, there's no pre-defined expectation of when the compliance evaluation cycle completes).
 
 ## Success Criteria

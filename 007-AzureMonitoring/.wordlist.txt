@@ -12,3 +12,6 @@ DCR
 unmonitored
 eShopOnWeb
 eShop
+workspaces
+Reactively
+OpenTelemetry
