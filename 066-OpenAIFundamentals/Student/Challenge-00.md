@@ -25,7 +25,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack. 
 
-Please ensure that you have [Azure OpenAI access](https://aka.ms/oaiapply). This hack is self-paced and you will primarily be working with jupyter notebooks.
+Please ensure that you have [Azure OpenAI access](https://aka.ms/oaiapply). This hack is self-paced and you will primarily be working with Jupyter notebooks.
 
 Please install these additional tools and resources:
 
