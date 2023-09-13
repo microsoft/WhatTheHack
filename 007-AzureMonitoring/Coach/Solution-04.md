@@ -24,7 +24,7 @@ From the Visual Studio Server, navigate to
 
 ![](../Images/04-03-vs-select-web.png)
 - Right-click on Web in Solutions Explorer and select properties. 
-- Under Debug unselect the checkbox for Enable SSL.
+- Under Debug deselect the checkbox for Enable SSL.
   
 ![](../Images/04-04-disable-ssl.png)
 - Click Save.
@@ -108,8 +108,8 @@ Enable client-side telemetry collection for your eShoponWeb application.
 ```   
    
 ![](../Images/04-20-client-telemetry.png)
-- Insert **HtmlHelper** at the end of the **< head >** section in **_Layout.cshtml**
-- Add the following line of code to **Web\Views\Shared\_Layout.cshtml**
+- Insert `**HtmlHelper**` at the end of the `**< head >**` section in `**_Layout.cshtml**`
+- Add the following line of code to `**Web\Views\Shared\_Layout.cshtml**`
 ```
 @Html.Raw(JavaScriptSnippet.FullScript)
 ```
@@ -128,9 +128,9 @@ Your app is also hosted on the VMSS deployed as part of the workshop environment
 
 Generate test load on the VMSS app url to cause a scale out event.
 
-- Use the code in the **sources\LoadScripts** folder and modify it to your VMSS app URL, pick one of the 2 files below depending on your environment:
-	- UrlGenLoadwithCurl.sh
-	- UrlGenLoadwithPS.ps1
+- Use the code in the `/Student/Resources/Challenge-04` folder and modify it to your VMSS app URL, pick one of the 2 files below depending on your environment:
+	- `UrlGenLoadwithCurl.sh`
+	- `UrlGenLoadwithPS.ps1`
  
 ```
 for (\$i = 0 ; \$i -lt 100; \$i++)

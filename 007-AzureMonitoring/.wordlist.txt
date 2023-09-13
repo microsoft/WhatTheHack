@@ -10,3 +10,5 @@ deallocated
 DCRs
 DCR
 unmonitored
+eShopOnWeb
+eShop
