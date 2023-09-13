@@ -4,3 +4,7 @@ MMA
 Telegraf
 TPC
 ODBC
+deallocate
+deallocation
+deallocated
+DCRs
