@@ -34,7 +34,7 @@ Heartbeat
 In this query, the following elements are being used:
 
 * **Heartbeat**: This is the name of the table that contains the heartbeat data.
-* **where**: This is a filter operator that limits the query to only include data where the TimeGenerated field is within the last 24 hours.
+* **where**: This is a filter operator that limits the query to only include data where the `TimeGenerated` field is within the last 24 hours.
 * **summarize**: This operator groups the data by computer and counts the number of heartbeats for each one.
 * **project**: This operator selects the Computer and heartbeat_count columns and removes all other columns.
 order by: This operator sorts the results in descending order by the number of heartbeats.
