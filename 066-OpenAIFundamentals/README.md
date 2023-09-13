@@ -2,15 +2,15 @@
 
 ## Introduction
 
-The Azure OpenAI Fundamentals Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this Hack can serve as a foundation for building your own solution with Azure OpenAI.
+The Azure OpenAI Fundamentals Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this hack can serve as a foundation for building your own solution with Azure OpenAI.
 
-This Hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this Hack is for you.
+This hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this hack is for you.
 
 This is normally a team based activity but since these challenges are administered as individual hacks, feel free to pull in a friend to work with and discuss your learnings.
 
 ## Learning Objectives
 
-This Hack is for anyone who wants to gain hands-on experience experimenting with prompt engineering and machine learning best practices, and apply them to generate effective responses from ChatGPT and OpenAI models.
+This hack is for anyone who wants to gain hands-on experience experimenting with prompt engineering and machine learning best practices, and apply them to generate effective responses from ChatGPT and OpenAI models.
 
 Participants will learn how to:
 
