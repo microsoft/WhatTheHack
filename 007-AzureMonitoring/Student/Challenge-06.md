@@ -20,6 +20,7 @@ KQL (Kusto Query Language) is a query language used for log analytics in Microso
 
 ### Sample Kusto Query Language (KQL)
 
+```
 Heartbeat
 
 | where TimeGenerated >= ago(1d)
@@ -29,7 +30,7 @@ Heartbeat
 | project Computer, heartbeat_count
 
 | order by heartbeat_count desc
-
+```
 In this query, the following elements are being used:
 
 * **Heartbeat**: This is the name of the table that contains the heartbeat data.
@@ -42,7 +43,7 @@ This query essentially counts the number of heartbeats received from each comput
 
 ## Description
 
-Write a performance query that renders a time chart for the last 4 hours for both of the Web Servers and the SQL Server for the following perf metrics. Save each query to your favorites.
+Write a performance query that renders a time chart for the last 4 hours for both of the Web Servers and the SQL Server for the following performance metrics. Save each query to your favorites.
 * Processor Utilization: Processor / % Processor Time
 * Memory Utilization: Memory / % Committed Bytes In Use
 * Disk Utilization (IO): Disk Reads/sec and Disk Writes/sec
@@ -61,7 +62,7 @@ Bonus question:
 How can we save our log queries and share them across multiple workspaces?
 
 ## Success Criteria
-- Show the above 3 charts on a single dashbaord
+- Show the above 3 charts on a single dashboard
 - Show the saved queries
 
 ## Learning Resources
