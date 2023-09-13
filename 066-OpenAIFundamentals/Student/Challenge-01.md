@@ -30,7 +30,7 @@ Some models are not available for new deployments beginning **July 6, 2023**. De
 - Add required credentials of Azure resources in the ``.env`` file
   
 Questions you should be able to answer by the end of this challenge:
-- What is iterative prompting principle?
+- What is the iterative prompting principle?
 - Which hyperparameters could you tune to make the response more diverse in language?
 - What prompt engineering technique could you use to help model complete hard tasks like math problems?
 
