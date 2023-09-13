@@ -20,7 +20,7 @@
 >**Tips:**
 > * Use **Add text** to describe the upcoming table.
 > * Use **Add parameters** to create the time selector.
-> * Use **Add query** to retrieve data from pageViews.
+> * Use **Add query** to retrieve data from `pageViews`.
 > * Use **Column Settings** to change labels of column headers and use Bar and Threshold visualizations.
 
 - Add the following time parameter:
