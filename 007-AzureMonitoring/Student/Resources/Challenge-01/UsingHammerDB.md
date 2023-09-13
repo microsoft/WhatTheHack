@@ -20,9 +20,9 @@ This is a reference guide for [Challenge 01 - Monitoring Basics and Dashboards](
 	- Encrypt Connection: No
 	- SQL Server ODBC Driver: SQL Server
 	- Authentication: SQL Server Authentication
-	- SQL Server User ID: sqladmin
+	- SQL Server User ID: `sqladmin`
 	- SQL Server User Password: \<password  you  used during the deployment\>
-	- SQL Server Database: tpcc
+	- SQL Server Database: `tpcc`
 	- Number of Warehouses: 50
 	- Virtual Users to Build Schema: 50  
 
