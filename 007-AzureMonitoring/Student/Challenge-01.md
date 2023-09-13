@@ -47,31 +47,31 @@ Azure Bastion has been configured to enable you to securely login to any of thes
 ### Set up Counters, Alerts, and a Dashboard
 
 In this challenge you need to complete the following management tasks:
-- Create an empty database called “tpcc” on the SQL Server VM. Use SQL Auth with the username being "sqladmin" and password being whatever you used during deployment in Challenge 0.
+- Create an empty database called `tpcc` on the SQL Server VM. Use SQL Auth with the username being `sqladmin` and password being whatever you used during deployment in Challenge 0.
 
 >**HINT:** You can use SQL Management Studio on either the SQL Server VM or the Visual Studio VM, or SQL Server Object Explorer view in Visual Studio to create the database. If you are not familiar with any of these, feel free to ask your coach for assistance.
 
 - In Azure portal navigate to Monitor, open Azure Monitor Metrics explorer and check what metrics are currently being collected automatically for your SQL Server VM. You should be able to see only the Virtual Machine Host metrics, but not guest OS level metrics. 
 >**Note** Previously, it was only possible to enable VM guest-level metrics collection to Azure Monitor Metrics with the help of the legacy Windows Azure Diagnostics (WAD) extension and Telegraf (for Linux). Currently, this can also be achieved with Azure Monitor Agent (AMA). You will be using only AMA in the following tasks not WAD. When you create a Data Collection Rule the Azure Monitor Agent will be automatically installed on the virtual machine.
 - In Azure Monitor create a new Data Collection Rule (DCR) for the SQL Server VM. Configure it to send telemetry both to Azure Monitor Metrics and Azure Monitor Logs. Use already existing Log Analytics workspace called **`law-wth-monitor-d-XX`** as the destination. You don't need to create Data Collection Endpoints. Configure the DCR to collect Custom Performance Counters - leave all the suggested standard counters and add the following custom SQL performance counter to the list:
-	- Object: SQLServer:Databases
-		- Counter: Active Transactions
-		- Instance: tpcc
+	- Object: `SQLServer:Databases`
+		- Counter: `Active Transactions`
+		- Instance: `tpcc`
 - In Azure Monitor switch back to Metrics explorer and verify that the Virtual Machine Guest metrics are now available for the SQL Server VM. Create a SQL Server Active Transactions metric chart and pin it to a new or existing Dashboard. Generate the Percentage CPU chart for the Virtual Machine Scale Set and pin it to the same Dashboard.
 >**Note** It will take a few minutes for the data to start flowing, revisit this step later if you don't see any data right away.
 - In Azure Monitor create another Data Collection Rule for the SQL Server VM and configure it to send basic Windows Event Logs to Azure Monitor Logs. Use the same Log Analytics Workspace as the destination. After that in Azure Monitor switch to the Logs blade and select this Log Analytics Workspace as the scope. Go to Queries tab and explore the built-in KQL queries for Virtual Machines. Run a few sample queries to verify that Performance Counters and Windows Event Logs are flowing from the SQL Server VM into Azure Monitor Logs.
 >**Note** It will take a few minutes for the data to start flowing, revisit this step later if you don't see any data right away.
 - From Azure Monitor Alerts create an Action group to send email to your email address.
-- Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server "tpcc" database.
-- Create a Meric Alert Rule to be notified via email if average CPU Utilisation goes over 75% on the Virtual Machine Scale Set.
+- Create a Metric Alert Rule to be notified via email if "Active Transactions" metric goes over 40 on the SQL Server `tpcc` database.
+- Create a Metric Alert Rule to be notified via email if average CPU Utilization goes over 75% on the Virtual Machine Scale Set.
 - Suppress all alerts over the weekend (unless you are solving this challenge on the weekend ;)).
 
 ### Simulate load on the eShopOnWeb Environment
 
 Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is time to simulate load on the SQL Server database and the eShopOnWeb website:
-- Use HammerDB to create a transaction load on the "tpcc" database on the SQL Server
+- Use HammerDB to create a transaction load on the `tpcc` database on the SQL Server
     - Download and Install HammerDB tool on the Visual Studio VM 
-    - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the "tpcc" database.
+    - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the `tpcc` database.
 - Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-01` folder of the student resource package.
     - This script is designed to be run directly on the VM instances in the VMSS.
     - **HINT:** You will need to upload this script to the VMs in order to run it on each instance.
