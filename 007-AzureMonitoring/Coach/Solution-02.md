@@ -32,7 +32,7 @@ Action group Resource Id can be found in Azure Portal:
 
 ### Create and alert for "Disk Write Operations/Sec" 
 
-The key steps that the students should perform are the following: copy the code used to deploy "Percentage CPU" alert, change the alert name and the threshold and set the "metricName" property to "Disk Write Operations/Sec".
+The key steps that the students should perform are the following: copy the code used to deploy `Percentage CPU` alert, change the alert name and the threshold and set the `metricName` property to `Disk Write Operations/Sec`.
 
 Point the students to these articles in the Learning Resources section of the Challenge: 
 
@@ -49,7 +49,7 @@ At the end of the Challenge the students should present 3 new alerts that will l
   
 In the file, the students should update the names of the Log Analytics workspace law-wth-monitor-d-XX and the Virtual Machine Scale Set vmss-wth-monitor-d-XX. Otherwise they will get an error message during deployment.
   
-If everything is configured correctly, you should be able to see the AzureMonitorWindowsAgent extension if you navigate to the VMSS and select Extensions+applications.
+If everything is configured correctly, you should be able to see the `AzureMonitorWindowsAgent` extension if you navigate to the VMSS and select Extensions+applications.
 
 ![A list of  Virtual Machine extensions in Azure Portal](../Images/02-03-VMSS-extension.png)
 
