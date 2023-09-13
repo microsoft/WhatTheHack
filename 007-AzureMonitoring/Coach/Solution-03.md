@@ -33,15 +33,15 @@ The result should look like this:
 ### (Bonus task) Enable VM insights by using Azure Policy
 
 Use this article for step-by-step instructions:
-https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy
+[Enable VM insights by using Azure Policy](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy)
 
 Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available. Note that this can take from several minutes to a couple of hours, there's no pre-defined expectation of when the compliance evaluation cycle completes. Once the Policy initiative assignment is done, suggest the students to start working on next tasks and revisit this one later.
 
-The students will need to assign 2 Policy initiatives to cover both VMs and VMSSs:
+The students will need to assign 2 Policy initiatives to cover both VMs and VM Scale Sets:
 - [Preview]: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) 
-/providers/Microsoft.Authorization/policySetDefinitions/9dffaf29-5905-4145-883c-957eb442c226
+`/providers/Microsoft.Authorization/policySetDefinitions/9dffaf29-5905-4145-883c-957eb442c226`
 - [Preview]: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) 
-/providers/Microsoft.Authorization/policySetDefinitions/1f9b0c83-b4fa-4585-a686-72b74aeabcfd
+`/providers/Microsoft.Authorization/policySetDefinitions/1f9b0c83-b4fa-4585-a686-72b74aeabcfd`
 
 Make sure that the students select a single resource group when assigning the Policy initiative (not the full subscription).
 
