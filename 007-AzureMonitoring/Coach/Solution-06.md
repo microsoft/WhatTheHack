@@ -7,7 +7,7 @@
 
 ### KQL
 
-We will write a performance query that renders a time chart for the last 4 hours for both of the Web Servers and the SQL Server for the following perf metrics, and we will save each query to our favorites.
+We will write a performance query that renders a time chart for the last 4 hours for both of the Web Servers and the SQL Server for the following performance metrics, and we will save each query to our favorites.
 - Processor Utilization: Processor / % Processor Time
 ```
 Perf  
@@ -56,7 +56,7 @@ Heartbeat
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image104.png)  
 We will now write a performance query that renders a time chart for the last hour of the max percentage CPU usage of the AKS Cluster nodes
 
-- Solution 1 using maxif
+- Solution 1 using `maxif`
 ```
 // Declare time range variable
 let timerange = 1h;
