@@ -60,9 +60,9 @@ Now, let's move on to publishing the app to AKS.
 - Next, navigate to the Connected Services for Web.
 - Configure Application Insights to Azure Application Insights, select
 - Your App Insights resource and **Save connection string value in None**
-- Configure SQL DB CatalogConnection to point to SQL Server Database
+- Configure SQL DB `CatalogConnection` to point to SQL Server Database
 - Update connection string(s) using the Catalog string found in **appsettings.json** and **Save connection string in None**.
-- Configure SQL DB IdentityConnection to point to SQL Server Database  
+- Configure SQL DB `IdentityConnection` to point to SQL Server Database  
 - update connection string using the Identity string found in **appsettings.json** and **Save connection value string in None**  
 - Update Secrets.json(Local)
   
@@ -76,7 +76,7 @@ Now, let's move on to publishing the app to AKS.
 - Update the server name as shown below 
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image86.png)  
-- Upload the **LogReaderRBAC.yml**, **deployment.yml** and **service.yml** files to your cloud shell or browse to the sources/aks folder
+- Upload the `**LogReaderRBAC.yml**`, `**deployment.yml**` and `**service.yml**` files to your cloud shell or browse to the sources/aks folder
 - Run the following commands:
 ```
 az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_AKS_NAME
@@ -89,7 +89,7 @@ az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_AKS_NAME
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image87_2.png)  
 You may not see all nodes, as this is also hosted on a VMSS.
 >**Important:** You will need to give access to your AKS cluster on the Container Registry (ACR) to be able to pull the image and deploy it. To do so and for learning purposes give both the AKS and the Agent Pool Contributor rights on the ACR.
->The AKS and the Agentpool Manage Identities are called after the AKS name.  
+>The AKS and the Agent Pool Managed Identities are called after the AKS name.  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image88.png)
 - Run the following command to deploy the cluster role bindings:
@@ -97,7 +97,7 @@ You may not see all nodes, as this is also hosted on a VMSS.
 - Run the following command to deploy your app
 `kubectl apply -f deployment.yml`  
 
-- Run the folowing command after few mints to check the status of the pods:
+- Run the following command after few mints to check the status of the pods:
 `kubectl get pods`
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image89.png)
@@ -140,7 +140,7 @@ Notice an exception is thrown
 - Click on the Web container and View container **live data**.  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image100.png)  
-- Trip the password exception again once the Status has gone from Unk to Ok.  
+- Trip the password exception again once the Status has gone from `Unk` to `Ok`.  
   ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image101.png)
 You can search for Rob, should find it in the logs!  
 
