@@ -56,5 +56,5 @@ To complete this challenge successfully, you should be able to:
 
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
-- Think about how you can evaluate your answers and the performance of RAG. What are some techniques you can apply.
+- Think about how you can evaluate your answers and the performance of RAG. What are some techniques you can apply?
 - Think about how you can moderate harmful user questions, avoid biases, and mitigate prompt injection attacks.
