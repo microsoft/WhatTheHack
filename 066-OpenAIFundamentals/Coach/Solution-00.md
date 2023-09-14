@@ -12,7 +12,7 @@ Please install these additional tools and resources:
 
 - Python Installation, version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
   - [Python](https://www.python.org/downloads). This is also available in the Microsoft Store if you are using Windows.
-- Conda Installation, for project environment management and package management. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
+- Conda Installation, for project environment management and package management, version \>= conda 4.1.6. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - Environment setup:
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using `python --version` and `conda --version`
@@ -23,7 +23,6 @@ Please install these additional tools and resources:
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
   - `gpt-35-turbo`
-  - `text-davinci-003`
   - `text-embedding-ada-002`
 - Add required credentials of Azure resources in the `.env` file
   - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. Make sure to update ``.env`` file with credentials as needed. 
