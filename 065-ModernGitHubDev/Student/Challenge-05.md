@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
 
-
 ## Introduction
 
 The board of the shelter is rather pleased. You've updated the application with a new feature, configured security checks, and created an environment in Azure to host the project. The time has come to deploy the project!
@@ -32,11 +31,7 @@ For purposes of this hack, you will deploy to the [environment you created earli
 
 ## Tips
 
-- Create the [secrets necessary for the Action including](https://docs.github.com/actions/security-guides/encrypted-secrets) to store the name of the Azure Container Registry:
-  - **AZURE_CONTAINER_REGISTRY**
-  - **AZURE_RG**
-  - **AZURE_CONTAINER_APP**
-  - **AZURE_CONTAINER_APP_ENVIRONMENT**
+- You can concatenate strings when defining a workflow using secrets or variables and string literals
 - The name of the Azure Container Registry will be **`<your_prefix>`acr**
 - The name of the Azure Container App will be **`<your_prefix>`containerapp**
 - The name of the Azure Container App Environment will be **`<your_prefix>`containerappenvironment**

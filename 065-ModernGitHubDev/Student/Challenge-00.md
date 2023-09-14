@@ -4,28 +4,16 @@
 
 ## Introduction
 
-Thank you for participating in the Modern Development and DevOps with GitHub What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Modern Development and DevOps with GitHub What The Hack. Over the next series of challenges you'll create a new repository for the source code, configure some common DevOps processes, and write some code. But before we get started, let's make sure we've got everything setup.
 
-## Common Prerequisites
+## Prerequisites
 
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
-
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+During this hack, you will be using features which will allow you to code and contribute to the project without having to install tools locally. As a result, you'll only need to ensure you have the following:
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
-- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
-- [GitHub Account](https://github.com)
+- [GitHub Account](https://github.com) for developing on and managing the project.
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription) for deploying the application.
 
 ## Description
 

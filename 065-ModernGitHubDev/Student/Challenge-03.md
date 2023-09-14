@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-
 ## Introduction
 
 The board of the shelter has seen many troubling news stories of breeches into various applications, including those run by non-profits. In fact, organizations which traditionally may not have invested in infrastructure can be popular targets for attackers. The board wants to ensure their application doesn't contain any vulnerabilities which can be exploited.

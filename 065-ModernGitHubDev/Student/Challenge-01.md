@@ -2,7 +2,6 @@
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-
 ## Introduction
 
 With a copy of the project obtained, it's time to turn your attention to setting up your development environment. The shelter's board is keen on ensuring developers are able to contribute to the project as seamlessly as possible, avoiding tedious setup. To meet this requirement, setting up the project on a developer's box isn't the best option. You will want to find a cloud based solution which allows for a centrally configured development environment.
