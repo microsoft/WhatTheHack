@@ -54,20 +54,6 @@ This hack requires students to have access to an Azure subscription where they c
 - [Python](https://www.python.org/downloads/) (version 3.7.1 or later), plus the package installer [pip](https://pypi.org/project/pip/)
 - [Azure Cognitive Search](https://learn.microsoft.com/azure/search) (Basic Tier) - This will be created during the Hack and is not necessary to get started.
 
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 0 (1 hour)
-  - Challenge 1 (2 hours)
-  - Challenge 2 (30 mins)
-- Sample Day 2
-  - Challenge 3 (1 hour)
-  - Challenge 4 (1 hour)
-  - Challenge 5 (1 hour)
-
-
 ## Repository Contents
 
 _The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
