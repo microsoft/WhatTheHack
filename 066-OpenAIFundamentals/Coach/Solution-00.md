@@ -25,5 +25,5 @@ Please install these additional tools and resources:
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
-- Add required credentials of Azure resources in the `.env` file
+- Add required credentials of Azure resources in the `.env` file. You can get these credentials through the Azure Portal within your AOAI resource. Click on Keys and Endpoint from the dropdown menu on the left side.
   - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. Make sure to update ``.env`` file with credentials as needed. 
