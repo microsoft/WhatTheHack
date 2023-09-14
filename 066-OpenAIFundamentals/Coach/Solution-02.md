@@ -3,6 +3,9 @@
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
+
+This challenge is OPTIONAL.
+
 There are 2 sections to Challenge-02: Model Comparison Overview, and Implementation. The students will go through each section of this notebook:
 - `CH-02-ModelComparison.ipynb`
   
