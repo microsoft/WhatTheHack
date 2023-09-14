@@ -22,8 +22,6 @@ For this challenge, you will create a new React component named **Hours.js** in 
 - The syntax to display the `Hours` component in **index.js** is `<Hours />`, and can be added immediately below the line which reads `{/* TODO: Display Hours component */}`.
 - For purposes of this challenge, you can read the current day from the browser without regard for the user's timezone.
 
-
-
 ## Success Criteria
 
 - You have created a new component named `Hours` which displays the hours for the current day.
