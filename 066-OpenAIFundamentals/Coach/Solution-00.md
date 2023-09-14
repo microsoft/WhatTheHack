@@ -20,6 +20,7 @@ Please install these additional tools and resources:
   - Activate Conda environment - `conda activate <env_name>`
   - Install the required libraries listed in the `requirements.txt` file via `pip install -r requirements.txt`
   - Open the project in VS Code using `code .`
+  - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/overview) 
 - Deploy the following models in your Azure OpenAI resource. A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
   - `gpt-35-turbo`
