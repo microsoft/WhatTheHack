@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- [create-azure-resources.yml](./create-azure-resources.yml) workflow file
+- [create-azure-resources.yml](./Solutions/create-azure-resources.yml) workflow file
 - Workflows need to be created in **.github/workflows**
 - Ensure all Actions secrets are created:
   - AZURE_CREDENTIALS

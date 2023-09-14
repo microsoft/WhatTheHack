@@ -4,5 +4,5 @@
 
 ## Notes & Guidance
 
-- Students **do not** need coding experience. If they are unfamiliar with code, they can copy/paste from the [provided Hours.js file](../Student/resources/Hours.js).
+- Students **do not** need coding experience. If they are unfamiliar with code, they can copy/paste from the [provided Hours.js file](../Student/Resources/Hours.js).
 - Ensure students install the [Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) for their Codespace. This can also be done by registering it in the devcontainer.json file.

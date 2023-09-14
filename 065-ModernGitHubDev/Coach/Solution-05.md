@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- [deploy.yml](./deploy.yml) workflow file
+- [deploy.yml](./Solutions/deploy.yml) workflow file
 - Workflows need to be created in **.github/workflows**
 - Ensure all Actions secrets are created:
   - **AZURE_CREDENTIALS**
