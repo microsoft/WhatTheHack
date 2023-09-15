@@ -50,7 +50,7 @@ Our repository includes an application written in .NET that will deploy to Azure
 
 
 ## Advanced Challenges (optional)
-- Add to your `devcontainer.json` details of an extension to install into Visual Studio Code and your Codespace so that it is available by default for all your team. An example here may be GitHub Copilot (which you can enable a free trial to give AI suggestions throughout the hackathon) or the GtHub Actions extension from GitHub both are available alongside thousands of others in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode)
+- Add to your `devcontainer.json` details of an extension to install into Visual Studio Code and your Codespace so that it is available by default for all your team. An example here may be GitHub Copilot (which you can enable a free trial to give AI suggestions throughout the hackathon) or the GitHub Actions extension from GitHub both are available alongside thousands of others in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode)
 - Add a `postCreateCommand` to your `devcontainer.json` that will restore NuGet packages for the .NET app in the Application directory of the repo.  
 
 [< Previous Challenge](Challenge-01.md) - [Home](../README.md) - [Next Challenge>](Challenge-03.md)

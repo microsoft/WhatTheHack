@@ -23,7 +23,7 @@ We will use GitHub Actions to automate the deployment of our Azure infrastructur
 
 - Notice how the Bicep file uses the `uniqueString` function to create a unique names for your resources. This function is not random, but a hash function on your resource group id to provide a consistent, but likely unique 13 character string that is useful to avoid naming conflicts in Azure.
 
-- Notice the environment and location are defined as parameters that have default values but are able to be overriden. You will be able to use this within the challenge to supply other names like `test` and `prod` in this challenge to create other resources that represent different environments for deployment.
+- Notice the environment and location are defined as parameters that have default values but are able to be overridden. You will be able to use this within the challenge to supply other names like `test` and `prod` in this challenge to create other resources that represent different environments for deployment.
 
 - Create a service principal to login to Azure (your coach may supply you these credentials and a resource group name or if you have your own Azure subscription you will need to login and create a resource group and then create a service principal with permissions (e.g. contributor) in this group. 
     **HINT:** Details on creating the service principal can be found in the [Azure/login](https://github.com/Azure/login) README.md. 
@@ -50,7 +50,7 @@ If everything worked, we are going to call the ARM template again, but override 
     
     **NOTE:** If you were supplied Azure connection details your coach may need to help you see this. 
 
-- Finally we want respources to represent production so replace the `test` value supplied for your overriden environment variable and change this to `prod` and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service has been created. 
+- Finally we want resources to represent production so replace the `test` value supplied for your overridden environment variable and change this to `prod` and rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `prod` App Service has been created. 
    
    **NOTE:** If you were supplied Azure connection details your coach may need to help you see this.
 
