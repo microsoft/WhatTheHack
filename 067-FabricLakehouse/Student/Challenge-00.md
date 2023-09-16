@@ -20,5 +20,5 @@ You will need:
 
 ## Success Criteria
 
-1 You have logged into fabric.microsoft.com
-2 You have Power BI installed on your PC.
+1.  You have logged into fabric.microsoft.com
+2.  You have Power BI installed on your PC.
