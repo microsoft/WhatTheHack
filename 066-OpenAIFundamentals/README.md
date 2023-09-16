@@ -2,11 +2,11 @@
 
 ## Introduction
 
-The Azure OpenAI Fundamentals Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this hack can serve as a foundation for building your own solution with Azure OpenAI.
+The Azure OpenAI Fundamentals What The Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this hack can serve as a foundation for building your own solution with Azure OpenAI.
 
-This hack consists of five challenges and is meant to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this hack is for you.
+This hack consists of five challenges and is designed to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this hack is for you.
 
-This is normally a team based activity but since these challenges are administered as individual hacks, feel free to pull in a friend to work with and discuss your learnings.
+What The Hack is normally hosted as a 1-3 day event and is a team based activity where students work in groups of 3-5 people to solve the challenges. While this hack has been designed to be self-administered and completed self-paced, we still encourage you to pull in a friend or two to work with and discuss your learnings.
 
 ## Learning Objectives
 
@@ -15,15 +15,13 @@ This hack is for anyone who wants to gain hands-on experience experimenting with
 Participants will learn how to:
 
 - Compare OpenAI models and choose the best one for a scenario
-
 - Use prompt engineering techniques on complex tasks
-
 - Manage large amounts of data within token limits, including the use of chunking and chaining techniques
-
 - Grounding models to avoid hallucinations or false information
-
 - Implement embeddings using search retrieval techniques
+
 Evaluate models for truthfulness and monitor for PII detection in model interactions
+
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenges/Challenge-00.md)**
