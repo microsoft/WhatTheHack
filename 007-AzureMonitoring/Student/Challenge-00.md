@@ -83,7 +83,7 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 
 #### PowerShell with the AZ Module
 
-1. Log into your Azure Subscription with the PowerShell:
+1. Log into your Azure Subscription with PowerShell:
 
     ```PowerShell
     Connect-AzAccount -Tenant '<Tenant ID>' -Environment 'AzureCloud' -Subscription '<Subscription ID>'
