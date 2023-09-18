@@ -4,7 +4,7 @@
 
 ## Introduction
 
-After deploying your initial solution for eShopOnWeb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. By default Azure Monitoring collects only host-level metrics - like CPU utilization, disk and network usage - for all virtual machines and virtual machine scale sets without any additional software. For more insight into your virtual machines, you can collect guest-level log and performance data using Azure Monitor Agent.
+After deploying your initial solution for eShopOnWeb, you want to make sure that the telemetry is collected from the VMs deployed and display the results on a dashboard for visualization and alerting purposes. By default Azure Monitoring collects only host-level metrics - like CPU utilization, disk and network usage - for all virtual machines and virtual machine scale sets without any additional software. For more insight into your virtual machines, you can collect guest-level log and performance data using the Azure Monitor Agent.
 
 To accomplish this task, you will need to understand the concept of metrics and logs, how to collect them into Azure Monitor, how to configure different types of alerts, and display results in an Azure Dashboard.  
 
@@ -70,7 +70,7 @@ In this challenge you need to complete the following management tasks:
 
 Now that Azure Monitor is configured to monitor the eShopOnWeb resources, it is time to simulate load on the SQL Server database and the eShopOnWeb website:
 - Use HammerDB to create a transaction load on the `tpcc` database on the SQL Server
-    - Download and Install HammerDB tool on the Visual Studio VM 
+    - Download and install HammerDB tool on the Visual Studio VM 
     - See sample [Instructions for using HammerDB](./Resources/Challenge-01/UsingHammerDB.md) to generate load on the `tpcc` database.
 - Simulate a CPU load on the VM Scale Set using the `cpuGenLoadwithPS.ps1` script located in the `/Challenge-01` folder of the student resource package.
     - This script is designed to be run directly on the VM instances in the VMSS.
