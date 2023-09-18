@@ -65,7 +65,7 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 
 - On the Resources tab select + Add resources and associate SQL Server VM to the data collection rule.
 - On the Collect and deliver tab, select Add data source to add a data source and set a destination.
-- Select a Data source type Performance Counters and then select Basic. Make sure that all Performance Counters are selected.
+- Select Data source type "Performance Counters" and then select "Basic". Make sure that all Performance Counters are selected.
 
 ![Adding Basic performance counters to a Data collection rule in Azure Portal](../Images/01-15-Create-DCR.png)
 
