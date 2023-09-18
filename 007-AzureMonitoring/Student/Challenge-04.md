@@ -34,7 +34,7 @@ For this challenge, you will need to complete the following high level tasks:
 
 With Application Insights, you can set up recurring tests to monitor availability and responsiveness. Application Insights sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding or responds too slowly.
 
-You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you are testing. In fact, it doesn't even have to be a site that you own. You can test the availability of a REST API that your service depends on.
+You can set up an availability test for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you are testing. In fact, it doesn't even have to be a site that you own. You can test the availability of a REST API that your service depends on.
 
 - Create a standard availability test for your eShopOnWeb homepage.
 
