@@ -8,7 +8,7 @@ There are multiple ways to configure monitoring in Azure. You can configure moni
 
 For this challenge, you will deploy several Metric alerts for your VMs, but this time you will use Bicep templates instead of the Azure Portal. You will get familiar with a new type of alerts - Activity log alert. The Azure Monitor Activity log is a platform log in Azure that provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.
 
-You will also be asked to install the Azure Monitor Agent on the Virtual Machine Scale Set (VMSS) and configure new Data Collection Rules (DCRs) by using Infrastructure-as-Code approach.
+You will also be asked to install the Azure Monitor Agent on the Virtual Machine Scale Set (VMSS) and configure new Data Collection Rules (DCRs) by using an Infrastructure-as-Code approach.
 
 ## Description
 
