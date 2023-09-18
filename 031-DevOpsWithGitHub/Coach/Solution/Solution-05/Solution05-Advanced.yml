@@ -9,7 +9,7 @@ on:
         - test
         - prod
 
-name: Azure ARM
+name: Azure Bicep-Advanced
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
     - name: Run ARM deploy
       uses: azure/arm-deploy@v1
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./ARM-Templates/container-webapp-template.json
-        parameters: webAppName=WTHApp-${{ github.event.inputs.appenv }}
+        subscriptionId: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+        resourceGroupName: ${{ vars.AZURE_RG }}
+        template: ./InfrastructureAsCode/main.bicep
+        parameters: environment=${{ github.event.inputs.appenv }}

@@ -12,11 +12,24 @@ Our repository includes an application written in .NET that will deploy to Azure
 
 ## Description
 
-- Add a new devcontainer file in your repository placed in a `.devcontainer` directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NET, notably "mcr.microsoft.com/devcontainers/dotnet:0-7.0" for the hackathon supplied application on .NET 6.0. 
+- Add a new devcontainer file in your repository placed in a `.devcontainer` directory that defines your codespace. Ensure your devcontainer file is based on a docker image for .NET, notably "mcr.microsoft.com/devcontainers/dotnet:0-6.0" for the hackathon supplied application on .NET 6.0. 
 
-  **NOTE:** - VS Code Dev Containers Extension has a feature here that will simplify this process.
+  **HINT:** - VS Code Dev Containers Extension has a feature here that will simplify the process of creating a devcontainer file for many scenarios, or the below code snippet should be a good starter for our hackathon.
 
-- Configure your devcontainer to add a feature for the Azure CLI.
+```
+{
+	"name": "C# (.NET)",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"installBicep": true,
+			"version": "latest"
+		}
+	}
+}
+```
+
+- Configure your devcontainer to add a feature for the Azure CLI. (the above code snippet includes this)
 
 - Start a new codespace in your repository testing .NET and Azure CLIs are available.
 
@@ -37,6 +50,7 @@ Our repository includes an application written in .NET that will deploy to Azure
 
 
 ## Advanced Challenges (optional)
-Add to your `devcontainer.json` with details of an extension to install into Visual Studio Code and add a postCreateCommand that will restore NuGet packages for the .NET app in the Application directory of the repo.  
+- Add to your `devcontainer.json` details of an extension to install into Visual Studio Code and your Codespace so that it is available by default for all your team. An example here may be GitHub Copilot (which you can enable a free trial to give AI suggestions throughout the hackathon) or the GitHub Actions extension from GitHub both are available alongside thousands of others in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode)
+- Add a `postCreateCommand` to your `devcontainer.json` that will restore NuGet packages for the .NET app in the Application directory of the repo.  
 
 [< Previous Challenge](Challenge-01.md) - [Home](../README.md) - [Next Challenge>](Challenge-03.md)
