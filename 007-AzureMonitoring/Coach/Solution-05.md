@@ -4,9 +4,9 @@
 
 ## Notes & Guidance
 
-From your Visual Studio Server, deploy the eShoponWeb application to AKS
+From your Visual Studio Server, deploy the eShopOnWeb application to AKS
 - Install Docker Desktop and restart your Visual Studio VM. 
-- This step is required before you can add Docker support to your eShoponWeb app in Visual Studio.    
+- This step is required before you can add Docker support to your eShopOnWeb app in Visual Studio.    
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image71.png)  
 - Click the link  
@@ -44,7 +44,7 @@ When Docker support has been added, you should see a Docker option to run/debug 
 - Your app is now running in a local container, click **Stop** or close the Browser.
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image79.png)  
-#### From Azure Monitor, locate the container running the eShoponWeb application
+#### From Azure Monitor, locate the container running the eShopOnWeb application
 
 Now, let's move on to publishing the app to AKS.
 - Go to the Azure Portal and create an Azure Container registry with a Standard SKU in your workshop resource group.
@@ -63,7 +63,7 @@ Now, let's move on to publishing the app to AKS.
 - Configure SQL DB `CatalogConnection` to point to SQL Server Database
 - Update connection string(s) using the Catalog string found in **appsettings.json** and **Save connection string in None**.
 - Configure SQL DB `IdentityConnection` to point to SQL Server Database  
-- update connection string using the Identity string found in **appsettings.json** and **Save connection value string in None**  
+- Update connection string using the Identity string found in **appsettings.json** and **Save connection value string in None**  
 - Update Secrets.json(Local)
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image83.png)  
@@ -115,14 +115,14 @@ You may not see all nodes, as this is also hosted on a VMSS.
 - Navigate to Azure Monitor, click on Containers, and select your cluster.  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image93.png)  
- - Alternatively you can go to your AKS, and click Insights 
+ - Alternatively, you can go to your AKS and click Insights 
  - Click on Containers and then search for web
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image94.png)  
 - Or go to Controllers and search for web
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image95.png)  
-- Generate an exception in the eShoponWeb application  
+- Generate an exception in the eShopOnWeb application  
 >**Tip:** Try to change your password, similar to the exception generated in the Application Insights challenge
 
 - Login  
@@ -142,7 +142,7 @@ Notice an exception is thrown
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image100.png)  
 - Trip the password exception again once the Status has gone from `Unk` to `Ok`.  
   ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image101.png)
-You can search for Rob, should find it in the logs!  
+You can search for Rob. You should find it in the logs!  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image102.png)
 First person to post a screenshot of the live log with the exception message wins the challenge :-)  
