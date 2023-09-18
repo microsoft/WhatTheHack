@@ -6,7 +6,7 @@
 
 Let's create a URL Ping for the public URL of our shop
 - Open your Azure Portal
-- Go to the Public IP for your Loadbalancer
+- Go to the Public IP for your load balancer
 - Note the DNS Name for it
 - Open your Application Insights instance
 - Go to availability on the left side
@@ -59,14 +59,14 @@ You should see the eShop app open locally.
 ```  
 
 ![](../Images/04-09-add-key-to-code.png)
-- Run the eShopOnWeb Web project and check out the App Insights tooling Test the application by running it and verify it's working.
+- Run the eShopOnWeb Web project and check out the App Insights tooling. Test the application by running it and verify it's working.
 - While its running you can navigate to Application Insights and view the telemetry while you are interacting with eShop running on the local machine. 
 - Add something to the shopping cart, log in and check out.  
 
 
 
 ![](../Images/04-10-check-vs-logs.png)
->**Tip:** if you can't find this button Application Insights, probably its hidden behind some other menu item, move the menus around till you find it. This may happen depending on your resolution.    
+>**Tip:** if you can't find this button Application Insights, probably it's hidden behind some other menu item, move the menus around till you find it. This may happen depending on your resolution.    
   
 ![](../Images/04-11-check-vs-logs-2.png)
 - Generate some load and check out the results
@@ -100,7 +100,7 @@ To trip an exception in the app, login with the demo account provided and try to
 
 **Client Telemetry**
 
-Enable client-side telemetry collection for your eShoponWeb application.  
+Enable client-side telemetry collection for your eShopOnWeb application.  
 - Inject the App Insights .NET Core JavaScript snippet
 - Add the following line of code to `Web\Views\_ViewImports.cshtml`
 ```
