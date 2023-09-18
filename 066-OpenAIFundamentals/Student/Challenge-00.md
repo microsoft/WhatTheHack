@@ -9,20 +9,34 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
-All of the files containing starter code, information, and resources will be shared with you in the Teams Channel created for the hosted event.
+You will primarily be working with Jupyter Notebooks and Python to interact with Azure OpenAI.
 
-To **access this hack's resources**, navigate to the Teams Channel (named similarly to "WTH - Azure OpenAI Fundamentals") > General subchannel > Files tab. The zip file containing the resources will be stored there. Download and extract the zip file to access the Jupyter Notebooks, challenge descriptions, and provided data.
+### Student Resources
 
-You can [upload the folder to an Azure Machine Learning Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2) to take advantage of Azure Compute. Or open the files in your preferred code editor.
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete the challenges for this hack.  
 
-## Prerequisites
+These resources include Jupyter notebooks, starter code, and sample data sources. 
 
-There are several prerequisites specific to this hack. You will primarily be working with Jupyter Notebooks and Python. 
+You should download and unpack the `Resources.zip` file there to your local workstation.  The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
-**Heads up!**: An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
+For the hack event September 18 - 29, 2023, you can download the file here: [`Resources.zip`](https://aka.ms/wthopenaifundamentalsresources)
 
-Please ensure you have the following tools and resources before hacking:
-- [Azure Subscription](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+### Access Azure Open AI 
+
+You will need an Azure subscription to complete this hack. If you don't have one, get one here...
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+
+Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
+
+An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
+
+### Setup Jupyter Notebook Environment
+
+Jupyter notebooks require an environment to run in. You can setup an environment on your local workstation or you can use the Azure Machine Learning Workspace to run them in the cloud.
+
+#### Local Workstation Environment
+
+If you plan to work on your local worksation, please ensure you have the following tools and resources before hacking:
 - [Python Installation](https://www.python.org/downloads), version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
 - Conda Installation, for project environment management and package management, version \>= conda 4.1.6. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
@@ -33,6 +47,15 @@ Please ensure you have the following tools and resources before hacking:
   - Install the required libraries listed in the `requirements.txt` file via `pip install -r requirements.txt`
   - Open the project in VS Code using `code .`
   - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
+
+#### Cloud Environment
+
+If you plan to work with the Jupyter notebooks in Azure, you can [upload the `Notebooks` folder in your `Resources.zip` file to an Azure Machine Learning Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2) to take advantage of Azure Compute. 
+
+### Setup Azure OpenAI
+
+Once you have set up a Jupyter notebook environment, you create an Azure OpenAI resource and do some initial configuration.
+
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) 
 - Deploy the following models in your Azure OpenAI resource.
   - `gpt-35-turbo`
@@ -46,17 +69,14 @@ Please ensure you have the following tools and resources before hacking:
 
 We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
 
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, we suggest considering having the following  in your developer toolkit.
+You might not need all of them for this hack you are participating in. However, if you work with Azure on a regular basis, we suggest considering having the following in your developer toolkit.
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
-- [Visual Studio Code](../../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-- [Managing Cloud Resources](../../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-
-
-
+- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
 
 ## Success Criteria
 
