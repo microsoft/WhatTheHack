@@ -38,13 +38,13 @@ We will use GitHub Actions to automate the deployment of our Azure infrastructur
 - Configure your workflow to accomplish the following:
     - Use a service principal to login to Azure using your secret and configuration variable values.
     - Use the "Deploy Azure Resource Manager (ARM) Template" action to call the Bicep template in your repo
-    **NOTE:** The name is a little confusing here as this action supports both ARM and Bicep as the template file.
+    **NOTE:** The name is a little confusing here as this action supports both ARM and Bicep as the template file.  This is because Bicep is a transparent abstraction of ARM.  For more details check out this [article](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
 - Manually run your workflow. When your workflow completes successfully, go to the Azure portal to see the `dev` environment. 
     
     **NOTE:** If you were supplied Azure connection details your coach may need to help you see this. 
 
-If everything worked, we are going to call the ARM template again, but override the `environment` parameter in the Bicep template supplying the value of `test` to override the default `dev` value that was used before.
+If everything worked, we are going to call the Bicep template again, but override the `environment` parameter in the Bicep template supplying the value of `test` to override the default `dev` value that was used before.
 
 - Rerun the workflow. When your workflow completes successfully, go to the Azure portal to see the new `test` App Service. 
     
