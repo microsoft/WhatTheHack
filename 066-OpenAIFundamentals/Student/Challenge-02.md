@@ -2,13 +2,11 @@
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
+**NOTE:** This challenge is OPTIONAL due to the retirement of several Azure OpenAI models. You can read more about this decision on the Microsoft blog [here](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/announcing-updates-to-azure-openai-service-models/ba-p/3866757). 
 
-## Pre-requisites
-* THIS CHALLENGE IS OPTIONAL
-* Access to Azure subscription, create notebook in Azure Machine Learning Studio
-* Get access to Azure OpenAI resources
-* Deploy your own AOAI models in AOAI portal
-* Apply for Quota Increase
+If you already have _existing_ deployments of the models outlined below, you should be able to complete this hack before July 5, 2024, when existing deployments will become unavailable. However, these models are unavailable for _new_ deployments beginning July 6, 2023. In that case, you may revise the environment file and the models you deploy accordingly. Please refer to the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and below for more details.
+
+However, in a world where the availability and development of models are always changing, **we highly encourage** you to understand the general concepts and material in this Challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large Language Models (LLMs).  It is straightforward to utilize alternative models in place of the ones included here, since additional models have become available in the [Azure model catalog](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2) since the time of publishing.
 
 ## Introduction
 
@@ -24,10 +22,16 @@ Model deployment for the challenge:
   - `text-davinci-003`
   - `text-embedding-ada-002`
     
+<<<<<<< Updated upstream
 Note: Model families currently available as of _Aug 4, 2023_ in Azure OpenAI includes GPT-3, Codex and Embeddings, GPT-4 is available for application. Please reference this link for more information: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.
 Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: `https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models`
 
 If you have deployed some of these models from before, you will still be able to use them until the dates listed above. However if you had not deployed those models, but have gpt-4 access, you can compare gpt3.5 to gpt4 in this challenge. If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.
+=======
+**Note**: Model families currently available as of _Aug 4, 2023_ in Azure OpenAI include GPT-3, Codex and Embeddings, and GPT-4. [Read more here](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.).
+
+If you have deployed some of these models from before, you will still be able to use them until the dates listed above. However if you do not have access to creating new deployments, but have GPT-4 access, you can compare GPT-3.5 to GPT-4 in this challenge. _If you do not have GPT-4 access_, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog. [Apply for GPT-4 access here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURjE4QlhVUERGQ1NXOTlNT0w1NldTWjJCMSQlQCN0PWcu).
+>>>>>>> Stashed changes
   
 - Add required credentials of Azure resources in the ``.env`` file
 
@@ -37,6 +41,10 @@ Questions you should be able to answer by the end of this challenge:
 - What model would you select to summarize prompts？
 - What model would you select to generate new names?
 - How to retrieve embeddings?
+
+You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file located in the General Channel of the Teams Channel created for the hosted event.
+
+- `CH-02-ModelComparison.ipynb`
 
 Sections in this Challenge:
 1. Overview on finding the right model
@@ -68,17 +76,13 @@ Sections in this Challenge:
 
     2.5 Embeddings
 
-You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file.
-
-- `CH-02-ModelComparison.ipynb`
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Show the understanding of each model and its suitable use cases
-- Show the understanding of differences between each model
-- Be able to select the most suitable model to apply under different scenarios
-- Make all the code cells run successfully
+- Show an understanding of each model and its suitable use cases
+- Show an understanding of differences between models
+- Select the most suitable model to apply under different scenarios
+- Make all  code cells run successfully
 
 ## Additional Resources
 

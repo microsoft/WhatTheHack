@@ -2,12 +2,10 @@
 
 [< Previous Challenge](./Challenge-00.md) -  **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites
+## Prerequisites
 
-* Access to Azure subscription, create notebook in Azure Machine Learning Studio
-* Apply and obtain access to Azure OpenAI resources
-* Deploy your own AOAI models in AOAI portal
-* Edit the .env file according to your model names
+* Deploy your own AOAI models in the [AOAI portal](https://oai.azure.com/portal/)
+* Update the `sample-env.txt` file (and save as `.env`) according to your model names if you haven't already
 
 ## Introduction
 
@@ -32,6 +30,9 @@ Questions you should be able to answer by the end of this challenge:
 - Which hyperparameters could you tune to make the response more diverse in language?
 - What prompt engineering technique could you use to help model complete hard tasks like math problems?
 
+You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file. 
+- `CH-01-PromptEngineering.ipynb`
+
 Sections in this Challenge:
 1. Parameter Experimentation
 2. System Message Engineering
@@ -40,10 +41,6 @@ Sections in this Challenge:
    3.1 Write clear and specific instructions
    
    3.2 Give the model time to “think”
-   
-You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file. 
-- `CH-01-PromptEngineering.ipynb`
-
 
 ## Success Criteria
 To complete this challenge successfully:
