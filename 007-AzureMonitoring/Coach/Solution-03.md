@@ -16,7 +16,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 
 - On the Monitoring configuration page, select Azure Monitor agent and select a data collection rule from the Data collection rule dropdown.
 
->**Note** Make sure the students select **Azure Monitor agent** here and NOT Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
+>**Note** Make sure the students select **Azure Monitor agent** here and NOT the Log Analytics agent. Make sure the students select the same Log Analytics workspace that they used in previous challenges.
 
 ![Enabling VM insights with Azure Monitor agent in Azure Portal](../Images/03-01-VM-Insights.png)
 
@@ -35,7 +35,7 @@ The result should look like this:
 Use this article for step-by-step instructions:
 [Enable VM insights by using Azure Policy](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-enable-policy)
 
-Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available. Note that this can take from several minutes to a couple of hours, there's no pre-defined expectation of when the compliance evaluation cycle completes. Once the Policy initiative assignment is done, suggest the students to start working on next tasks and revisit this one later.
+Azure Policy lets you set and enforce requirements for all new resources you create and resources you modify. To remediate already existing resources, you need to run a remediation task after resource compliance status is available. Note that this can take from several minutes to a couple of hours. There's no pre-defined expectation of when the compliance evaluation cycle completes. Once the Policy initiative assignment is done, suggest the students to start working on next tasks and revisit this one later.
 
 The students will need to assign 2 Policy initiatives to cover both VMs and VM Scale Sets:
 - [Preview]: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) 
