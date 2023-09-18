@@ -175,7 +175,7 @@ Follow the same steps that you used previously to create another data collection
 - Under Scope, click on Select a resource and make sure you have your subscription selected. Then search for the name of the resource group that was created in the deployment of the workshop. 
 - Select your resource group when it comes up. 
 - Click Apply      
-- Under Filter click on filters and select Resource type, Equals, Virtual Machines and Virtual Machine scales sets    
+- Under Filter, select Resource type under Filters, Equals under Operator, and select "Virtual Machines" and "Virtual Machine scales sets" under Value    
 
 ![Configuring filters for an Alert processing rule](../Images/01-20-Create-Alert-proc-rule.png) 
 
@@ -185,7 +185,7 @@ Follow the same steps that you used previously to create another data collection
 ![Configuring a schedule for an Alert processing rule](../Images/01-21-Create-Alert-proc-rule.png) 
 
 - On the Details tab select a Subscription, resource group and type the name of the new rule.
-- Click Review and create and then Create.
+- Click Review and Create and then Create.
 
 
 
@@ -243,12 +243,12 @@ Follow the same steps that you used previously to create another data collection
   
 ![Configuring a Build in HammerDB](../Images/01-12-HammerDB-settings.png)
   
-- Double click on Build and Click Yes to kick of a load test.
+- Double click on Build. Click Yes to kick off a load test.
  
 ![Starting the build](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image20.png)
   
 When the test is running it should look like the screenshot below:
->**TIP:** If you would like to run a second test you **must** first delete the database you created and recreate it. HammerDB will not run a test against a database that has data in it. When you run a test is fills the database with a bunch of sample data.
+>**TIP:** If you would like to run a second test you **must** first delete the database you created and recreate it. HammerDB will not run a test against a database that has data in it. When you run a test it fills the database with a bunch of sample data.
 
 ![Monitoring the build run](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image21.png)  
 
@@ -256,7 +256,7 @@ When the test is running it should look like the screenshot below:
 
 ![Email alert received](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
   
-If you re-run the stress test keep in mind, you will need to delete the `tpcc` DB and re-create it.
+If you re-run the stress test, keep in mind you will need to delete the `tpcc` DB and re-create it.
 
 
 
@@ -290,7 +290,7 @@ Check the CPU load on the VM you are on just to make sure:
 
 >**Note:** The trick to getting the alert to fire is to pin both instances at the same time as the CPU metric is an aggregate of the scale set. If you just max the CPU on one server to 100% the Scale Set is only at 50% and will not trip the alert threshold of 75%. Also, if you run the script and then setup the Alert Rule then go back to run another test to trip the alert.    
 
-Did you noticed? you may have scaled out to a third instance and not realized it.  
+Did you notice? You may have scaled out to a third instance and not realized it.  
 You may need to jump on that box and max it out as well.    
 
 ![Checking Virtual Machine Scale Set scaling out in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image37.png)
