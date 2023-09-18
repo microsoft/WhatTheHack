@@ -86,7 +86,7 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 
 ### Check your metrics 
   
-Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards (It may take several minutes for the guest metrics to start flowing into Azure Metrics store).
+Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards (It may take several minutes for the guest metrics to start flowing into the Azure Metrics store).
   
 ![VM Guest metrics now displayed along with Host metrics in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image9.png)  
 
@@ -114,7 +114,7 @@ Do this for both the SQL Server Active Transactions and the Percent CPU of the V
   
 ![Creating a chart for Percentage CPU metric of the Virtual Machine Scale Set](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32_2.png)
 
-In the end (after you run all the stress tests the dashboards should look like this):
+In the end after you run all the stress tests the dashboards, should look like this:
 
 ![View of the properly configured Azure Dashboard](../Images/01-04-Sample-dashboard.png)
 
@@ -133,7 +133,7 @@ Follow the same steps that you used previously to create another data collection
 
 ### Create an Alert rule to be notified in case the SQL active transactions went above 40.
   
-- From Azure Monitor, create an Action group, to send email to your address
+- From Azure Monitor, create an Action group to send email to your address
   
 ![Creating an Action group in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image25.png)
     
@@ -153,7 +153,7 @@ Follow the same steps that you used previously to create another data collection
 
 ![Selecting an action group while creating an alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image30.png)
   
-- Give the Alert a name, Description and Severity
+- Give the Alert a Name, Description and Severity
 
 ![Configuring an Alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image29.png)
   
