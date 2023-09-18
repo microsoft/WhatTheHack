@@ -6,7 +6,7 @@
 
 ### Deploy alerts with Bicep
 
-Action group Resource Id can be found in Azure Portal:
+The Action group Resource Id can be found in the Azure Portal:
 - In Azure Monitor navigate to Alerts, then Action groups.
 - Select the Action group to open its properties.
 - Click on JSON View.
@@ -30,7 +30,7 @@ Action group Resource Id can be found in Azure Portal:
 - If the alert is configured correctly, it should fire and an email will be sent.
 
 
-### Create and alert for "Disk Write Operations/Sec" 
+### Create an alert for "Disk Write Operations/Sec" 
 
 The key steps that the students should perform are the following: copy the code used to deploy `Percentage CPU` alert, change the alert name and the threshold and set the `metricName` property to `Disk Write Operations/Sec`.
 
@@ -47,7 +47,7 @@ At the end of the Challenge the students should present 3 new alerts that will l
 
 ### Deploy Azure Monitor Agent and DCRs with Bicep
   
-In the file, the students should update the names of the Log Analytics workspace law-wth-monitor-d-XX and the Virtual Machine Scale Set vmss-wth-monitor-d-XX. Otherwise they will get an error message during deployment.
+In the file, the students should update the names of the Log Analytics workspace law-wth-monitor-d-XX and the Virtual Machine Scale Set vmss-wth-monitor-d-XX. Otherwise, they will get an error message during deployment.
   
 If everything is configured correctly, you should be able to see the `AzureMonitorWindowsAgent` extension if you navigate to the VMSS and select Extensions+applications.
 
@@ -60,11 +60,11 @@ You should also be able to see the 2 new DCRs created in Azure Monitor.
   
 **The Bonus part (Optional)**
 
-**Will the Alert get fired if the VM was turned off from the OS? or if the VM was not available? Why?**
-No, as opposed to deallocation, powering off a Microsoft Azure virtual machine (VM) will release the hardware but it will preserve the network resources (internal and public IPs) provisioned for it. Even if the VM`s network components are preserved, once the virtual machine is powered off, the cloud application(s) installed on it will become unavailable. The only scenario in which you should ever choose the stopped state instead of the deallocated state for a VM in Azure is if you are only briefly stopping the server and would like to keep the dynamic IP address for your testing. If that doesn’t perfectly describe your use case, or you don’t have an opinion one way or the other, then you’ll want to deallocate instead so you aren’t being charged for the VM.
+**Will the Alert get fired if the VM was turned off from the OS? Or if the VM was not available? Why?**
+No, as opposed to deallocation, powering off a Microsoft Azure virtual machine (VM) will release the hardware but it will preserve the network resources (internal and public IPs) provisioned for it. Even if the VM`s network components are preserved, once the virtual machine is powered off, the cloud application(s) installed on it will become unavailable. The only scenario in which you should ever choose the stopped state instead of the deallocated state for a VM in Azure is if you are only briefly stopping the server and would like to keep the dynamic IP address for your testing. If that doesn’t perfectly describe your use case or you don’t have an opinion one way or the other, then you’ll want to deallocate instead so you aren’t being charged for the VM.
 
 **How many emails did you receive when the Activity Log alert fired? Why? How can you change this behaviour?**
-You will get multiple notifications, because for each event multiple entries with different status ("Accepted", "Succeeded", "Failed", etc.) will be created. You can change this behaviour by adding the "Status" condition to the alert rule.
+You will get multiple notifications because for each event multiple entries with different status ("Accepted", "Succeeded", "Failed", etc.) will be created. You can change this behaviour by adding the "Status" condition to the alert rule.
 
 
 First team to show a screenshot of the new Alert Rules and DCRs wins the challenge!
