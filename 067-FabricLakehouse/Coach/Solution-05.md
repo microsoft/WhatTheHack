@@ -1,6 +1,6 @@
 # Challenge 05 - Giant Stride - Coach's Guide
 
-[< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
