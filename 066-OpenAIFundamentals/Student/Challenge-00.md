@@ -38,7 +38,7 @@ Jupyter notebooks require an environment to run in. You can setup an environment
 
 #### Local Workstation Environment
 
-If you plan to work on your local worksation, please ensure you have the following tools and resources before hacking:
+If you plan to work on your local workstation, please ensure you have the following tools and resources before hacking:
 - [Python Installation](https://www.python.org/downloads), version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
 - Conda Installation, for project environment management and package management, version \>= conda 4.1.6. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
@@ -54,11 +54,11 @@ For more information, see [Jupyter Notebooks in VS Code](https://code.visualstud
 
 #### Cloud Environment
 
-If you are not interested or able to set up a Jupyter Notebook environment on your local worksation, you can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
+If you are not interested or able to set up a Jupyter Notebook environment on your local workstation, you can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
 
 For more information, see: [Run Jupyter Notebooks in your Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
 
-Once you have an Azure Machine Learnin Studio Workspace set up, you can upload the contents of the `/Notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
+Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/Notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
 
 ### Setup Azure OpenAI
 
