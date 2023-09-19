@@ -11,6 +11,8 @@ In this challenge, you will set up the necessary prerequisites and environment t
 
 You will primarily be working with Jupyter Notebooks and Python to interact with Azure OpenAI.
 
+[Jupyter Notebook](https://jupyter.org/) is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
+
 ### Student Resources
 
 Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete the challenges for this hack.  
@@ -48,9 +50,15 @@ If you plan to work on your local worksation, please ensure you have the followi
   - Open the project in VS Code using `code .`
   - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
 
+For more information, see [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+
 #### Cloud Environment
 
-If you plan to work with the Jupyter notebooks in Azure, you can [upload the `Notebooks` folder in your `Resources.zip` file to an Azure Machine Learning Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2) to take advantage of Azure Compute. 
+If you are not interested or able to set up a Jupyter Notebook environment on your local worksation, you can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
+
+For more information, see: [Run Jupyter Notebooks in your Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
+
+Once you have an Azure Machine Learnin Studio Workspace set up, you can upload the contents of the `/Notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
 
 ### Setup Azure OpenAI
 
@@ -71,8 +79,6 @@ We have compiled a list of common tools and software that will come in handy to 
 
 You might not need all of them for this hack you are participating in. However, if you work with Azure on a regular basis, we suggest considering having the following in your developer toolkit.
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
@@ -83,6 +89,12 @@ You might not need all of them for this hack you are participating in. However, 
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have Python and Conda installed
-- Verify that you can run Jupyter Notebooks in Visual Studio Code
+- Verify that you can run Jupyter Notebooks in Visual Studio Code or Azure Machine Learning Studio
 - Verify that you have created the AOAI resource and deployed the necessary deployments
 
+## Learning Resources
+
+- [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
+- [Jupyter Notebooks](https://jupyter.org/)
+- [Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
+- [Run Jupyter Notebooks In Your (Azure Machine Learning) Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
