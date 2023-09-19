@@ -22,6 +22,6 @@ To complete this challenge successfully, you should:
 
 ## Tips
 
-You can use any format, but a Power BI report is an obvious choice.
-Don't go "overboard" with the PowerPoint.
-A live demo always makes a splash!
+- You can use any format, but a Power BI report is an obvious choice.
+- Don't go "overboard" with the PowerPoint.
+- A live demo always makes a splash!
