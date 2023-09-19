@@ -14,7 +14,7 @@ You may also want to customise the deck to include logistics, timings, you and o
 
 - Challenge 00: **[Prerequisites - Grab your fins and a full tank!](Solution-00.md)**
   - Provision your Fabric Lakehouse
-- Challenge 01: **[Finding Data](Student/Challenge-01.md)**
+- Challenge 01: **[Finding Data](Solution-01.md)**
   - Head out into open waters to find your data
 - Challenge 02: **[Land ho!](Solution-02.md)**
   - Land your data in your Fabric Lakehouse
@@ -37,7 +37,6 @@ Students will most likely have a wide range of backgrounds and experience rangin
 
 - The hack is designed to be completed by teams of 2-4 students working together. Coaches should consider how to arrange students into teams to ensure a mix of skills and experience. However, for an event with more experienced (or daring) students the hack can be completed individually.
 - The hack is designed to be completed in a linear fashion. Encourage students to work outside of their areas of expertise, but be aware that some challenges may be more difficult for some students than others. Use your discretion - students may commence challenges in parallel. For example, a Power BI reporting expert may wish to start Challenge 4 while the other team members are data wrangling in Challenge 2/3.
-
 
 ### Duration & Agenda
 
@@ -131,10 +130,8 @@ Students will require Power BI desktop to be installed on their PC. Either the s
 - `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
 
-
 ## Other Fabric What The Hacks
 
 These WTHs are currently in development and will be released soon:
 - Fabric Datamesh
 - Fabric Realtime
-
