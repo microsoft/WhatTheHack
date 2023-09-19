@@ -46,7 +46,7 @@ If you plan to work on your local workstation, please ensure you have the follow
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using `python --version` and `conda --version`
   - Create a project environment using Conda - `conda create --name <env_name>`
   - Activate Conda environment - `conda activate <env_name>`
-  - Install the required libraries listed in the `requirements.txt` file via `pip install -r requirements.txt`
+  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the `Resources/Notebooks` section of the zip folder. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
   - Open the project in VS Code using `code .`
   - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
 
@@ -71,7 +71,6 @@ Once you have set up a Jupyter notebook environment, you create an Azure OpenAI 
     - **NOTE:** A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
 - Add required credentials of Azure resources in the sample `.env` file, which we have provided as `sample-env.txt` in the `Resources` folder. You can get these credentials through the Azure Portal within your AOAI resource. Click on Keys and Endpoint from the dropdown menu on the left side. After entering your credentials and environment variables in the provided fields, rename the file to `.env`. Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
   - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. 
-- Install required libraries and packages, provided in the form of a `requirements.txt` file in the `Resources/Notebooks` section of the zip folder. We recommend using pip or Conda in a virtual environment to do so. 
 
 ## Additional Common Prerequisites
 
