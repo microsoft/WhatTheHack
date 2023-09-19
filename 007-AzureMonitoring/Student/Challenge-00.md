@@ -133,4 +133,3 @@ Navigate to this location in your Azure Cloud Shell or Windows Terminal. You may
 ## Tips
  
 - Make sure you have the compute capacity in the region you are deploying to and request an increase to the limit if needed.
-- Make sure you are using a region that supports the public preview for Azure Monitor for VMs
