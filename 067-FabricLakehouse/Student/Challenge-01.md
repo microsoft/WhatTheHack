@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-Read [the Brief!](../readme.md)
+Read [the Brief!](../README.md)
 
 ## Introduction
 
