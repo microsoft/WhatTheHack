@@ -1,6 +1,6 @@
 # Challenge 05 - Giant Stride
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
 
 ## Introduction
 
