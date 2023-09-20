@@ -22,3 +22,4 @@ You will need:
 
 1. You have logged into https://fabric.microsoft.com
 1. You have Power BI installed on your PC.
+
