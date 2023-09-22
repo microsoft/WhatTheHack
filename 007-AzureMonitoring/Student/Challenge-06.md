@@ -47,7 +47,7 @@ Write a performance query that renders a time chart for the last 4 hours for bot
 * Processor Utilization: Processor / % Processor Time
 * Memory Utilization: Memory / % Committed Bytes In Use
 * Disk Utilization (IO): Disk Reads/sec and Disk Writes/sec
-* Disk Utilisation (MB/GB): Disk Free Space (% or MB)
+* Disk Utilization (MB/GB): Disk Free Space (% or MB)
 * Create a heartbeat query for Web Servers and SQL Server
 * Write a performance query that renders a time chart for the last hour of the max percentage CPU usage of the AKS Cluster nodes
 - Combine infrastructure and application logs to create a single timeseries chart that includes:
