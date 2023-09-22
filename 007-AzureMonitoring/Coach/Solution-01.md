@@ -276,7 +276,7 @@ Just to make sure, you can check it in the portal:
   
 ![RDP Dialog window](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image34.png)  
 
-- Jump on to both VMs in the Scale Set, Open the PowerShell ISE, Copy the script in the window and run it. You may need to run it more then once to really add the pressure. This script will pin each core on the VM no matter how many you have.
+- Jump on to both VMs in the Scale Set, Open the PowerShell ISE, Copy the script in the window and run it. You may need to run it more than once to really add the pressure. This script will pin each core on the VM no matter how many you have.
   
 ![PowerShell script in Windows PowerShell ISE](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image35.png)   
 
