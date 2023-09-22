@@ -60,11 +60,11 @@ The Bicep template deploys the following resources:
 - Application Insights
 - Azure Storage Account
 
-**NOTE:** These resources may consume more than the monthly allowance in a trial Azure Subscription if left running for the typical 3 day duration of a hack.  It is important for coaches to remind students to shut down all VMs, the VM Scale Set, and AKS cluster at the end of each hack day to conserve resources.
+**NOTE:** These resources may consume more than the monthly allowance in a trial Azure Subscription if left running for the typical 3-day duration of a hack.  It is important for coaches to remind students to shut down all VMs, the VM Scale Set, and AKS cluster at the end of each hack day to conserve resources.
 
 ## Suggested Hack Agenda
 
-This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple variations of this hack that enable you run it for a shorter periods of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Azure and/or using Command Line Interface (CLI) tools. This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
+This hack is designed to be run as a full 3-day event, for a total of approximately 18 hours to complete all challenges. There are multiple variations of this hack that enable you run it for a shorter period of time and still provide value to attendees. Different groups of students will complete the challenges at different paces based on their comfort level with Azure and/or using Command Line Interface (CLI) tools. This is okay, and students should be encouraged to participate in this intro-level hack no matter what their experience level is.
 
 While the challenges are designed to build the students' knowledge iteratively, you can shorten the hack based on the organization's learning objectives. 
 
@@ -81,4 +81,4 @@ For a "choose your own adventure" hack experience after completing challenge 02,
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files, sample code, scripts, etc.. meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
