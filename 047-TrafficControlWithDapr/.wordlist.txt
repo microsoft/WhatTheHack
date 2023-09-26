@@ -1,11 +1,15 @@
+Chandrasekar
 CloudEvent
 CloudEvents
 Dapr
 DaprClient
 FineCollectionService
+Gormsen
 KMh
 MailDev
+Molenkamp
 Mosquitto
+Rutz
 SpeedingViolation
 TrafficControl
 TrafficControlService
@@ -13,7 +17,9 @@ UseCloudEvents
 VehicleRegistered
 VehicleRegistrationService
 VehicleState
+Vettor
 WebAPI
+Wijk
 collectfine
 daprd
 deployer
