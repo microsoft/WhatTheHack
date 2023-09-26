@@ -18,7 +18,7 @@ Run the Simulation application & associated services locally.
 
 - Run the `VehicleRegistrationService`. It exposes a single endpoint that listens for requests for vehicle and owner information.
 - Run the `FineCollectionService`. It exposes an endpoint that assigns a fine to a speeding vehicles. To generate a fine, the `FineCollectionService` must make a call to the `VehicleRegistrationService` to obtain driver information.
-- Run the `TrafficControlService`. It exposes entry and exit endpoints that capture a vehicle's a speed. When a motorist exceeds the speed limit, `TrafficControlService` will call the `FineCollectionService`.
+- Run the `TrafficControlService`. It exposes entry and exit endpoints that capture a vehicle's speed. When a motorist exceeds the speed limit, `TrafficControlService` will call the `FineCollectionService`.
 - Run the `Simulation` application. It simulates vehicle traffic at varying speeds. It exposes entry and exit cameras that photograph the license plate of each vehicle. Vehicle telemetry is sent to the `TrafficControlService`.
   - The `Simulation` application is implemented as a Console application, the other services as API applications.
 
