@@ -439,7 +439,7 @@ A coach's main over-arching role is to act as a technical advisor to the attende
 
 At an in-person event, the coaches should be sitting at the table with their squad. At a virtual event, they should be engaged in their squad's channel meeting for the duration of the event.
 
-Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coaches may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
+Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coach may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
 
 At a virtual event, the coaches can quickly jump in and out of the various Squad channels to check in on the squad and provide support as required by joining the various channel meetings.
 
