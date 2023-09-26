@@ -28,9 +28,9 @@ Also update the host name for each service (in the `Program.cs` file) from `http
 
 - https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/
 
-### Step 2: Modify the FineCollectionService to subscribe to the `collectfine` topic programatically
+### Step 2: Modify the FineCollectionService to subscribe to the `collectfine` topic programmatically
 
-Dapr on ACA (at this time) doesn't support declarative pub/sub subscriptions, so you will need to modify the `FineCollectionService` to subscribe to the `collectfine` topic programatically using the Dapr SDK.
+Dapr on ACA (at this time) doesn't support declarative pub/sub subscriptions, so you will need to modify the `FineCollectionService` to subscribe to the `collectfine` topic programmatically using the Dapr SDK.
 
 1.  Modify the `FineCollectionService/Startup.cs` file similar to the example below.
 
