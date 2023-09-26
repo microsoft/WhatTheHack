@@ -152,7 +152,7 @@ We recommend creating the following Channels in the team:
 
 #### Team Content
 
-Most hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) have the solutions to the hack challenges included in the [WTH GitHub repo](http://aka.ms/wth). Therefore, you should avoid the attendees having any reason to access to the What The Hack repo before or during the event. Instead, we recommend pre-loading any resources from the repo needed by the attendees for the hack into the event Team.
+Most hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) have the solutions to the hack challenges included in the [WTH GitHub repo](http://aka.ms/wth). Therefore, you should avoid the attendees having any reason to access the What The Hack repo before or during the event. Instead, we recommend pre-loading any resources from the repo needed by the attendees for the hack into the event Team.
 
 #### Challenge Guide
 
