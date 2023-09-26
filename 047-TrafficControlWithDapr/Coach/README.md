@@ -56,7 +56,7 @@ This hack requires students to have access to an Azure subscription where they c
 
 To start, you'll need access to an Azure Subscription & Resource Group.
 
-You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
+You will need the following subscription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
 
 - Microsoft.Cache
 - Microsoft.ContainerService
