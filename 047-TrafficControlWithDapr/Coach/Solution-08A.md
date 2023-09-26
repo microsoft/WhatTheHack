@@ -26,7 +26,7 @@ Look in the following files and make changes as appropriate.
 
 Also update the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
 
-- https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/
+- [Update Host Name](https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/)
 
 ### Step 2: Build container images for each service & upload to Azure Container Registry
 
