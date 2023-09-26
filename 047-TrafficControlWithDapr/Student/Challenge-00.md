@@ -187,7 +187,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
     az k8s-extension create --cluster-type managedClusters --cluster-name "<aks-name>" --resource-group "<resource-group-name>" --name dapr --extension-type Microsoft.Dapr
     ```
 
-1.  Run the following command to initalize your local Dapr environment:
+1.  Run the following command to initialize your local Dapr environment:
 
     ```shell
     dapr init

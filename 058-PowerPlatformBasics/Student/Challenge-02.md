@@ -20,7 +20,7 @@ You can find the sample Order Form in the `/TailspinToysOrders/` folder of the s
 Review the sample Order Document and decide whether we can use any prebuilt model that AI Builder offers, or we need to build a custom model to read the information on the form.
 
 The Model is required to:
-- Extract General Order Information (Order Number, Order Date, and Order Total)
+- Extract General Order Information (Order Number, Order Date and Order Total)
 - Extract Customer Information (Full name, Address, and Phone)
 - Extract Order Detail Information (Product Code, Product Description, Quantity and Unit Price)
 
@@ -34,8 +34,8 @@ To complete this challenge successfully, you should be able to:
 * [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
 * [Pre-built model](https://docs.microsoft.com/en-us/ai-builder/prebuilt-overview)
 * [Get Started with Power Automate](https://docs.microsoft.com/en-us/learn/modules/get-started-flows/)
-* [AI models and business scenarios - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/model-types)
-* [Invoice processing prebuilt AI model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/prebuilt-invoice-processing)
-* [Overview of document processing model - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-overview)
-* [Use the document processing model in Power Automate - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
-* [Use the form processor component in Power Apps - AI Builder | Microsoft Docs](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)
+* [AI models and business scenarios - AI Builder](https://docs.microsoft.com/en-us/ai-builder/model-types)
+* [Invoice processing prebuilt AI model - AI Builder](https://docs.microsoft.com/en-us/ai-builder/prebuilt-invoice-processing)
+* [Overview of document processing model - AI Builder](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-overview)
+* [Use the document processing model in Power Automate - AI Builder](https://docs.microsoft.com/en-us/ai-builder/form-processing-model-in-flow)
+* [Use the form processor component in Power Apps - AI Builder](https://docs.microsoft.com/en-us/ai-builder/form-processor-component-in-powerapps)

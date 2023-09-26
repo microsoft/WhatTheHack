@@ -1,7 +1,7 @@
 status="Running"
 
 #Deploy Oracle DB
-helm upgrade --install wth-oracle ../Oracle184 --set infrastructure.password=OCPHack8
+helm upgrade --install wth-oracle ../Oracle21c --set infrastructure.password=OCPHack8
 helm upgrade --install ora2pg ../ora2pg
 
 for ((i = 0 ; i < 30 ; i++)); do
@@ -30,7 +30,8 @@ for ((i = 0 ; i < 90 ; i++)); do
     fi
 done
 
-kubectl -n oracle exec -it $oraPod -- /opt/oracle/product/18c/dbhomeXE/bin/sqlplus SYSTEM@XE/OCPHack8 @/tmp/oracle.sql
+#kubectl -n oracle exec -it $oraPod -- /opt/oracle/product/21c/dbhomeXE/bin/sqlplus SYSTEM@XE/OCPHack8 @/tmp/oracle.sql
+kubectl -n oracle exec -it $oraPod -- sqlplus SYSTEM/OCPHack8@XE @/tmp/oracle.sql
 oracleClusterIP=$(kubectl -n oracle get svc -o jsonpath="{.items[0].spec.clusterIP}")
 
 sed "s/XXX.XXX.XXX.XXX/$oracleClusterIP/" ./values-oracle-orig.yaml >temp_oracle.yaml && mv temp_oracle.yaml ./values-oracle.yaml

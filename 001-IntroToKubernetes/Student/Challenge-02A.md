@@ -12,7 +12,7 @@ You can use Azure container registries with your existing container development 
 
 ## Description
 
-In this challenge we will be creating and setting up a new, private, Azure Container Registry. This will be the new home of the containers we just created. We will see later on how Kubernetes will pull our images from this registry.
+In this challenge we will be creating and setting up a new Azure Container Registry. As opposed to Docker Hub which is publicly accessible, this registry will only be available to your AKS cluster through a managed identity. This will be the new home of the containers we just created. We will see later on how Kubernetes will pull our images from this registry.
 
 - Deploy an Azure Container Registry (ACR)
 - Ensure your ACR has proper permissions and credentials set up

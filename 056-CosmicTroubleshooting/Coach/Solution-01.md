@@ -7,14 +7,14 @@
 The students will need to:
 - Enable diagnostic settings for their Azure Cosmos DB account, pointed to an Azure Log Analytics workspace (they can use an existing one if they have one or they will create a new one using any method - Portal, CLI etc). At a minimum they should gather the following:
   - Categories
-    - DataPlaneRequests
-    - QueryRuntimeStatistics
-    - PartitionKeyStatistics
-    - PartitionKeyRUConsumption
+    - `DataPlaneRequests`
+    - `QueryRuntimeStatistics`
+    - `PartitionKeyStatistics`
+    - `PartitionKeyRUConsumption`
   - Metrics 
     - Requests
   - If they would like to get the Full Text of the query in the results, they should enable the "Diagnostics full-text query" under Features.
-  - **Note** If they select Resource Specific for Destination table, the queries from the documentation will not run as they assume the destination table is AzureDiagnostics. Students should change the queries accordingly.
+  - **Note** If they select Resource Specific for Destination table, the queries from the documentation will not run as they assume the destination table is `AzureDiagnostics`. Students should change the queries accordingly.
 - After enabling the diagnostic settings, they will need to run a test by Azure Load Testing using either the button "Start New Simulation" in the section "Dev. tools" in the web application or going directly to the Azure Load Testing service and running the included test. Please note that the test will require some time to run. From the web application, the student can watch the progress of the simulation test or they can always access the test run to see its progress within the Azure Load Testing service inside the Azure Portal.
 - After the test concludes, students should investigate the generated logs. A very good stating point are the queries in the Azure Cosmos DB documentation (link is included in the Learning Resources section of the challenge).
 - The students will need to identify:
@@ -35,7 +35,7 @@ The students will need to:
     - They should change the Partition key to `/type`.
     - They can create a collection per type (this will be helpful in later challenges - especially a separate Orders collection - but not required at this stage).
   - Indexing changes that would be required
-    - They should enable indexing (default `"path":"/*"` in `includePaths` acceptable, removing it from the `excludedPaths`).
+    - They should enable indexing (default `"path":"/*"` in `includePaths` acceptable, removing it from the `excludedPaths`). Ideally the student should think about which fields they would need to index and if any composite indexes are required. Point reads bypass indexing, so if they can use the database with just point reads, they could leave indexing essentially disabled. Indexed fields are great when we have queries that use those fields as filters, compound indexes help with performance when multiple fields are used in the order by clause, or a combination of filter and order by. They could enable Index Metrics in the SDK for the service to give them recommendations (this should not be enabled in Production environments).
   - Whether they should change the Capacity model (and what they would need as input to determine this).
     - They can scale up to X amount of RU/s based on their research. With 10K RU/s, Http 429s are either gone or substantially decreased. However, after multiple load test runs, the problems will re-appear so not considered a correct solution.
     - They could enable Autoscale. However, they will need to discuss the cost implications (i.e. the access pattern of the application should be defined - if traffic is more/less constant across the whole day, Autoscale will not provide savings)
