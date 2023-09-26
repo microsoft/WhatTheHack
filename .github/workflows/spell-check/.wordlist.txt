@@ -1,5 +1,6 @@
 AAD
 ABAP
+ACA
 ACG
 ACI
 ACR
@@ -571,8 +572,8 @@ prebuilt
 prem
 prerelease
 proc
-programatically
-programatically
+programmatic
+programmatically
 ps
 psql
 pubsub
