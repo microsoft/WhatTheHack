@@ -107,7 +107,7 @@ Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will 
 
 ## Security note
 
-To make this example as accesible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
+To make this example as accessible as possible, SAS tokens and default AKS security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure [AKS security baseline](https://learn.microsoft.com/en-us/security/benchmark/azure/baselines/aks-security-baseline).
 
 ## Troubleshooting
 
