@@ -33,7 +33,7 @@ Another way of using secrets, is to reference them from Dapr configuration files
 
 To learn more about the secrets building block, read the [introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/secrets/) in the Dapr documentation. Also, checkout the [secrets chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/secrets) in the [Dapr for .NET Developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/) guidance eBook.
 
-Update the services to use a Dapr secrets buildling block.
+Update the services to use a Dapr secrets building block.
 
 - Create a local JSON file & add the following credentials:
   - SMTP credentials (from the \*email\*\* Dapr component configured in [Challenge-05](./Challenge-05.md)).
