@@ -91,7 +91,7 @@ _IMPORTANT: The Azure Container Registry has the **admin** account enabled to ma
 
 ### Step 4: Run Simulation application
 
-Run the Simluation service, which writes to your IoT Hub's MQTT queue. You will begin to see fines get emailed to you as appropriate.
+Run the Simulation service, which writes to your IoT Hub's MQTT queue. You will begin to see fines get emailed to you as appropriate.
 
 ## Security note
 
