@@ -26,7 +26,7 @@ Look in the following files and make changes as appropriate.
 
 Also update the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
 
-- https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/
+- [Update Host Name](https://miuv.blog/2021/12/08/debugging-k8s-connection-refused/)
 
 ### Step 2: Modify the FineCollectionService to subscribe to the `collectfine` topic programmatically
 
@@ -147,4 +147,4 @@ az containerapp logs show -g <resource-group-name> -n ca-fine-collection-service
 
 ## Security note
 
-To make this example as accesible as possible, SAS tokens and default ACA security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure (for instance, allowing Azure Kubernetes Service to pull from Azure Container Registry).
+To make this example as accessible as possible, SAS tokens and default ACA security settings are in place. In a production environment, a more secure option is to use managed identities for the various services to talk to each other in Azure (for instance, allowing Azure Kubernetes Service to pull from Azure Container Registry).
