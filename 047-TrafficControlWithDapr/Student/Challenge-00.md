@@ -14,9 +14,7 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 
 ### Install local prerequisites
 
-<<<<<<< HEAD
 Your coach will have indicated which tools you need to install locally.
-=======
 
 - Git ([download](https://git-scm.com/))
 - .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
@@ -32,27 +30,18 @@ Your coach will have indicated which tools you need to install locally.
 - Install Bicep extension for VS Code ([instructions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep))
 - If you're running Windows, you'll need to install a **bash shell** to run some of the commands. Install either the [Git Bash](https://git-scm.com/downloads) client or the [Windows Subsystem for Linux 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 - Helm ([instructions](https://helm.sh/docs/intro/install/))
-  > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 Make sure the following minimum software versions are installed by executing the commands in the following table:
 
-| Software             | Version | Command Line     |
-| -------------------- | ------- | ---------------- |
-| Dapr runtime version | v1.8.4  | `dapr --version` |
-| Dapr CLI version     | v1.2.0  | `dapr --version` |
-
-<<<<<<< HEAD
-| DotNet version | 5.0.302 | `dotnet --version` |
-| azure-cli | 2.24.0 | `az --version` |
-=======
-| DotNet version | 6.0.0 | `dotnet --version` |
-| azure-cli | 2.42.0 | `az --version` |
-
-> > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
+| Software             | Version | Command Line       |
+| -------------------- | ------- | ------------------ |
+| Dapr runtime version | v1.8.4  | `dapr --version`   |
+| Dapr CLI version     | v1.2.0  | `dapr --version`   |
+| DotNet version       | 6.0.0   | `dotnet --version` |
+| azure-cli            | 2.42.0  | `az --version`     |
 
 ### Deployment
 
-<<<<<<< HEAD
 This hack's setup files will create the following resources in your Azure Resource Group. Make sure you can create the following:
 
 - Application Insights
@@ -215,7 +204,7 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
       value: trafficcontrol
     storageAccountKey:
       type: String
-      value: 7Ck76nP/5kFEhNx6C...V85L+0dFMFOA/xJLIvK25f2irUmVouPRbSGXKEzRQ==
+      value: ***REMOVED***
     storageAccountName:
       type: String
       value: sadaprmce123
@@ -305,23 +294,17 @@ You'll create the Azure resources for the subsequent challenges using [Azure Bic
 
 1.  Install the AKS Workload Identity extension in your AKS cluster so it can use the managed identity to access Azure services (like Key Vault).
 
-        ```shell
-         az aks update -g <resource-group-name> -n <cluster-name> --enable-oidc-issuer --enable-workload-identity
-
-    # <<<<<<< HEAD
-
-        ```
+    ```shell
+      az aks update -g <resource-group-name> -n <cluster-name> --enable-oidc-issuer --enable-workload-identity
+    ```
 
 1.  Assign permissions to KeyVault
 
-        Lastly, assign yourself access to the KeyVault so you can create secrets:
+    Lastly, assign yourself access to the KeyVault so you can create secrets:
 
-        ```shell
-        az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
-
-    > > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
-
-        ```
+    ```shell
+    az keyvault set-policy --resource-group "<resource-group-name>" --name "<key-vault-name>" --upn "dwight.k.schrute@dunder-mifflin.com" --secret-permissions get list set delete --certificate-permissions get list create delete update
+    ```
 
 1.  Run the following command to initialize your local Dapr environment:
 
