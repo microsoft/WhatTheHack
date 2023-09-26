@@ -80,7 +80,7 @@ Now you will add code to the `TrafficControlService` so that it uses the Dapr st
     }
     ```
 
-1.  In the new repository class, add a private field named `_httpClient` that holds an instance of a `HttpClient` and a constructor that accepts a `HttpClient` instance as aan argument and then initializes the field:
+1.  In the new repository class, add a private field named `_httpClient` that holds an instance of a `HttpClient` and a constructor that accepts a `HttpClient` instance as an argument and then initializes the field:
 
     ```csharp
     private readonly HttpClient _httpClient;
