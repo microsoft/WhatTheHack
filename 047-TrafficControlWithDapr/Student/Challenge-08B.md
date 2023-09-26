@@ -25,7 +25,7 @@ To complete this challenge, you must reach the following goals:
 
 - Change the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
   - [Debugging K8S Connection Refused](https://miuv.blog/2021/12/08/debugging-k8s-connection-refused)
-- Dapr on ACA (at this time) doesn't support declarative pub/sub subscriptions, so you will need to modify the `FineCollectionService.` to subscribe to the `collectfine` topic programatically using the Dapr SDK.
+- Dapr on ACA (at this time) doesn't support declarative pub/sub subscriptions, so you will need to modify the `FineCollectionService.` to subscribe to the `collectfine` topic programmatically using the Dapr SDK.
   - You will have to modify both the `FineCollectionService/Startup.cs` & the `FineCollectionService/Controllers/CollectionController.cs` files.
     - [ASP.NET Core Controller example](https://github.com/dapr/dotnet-sdk/tree/master/examples/AspNetCore/ControllerSample)
   - [Dapr .NET SDK - Programatic subscriptions](https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#programmatic-subscriptions)
