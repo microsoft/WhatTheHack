@@ -88,7 +88,7 @@ _If you can't instantiate some of these resources, you won't be able to complete
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
   - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
-  - 1 Zipkin service running to monitor communciation between the services.
+  - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
 **IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
