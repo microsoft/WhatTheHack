@@ -28,7 +28,7 @@ To complete this challenge, you must reach the following goals:
 - Dapr on ACA (at this time) doesn't support declarative pub/sub subscriptions, so you will need to modify the `FineCollectionService.` to subscribe to the `collectfine` topic programmatically using the Dapr SDK.
   - You will have to modify both the `FineCollectionService/Startup.cs` & the `FineCollectionService/Controllers/CollectionController.cs` files.
     - [ASP.NET Core Controller example](https://github.com/dapr/dotnet-sdk/tree/master/examples/AspNetCore/ControllerSample)
-  - [Dapr .NET SDK - Programatic subscriptions](https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#programmatic-subscriptions)
+  - [Dapr .NET SDK - Programmatic subscriptions](https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#programmatic-subscriptions)
 - Use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
 
 ## Learning Resources
