@@ -133,6 +133,7 @@ Dockerfile
 Dockerfiles
 Dockerize
 DocumentDB
+Dodgeball
 EKS
 EOF
 ETL
@@ -468,6 +469,7 @@ config
 const
 containerPort
 cp
+criterias
 cron
 crontab
 crontabs
@@ -509,6 +511,7 @@ frontend
 fullscreen
 func
 gRPC
+gamify
 geospatial
 gz
 gzip
@@ -524,6 +527,7 @@ idempotency
 idempotent
 ie
 ifconfig
+incentivize
 ini
 init
 inodes
@@ -536,6 +540,7 @@ kubeconfig
 kubectl
 kubenet
 kustomize
+learnings
 lifecycle
 localhost
 macOS
@@ -547,11 +552,13 @@ microservices
 middleware
 minikube
 mins
+mitigations
 mnt
 multiuser
 mv
 namespace
 nav
+navigatable
 netstat
 nginx
 ngrok
@@ -598,6 +605,7 @@ scp
 sed
 sitename
 sln
+squadmembers
 src
 stateful
 stderr
