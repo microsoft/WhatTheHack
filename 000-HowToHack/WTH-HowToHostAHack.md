@@ -2,21 +2,37 @@
 
 We've structured the What The Hack format to make it easy to deliver to students both in person and virtually. The following are instructions, tips and tricks to hosting your own What The Hack event and have it go off without a hitch. You may choose to adopt as much or little as you would like. This guidance has been cobbled together from experience based on what has worked before.
 
-With the Covid-19 pandemic, virtual events will be the way of the future for some time. Participating in a team-based hands-on event virtually may be a new concept for many. However, we have found that virtual What The Hack events are often more collaborative than a traditional in-person event.
-
 This document has the following sections:
 
+- [WTH Planning Timeline](#suggested-planning-timeline)
 - [WTH Event Requirements](#what-do-you-need-to-host-a-what-the-hack-event)
 - [WTH Event Preparation](#event-preparation)
 - [WTH Event Day](#event-day)
 
-## What do you need to host a What The Hack event?
+## Suggested Planning Timeline
+
+| Start Date | End Date | Task | Notes |
+| ---------- | ---------- | ---------- | ---------- |
+| T-8 Weeks | | Identify coaches | |
+| T-8 Weeks | T-4 Weeks | Confirm WTH content and augment as needed | |
+| T-2 Weeks | | Create Teams (or alternative) collaboration environment | |
+| T-2 Weeks | | Coaches training | |
+| T-1 Weeks | | Confirm hacking environment and perform any setup required | |
+| T-1 Weeks | | Cloud Skills Challenge (optional) | |
+| T | T + Hack Days| Track attendance and participation | |
+| T + Last Day of Hack | | Send survey/solicit feedback | |
+| T + 1 Week | | Send readout to leadership | |
+| T + 30 Days | | Tear down Teams environment | |
+
+## What do you need to run a What The Hack event?
 
 At a minimum, three things:
 
 1. [Hack Content](#hack-content)
 1. [Microsoft Teams](#microsoft-teams)
 1. [People](#people)
+
+Optionally, consider doing a Cloud Skills Challenge leading up to the WhatTheHack event to help attendees prepare.
 
 ### Hack Content
 
@@ -80,7 +96,9 @@ Adding external users as guests in Microsoft Teams requires you to add each user
 
 For more information, see [Guest access in Microsoft Teams](https://docs.microsoft.com/en-us/MicrosoftTeams/guest-access)
 
+
 **NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest access is typically managed by someone in the IT department who is **NOT** you. If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
+
 
 #### Reverse Guest Access
 
@@ -106,7 +124,7 @@ Most of the hacks in the What The Hack collection require attendees to have "Con
 
 It is important to work with the event stakeholder to decide how attendees will access Azure. Some organizations may provide individuals with their own subscriptions. Other organizations may provide access to a shared subscription created specifically for attendees to use during the hack event.
 
-If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end.
+If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end.  It is also important to make sure the subscription is not tied to any Azure Policy definitions that may impact the creation of necessary resources.
 
 If the organization is not providing access to an Azure subscription for the hack, attendees will need to provide there own.
 
@@ -124,7 +142,7 @@ One workaround is to use the Azure Cloud Shell. However, some organizations may 
 
 Tight firewalls may make it challenging to access Azure itself from an organization's workstations. This is when you bang your head against the wall, give up, and be thankful you don't work for that organization! :)
 
-All of these security concerns and their mitigations should be identified and addressed with the organization event stakeholder ahead of time.
+All of these security concerns and their mitigation should be identified and addressed with the organization event stakeholder ahead of time.
 
 ### Microsoft Team Creation
 
@@ -158,7 +176,7 @@ Most hacks in the [What The Hack Collection](../readme.md#what-the-hack-collecti
 
 The challenges for each hack are published in the `/Student` folder of your What The Hack.
 
-Some hacks have published their Challenges in a Word or PDF document. Other hacks have published their hacks in navigatable Markdown files which can be viewed on the web via GitHub pages.
+Some hacks have published their Challenges in a Word or PDF document. Other hacks have published their hacks in navigable Markdown files which can be viewed on the web via GitHub pages.
 
 If the challenges are published in a Word or PDF document, copy the document from the What The Hack repo and upload it into the General Channel's Files tab. We recommend pinning the document as a Tab in the General Channel so it is easily accessible to attendees.
 
@@ -382,7 +400,7 @@ Determine how you want to break the attendees up into the smaller groups to form
 - At an in-person event, the squads can be set by the table the attendees sit at.
 - Load balanced by skill level - This encourages a mix of experts and novices so that there is shared learning. Experts are encouraged to help novices.
 - Segregated by skill level - This enables advanced participants to progress at a faster pace or take on additional challenges, while allowing novices to move at a less stressful pace as they work together to learn.
-- Play Dodgeball - The lead coach nominates a few attendees as squad leaders. Allow the squad leaders to pick their squadmembers like in gym class at school.
+- Play dodgeball - The lead coach nominates a few attendees as squad leaders. Allow the squad leaders to pick their squad members like in gym class at school.
 - At a virtual event, given various attendee locations, you may form squads by timezone. This enables squads to take break times that align to their timezone.
 - Random
 
@@ -450,7 +468,7 @@ A coach's main over-arching role is to act as a technical advisor to the attende
 
 At an in-person event, the coaches should be sitting at the table with their squad. At a virtual event, they should be engaged in their squad's channel meeting for the duration of the event.
 
-Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coaches may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
+Coaches will need to move around to interact with the lead coach, other coaches, or multiple squads. For example, a coach may ask another coach for help if a squad runs into an issue that the coach does not know how to solve.
 
 At a virtual event, the coaches can quickly jump in and out of the various Squad channels to check in on the squad and provide support as required by joining the various channel meetings.
 
@@ -471,7 +489,7 @@ During the hack, a coach's responsibilities include:
     - Use the solutions in the Coach’s guide to provide guidance, but do not share with the attendees
     - The Coach’s guide will not be comprehensive. As subject matter experts, coaches should share their knowledge and explain key concepts to help the attendees
 - Notify the lead coach of unexpected blockers that arise during the event so they can be communicated to all squads and recorded for future reference.
-- Verify that a squad has completed each challenge by checking that they have met all of the success criterias.
+- Verify that a squad has completed each challenge by checking that they have met all of the success criteria.
 - Solicit continuous feedback from the attendees on their experience, the content, and what can be done to improve it. Encourage them to use the Feedback channel to share with all of the coaches.
 
 **NOTE:** Attendees should not be judged on how far they get. No trophies should be given for challenge completion. If event hosts want to gamify/incentivize attendees, they should focus on encouraging attendees to share with each other.

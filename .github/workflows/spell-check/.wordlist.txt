@@ -131,6 +131,7 @@ DirectQuery
 Dockerfile
 Dockerfiles
 Dockerize
+Dodgeball
 DocumentDB
 Dodgeball
 EKS
@@ -138,6 +139,8 @@ EOF
 ETL
 EntityFramework
 Ethernet
+Eventbrite
+Eventzilla
 EventHub
 EventHubs
 Excel
@@ -151,6 +154,7 @@ FileStorage
 FirstName
 FluentD
 FrontDoor
+Gamify
 GCP
 GDPR
 GKE
@@ -185,6 +189,7 @@ ISA
 ISE
 IaC
 IaaS
+Incentivize
 InstrumentationKey
 IntelliJ
 Intellisense
@@ -218,6 +223,7 @@ LOC
 LRS
 LTS
 LastName
+Learnings
 LinkedIn
 LinkerD
 Linq
@@ -334,6 +340,7 @@ ResourceAlias
 ResourceGroup
 ResourceGroupName
 ResourceId
+RSVPify
 Runbook
 Runbooks
 Runtime
