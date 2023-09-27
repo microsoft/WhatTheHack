@@ -1,35 +1,37 @@
-# Challenge 05 - Azure Pipelines: Continuous Integration
+# Challenge 05 - Azure Pipelines: Build and Push Docker Image to Container Registry
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
-Great we now have some infrastructure and some code, lets build it. In DevOps we automate this process using something called Continuous Integration. Take a moment to review the article below to gain a better understanding of what CI is. 
+Now we need to extend our workflow with steps to build a Docker image and push it to Azure Container Registry (ACR). In the NEXT challenge, we will configure the Web App to pull the image from ACR.
 
-1. [What is Continuous Integration?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-integration)
+Containers are a great way to package and deploy applications consistently across environments. If you are new to containers, there are 3 key steps to creating and publishing an image - outlined below. Because this is a What The Hack focused on DevOps and not containers, we strove to make this challenge as straightforward as possible.
+
+- `docker login` - You need to login to the container registry that you will push your image to. As you can imagine, you don't want anyone to publish an image in your registry, so it is often setup as a private registry...requiring authentication to push and pull images.
+
+- `docker build` - You need to call docker.exe (running locally on your machine or on your build server) to create the container image. A *critical* component of this is the `Dockerfile`, which gives instructions to docker.exe on how to build the image, the files to copy, ports to expose and startup commands.
+
+- `docker push` - Once you have created your docker image, you need to store it in the container registry, which is our secured and centralized location to store docker images. Docker supports a push command that copies the Docker image to the registry in the proper repository. A repository is a logical way of grouping and versioning Docker images.
 
 ## Description
 
-In Azure DevOps we use Azure Pipelines to automate our build process. For our application the build process will not only compile our .NET Core application, it should test it, and package it into a Docker Container and publish the container to Azure Container Registry.
+In this challenge, you will build and push a docker image to ACR:
 
-- Use the **classic editor** to create a build pipeline using the **ASP.NET Core** template (the one with the icon with the black box) and name it `CI Build`
-- Enable continuous integration on your build pipeline ([hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav#enable-continuous-integration-ci))
-- Review the 4 .NET Core build tasks that were added to our build pipeline by default. These are the 4 major steps to building a .NET Core application ([Hint](https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/dotnet-core?view=azure-devops&tabs=designer)).
-   1. First we call the `restore` command, this will get all the dependencies that our .net core application needs to compile
-   2. Next we call the `build` command, this will actually compile our code
-   3. Next we call the `test` command, this will execute all our unit tests 
-   4. The last .NET Core build task in the template is to `publish` the .net core app. The template publishes the application to a zip file, we don’t want it zipped so undo this setting. Additionally, change the output argument to here `$(System.DefaultWorkingDirectory)/PublishedWebApp` 
-- You can delete the `publish artifact` step since we are going to create a container and publish it to Azure Container Registry.
-- Now that our .NET core application is compiled and all the unit tests have been run, we need to package it into a Docker Container and publish the container to Azure Container Registry, to do this we are going to add a docker task to our build pipeline.
-   1. We want to use the `buildAndPush` command with the following Docker file `**/Dockerfile`, build context `$(System.DefaultWorkingDirectory)/PublishedWebApp` and tag `$(Build.BuildId)` (NOTE: here we are dynamically pulling the build number from Azure DevOps at run time)
-   2. Next we need to connect it to the container registry and repository (i.e. `<prefix>devopsimage`) that we setup in our infrastructure as code challenge.
-- Lets kick off a build manually to ensure that we have a working build.
-- Next lets notify the team if the build breaks by setting a **Build Option** to create a new Work Item. 
-- Now, make and check in a code change that will break the build. Ensure that a work item gets created. 
-- Referencing the work item that was automatically created, fix your code, ensure the build looks good, and then resolve the work item that was created.
+- Create a new service connection to your container registry.  This will help bridge the connection from Azure DevOps to Azure Container Registry.  You should select the container registry created from the ARM template in the previous challenge.
+
+- Return to your CI Build workflow and add a another **task** to your existing .NET Core workflow. We recommend finding and adding the "Docker" task via the assistant.  The Docker task will help with the login/build/push that we described earlier.
+
+- Test the workflow by making a small change to the application code (i.e., add a comment). Commit, push, monitor the workflow and verify that a new container image is built, uniquely tagged and pushed to ACR after each successful workflow run.
 
 ## Success Criteria
 
-1. Your build should complete without any errors.
-2. Review the test results generated by your build. HINT: look in the logs from your build to find where the test run was published. 
-3. Using the Azure Portal or CLI you should see your container in your Azure Container Registry Repository
+- Show that a new container image is built, uniquely tagged and pushed to ACR after each successful workflow run.
+
+## Learning Resources
+
+- [Managing Service Connections](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+- [Building Docker Images](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-7.0)
+- [Azure Container Registry Operations](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli)
+- [Container Image Tags and Best Practices](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-image-tag-version)
+
