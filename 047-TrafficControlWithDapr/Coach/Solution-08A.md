@@ -77,7 +77,7 @@ _IMPORTANT: The Azure Container Registry has the **admin** account enabled to ma
     zipkin-f5c696fb7-ns65k                         1/1     Running   0          11s
     ```
 
-    If you pods are not running (their status is `CrashLoopBackOff`), you will need to look into the pod logs to see what is wrong.
+    If your pods are not running (their status is `CrashLoopBackOff`), you will need to look into the pod logs to see what is wrong.
 
     Remember, there are 3 containers in each pod, the actual service container, the `daprd` container & the `azwi-proxy` pod (which allows the use of workflow identity).
 
