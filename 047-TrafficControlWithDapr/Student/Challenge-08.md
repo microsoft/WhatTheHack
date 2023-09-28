@@ -17,5 +17,3 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 ### [Azure Container Apps - Path B](./Challenge-08B.md)
 
 - Deploy the Traffic Control App to Azure Container Apps (ACA)
-
-Thanks for participating in these hands-on challenges! Hopefully you've learned about Dapr and how to use it. Obviously, these challenges barely scratch the surface of what is possible with Dapr. We have not touched upon subjects like: hardening production environments, actors, integration with Azure Functions and Azure API Management just to name a few. So if you're interested in learning more, I suggest you read the [Dapr documentation](https://docs.dapr.io).
