@@ -31,7 +31,7 @@ simulate various failures.
 	 - Can your application survive an Azure outage of 1 or more Availability Zones?
 * Challenge 03: **[Godzilla takes out an Azure region!](Student/Challenge-03.md)**
 	 - Can your application survive a region failure? 
-* Challenge 04: **[[Optional] Injecting Chaos into your CI/CD pipeline](Student/Challenge-04.md)**
+* Challenge 04: **[Injecting Chaos into your CI/CD pipeline](Student/Challenge-04.md)**
 	 - Optional challenge, using Chaos Studio experiments in your CI/CD pipeline
 
 ## Prerequisites

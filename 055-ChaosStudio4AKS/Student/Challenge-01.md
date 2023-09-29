@@ -21,9 +21,9 @@ If you are using your own AKS application, your application should be ready to h
 
 Create failure at the AKS pod level in your preferred region e.g. EastUS
 
-- Prepare environment for AKS failures 
-- Load and scope the Chaos Experiment to the workload's web tier
-- Observe the failure
+- Show that your AKS environment has been prepared 
+- Show that your Chaos Experiment has been scoped to the web tier workload
+- Show (if any) any failure you observed during the experiment
 
 During the experiment, were you able to order a pizza or perform your appplication's functionality? If not, what could you do to make your application resilient at the POD layer?  
 
@@ -32,10 +32,8 @@ During the experiment, were you able to order a pizza or perform your appplicati
 
 - Verify Chaos Mesh is running on the Cluster
 - Verify Pod Chaos restarted the application's AKS pod
-- Observe any failure in the application
-- Was your application available? 
-- If your application went offline, what change could you make to the application?
-- Rerun the experiment and verify if the change was successful   
+- Show any failure you observed during the experiment
+- If your application went offline, show what change could you make to the application to make it resillent
 
 ## Tips
 

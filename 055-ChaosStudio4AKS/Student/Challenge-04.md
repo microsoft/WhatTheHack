@@ -1,4 +1,4 @@
-# Challenge 04: [Optional] Injecting Chaos into your CI/CD pipeline
+# Challenge 04: Injecting Chaos into your CI/CD pipeline
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)**
 
@@ -24,8 +24,8 @@ Run your experiments in Dev/Test, do not run in Prod.
 
 ## Success Criteria
 
-- Chaos Studio injects fault(s) into your application.
-- Your application remains healthy during the Chaos Experiment. 
+- Show that Chaos Studio injects fault(s) into your application via your pipeline.
+- Verify that your application remains healthy during the Chaos Experiment. 
 
 ## Learning Resources 
 - How to deploy a simple experiment https://blog.meadon.me/chaos-studio-part-1/

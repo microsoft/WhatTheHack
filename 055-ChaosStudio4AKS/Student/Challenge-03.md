@@ -36,7 +36,7 @@ During the experiment, were you able to order a pizza? If not, what could you do
 ## Success Criteria
 
 - Verify the experiment is running
-- Observe any failure(s)
+- Show any failure you observed during the experiment
 - Verify application is available after WestUS region is offline
 - Verify all application traffic is routing to the surviving region
 

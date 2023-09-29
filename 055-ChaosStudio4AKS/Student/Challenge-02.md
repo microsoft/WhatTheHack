@@ -31,7 +31,7 @@ Machine layer?
 ## Success Criteria
 
 - Show that Chaos Experiment fails a node running the pizzeria application
-- Observe any failure
+- Show any failure you observed during the experiment
 - Discuss with your coach how your application is (or was made) resilient
 - Verify the pizza application is available while a virtual machine is offline
 
