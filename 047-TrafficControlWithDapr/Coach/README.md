@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+
 # What The Hack - Traffic Control With Dapr - Coach Guide
+
+=======
+
+# What The Hack - Traffic Control with Dapr - Coach Guide
+
+> > > > > > > 1fec8a93 (spelling)
 
 ## Introduction
 
