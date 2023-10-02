@@ -7,6 +7,7 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-
   name: managedIdentityName
 }
 
+#disable-next-line BCP081
 resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
   name: aksName
   location: location
