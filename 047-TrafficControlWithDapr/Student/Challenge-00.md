@@ -15,6 +15,7 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 ### Install local prerequisites
 
 Your coach will have indicated which tools you need to install locally.
+
 - Git ([download](https://git-scm.com/))
 - .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
 - Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
@@ -63,7 +64,7 @@ _If you can't instantiate some of these resources, you won't be able to complete
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
   - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
-  - 1 Zipkin service running to monitor communciation between the services.
+  - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
 **IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
@@ -72,16 +73,16 @@ _If you can't instantiate some of these resources, you won't be able to complete
 
 **IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
 
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
-1.  [https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+1.  [Install the AKS Preview Azure CLI Extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
+1.  [Register the `enableworkloadidentitypreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
+1.  [Register the `enabledoidcissuepreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
 
 ### Deployment
 
 To start, you'll need access to an Azure Subscription & Resource Group:
 
 - If you don't have one, [Sign Up for an Azure account](https://azure.microsoft.com/en-us/free/).
-  - You will need the following subcription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
+  - You will need the following subscription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
     - `Microsoft.App`
     - `Microsoft.ContainerService`
     - `Microsoft.ContainerRegistry`
