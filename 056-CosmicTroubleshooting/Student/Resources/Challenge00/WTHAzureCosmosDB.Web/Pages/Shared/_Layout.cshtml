@@ -136,6 +136,14 @@
                             statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>WAITING</span> The test is waiting to be executed.</p>" +
                             "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 0%\"></div></div>");
                         }
+                        else if(msg.status == "PROVISIONING"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>PROVISIONING</span> The test is currently being provisioned.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 10%\"></div></div>");
+                        }
+                        else if(msg.status == "CONFIGURING"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>PROVISIONING</span> The test is currently being configured.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 25%\"></div></div>");
+                        }
                         else if(msg.status == "EXECUTING"){
                             statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>EXECUTING</span> The test is currently simulating the load.</p>" +
                             "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 50%\"></div></div>");
@@ -151,7 +159,7 @@
                             isTestRunning = false;
                         }
                         else{
-                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-danger'>UNKNOWN ERROR</span> Unknown error during gathering current state.</p>");
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-danger'>UNKNOWN ERROR</span> Unknown error during gathering current state</p>");
                             isTestRunning = false;
                         }
                    

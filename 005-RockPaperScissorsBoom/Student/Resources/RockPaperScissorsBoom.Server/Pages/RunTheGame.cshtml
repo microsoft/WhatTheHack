@@ -1,0 +1,166 @@
+﻿@page
+@model RockPaperScissorsBoom.Server.Pages.RunTheGameModel
+@{
+    ViewData["Title"] = "RunTheGame";
+}
+<div class="container">
+    <div class="row">
+        <div class="container col shadow rounded-3 me-3">
+            <div class="container">
+                <table class="table table-striped table-sm caption-top">
+                    <caption class="h3">Bot Results</caption>
+                    <thead>
+                        @{
+                            if (Model.BotRankings.Count > 0)
+                            {
+                                <tr class="table-info">
+                                    <th>Place</th>
+                                    <th>Bot Name</th>
+                                    <th class="text-center">Win</th>
+                                    <th class="text-center">Loss</th>
+                                    <th class="text-center">Tie</th>
+                                </tr>
+                            }
+                        }
+                    </thead>
+                    <tbody>
+                        @{
+                            for (int i = 0; i < Model.BotRankings.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        @(i + 1)
+                                    </td>
+                                    <td>
+                                        @Model.BotRankings[i].Competitor?.Name
+                                    </td>
+                                    <td align="center">
+                                        <span class="badge rounded-pill bg-success">@Model.BotRankings[i].Wins</span>
+                                    </td>
+                                    <td align="center">
+                                        <span class="badge rounded-pill bg-danger">@Model.BotRankings[i].Losses</span>
+                                    </td>
+                                    <td align="center">
+                                        <span class="badge rounded-pill bg-info">@Model.BotRankings[i].Ties</span>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+                <form method="post" asp-page="RunTheGame" id="runTheGameForm" class="text-center">
+                    <div class="m-3">
+                        <button type="submit" class="btn btn-primary" id="runTheGameButton" onclick="return DisplayProgressMessage();">
+                            Run the game again
+                        </button>
+                        <button class="btn btn-primary" type="button" id="runningTheGameButton" disabled hidden>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Running the game...
+                        </button>
+                    </div>
+                    <div class="m-3">
+                        <div id="progressBarDiv" class="progress" hidden>
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Game Progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container col shadow rounded-3 ms-3">
+            <div class="contianer">
+                <table class="table table-striped caption-top table-sm">
+                    <caption class="h3">Top Game Results</caption>
+                    <thead>
+                        <tr class="table-info">
+                            <th>Last Played</th>
+                            <th>1st Place</th>
+                            <th>2nd Place</th>
+                            <th>3rd Place</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var game in Model.GamesForTable)
+                        {
+                            <tr>
+                                <td>
+                                    @game.GameDate
+                                </td>
+                                <td>
+                                    @(game.BotRecords.Count > 0 ? game.BotRecords.OrderByDescending(b => b.Wins).First().Competitor?.Name : "")
+                                </td>
+                                <td>
+                                    @(game.BotRecords.Count > 1 ? @game.BotRecords.OrderByDescending(b => b.Wins).Skip(1).First().Competitor?.Name : "")
+                                </td>
+                                <td>
+                                    @(game.BotRecords.Count > 2 ? @game.BotRecords.OrderByDescending(b => b.Wins).Skip(2).First().Competitor?.Name : "")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="container shadow rounded-3">
+            <div class="container">
+                <h3 class="">Full Game Results</h3>
+                <div class="card-columns">
+                    <div class="row">
+                        @foreach (var fullResults in Model.AllFullResults)
+                        {
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="container shadow">
+                                    <div class="container">
+                                        <table class="table table-striped caption-top table-sm">
+                                            <caption class="h4">Results for: @fullResults.Competitor.Name</caption>
+                                            <thead>
+                                                <tr class="table-info">
+                                                    <th>Player 1</th>
+                                                    <th>Player 2</th>
+                                                    <th>Result</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var matchResult in fullResults.MatchResults)
+                                                {
+                                                    <tr>
+                                                        <td>@matchResult.Player1.Name</td>
+                                                        <td>@matchResult.Player2.Name</td>
+                                                        <td>@matchResult.WinningPlayer</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function DisplayProgressMessage() {
+        $('#runTheGameButton').hide();
+        $('#runningTheGameButton').removeAttr('hidden');
+        $('#progressBarDiv').removeAttr('hidden');
+        return true;
+    }
+</script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script type="text/javascript">
+    var connection = new signalR.HubConnectionBuilder().withUrl("/ProgressBarHub").build();
+    connection.on("UpdateProgressBar", function (gameNumber, totalGames) {
+        var progressBar = document.getElementById("progressBar");
+        progressBar.style.width = Math.floor(gameNumber / totalGames * 100) + "%";
+        progressBar.textContent = Math.floor(gameNumber / totalGames * 100) + "%";
+    });
+    connection.start().then(function () {
+        console.log("SignalR: Connection Started");
+    }).catch(function (err) {
+        return console.error("SignalR: Error: " + err.toString());
+    });
+</script>
