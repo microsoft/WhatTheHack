@@ -10,7 +10,6 @@
     },
     "environment": {
       "value": "dev"
-<<<<<<< HEAD
     },
     "containerAppTrafficControlServiceObject": {
       "value": {
@@ -44,8 +43,6 @@
         "cpu": 1,
         "memory": "2.0Gi"
       }
-=======
->>>>>>> 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
     }
   }
 }

@@ -10,6 +10,9 @@ MailDev
 Molenkamp
 Mosquitto
 Rutz
+KMh
+MailDev
+Mosquitto
 SpeedingViolation
 TrafficControl
 TrafficControlService
@@ -20,6 +23,11 @@ VehicleState
 Vettor
 WebAPI
 Wijk
+collectfine
+daprd
+deployer
+zipkin
+WebAPI
 collectfine
 daprd
 deployer

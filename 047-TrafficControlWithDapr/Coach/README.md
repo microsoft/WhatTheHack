@@ -26,8 +26,6 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
   - Add the Dapr secrets management building block.
 - Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Solution-08.md)**
   - # Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or an Azure Container Apps service.
-- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Solution-08.md)**
-  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
 
 ## Coach Prerequisites
 
@@ -65,7 +63,6 @@ You will need the following subscription [resource providers](https://learn.micr
 - `Microsoft.Storage`
 - `Microsoft.Web`
 
-- # If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access)) for the resource group in which you'll provision Azure resources.
 - If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
 
 _Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._

@@ -15,7 +15,6 @@ Your coach will provide you with a `Resources.zip` package file that contains th
 ### Install local prerequisites
 
 Your coach will have indicated which tools you need to install locally.
-
 - Git ([download](https://git-scm.com/))
 - .NET 6 SDK ([download](https://dotnet.microsoft.com/download/dotnet/6.0))
 - Visual Studio Code ([download](https://code.visualstudio.com/download)) with the following extensions installed:
@@ -58,7 +57,7 @@ This hack's setup files will create the following resources in your Azure Resour
 
 _If you can't instantiate some of these resources, you won't be able to complete the part of the challenge that uses them, but you may still be able to complete the other challenges_
 
-#### Special Considerations for Azure Kubernetes Service (AKS)
+### Deployment
 
 - AKS requires the ability to create a public IP address. This may be blocked by some organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
@@ -101,8 +100,6 @@ _Your IT organization may provide you access to an Azure resource group, but not
 # Next, you'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
 
 You'll create the Azure resources for the subsequent challenges using [Azure Bicep](https://docs.microsoft.com/azure/azure-resource-manager/bicep/overview) and the [Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
-
-> > > > > > > 5a680681 ([Hack Update] 047-TrafficControlWithDapr WTH updates based upon internal workshop feedback (#518))
 
 1.  If you're using [Azure Cloud Shell](https://shell.azure.com), skip this step and proceed to step 2. Open the [terminal window](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code and make sure you're logged in to Azure
 
