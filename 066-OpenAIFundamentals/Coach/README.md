@@ -2,13 +2,17 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the Azure OpenAI Fundamentals What The Hack. While this Hack is designed to be taken individually in a self-paced, self-administered manner, here you will find links to specific guidance for each of the challenges. There can be multiple ways to implement a solution in the challenges, so these solution guides are non-exhaustive but are rather, guides for when participants are feeling stuck or if they would like to compare solutions.
+Welcome to the coach's guide for the Azure OpenAI Fundamentals What The Hack. While this Hack is designed to be taken individually in a self-paced, self-administered manner, here you will find links to specific guidance for each of the challenges. There can be multiple ways to implement a solution in the challenges, so these solution guides are non-exhaustive but are rather, guides for when participants are feeling stuck or if they would like to compare solutions. In addition, take a look at the suggested hack agenda for options on how to conduct this hack with your participants.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. We encourage you to challenge yourself and avoid cheating yourself out of the experience by only referencing these when needed.
 
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge.
 
+## Suggested Hack Agenda 
+The following is guidance for hosting this hack versus directing students to self-administer.
+- Create a 2-week async format where participants work through these challenges at their own pace. There would be an initial synchronous kick-off call. Coaches would provide office hours a few times a week. In addition, there would be asynchronous support via a Microsoft Team's Channel - one channel per challenge that the SMEs/Coaches monitor for the duration of the hack.
+- Run the hack for 2-3 days with coach assistance. Have all the participants join the kickoff call. Create breakout rooms for each coach to work with their set of students. Encourage the participants to work with each other in a team.
 
 ## Coach's Guides
 There are six challenges, but only the first four require participants to generate their own code. We have included solution guides for those challenges here.
@@ -19,11 +23,19 @@ There are six challenges, but only the first four require participants to genera
 	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
 - Challenge 02: **[OpenAI Models & Capabilities](./Solution-02.md)**
-	 - What are the capacities of each Azure OpenAI model?
+	 - This challenge is OPTIONAL.
+   - What are the capacities of each Azure OpenAI model?
 	 - How to select the right model for your application
 - Challenge 03: **[Grounding, Chunking, and Embedding](./Solution-03.md)**
 	 - Why is grounding important and how can you ground a Large Language Model (LLM)?
 	 - What is a token limit? How can you deal with token limits? What are techniques of chunking?
+- Challenge 04: **[Retrieval Augmented Generation (RAG)](./Solution-04.md)**
+	 - What is Retrieval Augmented Generation?
+	 - How does it work with structured and unstructured data?
+- Challenge 05: **[Responsible AI](./Solution-05.md)**
+	   - What are services and tools to identify and evaluate harms and data leakage in LLMs?
+     - What are ways to evaluate truthfulness and reduce hallucinations?
+     - What are methods to evaluate a model if you don't have a ground truth dataset for comparison?
 
 ## Coach Prerequisites
 

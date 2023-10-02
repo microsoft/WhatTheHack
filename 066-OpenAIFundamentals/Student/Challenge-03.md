@@ -12,7 +12,11 @@
 
 ## Introduction
 
-When working with large language models, it is important to understand how to ground them with the right data. In addition, you will take a look at how to deal with token limits when you have a lot of data. Finally, you will experiment with embeddings. This challenge will teach you all the fundamental concepts before you see them in play in Challenge 4.
+When working with large language models, it is important to understand how to ground them with the right data. In addition, you will take a look at how to deal with token limits when you have a lot of data. Finally, you will experiment with embeddings. This challenge will teach you all the fundamental concepts - Grounding, Chunking, Embedding - before you see them in play in Challenge 4. Below are brief introductions to the concepts you will learn.
+
+Grounding is a technique used when you want the model to return reliable answers to a given question.
+Chunking is the process of breaking down a large document. It helps limit the amount of information we pass into the model.
+An embedding is an information dense representation of the semantic meaning of a piece of text.
 
 ## Description
 
@@ -36,9 +40,9 @@ You will run the following three Jupyter notebooks for this challenge. You can f
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Identify the simplest method for grounding
-- Understand chunking techniques
-- Create embeddings 
+- Verify that you are able to ground a model through the system message
+- Demonstrate various chunking techniques
+- Demonstrate how to create embeddings 
 
 ## Additional Resources 
 
