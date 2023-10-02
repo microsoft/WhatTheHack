@@ -92,10 +92,6 @@ _If you can't instantiate some of these resources, you won't be able to complete
   - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
-**IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
-
-[https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
-
 **IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
 
 1.  [Install the AKS Preview Azure CLI Extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
