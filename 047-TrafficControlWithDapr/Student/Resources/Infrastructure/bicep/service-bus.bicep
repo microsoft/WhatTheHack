@@ -48,7 +48,7 @@ resource diagnosticSettings 'Microsoft.Insights/diagnosticsettings@2017-05-01-pr
   }
 }
 
-output serviceBusName string = serviceBus.name
+output serviceBusNamespaceName string = serviceBus.name
 output serviceBusEndpoint string = serviceBus.properties.serviceBusEndpoint
 var endpoint = '${serviceBus.id}/AuthorizationRules/RootManageSharedAccessKey'
 #disable-next-line outputs-should-not-contain-secrets

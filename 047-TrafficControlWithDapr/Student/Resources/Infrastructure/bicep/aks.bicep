@@ -21,7 +21,7 @@ resource managedIdentityManagedIdentityOperatorRoleAssignment 'Microsoft.Authori
   scope: managedIdentity
 }
 
-resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
+resource aks 'Microsoft.ContainerService/managedClusters@2022-11-01' = {
   name: aksName
   location: location
   dependsOn: [
@@ -63,11 +63,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
         }
       }
     }
-    securityProfile: {
-      workloadIdentity: {
-        enabled: true
-      }
-    }
+    securityProfile: {}
     oidcIssuerProfile: {
       enabled: true
     }
