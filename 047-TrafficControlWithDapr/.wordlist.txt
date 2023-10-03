@@ -34,12 +34,6 @@ Wijk
 collectfine
 daprd
 deployer
-zipkin
-WebAPI
-Wijk
-collectfine
-daprd
-deployer
 hardcode
 observability
 primaryKey
