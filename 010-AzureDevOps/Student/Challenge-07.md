@@ -19,11 +19,11 @@ In this challenge we will first create a second build pipeline that will build a
    - Remove all but the `restore`, `build` and `test` tasks.
    - Turn off the continuous integration trigger.
 - Setup a Branch Policy to protect our `master` branch, [hint](https://docs.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops). The policy shall: 
-   - Require at least 1 reviewer, however users should be able to approve their own changes (NOTE: you will likely not want to do this in a real app)
+   - Require at least 1 reviewer, however, users should be able to approve their own changes (NOTE: you will likely not want to do this in a real app)
    - Require at least 1 linked work item.
    - Perform a `Build validation` using our new build pipeline.
-- Using a simple Git Branching strategy lets make a change. 
-   - Your manager has asked that you update the copyright information at the bottom of the site, currently it says `© ASP.NET Core` and it should say `© 2019 Contoso Corp.`
+- Using a simple Git Branching strategy let's make a change. 
+   - Your manager has asked that you update the name of the site from "Message System" to "Contoso Message System"
    - Create a Work Item requesting we implement the feature. 
    - Make the change in your code. Be sure to make this change on a new "feature branch"
    - Create a Pull Request to merge the change into `master`. Notice how the policies you set are audited on your pull request.
@@ -31,5 +31,6 @@ In this challenge we will first create a second build pipeline that will build a
 
 ## Success Criteria
 
-1. You should see the change you made deployed to all three of your environments.
-2. Your work item should be in the "closed" state.
+1. Verify that the change you made deployed to all three of your environments.
+1. Verify that your work item should be in the "closed" state.
+1. Show that the branch policies were in place to audit your pull request.

@@ -131,12 +131,16 @@ DirectQuery
 Dockerfile
 Dockerfiles
 Dockerize
+Dodgeball
 DocumentDB
+Dodgeball
 EKS
 EOF
 ETL
 EntityFramework
 Ethernet
+Eventbrite
+Eventzilla
 EventHub
 EventHubs
 Excel
@@ -150,6 +154,7 @@ FileStorage
 FirstName
 FluentD
 FrontDoor
+Gamify
 GCP
 GDPR
 GKE
@@ -184,6 +189,7 @@ ISA
 ISE
 IaC
 IaaS
+Incentivize
 InstrumentationKey
 IntelliJ
 Intellisense
@@ -217,6 +223,7 @@ LOC
 LRS
 LTS
 LastName
+Learnings
 LinkedIn
 LinkerD
 Linq
@@ -333,6 +340,7 @@ ResourceAlias
 ResourceGroup
 ResourceGroupName
 ResourceId
+RSVPify
 Runbook
 Runbooks
 Runtime
@@ -467,6 +475,7 @@ config
 const
 containerPort
 cp
+criterias
 cron
 crontab
 crontabs
@@ -508,6 +517,7 @@ frontend
 fullscreen
 func
 gRPC
+gamify
 geospatial
 gz
 gzip
@@ -523,6 +533,7 @@ idempotency
 idempotent
 ie
 ifconfig
+incentivize
 ini
 init
 inodes
@@ -535,6 +546,7 @@ kubeconfig
 kubectl
 kubenet
 kustomize
+learnings
 lifecycle
 localhost
 macOS
@@ -546,11 +558,13 @@ microservices
 middleware
 minikube
 mins
+mitigations
 mnt
 multiuser
 mv
 namespace
 nav
+navigatable
 netstat
 nginx
 ngrok
@@ -597,6 +611,7 @@ scp
 sed
 sitename
 sln
+squadmembers
 src
 stateful
 stderr
