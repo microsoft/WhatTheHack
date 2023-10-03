@@ -117,6 +117,7 @@ function Enable-AzureResourceProviders {
   Write-Debug "Checking Azure resource providers..."
 
   $requiredProviders = @(
+    'Microsoft.App'
     'Microsoft.Cache'
     'Microsoft.ContainerService'
     'Microsoft.ContainerRegistry'
