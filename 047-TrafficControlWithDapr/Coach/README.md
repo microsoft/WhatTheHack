@@ -1,4 +1,4 @@
-# What The Hack - Traffic Control With Dapr - Coach Guide
+# What The Hack - Traffic Control with Dapr - Coach Guide
 
 ## Introduction
 
@@ -24,8 +24,8 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
   - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry-cam and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Dapr Secrets Management](Solution-07.md)**
   - Add the Dapr secrets management building block.
-- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Solution-08.md)**
-  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
+- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Solution-08.md)**
+  - # Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or an Azure Container Apps service.
 
 ## Coach Prerequisites
 
@@ -35,7 +35,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the \`/Student/Resources\` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -49,18 +49,19 @@ To start, you'll need access to an Azure Subscription & Resource Group.
 
 You will need the following subscription [resource providers](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types) registered.
 
-- Microsoft.Cache
-- Microsoft.ContainerService
-- Microsoft.ContainerRegistry
-- Microsoft.Devices
-- Microsoft.EventHub
-- Microsoft.Insights
-- Microsoft.Key Vault
-- Microsoft.Logic
-- Microsoft.OperationalInsights
-- Microsoft.ServiceBus
-- Microsoft.Storage
-- Microsoft.Web
+- `Microsoft.App`
+- `Microsoft.Cache`
+- `Microsoft.ContainerService`
+- `Microsoft.ContainerRegistry`
+- `Microsoft.Devices`
+- `Microsoft.EventHub`
+- `Microsoft.Insights`
+- `Microsoft.KeyVault`
+- `Microsoft.Logic`
+- `Microsoft.OperationalInsights`
+- `Microsoft.ServiceBus`
+- `Microsoft.Storage`
+- `Microsoft.Web`
 
 - If you already have an Azure account, make sure you have at least **Owner** [access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
 
@@ -91,15 +92,11 @@ _If you can't instantiate some of these resources, you won't be able to complete
   - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.
 
-**IMPORTANT:** You will need to register the AKS Dapr extension feature flags in your Azure subscription. Follow the instructions at the link provided below.
-
-[Enable the Azure CLI Extension for Cluster Extensions](https://docs.dapr.io/developing-applications/integrations/azure/azure-kubernetes-service-extension/#enable-the-azure-cli-extension-for-cluster-extensions)
-
 **IMPORTANT:** You will need to register the AKS Workload Identity extension feature flags in your Azure subscription. Follow the instructions at the links provided below.
 
 1.  [Install the AKS Preview Azure CLI Extension](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#install-the-aks-preview-azure-cli-extension)
-1.  [Register the enableworkloadidentitypreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
-1.  [Register the enabledoidcissuepreview feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
+1.  [Register the `enableworkloadidentitypreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableworkloadidentitypreview-feature-flag)
+1.  [Register the `enabledoidcissuepreview` feature flag](https://learn.microsoft.com/en-us/azure/aks/workload-identity-deploy-cluster#register-the-enableoidcissuerpreview-feature-flag)
 
 ## Student Local Machine Requirements
 

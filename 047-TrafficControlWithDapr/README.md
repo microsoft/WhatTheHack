@@ -40,8 +40,15 @@ When the car passes an exit-camera, another photo and timestamp are registered. 
   - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry- and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Dapr Secrets Management](Student/Challenge-07.md)**
   - Add the Dapr secrets management building block.
-- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS)](Student/Challenge-08.md)**
-  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster.
+- Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Student/Challenge-08.md)**
+  - Deploy the Dapr-enabled services you have written locally to an Azure Kubernetes Service (AKS) cluster or to an Azure Container Apps (ACA) service.
+
+## Repository Contents
+
+- `./Coach/Solutions`
+  - Coach's Solutions and related files
+- `./Student/Resources`
+  - Student's Challenge Guide
 
 ## Contributors
 
