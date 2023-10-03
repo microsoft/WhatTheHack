@@ -1,0 +1,104 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: CI Build
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Application
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: BuildandCreateContainerImage
+  jobs:
+  - job:
+    steps:
+      - task: DotNetCoreCLI@2
+        name: DotNet_Restore
+        inputs:
+          command: 'restore'
+          projects: '**/*.csproj'
+          feedsToUse: 'select'
+
+      - task: DotNetCoreCLI@2
+        name: DotNet_Build
+        inputs:
+          command: 'build'
+          projects: '**/*.csproj'
+      
+      - task: DotNetCoreCLI@2
+        name: DotNet_Test
+        inputs:
+          command: 'test'
+          projects: '**/tests/*.csproj'
+
+      - task: Docker@2
+        name: DockerBuild_and_Push
+        inputs:
+          containerRegistry: '***REPLACE WITH YOUR CONNECTION***'
+          repository: 'wth/dotnetcoreapp'
+          command: 'buildAndPush'
+          Dockerfile: '**/Dockerfile'
+
+- stage: Dev
+  jobs:
+  - deployment: DeployDev
+    environment: 'dev'
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: '***REPLACE WITH SUBSCRIPTION***'
+              appType: 'webAppContainer'
+              WebAppName: 'ahcsawth10webapp-dev'
+              DockerNamespace: 'ahcsawth10cr.azurecr.io'
+              DockerRepository: 'wth/dotnetcoreapp'
+              DockerImageTag: '$(Build.BuildId)'
+
+- stage: Test
+  jobs:
+  - deployment: DeployTest
+    environment: 'test'
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: '***REPLACE WITH SUBSCRIPTION***'
+              appType: 'webAppContainer'
+              WebAppName: 'ahcsawth10webapp-qa'
+              DockerNamespace: 'ahcsawth10cr.azurecr.io'
+              DockerRepository: 'wth/dotnetcoreapp'
+              DockerImageTag: '$(Build.BuildId)'
+
+- stage: Prod
+  jobs:
+  - deployment: DeployProd
+    environment: 'prod'
+    strategy: 
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: '***REPLACE WITH SUBSCRIPTION***'
+              appType: 'webAppContainer'
+              WebAppName: 'ahcsawth10webapp-prod'
+              DockerNamespace: 'ahcsawth10cr.azurecr.io'
+              DockerRepository: 'wth/dotnetcoreapp'
+              DockerImageTag: '$(Build.BuildId)'
