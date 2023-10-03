@@ -33,7 +33,7 @@ jobs:
             --title "Student Resources for ${{ inputs.hackathonName }}" \
             --notes "Student Resources for ${{ inputs.hackathonName }}" \
             --target ${{ inputs.branchName }}
-            
+
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
