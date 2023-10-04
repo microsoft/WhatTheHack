@@ -106,7 +106,7 @@ Now the output binding for the SendMail component will use the `smtp-user` and `
 
 ### Step 3: Get the license key for the `FineCalculator` component
 
-The `CollectionController` of the `FineCollectionService` uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded, remember this is a sample application!).
+The `CollectionController` of the `FineCollectionService` uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded. Remember this is a sample application!).
 
 You will now change the controller so it retrieves the license key from the Dapr secrets management building block:
 
