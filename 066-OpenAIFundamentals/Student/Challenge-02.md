@@ -22,16 +22,10 @@ Model deployment for the challenge:
   - `text-davinci-003`
   - `text-embedding-ada-002`
     
-<<<<<<< Updated upstream
 Note: Model families currently available as of _Aug 4, 2023_ in Azure OpenAI includes GPT-3, Codex and Embeddings, GPT-4 is available for application. Please reference this link for more information: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.
 Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: `https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models`
 
 **If you have deployed some of these models from before, you will still be able to use them until the dates listed above. However if you had not deployed those models, but have gpt-4 access, you can compare gpt3.5 to gpt4 in this challenge. If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.**
-
-**Note**: Model families currently available as of _Aug 4, 2023_ in Azure OpenAI include GPT-3, Codex and Embeddings, and GPT-4. [Read more here](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.).
-
-If you have deployed some of these models from before, you will still be able to use them until the dates listed above. However if you do not have access to creating new deployments, but have GPT-4 access, you can compare GPT-3.5 to GPT-4 in this challenge. _If you do not have GPT-4 access_, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog. [Apply for GPT-4 access here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xURjE4QlhVUERGQ1NXOTlNT0w1NldTWjJCMSQlQCN0PWcu).
->>>>>>> Stashed changes
   
 - Add required credentials of Azure resources in the ``.env`` file
 
