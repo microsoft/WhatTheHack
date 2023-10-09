@@ -47,7 +47,7 @@ This challenge targets the operations labeled as **number 1** in the end-state s
 
 So how can you check whether or not the call to the `VehicleRegistrationService` is handled by Dapr? Well, Dapr has some observability built in. You can look at Dapr traffic using Zipkin:
 
-- Open a browser and go the this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
+- Open a browser and go to this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
 - Click the `RUN QUERY` button in the top right of the screen to search for traces.
 - You should see the calls between the `FineCollectionService` and the `VehicleRegistrationService`. You can expand and collapse each trace and click the `SHOW` button to get more details:
   ![](../images/Challenge-02/zipkin-traces.png)
