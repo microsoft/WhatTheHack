@@ -41,10 +41,10 @@ You will run the following three Jupyter notebooks for this challenge. You can f
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- If working with unstructured data, extract text from raw data using Azure Form Recognizer Layout API into a more structured format such as JSON.
-- Create an index using Azure Cognitive Search based on the type of data you are dealing with and load data into the index. 
-- Use Iterative Prompt Development to write the most effective prompts for your AI tasks.
-- Generate the most accurate answers and responses using Azure OpenAI (AOAI) service by using above prompts.
+- Verify that you have extracted text from raw unstructured data using the Azure Document Intelligence API into a more structured format such as JSON
+- Verify that you have created an index using Azure Cognitive Search based on the type of data you are dealing with and load data into the index.
+- Demonstrate the use of Iterative Prompt Development to write effective prompts for your AI tasks
+
 
 ## Learning Resources
 
