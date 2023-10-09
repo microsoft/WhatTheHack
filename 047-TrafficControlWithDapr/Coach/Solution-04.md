@@ -228,7 +228,7 @@ As you can see, the data is actually stored in the redis cache. As you may have 
 
 1.  Stop the running services (Ctrl+C) and close the terminal windows.
 
-    _If you're up for it, try to swap-out Redis with another state provider. See the [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`._
+    _If you're up for it, try to swap-out Redis with another state provider. See [the list of available stores in the Dapr documentation](https://docs.dapr.io/operations/components/setup-state-store/supported-state-stores/)). To configure a different state-store, you need to change the file `Resources/dapr/components/statestore.yaml`._
 
 ## Step 3: Optional, use Dapr state management with the Dapr SDK for .NET
 
