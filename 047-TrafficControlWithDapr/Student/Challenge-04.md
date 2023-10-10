@@ -61,5 +61,5 @@ This challenge targets the operation labeled as **number 3** in the end-state se
 - [Introduction to the state management building block](https://docs.dapr.io/developing-applications/building-blocks/state-management/)
 - [Dapr Redis State Store](https://docs.dapr.io/reference/components-reference/supported-state-stores/setup-redis/)
 - [Redis CLI commands](https://redis.io/topics/rediscli)
-- [Configure Azure Cache for Redis in Dapr](https://docs.dapr.io/getting-started/configure-state-pubsub/#tabs-3-azure)
+- [Setup Azure Cache for Redis in Dapr](https://docs.dapr.io/reference/components-reference/supported-state-stores/setup-redis/#setup-redis)
 - [Azure CLI commands for Redis](https://docs.microsoft.com/en-us/cli/azure/redis?view=azure-cli-latest)
