@@ -9,7 +9,7 @@ In this challenge, you're going to deploy the Dapr-enabled services you have wri
 ![architecture](../images/Challenge-08/architecture-aks.png)
 
 - Update all the host names & port numbers to use the Dapr defaults since it will be running in AKS.
-- Create a Kubernetes secret in your AKS cluster that references your Azure KeyVault secrets.
+- Create a Kubernetes secret in your AKS cluster that references your Azure Key Vault secrets.
 - Update the Dapr secret configuration file to pull secrets from the Kubernetes secret.
 - Build Docker images of all 3 services & upload to the Azure Container Registry.
 - Deploy your service images to your AKS cluster.
@@ -25,12 +25,23 @@ To complete this challenge, you must reach the following goals:
 
 ## Tips
 
+- Start the cluster if it is stopped.
 - Change the host name for each service (in the `Program.cs` file) from `http://localhost` to `http://*` as this will allow the Kestrel server to bind to 0.0.0.0 instead of 127.0.0.1. This is needed to ensure the health probes work in Kubernetes.
   - [Debugging K8S Connection Refused](https://miuv.blog/2021/12/08/debugging-k8s-connection-refused)
 - Use [ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview) to simplify creation & deployment of the images to the registry.
 - Modify the `Resources/Infrastructure/Helm/dapr-trafficcontrol/values.yaml` with the specific connection strings, tenant IDs, registry names, etc for your deployment.
+  - Note that the names of the components in the Helm chart YAML files (and in the `values.yaml` file) may not be exactly what you specified in your config files or put in your C# code. You should check all the names of each component to ensure they match.
 - Use [Helm](https://helm.sh/docs/) to deploy all the AKS configuration files to Azure. Helm will substitute the values in the `values.yaml` file into the various configuration files.
+  ```shell
+  helm upgrade --install dapr-trafficcontrol . --namespace dapr-trafficcontrol --atomic
+  ```
 - Use various `kubectl` commands to validate that all the services are running in your AKS cluster. Here are some useful ones.
+
+  - Set your current namespace to the dapr-trafficcontrol namespace
+
+    ```shell
+    kubectl config set-context --current --namespace=dapr-trafficcontrol
+    ```
 
   - Get all pods (in the current namespace)
 
@@ -47,7 +58,19 @@ To complete this challenge, you must reach the following goals:
   - Tail the logs of a specific pod (and follow)
 
     ```shell
-    kubectl logs fine-collection-service-7c99df4c85-2bxvf -f
+    kubectl logs <pod-name> -f
+    ```
+
+  - Review the `Dapr` sidecar logs of a particular pod
+
+    ```shell
+    kubectl logs <pod-name> daprd
+    ```
+
+  - Restart a deployment after updating the Helm chart or image
+
+    ```shell
+    kubectl rollout restart deployment fine-collection-service
     ```
 
 ## Learning Resources

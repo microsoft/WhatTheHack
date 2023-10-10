@@ -9,27 +9,26 @@ trafficcontrol:
   trafficControlService:
     dapr:
       port: 3500
-      appId: trafficcontrolservice
+      appId: traffic-control-service
   fineCollectionService:
     dapr:
       port: 3500
-      appId: finecollectionservice
+      appId: fine-collection-service
   vehicleRegistrationService:
     dapr:
       port: 3500
-      appId: vehicleregistrationservice
+      appId: vehicle-registration-service
   userAssignedManagedIdentity:
     name: mi-daprTest-ussc-dev
     clientId: 41f484a0-167d-43a5-9a3e-114972aae88e
 
 daprComponents:
   secrets:
-    componentName: azurekeyvault
-    userAssignedIdentityClientId: f095b127-46e5-49ac-8ecd-35b66e38d0d2
+    componentName: trafficcontrol-secrets
     keyVaultName: kv-daprTest-ussc-dev
   stateStore:
     componentName: statestore
-    redisHost: redis-daprEventify-ussc-dev.redis.cache.windows.net:6380
+    redisHost: redis-daprTest-ussc-dev.redis.cache.windows.net:6380
     redisPassword: ***REMOVED***
   inputBindings:
     consumerGroup: trafficcontrolservice

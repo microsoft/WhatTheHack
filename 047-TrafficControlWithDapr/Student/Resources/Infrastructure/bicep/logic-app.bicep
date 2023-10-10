@@ -26,36 +26,12 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
     definition: {
       '$schema': 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#'
       actions: {
-        Parse_JSON: {
-          inputs: {
-            content: '@triggerBody()'
-            schema: {
-              properties: {
-                body: {
-                  type: 'string'
-                }
-                from: {
-                  type: 'string'
-                }
-                subject: {
-                  type: 'string'
-                }
-                to: {
-                  type: 'string'
-                }
-              }
-              type: 'object'
-            }
-          }
-          runAfter: {}
-          type: 'ParseJson'
-        }
         'Send_an_email_(V2)': {
           inputs: {
             body: {
-              Body: '<p>@{body(\'Parse_JSON\')?[\'body\']}</p>'
-              Subject: '@body(\'Parse_JSON\')?[\'subject\']'
-              To: '@body(\'Parse_JSON\')?[\'to\']'
+              Body: '<p>@{triggerBody()}</p>'
+              Subject: '@triggerOutputs()?[\'headers\']?[\'Subject\']'
+              To: '@triggerOutputs()?[\'headers\']?[\'Emailto\']'
             }
             host: {
               connection: {
@@ -65,11 +41,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
             method: 'post'
             path: '/v2/Mail'
           }
-          runAfter: {
-            Parse_JSON: [
-              'Succeeded'
-            ]
-          }
+          runAfter: {}
           type: 'ApiConnection'
         }
       }

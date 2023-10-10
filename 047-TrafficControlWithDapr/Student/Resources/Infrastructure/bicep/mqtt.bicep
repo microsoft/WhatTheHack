@@ -21,7 +21,8 @@ resource eventHubNamespace 'Microsoft.EventHub/namespaces@2021-01-01-preview' = 
 }
 
 resource eventHubEntryCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubEntryCamName}'
+  parent: eventHubNamespace
+  name: eventHubEntryCamName
   properties: {
     partitionCount: 1
     messageRetentionInDays: 1
@@ -29,14 +30,13 @@ resource eventHubEntryCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-pr
 }
 
 resource eventHubEntryCamConsumerGroup 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubEntryCamName}/${eventHubConsumerGroupName}'
-  dependsOn: [
-    eventHubEntryCam
-  ]
+  parent: eventHubEntryCam
+  name: eventHubConsumerGroupName
 }
 
 resource eventHubEntryCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-01-01-preview' = {
-  name: '${eventHubEntryCam.name}/${eventHubListenAuthorizationRuleName}'
+  parent: eventHubEntryCam
+  name: eventHubListenAuthorizationRuleName
   properties: {
     rights: [
       'Listen'
@@ -46,7 +46,8 @@ resource eventHubEntryCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/
 }
 
 resource eventHubExitCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubExitCamName}'
+  parent: eventHubNamespace
+  name: eventHubExitCamName
   properties: {
     partitionCount: 1
     messageRetentionInDays: 1
@@ -54,14 +55,13 @@ resource eventHubExitCam 'Microsoft.EventHub/namespaces/eventhubs@2021-01-01-pre
 }
 
 resource eventHubExitCamConsumerGroup 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-01-01-preview' = {
-  name: '${eventHubNamespace.name}/${eventHubExitCamName}/${eventHubConsumerGroupName}'
-  dependsOn: [
-    eventHubExitCam
-  ]
+  parent: eventHubExitCam
+  name: eventHubConsumerGroupName
 }
 
 resource eventHubExitCamListenAuthorizationRule 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-01-01-preview' = {
-  name: '${eventHubExitCam.name}/${eventHubListenAuthorizationRuleName}'
+  parent: eventHubExitCam
+  name: eventHubListenAuthorizationRuleName
   properties: {
     rights: [
       'Listen'
@@ -84,6 +84,7 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
           {
             name: eventHubEntryCamName
             authenticationType: 'keyBased'
+            #disable-next-line use-resource-symbol-reference
             connectionString: listKeys(eventHubEntryCamListenAuthorizationRule.id, eventHubEntryCamListenAuthorizationRule.apiVersion).primaryConnectionString
             subscriptionId: subscription().subscriptionId
             resourceGroup: resourceGroup().name
@@ -91,6 +92,7 @@ resource iotHub 'Microsoft.Devices/IotHubs@2021-03-31' = {
           {
             name: eventHubExitCamName
             authenticationType: 'keyBased'
+            #disable-next-line use-resource-symbol-reference
             connectionString: listKeys(eventHubExitCamListenAuthorizationRule.id, eventHubExitCamListenAuthorizationRule.apiVersion).primaryConnectionString
             subscriptionId: subscription().subscriptionId
             resourceGroup: resourceGroup().name

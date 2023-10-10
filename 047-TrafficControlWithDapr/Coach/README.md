@@ -21,7 +21,7 @@ Welcome to the coach's guide for the Traffic Control with Dapr What The Hack. He
 - Challenge 5: **[Dapr SMTP Output binding](Solution-05.md)**
   - Use a Dapr output binding in the `FineCollectionService` to send an email.
 - Challenge 6: **[Dapr MQTT Input Binding](Solution-06.md)**
-  - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry- and exit-cam messages over the MQTT protocol.
+  - Add a Dapr input binding in the `TrafficControlService`. It'll receive entry-cam and exit-cam messages over the MQTT protocol.
 - Challenge 7: **[Dapr Secrets Management](Solution-07.md)**
   - Add the Dapr secrets management building block.
 - Challenge 8: **[Dapr-enabled Services running in Azure Kubernetes Service (AKS) or Azure Container Apps (ACA)](Solution-08.md)**
@@ -57,15 +57,17 @@ You will need the following subscription [resource providers](https://learn.micr
 - `Microsoft.EventHub`
 - `Microsoft.Insights`
 - `Microsoft.KeyVault`
+- `Microsoft.KubernetesConfiguration`
 - `Microsoft.Logic`
 - `Microsoft.OperationalInsights`
+- `Microsoft.OperationsManagement`
 - `Microsoft.ServiceBus`
 - `Microsoft.Storage`
 - `Microsoft.Web`
 
-- If you already have an Azure account, make sure you have at least [Contributor access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
+- If you already have an Azure account, make sure you have **Owner** [access instructions](https://docs.microsoft.com/azure/role-based-access-control/check-access) for the resource group in which you'll provision Azure resources.
 
-_Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Contributor` access to it, using the instructions mentioned above._
+_Your IT organization may provide you access to an Azure resource group, but not the entire subscription. If that's the case, take note of that resource group name and make sure you have `Owner` access to it, using the instructions mentioned above._
 
 This hack's setup files will create the following resources in your Azure Resource Group. Make sure you can create the following:
 
@@ -87,7 +89,7 @@ _If you can't instantiate some of these resources, you won't be able to complete
 
 - AKS requires the ability to create a public IP address. This may be blocked by some organizations. You will either need to get an exception or have an admin create the AKS cluster for you.
 - The `Resources\Infrastructure\bicep\aks.bicep` file specifies the default values for the cluster that will work for this hack. Customize as needed.
-  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU.
+  - 1 Agent Pool with 3 Linux VMs using the **Standard_DS2_v2** SKU. (6 cores total)
   - 3 services using a total of `300m` of CPU & `300Mi` of memory by default, limited to a total of `3000m` of CPU & `600Mi` of memory.
   - 1 Zipkin service running to monitor communication between the services.
 - **WARNING:** For simplicity, a Kubernetes secret is used to allow AKS to pull images from the Azure Container Registry via the [admin account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account). **This is not a best practice**. In a production example, you should use a managed identity & RBAC.

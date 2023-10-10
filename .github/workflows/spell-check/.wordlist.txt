@@ -267,6 +267,7 @@ NuGet
 OAuth
 OCI
 OData
+OIDC
 OLAP
 OLTP
 ONNX

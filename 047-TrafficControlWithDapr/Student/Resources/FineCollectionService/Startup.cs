@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace FineCollectionService
 {
@@ -24,7 +25,10 @@ namespace FineCollectionService
 
       // add service proxies
       services.AddHttpClient();
-      services.AddSingleton<VehicleRegistrationService>();
+
+      //TODO: add Dapr client here
+
+      services.AddSingleton<VehicleRegistrationServiceProxy>();
       services.AddHealthChecks();
 
       services.AddControllers();

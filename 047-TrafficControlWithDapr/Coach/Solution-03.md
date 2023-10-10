@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+_NOTE: This solution includes both the HTTP & .NET SDK versions of the code. You can choose to use either one._
+
 ### Step 1: Run RabbitMQ as message broker
 
 In the example, you will use RabbitMQ as the message broker for the Dapr pub/sub building block. You're going to pull a standard Docker image containing RabbitMQ to your machine and start it as a container.
@@ -54,7 +56,7 @@ _If you're using Bash, just copy/paste the docker command to the shell and run i
 
 Until now, you have been using the default Dapr components installed on your machine. They include both a state management and pub/sub component. Under the covers, both use Redis server, which is also installed by default. The components are installed in the folder `%USERPROFILE%\.dapr\components` on Windows and `$HOME/.dapr/components` on Linux or Mac.
 
-To change the message broker component from Redis to RabbitMQ, you'll create a local components folder and new component file. You'll then specify the new folder when starting services with the Dapr CLI. The `--components-path` flag will instruct Dapr where to find the new component folder and files.
+To change the message broker component from Redis to RabbitMQ, you'll create a local components folder and new component file. You'll then specify the new folder when starting services with the Dapr CLI. The `--resources-path` flag will instruct Dapr where to find the new component folder and files.
 
 1. Create a new folder `Resources/dapr/components`.
 
@@ -62,7 +64,7 @@ To change the message broker component from Redis to RabbitMQ, you'll create a l
 
 1. Create a new file `Resources/dapr/components/pubsub.yaml` in VS Code.
 
-1. Inspect this file. The `type` field specifies the type of the message broker to use (`pubsub.redis`). The `metadata` section provides information on how to connect to the Redis server .
+1. Open this file. The `type` field specifies the type of the message broker to use (`pubsub.redis`). The `metadata` section provides information on how to connect to the Redis server .
 
 1. Change the content of this file to:
 
@@ -88,8 +90,8 @@ To change the message broker component from Redis to RabbitMQ, you'll create a l
        - name: concurrency
          value: parallel
    scopes:
-     - trafficcontrolservice
-     - finecollectionservice
+     - traffic-control-service
+     - fine-collection-service
    ```
 
 You've now specified the Dapr **RabbitMQ** pub/sub component (`pubsub.rabbitmq`). In the `metadata` section, you instruct Dapr how to connect to the RabbitMQ container running on port `5672`. Ignore the other metadata for now. In the `scopes` section, you limit the usage of this component to the `TrafficControlService` and `FineCollectionService`.
@@ -154,10 +156,10 @@ You are going to prepare the `FineCollectionService` so that it can receive mess
      route: /collectfine
      pubsubname: pubsub
    scopes:
-     - finecollectionservice
+     - fine-collection-service
    ```
 
-   _The `route` field tells Dapr to forward messages published to the `collectfinetopic` topic to the `/collectfine` endpoint. From there, the subscriber can handle each message. The `pubsubname` links the subscription.yaml file to the `pubsub` component. The `scopes` field restricts this subscription to only the service with the `finecollectionservice` app-id._
+   _The `route` field tells Dapr to forward messages published to the `collectfinetopic` topic to the `/collectfine` endpoint. From there, the subscriber can handle each message. The `pubsubname` links the subscription.yaml file to the `pubsub` component. The `scopes` field restricts this subscription to only the service with the `fine-collection-service` app-id._
 
 Now the `FineCollectionService` is ready to receive published messages through Dapr.
 
@@ -173,7 +175,7 @@ Now the `FineCollectionService` is ready to receive published messages through D
 
 ### Step 5: Test the application
 
-You're going to start the application, service-by-service. While doing so, you'll specify the custom components folder with the `--components-path` flag. Dapr will use the configuration files located there.
+You're going to start the application, service-by-service. While doing so, you'll specify the custom components folder with the `--resources-path` flag. Dapr will use the configuration files located there.
 
 _Pay close attention to the order in which you start the service and be sure not to miss any._
 
@@ -188,10 +190,10 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
    ```shell
-   dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+   dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path ../dapr/components -- dotnet run
    ```
 
-   _Notice how the command specifies the custom components folder with the `--components-path` flag. By adding it, Dapr will use RabbitMQ for pub/sub._
+   _Notice how the command specifies the custom components folder with the `--resources-path` flag. By adding it, Dapr will use RabbitMQ for pub/sub._
 
 1. Look for the following output:
 
@@ -208,7 +210,7 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `FineCollectionService`, an accompanying Dapr sidecar, and the RabbitMQ component:
 
    ```shell
-   dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. Look for the following output:
@@ -226,7 +228,7 @@ _Pay close attention to the order in which you start the service and be sure not
 1. Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
    ```shell
-   dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+   dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. Look for the following output:
@@ -250,7 +252,7 @@ _Pay close attention to the order in which you start the service and be sure not
 You should see the same logs as before. As well, the application behavior is exactly the same. However, if you look closely at the Dapr logs for `FineCollectionService` (the _second_ terminal window), you should see something like this:
 
 ```shell
-time="2021-02-27T16:46:02.5989612+01:00" level=info msg="app is subscribed to the following topics: [collectfine] through pubsub=pubsub" app_id=finecollectionservice instance=EDWINW01 scope=dapr.runtime type=log ver=1.0.0
+time="2021-02-27T16:46:02.5989612+01:00" level=info msg="app is subscribed to the following topics: [collectfine] through pubsub=pubsub" app_id=fine-collection-service instance=EDWINW01 scope=dapr.runtime type=log ver=1.0.0
 ```
 
 This log entry shows that Dapr queried the topic specified by the service `collectfine` and created a corresponding subscription.
@@ -297,7 +299,7 @@ The other approach to subscribing to pub/sub events is to do it programmatically
 1. Start the updated `FineCollectionService`:
 
    ```shell
-   dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+   dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
    ```
 
 1. After you've looked at the log output and confirmed that everything works, you can stop all the services.
@@ -436,7 +438,7 @@ Now you need to make sure that Dapr is aware of this controller and knows the pu
    });
    ```
 
-   _The MapSubscriberHandler() extension automatically implements the `/dapr/subscribe` endpoint that you added earlier. It collects all controller methods decorated with the Dapr `Topic` attribute and returns the corresponding subscription._
+   _The `MapSubscriberHandler()` extension automatically implements the `/dapr/subscribe` endpoint that you added earlier. It collects all controller methods decorated with the Dapr `Topic` attribute and returns the corresponding subscription._
 
 1. Open the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
@@ -476,23 +478,24 @@ The answer? Change the YAML configuration file. There are absolutely no code cha
    kind: Component
    metadata:
      name: pubsub
-     namespace: <name of you Azure Service Bus namespace>
    spec:
-     type: pubsub.azure.servicebus
+     type: pubsub.azure.servicebus.topics
      version: v1
      metadata:
        - name: connectionString
-         value: "<your Azure Service Bus connection string"
+         value: "<your Azure Service Bus connection string>"
    scopes:
-     - trafficcontrolservice
-     - finecollectionservice
+     - traffic-control-service
+     - fine-collection-service
    ```
 
    _What changed? `namespace`, `type`, and the underlying `spec` metadata._
 
+   **IMPORTANT: You must specify the scopes to grant the appropriate Dapr sidecar access to the component.**
+
 1. You need to provide a connection string for Azure Service Bus. Normally, you'd create a [Shared Access Secret or enable authentication/authorization with AAD](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization). For now, however, keep your focus on Dapr. In the Service Bus portal blade, click on `Shared access policies` and then the `RootManagerSharedAccessKey` Copy the connection string value from `Primary Connection String`' Close the SAS dialog box and paste the connection string into the `pubsub' YAML file.
 
-   _Warnings: (1) Never use the RootManageSharedAccessKey in a real-world application. (2) Never expose the connection string in plain text. In a real-world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later challenge._
+   _Warnings: (1) Never use the `RootManageSharedAccessKey` in a real-world application. (2) Never expose the connection string in plain text. In a real-world application you'd create a custom shared access key and access it from a secure secret store. You'll do that in a later challenge._
 
    You can also use AZ CLI tool to get the connection string:
 
