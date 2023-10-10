@@ -1,5 +1,6 @@
 AAD
 ABAP
+ACA
 ACG
 ACI
 ACR
@@ -266,6 +267,7 @@ NuGet
 OAuth
 OCI
 OData
+OIDC
 OLAP
 OLTP
 ONNX
@@ -585,8 +587,8 @@ prebuilt
 prem
 prerelease
 proc
-programatically
-programatically
+programmatic
+programmatically
 ps
 psql
 pubsub

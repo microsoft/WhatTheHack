@@ -11,18 +11,18 @@ This document has the following sections:
 
 ## Suggested Planning Timeline
 
-| Start Date | End Date | Task | Notes |
-| ---------- | ---------- | ---------- | ---------- |
-| T-8 Weeks | | Identify coaches | |
-| T-8 Weeks | T-4 Weeks | Confirm WTH content and augment as needed | |
-| T-2 Weeks | | Create Teams (or alternative) collaboration environment | |
-| T-2 Weeks | | Coaches training | |
-| T-1 Weeks | | Confirm hacking environment and perform any setup required | |
-| T-1 Weeks | | Cloud Skills Challenge (optional) | |
-| T | T + Hack Days| Track attendance and participation | |
-| T + Last Day of Hack | | Send survey/solicit feedback | |
-| T + 1 Week | | Send readout to leadership | |
-| T + 30 Days | | Tear down Teams environment | |
+| Start Date           | End Date      | Task                                                       | Notes |
+| -------------------- | ------------- | ---------------------------------------------------------- | ----- |
+| T-8 Weeks            |               | Identify coaches                                           |       |
+| T-8 Weeks            | T-4 Weeks     | Confirm WTH content and augment as needed                  |       |
+| T-2 Weeks            |               | Create Teams (or alternative) collaboration environment    |       |
+| T-2 Weeks            |               | Coaches training                                           |       |
+| T-1 Weeks            |               | Confirm hacking environment and perform any setup required |       |
+| T-1 Weeks            |               | Cloud Skills Challenge (optional)                          |       |
+| T                    | T + Hack Days | Track attendance and participation                         |       |
+| T + Last Day of Hack |               | Send survey/solicit feedback                               |       |
+| T + 1 Week           |               | Send readout to leadership                                 |       |
+| T + 30 Days          |               | Tear down Teams environment                                |       |
 
 ## What do you need to run a What The Hack event?
 
@@ -96,9 +96,7 @@ Adding external users as guests in Microsoft Teams requires you to add each user
 
 For more information, see [Guest access in Microsoft Teams](https://docs.microsoft.com/en-us/MicrosoftTeams/guest-access)
 
-
 **NOTE:** Guest access is an organization-wide setting in Microsoft Teams. Therefore, in most organizations, enabling Guest access is typically managed by someone in the IT department who is **NOT** you. If it is not enabled in your organization, you might want to consider using the external organization's tenant as described in the next section.
-
 
 #### Reverse Guest Access
 
@@ -124,7 +122,7 @@ Most of the hacks in the What The Hack collection require attendees to have "Con
 
 It is important to work with the event stakeholder to decide how attendees will access Azure. Some organizations may provide individuals with their own subscriptions. Other organizations may provide access to a shared subscription created specifically for attendees to use during the hack event.
 
-If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end.  It is also important to make sure the subscription is not tied to any Azure Policy definitions that may impact the creation of necessary resources.
+If the organization provides the attendees with access to an Azure subscription, it is a good practice to share what the predicted cost of Azure resources used during the hack will be. No one wants a surprise bill at the end. It is also important to make sure the subscription is not tied to any Azure Policy definitions that may impact the creation of necessary resources.
 
 If the organization is not providing access to an Azure subscription for the hack, attendees will need to provide there own.
 
