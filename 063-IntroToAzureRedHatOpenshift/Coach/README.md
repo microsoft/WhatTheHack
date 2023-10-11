@@ -1,8 +1,8 @@
-# What The Hack - IntroToAzureRedHatOpenShift - Coach Guide
+# What The Hack - Intro To Azure Red Hat OpenShift - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the IntroToAzureRedHatOpenShift What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Intro To Azure Red Hat OpenShift What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features a short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -39,11 +39,12 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into two public GitHub repositories, one that contains the contents from the folder **rating-api** and the other containing the contents from the folder **rating-web**. The coach should then provide the URLs of the GitHub repositories to all students at the start of the hack in challenge 0.
+Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into two public GitHub repositories, one that contains the contents from the folder `**/rating-api**` and the other containing the contents from the folder `**/rating-web**`. The coach should then provide the URLs of the GitHub repositories to all students at the start of the hack in challenge 0.
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
+### Additional Coach Prerequisites
+
 As a coach, you should communicate to the stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students about the quota requirement and Azure Requirements listed below, **days in advance** of the hack.
 
 - Make sure the students increase the VM quotas to use a minimum of 40 cores. Docs on how to do that can be found here: [Increase VM-family vCPU quotas](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) 
@@ -99,6 +100,4 @@ This hack has challenges that are built off of each other and some that are not.
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-
-## Github repo sample code
   - Resource files, sample code, scripts, etc. meant to be provided to students. (The coach must package up the frontend and backend applications and deploy them to two public GitHub repositories for their specified hack)
