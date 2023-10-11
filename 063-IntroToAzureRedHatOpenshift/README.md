@@ -1,14 +1,12 @@
-# What The Hack - IntroToAzureRedHatOpenShift
+# What The Hack - Intro To Azure Red Hat OpenShift
 
 ## Introduction
 
-This intro level hack will help you get hands-on experience with Redhat Openshift on Microsoft Azure. 
-
-This hack includes an optional [lecture presentation](Coach/Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This intro level hack will help you get hands-on experience with Red Hat OpenShift on Microsoft Azure. 
 
 ## Learning Objectives
 
-In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a simple multi-tiered web app and deploy it to an ARO cluster. Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it as well as integrate it with Azure.
+In this hack you learn how to use Azure Red Hat OpenShift (ARO). You will take a simple multi-tiered web app and deploy it to an ARO cluster. Once the application is in ARO, you will learn how to tweak all the knobs and levers to scale, manage and monitor it as well as integrate it with Azure.
 
 1. Deploy an ARO cluster and deploy applications to it
 2. Understand key ARO management areas: monitoring, storage, networking, scaling, and Azure service operators
@@ -45,6 +43,6 @@ In this hack you learn how to use Azure Redhat Openshift (ARO). You will take a 
 
 ## Contributors
 
-- Daniel Kondrashevich
-- Anahita Afshari
-- Sowmyan Soman Chullikkattil
+- [Daniel Kondrashevich](https://github.com/danielkon96)
+- [Anahita Afshari](https://github.com/anahitaafsh)
+- [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
