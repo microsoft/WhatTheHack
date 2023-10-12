@@ -14,11 +14,11 @@ Welcome to the coach's guide for the Entra ID B2B What The Hack. Here you will f
      - Register a new application in an Entra ID tenant
      - Understand the concepts of multi-tenant apps, service principals, authentication vs authorization, security tokens
 - Challenge 02: **[Test the sign-in](./Solution-02.md)**
-	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with redirect link to authr.biz
-     - Use an authr.biz link to test the sign in
+	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with redirect link to authr.dev
+     - Use an authr.dev link to test the sign in
 - Challenge 03: **[Invite a guest user](./Solution-03.md)**
      - Complete B2B setup and invite a new guest user
-     - Use an authr.biz link to test the sign in for the guest user and test sign in using the app setup
+     - Use an authr.dev link to test the sign in for the guest user and test sign in using the app setup
 - Challenge 04: **[Integrate Entra ID authentication into an Azure App Service (EasyAuth)](./Solution-04.md)**
 	 - Integrate Entra ID authentication into an Azure App Service (EasyAuth)
 - Challenge 05: **[Integrate Entra ID authentication into an application](./Solution-05.md)**
