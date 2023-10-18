@@ -75,7 +75,6 @@ Coaches should deploy the solution files before the event to ensure they are fam
 
 - [What is Microsoft Fabric?](https://aka.ms/learnfabric)
 - [Microsoft Fabric Blog](https://aka.ms/FabricBlog)
-
 - [Import Existing Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook#import-existing-notebooks)
 - [Importing a datafow gen2 template](https://learn.microsoft.com/en-us/fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2)
 
@@ -105,19 +104,32 @@ Fabric needs to be enabled in the tenant (see [Enable Microsoft Fabric for your 
 
 At the time of writing, Fabric is in preview and a trial license is available. See [Start a Fabric (Preview) trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial). Post-trial, a paid Fabric capacity will be required, although a small F2-F4 capacity should be sufficient for this hack.
 
+Overall, students must have a premium capacity backed workspace, through one of the following methods.
+1. FT - [Fabric trial](https://learn.microsoft.com/fabric/get-started/fabric-trial)    
+2. F - [Fabric capacity](https://learn.microsoft.com/fabric/enterprise/buy-subscription#buy-an-azure-sku)
+3. P - [Power BI Premium](https://learn.microsoft.com/power-bi/enterprise/service-admin-premium-purchase)
+
 See [Microsoft Fabric Licenses](https://learn.microsoft.com/en-us/fabric/enterprise/licenses) for details.
 
 ### Microsoft Fabric Workspace
 
 Students will require a Microsoft Fabric enabled Workspace where they can create Fabric artefacts (Lakehouse, Dataflow, Pipeline, Notebook, Report etc). If the group is arranged into pods, it is recommended to provision one workspace per pod. If the group is working individually, it is recommended to provision one workspace per student. It is recommended that students are granted Admin role on this workspace to allow them to create and manage all artefacts.
 
-*Note:* for pods collaborating in a per-pod Workspace, students may also require a Power BI Pro license to publish reports to this workspace.
+*Note:* for pods collaborating in a per-pod Workspace, students will also require a Power BI Pro license if they intend to publish reports to this workspace.
 
 See [Microsoft Fabric Workspaces](https://learn.microsoft.com/en-us/fabric/get-started/workspaces) and [Create a workspace](https://learn.microsoft.com/en-us/fabric/get-started/create-workspace) for details.
+
 
 ### Power BI Desktop
 
 Students will require Power BI desktop to be installed on their PC. Either the store or download version is fine.
+1. [Microsoft Store](https://aka.ms/pbidesktop) See also [Learn more about the benefits of installing from the Microsoft Store including automatic updates](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop#install-as-an-app-from-the-microsoft-store).
+  or
+2. [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=58494) Ensure you have the latest version of downloaded.
+
+### Trial tenant
+
+https://go.microsoft.com/fwlink/p/?LinkID=698279 [Microsoft 365 developer subscription in Visual Studio subscriptions](https://docs.microsoft.com/visualstudio/subscriptions/vs-m365)
 
 ## Repository Contents
 
@@ -133,5 +145,5 @@ Students will require Power BI desktop to be installed on their PC. Either the s
 ## Other Fabric What The Hacks
 
 These WTHs are currently in development and will be released soon:
-- Fabric Datamesh
-- Fabric Realtime
+- Fabric Datamesh - A more architecturally focused hack covering Data Mesh, Medalion Architecture, and Fabric
+- Fabric Realtime - A hack focused on realtime data processing with Fabric

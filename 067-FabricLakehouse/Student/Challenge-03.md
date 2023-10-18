@@ -10,11 +10,13 @@ Get Your Data Ship Shape!
 
 ## Description
 
-In this challenge, you will develop a solution to prep your datasets ready for analysis. 
+In this challenge, you will develop a solution to prep your datasets ready for analysis. (In lakehouse speak, this is the bronze and silver zones).
 
 You may find gaps in your data, perhaps you need another dataset in order to blend and enrich your data. You may also need to clean your data, for example, remove duplicates or missing values, or convert data types, extract features and discard others.
 
-Finally, you'll need to write the data into your Lakehouse.
+At each stage, you might want to write your data to your Lakehouse. For example, you've processed the raw data into several tables (bronze zone) then you combine these tables into a subset of tables that you can build your report from (silver zone). 
+
+So, grab your mop and bucket and get cleaning up your data!
 
 ## Success Criteria
 
@@ -31,8 +33,9 @@ To complete this challenge successfully, you should be able to:
   
 ## Tips
 
-- Sometimes Spark is the best tool for the job, but sometimes it's not.  Don't be afraid to use other tools in your solution.
+- Sometimes Spark is the best tool for the job, but sometimes it's not.  Don't be afraid to use more than one tool in the Fabric platform in your solution. Or try solving the same problem with different tools (eg. notebook and a dataflow).
 
-## Too comfortable?  Eager to do more?  Try an additional challenge!
+## Too comfortable?  Eager to do more?  Try an additional challenges!
 
+- We're implicitly creating our lakehouse bronze, silver and gold zones but not focusing on the details. Try adding some formal structure to your lakehouse.
 - You've probably guessed that the weather and water conditions are quite important to divers. Climate models are a great way to look at future predictions, and there are a number of open datasets available. Try adding a climate model to your data for both weather and wave conditions. (Hint: Microsoft Planetary Computer ECMWF)

@@ -17,11 +17,10 @@ Margie's Travel is a travel agency specialising in diving holidays. They have he
 
 In this hack you will 
 
-1. Provision a Fabric Lakehouse and "dive" on in.
+1. Provision a Fabric Lakehouse and "dive" on in. 
 2. "Descend" in to the depths of open data sources including spatial, weather and archaeological to help build a data story behind the shipwrecks of Western Australia.
-3. Land your data in your Fabric Lakehouse and "surface" with a clean, combined dataset ready for analysis.
+3. "Land" your data in your Fabric Lakehouse and "surface" with a clean, combined dataset ready for analysis.
 4. Make a "splash" and bring your findings to life.
-
 
 ## Challenges
 
