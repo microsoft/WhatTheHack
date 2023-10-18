@@ -2,6 +2,10 @@ param appName string
 param region string
 param environment string
 param location string = resourceGroup().location
+param shouldDeployToContainerApps bool = false
+param containerAppTrafficControlServiceObject object = {}
+param containerAppFineCollectionServiceObject object = {}
+param containerAppVehicleRegistrationServiceObject object = {}
 
 module names 'resource-names.bicep' = {
   name: 'resource-names'
@@ -32,6 +36,7 @@ module managedIdentityDeployment 'managed-identity.bicep' = {
 module keyVaultDeployment 'key-vault.bicep' = {
   name: 'key-vault-deployment'
   params: {
+    #disable-next-line BCP335
     keyVaultName: names.outputs.keyVaultName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
@@ -63,15 +68,60 @@ module containerRegistryDeployment 'container-registry.bicep' = {
     containerRegistryName: names.outputs.containerRegistryName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
 
-module aksDeployment 'aks.bicep' = {
+module aksDeployment 'aks.bicep' = if (!shouldDeployToContainerApps) {
   name: 'aks-deployment'
   params: {
     aksName: names.outputs.aksName
     logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
     location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+  }
+}
+
+module acaEnvironmentDeployment 'managed-environment.bicep' = if (shouldDeployToContainerApps) {
+  name: 'aca-environment-deployment'
+  params: {
+    containerAppEnvironmentName: names.outputs.containerAppEnvironmentName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    appInsightsName: loggingDeployment.outputs.appInsightsName
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+    serviceBusNamespaceName: serviceBusDeployment.outputs.serviceBusNamespaceName
+    logicAppName: logicAppDeployment.outputs.logicAppName
+    containerAppTrafficControlServiceObject: containerAppTrafficControlServiceObject
+    containerAppFineCollectionServiceObject: containerAppFineCollectionServiceObject
+    keyVaultName: keyVaultDeployment.outputs.keyVaultName
+    redisCacheName: redisCacheDeployment.outputs.redisCacheName
+    storageAccountName: storageAccountDeployment.outputs.storageAccountName
+    storageAccountEntryCamContainerName: storageAccountDeployment.outputs.storageAccountEntryCamContainerName
+    storageAccountExitCamContainerName: storageAccountDeployment.outputs.storageAccountExitCamContainerName
+    daprComponentEntryCamInputBindingsName: names.outputs.daprComponentEntryCamInputBindingsName
+    daprComponentExitCamInputBindingsName: names.outputs.daprComponentExitCamInputBindingsName
+    daprComponentOutputBindingsName: names.outputs.daprComponentOutputBindingsName
+    daprComponentStateStoreName: names.outputs.daprComponentStateStoreName
+    daprComponentPubSubName: names.outputs.daprComponentPubSubName
+    daprComponentSecretsName: names.outputs.daprComponentSecretsName
+    eventHubConsumerGroupName: mqttDeployment.outputs.eventHubConsumerGroupName
+    eventHubEntryCamName: mqttDeployment.outputs.eventHubEntryCamName
+    eventHubExitCamName: mqttDeployment.outputs.eventHubExitCamName
+    eventHubNamespaceName: mqttDeployment.outputs.eventHubNamespaceName
+    eventHubListenAuthorizationRuleName: mqttDeployment.outputs.eventHubListenAuthorizationRuleName
+  }
+}
+
+module acaDeployment 'container-app.bicep' = if (shouldDeployToContainerApps) {
+  name: 'aca-deployment'
+  params: {
+    containerAppEnvironmentName: names.outputs.containerAppEnvironmentName
+    location: location
+    containerAppTrafficControlServiceObject: containerAppTrafficControlServiceObject
+    containerAppFineCollectionServiceObject: containerAppFineCollectionServiceObject
+    containerAppVehicleRegistrationServiceObject: containerAppVehicleRegistrationServiceObject
+    containerRegistryName: containerRegistryDeployment.outputs.containerRegistryName
     managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
   }
 }
@@ -131,7 +181,7 @@ output redisCacheName string = redisCacheDeployment.outputs.redisCacheName
 output resourceGroupName string = resourceGroup().name
 output serviceBusConnectionString string = serviceBusDeployment.outputs.serviceBusConnectionString
 output serviceBusEndpoint string = serviceBusDeployment.outputs.serviceBusEndpoint
-output serviceBusName string = serviceBusDeployment.outputs.serviceBusName
+output serviceBusNamespaceName string = serviceBusDeployment.outputs.serviceBusNamespaceName
 output storageAccountEntryCamContainerName string = storageAccountDeployment.outputs.storageAccountEntryCamContainerName
 output storageAccountExitCamContainerName string = storageAccountDeployment.outputs.storageAccountExitCamContainerName
 output storageAccountKey string = storageAccountDeployment.outputs.storageAccountContainerKey

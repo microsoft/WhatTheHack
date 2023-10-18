@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Open the [authr](https://authr.biz/?requesttype=OpenIdConnect&scope=openid+profile&responsetype=id_token&responsemode=form_post&additionalparameters=prompt%3dlogin&importtype=AzureAD&tenant=microsoft.onmicrosoft.com&clientid=your-client-id) link.
+Open the [authr](https://authr.dev/?requesttype=OpenIdConnect&scope=openid+profile&responsetype=id_token&responsemode=form_post&additionalparameters=prompt%3dlogin&importtype=AzureAD&tenant=microsoft.onmicrosoft.com&clientid=your-client-id) link.
 
 Make sure to change the tenant=microsoft.onmicrosoft.com in the query parameter to the newly created tenant. It should be tenant=yourtenantname.onmicrosoft.com
 

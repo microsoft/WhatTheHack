@@ -97,7 +97,7 @@ jobs:
       url: https://devopsreg-test.azurewebsites.net/
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
@@ -118,7 +118,7 @@ jobs:
       url: https://devopsreg-prod.azurewebsites.net/
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1

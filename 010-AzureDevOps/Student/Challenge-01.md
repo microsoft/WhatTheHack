@@ -1,24 +1,28 @@
-# Challenge 01 - Azure DevOps: Introduction
+# Challenge 01 - Azure Boards: Agile Project Management
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ## Introduction
 
-We can only assume that you are doing this What the Hack because you understand the importance of DevOps, however please take a moment to review these brief articles about the basic motivation behind DevOps and the Azure DevOps tool.
+Agile project management is a key component of building a modern DevOps culture at your organization. If you are new to Agile or just want a refresher, we recommend you review the following articles:
 
-1. [What is DevOps?](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops)
-2. [What features and services do I get with Azure DevOps?](https://docs.microsoft.com/en-us/azure/devops/user-guide/services)
-3. [Azure DevOps Services vs. Azure DevOps Server](https://docs.microsoft.com/en-us/azure/devops/user-guide/about-azure-devops-services-tfs) - Just read and understand the first section that describes what offerings available, no need to dig through all the feature differences at this time, unless you are interested. 
+1. [What is Agile?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile)
+2. [What is Scrum](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-scrum)
+3. [What is Kanban](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-kanban)
+4. [What is Agile Development?](https://docs.microsoft.com/en-us/azure/devops/learn/agile/what-is-agile-development)
+
+To help you with Agile project management, Azure DevOps includes Azure Boards. With Azure Boards, you can quickly and easily start tracking user stories, backlog items, task, features, and bugs associated with your project. Please review the following introduction to Azure Boards:
+
+1. [What is Azure Boards?](https://docs.microsoft.com/en-us/azure/devops/boards/get-started/what-is-azure-boards)
 
 ## Description
 
 - Give the other members of your hack team contributor access to your project in Azure DevOps ([hint](https://docs.microsoft.com/en-us/azure/devops/organizations/security/add-users-team-project))
-- Take the [DevOps Self-Assessment](https://www.devopsassessment.net) this will take between 20 to 40 minutes. Don't forget to save the results of the asessment to share with your team.
-- Share the results of your Self-Assessment with your team. Are their any common themes?
+- Create a work item for this and each of the remaining challenges. 
+- Assign the `Challenge 1` work item to another member of your team, have them assign their `Challenge 1` work item to you.
+- Using the kanban board, move their `Challenge 1` work item to the resolved state. 
+- After you complete each of the following challenges be sure to move the corresponding work item to the resolved state. 
 
 ## Success Criteria
 
-1. You should understand why DevOps is important and the basic components.
-2. You should understand what offerings for Azure DevOps are available.
-3. You should be able to list and describe the major features of Azure DevOps.
-4. You should be able to see the Azure DevOps Organizations and projects created by the other members of your hack team.
+1. You should have experienced creating and managing Agile project management using Azure Boards.

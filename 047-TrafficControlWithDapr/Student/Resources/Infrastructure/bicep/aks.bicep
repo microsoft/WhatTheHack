@@ -7,11 +7,32 @@ resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-
   name: managedIdentityName
 }
 
-resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
+resource managedIdentityOperatorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
+  scope: subscription()
+  name: 'f1a07417-d97a-45cb-824c-7a7467783830'
+}
+
+resource managedIdentityManagedIdentityOperatorRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(managedIdentity.id, 'ManagedIdentityOperatorRoleAssignment')
+  properties: {
+    principalId: managedIdentity.properties.principalId
+    roleDefinitionId: managedIdentityOperatorRoleDefinition.id
+  }
+  scope: managedIdentity
+}
+
+resource aks 'Microsoft.ContainerService/managedClusters@2022-11-01' = {
   name: aksName
   location: location
+  dependsOn: [
+    managedIdentityManagedIdentityOperatorRoleAssignment
+  ]
+  sku: {
+    name: 'Basic'
+    tier: 'Free'
+  }
   properties: {
-    kubernetesVersion: '1.24.6'
+    kubernetesVersion: '1.26.0'
     enableRBAC: true //this is required to install Dapr correctly
     dnsPrefix: aksName
     networkProfile: {
@@ -22,7 +43,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
         name: 'agentpool'
         osDiskSizeGB: 0
         count: 3
-        vmSize: 'Standard_DS2_v2'
+        vmSize: 'Standard_B4ms'
         osType: 'Linux'
         mode: 'System'
       }
@@ -42,27 +63,16 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
         }
       }
     }
-    podIdentityProfile: {
-      enabled: true
-      userAssignedIdentities: [
-        {
-          name: 'pod-identity'
-          namespace: 'dapr-trafficcontrol'
-          identity: {
-            clientId: managedIdentity.properties.clientId
-            objectId: managedIdentity.properties.principalId
-            resourceId: managedIdentity.id
-          }
-        }
-      ]
-    }
-    securityProfile: {
-      workloadIdentity: {
-        enabled: true
-      }
-    }
+    securityProfile: {}
     oidcIssuerProfile: {
       enabled: true
+    }
+    identityProfile: {
+      kubeletidentity: {
+        clientId: managedIdentity.properties.clientId
+        objectId: managedIdentity.properties.principalId
+        resourceId: managedIdentity.id
+      }
     }
   }
   identity: {
@@ -70,20 +80,6 @@ resource aks 'Microsoft.ContainerService/managedClusters@2022-09-02-preview' = {
     userAssignedIdentities: {
       '${managedIdentity.id}': {}
     }
-  }
-}
-
-resource dapr 'Microsoft.KubernetesConfiguration/extensions@2022-03-01' = {
-  name: 'dapr'
-  scope: aks
-  properties: {
-    extensionType: 'microsoft.dapr'
-    scope: {
-      cluster: {
-        releaseNamespace: 'dapr-system'
-      }
-    }
-    autoUpgradeMinorVersion: true
   }
 }
 

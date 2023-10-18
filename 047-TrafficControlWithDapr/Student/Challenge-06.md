@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you're going to add a Dapr **input binding** in the TrafficControlService. It'll receive entry- and exit-cam messages over the MQTT protocol.
+In this challenge, you're going to add a Dapr **input binding** in the `TrafficControlService`. It'll receive entry-cam and exit-cam messages over the MQTT protocol.
 
 ## Description
 
@@ -12,16 +12,15 @@ In this challenge you'll focus on Dapr input bindings. The following diagram dep
 
 <img src="../images/Challenge-06/input-binding.png" style="zoom: 50%;padding-top: 40px;" />
 
-For this hands-on challenge, you will add an input binding leveraging the Dapr binding building block. In the previous challenge, you implemented a Dapr output binding.
+For this hands-on challenge, you will add an input binding leveraging the Dapr binding building block.
 
 - Stand up a Mosquitto MQTT message broker in a Docker container.
-- Modify the `TrafficControlService` (`TrafficController` class) to use the Dapr MQTT input binding to receive entry-cam and exit-cam messages over the MQTT protocol.
+- Create a Dapr configuration file(s) for specifying the Dapr MQTT input binding components.
 - Modify the `Simulation` app to put `trafficcontrol/entrycam` & `trafficcontrol/exitcam` messages on the MQTT queue.
-  - Create a new class called `MqttTrafficControlService` to do this (look at the `HttpTrafficControlService` as an example).
+  - Modify the `MqttTrafficControlService` class to do this (look at the `HttpTrafficControlService` as an example).
   - Modify the `Program` class to use this new service.
-- Create a Dapr configuration file for specifying the Dapr SMTP input binding components.
-- Restart all services & run the **Simulation** application.
-- Once you have the solution running locally, modify the code to use Azure IoTHub & EventHub as the MQTT message broker.
+- Restart all services & run the `Simulation` application.
+- Once you have the solution running locally, modify the `Simulation` to use Azure IoT Hub & modify the Dapr configuration to use Azure Event Hub as the MQTT message broker.
 
 ## Success Criteria
 
@@ -37,10 +36,10 @@ This challenge targets the operation labeled as **number 5** in the end-state se
 
 - Validate that the Mosquitto MQTT message broker service is running locally.
 - Validate that the `TrafficControlService` receives messages via its Dapr component.
-- Validate that the **Simulation** application publishes entry-cam and exit-cam messages to the MQTT broker.
-- Validate that messages are being sent through the Azure IoT Hub & EventHub.
+- Validate that the `Simulation` application publishes entry-cam and exit-cam messages to the MQTT broker.
+- Validate that messages are being sent through the Azure IoT Hub & Event Hub.
 
-### DIY instructions
+# Tips
 
 - Use MQTT broker [Mosquitto](https://mosquitto.org/) for local development.
 - In order to connect to Mosquitto, you need to pass in a custom configuration file when starting it. With Docker, you can pass a configuration file when starting a container using a _Volume mount_. The folder `Resources/Infrastructure/mosquitto` already contains a config file you can use.
@@ -48,7 +47,7 @@ This challenge targets the operation labeled as **number 5** in the end-state se
   1.  Open a terminal window in VS Code and make sure the current folder is `Resources/Infrastructure/mosquitto`.
 
   1.  Start a Mosquitto MQTT container by entering the following command:
-      **When running on Windows**:
+      **When running on Windows PowerShell**:
 
       ```shell
       docker run -d -p 1883:1883 -p 9001:9001 -v $pwd/:/mosquitto/config/ --name dtc-mosquitto eclipse-mosquitto
@@ -70,7 +69,8 @@ This challenge targets the operation labeled as **number 5** in the end-state se
   docker logs dtc-mosquitto
   ```
 
-- Add the following MQTT configuration flags when connecting to the Mosquitto MQTT queue.
+- Add the following MQTT configuration flags when connecting to the Mosquitto MQTT queue in the `Simulation` app.
+
   ```csharp
   var configuration = new MqttConfiguration()
   {
@@ -78,7 +78,8 @@ This challenge targets the operation labeled as **number 5** in the end-state se
     Port = 1883
   };
   ```
-- Use [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) & EventHub for deployments to Azure.
+
+- Use [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) & Event Hub for deployments to Azure.
 
   - Create a IoT Device in Azure IoT Hub to represent your Simulation app.
 
@@ -92,11 +93,15 @@ This challenge targets the operation labeled as **number 5** in the end-state se
     az iot hub device-identity connection-string show --device-id simulation --hub-name <iot-hub-name>
     ```
 
-  - Use the `Microsoft.Azure.Devices.Client` NuGet package to connect to the IoT Hub instead of the local MQTT broker.
+- Note that the `Microsoft.Azure.Devices.Client.Message` class allows you to add additional properties to facilitate message routing (look in the Azure portal, under the IoT Hub you provisioned, at the `Message Routing` blade, `Routing queries` section for details on which properties to add).
 
 ## Learning Resources
 
 - [Introduction to this building block](https://docs.dapr.io/developing-applications/building-blocks/bindings/)
 - [Bindings chapter](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/bindings)
 - [Dapr for .NET developers](https://docs.microsoft.com/dotnet/architecture/dapr-for-net-developers/)
+- [MQTT input binding component](https://docs.dapr.io/reference/components-reference/supported-bindings/mqtt3/)
+- [C# MQTT client](https://github.com/xamarin/mqtt)
 - [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
+- [C# Azure IoT Hub client](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/SimulatedDevice/Program.cs)
+- [IoT Hub message routing](https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-routing-query-syntax)

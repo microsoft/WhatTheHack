@@ -9,6 +9,6 @@ Register the app in the newly created tenant by navigating to App Registration.
 
 Select Accounts in this organizational directory only (Single Tenant)
 
-Enter https://authr.biz/ as the Redirect URIs.
+Enter https://authr.dev/ as the Redirect URIs.
 
 Select the Access Token and ID Token checkbox in the Authentication tab

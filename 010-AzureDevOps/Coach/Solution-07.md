@@ -4,6 +4,10 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Branch policy will need to be setup via the UI.  This link should show all of the steps needed:
 
-Should add a new validate step in the steps in the pipeline. 
+https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser
+
+Note that you need to explicitly mention there are no triggers with trigger: none.  See solution for example:
+
+- Check the solution file as ADO pipeline solution sample [Solution-07.yaml](./Solutions/Solution-07.yaml)

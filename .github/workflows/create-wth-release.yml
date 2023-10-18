@@ -1,0 +1,40 @@
+name: Create a release for a WhatTheHack hackathon
+
+on:
+  workflow_dispatch:
+    inputs:
+      hackathonName:
+        description: "The name of the hackathon to create a release for"
+        required: true
+        default: "001-IntroToKubernetes"
+      pathToStudentResources:
+        description: "The path to the Student Resources directory."
+        required: true
+        default: "Student/Resources"
+      branchName:
+        description: "The name of the branch to create the release from."
+        required: true
+        default: "master"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - run: echo "TAG=${{ inputs.hackathonName }}-$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+      - run: |
+          cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
+          zip -r ${{ env.RESOURCES_FILENAME }} *
+
+          gh release create ${{ env.TAG }}  \
+            --title "Student Resources for ${{ inputs.hackathonName }}" \
+            --notes "Student Resources for ${{ inputs.hackathonName }}" \
+            --target ${{ inputs.branchName }}
+
+          gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESOURCES_FILENAME: Resources

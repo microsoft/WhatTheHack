@@ -1,24 +1,40 @@
-# Challenge 03 - Azure Repos: Introduction
+# Challenge 03 - Azure Pipelines: Infrastructure as Code
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Introduction
 
-Historically version control has been the first component that teams have implemented, it is one of the oldest and most well understood components of DevOps. Please take a moment to review the basics of version control, specially focusing on the distributed version control technology, Git.
+Great we now have some code, now we need an environment to deploy it to. In DevOps we can automate the process of deploying the Azure Services we need with an Azure Resource Manager (ARM) template. Review the following articles:
 
-1. [What is version control?](https://docs.microsoft.com/en-us/azure/devops/learn/git/what-is-version-control)
-2. [What is Git?](https://docs.microsoft.com/en-us/azure/devops/learn/git/what-is-git)
+1. [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)
+2. [Create Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/how-to-create-template)
 
 ## Description
 
-Now that we have a basic understanding of version control and Git, lets get some code checked into source control. Since the language you use for development doesn’t have much of an impact on how we do DevOps we have provided you a simple ASP.NET Core C# web application to use. 
+In Azure DevOps we can use Azure Pipelines to automate deploying our Azure infrastructure. For our application we will deploy 3 environments: Dev, Test and Prod. Each environment will consist of an Azure App Service, however all of our environments will share a single Resource Group, Azure App Service Plan, Application Insights Instance, and Azure Container Registry. 
 
-- When you created your project in Azure DevOps, it created a default repository for you in Azure Repos. Clone this repo to your local computer ([hint](https://code.visualstudio.com/Docs/editor/versioncontrol#_cloning-a-repository)).
-- Your coach will provide you with a `Resources.zip` file that contains the code and ARM templates for the application.
-- Unzip the `Resources.zip` file provided to you by your coach. You should see 2 folders. One containing the application and the other containing our Infrastructure as Code Azure Resource Manager (ARM) template. Copy both of these folders into the root of your cloned repository. 
-- Commit and Push the files into Azure Repos using VS Code or your favorite Git client ([hint](https://docs.microsoft.com/en-us/azure/devops/user-guide/code-with-git?view=azure-devops)). **Be sure to include a # sign followed by the work item number for this challenge to the Git commit message.** For example: lets say you want to use the checkin comment `my first checkin` and your work item number is 55 your, you can  check in message should look like this  `my first checkin #55`.
+**NOTE:** In real world deployments you will likely not share all of these resources.
+
+Please note, while you can create a pipeline with the UI with a Release Pipeline, we will be focused on the YAML pipelines for this hack.
+
+- Create a pipeline using the **Starter Pipeline** template, call it `Infrastructure Release`
+- Next let's create the first stage in our Infrastructure Release to deploy our ARM template to Dev. Name the stage `Dev`, and it should have a single `Azure Resource Group Deployment` task. 
+   - The task will ask you what Azure Subscription, Resource Group, and Resource Group Location you wish to use.
+   - The task will also ask you what Template you want to deploy. You will need to supply the relative path to the file during the pipeline run.
+   - You will need to override many of the templates parameters, replacing the `<prefix>` part with a unique lowercase 5 letter name.
+- You should now be able to save and execute your infrastructure release pipeline successfully and see the dev environment out in Azure. 
+- If everything worked, go ahead and clone the `dev` stage two more times for `test` and `prod`.
+   - The only change you need to make in the `test` and `prod` stages is changing the `webAppName` template parameter to `<prefix>devops-test` and `<prefix>devops-prod` respectively. 
+- You should now be able to save and execute your infrastructure release pipeline successfully and see all three environments out in Azure. 
 
 ## Success Criteria
 
-1. You should be able to go to the Azure DevOps site and under Azure Repos see your code. 
-2. You should be able to go to the Azure DevOps site and under Azure Boards and when you open your work item you should see your code associated to it. HINT: look in the "development" section on the work item. Why would it be important to be able to link a code change to the work item that it addresses? 
+1. Your infrastructure release should complete without any errors and you should see all three environments out in Azure. 
+
+## Learning Resources
+
+We are just scratching the surface of what is offered in Azure for Infrastructure as Code, if you are interested in learning more, there are multiple What the Hacks focused on Azure Infrastructure as Code:
+- [Infrastructure As Code: Bicep](../../045-InfraAsCode-Bicep/README.md)
+- [Infrastructure As Code: ARM & DSC](../../011-InfraAsCode-ARM-DSC/readme.md)
+- [Infrastructure As Code: Terraform](../../012-InfraAsCode-Terraform/Student/readme.md)
+- [Infrastructure As Code: Ansible](../../013-InfraAsCode-Ansible/Student/readme.md)

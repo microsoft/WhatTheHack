@@ -4,6 +4,8 @@
 
 ## Notes & Guidance
 
+> Prior to running this challenge, please ensure the SMTP settings have been reverted to using Mail Dev to prevent the student from receiving hundreds of emails.  
+
 You will add code to the `TrafficControlService` to leverage a Dapr input binding to send entry-cam and exit-cam messages. The following diagram depicts the scenario:
 
 <img src="../images/Challenge-06/input-binding-operation.png" style="padding-top: 25px;" />
@@ -90,7 +92,6 @@ First, create an input binding for the `/entrycam` operation:
     kind: Component
     metadata:
       name: entrycam
-      namespace: dapr-trafficcontrol
     spec:
       type: bindings.mqtt
       version: v1
@@ -100,9 +101,9 @@ First, create an input binding for the `/entrycam` operation:
         - name: topic
           value: trafficcontrol/entrycam
         - name: consumerID
-          value: trafficcontrolservice
+          value: trafficcontrolservice-entrycam
     scopes:
-      - trafficcontrolservice
+      - traffic-control-service
     ```
 
     In this configuration file, you specify the binding type MQTT (`bindings.mqtt`). In the `metadata` section, you describe how to connect to Mosquitto server container running on `localhost` on port `1883` . Note also how the `topic` is configured in metadata: `trafficcontrol/entrycam`. In the `scopes` section, you specify that only the `TrafficControlService` should subscribe to the MQTT topic.
@@ -122,7 +123,6 @@ Next, create an input binding for the `/exitcam` operation:
     kind: Component
     metadata:
       name: exitcam
-      namespace: dapr-trafficcontrol
     spec:
       type: bindings.mqtt
       version: v1
@@ -132,9 +132,9 @@ Next, create an input binding for the `/exitcam` operation:
         - name: topic
           value: trafficcontrol/exitcam
         - name: consumerID
-          value: trafficcontrolservice
+          value: trafficcontrolservice-exitcam
     scopes:
-      - trafficcontrolservice
+      - traffic-control-service
     ```
 
 Now with input bindings configured, it's time to change the Camera Simulation so it'll send MQTT messages to Mosquitto.
@@ -145,17 +145,11 @@ In this step, you'll change the Camera Simulation so it sends MQTT messages inst
 
 1.  Open the terminal window in VS Code and make sure the current folder is `Resources/Simulation`.
 
-1.  Add a reference to the `System.Net.Mqtt` library:
-
-    ```shell
-    dotnet add package System.Net.Mqtt --prerelease
-    ```
-
 1.  Open the file `Resources/Simulation/CameraSimulation.cs` file in VS Code.
 
 1.  Inspect the code in this file.
 
-As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry- and exit-cam messages to the `TrafficControlService`.
+As you can see, the simulation receives an `ITrafficControlService` instance injected into its constructor. The simulation uses this proxy (i.e., helper class) to send entry-cam and exit-cam messages to the `TrafficControlService`.
 
 1.  Open the file `Resources/Simulation/Proxies/HttpTrafficControlService.cs` in VS Code and inspect the code.
 
@@ -166,45 +160,43 @@ The proxy uses HTTP to send the message to the `TrafficControlService`. You will
 1.  Paste the following code into this file:
 
     ```csharp
-    using System;
     using System.Net.Mqtt;
-    using System.Text;
     using System.Text.Json;
     using Simulation.Events;
+    using System.Text;
+    using System.Threading.Tasks;
 
     namespace Simulation.Proxies
     {
-        public class MqttTrafficControlService : ITrafficControlService
+      public class MqttTrafficControlService : ITrafficControlService
+      {
+        private IMqttClient _mqttClient;
+        public MqttTrafficControlService(int cameraNumber)
         {
-            private readonly IMqttClient _client;
+          var configuration = new MqttConfiguration()
+          {
+            KeepAliveSecs = 60,
+            Port = 1883
+          };
 
-            public MqttTrafficControlService(int camNumber)
-            {
-                // connect to mqtt broker
-                var config = new MqttConfiguration() {
-                  KeepAliveSecs = 60,
-                  Port = 1883
-                };
-                var mqttHost = Environment.GetEnvironmentVariable("MQTT_HOST") ?? "localhost";
-                _client = MqttClient.CreateAsync(mqttHost, config).Result;
-                var sessionState = _client.ConnectAsync(
-                  new MqttClientCredentials(clientId: $"camerasim{camNumber}")).Result;
-            }
-
-            public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new MqttApplicationMessage("trafficcontrol/entrycam", Encoding.UTF8.GetBytes(eventJson));
-                _client.PublishAsync(message, MqttQualityOfService.AtMostOnce).Wait();
-            }
-
-            public void SendVehicleExit(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new MqttApplicationMessage("trafficcontrol/exitcam", Encoding.UTF8.GetBytes(eventJson));
-                _client.PublishAsync(message, MqttQualityOfService.AtMostOnce).Wait();
-            }
+          _mqttClient = MqttClient.CreateAsync("localhost", configuration).Result;
+          _mqttClient.ConnectAsync().Wait();
         }
+
+        public async Task SendVehicleEntryAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new MqttApplicationMessage("trafficcontrol/entrycam", Encoding.UTF8.GetBytes(eventJson));
+          await _mqttClient.PublishAsync(message, MqttQualityOfService.AtLeastOnce);
+        }
+
+        public async Task SendVehicleExitAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new MqttApplicationMessage("trafficcontrol/exitcam", Encoding.UTF8.GetBytes(eventJson));
+          await _mqttClient.PublishAsync(message, MqttQualityOfService.AtLeastOnce);
+        }
+      }
     }
     ```
 
@@ -238,7 +230,7 @@ Now you're ready to test the application.
 
 ### Step 5: Test the application
 
-You're going to start all the services now. You specify the custom components folder you've created on the command-line using the `--components-path` flag. By doing so, Dapr will use the configuration files inside the folder:
+You're going to start all the services now. You specify the custom components folder you've created on the command-line using the `--resources-path` flag. By doing so, Dapr will use the configuration files inside the folder:
 
 1.  Make sure no services from previous tests are running (close the terminal windows).
 
@@ -249,7 +241,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -257,7 +249,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -265,7 +257,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -308,47 +300,42 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     az iot hub device-identity connection-string show --device-id simulation --hub-name <iot-hub-name>
     ```
 
-1.  Add the NuGet package Microsoft.Azure.Devices.Client to the Simulation (`Resources/Simulation` directory) project.
-
-    ```shell
-    dotnet add package Microsoft.Azure.Devices.Client
-    ```
-
-1.  Create a new class for the implementation of the `Resources/Simulation/Proxies/IotHubTrafficControlService.cs` class with similar code to below.
+1.  Update the implementation of the `Resources/Simulation/Proxies/IotHubTrafficControlService.cs` class with similar code to below.
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using System.Text;
     using System.Text.Json;
     using Simulation.Events;
+    using System.Threading.Tasks;
 
     namespace Simulation.Proxies
     {
-        public class IotHubTrafficControlService : ITrafficControlService
+      public class IotHubTrafficControlService : ITrafficControlService
+      {
+        private readonly DeviceClient _client;
+
+        public IotHubTrafficControlService(int camNumber)
         {
-            private readonly DeviceClient _client;
-
-            public IotHubTrafficControlService(int camNumber)
-            {
-                _client = DeviceClient.CreateFromConnectionString("HostName=iothub-dapr-ussc-demo.azure-devices.net;DeviceId=simulation;SharedAccessKey=/cRA4cYbcyC7FakekeyNV6CrfugBe8Ka2z2m8=", TransportType.Mqtt);
-            }
-
-            public void SendVehicleEntry(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new Message(Encoding.UTF8.GetBytes(eventJson));
-                message.Properties.Add("trafficcontrol", "entrycam");
-                _client.SendEventAsync(message).Wait();
-            }
-
-            public void SendVehicleExit(VehicleRegistered vehicleRegistered)
-            {
-                var eventJson = JsonSerializer.Serialize(vehicleRegistered);
-                var message = new Message(Encoding.UTF8.GetBytes(eventJson));
-                message.Properties.Add("trafficcontrol", "exitcam");
-                _client.SendEventAsync(message).Wait();
-            }
+            _client = DeviceClient.CreateFromConnectionString("HostName=iothub-dapr-ussc-demo.azure-devices.net;DeviceId=simulation;SharedAccessKey=/cRA4cYbcyC7FakekeyNV6CrfugBe8Ka2z2m8=", TransportType.Mqtt);
         }
+
+        public async Task SendVehicleEntryAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new Message(Encoding.UTF8.GetBytes(eventJson));
+          message.Properties.Add("trafficcontrol", "entrycam");
+          await _client.SendEventAsync(message);
+        }
+
+        public async Task SendVehicleExitAsync(VehicleRegistered vehicleRegistered)
+        {
+          var eventJson = JsonSerializer.Serialize(vehicleRegistered);
+          var message = new Message(Encoding.UTF8.GetBytes(eventJson));
+          message.Properties.Add("trafficcontrol", "exitcam");
+          await _client.SendEventAsync(message);
+        }
+      }
     }
     ```
 
@@ -358,7 +345,7 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
     var trafficControlService = new IotHubTrafficControlService(camNumber);
     ```
 
-1.  Get the connection strings for your event hubs (one for the **entrycam** EventHub & one for the **exitcam** EventHub). Customize for your deployment.
+1.  Get the connection strings for your event hubs (one for the `entrycam` EventHub & one for the `exitcam` Event Hub). Customize for your deployment.
 
     ```shell
     az eventhubs eventhub authorization-rule keys list --eventhub-name entrycam --namespace-name <event-hub-namespace> --resource-group <resource-group-name> --name listen --query primaryConnectionString
@@ -394,7 +381,7 @@ Azure IoT Hub can be set up as a [MQTT queue](https://docs.microsoft.com/en-us/a
         - name: storageContainerName
           value: "trafficcontrol-entrycam"
     scopes:
-      - trafficcontrolservice
+      - traffic-control-service
     ```
 
 1.  Replace the implementation of the `Resources/dapr/components/exitcam.yaml` file with code similar to above, making sure to replace the `connectionString` & `storageContainerName` with the appropriate ones for `exitcam`.
@@ -412,11 +399,11 @@ Getting the input binding to the local MQTT queue is finicky.
 Run dapr in debug logging mode to see more errors (note the `--log-level debug` flag):
 
 ```shell
-dapr run --log-level debug --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+dapr run --log-level debug --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
 ```
 
 Error:
 
 ```shell
-time="2022-10-12T16:44:02.462071-05:00" level=error msg="error reading from input binding entrycam: not currently connected and ResumeSubs not set" app_id=trafficcontrolservice
+time="2022-10-12T16:44:02.462071-05:00" level=error msg="error reading from input binding entrycam: not currently connected and ResumeSubs not set" app_id=traffic-control-service
 ```
