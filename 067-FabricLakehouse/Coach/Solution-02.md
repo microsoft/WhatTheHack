@@ -6,6 +6,7 @@
 
 This challenge implements the design developed in Challenge 1, landing data in a "raw" format ready to import in [the next Challenge](./Solution-03.md).
 
+
 ## Solution
 
 Notebooks were used to download the datasets discussed in [Challenge 1](./Solution-01.md), using examples from the source documentation. See the notebooks in the [Solutions](./Solutions) folder and details in [Solution 3](./Solution-03.md).

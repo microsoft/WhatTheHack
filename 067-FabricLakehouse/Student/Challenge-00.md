@@ -10,16 +10,16 @@ Thank you for participating in the Fabric Lakehouse What The Hack. Before you ca
 
 You will need:
 
-- A Microsoft Fabric subscription. At the time of writing, Microsoft Fabric is in public preview and a free trial is available at aka.ms/FabricTrial.
+- A Microsoft Fabric subscription. At the time of writing, Microsoft Fabric is in public preview and a free trial is available at [aka.ms/FabricTrial](https://aka.ms/FabricTrial).
 
-- A Microsoft Fabric enabled workspace. Either you or your organisation's administrator will need to create this. Instructions can be found at https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces
+- A Microsoft Fabric enabled workspace. Either you or your organisation's administrator will need to create this. Instructions can be found at [learn.microsoft.com/en-us/fabric/get-started/create-workspaces](https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces)
 
-- Power BI desktop. This can be installed from https://aka.ms/getpowerbi
+- Power BI desktop. This can be installed from [aka.ms/getpowerbi](https://aka.ms/getpowerbi)
 
 - A love of terrible sea-themed puns
 
 ## Success Criteria
 
-1. You have logged into https://fabric.microsoft.com
+1. You have logged into [fabric.microsoft.com](https://fabric.microsoft.com)
 1. You have Power BI installed on your PC.
 

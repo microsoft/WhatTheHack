@@ -4,7 +4,7 @@
 
 ## Introduction
 
-You've found your data, cleaned combined and shaped it into something useful. Now it's time to create your data story.
+You've found your data, cleaned combined and shaped it into something useful. Now it's time to create your data story!
 
 ## Description
 
@@ -25,3 +25,4 @@ To complete this challenge successfully, you should:
 - You can use any format, but a Power BI report is an obvious choice.
 - Don't go "overboard" with the PowerPoint.
 - A live demo always makes a splash!
+- Enrich your pieces of eight with some gold doubloons!  Add some additional data sources to your lakehouse to make your data story even more compelling.
