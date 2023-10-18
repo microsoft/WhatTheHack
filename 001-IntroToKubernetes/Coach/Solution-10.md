@@ -18,7 +18,7 @@ Adding a dns label to the ingress controller via helm can be tricky.  It's docum
    - Ignore the notes about creating and using a static IP.  For this challenge, a dynamic IP is fine.
    - Specifically, you will need to modify (upgrade) your previously-installed ingress controller deployment as follows:  _Note: This example is formatted for bash.  For powershell, change the line continuation character from \ to `_
 ```bash
-helm upgrade  nginx-ingress ingress-nginx/ingress-nginx \
+helm upgrade  ingress-nginx ingress-nginx/ingress-nginx \
     --namespace ingress-basic --reuse-values \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="NEW-DNS-LABEL"
 ```
