@@ -27,7 +27,7 @@ Additionally, with a self-service sign-up user flow, you can create a sign-up ex
 
 1. Your new guest user is invited.
 2. Invited user has received and accepted the invitation.
-3. Sign in with the guest user account is successful(using [Authr](https://authr.biz/)).
+3. Sign in with the guest user account is successful(using [Authr](https://authr.dev/)).
 
 ## Learning Resources
 
