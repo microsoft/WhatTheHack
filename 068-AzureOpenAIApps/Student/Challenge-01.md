@@ -8,7 +8,15 @@ This challenge assumes that all the dependencies in the Challenge 0 were deploye
 
 ## Introduction
 
-Automatically detecting document changes in Azure Blob Store and Azure Cosmos DB is of paramount importance as it facilitates the continuous and real-time update of document representations through the Azure OpenAI embedding service. In an era where information is constantly evolving, staying up-to-date with document changes is crucial for accurate and relevant data analysis. By leveraging automated detection, organizations can ensure that their embedded document vectors remain synchronized with the most recent content, enabling better insights, search capabilities, and recommendation systems. This approach enhances the efficiency and effectiveness of various applications, from content recommendation engines to fraud detection, by providing accurate and timely representations of the documents in question, making it an indispensable component of modern data processing and analysis pipelines.
+In many organizations, the database used by the LLMs to provide data to the virtual assistants are not the original source of truth.
+
+Hence the structured and unstructured databases must be synchronized with the vector stores using mechanisms available within the ecosystem.
+
+Automatically detecting document changes in Azure Blob Store and Azure Cosmos DB is of paramount importance as it facilitates the continuous and real-time update of document representations through the Azure OpenAI embedding service. 
+
+In an era where information is constantly evolving, staying up-to-date with document changes is crucial for accurate and relevant data analysis. By leveraging automated detection, organizations can ensure that their embedded document vectors remain synchronized with the most recent content, enabling better insights, search capabilities, and recommendation systems. 
+
+This approach enhances the efficiency and effectiveness of various applications, from content recommendation engines to fraud detection, by providing accurate and timely representations of the documents in question, making it an indispensable component of modern data processing and analysis pipelines.
 
 ## Description
 
