@@ -49,7 +49,8 @@ To complete the challenge successfully, the solution should demonstrate the foll
 - The assistant should be able to keep track of the conversation history during the session and remember important details about the customer making the inquiry or reservation 
 - The virtual assistant should be able to handle natural language inputs and be trained to understand different variations of the questions related to the tour status. 
 - It should also be able to handle scenarios where the customer asks for more details about the reservation status, such as the estimated delivery time.
-
+- For read/write scenarios, the changes requested by the customer/user should be captured and saved correctly to the databases.
+- 
 ## Learning Resources
 
 Here are a list of resources that should assist you with completing this challenge:
