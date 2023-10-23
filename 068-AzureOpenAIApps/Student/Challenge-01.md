@@ -1,4 +1,4 @@
-# Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources
+# Challenge 01 - Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
