@@ -1,10 +1,10 @@
-# Challenge 03 - The Teachers Assistant - Batch Essay Grading
+# Challenge 03—The Teachers Assistant—Batch Essay Grading
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ## Pre-requisites (Optional)
 
-This challenge assumes that all Challenge 01 was successfully completed.
+This challenge assumes that all requirements for Challenges 01 were successfully completed.
 
 ## Introduction
 
@@ -34,7 +34,7 @@ Your solution should:
 A successfully completed solution should accomplish the following goals:
 
 - Some files may contain multiple document types in the same file.
-- Should be able to properly classify documents and use the appropriate model to extract the submissions contained in the file
+- The application should be able to properly classify documents and use the appropriate model to extract the submissions contained in the file
 - Should be able to process all documents
 - Should be able to extract all form fields from the documents
 - Should be able to grade the questions for correctness.
