@@ -28,6 +28,6 @@ Run your experiments in Dev/Test, do not run in Prod.
 - Verify that your application remains healthy during the Chaos Experiment. 
 
 ## Learning Resources 
-- How to deploy a simple experiment https://blog.meadon.me/chaos-studio-part-1/
-- How to deploy a simple application and experiment in a CI/CD pipeline https://blog.meadon.me/chaos-studio-part-2/
+- [How to deploy a simple experiment](https://blog.meadon.me/chaos-studio-part-1/)
+- [How to deploy a simple application and experiment in a CI/CD pipeline](https://blog.meadon.me/chaos-studio-part-2/)
 
