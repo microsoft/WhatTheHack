@@ -1,0 +1,8 @@
+ChaosStudio
+contossoappmysql
+PizzaApp
+Rhoads
+Falgout
+EastUS
+PizzaAppEastUS
+PizzaAppWestUS
