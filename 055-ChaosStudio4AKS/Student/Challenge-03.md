@@ -43,7 +43,7 @@ During the experiment, were you able to order a pizza? If not, what could you do
 ## Tips
 
 -  Think of the multiple ways to simulate a region failure 
--  Did you create the NSG's from Challenge 0? 
+-  Did you create the NSG from Challenge 0? 
 -  Use [GeoPeeker](https://geopeeker.com/home/default) to verify traffic routing
 
 
