@@ -30,7 +30,17 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+### Student Resources
+
+Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete the challenges for this hack.  
+
+These resources include Azure Functions, Angular Apps, starter code, and sample data sources. 
+
+You should download and unpack the `Resources.zip` file there to your local workstation.  The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
+
+For the hack event October 23 - November 3, 2023, you can download the file here: [`Resources.zip`](https://aka.ms/wthopenaiappsresources)
+
+### Installing Additonal Tools
 
 Please install these additional tools:
 
@@ -38,7 +48,7 @@ Please install these additional tools:
 - Make sure [NPM 9.8.1](https://nodejs.org/en/download) or later is installed
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 
-In the `/Challenge-00/` folder of the Resources.zip file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
+In the `/Challenge-00/` folder of the `Resources.zip` file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
 
 The sample applications were developed using Typescript/Javascript. 
 
