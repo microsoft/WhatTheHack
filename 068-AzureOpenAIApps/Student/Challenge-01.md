@@ -1,4 +1,4 @@
-# Challenge 01 - Contoso Travel Assistant
+# Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
@@ -7,39 +7,46 @@
 This challenge assumes that all the dependencies in the Challenge 0 were deployed successfully.
 
 ## Introduction
-Microsoft Azure offers various capabilities and models that enable you to leverage chat completion APIs alongside static text and other technologies to create virtual assistants that can parse these text to provide answers to users.
-The goal of this challenge is to help you understand the technologies and resources you need to implement such a virtual assistant.
+
+Automatically detecting document changes in Azure Blob Store and Azure Cosmos DB is of paramount importance as it facilitates the continuous and real-time update of document representations through the Azure OpenAI embedding service. In an era where information is constantly evolving, staying up-to-date with document changes is crucial for accurate and relevant data analysis. By leveraging automated detection, organizations can ensure that their embedded document vectors remain synchronized with the most recent content, enabling better insights, search capabilities, and recommendation systems. This approach enhances the efficiency and effectiveness of various applications, from content recommendation engines to fraud detection, by providing accurate and timely representations of the documents in question, making it an indispensable component of modern data processing and analysis pipelines.
 
 ## Description
 
-Contoso Travel is a 40-person organization that specializes in booking travel to various destinations around the world. Based on the information available on ContosoTravel.com, implement a chatbot that can leverage static information about Contoso Travel and answer questions that prospective customers may have about travel ideas.
+Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-The database contoso-travel within the Cosmos DB service contains a collection called static-data with information used to populate the Contoso Travel website. 
+There are documents (from the documents/contoso-islands folder in your Resources) that have been uploaded to Azure Blob Storage.
 
-In this challenge, you will design and implement an architecture for a chatbot solution that leverages Azure OpenAI to provide travel ideas and answer questions for prospective customers of Contoso Travel based on the information available in the static-data collection.
+There are also documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to Azure Cosmos DB containers.
+
+Your task is to design a system that leverages Azure Function trigger to keep track of new documents and modification to existing documents.
+
+This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
+
+The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure Cognitive Search is recommended but feel free to use any other vector database of your preference.
 
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- The chatbot assistant should be able to understand and respond to natural language queries about travel ideas, such as "What are some popular destinations for summer travel?"
-- The virtual assistant should be able to access static information about Contoso Travel, such as information about destinations, activities, and packages.
-- The solution should make sure that the number of input+output tokens is always within the limits allowed by the model while minimizing costs.
-- The virtual assistant should be able to provide personalized recommendations to customers based on their preferences and interests. 
-- The solution should be scalable to handle a large number of concurrent users.
+- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes
+- The embeddings for the documents are correctly computed using the Azure OpenAI embedding models
+- Any new document or change to an existing document in Cosmos DB must be reflected in the vector store index
+- Any new document uploaded into the Azure Blob Store container must be reflected in the vector store index.
 
 ## Learning Resources
 
-Here are a list of resources that should assist you with completing this challenge:
+Here is a list of resources that should assist you with completing this challenge:
 
 *Sample resources:*
 
-- [Vector Search Similarity Capabilities in Azure Cache for Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/introducing-vector-search-similarity-capabilities-in-azure-cache/ba-p/3827512)
+- [Vector Search with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 - [Vector Similarity Search with Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
-- [Working with the ChatCompletion APIs](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions#working-with-the-chat-completion-api)
+- [Azure Function Triggers for Cosmos DB](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger)
+- [Azure Function Triggers for Azure Blob Store](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger)
 
 ## Tips
 
 *Sample tips:*
 
-- Try using the playground first to try some of the responses with excerpts of the static data as context.
-- Instruct the virtual assistant to respond to only specific types of questions.
+- Start up the function app first before loading the documents.
+- Log changes to the console so that you can see if your changes are working.
+- There are some example codes in the app for you to use to get started.
