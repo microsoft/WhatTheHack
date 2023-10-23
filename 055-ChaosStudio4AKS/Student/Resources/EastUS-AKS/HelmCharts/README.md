@@ -188,7 +188,7 @@ For the PostgreSQL database setup, the developer/operator can make changes to th
 
 In the yaml files we can specify the database Type (appConfig.databaseType) as "mysql" or postgres" and then we can set the JDBC URL, username and password under the appConfig objects.
 
-In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSL deployment options
+In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSQL deployment options
 
 ```yaml
 appConfig:
