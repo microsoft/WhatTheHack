@@ -5,7 +5,7 @@
 Azure Chaos Studio (Preview) is a managed service for improving resilience by injecting faults into your Azure applications. Running controlled fault
 injection
 experiments against your applications, a practice known as chaos engineering, helps you to measure, understand, and improve resilience against real-world
-incidents, such as a region outages or application failures causing high CPU utilization on a VMs, ScaleSets, and Azure Kubernetes.
+incidents, such as a region outages or application failures causing high CPU utilization on a VMs, Scale Sets, and Azure Kubernetes.
 
 
 ## Learning Objectives
@@ -39,7 +39,7 @@ simulate various failures.
 - Visual Studio Code terminal or Azure Shell (recommended)
 - Latest Azure CLI (if not using Azure Shell) 
 - GitHub or Azure DevOps to automate Chaos Testing
-- Azure fundamentals, Vnets, NSGs, ScaleSets, Traffic Manager 
+- Azure fundamentals, Vnets, NSGs, Scale Sets, Traffic Manager 
 - Fundamentals of Chaos Engineering
 - Intermediate understanding of Kubernetes (kubectl commands)and AKS
 
