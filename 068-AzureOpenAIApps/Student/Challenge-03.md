@@ -1,4 +1,4 @@
-# Challenge 03—The Teachers Assistant—Batch Essay Grading
+# Challenge 03 - The Teachers Assistant—Batch Essay Grading
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
