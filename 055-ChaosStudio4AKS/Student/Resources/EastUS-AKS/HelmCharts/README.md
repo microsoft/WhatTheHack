@@ -12,7 +12,7 @@ You should have not have to do provisioning again since you have already provisi
 
 These instructions provide guidance on how to setup PostgreSQL 11 on AKS
 
-This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure CloudShell but you will need to install or download them if you are using a different environment.
+This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure Cloud Shell but you will need to install or download them if you are using a different environment.
 
 ## Installing the PostgreSQL Database
 
