@@ -15,3 +15,4 @@ dataSourceURL
 appConfig
 databaseType
 globalConfig
+ChaosStudio
