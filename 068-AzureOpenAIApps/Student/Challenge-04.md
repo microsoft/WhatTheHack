@@ -1,4 +1,4 @@
-# Challenge 04—Securing Resources, Quota Monitoring and Enforcement
+# Challenge 04 - Securing Resources, Quota Monitoring and Enforcement
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
