@@ -44,7 +44,7 @@ If using the Pizza Application, the Pizza Application will run in 2 Azure region
 
 The Pizza Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and the sample Pizzeria application.  Your coach will provide you with a link to the Pizzeria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
 
-   - Download the required PizzeriaApp.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
+   - Download the required Pizzeria.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
    - Unzip the file 
 
 ### Deploy the AKS Environment
@@ -91,7 +91,7 @@ Once the applications are deployed, you will see a link to a websites running on
 
 ## Tips
 
-* The AKS "contossoappmysql" web front end has a public IP address that you can connect to. At this time you should create a Network Security Group on the Vnet, call is PizzaAppEastUS / PizzaAppWestUS and enable (allow) TCP port 8081 priority 200 and disable (deny) TCP port 3306 priority 210  --you will need this NSG for future challenges. 
+* The AKS "contosoappmysql" web front end has a public IP address that you can connect to. At this time you should create a Network Security Group on the Vnet, call is PizzaAppEastUS / PizzaAppWestUS and enable (allow) TCP port 8081 priority 200 and disable (deny) TCP port 3306 priority 210  --you will need this NSG for future challenges. 
 
 ```bash
 
