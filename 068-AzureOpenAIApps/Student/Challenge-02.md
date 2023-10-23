@@ -40,6 +40,7 @@ This virtual assistant should be able to do the following:
 - Create a new reservation for a specific date and yacht name
 - Cancel existing reservation for a specific yacht and date. Updates the status to cancelled.
 - Update the travel party size (number of passengers) for a particular reservation
+- Get details about the Yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
 
 ## Success Criteria
 
@@ -50,13 +51,16 @@ To complete the challenge successfully, the solution should demonstrate the foll
 - The virtual assistant should be able to handle natural language inputs and be trained to understand different variations of the questions related to the tour status. 
 - It should also be able to handle scenarios where the customer asks for more details about the reservation status, such as the estimated delivery time.
 - For read/write scenarios, the changes requested by the customer/user should be captured and saved correctly to the databases.
-- 
+
 ## Learning Resources
 
 Here are a list of resources that should assist you with completing this challenge:
 
 *Sample resources:*
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
+- https://redis.io/docs/data-types/strings/
+- https://redis.io/docs/data-types/lists/
+
 ## Tips
 
 *Sample tips:*

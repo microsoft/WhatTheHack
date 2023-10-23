@@ -1,69 +1,46 @@
-# Challenge 04 - <Title of Challenge>
+# Challenge 04—Securing Resources, Quota Monitoring and Enforcement
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Pre-requisites (Optional)
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+This challenge assumes that all requirements for Challenges 01, 02 and 03 were successfully completed.
 
 ## Introduction
 
-Contoso Education wants to automatically grade essays uploaded by students in real-time. The essays can be uploaded in various formats such as plain text, PDF, JPEG, TIFF, or PNG. The solution should use a predefined rubric to grade the essays and post the results of the assessment instantly to Cosmos DB.
+When building any application for production scenarios, it is always a good idea to build it responsibly and securely.
 
-These essays can be uploaded in any of the allowable image formats by the Contoso Education application. The goal of the solution is to upload the essay of the student in real-time and the application will use a predefined rubric to grade the uploaded essay and post the results of the assessment instantly into the Cosmos DB and relational database so that other components of the system can make the grades available to the administrators, parents and students right away. The function should be able to accept plain text, pdf, JPEG, TIFF or PNG input from the student.
+For this challenge, the goal will be to ensure that no credentials or keys for Blob Store, Azure Cognitive Search, Cosmos DB or OpenAI is stored in environment variables.
+The goal will be to use Azure-Managed Identities to authenticate against these resources from the application.
 
+We will also make sure that for the automated exam grading for each school district, each school district is not exceeding the allocated quota.
+
+You will ensure that each school district does not process more than 4 submissions within a 5-minute period. If this quota is reached, the service bus queue will need to be suspended for 5 minutes and then processing for that school district can resume again.
 ## Description
 
-
+In this challenge, we will do the following:
+- updating the application connection setup for Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus to use managed identities and not credentials from environment variables
+- enforcing that the quotas are adhered to and no school district is able to process more than 4 submissions within a 5 minute period.
+- ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
+A successfully completed solution should accomplish the following goals:
 
-*The success criteria should not be a list of instructions.*
+- Connection to Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus are using only managed identities
+- The quota enforcement is adhered to and that no school district exceeds the quota limit
+- Ensure that for the updates to the Yachts, if only the pricing or capacity details are updated no embedding should be processed.
 
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/entity-suspend#suspension-states
 
-***Note:** Use descriptive text for each link instead of just URLs.*
+https://redis.io/docs/data-types/strings/
 
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+https://redis.io/docs/data-types/lists/
 
 ## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Suspend the service bus queue and keep track of this in Redis Cache
+- Use Timers to check if the Service Bus Queue suspension can be lifted.

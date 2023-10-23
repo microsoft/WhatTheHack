@@ -51,6 +51,11 @@ https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concep
 
 https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/sdk-overview-v3-1?view=doc-intel-3.1.0&tabs=csharp
 
+https://redis.io/docs/data-types/strings/
+
+https://redis.io/docs/data-types/lists/
+
+
 ## Tips
 - Use Azure Cognitive Services Form Recognizer to extract the text from the PDF, PNG, TIFF and JPEG files stored in the blob storage.
 - Use Azure Functions to orchestrate the pipeline and store the extracted information in an Azure Cosmos DB database.
