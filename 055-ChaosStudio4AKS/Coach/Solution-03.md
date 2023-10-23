@@ -16,10 +16,10 @@ Traffic manager is the solution.
 - Routing method = Performance
 - Configuration profile needs to be created
  - DNS TTL = 1
- - Protocal = Http
+ - Protocol = Http
  - Port = 8081
  - Path = /pizzeria/
- - Probining interval = 10
+ - Probing interval = 10
  - Tolerated number of failures = 3
  - Probe timeout = 5
  
