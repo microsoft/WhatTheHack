@@ -25,7 +25,7 @@ Create failure at the AKS pod level in your preferred region e.g. EastUS
 - Show that your Chaos Experiment has been scoped to the web tier workload
 - Show (if any) any failure you observed during the experiment
 
-During the experiment, were you able to order a pizza or perform your appplication's functionality? If not, what could you do to make your application resilient at the POD layer?  
+During the experiment, were you able to order a pizza or perform your appplication functionality? If not, what could you do to make your application resilient at the POD layer?  
 
 
 ## Success Criteria
@@ -33,7 +33,7 @@ During the experiment, were you able to order a pizza or perform your appplicati
 - Verify Chaos Mesh is running on the Cluster
 - Verify Pod Chaos restarted the application's AKS pod
 - Show any failure you observed during the experiment
-- If your application went offline, show what change could you make to the application to make it resillent
+- If your application went offline, show what change could you make to the application to make it resilient
 
 ## Tips
 
