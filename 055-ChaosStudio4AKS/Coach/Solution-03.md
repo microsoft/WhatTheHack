@@ -23,4 +23,4 @@ Traffic manager is the solution.
  - Tolerated number of failures = 3
  - Probe timeout = 5
  
-Use Geopeeker to visualize multi-region DNS resolution https://geopeeker.com/home/default
+Use GeoPeeker to visualize multi-region DNS resolution https://GeoPeeker.com/home/default
