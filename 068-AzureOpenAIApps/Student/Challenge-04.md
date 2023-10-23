@@ -21,14 +21,14 @@ You will ensure that each school district does not process more than 4 submissio
 In this challenge, we will do the following:
 - updating the application connection setup for Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus to use managed identities and not credentials from environment variables
 - enforcing that the quotas are adhered to and no school district is able to process more than 4 submissions within a 5 minute period.
-- ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
+
 ## Success Criteria
 
 A successfully completed solution should accomplish the following goals:
 
 - Connection to Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus are using only managed identities
 - The quota enforcement is adhered to and that no school district exceeds the quota limit
-- Ensure that for the updates to the Yachts, if only the pricing or capacity details are updated no embedding should be processed.
+
 
 
 ## Learning Resources
