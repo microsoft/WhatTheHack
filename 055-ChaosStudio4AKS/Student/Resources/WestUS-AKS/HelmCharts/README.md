@@ -12,7 +12,7 @@ You should have not have to do provisioning again since you have already provisi
 
 These instructions provide guidance on how to setup PostgreSQL 11 on AKS
 
-This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure CloudShell but you will need to install or download them if you are using a different environment.
+This requires Helm3 and the latest version of Azure CLI to be installed. These are pre-installed in Azure Cloud Shell but you will need to install or download them if you are using a different environment.
 
 ## Installing the PostgreSQL Database
 
@@ -188,7 +188,7 @@ For the PostgreSQL database setup, the developer/operator can make changes to th
 
 In the yaml files we can specify the database Type (appConfig.databaseType) as "mysql" or postgres" and then we can set the JDBC URL, username and password under the appConfig objects.
 
-In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSL deployment options
+In the globalConfig object we can change the merchant id, public keys and other values as needed but you generally can leave those alone as they apply to both MySQL and PostgreSQL deployment options
 
 ```yaml
 appConfig:
