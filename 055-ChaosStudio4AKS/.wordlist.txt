@@ -5,3 +5,4 @@ Falgout
 EastUS
 PizzaAppEastUS
 PizzaAppWestUS
+namespaces
