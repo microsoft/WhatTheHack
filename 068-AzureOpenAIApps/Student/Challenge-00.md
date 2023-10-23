@@ -38,11 +38,19 @@ Please install these additional tools:
 - Make sure [NPM 9.8.1](https://nodejs.org/en/download) or later is installed
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 
-In the `/Challenge-00/` folder of the Resources.zip file, you will find sampe apps provides the initial hack environment you will work with in subsequent challenges.
+In the `/Challenge-00/` folder of the Resources.zip file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
 
-You fill find the following folders:
+The sample applications were developed using Typescript/Javascript. 
+
+If you are more comfortable with Python, Java or C#, you may follow the examples to create equivalent apps using your programming language of choice.
+
+Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
+
+You fill find the following folders containing the sample front end and backend API application to help you get started:
 - ContosoAIAppsBackend (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
 - ContosoAIAppsFrontend (contains an Angular App that provides a user interface to some example virtual assistants)
+
+The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on:
 
 ### Provisioning Azure Resources
 
