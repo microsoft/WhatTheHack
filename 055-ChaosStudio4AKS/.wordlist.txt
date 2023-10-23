@@ -1,4 +1,4 @@
-contossoappmysql
+contosoappmysql
 PizzaApp
 Rhoads
 Falgout
