@@ -1,6 +1,6 @@
 # Challenge 05 - Performance and Cost and Optimizations
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** 
 
 ## Pre-requisites (Optional)
 
