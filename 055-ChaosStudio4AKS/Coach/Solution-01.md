@@ -30,7 +30,7 @@ Have the student explore how to make PODs resilient by creating a replica of the
 ```bash
 kubectl scale statefulset -n APPNAME NAMESPACE --replicas=2
 ```
-- Have the student run the experiment again and notice how the application is avalable with a failed POD
+- Have the student run the experiment again and notice how the application is available with a failed POD
   - In the experiment, make the mode = "one" versus "all: as per the JSON spec below:
      - {"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["contosoappmysql"]}}
 
