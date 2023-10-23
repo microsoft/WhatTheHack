@@ -38,17 +38,88 @@ Please install these additional tools:
 - Make sure [NPM 9.8.1](https://nodejs.org/en/download) or later is installed
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find provides the initial hack environment you will work with in subsequent challenges.
+In the `/Challenge-00/` folder of the Resources.zip file, you will find sampe apps provides the initial hack environment you will work with in subsequent challenges.
 
 You fill find the following folders:
 - ContosoAIAppsBackend (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
 - ContosoAIAppsFrontend (contains an Angular App that provides a user interface to some example virtual assistants)
 
-### Setting up the Backend Azure Function App Locally
+### Provisioning Azure Resources
 
-We will need to provision the following Azure resources that will be used to power the apps.
+##### Resource 1: Create an Azure Service Bus instance 
+
+Set up the resource following the steps available here
+
+https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-cli
+
+##### Resource 2: Create two Azure Storage Accounts 
+
+These are the storage accounts that will be used by the Function App as well as storing some documents and images
 
 ````bash
+export RESOURCE_GROUP_NAME=""
+export FORMS_STORAGE_ACCOUNT_NAME="contoso"
+export WEBJOBS_STORAGE_ACCOUNT_NAME="contosojobs"
+export REGION="eastus"
+export FORMS_STORAGE_CONTAINER_NAME="contosodocuments"
+
+# WEBJOBS_STORAGE_ACCOUNT_NAME
+az storage account create --name $WEBJOBS_STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP_NAME --sku Standard_LRS
+
+# Create a Storage account for the Form Uploads and Downloads
+az storage account create --name $FORMS_STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP_NAME --sku Standard_LRS
+
+# Create Storage Container for Forms Faxes
+az storage container create --account-name $FORMS_STORAGE_ACCOUNT_NAME --name $FORMS_STORAGE_CONTAINER_NAME
+
+````
+
+https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli
+
+##### Resource 3: Create a Cosmos DB Account
+
+Create a database called contoso and then create the customers and yachts containers (collections) that will store the information for yachts and tourists.
+
+https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-portal
+
+
+##### Resource 4: Create an Azure Cognitive Search Instance
+
+Once the resource has been set up, use the Postman collection in the artifacts folder to set up the index
+
+https://learn.microsoft.com/en-us/azure/search/search-create-service-portal
+
+##### Resource 5: Create the Redis Cache instance
+
+This redis cache instance could be used to track usage and consumption quotas and also keep track of chat message histories between the users and the virtual assistants.
+
+https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/quickstart-create-redis
+
+##### Resource 6: Create the Azure OpenAI Resources
+
+Create an Azure OpenAI resource and then deploy an LLM model (gpt35-16k) as well as an embedding model (text-embedding-ada-002)
+
+Please keep track of their deployment names because you will need this for configuring the Azure Function App
+
+https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal
+
+##### Setting up the Backend Azure Function App Locally
+
+We will need to provision the above-mentioned Azure resources that will be used to power the apps.
+
+Once the resources have been provisioned, please ensure that you set up the environment variables needed to power the back end Azure function app
+
+The local.settings.json file is where all the environment variables used locally by the function app are defined.
+
+````bash
+# Navigate to the directory
+cd ContosoAIAppsBackend
+
+# Install dependencies
+npm install
+
+# Start up the function app
+npm start 
 
 ````
 
@@ -56,10 +127,19 @@ We will need to provision the following Azure resources that will be used to pow
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
 
+Navigate into the ContosoAIAppsFrontend folder and install the application dependencies
+
+If your function app is running on a different port or machine, please update the src/environments/environment.ts config file accordingly
 
 ```
-az group create --name OpenAI-rg --location eastus
-az group deployment create -g OpenAI-rg --name HackEnvironment -f setupIoTEnvironment.json
+# Navigates into the folder 
+cd ContosoAIAppsFrontend
+
+# Installs the dependencies
+npm install
+
+# Starts up the web application on your local machine
+npm start
 ```
 
 ## Success Criteria
@@ -67,15 +147,15 @@ az group deployment create -g OpenAI-rg --name HackEnvironment -f setupIoTEnviro
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure inside the OpenAI-rg resource group:
+- Verify that you have deployed the following resources in Azure:
+
   - Azure OpenAI Service
-  - Azure Virtual Network
   - Azure Cognitive Search
+  - Two Azure Storage Accounts with Azure Blob Storage
   - Azure Cosmos DB service with databases and containers
-  - Azure Service Bus with the queues set up
+  - Azure Service Bus with at least one queue set up
   - Azure Redis Cache Instance
-  - Azure Storage Account with Blob Storage
-  - An Azure Function App
+  - Azure Document Intelligence Service (formerly Azure Form Recognizer)
 
 ## Learning Resources
 

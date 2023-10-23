@@ -27,14 +27,16 @@ The participants will learn how to:
 - Challenge 00: **[Pre-requisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure.
 - Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
-	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary) and stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search. This challenge covers vector store selection based on performance, capacity, available algorithms etc.
+	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary). 
+    - The pipeline also stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search. 
+    - This challenge covers vector store selection based on performance, capacity, available algorithms, etc.
 - Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
 	 - Design and implement a virtual assistant that responds to frequently asked questions about the economy, climate and government based on static data from the Contoso Islands documents stored in blob storage.
 	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Islands tourists that are looking to make a reservation for a Yacht tour for a specific date.
-- Challenge 03: **[The Teacher's Assistant—Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
-	 - Design and implement a pipeline that reads, analyzes and grades a bulk of essays submitted in various file and image formats loaded from Azure Blob Storage. Also design and implement a pipeline that reads, analyzes and instantly grades user-submitted essays in various file and image formats.
+- Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
+	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
 - Challenge 04: **[Securing Resources, Quota Monitoring and Enforcement](Student/Challenge-04.md)**
-	 - Design and implement a solution to monitor the usage of OpenAI resources as well as the enforcement of quotas allocated at multiple layers/levels/tiers.
+	 - Design and implement a solution to monitor the usage of OpenAI resources as well as the enforcement of quotas allocated to multiple users within an organization.
 	 - Design and implement a solution that ensures that credentials to OpenAI resources are not in environment variables or configuration files while leveraging Azure Virtual Networks ensure that the OpenAI endpoints are only reachable from specific networks.
 - Challenge 05: **[Performance and Cost and Optimizations](Student/Challenge-05.md)**
      - Design and implement a solution that optimizes the application performance and minimizes the operational costs of the OpenAI solutions.
@@ -51,11 +53,15 @@ The participants will learn how to:
 
 ## Contributors
 
+We seize this opportunity to express our sincere gratitude to all our contributors that helped with the design and development of the content used for this hack.
+
+We thank them for sharing their experience and creativity to design the scenarios and for taking the time to review the content that has been developed.
+
 - [Israel Ekpo](https://github.com/izzymsft)
-- [Ellie Nosrat](https://github.com/ellienosrat)
-- [Shiva Chittamuru](https://github.com/shivachittamuru)
 - [Mike Richter](https://github.com/michaelsrichter)
+- [Thomas Mathew](https://github.com/tmathew1000)
 - [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
+- [Peter Laudati](https://github.com/jrzyshr)
 - [Amanda Wong](https://github.com/wongamanda)
 - [Devanshi Thakar](https://github.com/devanshithakar12)
 - [Alexis Joseph](https://github.com/alexistj)
