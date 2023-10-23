@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-This challenge will simulate an AZ failure by failing a virtual machine that is a member of the Virtual Machines ScaleSet created by AKS. 
+This challenge will simulate an AZ failure by failing a virtual machine that is a member of the Virtual Machines Scale Set created by AKS. 
 Chaos Studio will use the VMSS shutdown fault   
 
 - Student will create experiment for VMSS shutdown 
@@ -27,7 +27,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 
 ```
 
-Scale your Kubernetes environment (hint it is a statefull deployment)
+Scale your Kubernetes environment (hint it is a stateful deployment)
 
 ```bash
 kubectl scale statefulset -n contosoappmysql contosopizza --replicas=2
