@@ -24,28 +24,22 @@ The participants will learn how to:
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
+- Challenge 00: **[Pre-requisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure.
 - Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
 	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary) and stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search. This challenge covers vector store selection based on performance, capacity, available algorithms etc.
 - Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
-	 - Design and implement a virtual assistant that responds to frequently asked questions based on static data from the Contoso Travel website backed by Cosmos DB and Azure Cognitive Search.
-- Challenge 03: **[Contoso Real-time Order Tracking Assistant](Student/Challenge-03.md)**
-	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Pizza customers about their Pizza order based on the current status of the order reflected in the various object stores, relational and NoSQL databases.
-- Challenge 04: **[The Teachers Assistant - Batch & Near Realtime Essay Grading](Student/Challenge-04.md)**
+	 - Design and implement a virtual assistant that responds to frequently asked questions about the economy, climate and government based on static data from the Contoso Islands documents stored in blob storage.
+	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Islands tourists that are looking to make a reservation for a Yacht tour for a specific date.
+- Challenge 03: **[The Teacher's Assistant—Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades a bulk of essays submitted in various file and image formats loaded from Azure Blob Storage. Also design and implement a pipeline that reads, analyzes and instantly grades user-submitted essays in various file and image formats.
-- Challenge 05: **[AI Powered Recommendation Engines](Student/Challenge-05.md)**
-	 - Design and implement a recommendation engine the suggests items to users based on the content and attributes of the user profile.
-- Challenge 06: **[Quota Monitoring and Enforcement](Student/Challenge-06.md)**
-	 - Design and implement a solution to monitor the usage of OpenAI resources as well the enforcements of quotas allocated at multiple layers/levels/tiers.
-- Challenge 07: **[Translating Human to Machine Languages](Student/Challenge-07.md)**
-	 - Design and implement a solution that converts human natural language questions into machine-specific query languages such as SQL, Lucene, Cypher and CosmosDB SQL.
-- Challenge 08: **[Securing OpenAI Resources](Student/Challenge-08.md)**
+- Challenge 04: **[Securing Resources, Quota Monitoring and Enforcement](Student/Challenge-04.md)**
+	 - Design and implement a solution to monitor the usage of OpenAI resources as well as the enforcement of quotas allocated at multiple layers/levels/tiers.
 	 - Design and implement a solution that ensures that credentials to OpenAI resources are not in environment variables or configuration files while leveraging Azure Virtual Networks ensure that the OpenAI endpoints are only reachable from specific networks.
-- Challenge 09: **[Optimizing for Performance and Costs](Student/Challenge-09.md)**
-	- Design and implement a solution that optimizes the application performance and minimizes the operational costs of the OpenAI solutions.
-- Challenge 10: **[Voice-Only Chat with Virtual Travel Assistant & Order Tracking Assistant](Student/Challenge-10.md)**
-	- Design and implement a solution that allows a user to chat with the virtual assistants in Challenge 02 and 03 using only voice for input and audio playback for the responses using English.
+- Challenge 05: **[Performance and Cost and Optimizations](Student/Challenge-05.md)**
+     - Design and implement a solution that optimizes the application performance and minimizes the operational costs of the OpenAI solutions.
+
+
 ## Prerequisites
 
 - Access to an Azure subscription with Owner access

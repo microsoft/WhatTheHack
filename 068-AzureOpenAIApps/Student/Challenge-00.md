@@ -34,12 +34,29 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 Please install these additional tools:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+- [Node v18.18.2](https://nodejs.org/en/download) or later
+- Make sure [NPM 9.8.1](https://nodejs.org/en/download) or later is installed
+- Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
+In the `/Challenge00/` folder of the Resources.zip file, you will find provides the initial hack environment you will work with in subsequent challenges.
 
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
+You fill find the following folders:
+- ContosoAIAppsBackend (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
+- ContosoAIAppsFrontend (contains an Angular App that provides a user interface to some example virtual assistants)
+
+### Setting up the Backend Azure Function App Locally
+
+We will need to provision the following Azure resources that will be used to power the apps.
+
+````bash
+
+````
+
+### Setting up the Frontend User Interface
+
+This assumes that the UI is already set up and we just need to boot up the Angular app
+
+
 ```
 az group create --name OpenAI-rg --location eastus
 az group deployment create -g OpenAI-rg --name HackEnvironment -f setupIoTEnvironment.json
@@ -54,19 +71,15 @@ To complete this challenge successfully, you should be able to:
   - Azure OpenAI Service
   - Azure Virtual Network
   - Azure Cognitive Search
-  - Azure Cosmos DB service with 3 databases and 5 collections altogether
+  - Azure Cosmos DB service with databases and containers
+  - Azure Service Bus with the queues set up
   - Azure Redis Cache Instance
   - Azure Storage Account with Blob Storage
   - An Azure Function App
-  - MySQL Container
-  - Microsoft SQL Server Container
-  - Neo4j Graph Database Container
-  - ElasticSearch Container
 
 ## Learning Resources
 
 Here are some resources that should provide you with background information and educational content on the resources you have just deployed
 
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
-- [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/)
 
