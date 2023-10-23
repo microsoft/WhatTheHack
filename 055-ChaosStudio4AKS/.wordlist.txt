@@ -8,3 +8,10 @@ PizzaAppWestUS
 namespaces
 TTL
 GeoPeeker
+instanceID
+hangry
+PizzeriaApp
+dataSourceURL
+appConfig
+databaseType
+globalConfig
