@@ -8,7 +8,7 @@ This challenge is where the student will simulate a pod failure. For Chaos Studi
 Chaos doesn't work with private clusters. 
 
 - Instructions to install chaos studio are at https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster
-- Once installed, create a POD failure experiment to fail a pod
+- Once installed, create a pod failure experiment to fail a pod
     - If using the Pizza App, the application should become unresponsive 
 
 
