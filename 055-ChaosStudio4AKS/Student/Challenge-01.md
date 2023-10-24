@@ -38,8 +38,8 @@ During the experiment, were you able to order a pizza or perform your applicatio
 ## Tips
 
 These tips apply to the Pizza Application
- - verify the "selector" in the experiment uses namespace of the application
- - the PizzaApp is a statefulset versus a deployment
+ - Verify the "selector" in the experiment uses namespace of the application
+ - Verify the PizzaApp is a statefulset versus a deployment
 
 
 ## Learning Resources  
