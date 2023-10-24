@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 This challenge is where the student will simulate a pod failure. For Chaos Studio to work with AKS, Chaos Mesh will need to be installed.
-Chaos doesn't work with private clusters. 
+Chaos Studio doesn't work with private AKS clusters. 
 
 - Instructions to install chaos studio are at https://docs.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster
 - Once installed, create a pod failure experiment to fail a pod
