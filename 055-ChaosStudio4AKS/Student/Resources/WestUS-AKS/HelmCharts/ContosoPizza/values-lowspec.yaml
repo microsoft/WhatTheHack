@@ -1,0 +1,78 @@
+
+replicaCount: 1
+
+# Change the application settings here
+appConfig:
+  databaseType: "mysql" # mysql or postgres
+  #databaseType: "postgres" # mysql or postgres
+  #local example of Postgres JDBC Connection string
+  #dataSourceURL: "jdbc:postgresql://10.71.25.217:5432/wth" # your JDBC connection string goes here
+
+  #Azure example of Postgres JDBC Connection string
+  #dataSourceURL: "jdbc:postgresql://petepgdbtest01.postgres.database.azure.com:5432/wth?sslmode=require" # your JDBC connection string goes here
+
+  #local example of MySQL JDBC Connection string
+  dataSourceURL: "jdbc:mysql://10.71.215.5:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
+
+  #Azure example of MySQL JDBC Connection string
+  #dataSourceURL: "jdbc:mysql://petewthmysql01.mysql.database.azure.com:3306/wth?useSSL=true&requireSSL=false&serverTimezone=UTC" # your JDBC connection string goes here
+
+  #local examples of dataSourceUser and dataSourcePassword
+  dataSourceUser: "root" # your database username goes here
+  dataSourcePassword: "OCPHack8" # your database password goes here
+
+  #Azure examples of dataSourceUser and dataSourcePassword
+  #dataSourceUser: "postgres@petepgdbtest01" # your database username goes here
+  #dataSourcePassword: "OCPHack8" # your database password goes here
+
+  webPort: 8083 # the port the app listens on
+  #webPort: 8082 # the port the app listens on
+  webContext: "pizzeria" # the application context http://hostname:port/webContext
+
+# These changes applies to any database type used
+globalConfig:
+  secretName: contosopizza
+  brainTreeMerchantId: "3fk8mrzyr665jb6d"
+  brainTreePublicKey: "72wqqdk75tmh44n9"
+  brainTreePrivateKey: "cf094c3345159aaa473a8f50d56c2e33"
+  recaptchaPublicKey: "6LfqpNsZAAAAACIMnNaeW7fS_-19pZ7K__dREk04"
+  recaptchaPrivateKey: "6LfqpNsZAAAAAGrUYTOGR69aUvzaRoz7f_tnMBeI"
+  hibernateDdlAuto: "create-only"
+
+application:
+  labelValue: contosopizza
+
+infrastructure:
+  namespace: contosopizza
+  appName: contosopizza
+  dataVolume: "/usr/local/contosopizza"
+  volumeName: "contosopizza"
+
+image:
+  name: izzymsft/ubuntu-pizza
+  pullPolicy: IfNotPresent
+  tag: "1.0"
+
+service:
+  type: LoadBalancer
+  port: 8082
+  protocol: TCP
+
+resources:
+  limits:
+     cpu: 1000m
+     memory: 4096Mi
+  requests:
+     cpu: 256m
+     memory: 512Mi
+  volume:
+    size: 1Gi
+    storageClass: managed-premium
+
+appSettings:
+  mysql:
+    dialect: "org.hibernate.dialect.MySQL57Dialect"
+    driverClass: "com.mysql.jdbc.Driver"
+  postgres:
+    dialect: "org.hibernate.dialect.PostgreSQL95Dialect"
+    driverClass: "org.postgresql.Driver"
