@@ -18,7 +18,7 @@
     "OPENAI_EMBEDDINGS_DEPLOYMENT": "smart-agent-embedding-ada",
     "OPENAI_EMBEDDINGS_MODEL_NAME": "text-embedding-ada-002",
     "REDIS_HOST": "contoso.redis.cache.windows.net",
-    "REDIS_HOST": "6380",
+    "REDIS_PORT": "6380",
     "REDIS_PASSWORD": "REDIS PASSWORD GOES HERE",
     "AZURE_SERVICE_BUS_CONNECTION": "SERVICES BUS CONNECTION STRING="
   },
