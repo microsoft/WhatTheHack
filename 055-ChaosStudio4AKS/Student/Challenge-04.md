@@ -14,7 +14,7 @@ This is where the rubber meets the road. You will take what you have learned fro
 
 ## Description
 In this challenge you will conduct a chaos experiment in your CI/CD pipeline.
-You will take the Pizza Application or your application and add a chaos experiment to your deployment pipeline.
+You will take the Pizzeria Application or your application and add a chaos experiment to your deployment pipeline.
 Run your experiments in Dev/Test, do not run in Prod.
 
 
