@@ -1,0 +1,106 @@
+{{ if eq .Values.appConfig.databaseType "mysql" }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.infrastructure.appName }}
+  namespace: "{{ .Values.infrastructure.namespace }}"
+spec:
+  replicas: 1
+  serviceName: "{{ .Values.infrastructure.appName }}-external"
+  selector:
+    matchLabels:
+      app: {{ .Values.application.labelValue }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.labelValue }}
+    spec:
+      containers:
+      - image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        name: {{ .Values.infrastructure.appName }}
+        resources:
+          requests:
+            memory: "{{ .Values.resources.requests.memory }}"
+            cpu: "{{ .Values.resources.requests.cpu }}"
+          limits:
+            memory: "{{ .Values.resources.limits.memory }}"
+            cpu: "{{ .Values.resources.limits.cpu }}"
+        env:
+        - name: APP_DATASOURCE_DRIVER
+          value: "{{ .Values.appSettings.mysql.driverClass }}"
+        - name: APP_HIBERNATE_DIALECT
+          value: "{{ .Values.appSettings.mysql.dialect }}"
+        - name: APP_HIBERNATE_HBM2DDL_AUTO
+          value: "{{ .Values.globalConfig.hibernateDdlAuto }}"
+        - name: APP_PORT
+          value: "{{ .Values.appConfig.webPort }}"
+        - name: APP_CONTEXT_PATH
+          value: "{{ .Values.appConfig.webContext }}"
+        - name: APP_BRAINTREE_MERCHANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_braintree_merchant_id
+        - name: APP_BRAINTREE_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_braintree_public_key
+        - name: APP_BRAINTREE_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_braintree_private_key
+        - name: APP_RECAPTCHA_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_recaptcha_public_key
+        - name: APP_RECAPTCHA_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_recaptcha_private_key
+        - name: APP_DATASOURCE_URL
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_datasource_url
+        - name: APP_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_datasource_username
+        - name: APP_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: "{{ .Values.globalConfig.secretName }}"
+              key: app_datasource_password
+        ports:
+        - containerPort: {{ .Values.appConfig.webPort }}
+          name: contosopizza
+        readinessProbe:
+          tcpSocket:
+            port: {{ .Values.appConfig.webPort }}
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        livenessProbe:
+          tcpSocket:
+            port: {{ .Values.appConfig.webPort }}
+          initialDelaySeconds: 15
+          failureThreshold: 5
+          periodSeconds: 16
+        volumeMounts:
+        - name: "contosopizza-persistent-storage"
+          mountPath: {{ .Values.infrastructure.dataVolume }}
+  volumeClaimTemplates:
+  - metadata:
+      name: contosopizza-persistent-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "managed-premium"
+      resources:
+        requests:
+          storage: 1Gi
+{{ end }}
