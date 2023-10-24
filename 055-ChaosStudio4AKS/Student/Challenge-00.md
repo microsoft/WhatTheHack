@@ -36,13 +36,13 @@ Once the pre-requisites are set up, now it's time to build the hack's environmen
 
 This hack is designed to help you learn chaos testing with Azure Chaos Studio, however you should have a basic knowledge of Kubernetes (K8s). The hack uses pre-canned Azure Kubernetes (AKS) environments that you will deploy into your Azure subscription. You many bring your own AKS application versus using the pre-canned AKS Pizza Application.
 
-If using the Pizza Application, the Pizza Application will run in 2 Azure regions and entirely on an AKS cluster, consisting of the following:
+If you are using the Pizzeria Application, the Pizzeria Application will run in 2 Azure regions and entirely on an AKS cluster, consisting of the following:
  - 1 instance of the "Pizzeria" sample app (1 per region)
  - A MySQL database (1 per region)
 
 ## Description
 
-The Pizza Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and the sample Pizzeria application.  Your coach will provide you with a link to the Pizzeria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
+The Pizzeria Application is deployed in two steps by scripts that invoke ARM Templates & Helm charts to create the AKS cluster, database, and the sample Pizzeria application.  Your coach will provide you with a link to the Pizzeria.zip file that contains deployment files needed to deploy the AKS environment into EastUS and WestUS. Since the end goal is to test a multi-region application, deploy the application into each region. For best results, perform all experiments in your nearest region.
 
    - Download the required Pizzeria.zip file (or you can use your own AKS application) for this hack. You should do this in Azure Cloud Shell or in a Mac/Linux/WSL environment which has the Azure CLI installed. 
    - Unzip the file 
@@ -64,7 +64,7 @@ chmod +x ./create-cluster.sh
 
 ### Deploy the Sample Application
 
-Deploy the Pizza application - it will the Pizza web application.
+Deploy the Pizzeria application as follows:
 
 ```bash
 cd ~/REGION-NAME/HelmCharts/ContosoPizza
