@@ -14,7 +14,7 @@ In this challenge you will simulate failure in your compute tier. It is Super Bo
 workload. This workload is hosted in Azure's Kubernetes Service (AKS). Super Bowl Sunday is Contoso Pizza's busiest day of the year. 
 To make Super Bowl Sunday a success, your job is to plan for possible failures that could occur during the Superbowl event.  
 
-If you are using your own AKS application, your application should be ready to handle its peak operating time --this is when Chaos strikes. 
+If you are using your own AKS application, your application should be ready to handle its peak operating time: this is when Chaos strikes!
  
 
 ## Description
