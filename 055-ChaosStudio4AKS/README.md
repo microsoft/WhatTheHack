@@ -9,7 +9,7 @@ incidents, such as a region outages or application failures causing high CPU uti
 
 
 ## Learning Objectives
-This “What the Hack” WTH is designed to introduce you to Azure Chaos Studios (Preview) and guide you through a series of hands-on challenges to accomplish
+This “What the Hack” WTH is designed to introduce you to Azure Chaos Studio (Preview) and guide you through a series of hands-on challenges to accomplish
 the following:
   
 * Leverage the Azure Chaos Studio to inject failure into an application/workload
@@ -24,7 +24,7 @@ simulate various failures.
 
 ## Challenges
 * Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Deploy the multi-region Kubernetes pizzeria application,
+	 - Deploy the multi-region Kubernetes pizzeria application
 * Challenge 01: **[Is your application ready for the Super Bowl?](Student/Challenge-01.md)**
 	 - How does your application handle failure during large scale events?
 * Challenge 02: **[My AZ burned down, now what?](Student/Challenge-02.md)**
