@@ -5,7 +5,7 @@
 ## Notes & Guidance
 
 The student will need an Azure subscription with "Contributor" permissions.  
-The entirety of this hack's challenges using the [Azure Cloud Shell](#work-from-azure-cloud-shell) in a web browser (fastest path), or you can choose to install the necessary tools on your [local workstation (Windows/WSL, Mac, or Linux)](#work-from-local-workstation).
+The entirety of this hack's challenges can be done using the [Azure Cloud Shell](#work-from-azure-cloud-shell) in a web browser (fastest path), or you can choose to install the necessary tools on your [local workstation (Windows/WSL, Mac, or Linux)](#work-from-local-workstation).
  
 We recommend installing the tools on your workstation. 
   
