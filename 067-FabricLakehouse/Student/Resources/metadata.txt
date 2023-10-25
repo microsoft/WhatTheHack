@@ -1,0 +1,6 @@
+1.  Custodian provided geometry in GDA94
+2.  Upload
+    a.  Transformed Geometry from GDA94 to WGS84
+3.  Download
+    a.  Transformed Geometry from WGS84 to GDA94
+
