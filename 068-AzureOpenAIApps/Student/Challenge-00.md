@@ -108,6 +108,8 @@ az deployment group create --mode Incremental --resource-group contosoizzygroup 
 
 Use the Postman script to set up the index using the following variables for Postman
 
+Make sure you use the service name for your Cognitive Search Instance as well as its admin key
+
 | Variable Name  | Variable Value     |
 |----------------|--------------------|
 | apiVersion     | 2023-10-01-Preview |
@@ -115,6 +117,7 @@ Use the Postman script to set up the index using the following variables for Pos
 | indexName      | yachts             |
 | adminKey       | YourAdminKeyHere   |
 
+You will need to set up an index for the yachts and contosoIslands indices
 
 ##### Setting up the Backend Azure Function App Locally
 
