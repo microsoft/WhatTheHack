@@ -64,62 +64,57 @@ The apps also contain helper utilities, functions and tools to help you speed up
 
 ### Provisioning Azure Resources
 
-##### Resource 1: Create an Azure Service Bus instance 
+The examples below shows how to deploy the ARM template using Powershell or Bash
 
-Set up the resource following the steps available here
+These are the variables:
 
-https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-cli
+- Deployment Name: rollout01
+- Resource Group Name: contosoizzygroup
+- Template File: ai-apps-wth-resources.json
+- Parameter Files with Values: ai-apps-wth-resources.parameters.json
 
-##### Resource 2: Create two Azure Storage Accounts 
 
-These are the storage accounts that will be used by the Function App as well as storing some documents and images
+### Deploying the Resources with Powershell
 
-````bash
-export RESOURCE_GROUP_NAME=""
-export FORMS_STORAGE_ACCOUNT_NAME="contoso"
-export WEBJOBS_STORAGE_ACCOUNT_NAME="contosojobs"
-export REGION="eastus"
-export FORMS_STORAGE_CONTAINER_NAME="contosodocuments"
+````Powershell
 
-# WEBJOBS_STORAGE_ACCOUNT_NAME
-az storage account create --name $WEBJOBS_STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP_NAME --sku Standard_LRS
+# Command to Create a Resource Group
+New-AzResourceGroup -Name contosoizzygroup -Location "East US"
 
-# Create a Storage account for the Form Uploads and Downloads
-az storage account create --name $FORMS_STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP_NAME --sku Standard_LRS
+# Validate the ARM template and the Parameter file
+Test-AzResourceGroupDeployment -ResourceGroupName contosoizzygroup -TemplateFile ai-apps-wth-resources.json -TemplateParameterFile ai-apps-wth-resources.parameters.json
 
-# Create Storage Container for Forms Faxes
-az storage container create --account-name $FORMS_STORAGE_ACCOUNT_NAME --name $FORMS_STORAGE_CONTAINER_NAME
+# Deploy the Resources with Parameter File
+New-AzResourceGroupDeployment -Mode Incremental -Name rollout01 -ResourceGroupName contosoizzygroup -TemplateFile ai-apps-wth-resources.json -TemplateParameterFile ai-apps-wth-resources.parameters.json
 
 ````
 
-https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-cli
+### Deploying the Resources with Bash
 
-##### Resource 3: Create a Cosmos DB Account
+````bash
 
-Create a database called contoso and then create the customers and yachts containers (collections) that will store the information for yachts and tourists.
+# Create a resource group
+az group create --name contosoizzygroup --location eastus
 
-https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-portal
+# Validate the ARM template and Parameter Files
+az deployment group validate --resource-group contosoizzygroup --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
 
+# Deploy the resources
+az deployment group create --mode Incremental --resource-group contosoizzygroup --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
 
-##### Resource 4: Create an Azure Cognitive Search Instance
+````
 
-Once the resource has been set up, use the Postman collection in the artifacts folder to set up the index
+##### Setting up the Cognitive Search Indices
 
-https://learn.microsoft.com/en-us/azure/search/search-create-service-portal
+Use the Postman script to set up the index using the following variables for Postman
 
-##### Resource 5: Create the Redis Cache instance
+| Variable Name  | Variable Value     |
+|----------------|--------------------|
+| apiVersion     | 2023-10-01-Preview |
+| serviceName    | contosoizzysearch1 |
+| indexName      | yachts             |
+| adminKey       | YourAdminKeyHere   |
 
-This redis cache instance could be used to track usage and consumption quotas and also keep track of chat message histories between the users and the virtual assistants.
-
-https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/quickstart-create-redis
-
-##### Resource 6: Create the Azure OpenAI Resources
-
-Create an Azure OpenAI resource and then deploy an LLM model (gpt35-16k) as well as an embedding model (text-embedding-ada-002)
-
-Please keep track of their deployment names because you will need this for configuring the Azure Function App
-
-https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal
 
 ##### Setting up the Backend Azure Function App Locally
 
