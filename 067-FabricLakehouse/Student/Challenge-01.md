@@ -14,7 +14,7 @@ The brief from Margie's Travel is fairly open-ended, so the first step is to con
 
 In this challenge you will first brainstorm categories of data you'd like to include. You'll then need to explore some of the open data sources available to you, and consider how they might be used to help build your story.
 
-Next, you'll select a few data sources to use in your solution and document your choices. Don't forget licensing considerations!
+Next, you'll select a few data sources to use in your solution and document your choices. Don't forget licensing considerations! Remember to think about open data sources, any potenital downsides of using your data provider (like availability, cost, etc). 
 
 Finally, you'll consider each of your sources and document which technology in Fabric would be most appropriate to retrieve, clean and store the data. You'll also need to consider how you will present your data stories and dive briefings.
 
@@ -26,13 +26,15 @@ Some hints to get you started:
 - Which organisations might have data that could be useful? 
 - When would you use a Notebook, a Dataflow or some other mechanism?
 
+Now, it's time to hit up your favourite search or chat app and cast your nets for that data!
+
 ## Success Criteria
 
 To complete this challenge successfully, you should:
 
-- Have identified 2-3 datasources that you will use in your solution, including a brief description, how the data can be retrieved and the licensing model of each
+- Have identified 2-3 datasources that you will use in your solution, including a brief description, how the data can be retrieved and the licensing model of each. No need to code anything just yet!
 - Have identified the method you plan to use to retrieve, clean and store each of your data sources, as well as the method you will use to present your data stories and dive briefings
-- Have documented your choices (a simple table or bullet points is fine)
+- Have documented your choices (a simple table or bullet points is fine). You'll need this later on!
 
 ## Learning Resources
 
@@ -52,3 +54,4 @@ To complete this challenge successfully, you should:
 - The WA coast can be a dangerous place.  Be sure to **check the swell** before heading out!
 - Spatial data doesn't just cover the land. But shapefiles can be tricky to work with without the right tools. Maybe ask a geo-savvy [friend for help?](https://en.wikipedia.org/wiki/Giant_panda) (Too obscure? Hint: ``geopandas``)
 - Don't be put off by a registration page, many organisations are happy to share their data, but they like to know who with. But if you don't want to share your details, there's an *ocean* of other sources to choose from.
+- Seas too rough? Lost at sea? Really run aground with not a parrot or a cracker to help? Your friendly coach has already been out on the boat this morning and has a few ideas to get you started. If you're really really stuck, what hidden treasure lurks in your Lake already?
