@@ -84,13 +84,127 @@ Coaches should deploy the solution files before the event to ensure they are fam
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
-There are no specific student resources for this hack, but you of course may share parts of the solutions, hints, doco links etc with students who may be struggling as you see fit.
+Coaches are should generate a complete dataset ahead of time and use this to become familiar with each,  giving consideration on how they can be used to with the cohort. Coaches are strongly recommended to **regenerate on the day of the event**  to refresh weather forecast data.
 
-**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
+Depending on the composition of the student group, coaches may wish to provide all (or none) of the datasets to students. For example, a group of data engineers may be comfortable working with Python to build an complete end to end pipeline, including automating ingesting from source, but a group of business analysts may require data in a slightly cleaner format to enable them complete the challenges. Use your discretion to provide the most appropriate support, this is supposed to be a fun learning experience after all!
+
+Coaches should run the script ``createStudentResources.py`` in the [Solutions folder](./Solutions) to create a ``resources.zip`` file and share with students at the start of the event. The script will create a ``resources.zip`` containing the following files/folders:
+
+```
+resources.zip
+├───Raw                           Raw data files as sourced from BOM / WAM
+│   ├───BOM                       Bureau of Meteorology data
+│   │   │   IDW11160.xml          Local waters forecast at the time of running the script
+│   │   └───IDM00003              BOM marine zones shapefiles
+│   │           IDM00003.dbf
+│   │           IDM00003.prj
+│   │           IDM00003.sbn
+│   │           IDM00003.sbx
+│   │           IDM00003.shp
+│   │           IDM00003.shp.xml
+│   │           IDM00003.shx
+│   │
+│   └───WAM                       Western Australian Museum data
+│           Shipwrecks_WAM_002_WA_GDA94_Public.geojson
+│
+├───Bronze                        Bronze zone with minimal transformation
+│           marinezones.geojson   BOM marine zones
+│           shipwrecks.geojson    WAM Shipwrecks
+|
+└───Silver                    Silver zone enriched data (ready for Power BI)
+            shipwrecks.json   WAM Shipwrecks with relevant BOM Marine Zone (foreign key to Forecast is: AAC)
+```
+
+The following table provides some guidance on which files to may be of use to students based on their role:
+
+|Audience|Suggested Starting Data|
+|--------|-----------------------|
+|Data Engineers|Raw data or directly from source|
+|Data Analysts|Raw data, or Bronze minimally cleaned data|
+|Data Visualisation / BI Analysts|Bronze or Silver enriched data|
+
+These files can also be used to 'catch up' any students who may be struggling with a particular a challenge. However. all students should be encouraged to create a dataflow to ingest the raw forecasts data.
+
+### Running ``createStudentResources.py``
+The script requires Python >3.4.
+
+1. Install Python from [https://www.python.org/downloads/](https://www.python.org/downloads/) (3.12 at time of writing)
+2. In a new terminal, create a virtual environment and activate it:
+```
+ C:\MyWTHFolder> python -m venv venv
+ ```
+
+ ```
+ C:\MyWTHFolder> .\venv\Scripts\activate.bat
+ (or in a Powershell shell venv/Scripts/activate)
+ ```
+3. Install the required package:
+ ```
+(venv) C:\> pip install geopandas
+Collecting geopandas
+  ... more messages appear here ...
+Successfully installed attrs-23.1.0 certifi-2023.7.22 click-8.1.7 click-plugins-1.1.1 cligj-0.7.2 colorama-0.4.6 fiona-1.9.5 geopandas-0.14.0 numpy-1.26.1 packaging-23.2 pandas-2.1.1 pyproj-3.6.1 python-dateutil-2.8.2 pytz-2023.3.post1 shapely-2.0.2 six-1.16.0 tzdata-2023.3
+```
+4. Run the script:
+```
+(venv) C:\MyWTHFolder> python "<path-to-Solutions-folder>/createStudentResources.py"
+Downloading data....
+Downloading file from URL: https://raw.githubusercontent.com/Microsoft/WhatTheHack/067-FabricLakehouse/Student/Resources/Shipwrecks_WAM_002_WA_GDA94_Public.geojson to data/Raw/WAM\Shipwrecks_WAM_002_WA_GDA94_Public.geojson
+Downloading file from URL: ftp://anonymous@ftp.bom.gov.au/anon/gen/fwo/IDW11160.xml to data/Raw/BOM\IDW11160.xml
+Downloading file from URL: ftp://anonymous@ftp.bom.gov.au/anon/home/adfd/spatial/IDM00003.zip to data/Raw/BOM/IDM00003\IDM00003.zip
+Extracting data/Raw/BOM/IDM00003\IDM00003.zip to data/Raw/BOM/IDM00003
+Processing raw files...
+Shipwrecks...
+Marine Zones...
+Joining datasets...
+Zipping data/resources.zip
+```
+5. Deactivate the virtual environment:
+```
+(venv) C:\MyWTHFolder> deactivate
+C:\MyWTHFolder>
+```
+
+You should now have a ``resources.zip`` file in the ``data`` folder, and unarchived files in the ``data/Raw``,``data/Bronze`` and ``data/Silver`` folders.
+
+#### A Note on the Provided Data
+
+Students may ask about data provided by the coach (``resources.zip``). First, it is important to note that the data provided is not intended to be used as a solution to the hack. Discourage students from 'peeking' at the data with your best pirate captain voice.
+
+*"Avast ye sea dogs, don't be peeking at me data files or ye'll be walking the plank! But if ye have fallen overboard and be lost adrift, then these be here to saves you. Yarr..."*
+
+> Yes, I know I'm mixing my diving and pirate metaphors but hey, it's a hack about shipwrecks and have you read the stories of some of those boats??!!
+
+Whilst it is entirely possible for an experienced data engineer to automate the retrieval of the datasets and process through to Silver in the hack, the provided data is to allow students to 'jump in' at a point where they can continue to build their solution.
+
+[Challenge 1](./Challenge-01.md) is about find data sources and Coaches are strong advised to gently nudge students with hints towards the two solution sources.
+
+In [Challenge 2](./Challenge-02.md), students will be required to land their data in OneLake and transform to Bronze. Instead of retrieving these data files via script or manually, students can use the provided Raw zone copies.
+
+*"Yarr, ye done a good job finding treasure on the high seas, your Captain be proud of ye. Now, land ho that data ye-selves or, perchance take a looksee in the RAW chest. Now, swab the decks, I mean data, your Captain wants me bronze!"*
+
+Using the provided raw files will allow students to focus on the data wrangling and transformation as opposed to the data retrieval, removing the requirement for SLIP registration and FTP access to BOM. Of course, if they want to do it the hard way, they can!
+
+In [Challenge 3](./Challene-03.md), students enrich data to form a silver dataset ready for reporting. Again, if students are struggling with the data wrangling, they can use the provided Bronze zone data to focus on the enrichment, and if they are struggling with the enrichment they can use the provided Silver zone file and just write code (or a dataflow) to load to a delta table.
+
+All students should be able to author a dataflow to load the BOM forecast XML to a delta table. (Yes, XML, I know, but this is a hack about archaeology so...).
+
+*"Yarr, coaches be needing to get in character. Me sure ye can make up some more piratey puns on using bronze and silver. Me sure, ye find this preferable to walking the plan!"*
+
+At the end of Challenge 3, students should have a Silver zone dataset of forecast and shipwrecks ready for reporting.
+
+A notebook ``Solution - Data Engineering`` with complete Raw to Silver code can be found in [Solutions](./Solutions) (this should virtually be the same code found in ``createStudentResources.py``)
+
+Example dataflow M code can be found in ``Dataflow Load IDW11160 M Code.txt`` in the [Solutions](./Solutions) folder.
+
+----
 
 ## Azure / Fabric Requirements
 
-This hack requires students to have access to a Microsoft Fabric tenant account with an active subscription. These tenant requirements should be shared with stakeholders in the organization that will be providing the Fabric environment that will be used by the students.
+### Fabric Tenant
+This hack requires students to have access to a **Microsoft Fabric tenant account with an active subscription**. These tenant requirements should be shared with stakeholders in the organization that will be providing the Fabric environment that will be used by the students (most likely the student employer).
+
+Students may be able to register for a [trial tenant](https://signup.microsoft.com/get-started/signup?OfferId=f6f20264-e785-4749-bd8e-884bab076de4&ali=1&products=f6f20264-e785-4749-bd8e-884bab076de4) and activate a Fabric trial, if they haven't previously done so.
 
 There are no specific Azure resources required for this hack, beyond a Fabric capacity (see below).
 
@@ -102,9 +216,9 @@ Fabric needs to be enabled in the tenant (see [Enable Microsoft Fabric for your 
 
 ### Microsoft Fabric Licenses
 
-At the time of writing, Fabric is in preview and a trial license is available. See [Start a Fabric (Preview) trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial). Post-trial, a paid Fabric capacity will be required, although a small F2-F4 capacity should be sufficient for this hack.
+At the time of writing, Fabric is in preview and a trial license is available. See [Start a Fabric (Preview) trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial). Post-trial, a paid Fabric capacity may be required, although a small F2-F4 capacity should be sufficient for this hack.
 
-Overall, students must have a premium capacity backed workspace, through one of the following methods.
+Overall, students must have a capacity backed workspace, through one of the following methods.
 1. FT - [Fabric trial](https://learn.microsoft.com/fabric/get-started/fabric-trial)    
 2. F - [Fabric capacity](https://learn.microsoft.com/fabric/enterprise/buy-subscription#buy-an-azure-sku)
 3. P - [Power BI Premium](https://learn.microsoft.com/power-bi/enterprise/service-admin-premium-purchase)
@@ -127,10 +241,6 @@ Students will require Power BI desktop to be installed on their PC. Either the s
   or
 2. [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=58494) Ensure you have the latest version of downloaded.
 
-### Trial tenant
-
-https://go.microsoft.com/fwlink/p/?LinkID=698279 [Microsoft 365 developer subscription in Visual Studio subscriptions](https://docs.microsoft.com/visualstudio/subscriptions/vs-m365)
-
 ## Repository Contents
 
 - `./Coach`
@@ -140,8 +250,8 @@ https://go.microsoft.com/fwlink/p/?LinkID=698279 [Microsoft 365 developer subscr
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
-
+  - Resources (datafiles) required by the students are generated and not contained in this folder. See **Student Resources** above for details.
+  
 ## Other Fabric What The Hacks
 
 These WTHs are currently in development and will be released soon:

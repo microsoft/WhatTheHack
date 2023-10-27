@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Now you've found your data sources, it's time to land your data in OneLake.
+Now you've found your data sources, it's time to land your data in OneLake and to start to process it into something more valuable.
 
 ## Description
 
@@ -28,16 +28,23 @@ A Fabric Lakehouse [can be defined](https://learn.microsoft.com/en-us/fabric/dat
 One of the key decisions when building a data lake / Lakehouse is _how_ to arrange your data - we're wanting to go diving in the ocean, not squelching in the [swamp](https://en.wikipedia.org/wiki/Data_lake#Criticism). 
 
 A standard way of organising your Lakehouse is to use a "pattern" that divides your data in to different zones - typically these would be top level folders.
+
   - Raw - The data landed as-is
-  - Bronze - Some basic processing, eg. data type conversion and loaded into a table but very similar in appearance to the raw data. (Sometimes raw and bronze are amalgamated into a single zone)
-  - Silver - Pieces of Eight! Now we're talking. The data is cleaned, transformed and ready for us to use. 
-  - Gold - Ah, Doubloons! Even more valuable, this is large scale data sets that have been aggregated, modelled and locked up in a chest for safe keeping. X marks the spot!
+  - Bronze - Some basic processing, eg. data type conversion and possibly loaded into a table (or stored in some other suitable format) but very similar in appearance to the raw data. (Sometimes raw and bronze are amalgamated into a single zone)
+  - Silver - Pieces of Eight! Now we're talking. The data is cleaned, transformed and ready for us to use. Silver zones are nearly always tables (for structured data) and the data is often aggregated and/or enriched with other data sources.
+  - Gold - Ah, Doubloons! Even more valuable, this is large scale data sets that have been aggregated, modelled and locked up in a chest for safe keeping. X marks the spot! In the Fabric world, this is often a Semantic model (aka Power BI dataset, with measures and relationships built-in)
 
+(Sometimes you might also see a "Platinum" zone for data that has been further enriched with external data sources, but we'll leave that for another day.)
 
-
-In this challenge, we will be landing our data in the "raw" zone, ready to turn into something more precious in [the next Challenge](./Challenge-03.md).
+**In this challenge**, we will be landing our data in the "Raw" zone and cleaning it to our "Bronze" zone ready to turn into something more precious in [the next Challenge](./Challenge-03.md).
 
 For more info on Lakehouses, check out the Learning Resources below.
+
+### A Note on the Provided Data
+
+You might be wondering what the data your Coach provided you is all about? Divers always use the buddy system, and we've buddied up with you in case you hit rough water when finding ~~Nemo~~ and cleaning your own data.
+
+
 
 ## Learning Resources
 
