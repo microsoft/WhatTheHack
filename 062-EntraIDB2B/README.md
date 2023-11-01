@@ -26,11 +26,11 @@ This hack is useful for identity architects and developers who want to integrate
      - Register a new application in an Entra ID tenant
      - Understand the concepts of multi-tenant apps, service principals, authentication vs. authorization, security tokens
 - Challenge 02: **[Test the sign-in](Student/Challenge-02.md)**
-	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with a redirect link to authr.biz
-     - Use an authr.biz link to test the sign in
+	 - Supported account types set to "Accounts in this organizational directory only (single-tenant)" with a redirect link to authr.dev
+     - Use an authr.dev link to test the sign in
 - Challenge 03: **[Invite a guest user](Student/Challenge-03.md)**
      - Complete B2B setup and invite a new guest user
-     - Use an authr.biz link to test the sign in for the guest user and test sign in using the app set up
+     - Use an authr.dev link to test the sign in for the guest user and test sign in using the app set up
 - Challenge 04: **[Integrate Entra ID authentication into an Azure App Service (EasyAuth)](Student/Challenge-04.md)**
 	 - Integrate Entra ID authentication into an Azure App Service (EasyAuth)
 - Challenge 05: **[Integrate Entra ID authentication into an application](Student/Challenge-05.md)**

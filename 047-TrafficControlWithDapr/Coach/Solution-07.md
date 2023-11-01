@@ -20,13 +20,11 @@ First, you'll add a secrets management JSON configuration file to the solution:
 
     ```json
     {
-      "smtp":
-      {        
+      "smtp": {
         "user": "_username",
         "password": "_password"
       },
-      "finecalculator":
-      {
+      "finecalculator": {
         "licensekey": "HX783-K2L7V-CRJ4A-5PN1G"
       }
     }
@@ -47,23 +45,23 @@ First, you'll add a secrets management JSON configuration file to the solution:
       type: secretstores.local.file
       version: v1
       metadata:
-      - name: secretsFile
-        value: ../dapr/components/secrets.json
-      - name: nestedSeparator
-        value: "."
+        - name: secretsFile
+          value: ../dapr/components/secrets.json
+        - name: nestedSeparator
+          value: "-"
     scopes:
-      - finecollectionservice   
+      - fine-collection-service
     ```
 
-    *Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!*
+    _Note the `type` element: The `local.file` secret store is specified. This file-based local secret store component is **only** for development or testing purposes. It's not suitable for production!_
 
-    *Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`.*
+    _Understand that if you specify a relative path to the `secretsFile` (as is the case here), this path must be specified relative to the folder where you start your service using the Dapr CLI. Because you start the services from their project folders, the relative path to the components folder is always `../dapr/components`._
 
-The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using the period (`.`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
+The `nestedSeparator` in the `metadata` section specifies the character that Dapr will use when it flattens the secret file's hierarchy. Each secret will be uniquely identifiable by one key. In this case, you're using a dash (`-`) as that character. The convention means that secrets from the `secrets.json` file will be identified by the following keys:
 
-- `smtp.user`
-- `smtp.password`
-- `finecalculator.licensekey`
+- `smtp-user`
+- `smtp-password`
+- `finecalculator-licensekey`
 
 Now you've configured the secrets management building block. Time to use the secrets.
 
@@ -84,31 +82,31 @@ As stated, you can reference secrets from other Dapr component configuration fil
       type: bindings.smtp
       version: v1
       metadata:
-      - name: host
-        value: localhost
-      - name: port
-        value: 4025
-      - name: user
-        secretKeyRef:
-          name: smtp.user
-          key: smtp.user
-      - name: password
-        secretKeyRef:
-          name: smtp.password
-          key: smtp.password
-      - name: skipTLSVerify
-        value: true
+        - name: host
+          value: localhost
+        - name: port
+          value: 4025
+        - name: user
+          secretKeyRef:
+            name: smtp-user
+            key: smtp-user
+        - name: password
+          secretKeyRef:
+            name: smtp-password
+            key: smtp-password
+        - name: skipTLSVerify
+          value: true
     auth:
       secretStore: trafficcontrol-secrets
     scopes:
-      - finecollectionservice  
+      - fine-collection-service
     ```
 
-Now the output binding for the SendMail component will use the `smtp.user` and `smtp.password` secrets from the secrets file at runtime.
+Now the output binding for the SendMail component will use the `smtp-user` and `smtp-password` secrets from the secrets file at runtime.
 
-### Step 3: Get the license key for the FineCalculator component
+### Step 3: Get the license key for the `FineCalculator` component
 
-The `CollectionController` of the `FineCollectionService` uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded, remember this is a sample application!).
+The `CollectionController` of the `FineCollectionService` uses an `IFineCalculator` implementation to calculate the fine for a certain speeding violation (check out the code). The calculator used is the `Resources/FineCollectionService/DomainServices/HardCodedFineCalculator.cs`. To demonstrate retrieving secrets, this calculator component expects a license key (also hard-coded. Remember this is a sample application!).
 
 You will now change the controller so it retrieves the license key from the Dapr secrets management building block:
 
@@ -120,11 +118,11 @@ You will now change the controller so it retrieves the license key from the Dapr
 
     ```csharp
     var secrets = daprClient.GetSecretAsync(
-      "trafficcontrol-secrets", "finecalculator.licensekey").Result;
-    _fineCalculatorLicenseKey = secrets["finecalculator.licensekey"];
+      "trafficcontrol-secrets", "finecalculator-licensekey").Result;
+    _fineCalculatorLicenseKey = secrets["finecalculator-licensekey"];
     ```
 
-    *Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app.*
+    _Because the `_fineCalculatorLicenseKey` field is static, this code will execute only once. This is not a best practice, but fine for this sample app._
 
 1.  Go back to the terminal window in VS Code and make sure the current folder is `Resources/FineCollectionService`.
 
@@ -134,13 +132,13 @@ You will now change the controller so it retrieves the license key from the Dapr
     dotnet build
     ```
 
-    *If you see any warnings or errors, review the previous steps to make sure the code is correct.*
+    _If you see any warnings or errors, review the previous steps to make sure the code is correct._
 
 Now you're ready to test the application.
 
 ### Step 4: Test the application
 
-You're going to start all the services now. You specify the custom components folder you've created on the command-line using the `--components-path` flag so Dapr will use these config files:
+You're going to start all the services now. You specify the custom components folder you've created on the command-line using the `--resources-path` flag so Dapr will use these config files:
 
 1.  Make sure no services from previous tests are running (close the terminal windows).
 
@@ -151,7 +149,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `VehicleRegistrationService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id vehicleregistrationservice --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --components-path ../dapr/components dotnet run
+    dapr run --app-id vehicle-registration-service --app-port 6002 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **second** new terminal window in VS Code and change the current folder to `Resources/FineCollectionService`.
@@ -159,7 +157,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `FineCollectionService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id finecollectionservice --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --components-path ../dapr/components dotnet run
+    dapr run --app-id fine-collection-service --app-port 6001 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **third** new terminal window in VS Code and change the current folder to `Resources/TrafficControlService`.
@@ -167,7 +165,7 @@ You're going to start all the services now. You specify the custom components fo
 1.  Enter the following command to run the `TrafficControlService` with a Dapr sidecar:
 
     ```shell
-    dapr run --app-id trafficcontrolservice --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --components-path ../dapr/components dotnet run
+    dapr run --app-id traffic-control-service --app-port 6000 --dapr-http-port 3600 --dapr-grpc-port 60000 --resources-path ../dapr/components -- dotnet run
     ```
 
 1.  Open a **fourth** new terminal window in VS Code and change the current folder to `Resources/Simulation`.
@@ -183,7 +181,7 @@ You should see the same logs as before.
 If you examine the Dapr logging, you should see a line in there similar to this:
 
 ```shell
-time="2021-02-28T18:16:50.2936204+01:00" level=info msg="component loaded. name: trafficcontrol-secrets, type: secretstores.local.file/v1" app_id=finecollectionservice instance=EDWINW01 scope=dapr.runtime type=log ver=1.0.0
+time="2021-02-28T18:16:50.2936204+01:00" level=info msg="component loaded. name: trafficcontrol-secrets, type: secretstores.local.file/v1" app_id=fine-collection-service instance=EDWINW01 scope=dapr.runtime type=log ver=1.0.0
 ```
 
 ### Step 5: Validate secret store operation
@@ -191,7 +189,7 @@ time="2021-02-28T18:16:50.2936204+01:00" level=info msg="component loaded. name:
 To validate that the secrets management building block is actually used:
 
 1.  Stop the Camera `Simulation` and the `FineCollectionService`.
-1.  Change the `finecalculator.licensekey` secret in the file `Resources/dapr/components/secrets.json` to something different.
+1.  Change the `finecalculator-licensekey` secret in the file `Resources/dapr/components/secrets.json` to something different.
 1.  Start the Camera `Simulation` and the `FineCollectionService` again as described in step 4.
 
 Now you should see some errors in the logging because the `FineCollectionService` service is no longer passing the correct license key in the call to the `FineCalculator` component:
@@ -204,11 +202,11 @@ Now you should see some errors in the logging because the `FineCollectionService
 
 Don't forget to change the license key in the secrets file back to the correct one!
 
-### Step 6: Update to use Azure KeyVault for secrets management
+### Step 6: Update to use Azure Key Vault for secrets management
 
 ![secrets-management-operation-azure](../images/Challenge-07/secrets-management-operation-azure.png)
 
-1.  Create 3 Azure KeyVault secrets.
+1.  Create 3 Azure Key Vault secrets.
 
     ```shell
     az keyvault secret set --vault-name kv-dapr-demo --name smtp-username --value "_username"
@@ -216,18 +214,17 @@ Don't forget to change the license key in the secrets file back to the correct o
     az keyvault secret set --vault-name kv-dapr-demo --name finecalculator-licensekey --value "HX783-K2L7V-CRJ4A-5PN1G"
     ```
 
-1.  Create a service principal to allow the Dapr service to retrieve secrets from KeyVault.
+1.  Create a service principal to allow the Dapr service to retrieve secrets from Key Vault.
 
     ```shell
-    az ad sp create-for-rbac --name <service-principal-name> --create-cert --cert <certificate-name> --keyvault <key-vault-name> --skip-assignment --years 1
+    az ad sp create-for-rbac --name <service-principal-name>
     ```
 
     ```shell
     {
       "appId": "a4f90000-0000-0000-0000-00000011d000",
       "displayName": "<service-principal-name>",
-      "name": "http://<service-principal-name>",
-      "password": null,
+      "password": "ewM8Q~Fakekey10LPIYodcd",
       "tenant": "34f90000-0000-0000-0000-00000011d000"
     }
     ```
@@ -235,52 +232,38 @@ Don't forget to change the license key in the secrets file back to the correct o
 1.  Get the object id for your service principal.
 
     ```shell
-    az ad sp show --id <service-principal-app-id> --query="objectId"
+    az ad sp show --id <service-principal-app-id> --query="id"
     ```
 
     ```shell
     "<service-principal-object-id>"
     ```
 
-1.  Grant the service principal access to your KeyVault.
+1.  Grant the service principal access to your Key Vault.
 
     ```shell
     az keyvault set-policy --name "<key-vault-name>" --object-id "<service-principal-object-id>" --secret-permissions get
     ```
 
-1.  Download the certificate from your Azure KeyVault.
-
-    ```shell
-    az keyvault secret download --vault-name "<key-vault-name>" --name "<certificate-name>" --encoding base64 --file "<certificate-name>.pfx"
-    ```
-
-1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use KeyVault instead.
+1.  Modify the `Resources/dapr/components/secrets-file.yaml` to use Key Vault instead.
 
     ```yaml
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: azurekeyvault
-      namespace: default
+      name: trafficcontrol-secrets
     spec:
       type: secretstores.azure.keyvault
       version: v1
       metadata:
-      - name: vaultName
-        value: <key-vault_name>
-      - name: spnTenantId
-        value: "<service-principal-tenant-id>"
-      - name: spnClientId
-        value: "<service-principal-app-id>"
-      - name: spnCertificateFile
-        value : "<pfx-certificate-file-fully-qualified-local-path>"
+        - name: vaultName
+          value: <key-vault-name>
+        - name: azureTenantId
+          value: "<service-principal-tenant-id>"
+        - name: azureClientId
+          value: "<service-principal-app-id>"
+        - name: azureClientSecret
+          value: "<service-principal-secret>"
     ```
-
-1.  Modify references to secrets.
-
-    KeyVault doesn't allow periods in the names of secrets. Therefore, you can update the references to the secrets to use dashes instead.
-
-    - Resources/dapr/components/email.yaml (replace `smtp.username` & `smtp.password` with `smtp-username` & `smtp-password`)
-    - Resources/FineCollectionService/Controllers/CollectionController.cs (replace `finecalculator.licensekey` with `finecalculator-licensekey`)
 
 1.  Restart all services and test

@@ -30,9 +30,9 @@ _Service Invocation is also covered in detail in the [Dapr for .NET Developers](
 
 For this hands-on challenge, you will decouple communication between two services.
 
-- Start up a Dapr sidecar for both the `VehicleRegistrationService` and the `FineCollectionService`.
-- Modify the `FineCollectionService` (`VehicleRegistrationService` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
-- Restart all services & run the **Simulation** application.
+- Modify the `FineCollectionService` (`VehicleRegistrationServiceProxy` class) so that it uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`.
+- Start up a Dapr sidecar for the `VehicleRegistrationService`, `FineCollectionService` & `TrafficControlService`.
+- Run the `Simulation` application.
 
 ## Success Criteria
 
@@ -40,14 +40,14 @@ This challenge targets the operations labeled as **number 1** in the end-state s
 
 <img src="../images/Challenge-02/dapr-setup-assignment02.png" style="zoom: 67%;" />
 
-- Validate that the `VehicleRegistrationService` and `FineCollectionService` each run with a Dapr sidecar. You'll see both Dapr and application logging in the output.
-- Validate that the `FineCollectionService` uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`. The HTTP call should be to the _Dapr_ port number, not the _API_ port number.
+- Validate that the `VehicleRegistrationService`, `FineCollectionService` & `TrafficControlService` each run with a Dapr sidecar. You'll see both Dapr and application logging in the output.
+- Validate that the `FineCollectionService` uses the Dapr service invocation building block to call the `/vehicleinfo/{licensenumber}` endpoint on the `VehicleRegistrationService`. The HTTP call should be to the _Dapr_ port number of the `FineCollectionService` local Dapr sidecar, not the _API_ port number of the `VehicleRegistrationService`.
 
 ### Use Dapr observability
 
 So how can you check whether or not the call to the `VehicleRegistrationService` is handled by Dapr? Well, Dapr has some observability built in. You can look at Dapr traffic using Zipkin:
 
-- Open a browser and go the this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
+- Open a browser and go to this URL: [http://localhost:9411/zipkin](http://localhost:9411/zipkin).
 - Click the `RUN QUERY` button in the top right of the screen to search for traces.
 - You should see the calls between the `FineCollectionService` and the `VehicleRegistrationService`. You can expand and collapse each trace and click the `SHOW` button to get more details:
   ![](../images/Challenge-02/zipkin-traces.png)
@@ -57,7 +57,7 @@ So how can you check whether or not the call to the `VehicleRegistrationService`
 ## Tips
 
 - Look in the `Resources.zip` package provided by your coach for the source code to get started.
-- Use the `dapr run` command to start up a Dapr sidecar & make sure and append the `dotnet run` command at the end of the command to ensure that both services are started at the same time.
+- Use the `dapr run` command to start up a Dapr sidecar & _make sure and append the `dotnet run` command at the end of the command_ to ensure that both services are started at the same time.
 - Refer to the [Prevent port collisions](./Resources/README.md#prevent-port-collisions) section to see what ports to use.
 - Make sure you use the same spelling & case for the `app-id` of the `VehicleRegistrationService` as the one used in the `FineCollectionService` class.
   - **IMPORTANT:** Use lowercase letters for the `app-id` of all Dapr services (some Dapr configurations don't support CamelCase)!
