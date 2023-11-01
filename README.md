@@ -100,6 +100,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [Sentinel Automated Response](/053-SentinelAutomatedResponse/README.md)
 - [Azure Load Testing](/054-AzureLoadTesting/README.md)
+- [Azure Chaos Studio for AKS](/055-ChaosStudio4AKS/README.md)
 
 ## Data & AI
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
