@@ -44,9 +44,10 @@ For the hack event October 23 - November 3, 2023, you can download the file here
 
 Please install these additional tools:
 
-- [Node v18.18.2](https://nodejs.org/en/download) or later
-- Make sure [NPM 9.8.1](https://nodejs.org/en/download) or later is installed
+- [Node v18.18.2](https://nodejs.org/en/download) - Only 18.18.2
+- Make sure [NPM 9.8.1](https://nodejs.org/en/download) - Comes with Node Installation
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
+- Install the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools#installing) V4 Globally Using NPM
 
 In the `/Challenge-00/` folder of the `Resources.zip` file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
 
