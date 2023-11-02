@@ -1,9 +1,9 @@
-# Challenge 08 - Azure Active Directory Integration - Coach's Guide 
+# Challenge 08 - Microsoft Entra ID Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
-- In this challenge, we will be integrating Azure Active Directory with Azure Red Hat OpenShift so that Azure AD can be configured as the authentication method for the ARO Web Console. 
+- In this challenge, we will be integrating Microsoft Entra ID with Azure Red Hat OpenShift so that Entra ID can be configured as the authentication method for the ARO Web Console. 
 
 ## Construct an OAuth Callback URL
 - Use the command below where $RESOURCEGROUP is the resource group of your ARO cluster and $CLUSTER is the name of your ARO cluster
@@ -13,7 +13,7 @@ location=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query location -o tsv)
 echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.io/oauth2callback/AAD"
 ```
 
-## Create Azure AD Application for authentication
+## Create Microsoft Entra Application for authentication
 - In the Azure portal, navigate to **App Registrations**, and create a new registration
 - Fill in redirect URI with the value of the callback URL and select **Web** under **Select a platform**
 - After the registration, navigate to **Certificates and Secrets** and create a **New Client Secret** and fill in details
@@ -31,4 +31,4 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 - Test out **AAD** login option by logging in with your Microsoft credentials
 
 ## Integrate using the CLI (Optional)
-- If the students decide to, there is a way to complete this challenge in the CLI. Here are docs you can look at to help walk you through that process: [Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)](https://learn.microsoft.com/en-us/azure/openshift/configure-azure-ad-cli)
+- If the students decide to, there is a way to complete this challenge in the CLI. Here are docs you can look at to help walk you through that process: [Configure Microsoft Entra authentication for an Azure Red Hat OpenShift 4 cluster (CLI)](https://learn.microsoft.com/en-us/azure/openshift/configure-azure-ad-cli)
