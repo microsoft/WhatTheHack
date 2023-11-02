@@ -5,7 +5,7 @@
 ## Introduction
 You're also able to authenticate your Azure Red Hat OpenShift with Microsoft Entra ID! In this challenge, we will be integrating Microsoft Entra ID with ARO so that we can use Microsoft credentials to login to the ARO Web Console.
 
-**NOTE:** Azure Active Directory (Azure AD) has been renamed to Microsoft Entra ID to better communicate the multicloud, multiplatform functionality of the product and unify the naming of the Microsoft Entra product family.
+**NOTE:** Azure Active Directory (Azure AD) has been renamed to Microsoft Entra ID to better communicate the multi-cloud, multi-platform functionality of the product and unify the naming of the Microsoft Entra product family.
 
 ## Description
 In this challenge, we will be integrating Microsoft Entra ID with ARO so that Entra ID can be configured as authentication for the ARO Web Console. 
