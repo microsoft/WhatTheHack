@@ -55,7 +55,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
 - [AKS Enterprise-Grade](/039-AKSEnterpriseGrade/README.md)
-- [Intro to Azure Red Hat OpenShif](/063-IntroToAzureRedHatOpenShift/README.md)
+- [Intro to Azure Red Hat OpenShift](/063-IntroToAzureRedHatOpenShift/README.md)
 - [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
 - [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 - [Infrastructure As Code: Bicep](/045-InfraAsCode-Bicep/README.md)
