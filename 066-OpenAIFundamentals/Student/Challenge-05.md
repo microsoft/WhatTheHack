@@ -23,7 +23,7 @@ Sections in this Challenge:
 2. Evaluating truthfulness using Ground-Truth Datasets
 3. Evaluating truthfulness using GPT without Ground-Truth Datasets
 
-You will run the following three Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
+You will run the following three Jupyter notebooks for this challenge. You can find them in the `/Notebooks` folder of `Resources.zip` file.
 
 * `CH-05-ResponsibleAI.ipynb`
 
