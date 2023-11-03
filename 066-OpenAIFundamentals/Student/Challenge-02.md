@@ -36,7 +36,7 @@ Questions you should be able to answer by the end of this challenge:
 - What model would you select to generate new names?
 - How to retrieve embeddings?
 
-You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file located in the General Channel of the Teams Channel created for the hosted event.
+You will run the following Jupyter notebook for this challenge. You can find it in the `/Notebooks` folder of `Resources.zip` file.
 
 - `CH-02-ModelComparison.ipynb`
 
