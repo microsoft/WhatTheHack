@@ -32,7 +32,7 @@ Some Considerations:
 * **Evaluation challenges:** Evaluating the performance of RAG poses challenges, as traditional metrics may not fully capture the improvements achieved through retrieval. Developing task-specific evaluation metrics or conducting human evaluations can provide more accurate assessments of the quality and effectiveness of the approach.
 * **Ethical considerations:** While RAG provides powerful capabilities, it also introduces ethical considerations. The retrieval component should be carefully designed and evaluated to avoid biased or harmful information retrieval. Additionally, the generated content should be monitored and controlled to ensure it aligns with ethical guidelines and does not propagate misinformation or harmful biases.
 
-You will run the following three Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
+You will run the following three Jupyter notebooks for this challenge. You can find them in the `/Notebooks` folder of `Resources.zip` file.
 
 * `CH-04-A-RAG_for_structured_data.ipynb` 
 * `CH-04-B-RAG_for_unstructured_data.ipynb`
