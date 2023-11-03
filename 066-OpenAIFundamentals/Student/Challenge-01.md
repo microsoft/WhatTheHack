@@ -26,7 +26,7 @@ Questions you should be able to answer by the end of this challenge:
 - Which hyperparameters could you tune to make the response more diverse in language?
 - What prompt engineering technique could you use to help model complete hard tasks like math problems?
 
-You will run the following Jupyter notebook for this challenge. You can find it in the Notebooks folder of `Resources.zip` file. 
+You will run the following Jupyter notebook for this challenge. You can find it in the `/Notebooks` folder of `Resources.zip` file. 
 - `CH-01-PromptEngineering.ipynb`
 
 Sections in this Challenge:
