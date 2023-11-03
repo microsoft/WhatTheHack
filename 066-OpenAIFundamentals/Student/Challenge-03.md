@@ -31,7 +31,7 @@ Questions you should be able to answer by the end of the challenge:
 * What do embedding help accomplish?
 
 
-You will run the following three Jupyter notebooks for this challenge. You can find them in the Notebooks folder of `Resources.zip` file.
+You will run the following three Jupyter notebooks for this challenge. You can find them in the `/Notebooks` folder of `Resources.zip` file.
 
 * `CH-03-A-Grounding.ipynb`
 * `CH-03-B-Chunking.ipynb`
