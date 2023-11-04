@@ -51,17 +51,12 @@ Sections in this Challenge:
 - 1.7 Model Selection Best Practices
 2. Implementation
 
-    2.0 Helper Functions
-
-    2.1 Summarize Text
-
-    2.2 Summarization for a targeted audience
-
-    2.3 Summarize Cause & Effect
-
-    2.4 Generate Nick Names
-
-    2.5 Embeddings
+- 2.0 Helper Functions
+- 2.1 Summarize Text
+- 2.2 Summarization for a targeted audience
+- 2.3 Summarize Cause & Effect
+- 2.4 Generate Nick Names
+- 2.5 Embeddings
 
 ## Success Criteria
 
