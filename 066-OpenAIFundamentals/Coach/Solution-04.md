@@ -1,4 +1,4 @@
-# Challenge 03 - Retrieval Augmented Generation (RAG) - Coach's Guide 
+# Challenge 04 - Retrieval Augmented Generation (RAG) - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
