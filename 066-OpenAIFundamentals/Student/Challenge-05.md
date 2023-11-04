@@ -31,8 +31,8 @@ You will run the following Jupyter notebook for this challenge. You can find it 
 
 To complete this challenge successfully, you should be able to:
 - Articulate Responsible AI principles with OpenAI
-- Methods and approaches for evaluating LLMs
-- Tools available to identify and mitigate harms in LLMs
+- Demonstrate methods and approaches for evaluating LLMs
+- Identify tools available to identify and mitigate harms in LLMs
 
 ## Additional Resources
 
