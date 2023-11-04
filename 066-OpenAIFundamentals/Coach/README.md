@@ -2,12 +2,17 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the Azure OpenAI Fundamentals What The Hack. While this Hack is designed to be taken individually in a self-paced, self-administered manner, here you will find links to specific guidance for each of the challenges. There can be multiple ways to implement a solution in the challenges, so these solution guides are non-exhaustive but are rather, guides for when participants are feeling stuck or if they would like to compare solutions. In addition, take a look at the suggested hack agenda for options on how to conduct this hack with your participants.
+Welcome to the coach's guide for the Azure OpenAI Fundamentals What The Hack. This hack is designed to be completed individually in a self-paced, self-administered manner without a coach or being part of an event.
+
+However, you can use this coach's guide to host a hack the traditional way as documented in the [What The Hack Host Guide](https://aka.ms/wthhost).
+
+Here you will find links to specific guidance for each of the challenges. There can be multiple ways to implement a solution in the challenges, so these solution guides are non-exhaustive but are rather, guides for when participants are feeling stuck or if they would like to compare solutions. In addition, take a look at the suggested hack agenda for options on how to conduct this hack with your participants.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. We encourage you to challenge yourself and avoid cheating yourself out of the experience by only referencing these when needed.
 
-
+<!-- Commented out until  presentation slides are actually posted
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge.
+-->
 
 ## Coach's Guides
 There are six challenges, but only the first four require participants to generate their own code. We have included solution guides for those challenges here.
