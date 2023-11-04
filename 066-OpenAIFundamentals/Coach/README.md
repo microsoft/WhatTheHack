@@ -58,9 +58,15 @@ This hack requires students to have access to an Azure subscription where they c
 - [Azure Cognitive Search](https://learn.microsoft.com/azure/search) (Basic Tier) - This will be created during the Hack and is not necessary to get started.
 
 ## Suggested Hack Agenda 
-The following is guidance for hosting this hack versus directing students to self-administer.
-- Create a 2-week async format where participants work through these challenges at their own pace. There would be an initial synchronous kick-off call. Coaches would provide office hours a few times a week. In addition, there would be asynchronous support via a Microsoft Team's Channel - one channel per challenge that the subject matter experts/Coaches monitor for the duration of the hack.
-- Run the hack for 2-3 days with coach assistance. Have all the participants join the kickoff call. Create breakout rooms for each coach to work with their set of students. Encourage the participants to work with each other in a team.
+
+This hack is designed for students to go through on their own in a self-paced manner.  You can also run this hack the traditional way as documented in the [What The Hack Host Guide](https://aka.ms/wthhost).
+
+In addition to running the hack the traditional way for 2-3 days with coach assistance, you can run it as a two-week asynchronous manner. Here are some tips for doing this:
+- Schedule a 2-week async format where participants work through these challenges at their own pace.
+- Host an initial synchronous kick-off call to share logistics with the students, and review the hack's challenges.
+- Coaches should provide office hours a few times a week.
+- In addition, there should be asynchronous support via a Microsoft Team's Team
+	- Create one channel per challenge that the subject matter experts/Coaches monitor for the duration of the hack.
 
 ## Repository Contents
 
