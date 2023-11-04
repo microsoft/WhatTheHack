@@ -13,7 +13,7 @@ The students will go through each section of this notebook in the `/Student/Reso
   
 The notebook above is filled with code cells. Students will run through these cells as they go through the exercises. 
 
-In the `/Solutions` folder, you will see the same notebook but with the solutions. 
+In the `/Solutions` folder, you will see the same notebook but with the solutions:
 - [`CH-01-PromptEngineering-Solution.ipynb`](./Solutions/CH-01-PromptEngineering-Solution.ipynb)
 
 The cells display example outputs of what the students should see. Use this as a reference for the answers, although some outputs may vary slightly on the students' side. 
