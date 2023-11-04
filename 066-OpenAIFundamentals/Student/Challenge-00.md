@@ -27,8 +27,8 @@ For the hack event September 18 - 29, 2023, you can download the file here: [`Re
 
 ### Access Azure OpenAI 
 
-You will need an Azure subscription to complete this hack. If you don't have one, get one here...
-- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
+- [Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
 Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
 
