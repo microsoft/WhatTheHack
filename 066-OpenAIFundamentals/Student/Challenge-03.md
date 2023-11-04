@@ -22,13 +22,10 @@ An embedding is an information dense representation of the semantic meaning of a
 
 Questions you should be able to answer by the end of the challenge:
 
-* Why is grounding important and how can you ground a LLM model?
-
-* What is a token limit?
-
-* How can you deal with token limits? What are techniques of chunking?
-
-* What do embedding help accomplish?
+- Why is grounding important and how can you ground a LLM model?
+- What is a token limit?
+- How can you deal with token limits? What are techniques of chunking?
+- What do embedding help accomplish?
 
 
 You will run the following three Jupyter notebooks for this challenge. You can find them in the `/Notebooks` folder of `Resources.zip` file.
