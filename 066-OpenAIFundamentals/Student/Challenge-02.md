@@ -42,20 +42,13 @@ You will run the following Jupyter notebook for this challenge. You can find it 
 
 Sections in this Challenge:
 1. Overview on finding the right model
-
-    1.1 Model Families
-    
-    1.2 Model Capacities
-
-    1.3 Model Taxonomy
-
-    1.4 Pricing Details
-
-    1.5 Quotas and Limits
-
-    1.6 Model Best Use Cases
-
-    1.7 Model Selection Best Practices
+- 1.1 Model Families
+- 1.2 Model Capacities
+- 1.3 Model Taxonomy
+- 1.4 Pricing Details
+- 1.5 Quotas and Limits
+- 1.6 Model Best Use Cases
+- 1.7 Model Selection Best Practices
 2. Implementation
 
     2.0 Helper Functions
