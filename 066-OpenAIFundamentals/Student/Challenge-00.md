@@ -25,7 +25,7 @@ You should download and unpack the `Resources.zip` file there to your local work
 
 For the hack event September 18 - 29, 2023, you can download the file here: [`Resources.zip`](https://aka.ms/wthopenaifundamentalsresources)
 
-### Access Azure Open AI 
+### Access Azure OpenAI 
 
 You will need an Azure subscription to complete this hack. If you don't have one, get one here...
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
