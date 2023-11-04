@@ -44,7 +44,8 @@ What are methods to evaluate a model if you don't have a ground truth dataset fo
 
 ## Prerequisites
 
-- [Azure subscription](https://portal.azure.com/) - Estimated spend may be around $10 based on running Cognitive Search for four days (total length of time depends on implementation time)
+- Access to an Azure Subscription
+	- If you don't have one, [Sign Up for Azure HERE](https://azure.microsoft.com/en-us/free/) 
 - [Access to Azure OpenAI](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
 - Jupyter Notebook editor (we recommend [Visual Studio Code](https://code.visualstudio.com/Download) or [Azure Machine Learning Studio](https://ml.azure.com/))
 	- If using Visual Studio Code, we also recommend installing [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.anaconda.com/anaconda/install) for project environment management
