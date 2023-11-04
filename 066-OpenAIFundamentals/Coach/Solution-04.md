@@ -4,9 +4,9 @@
 
 ## Notes & Guidance
 
-There are three important parts to Challenge-04. The students will go through each of these notebooks. 
-- `CH-04-A-RAG_for_structured_data.ipynb`
-- `CH-04-B-RAG_for_unstructured_data.ipynb`
+There are three important parts to Challenge-04. The students will go through each of these notebooks in the `/Student/Resources/Notebooks` folder: 
+- [`CH-04-A-RAG_for_structured_data.ipynb`](../Student/Resources/Notebooks/CH-04-A-RAG_for_structured_data.ipynb)
+- [`CH-04-B-RAG_for_unstructured_data.ipynb`](../Student/Resources/Notebooks/CH-04-B-RAG_for_unstructured_data.ipynb)
 
 Challenge-04 has no required tasks. There is not an accompanying Solution Notebook for this Challenge.
 
