@@ -7,14 +7,13 @@
 Thank you for participating in the OpenAI Fundamentals What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Description
-In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
+In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
 
-Top level tasks include:
-- Student Resources
-- Access Azure OpenAI
-- Setup Jupyter Notebook Environment
-- Setup Azure OpenAI
-- Additional Common Prerequisites
+- [Student Resources](#student-resources)
+- [Access Azure OpenAI](#access-azure-openai)
+- [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
+- [Setup Azure OpenAI](#setup-azure-openai)
+- [Additional Prerequisites](#additional-common-prerequisites)
 
 ### Student Resources
 
