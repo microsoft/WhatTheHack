@@ -9,9 +9,12 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
-You will primarily be working with Jupyter Notebooks and Python to interact with Azure OpenAI.
-
-[Jupyter Notebook](https://jupyter.org/) is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
+Top level tasks include:
+- Student Resources
+- Access Azure OpenAI
+- Setup Jupyter Notebook Environment
+- Setup Azure OpenAI
+- Additional Common Prerequisites
 
 ### Student Resources
 
@@ -33,6 +36,10 @@ Before you can start the hack, you will also need to apply for access to Azure O
 An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
 ### Setup Jupyter Notebook Environment
+
+You will be working with Jupyter Notebooks and Python to interact with Azure OpenAI.
+
+[Jupyter Notebook](https://jupyter.org/) is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
 
 Jupyter notebooks require an environment to run in. You can setup an environment on your local workstation or you can use the Azure Machine Learning Workspace to run them in the cloud.
 
