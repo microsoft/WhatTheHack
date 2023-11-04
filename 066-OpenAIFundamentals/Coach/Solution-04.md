@@ -1,6 +1,6 @@
-# Challenge 03 - Grounding, Chunking, and Embedding - Coach's Guide 
+# Challenge 03 - Retrieval Augmented Generation (RAG) - Coach's Guide 
 
-[< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
+[< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
 
