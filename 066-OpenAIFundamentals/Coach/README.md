@@ -55,7 +55,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-- [Azure subscription](https://portal.azure.com/) 
+- [Azure subscription](https://azure.microsoft.com/en-us/free/) 
   <!-- Estimated spend may be around $10 based on running Cognitive Search for four days (total length of time depends on implementation time) -->
 - [Access to Azure OpenAI](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
 - Jupyter Notebook editor (we recommend [Visual Studio Code](https://code.visualstudio.com/Download) or [Azure Machine Learning Studio](https://ml.azure.com/))
