@@ -46,10 +46,6 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-Coaches will not need additional resources other than the student prerequisites. We have reproduced the list below for reference.
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
@@ -68,16 +64,12 @@ The following is guidance for hosting this hack versus directing students to sel
 
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
 - `./Coach`
   - Coach's Guide and related files
   - `./Coach/Solutions`
     - Solution files with completed example answers to a challenge
 - `./Student`
   - Student's Challenge Guide
-  - `./Student/Challenges`
-    - Student's Collection of Challenges
   - `./Student/Resources`
     - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
     - `./Student/Resources/data`
