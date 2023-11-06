@@ -1,0 +1,6 @@
+[
+  {"name":"Banana","uid":1.0,"img":"/static/img/fruits/banana.jpeg"},
+  {"name":"Coconut","uid":2.0,"img":"/static/img/fruits/coconut.jpeg"},
+  {"name":"Oranges","uid":3.0,"img":"/static/img/fruits/oranges.jpeg"},
+  {"name":"Pineapple","uid":4.0,"img":"/static/img/fruits/pineapple.jpeg"}
+]
