@@ -50,6 +50,9 @@ Once its finished, review the results (scroll up) and copy the output for the
   
 ![Command output](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image7.png)
 
+![Command output](../Images/01-06-CommandOutput.png)
+
+
 Now replace the "*" with the target database to be:
 `\SQLServer:Databases(tpcc)\Active Transactions`
 
