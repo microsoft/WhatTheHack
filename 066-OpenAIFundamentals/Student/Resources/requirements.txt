@@ -1,0 +1,17 @@
+azure-search-documents==11.4.0b3
+azure-ai-formrecognizer==3.2.1
+python-dotenv==1.0.0
+num2words==0.5.12
+openai==0.27.2
+pdfminer==20191125
+plotly==5.10.0
+tiktoken==0.4.0
+scikit-learn
+pandas
+langchain
+PyPDF3
+spacy
+matplotlib
+scipy
+datasets
+evaluate
