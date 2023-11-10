@@ -242,25 +242,23 @@ Follow the same steps that you used previously to create another data collection
 ![Configuring a Build in HammerDB](../Images/01-12-HammerDB-settings.png)
   
 - Double click on Build. Click Yes to kick off a load test.
- 
-![Starting the build](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image20.png)
+
+![Starting the build](../Images/02-04-HammerDB.png)
   
 When the test is running it should look like the screenshot below:
 >**TIP:** If you would like to run a second test you **must** first delete the database you created and recreate it. HammerDB will not run a test against a database that has data in it. When you run a test it fills the database with a bunch of sample data.
-
-![Monitoring the build run](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image21.png)  
+ 
+![Monitoring the build run](../Images/02-05-HammerDB.png) 
 
 - In a few minutes you should get an alert similar to this one.
 
-![Email alert received](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32.png)
-  
+![Email alert received](../Images/01-37-AlertEmail.png)
+
 If you re-run the stress test, keep in mind you will need to delete the `tpcc` DB and re-create it.
-
-
 
 ### Generate load on the Virtual Machine Scale Set
 
-Now you need to generate load on your VMSS. To do this, in the repo you cloned navigate to the `Student/Resources/Challenge-01` folder and copy the `**cpuGenLoadwithPS.ps1**` script to both instances running in the Scale Set and run them.
+Now you need to generate load on your VMSS. To do this, in the repo you cloned navigate to the `Student/Resources/Challenge-01` folder and copy the **`cpuGenLoadwithPS.ps1`** script to both instances running in the Scale Set and run them.
 
 > **Tip:** This may be a bit of a challenge to those not used to working with a scale set. If you just grabbed the public IP address and then RDP to it. You will end up on one of the instances but because you are going through the Load Balancer, you cannot control which one. Or can you?
   
