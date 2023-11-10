@@ -200,29 +200,31 @@ Follow the same steps that you used previously to create another data collection
 
 - From the Visual Studio Server, download the latest version of HammerDB  
 
-![HammerDB web site](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image13.png)  
+![HammerDB web site](../Images/02-01-HammerDB.png)  
 
 >**Tip:** If you get this Security Warning, go to Internet Options Security \\ Security Settings \\ Downloads \\ File download \\ Enable.  
 
-![Security warning “Your current security settings do not allow this file to be downloaded](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image14.png)  
+![Security warning “Your current security settings do not allow this file to be downloaded](../Images/01-33-SecurityAlertDialog.png)
 
 - Click enable
   
-![Enable Downloads in the browser Security Settings](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image15.png)
-  
+![Enable Downloads in the browser Security Settings](../Images/01-34-EnableBrowserDownloads.png)
+
 - Click ok, and try again
 - If you got the below warning message, click Actions and accept the warnings  
   
-![Warning “HammerDB .exe is not commonly downloaded and could harm your computer”](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image16.png)  
+![Warning “HammerDB .exe is not commonly downloaded and could harm your computer”](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image16.png)
+
+![Warning “HammerDB .exe is not commonly downloaded and could harm your computer”](../Images/01-35-HammerDBWarning.png)
 
 >**Tip:** If you end up closing HammerDB you have to go to C:\\Program Files\\HammerDB-3.1 and run the batch file
   
-![HammerDB.exe in File Explorer](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image17.png)
-  
+![HammerDB.exe in File Explorer](../Images/01-36-HammerDBInExplorer.png)
+
 - Use HammerDB to create transaction load 
 - Double click on SQL Server and click OK, and OK on the confirm popup
 
-![Setting up HammerDB](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image18.png)   
+![Setting up HammerDB](../Images/02-02-HammerDB.png)  
 
 - Drill into SQL Server \\ TPC-C \\ Schema Build and double click on **Options**
 - Modify the Build Options for the following:
