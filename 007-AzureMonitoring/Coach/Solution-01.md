@@ -192,12 +192,12 @@ Follow the same steps that you used previously to create another data collection
   
 >**Note:** HammerDB does not have native support for Windows Display Scaling. This may result in a smaller than usual UI that is difficult to read over high resolution RDP sessions. If you run into this issue later, close and re-open your RDP session to the VS Server with a lower display resolution. After the RDP session connects, you can zoom into to adjust the size.
 
-![Remote Desktop Connection settings](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image11.png)  
+![Remote Desktop Connection settings](../Images/01-10-RemoteDesktopConnection.png)
 
 - set it to 125% or more.
-  
-![Remote Desktop Connection scaling settings](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image12.png)
-  
+
+![Remote Desktop Connection scaling settings](../Images/01-11-RemoteDesktopConnectionSettings.png)
+
 - From the Visual Studio Server, download the latest version of HammerDB  
 
 ![HammerDB web site](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image13.png)  
