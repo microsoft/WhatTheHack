@@ -50,7 +50,6 @@ Once its finished, review the results (scroll up) and copy the output for the
   
 ![Command output](../Images/01-06-CommandOutput.png)
 
-
 Now replace the "*" with the target database to be:
 `\SQLServer:Databases(tpcc)\Active Transactions`
 
@@ -88,28 +87,26 @@ If you navigate to the Metrics blade for both VMs, you should only be able to se
 ### Check your metrics 
   
 Now go to the VM Metric, you should see the SQL one we added above, add it and pin it to any of your Dashboards (It may take several minutes for the guest metrics to start flowing into the Azure Metrics store).
-  
-![VM Guest metrics now displayed along with Host metrics in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image9.png)  
+    
+![VM Guest metrics now displayed along with Host metrics in Azure Portal](../Images/01-08-ChartFilter01.png) 
 
 Can you see the new Metric?
-  
-![Selecting the custom SQL Server metric](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image10.png)
-  
-
+    
+![Selecting the custom SQL Server metric](../Images/01-09-ChartFilter02.png)
 
 ### Pin charts to your dashboard
 
 You can click on Pin to dashboard, then customize it to show the last 1 hour (see below)
   
-![Pinning metrics charts to a dashboard](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/pin_to_dashboard.jpg)  
+![Pinning metrics charts to a dashboard](../Images/01-22-PinToDashboard.jpg)
 
 Do this for both the SQL Server Active Transactions and the Percent CPU of the VM Scale Set
 
 - SQL Server Active Transactions
+ 
+![Azure dashboard with pinned metrics chart displaying the custom SQL Server metric](../Images/01-23-CustomizeTileData.png)  
 
-![Azure dashboard with pinned metrics chart displaying the custom SQL Server metric](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image22.png)  
-
-![Configuring dashboard tile settings](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image23.png)   
+![Configuring dashboard tile settings](../Images/01-24-ConfigureTileData.png) 
  
 - VM Scale Set Percentage CPU
   
