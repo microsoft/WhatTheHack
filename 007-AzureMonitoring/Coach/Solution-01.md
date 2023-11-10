@@ -110,7 +110,7 @@ Do this for both the SQL Server Active Transactions and the Percent CPU of the V
  
 - VM Scale Set Percentage CPU
   
-![Creating a chart for Percentage CPU metric of the Virtual Machine Scale Set](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image32_2.png)
+![Creating a chart for Percentage CPU metric of the Virtual Machine Scale Set](../Images/01-25-PinVMSSPercentageCPU.png)
 
 In the end after you run all the stress tests the dashboards, should look like this:
 
@@ -133,35 +133,33 @@ Follow the same steps that you used previously to create another data collection
   
 - From Azure Monitor, create an Action group to send email to your address
   
-![Creating an Action group in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image25.png)
-    
+![Creating an Action group in Azure Portal](../Images/01-26-CreateActionGroup.png)
+
 - Create an Alert if Active Transactions goes over 40 on the SQL Server `tpcc` database.
     
- ![Creating an Alert rule in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image26.png)  
+![Creating an Alert rule in Azure Portal](../Images/01-27-CreateAlertRule.png) 
   
 - Make sure to add the correct counter  
     
-![Selecting a performance counter while creating an alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image27.png)  
+![Selecting a performance counter while creating an alert rule](../Images/01-28-AddCorrectCounter.png)
 
 - Now set the logic to greater than 40
   
-![Setting a threshold while creating an alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image28.png)
-  
+![Setting a threshold while creating an alert rule](../Images/01-29-ConfigureSignalLogic.png)
+
 - Now define the action group to be the one you have created above
 
-![Selecting an action group while creating an alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image30.png)
+![Selecting an action group while creating an alert rule](../Images/01-30-DefineActionGroup.png)
   
 - Give the Alert a Name, Description and Severity
 
-![Configuring an Alert rule](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image29.png)
+![Configuring an Alert rule](../Images/01-31-AlertRuleDetails.png)
   
 - If you check your Alert Rules you should see it now enabled.
   
-![A list of Alert rules in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image31.png)
+![A list of Alert rules in Azure Portal](../Images/01-32-AlertRulesEnabled.png)
   
 - Similarly create an Alert Rule for CPU over 75% on the Virtual Scale Set that emails you when you go over the threshold.
-
-
 
 ### Create an Alert processing rule to suppress the alerts over the weekends
 
