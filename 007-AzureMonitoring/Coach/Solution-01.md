@@ -265,37 +265,36 @@ Now you need to generate load on your VMSS. To do this, in the repo you cloned n
 If you look at the configuration of the LB in the bicep code, it is configured with an inbound NAT rule that will map starting at port 50000 to each instance in the Scale Set. So if you should RDP using the Public_IP:5000x for instance 1 and PIP:5000y for instance 2.
   
 Just to make sure, you can check it in the portal:
-  
-![Load Balancer Inbound NAT rules in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image33_2.png)  
+   
+![Load Balancer Inbound NAT rules in Azure Portal](../Images/01-38-VMSSInboundNatRule.png)
 
 - Now RDP to each one and Hammer them ;-)
   
-![RDP Dialog window](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image34.png)  
+![RDP Dialog window](../Images/01-39-RemoteToVMSSInstance.png)
 
 - Jump on to both VMs in the Scale Set, Open the PowerShell ISE, Copy the script in the window and run it. You may need to run it more than once to really add the pressure. This script will pin each core on the VM no matter how many you have.
-  
-![PowerShell script in Windows PowerShell ISE](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image35.png)   
+
+![PowerShell script in Windows PowerShell ISE](../Images/01-40-RunScriptInPowerShellISE.png)
 
 Check the CPU load on the VM you are on just to make sure:    
 
-![Viewing CPU Performance in Windows Task Manager](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image35_2.png)  
+![Viewing CPU Performance in Windows Task Manager](../Images/01-41-TaskManagerCPU100.png) 
 
 - You metric should jump as well.    
 
-![Viewing Percentage CPU metric in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image36.png)
+![Viewing Percentage CPU metric in Azure Portal](../Images/01-42-VMSSMetricView.png)
 
 >**Note:** The trick to getting the alert to fire is to pin both instances at the same time as the CPU metric is an aggregate of the scale set. If you just max the CPU on one server to 100% the Scale Set is only at 50% and will not trip the alert threshold of 75%. Also, if you run the script and then setup the Alert Rule then go back to run another test to trip the alert.    
 
 Did you notice? You may have scaled out to a third instance and not realized it.  
 You may need to jump on that box and max it out as well.    
 
-![Checking Virtual Machine Scale Set scaling out in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image37.png)
+![Checking Virtual Machine Scale Set scaling out in Azure Portal](../Images/01-43-VMSSInstances.png)
 
 You should get an Alert similar to the one below  
 
-![Email alert received](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image38.png)    
+![Email alert received](../Images/01-44-AlertEmailVMSS.png)
 
-  
 First team to send both alerts wins the challenge!! :)  
 Good luck!
 
