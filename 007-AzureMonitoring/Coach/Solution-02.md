@@ -19,16 +19,15 @@ The Action group Resource Id can be found in the Azure Portal:
 
 ### Test Activity log alert
 
-- Login to Azure portal and stop you Visual Studio VM by clicking the "Stop" button.  
+- Login to Azure portal and stop your Visual Studio VM by clicking the "Stop" button.  
 
-![Stopping the  Virtual Machine via “Stop” button in Azure Portal](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/stopVM.png)
+![Stopping the  Virtual Machine via “Stop” button in Azure Portal](../Images/02-06-StopVM.png)
 
 - Check the Activity Log and see the new events of type **Deallocate Virtual Machine** (may take a min or two to show up)
 
-![Azure Activity log containing “Deallocate Virtual Machine” event](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/vmactivitylog.png)
+![Azure Activity log containing “Deallocate Virtual Machine” event](../Images/02-07-VMActivityLog.png)
 
 - If the alert is configured correctly, it should fire and an email will be sent.
-
 
 ### Create an alert for "Disk Write Operations/Sec" 
 
