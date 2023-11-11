@@ -43,8 +43,8 @@ Perf
 | render timechart 
 ```
   
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image103.png)  
+![Save Web & SQL VM Queries](../Images/06-01-SaveQueries.png)  
+
 - Create a heartbeat query for Web and SQL Server
 ```
 Heartbeat
@@ -52,8 +52,9 @@ Heartbeat
 | where max_TimeGenerated < ago(15m)
 | count 
 ```
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image104.png)  
+
+![Save Web & SQL VM Heartbeat Queries](../Images/06-02-SaveHeartbeatQuery.png) 
+
 We will now write a performance query that renders a time chart for the last hour of the max percentage CPU usage of the AKS Cluster nodes
 
 - Solution 1 using `maxif`
