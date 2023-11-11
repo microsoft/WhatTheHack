@@ -213,8 +213,6 @@ Follow the same steps that you used previously to create another data collection
 - Click ok, and try again
 - If you got the below warning message, click Actions and accept the warnings  
   
-![Warning “HammerDB .exe is not commonly downloaded and could harm your computer”](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image16.png)
-
 ![Warning “HammerDB .exe is not commonly downloaded and could harm your computer”](../Images/01-35-HammerDBWarning.png)
 
 >**Tip:** If you end up closing HammerDB you have to go to C:\\Program Files\\HammerDB-3.1 and run the batch file
