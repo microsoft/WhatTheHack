@@ -8,7 +8,7 @@
 - Navigate to your Application Insights resource in the Portal
 - Click on "Workbooks", then on "+New"
 
-![](../Images/07-01-Azure-Portal-Create-Workbook.png)
+![Azure Portal Create Workbook screenshot](../Images/07-01-Azure-Portal-Create-Workbook.png)
 
 - Click "Empty" then click "+Add" in the New Workbook section to add text describing the upcoming content in the workbook. Text is edited using Markdown syntax.
 
@@ -24,7 +24,7 @@
 > * Use **Column Settings** to change labels of column headers and use Bar and Threshold visualizations.
 
 - Add the following time parameter:
-![](../Images/07-02-Azure-Portal-Workbook-New-Parameter.png)  
+![Azure Portal Workbook New Parameter Screen](../Images/07-02-Azure-Portal-Workbook-New-Parameter.png)  
 - And the following Queries:
   - Browser Statistics
     ```
@@ -38,20 +38,20 @@
     | where success == false
     | summarize total_count=sum(itemCount), pageDurationAvg=avg(duration) by name, resultCode
     ```
-    ![](../Images/07-03-Azure-Portal-Workbook-Request-Failures.png)
+    ![Azure Portal Workbook Request Failure screen](../Images/07-03-Azure-Portal-Workbook-Request-Failures.png)
 
 - You can also add a Metric to create a metric chart, add the server response time.
 
-    ![](../Images/07-04-Azure-Portal-Workbook-Create-Metric-Chart.png)
+    ![Azure Portal Workbook Create Metric Chart](../Images/07-04-Azure-Portal-Workbook-Create-Metric-Chart.png)
     
     In the end, it should look something like that:
     
-    ![](../Images/07-05-Azure-Portal-Workbook-Metric-Chart.png)
+    ![Azure Portal Workbook Metric Chart view](../Images/07-05-Azure-Portal-Workbook-Metric-Chart.png)
 
 - Add another query to show the CPU Usage but change your Resource Type to Virtual Machines  
 
     >**Tip:** Make use of the sample queries in the Log Analytics Workspace
-    ![](../Images/07-06-Azure-Portal-Workbook-Edit-Query.png)
+    ![Azure Portal Workbook Edit Query](../Images/07-06-Azure-Portal-Workbook-Edit-Query.png)
 
 - Add another query, change the Resource Type to Log Analytics and your workspace to the LA workspace with your AKS container logs. Then add this query which is used for section Disk Used Percentage
     ```
@@ -65,7 +65,7 @@
   
     It should look like that:
 
-    ![](../Images/07-07-Azure-Portal-Workbook-Query-Result.png)
+    ![Azure Portal Workbook Query Result view](../Images/07-07-Azure-Portal-Workbook-Query-Result.png)
  
 
 - Save your workbook.
