@@ -69,12 +69,14 @@ Now, let's move on to publishing the app to AKS.
 
 ![Create ACR in Azure Portal](../Images/05-10-CreateACR.png)   
 - Once your Container Registry is created, return to Visual Studio and right click on Web to publish.
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image81.png)  
+
+![VS Publish Menu](../Images/05-11-VSPublishMenu.png)   
+
 - Choose Azure, Azure Container Registry as your Publish target and select the Container Registry that you just created. 
 - Click Finish.  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image82.png)     
+![VS Publish Dialogue](../Images/05-12-VSPublishDialog.png)     
+
 - Next, navigate to the Connected Services for Web.
 - Configure Application Insights to Azure Application Insights, select
 - Your App Insights resource and **Save connection string value in None**
@@ -84,16 +86,19 @@ Now, let's move on to publishing the app to AKS.
 - Update connection string using the Identity string found in **appsettings.json** and **Save connection value string in None**  
 - Update Secrets.json(Local)
   
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image83.png)  
+![Service Dependencies](../Images/05-13-ServiceDependencies.png)   
+
 - Return to Publish and click on Publish to push your app up to the Container Registry. This step will take several minutes. The final Visual Studio output should indicate successful push.
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image84.png)  
+![VS Build Message](../Images/05-14-BuildMessage.png)  
+
 - Open the provided **deployment.yml** file in **sources\aks** and update the image name to point to your Container Registry Login server and image.   
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image85.png)  
+![ACR Login Server](../Images/05-15-ACRLoginServer.png)  
 - Update the server name as shown below 
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image86.png)  
+![eShopOnWeb Kubernetes Deployment Manifest](../Images/05-16-DeploymentManifest.png)  
+
 - Upload the `**LogReaderRBAC.yml**`, `**deployment.yml**` and `**service.yml**` files to your cloud shell or browse to the sources/aks folder
 
 </details>
@@ -111,7 +116,8 @@ az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_AKS_NAME
 
 - Check connectivity to and the state of your AKS nodes, run: `kubectl get nodes`  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image87_2.png)  
+![kubectl get nodes](../Images/05-17-KubectlGetNodes.png)   
+
 You may not see all nodes, as this is also hosted on a VMSS.
 
 In previous versions of this hack, when students created the eShopOnWeb container, they would host it in their own Azure Container Registry where it could be loaded into the AKS cluster.
@@ -124,7 +130,8 @@ These steps are no longer needed as the eShopOnWeb container is loaded from Dock
 >**Important:** You will need to give access to your AKS cluster on the Container Registry (ACR) to be able to pull the image and deploy it. To do so and for learning purposes give both the AKS and the Agent Pool Contributor rights on the ACR.
 >The AKS and the Agent Pool Managed Identities are called after the AKS name.  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image88.png)
+![Add ACR Role Assignment](../Images/05-18-AddACRRoleAssignment.png)
+
 - Run the following command to deploy the cluster role bindings:
 `kubectl create -f LogReaderRBAC.yml`
 - Run the following command to deploy your app
@@ -133,7 +140,8 @@ These steps are no longer needed as the eShopOnWeb container is loaded from Dock
 - Run the following command after few mints to check the status of the pods:
 `kubectl get pods`
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image89.png)
+![kubectl get pods](../Images/05-19-KubectlGetPods.png)
+
 - Run the following command to expose your app front-end on port 8080
 `kubectl apply -f service.yml`  
 
@@ -145,7 +153,8 @@ These steps are no longer needed as the eShopOnWeb container is loaded from Dock
 
 `kubectl get services`  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image91.png)  
+![kubectl get services](../Images/05-20-KubectlGetServices.png)  
+
 - Use the external IP of the web-service and port 8080 to access your app deployed on AKS.
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image92.png)  
