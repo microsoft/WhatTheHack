@@ -8,8 +8,8 @@ An earlier version of this hack had students containerize the eShopOnWeb applica
 
 A containerized version of eShopOnWeb has been published to Docker Hub. The initial automation in Challenge 00 will deploy this containerized version to the AKS cluster in the hack environment using a Helm chart.
 
-- Containerized eShopOnWeb: [whatthehackmsft/eshoponweb-kubernetes](https://hub.docker.com/r/whatthehackmsft/eshoponweb-kubernetes)
-- eShopOnWeb Helm Chart: [whatthehackmsft/eshopaks](https://hub.docker.com/r/whatthehackmsft/eshopaks)
+- Containerized eShopOnWeb: [`whatthehackmsft/eshoponweb-kubernetes`](https://hub.docker.com/r/whatthehackmsft/eshoponweb-kubernetes)
+- eShopOnWeb Helm Chart: [`whatthehackmsft/eshopaks`](https://hub.docker.com/r/whatthehackmsft/eshopaks)
 
 The containerized version hosted on Docker Hub was created from the most recent version of eShopOnWeb in August 2023. If the eShopOnWeb application is updated, it is possible the containerized version may stop working, or not match the version deployed on the IIS VM Scale Set.
 
