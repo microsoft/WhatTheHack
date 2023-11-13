@@ -157,41 +157,51 @@ These steps are no longer needed as the eShopOnWeb container is loaded from Dock
 
 - Use the external IP of the web-service and port 8080 to access your app deployed on AKS.
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image92.png)  
+![eShopOnWeb on Kubernetes in the browser](../Images/05-21-eShopOnKubernetes.png)   
+
 - Return to the Azure Portal. 
 - Navigate to Azure Monitor, click on Containers, and select your cluster.  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image93.png)  
+![Azure Monitor Containers](../Images/05-22-AzureMonitorContainers.png)  
+
  - Alternatively, you can go to your AKS and click Insights 
  - Click on Containers and then search for web
   
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image94.png)  
+![AKS Insights](../Images/05-23-AKSInsights.png)  
+
 - Or go to Controllers and search for web
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image95.png)  
+![AKS Controllers](../Images/05-24-Controllers.png)  
+
 - Generate an exception in the eShopOnWeb application  
 >**Tip:** Try to change your password, similar to the exception generated in the Application Insights challenge
 
 - Login  
- ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image96.png)  
-- Enter the user and password provided on the page.  
- ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image97.png)  
-- Click on My account  
+![eShopOnWeb Login Page](../Images/05-25-eShopLoginPage.png)   
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image98.png)  
+- Enter the user and password provided on the page.  
+ ![eShopOnWeb My Account Page](../Images/05-26-eShopMyAccount.png)  
+
+- Click on My account  
+ 
+![eShopOnWeb Change Password](../Images/05-27-eShopChangePassword.png)  
 
 - Click on Password
 Notice an exception is thrown  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image99.png)  
+![eShopOnWeb error message](../Images/05-28-eShopError.png) 
+
 - Click on the Web container and View container **live data**.  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image100.png)  
+![Container Insights](../Images/05-29-ContainerInsights.png)  
+
 - Trip the password exception again once the Status has gone from `Unk` to `Ok`.  
-  ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image101.png)
+  ![Container Insights Zoomed](../Images/05-30-ContainerInsightsZoom.png)
+
 You can search for Rob. You should find it in the logs!  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image102.png)
+![Rob's error is caught!](../Images/05-31-RobError.png)
+
 First person to post a screenshot of the live log with the exception message wins the challenge :-)  
   
 
