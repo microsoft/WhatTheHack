@@ -4,52 +4,70 @@
 
 ## Notes & Guidance
 
+An earlier version of this hack had students containerize the eShopOnWeb application on the Visual Studio VM and deploy it to the AKS cluster in the hack environment themselves. 
+
+A containerized version of eShopOnWeb has been published to Docker Hub. The initial automation in Challenge 00 will deploy this containerized version to the AKS cluster in the hack environment using a Helm chart.
+
+- Containerized eShopOnWeb: [whatthehackmsft/eshoponweb-kubernetes](https://hub.docker.com/r/whatthehackmsft/eshoponweb-kubernetes)
+- eShopOnWeb Helm Chart: [whatthehackmsft/eshopaks](https://hub.docker.com/r/whatthehackmsft/eshopaks)
+
+The containerized version hosted on Docker Hub was created from the most recent version of eShopOnWeb in August 2023. If the eShopOnWeb application is updated, it is possible the containerized version may stop working, or not match the version deployed on the IIS VM Scale Set.
+
+While we hope this is rare, if the version of eShopOnWeb hosted on Docker Hub does not work, a coach could create an updated containerized version from the latest eShopOnWeb source code that is deployed onto the Visual Studio VM using the archived instructions in the collapsed section below.
+
+**NOTE:** This coach guide contains many screenshots. Due to the rapid changing nature of the Azure Portal, you may find some things have changed and/or do not appear as depicted here. Please report these by filing a GitHub issue on this repo: [WTH Issue](https://aka.ms/wthproposal) 
+
+<details>
+<summary>Click to expand/collapse eShopOnWeb Container Creation Steps</summary>
+
 From your Visual Studio Server, deploy the eShopOnWeb application to AKS
 - Install Docker Desktop and restart your Visual Studio VM. 
 - This step is required before you can add Docker support to your eShopOnWeb app in Visual Studio.    
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image71.png)  
+![Docker Desktop for Windows](../Images/05-01-DockerDesktop.png)  
 - Click the link  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image72.png)  
+![WSL2 Incomplete Dialog](../Images/05-02-WSL2Incomplete.png) 
  - Follow the instructions to complete the WSL 2 installation and restart Docker Desktop  
  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image73.png)  
+![WSL2 Installation Wizard](../Images/05-03-WSL2Wizard.png)  
   
-- Navigate to c:\eshoponweb\eShopOnWeb-master
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image74.png)  
-  
+- Navigate to `c:\eshoponweb\eShopOnWeb-master`
+    
+![eShopOnWeb files in Explorer](../Images/05-04-eShopExplorer.png)
+
 - Double-click on **eShopOnWeb.sln** solution file and select Visual Studio 2019 when prompted.
 - Sign into Visual Studio if you have not already done so.
 - Once Visual Studio opens and settles down.
 - Update your DB connection strings in **appsettings.json** to use the SQL server IP address instead of hostname.  
 
->**Tip:** You can get the SQL private IP from the VM in Azure Portal.
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image75.png)      
+>**Tip:** You can get the SQL private IP from the VM in Azure Portal. 
+
+![AppSettings.json in VS](../Images/05-05-VSAppSettings.png)  
 - Right-click on **Web** the **Add** then **Add Docker Support**. 
   
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image76.png)  
+![Add Docker Support Menu Option in VS](../Images/05-06-VSAddDockerSupport.png)   
 - Leave the default option of Linux selected and click OK. 
 - Regenerate a new Dockerfile and wait for task to complete.  
 - When prompted click **Allow access** to your docker back-end to communicate with Private Networks.  
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image77.png)  
+![Windows Firewall warning for Docker](../Images/05-07-WindowsFirewallDocker.png) 
 When Docker support has been added, you should see a Docker option to run/debug your app.
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image78.png)  
+![Docker "run" button in VS](../Images/05-08-VSDockerRunButton.png)  
+
 - Click to run your app. Wait a few minutes for your app to build and load. 
 - When its complete Visual Studio will open the URL in the default browser. 
 - Your app is now running in a local container, click **Stop** or close the Browser.
+ 
+![eShopOnWeb in browser running from local container](../Images/05-09-LocalContainerRunning.png)
 
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image79.png)  
 #### From Azure Monitor, locate the container running the eShopOnWeb application
 
 Now, let's move on to publishing the app to AKS.
 - Go to the Azure Portal and create an Azure Container registry with a Standard SKU in your workshop resource group.
-  
-![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image80.png)  
+
+![Create ACR in Azure Portal](../Images/05-10-CreateACR.png)   
 - Once your Container Registry is created, return to Visual Studio and right click on Web to publish.
   
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image81.png)  
@@ -77,6 +95,13 @@ Now, let's move on to publishing the app to AKS.
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image86.png)  
 - Upload the `**LogReaderRBAC.yml**`, `**deployment.yml**` and `**service.yml**` files to your cloud shell or browse to the sources/aks folder
+
+</details>
+
+## Solution Guide
+
+Students will start this challenge by accessing the eShopOnWeb application hosted on the AKS cluster in their hack environment.
+
 - Run the following commands:
 ```
 az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_AKS_NAME
@@ -88,6 +113,14 @@ az aks get-credentials --resource-group YOUR_RESOURCE_GROUP --name YOUR_AKS_NAME
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image87_2.png)  
 You may not see all nodes, as this is also hosted on a VMSS.
+
+In previous versions of this hack, when students created the eShopOnWeb container, they would host it in their own Azure Container Registry where it could be loaded into the AKS cluster.
+
+These steps are no longer needed as the eShopOnWeb container is loaded from Docker Hub. However, if you want to host your own eShopOnWeb container in ACR, you will need to follow the steps in the collapsed section below.
+
+<details>
+<summary>Click to expand/collapse eShopOnWeb ACR Deployment Steps</summary>
+
 >**Important:** You will need to give access to your AKS cluster on the Container Registry (ACR) to be able to pull the image and deploy it. To do so and for learning purposes give both the AKS and the Agent Pool Contributor rights on the ACR.
 >The AKS and the Agent Pool Managed Identities are called after the AKS name.  
 
@@ -104,7 +137,12 @@ You may not see all nodes, as this is also hosted on a VMSS.
 - Run the following command to expose your app front-end on port 8080
 `kubectl apply -f service.yml`  
 
-- After a few minutes, check on the status of your service
+</details>
+
+##### Get Service Details
+
+- To access the eShopOnWeb app on your AKS cluster, find the location where the eShopOnWeb service is running:
+
 `kubectl get services`  
 
 ![](https://github.com/msghaleb/AzureMonitorHackathon/raw/master/images/image91.png)  
