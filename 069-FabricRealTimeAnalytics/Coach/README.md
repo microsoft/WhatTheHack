@@ -10,13 +10,13 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-0. Challenge 00: **[Prerequisites](Solutions/Solution-00.md)**
+0. Challenge 00: **[Prerequisites](Solution-00.md)**
    - Getting the environment setup for the rest of the challenges
-1. Challenge 01: **[Ingesting the Data and Creating the Database](Solutions/Solution-01.md)**
+1. Challenge 01: **[Ingesting the Data and Creating the Database](Solution-01.md)**
    - Creating a database to store the real-time data
-1. Challenge 02: **[Transforming the Data](Solutions/Solution-02.md)**
+1. Challenge 02: **[Transforming the Data](Solution-02.md)**
     - Transforming the data using KQL Querysets
-1. Challenge 03: **[Create the Realtime Reporting](Solutions/Solution-03.md)**
+1. Challenge 03: **[Create the Realtime Reporting](Solution-03.md)**
     - Creating the Power BI reports, with real-time data
 
 ## Coach Prerequisites
