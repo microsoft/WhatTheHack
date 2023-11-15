@@ -46,6 +46,8 @@ az group create --name myIoT-rg --location eastus
 az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
 ```
 
+After deploying the ARM template, navigate to the resource group and create a Fabric capacity in the Azure portal. F2 SKU is more than enough for this WTH.
+
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
