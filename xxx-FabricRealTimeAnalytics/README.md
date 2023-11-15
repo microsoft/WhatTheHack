@@ -1,36 +1,39 @@
-# What The Hack - FabricRealTimeAnalytics
+# What The Hack - Fabric Real-time Analytics
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+The AbboCost Financial group monitors several crazy stocks! Because of the volitile nature of these stocks they need up to the second real-time reporting on what the stocks are doing, as well as historical data on all previous stock prices. Luckily you have just the solution for them, Fabric!
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+In this hack you will be solving the common business problem that companies have surronding creating real-time reporting solutions:
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+1. Provision a Fabric instance
+2. Create a database to ingest data
+3. Create querys and add analysis to the data
+4. Create real-time reporting, with up to the second data
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
+0. Challenge 00: **[Prerequisites](Student/Challenge-00.md)**
+   - Getting the environment setup for the rest of the challenges
+1. Challenge 01: **[Ingesting the Data and Creating the Database](Student/Challenge-01.md)**
+   - Creating a database to store the real-time data
+1. Challenge 02: **[Transforming the Data](Student/Challenge-02.md)**
+   - Create a queryset to add information to the data
+1. Challenge 03: **[Create Realtime Reporting](Student/Challenge-03.md)** 
+   - Creating the Real-time Power BI reports
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- An Azure subscription
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Cameron Kahrs
+- Rachel Liu
+- Armando Marrero
+- Juan Llovet de Casso
+- Brian Hitney
+- Pardeep Singla
+- Alan Kleinhart
