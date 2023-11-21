@@ -1,0 +1,31 @@
+name: Create a release for a WhatTheHack hackathon
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  determine-changed-hackathon:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+        all_changed_hackathons: ${{ steps.changed-hackathon-directories.outputs.all_changed_files }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Get changed hackathons
+        id: changed-hackathon-directories
+        uses: tj-actions/changed-files@25ef3926d147cd02fc7e931c1ef50772bbb0d25d
+        with:
+          dir_names: true
+          exclude_current_dir: true
+          dir_names_max_depth: 1
+  package:
+    needs: determine-changed-hackathon
+    uses: ./.github/workflows/create-wth-release.yml
+    with:
+      hackathonName: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
+      pathToStudentResources: 'Student/Resources'
+      branchName: release
