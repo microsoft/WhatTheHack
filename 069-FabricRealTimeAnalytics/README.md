@@ -6,11 +6,11 @@ The AbboCost Financial group monitors several crazy stocks! Because of the volat
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies have surronding creating real-time reporting solutions:
+In this hack you will be solving the common business problem that companies have surrounding creating real-time reporting solutions:
 
 1. Provision a Fabric instance
 2. Create a database to ingest data
-3. Create querys and add analysis to the data
+3. Create queries and add analysis to the data
 4. Create real-time reporting, with up to the second data
 
 ## Challenges
