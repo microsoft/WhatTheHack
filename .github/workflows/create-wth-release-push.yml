@@ -31,6 +31,6 @@ jobs:
     needs: determine-changed-hackathon
     uses: ./.github/workflows/create-wth-release.yml
     with:
-      hackathonName: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
+      hackathonNames: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
       pathToStudentResources: 'Student/Resources'
       branchName: release

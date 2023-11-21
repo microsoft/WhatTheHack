@@ -20,7 +20,7 @@ jobs:
   package:
     uses: ./.github/workflows/create-wth-release.yml
     with:
-      hackathonName: ${{ inputs.hackathonName }}
+      hackathonNames: ${{ inputs.hackathonName }}
       pathToStudentResources: ${{ inputs.pathToStudentResources }}
       branchName: ${{ inputs.branchName }}
 
