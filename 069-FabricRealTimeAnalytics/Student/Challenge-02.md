@@ -10,7 +10,7 @@
 
 ## Introduction
 
-You've been tasked with creating some real time reporting using Power BI based on the data that is contantly being generated every second. In this challenge, you will learn how to query and transform the data with Fabric. 
+You've been tasked with creating some real time reporting using Power BI based on the data that is constantly being generated every second. In this challenge, you will learn how to query and transform the data with Fabric. 
 
 ## Description
 In this challenge, you need to get the price difference and price difference percent between stock price and its previous price at different timestamps in Stock Table. The data in the new table should be in ascending time stamp order.
@@ -41,4 +41,4 @@ To complete this challenge successfully, you should be able to:
 Too comfortable?  Eager to do more?  Try these additional challenges!
 
 <!-- Group stocks by a certain grouping TDB-->
-- Create another KQL queryset and find out the biggest price difference for each stock, and at what time it occured
+- Create another KQL queryset and find out the biggest price difference for each stock, and at what time it occurred
