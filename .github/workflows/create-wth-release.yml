@@ -29,12 +29,7 @@ jobs:
           cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
 
-          output=$(gh release delete "${{ env.TAG }}" --cleanup-tag --yes 2>&1) || [[ "${output}" == "release not found" ]]
-
-          if [[ "${output}" != "release not found" ]]; then
-            echo "Release ${{ env.TAG }} already exists. Deleting it."
-            gh release delete "${{ env.TAG }}" --cleanup-tag --yes       
-          fi
+          gh release delete "${{ env.TAG }}" --cleanup-tag --yes || true   
 
           gh release create ${{ env.TAG }}  \
             --title "Student Resources for ${{ inputs.hackathonName }}" \
