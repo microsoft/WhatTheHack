@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The AbboCost Financial group monitors several crazy stocks! Because of the volitile nature of these stocks they need up to the second real-time reporting on what the stocks are doing, as well as historical data on all previous stock prices. Luckily you have just the solution for them, Fabric!
+The AbboCost Financial group monitors several crazy stocks! Because of the volatile nature of these stocks they need up to the second real-time reporting on what the stocks are doing, as well as historical data on all previous stock prices. Luckily you have just the solution for them, Fabric!
 
 ## Learning Objectives
 
