@@ -20,7 +20,7 @@ jobs:
   package:
     strategy:
       matrix:
-        hackathonName: ${{ inputs.hackathonNames }}
+        hackathonName: ${{ fromJSON(inputs.hackathonNames) }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

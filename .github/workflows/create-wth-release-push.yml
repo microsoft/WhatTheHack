@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     outputs:
-        all_changed_hackathons: ${{ steps.changed-hackathon-directories.outputs.all_changed_files }}
+        all_changed_hackathons: ${{ steps.convert-to-json-array.outputs.all_changed_hackathons }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,6 +27,11 @@ jobs:
             000-HowToHack/**
             _layouts/**
             _assets/**
+      - name: Convert space-separated string to JSON array
+        id: convert-to-json-array
+        run: |
+          JSON_ARRAY=$(echo ${{ steps.changed-hackathon-directories.outputs.all_changed_files }} | jq -R -s -c 'split(" ")')
+          echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
   package:
     needs: determine-changed-hackathon
     uses: ./.github/workflows/create-wth-release.yml

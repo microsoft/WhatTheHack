@@ -20,9 +20,14 @@ jobs:
         with:
           files: |
             **/*.md
+      - name: Convert space-separated string to JSON array
+        id: convert-to-json-array
+        run: |
+          JSON_ARRAY=$(echo ${{ steps.changed-files.outputs.all_changed_files }} | jq -R -s -c 'split(" ")')
+          echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
       - uses: ./.github/actions/spell-check
         name: WTH Spell Check
         with:
           spell_check_yaml_path: .github/workflows/spell-check/spellcheck.yml
           markdown_base_path: .
-          changed_files: ${{ steps.changed-files.outputs.all_changed_files }}
+          changed_files: ${{ steps.convert-to-json-array.outputs.all_changed_hackathons }}
