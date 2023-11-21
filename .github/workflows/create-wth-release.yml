@@ -36,6 +36,8 @@ jobs:
             echo "Release found, deleting..."
             gh release delete ${{ env.TAG }} --cleanup-tag --yes
           fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
