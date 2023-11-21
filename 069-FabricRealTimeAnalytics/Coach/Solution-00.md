@@ -19,7 +19,7 @@ Thank you for participating in the Fabric real time analytics WTH. Before you ca
   - [VS Code plugin for ARM Templates](../../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 ## Description
 
-Here ar the innstructions for installing the arm template. This will create:
+Here ar the instructions for installing the arm template. This will create:
 
 - Event Hub namespace and Event Hub (EH)
 - Azure Container Instance (ACI)
