@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\jordanbean\\.azurelogicapps\\dependencies\\DotNetSDK;${env:PATH}"
+    },
+    "omnisharp.dotNetCliPaths": [
+        "C:\\Users\\jordanbean\\.azurelogicapps\\dependencies\\DotNetSDK"
+    ]
+}
