@@ -30,7 +30,7 @@ jobs:
       - name: Convert space-separated string to JSON array
         id: convert-to-json-array
         run: |
-          JSON_ARRAY=$(echo ${{ steps.changed-hackathon-directories.outputs.all_changed_files }} | tr '\n' | jq -R -s -c 'split(" ")')
+          JSON_ARRAY=$(echo ${{ steps.changed-hackathon-directories.outputs.all_changed_files }} | tr -d '\n' | jq -R -s -c 'split(" ")')
           echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
   package:
     needs: determine-changed-hackathon
