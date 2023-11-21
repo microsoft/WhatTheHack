@@ -28,11 +28,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
+      - run: gh release delete ${{ env.TAG }} --cleanup-tag --yes 2>/dev/null
+        continue-on-error: true
       - run: |
           cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
-
-          gh release delete ${{ env.TAG }} --yes 2>/dev/null 
 
           gh release create ${{ env.TAG }}  \
             --title "Student Resources for ${{ matrix.hackathonName }}" \
