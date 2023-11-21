@@ -15,6 +15,14 @@ on:
         description: "The name of the branch to create the release from."
         required: true
         default: "master"
+  push:
+    branches:
+      - master 
+
+env:
+  HACKATHON_NAME: ${{ github.event.inputs.hackathonName != '001-IntroToKubernetes' && github.event.inputs.hackathonName || '001-IntroToKubernetes'}}
+  PATH_TO_STUDENT_RESOURCES: ${{ github.event.inputs.pathToStudentResources != 'Student/Resources' && github.event.inputs.pathToStudentResources || 'Student/Resources'}}
+  BRANCH_NAME: ${{ github.event.inputs.branchName != 'master' && github.event.inputs.branchName || 'master'}}
 
 jobs:
   package:
@@ -24,15 +32,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - run: echo "TAG=${{ inputs.hackathonName }}-$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+      - run: echo "TAG=${{ env.HACKATHON_NAME }}" >> $GITHUB_ENV
       - run: |
-          cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
+          cd ${{ env.HACKATHON_NAME }}/${{ env.PATH_TO_STUDENT_RESOURCES }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
 
           gh release create ${{ env.TAG }}  \
-            --title "Student Resources for ${{ inputs.hackathonName }}" \
-            --notes "Student Resources for ${{ inputs.hackathonName }}" \
-            --target ${{ inputs.branchName }}
+            --title "Student Resources for ${{ env.HACKATHON_NAME }}" \
+            --notes "Student Resources for ${{ env.HACKATHON_NAME }}" \
+            --target ${{ env.BRANCH_NAME }}
 
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
         env:
