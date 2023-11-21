@@ -28,8 +28,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
-      - run: gh release delete ${{ env.TAG }} --cleanup-tag --yes 2>/dev/null
-        continue-on-error: true
+      - run: |
+          OUTPUT=$(gh release view ${{ env.TAG }})
+          if [[ $OUTPUT == "release not found" ]]; then
+            echo "Release not found, continuing..."
+          else
+            echo "Release found, deleting..."
+            gh release delete ${{ env.TAG }} --cleanup-tag --yes
+          fi
       - run: |
           cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
