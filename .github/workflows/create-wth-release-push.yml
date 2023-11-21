@@ -22,6 +22,11 @@ jobs:
           dir_names: true
           dir_names_exclude_current_dir: true
           dir_names_max_depth: 1
+          files_ignore: |
+            .github/**
+            000-HowToHack/**
+            _layouts/**
+            _assets/**
   package:
     needs: determine-changed-hackathon
     uses: ./.github/workflows/create-wth-release.yml
