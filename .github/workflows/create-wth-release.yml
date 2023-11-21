@@ -27,16 +27,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - run: echo "TAG=${{ inputs.hackathonName }}" >> $GITHUB_ENV
+      - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
       - run: |
-          cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
+          cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
 
           gh release delete "${{ env.TAG }}" --cleanup-tag --yes || true   
 
           gh release create ${{ env.TAG }}  \
-            --title "Student Resources for ${{ inputs.hackathonName }}" \
-            --notes "Student Resources for ${{ inputs.hackathonName }}" \
+            --title "Student Resources for ${{ matrix.hackathonName }}" \
+            --notes "Student Resources for ${{ matrix.hackathonName }}" \
             --target ${{ inputs.branchName }}
 
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
