@@ -16,7 +16,7 @@ Steps for MAA Fabric Real-time analytics:
 
 ## Notes & Guidance
 
-Unfortunatley Fabric does not allow template automation for the items inside of it, so you will have to follow along with the students to create the example from scratch as they are doing.
+Unfortunately Fabric does not allow template automation for the items inside of it, so you will have to follow along with the students to create the example from scratch as they are doing.
 
 The Learning Resource below have a useful tutorial to get you going if the steps laid out here are not enough.
 
