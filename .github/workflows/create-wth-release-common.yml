@@ -28,6 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
+        name: Set tag
       - run: |
           OUTPUT=0
           gh release view ${{ env.TAG }} || OUTPUT=$?
@@ -39,6 +40,7 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: Delete ${{ env.TAG }} release if it exists
       - run: |
           cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
           zip -r ${{ env.RESOURCES_FILENAME }} *
@@ -52,3 +54,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOURCES_FILENAME: Resources
+        name: Create ${{ env.TAG }} release
