@@ -9,7 +9,7 @@ This hack starts off by covering containers, what problems they solve, and why K
 ## Learning Objectives
 
 In this hack you will solve a common challenge for companies migrating to the cloud. You will take a simple multi-tiered web app, containerize it, and deploy it to an AKS cluster. Once the application is in AKS, you will learn how to tweak all the knobs and levers to scale, manage and monitor it.
-asdfasdfasdfasdfasdfasdfasdfasdf
+asdfasdfasdfasdfasdfasdfasdfasdfadf
 1. Containerize an application
 1. Deploy a Kubernetes cluster in Azure and deploy applications to it.
 1. Understand key Kubernetes management areas: scalability, upgrades and rollbacks, storage, networking, package management and monitoring

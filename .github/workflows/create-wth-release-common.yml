@@ -1,4 +1,4 @@
-name: Create a release for a WhatTheHack hackathon
+name: Create a WTH Release - Common
 
 on:
   workflow_call:

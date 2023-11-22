@@ -1,4 +1,4 @@
-name: Create a release for a WhatTheHack hackathon
+name: Create a WTH Release - Manual
 
 on:
   workflow_dispatch:
@@ -33,7 +33,7 @@ jobs:
           echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
   package:
     needs: determine-changed-hackathon
-    uses: ./.github/workflows/create-wth-release.yml
+    uses: ./.github/workflows/create-wth-release-common.yml
     with:
       hackathonNames: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
       pathToStudentResources: ${{ inputs.pathToStudentResources }}
