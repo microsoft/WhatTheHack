@@ -29,7 +29,8 @@ jobs:
         uses: actions/checkout@v4
       - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
       - run: |
-          OUTPUT=$(gh release view ${{ env.TAG }} 2>&1)
+          OUTPUT=0
+          gh release view ${{ env.TAG }} || OUTPUT=$?
           if [[ $OUTPUT -ne 0 ]]; then
             echo "Release not found, continuing..."
           else
