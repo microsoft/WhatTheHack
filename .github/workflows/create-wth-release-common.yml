@@ -1,0 +1,59 @@
+name: Create a WTH Release - Common
+
+on:
+  workflow_call:
+    inputs:
+      hackathonNames:
+        description: "The name of the hackathon to create a release for"
+        required: true
+        type: string
+      pathToStudentResources:
+        description: "The path to the Student Resources directory."
+        required: true
+        type: string
+      branchName:
+        description: "The name of the branch to create the release from."
+        required: true
+        type: string
+
+jobs:
+  package:
+    strategy:
+      matrix:
+        hackathonName: ${{ fromJSON(inputs.hackathonNames) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - run: echo "TAG=${{ matrix.hackathonName }}" >> $GITHUB_ENV
+        name: Set tag
+      - run: |
+          OUTPUT=0
+          gh release view ${{ env.TAG }} || OUTPUT=$?
+          if [[ $OUTPUT -ne 0 ]]; then
+            echo "Release not found, continuing..."
+          else
+            echo "Release found, deleting..."
+            gh release delete ${{ env.TAG }} --cleanup-tag --yes
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: Delete ${{ env.TAG }} release if it exists
+      - run: |
+          cd ${{ matrix.hackathonName }}/${{ inputs.pathToStudentResources }}
+          zip -r ${{ env.RESOURCES_FILENAME }} *
+
+          gh release create ${{ env.TAG }}  \
+            --title "Student Resources for ${{ matrix.hackathonName }}" \
+            --notes "Student Resources for ${{ matrix.hackathonName }}" \
+            --target ${{ inputs.branchName }}
+
+          gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
+
+          gh release edit ${{ env.TAG }} --draft=false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESOURCES_FILENAME: Resources
+        name: Create ${{ env.TAG }} release

@@ -1,4 +1,4 @@
-name: Create a release for a WhatTheHack hackathon
+name: Create a WTH Release - Manual
 
 on:
   workflow_dispatch:
@@ -17,10 +17,25 @@ on:
         default: "master"
 
 jobs:
+  determine-changed-hackathon:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+        all_changed_hackathons: ${{ steps.convert-to-json-array.outputs.all_changed_hackathons }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Convert space-separated string to JSON array
+        id: convert-to-json-array
+        run: |
+          JSON_ARRAY=$(echo ${{ inputs.hackathonName }} | tr -d '\n' | jq -R -s -c 'split(" ")')
+          echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
   package:
-    uses: ./.github/workflows/create-wth-release.yml
+    needs: determine-changed-hackathon
+    uses: ./.github/workflows/create-wth-release-common.yml
     with:
-      hackathonName: ${{ inputs.hackathonName }}
+      hackathonNames: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
       pathToStudentResources: ${{ inputs.pathToStudentResources }}
       branchName: ${{ inputs.branchName }}
 
