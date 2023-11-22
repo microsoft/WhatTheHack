@@ -51,6 +51,8 @@ jobs:
             --target ${{ inputs.branchName }}
 
           gh release upload ${{ env.TAG }} ${{ env.RESOURCES_FILENAME }}.zip
+
+          gh release edit ${{ env.TAG }} --draft=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOURCES_FILENAME: Resources
