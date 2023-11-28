@@ -8,7 +8,7 @@ You've been tasked with creating some real time reporting using Power BI based o
 
 ## Description
 
-In this challenge, you will create an data ingestion stream from the Event Hub to Fabric and create a way to store that data inside of Fabric that is conducive to real time reporting. You will also need to make sure the data is being stored in the Fabric OneLake.
+In this challenge, you will create a data ingestion stream from the Event Hub to Fabric and create a way to store that data inside of Fabric that is conducive to real time reporting. You will also need to make sure the data is being stored in the Fabric OneLake.
 
 ## Success Criteria
 
@@ -28,4 +28,4 @@ To complete this challenge successfully, you should be able to:
 
 - You may find it easier to create the database first, before creating the ingestion stream.
 - You can query the database to see how many records it has in total, then query it again moments later to verify that there was an increase in records, since this application generates about seven records every second.
-- A KQL database does not automatically store it's data in the Fabric OneLake. There is a setting you will need to change to do that.
+- A KQL database does not automatically store its data in the Fabric OneLake. There is a setting you will need to change to do that.
