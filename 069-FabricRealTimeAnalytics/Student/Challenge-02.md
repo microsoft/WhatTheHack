@@ -32,7 +32,7 @@ To complete this challenge successfully, you should be able to:
 
 ## Tips
 
-- Starting with ordering the stocks in ascending timestamp order is very beneficial
+- Start with ordering the stocks in ascending timestamp order is very beneficial
 - You should add two columns in Stock Table: one for "pricedifference", and one for "percentpricedifference"
 - You can keep the price difference to two decimal places, and keep the price difference percent to four decimal places
 
