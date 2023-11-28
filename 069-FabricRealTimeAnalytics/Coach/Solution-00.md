@@ -8,7 +8,7 @@ Thank you for participating in the Fabric real time analytics WTH. Before you ca
 
 ## Common Prerequisites
 
-- [Azure Subscription](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Azure Subscription](../../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Managing Cloud Resources](../../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
