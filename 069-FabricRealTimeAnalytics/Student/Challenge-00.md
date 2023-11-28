@@ -55,5 +55,5 @@ To complete this challenge successfully, you should be able to:
 - Verify that the ARM template has deployed the following resources in Azure:
   - Event Hub Namespace
   - Event Hub (verify it is ingesting data from the container)
-  - Azure Container Instance (verify that it is running the docker container and data is streaming out, go to logs to verify this)
+  - Azure Container Instance (verify that it is running the Docker container and data is streaming out, go to logs to verify this)
 - Fabric instance created and running
