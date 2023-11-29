@@ -21,7 +21,7 @@ Review the following introduction to GitHub project boards: [GitHub project boar
 
 - Create a new project using the "Team backlog" template.
 
-- Ensure your project is with linked with your repository
+- Ensure your project is linked to your repository
 
 - Create a draft issue for this challenge (3) and each of the remaining challenges (i.e., create 9 issues total - skip challenges 0,1 and 2 as you already completed them). When creating each issue, make sure to:
     - Assign an owner for each issue from your team. 
