@@ -4,8 +4,17 @@
 
 ## Notes & Guidance
 
-Environment setup guidence
+Environment setup guidance
+
+Deliveries of this hack may be two different options
+
+Option 1:
 - Ensure they create a Power Platform trial - with a database
+
+Option 2:
+- Create trial environments using PowerShell script and provide participants with the generated credentials
+
+Additional guidence:
 - Ensure users use in-private/incognito or create a new profile in their browser (do not use the default browser to create a new environment as it will conflict with their work O365 login)
 - Do not use your corporate license/environment for the hack
 - Create a unique tenant name such as: ppwth2022TeamXX

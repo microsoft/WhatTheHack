@@ -45,7 +45,7 @@ In this challenge we will be creating Azure data disks and using the Kubernetes 
 			tmpfs          tmpfs    1.7G   12K  1.7G   1% /run/secrets/kubernetes.io/serviceaccount
 			tmpfs          tmpfs    1.7G     0  1.7G   0% /sys/firmware</code></pre>
 
-		- `root@mongo-db678745655b-f82vj:/#` **`mongo --version`**
+		- `root@mongo-db678745655b-f82vj:/#` **`mongosh --version`**
 			```
 			MongoDB shell version v3.6.1
 			connecting to: mongodb://127.0.0.1:27017

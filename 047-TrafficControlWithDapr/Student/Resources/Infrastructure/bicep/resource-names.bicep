@@ -2,9 +2,10 @@ param appName string
 param region string
 param env string
 
-output aksName string = 'aks-${appName}1-${region}-${env}'
+output aksName string = 'aks-${appName}-${region}-${env}'
 output appInsightsName string = 'ai-${appName}-${region}-${env}'
 output containerRegistryName string = toLower('cr${appName}${region}${env}')
+output containerAppEnvironmentName string = 'cae-${appName}-${region}-${env}'
 output eventHubConsumerGroupName string = 'trafficcontrolservice'
 output eventHubEntryCamName string = 'entrycam'
 output eventHubExitCamName string = 'exitcam'
@@ -20,3 +21,9 @@ output serviceBusNamespaceName string = 'sb-${appName}-${region}-${env}'
 output storageAccountEntryCamContainerName string = 'trafficcontrol-entrycam'
 output storageAccountExitCamContainerName string = 'trafficcontrol-exitcam'
 output storageAccountName string = 'sa${uniqueString(appName, region, env)}'
+output daprComponentSecretsName string = 'azurekeyvault'
+output daprComponentStateStoreName string = 'statestore'
+output daprComponentPubSubName string = 'pub-sub'
+output daprComponentEntryCamInputBindingsName string = 'entrycam'
+output daprComponentExitCamInputBindingsName string = 'exitcam'
+output daprComponentOutputBindingsName string = 'emailservice'

@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: CI Build
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - Application
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: DotNetCoreCLI@2
+    name: DotNet_Restore
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
+      feedsToUse: 'select'
+
+  - task: DotNetCoreCLI@2
+    name: DotNet_Build
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+  
+  - task: DotNetCoreCLI@2
+    name: DotNet_Test
+    inputs:
+      command: 'test'
+      projects: '**/tests/*.csproj'

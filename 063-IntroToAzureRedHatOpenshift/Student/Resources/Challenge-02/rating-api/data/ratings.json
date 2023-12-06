@@ -1,0 +1,15 @@
+[
+  {"_id":{"oid":"5a4fbd21e1af3aa7cfcd74c1"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97cddbbb7e24bd9a13d5"}],"timestamp":{"date":"2018-01-05T18:00:01.984Z"},"rating":5,"__v":0},
+  {"_id":{"oid":"5a4fbd21e1af3aa7cfcd74c3"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97e7dbbb7e24bd9a13d7"}],"timestamp":{"date":"2018-01-05T18:00:01.989Z"},"rating":5,"__v":0},
+  {"_id":{"oid":"5a4fbd21e1af3aa7cfcd74c2"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97dcdbbb7e24bd9a13d6"}],"timestamp":{"date":"2018-01-05T18:00:01.989Z"},"rating":5,"__v":0},
+  {"_id":{"oid":"5a4fbd21e1af3aa7cfcd74c4"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97f0dbbb7e24bd9a13d8"}],"timestamp":{"date":"2018-01-05T18:00:01.989Z"},"rating":5,"__v":0},
+  {"_id":{"oid":"5a4fbd58e1af3aa7cfcd74c7"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97e7dbbb7e24bd9a13d7"}],"timestamp":{"date":"2018-01-05T18:00:56.302Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fbd58e1af3aa7cfcd74c5"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97cddbbb7e24bd9a13d5"}],"timestamp":{"date":"2018-01-05T18:00:56.301Z"},"rating":5,"__v":0},
+  {"_id":{"oid":"5a4fbd58e1af3aa7cfcd74c8"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97f0dbbb7e24bd9a13d8"}],"timestamp":{"date":"2018-01-05T18:00:56.302Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fcaf8e1af3aa7cfcd7504"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97f0dbbb7e24bd9a13d8"}],"timestamp":{"date":"2018-01-05T18:59:04.023Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fcaf8e1af3aa7cfcd7502"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97dcdbbb7e24bd9a13d6"}],"timestamp":{"date":"2018-01-05T18:59:04.023Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fcb1ce1af3aa7cfcd7507"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97e7dbbb7e24bd9a13d7"}],"timestamp":{"date":"2018-01-05T18:59:40.136Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fcb1ce1af3aa7cfcd7508"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97f0dbbb7e24bd9a13d8"}],"timestamp":{"date":"2018-01-05T18:59:40.136Z"},"rating":4,"__v":0},
+  {"_id":{"oid":"5a4fcb1ce1af3aa7cfcd7506"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97dcdbbb7e24bd9a13d6"}],"timestamp":{"date":"2018-01-05T18:59:40.136Z"},"rating":3,"__v":0},
+  {"_id":{"oid":"5a4fcb1ce1af3aa7cfcd7505"},"raterIp":"47.201.183.55","itemRated":[{"oid":"5a4f97cddbbb7e24bd9a13d5"}],"timestamp":{"date":"2018-01-05T18:59:40.136Z"},"rating":5,"__v":0}
+]
