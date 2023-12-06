@@ -37,8 +37,11 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Additional Pre-requisites
 
-Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
+- Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
 
+- In this hack we'll use [Azure Native Dynatrace Service](https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/), a seamless way to provision and manage Dynatrace in the Azure Portal.  We will begin free trial through the Azure Marketplace.  Please familiarize your self with the docs below
+    - [Dynatrace Docs](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration)
+    - [Microsoft Docs](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-overview)
 
 ## Description
 <!--
@@ -63,7 +66,9 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 Please install these additional tools:
 
-1) Sign-up for free [Trial of Dynatrace](https://www.dynatrace.com/trial/?utm_medium=alliances&utm_source=microsoft_wth&utm_campaign=website&utm_content=none&utm_term=none) with full feature set of our all-in-one performance monitoring platform to monitor Azure.  
+1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
+   - Create the Free Trial using the `Dynatrace for Azure Trial` plan
+      <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
 
 1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
 
