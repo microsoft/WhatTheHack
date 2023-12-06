@@ -43,12 +43,18 @@ Navigate through various screens of Dynatrace to understand the details of your 
 
 -  Review how Dynatrace helps with migration or modernization planning under the tips section below
 
-### Tasks
+## Tasks to complete this challenge
+
+1. Navigate to the sample app running on VM
+    - Get the Public IP for `dt-orders-monolith` VM from Azure Portal
+    - Open up browser on your workstation and paste the IP address to navigate to the sample app
+    >**Note:** Feel free to navigate around the app by using the menu on homepage to navigate around the application to pull up customer list, catalog list or order list.
+
 
 1. Navigate to OneAgent Deployment Status screen; from the navigation menu on the left, go to **Manage** and select **Deployment status**.  
     - Search for recently connected `dt-orders-monolith` VM to ensure its reporting in to Dynatrace UI.   
 
-1. Navigate to Host monitoring screen; from the navigation menu, go to **Infrastructure** and select **Hosts** and click on `dt-orders-monolith` host.  
+1. Navigate to host monitoring screen; from the navigation menu, go to **Infrastructure** and select **Hosts** and click on `dt-orders-monolith` host.  
     - Find host performance metrics charts for CPU, memory and network metrics for this host
     - Check to see which if you can find node.js and ApacheJmeter processes running on this host
     - Identify how many and names of containers that are running on this host
@@ -81,12 +87,13 @@ Navigate through various screens of Dynatrace to understand the details of your 
 
 ## Success Criteria
 
-1. `dt-orders-monolith` VM is visible under Manage -> Deployment Status -> OneAgents screen 
-1. You are able to successfully identify 
-    1) find performance metrics charts for CPU, memory and network utilization for the host 
-    2) you are able to identify node.js and ApacheJmeter processes running on this host 
-    3) Identify how many and names of containers that are running on this host 
-    4) Identify the Azure tags applied to this host
+1. `dt-orders-monolith` VM is visible under Manage -> Deployment Status -> OneAgents screen
+
+1. You are can identify:  
+    1) Performance metrics charts for CPU, memory and network utilization for the host 
+    2) node.js and ApacheJmeter processes running on this host 
+    3) how many and names of containers that are running on this host 
+    4) Azure tags applied to this host
 1. You have successfully identified downstream services used by frontend and Azure region of the host.
 
 1. You have successfully identified what the process technology for frontend service, identified top 5 requests web requests and created a multi-dimensional analysis view.

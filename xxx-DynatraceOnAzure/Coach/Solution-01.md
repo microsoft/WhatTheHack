@@ -3,35 +3,6 @@
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
-### Challenge overview
-While choosing the right migration strategies, such as re-hosting or re-architecting, one must assess the different risks, costs, and benefits. However, often the details of what is where and what is dependent on what within the technical stack is missing or poorly documented. All that may exist is out of date diagrams and a mix of monitoring tool metrics that must be "stiched" together.
-
-Not having enough details about the current environment is hindering organizations ability to make the right decisions when planning what to migrate and when.
-
-To address this problem, Dynatrace’s OneAgent can automatically discover the application, services, processes and to build a complete dependency mapping for the entire application environment. So, let’s begin!
-
-#### Objectives of this Challenge
-
-🔷 Review Dynatrace OneAgent
-
-🔷 Review real-time data now available for the sample application
-
-🔷 Review how Dynatrace helps with modernization planning
-
-### Review OneAgent Status for Monolith VM
-
-
-#### Tasks to complete this step
-1. Login into Dynatrace UI
-
-2. Choose the `Manage --> Deployment Status` option from the left side menu to open the OneAgent deployment page.
-
-3. Check to ensure the `dt-orders-monolith` VM is reporting in under OneAgents
-![image](Solutions/img/lab1-deployment-status.png)
-
-    📓 - Since the OneAgent is already deployed for your app and you've validated it above.  The steps highligted below are alternatives ways to deploy the OneAgent if you're interested in learning more.
-
-
 ### Review Sample app
 
 The sample application is called Dynatrace Orders.  A more detailed overview can be found here - [https://github.com/dt-orders/overview](https://github.com/dt-orders/overview).  
@@ -56,8 +27,17 @@ All the source code can be found here - [https://github.com/dt-orders](https://g
         - Order Form = `order/form.html`
 
 
+### OneAgent Deployment Status
+1. Login into Dynatrace UI
 
-### Review Host view
+2. Choose the `Manage --> Deployment Status` option from the left side menu to open the OneAgent deployment page.
+
+3. Check to ensure the `dt-orders-monolith` VM is reporting in under OneAgents
+![image](Solutions/img/lab1-deployment-status.png)
+
+
+
+### Host monitoring screen
 
 
 In the next few sections, you will review what the OneAgent automatically discovered for the host, services, processes, and the complete dependency mapping for the sample application.  

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the DynatraceOnAzure What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Dynatrace On Azure WhatTheHack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -34,7 +34,7 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
-The folders are self contained challenges for the hack. You do not need to go to other resources to run the challenges. Attendee's will need a laptop, but only an Azure browser is required. All work will be done in the portal and the Azure Command Shell. If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea. No special software needs to be installed though.
+The folders are self contained challenges for the hack. You do not need to go to other resources to run the challenges. Attendee's will need a laptop, but only an Azure browser is required. All work will be done in the Azure  portal and the Azure Command Shell. If you think attendee's laptops may be locked down to the point that they can't access Azure, than having a laptop for loan will be a good idea. No special software needs to be installed though.
 
 The original code base of the Challenges automation scripts & sample app are located below
 
@@ -76,12 +76,12 @@ This hack requires students to have access to an Azure subscription where they c
 
 ## Suggested Hack Agenda (Optional)
 
-- Sample Day 1 (~3.5 hours)
+- Sample Day  (~3.5 hours)
   - Challenge 0 (45 min)
   - Challenge 1 (1 hr)
   - Challenge 2 (45 mins)
   - Challenge 3 (30 mins)
-  - Challenge 4 (30 min)
+  - Challenge 4 (30 mins)
 
 
 ## Repository Contents
