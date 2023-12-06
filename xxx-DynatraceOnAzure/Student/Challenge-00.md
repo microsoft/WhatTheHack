@@ -68,17 +68,17 @@ Please install these additional tools:
 
 1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
-      <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
+        <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
    -  Refer to the guide [to create new Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
 1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
 
-### Dynatrace Portal Prep
+### Dynatrace Prep
 
  For this challenge, you will deploy the DTOrders application and its underlying Azure VM resources to Azure using a set of pre-developed scripts. Once the application and its infrastructure are deployed, you will complete the hack's jumping in and fully analyze the application within Dynatrace.
 
 
-- If not already done so, go to the [Dynatrace Trial site](https://www.dynatrace.com/trial/?utm_medium=alliance&utm_source=aws&utm_campaign=website&utm_content=none&utm_term=none) and request a free trial tenant
+- If not already done so, go to the [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) and request a free trial tenant
 - Login to the Dynatrace tenant and create a Dynatrace API token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
     - Read SLO
     - Write SLO
