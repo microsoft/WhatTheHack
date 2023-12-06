@@ -22,6 +22,8 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 - [Deploy Functions to Azure](https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/)
 
+### Bug with generated functions.json (December 2023)
+Known bug that affected C# functions built and uploaded using the VSCode Functions extensions: _The following bindings are missing the required direction property and may have been placed incorrectly: incomingPlate. Please update the bindings in your functions.json file._ - see [https://github.com/Azure/azure-functions-core-tools/issues/3157](https://github.com/Azure/azure-functions-core-tools/issues/3157#issuecomment-1843236365) for the workaround, in case the bug is still open.
 
 ### **Errors in new portal**
 **The new Function App portal will display errors and not allow students to edit the Event Grid subscriptions.  These will need to be done in the old Function App portal**
