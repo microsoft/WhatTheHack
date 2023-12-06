@@ -69,6 +69,7 @@ Please install these additional tools:
 1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
       <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
+   -  Refer to the guide [to create new Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
 1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
 
