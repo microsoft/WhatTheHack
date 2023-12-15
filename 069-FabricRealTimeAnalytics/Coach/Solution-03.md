@@ -30,7 +30,7 @@ This challenge completes the hack by setting up a PowerBI report that shows the 
    - Open the report from the workspace
    -  From the top navigation bar, select "Edit"
    -  On the second group of tabs, Visualizations, on the right side of the screen, click on the Page Format icon (paintbrush with sheet of paper)
-   -  At the bottom of those options, open the Page refresh dropdown an enter your desired page refresh interval (1 second)
+   -  At the bottom of those options, open the Page refresh dropdown and enter your desired page refresh interval (1 second)
    -  Click on "show details" to check how often the report page is refreshing
 
 - Create the graph
