@@ -26,7 +26,7 @@ To complete this challenge, verify that:
 ## Tips
 - Use a Card that has the count of the number of records to help ensure data is being constantly updated in the report.
 - To get to the Fabric capacity settings you can go to the `Admin Portal` in Power BI and then on the far right click on `Fabric Capacity`. In there the `Automatic page refresh` setting should be under `Power BI Workloads`
-- To create the settings for th realtime reporting, make sure you are clicked off of any visuals so that the page settings show up.
+- To create the settings for realtime reporting, make sure you are clicked off of any visuals so that the page settings show up.
 - It is easier to save the report in the popout from the KQL Queryset, then open it in the proper editor in the browser, rather than in the small popout from the KQL Queryset option.
 <!-- far easier to do the creating the dataset in the portal than PBI Desktop, but that tip may be giving too much away -->
 
