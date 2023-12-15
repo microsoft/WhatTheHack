@@ -19,12 +19,12 @@ Thank you for participating in the Fabric real time analytics WTH. Before you ca
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 ## Description
 
-Here ar the instructions for installing the ARM template. This will create:
+Here are the instructions for installing the ARM template. This will create:
 
 - Event Hub namespace and Event Hub (EH)
 - Azure Container Instance (ACI)
 
-The EH will get created first, then the ACI. The ACI will be started with a container from the Docker Hub "cameronkahrsdocker/fabricwthdatapumpv2" which will automatically stream events to the the EH created in the first step.
+The EH will get created first, then the ACI. The ACI will be started with a container from the Docker Hub "cameronkahrsdocker/fabricwthdatapumpv2" which will automatically stream events to the EH created in the first step.
 
 
 Here is a video link of how to go through the setup, step by step: [MAA Fabric Realtime Analytics](https://www.youtube.com/watch?v=wGox1lf0ve0)
