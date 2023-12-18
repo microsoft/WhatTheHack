@@ -2,6 +2,7 @@ querysets
 realtime
 cameronkahrsdocker
 fabricwthdatapump
+fabricwthdatapumpv
 MAA
 Realtime
 setupIoTEnvironment
