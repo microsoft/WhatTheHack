@@ -36,6 +36,7 @@ jobs:
           echo "::set-output name=all_changed_hackathons::$JSON_ARRAY"
   package:
     needs: determine-changed-hackathon
+    if: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons != '[]' }}
     uses: ./.github/workflows/create-wth-release-common.yml
     with:
       hackathonNames: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
