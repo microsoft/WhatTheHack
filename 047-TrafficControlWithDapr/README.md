@@ -8,9 +8,9 @@ This hack contains several hands-on challenges that will introduce you to [Dapr]
 - State-management
 - Publish / Subscribe
 - Bindings
-- Secrets managementasdfasdfasdfasdfasdfsdfasdfasdfasdf
-sdfasdfasdfasdf
-As Dapr can run on a variety of hosts, you'll start by running Dapr in self-hosted mode onasdfasdfasdfasdf asdfasdfyour computer. Then, you'll deploy thefsfdg asdfasdfasdfDapr application to run in Azure Kubernetes Service.
+- Secrets management
+
+As Dapr can run on a variety of hosts, you'll start by running Dapr in self-hosted mode on your computer. Then, you'll deploy the Dapr application to run in Azure Kubernetes Service.
 
 ## Learning Objectives
 
