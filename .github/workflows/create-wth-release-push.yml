@@ -33,7 +33,7 @@ jobs:
         id: convert-to-json-array
         run: |
           JSON_ARRAY=$(echo ${{ steps.changed-hackathon-directories.outputs.all_changed_files }} | tr -d '\n' | jq -R -s -c 'split(" ")')
-          echo "{all_changed_hackathons}={$JSON_ARRAY}" >> $GITHUB_OUTPUT
+          echo "all_changed_hackathons=$JSON_ARRAY" >> $GITHUB_OUTPUT
   package:
     needs: determine-changed-hackathon
     if: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons != '[]' }}
