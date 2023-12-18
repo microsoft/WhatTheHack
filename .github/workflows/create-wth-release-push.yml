@@ -3,7 +3,7 @@ name: Create a WTH Release - Push
 on:
   push:
     branches:
-      - release
+      - master
 
 jobs:
   determine-changed-hackathon:
