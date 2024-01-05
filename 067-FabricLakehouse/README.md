@@ -39,7 +39,7 @@ In this hack you will
 
 ## Prerequisites
 
-- A Microsoft Fabric subscription & potentially, a Power BI Pro license
+- A Microsoft Fabric subscription & potentially, a Power BI Pro license (see **[Challenge 00](Student/Challenge-00.md)**)
 - Some familiarity with Fabric and Power BI (or a willingness to learn!)
 
 ## Contributors

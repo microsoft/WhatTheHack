@@ -47,20 +47,35 @@ Create a new Lakehouse in your workspace by following the instructions at [Creat
 You're now ready to grab a tank, your fins and set sail!
 
 ----
-### Tips - About that resources.zip file
 
-Your Coach should have provided some data to help you out during this hack. Of course, you are free to source your own data, but if you end up in shark infested waters you can always fall back on the data provided by your Coach.
+### About that resources.zip file
+
+
+You might be wondering what that ``resources.zip``  file your Coach provided you is all about? Divers always use the buddy system, and we've buddied up with you in case you hit rough water when finding Nemo during your hack.
+
+<details>
+  <summary>But for now, spoilers! No peeking!</summary>
+
+## Hey, we said no peeking!
+
+### But Help! I'm lost at sea!
+
+Your Coach has provided some data to help you out during this hack. Of course, you are free to source your own data, but if you end up in shark infested waters you can always fall back on the data provided by your Coach.
 
 If you need it, you can upload the data (or parts of it) to your Lakehouse by following the instructions below.
 
-Unzip the ``resources.zip`` files provided by your coach. In your new Lakehouse, click on the Files ... menu and select Upload -> Upload Folder
+#### Uploading the Data
+
+Unzip the ``resources.zip`` file provided by your coach. In your new Lakehouse, click on the ``...`` menu next to the ``Files`` item and select ``Upload -> Upload Folder``
 
 ![](images/upload-folder.png)
 
-Navigate to the folder containing the unzipped resources and select the Raw folder. Click Upload.
+Navigate to the folder containing the unzipped resources and select the folder to upload (in this case Raw). Click Upload.
 
 ![](images/upload-raw.png)
 
-Repeat for the Bronze and Silver folders from the ``resources.zip`` file.
+Repeat for any of the other folders.
 
 ![](images/upload-all.png)
+
+</details>
