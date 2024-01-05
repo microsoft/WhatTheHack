@@ -100,8 +100,9 @@ df_marineZones.to_file(marineZonesBronzeFile, driver='GeoJSON')
 
 print("Joining datasets...")
 #Spatial Join shipwrecks and marine zones
-df_joined = df_shipwrecks.sjoin(df_marineZones, how="left", predicate='intersects')
-df_joined.drop(columns={'index_right', 'Geometry'}, inplace=True)
+df_joined = df_shipwrecks.sjoin_nearest(df_marineZones, how="left", distance_col="distance").query("distance < 5000")
+#Drop the geometry, it's not supported by parquet
+df_joined.drop(columns={'index_right', 'geometry', 'distance'}, inplace=True)
 df_joined = df_joined.where(df_joined.notna(), None)
 df_joined.to_json(shipwrecksSilverFile, orient='records', lines=True)
 
