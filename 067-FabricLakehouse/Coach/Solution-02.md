@@ -7,7 +7,7 @@
 This challenge implements the design developed in Challenge 1, landing data in a "raw" format and cleaning to bronze, ready to further transform in [the next Challenge](./Solution-03.md).
 
 ## Outcome
-At the end of this challenge, students should have landed their data in OneLake and cleaned it to bronze. The data should be available in the Lakehouse as geojson files for shipwrecks and marine zones, and as XML files for forecasts.
+At the end of this challenge, students should have landed their data in OneLake and cleaned it to bronze. The data should be available in the Lakehouse as geojson files for shipwrecks and marine zones, and as an XML file for forecasts.
 
 ## Solution
 
@@ -21,20 +21,28 @@ any of these are acceptable.
 
 Once the raw data has been landed, students will need to clean the data to bronze. The example solution uses a notebook to perform this step for shipwrecks and marine zones as this is the most applicable tool for processing spatial data. Since parquet does not support ``geometry`` types, shipwrecks and marine zones are stored as geojson in bronze.
 
-Forecasts are left unprocessed for now as the XML format is best handled by a dataflow which can process directly to silver.
+> **A Note on Forecasts**
+>Some students may wish to transform forecasts data from XML to json, csv etc and write to bronze files with a dataflow. They may then want to process this file to silver using Spark as part of Challenge 3. Whilst not strictly necessary it is perfectly acceptable to do so. However, the example dataflow solution in [Challenge 3](./Solution-03.md) processes forecasts directly to silver skipping this intermediate step.
 
-### The Example Notebook - Shipwrecks and Marine Zones Data Engineering
+#### Example Notebook - Data Exploration
+
+An important part of data engineering is understanding the data. Students should be encouraged to explore the data and a sample notebook is provided in the [Solutions](./Solutions) folder ``Data Exploration.ipynb``.
+
+Coaches can use this notebook to demonstrate how to explore the data, as prompts to help guide students, and to help students with the steps required to intially clean the data to bronze.
+
+#### Example Notebook - Shipwrecks and Marine Zones Data Engineering
 
 Challenge 2 and 3 solutions for shipwrecks and marine zones are contained in the notebook [Solution - Data Engineering.ipynb](./Solutions/Solution%20-%20Data%20Engineering.ipynb).
 
-Coaches should upload this notebook to their workspace following [How to use Microsoft Fabric notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook#import-existing-notebooks).
 
 The notebook contains notes on the steps required for this challenge (and challenge 3). Coaches should step through each code cell to become familiar with the overall code, and be able to use snippets of code from this notebook to help students.
 
-### Dataflow - Forecasts Data Engineering
+#### Uploading the Notebooks
 
-Some students may wish to process forecasts data to bronze with a dataflow, and then to silver with a second. Whilst not strictly necessary it is perfectly acceptable to do so. The example solution processes forecasts directly to silver in Challenge 3.
+Coaches should upload notebooks to their workspace following [How to use Microsoft Fabric notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook#import-existing-notebooks).
 
-### Advanced Students
+#### Advanced Students
 
-More advanced students might like to include climate (temperature and wave) models from  [ECMWF Open Data](https://planetarycomputer.microsoft.com/dataset/ecmwf-forecast) available via the Microsoft Planetary Computer. An example notebook is included in the [Solutions](./Solutions) folder.
+More (very..) advanced students might like to include climate (temperature and wave) models from [ECMWF Open Data](https://planetarycomputer.microsoft.com/dataset/ecmwf-forecast) available via the Microsoft Planetary Computer. Coaches 
+
+An example notebook is included in the [Solutions](./Solutions) folder ``Loading Planetary Computer Climate Prediction Models.ipynb``.

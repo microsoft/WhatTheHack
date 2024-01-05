@@ -86,7 +86,38 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 Coaches are should generate a complete dataset ahead of time and use this to become familiar with each,  giving consideration on how they can be used to with the cohort. Coaches are strongly recommended to **regenerate on the day of the event**  to refresh weather forecast data.
 
-Depending on the composition of the student group, coaches may wish to provide all (or none) of the datasets to students. For example, a group of data engineers may be comfortable working with Python to build an complete end to end pipeline, including automating ingesting from source, but a group of business analysts may require data in a slightly cleaner format to enable them complete the challenges. Use your discretion to provide the most appropriate support, this is supposed to be a fun learning experience after all!
+Depending on the composition of the student group, coaches may wish to provide all **(or none)** of the datasets to students. For example, a group of data engineers may be comfortable working with Python to build an complete end to end pipeline, including automating ingesting from source, but a group of business analysts may require data in a slightly cleaner format to enable them complete the challenges. Use your discretion to provide the most appropriate support, this is supposed to be a fun learning experience after all!
+
+### A Note on the Provided Data
+
+Students may ask about data provided by the coach (``resources.zip``). First, it is important to note that the data provided is not intended to be used as a solution to the hack. Discourage students from 'peeking' at the data with your best pirate captain voice.
+
+*"Avast ye sea dogs, don't be peeking at me data files or ye'll be walking the plank! But if ye have fallen overboard and be lost adrift, then these be here to saves you. Yarr..."*
+
+> Yes, I know I'm mixing my diving and pirate metaphors but hey, it's a hack about shipwrecks and have you read the stories of some of those boats??!!
+
+Whilst it is entirely possible for an experienced data engineer to automate the retrieval of the datasets and process through to Silver in the hack, the provided data is to allow students to 'jump in' at a point where they can continue to build their solution.
+
+[Challenge 0](../Student/Challenge-00.md) includes a pre-requisite to create a new workspace and lakehouse - this is required to be able to use any of the provided data (or undertake the hack in general, really).
+
+[Challenge 1](../Student/Challenge-01.md) is about finding data sources on the web, and Coaches are strong advised to gently nudge students with hints towards the two sources used in the reference solution (but of course, students are free to use any data source they wish).
+
+In [Challenge 2](../Student/Challenge-02.md), students will be required to land their data in OneLake and transform to Bronze. Instead of retrieving these data files via script or manually, students can use the provided ``Raw`` zone copies, from the 'suggested' sources.
+
+*"Yarr, ye done a good job finding treasure on the high seas, your Captain be proud of ye. Now, land ho that data ye-selves or, perchance take a looksee in the RAW chest. Now, swab the decks, I mean data, your Captain wants me bronze!"*
+
+Using these provided ``Raw`` files will allow students to focus on data wrangling and transformation as opposed to the data retrieval, removing the requirement for SLIP registration and FTP access to BOM. Of course, if they want to do it the ~~hard~~ challenging way, they can!
+
+In [Challenge 3](../Student/Challene-03.md), students enrich data to form a silver dataset ready for reporting. Again, if students are struggling with the data wrangling, they can use the provided ``Bronze`` zone data to focus on the enrichment, and if they are struggling with the enrichment they can use the provided ``Silver`` zone file and just write code (or a dataflow) to load to a delta table.
+
+All students should be able to author a dataflow to load the BOM forecast XML to a delta table. (Yes, XML, I know, but this is a hack about archaeology so...).
+
+*"Yarr, coaches be needing to get in character. Me sure ye can make up some more piratey puns on using bronze and silver. Me sure, ye find this preferable to walking the plan!"*
+
+At the end of [Challenge 3](../Student/Challene-03.md) students should have a Silver zone dataset of forecast and shipwrecks loaded to delta tables ready for reporting. A notebook ``Solution - Data Engineering.ipynb`` with complete ``Raw`` to ``Silver`` transformation code can be found in [Solutions](./Solutions) (this should virtually be the same code found in ``createStudentResources.py``) An example dataflow M code can be found in ``Dataflow Load IDW11160 M Code.txt`` and a Power Query Template (``Load BOM Forecasts.pqt``) in the [Solutions](./Solutions) folder. See [Solution 2](./Solution-02.md) for more details on these solutions.
+
+
+#### Creating Student Resources
 
 Coaches should run the script ``createStudentResources.py`` in the [Solutions folder](./Solutions) to create a ``resources.zip`` file and share with students at the start of the event. The script will create a ``resources.zip`` containing the following files/folders:
 
@@ -125,7 +156,7 @@ The following table provides some guidance on which files to may be of use to st
 
 These files can also be used to 'catch up' any students who may be struggling with a particular a challenge. However. all students should be encouraged to create a dataflow to ingest the raw forecasts data.
 
-### Running ``createStudentResources.py``
+#### Running ``createStudentResources.py``
 The script requires Python >3.4.
 
 1. Install Python from [https://www.python.org/downloads/](https://www.python.org/downloads/) (3.12 at time of writing)
@@ -167,35 +198,14 @@ C:\MyWTHFolder>
 
 You should now have a ``resources.zip`` file in the ``data`` folder, and unarchived files in the ``data/Raw``,``data/Bronze`` and ``data/Silver`` folders.
 
-#### A Note on the Provided Data
 
-Students may ask about data provided by the coach (``resources.zip``). First, it is important to note that the data provided is not intended to be used as a solution to the hack. Discourage students from 'peeking' at the data with your best pirate captain voice.
+### Uploading the Data
 
-*"Avast ye sea dogs, don't be peeking at me data files or ye'll be walking the plank! But if ye have fallen overboard and be lost adrift, then these be here to saves you. Yarr..."*
+Unzip the ``resources.zip`` file. Open the the hack Lakehouse (created as part of [Challenge 0](./Challenge-00.md)), click on the ``...`` menu next to the ``Files`` item and select ``Upload -> Upload Folder``
 
-> Yes, I know I'm mixing my diving and pirate metaphors but hey, it's a hack about shipwrecks and have you read the stories of some of those boats??!!
+Repeat for each of the ``Raw``, ``Bronze`` and ``Silver`` folders as required.
 
-Whilst it is entirely possible for an experienced data engineer to automate the retrieval of the datasets and process through to Silver in the hack, the provided data is to allow students to 'jump in' at a point where they can continue to build their solution.
-
-[Challenge 1](./Challenge-01.md) is about find data sources and Coaches are strong advised to gently nudge students with hints towards the two solution sources.
-
-In [Challenge 2](./Challenge-02.md), students will be required to land their data in OneLake and transform to Bronze. Instead of retrieving these data files via script or manually, students can use the provided Raw zone copies.
-
-*"Yarr, ye done a good job finding treasure on the high seas, your Captain be proud of ye. Now, land ho that data ye-selves or, perchance take a looksee in the RAW chest. Now, swab the decks, I mean data, your Captain wants me bronze!"*
-
-Using the provided raw files will allow students to focus on the data wrangling and transformation as opposed to the data retrieval, removing the requirement for SLIP registration and FTP access to BOM. Of course, if they want to do it the hard way, they can!
-
-In [Challenge 3](./Challene-03.md), students enrich data to form a silver dataset ready for reporting. Again, if students are struggling with the data wrangling, they can use the provided Bronze zone data to focus on the enrichment, and if they are struggling with the enrichment they can use the provided Silver zone file and just write code (or a dataflow) to load to a delta table.
-
-All students should be able to author a dataflow to load the BOM forecast XML to a delta table. (Yes, XML, I know, but this is a hack about archaeology so...).
-
-*"Yarr, coaches be needing to get in character. Me sure ye can make up some more piratey puns on using bronze and silver. Me sure, ye find this preferable to walking the plan!"*
-
-At the end of Challenge 3, students should have a Silver zone dataset of forecast and shipwrecks ready for reporting.
-
-A notebook ``Solution - Data Engineering`` with complete Raw to Silver code can be found in [Solutions](./Solutions) (this should virtually be the same code found in ``createStudentResources.py``)
-
-Example dataflow M code can be found in ``Dataflow Load IDW11160 M Code.txt`` in the [Solutions](./Solutions) folder.
+![](images/uploadfolder.png)
 
 ----
 
