@@ -73,7 +73,7 @@ The dataflow can also be manually created.
 
 Set the credentials and publish the dataflow as above.
 
-```
+```M
 let
   Source = Lakehouse.Contents([]),
   Navigation = Source{[workspaceId = workspaceId]}[Data],
@@ -85,7 +85,7 @@ let
   #"Imported XML" = Xml.Tables(#"Navigation 5"),
   #"Navigation 6" = #"Imported XML"{0}[forecast],
   #"Navigation 7" = #"Navigation 6"{0}[area],
-  #"Changed column type 1" = Table.TransformColumnTypes(#"Navigation 7", {{"Attribute:aac", type text}, {"Attribute:description", type text}, {"Attribute:type", type text}, {"Attribute:parent-aac", type text}}),
+  #"Changed column type 1" = Table.TransformColumnTypes(#"Navigation 7", { {"Attribute:aac", type text}, {"Attribute:description", type text}, {"Attribute:type", type text}, {"Attribute:parent-aac", type text} }),
   #"Expanded forecast-period" = Table.ExpandTableColumn(#"Changed column type 1", "forecast-period", {"text", "Attribute:start-time-local", "Attribute:end-time-local", "Attribute:start-time-utc", "Attribute:end-time-utc"}, {"text", "Attribute:start-time-local", "Attribute:end-time-local", "Attribute:start-time-utc", "Attribute:end-time-utc"}),
   #"Expanded text" = Table.ExpandTableColumn(#"Expanded forecast-period", "text", {"Element:Text", "Attribute:type"}, {"Element:Text", "Attribute:type.1"}),
   #"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Expanded text", {{"Attribute:type.1", type text}}), List.Distinct(Table.TransformColumnTypes(#"Expanded text", {{"Attribute:type.1", type text}})[#"Attribute:type.1"]), "Attribute:type.1", "Element:Text"),
@@ -97,7 +97,9 @@ in
 in
   #"Changed column type"
 ```
+
 ### Troubleshooting
+
 Between the time of writing and the hack, there may have been changes made to the BOM xml file. Coaches are strongly advised to **download the latest forecast file and validate the dataflow** before the hack. Commonly, we have seen columns not included in some forecast files, or forecasts within a file which will cause the code above to fail.
 
 We welcome contributions to help make this M code a little more robust.
@@ -132,10 +134,8 @@ Some suggestions:
 - Model ``Forecasts`` as a dimension for ``ForecastType`` and ``ForecastPeriod``
 - Model ``Wrecks`` as a fact table - wreck date, location etc
 
-
 > **Note:** Creating a dimensional model is not required for this challenge, but is a good way to introduce students to dimensional modelling in Fabric. Coaches with a Power BI background will be familiar with real-world reporting from data which has not been dimensionally modelled, and may wish to discuss the benefits of dimensional modelling with students. The focus of the hack is on the end-to-end Fabric experience, so coaches should not over emphasise building a 'correct' model for this small dataset.
 
 At the time of writing, a second Fabric hack is being developed which will focus on datawarehousing and dimensional modelling in Fabric. We welcome contributions to this hack via the GitHub repo.
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
-
