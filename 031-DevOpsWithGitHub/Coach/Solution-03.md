@@ -25,3 +25,9 @@
     - Create the draft issue for each challenge. 
     - Convert draft issues to issues. Make sure you select the repository for each one.
     - New issues if linked properly should show up in the "New" column.  Once you set to closed, it should move to "Done" column.  If you are viewing the issues in the kanban board, you are able to drag the issues across the columns.
+
+## Videos
+
+### Challenge 3 Solution
+
+[![Challenge 3 solution](../Images/WthVideoCover.jpg)](https://youtu.be/AWlPQXO6Me8 "Challenge 3 solution")
