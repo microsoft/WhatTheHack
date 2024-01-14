@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- Make sure students dont get the new "Project (Beta)" confused with the traditional Project boards.
+- Make sure students don't get the new "Project (Beta)" confused with the traditional Project boards.
 - Students wont be able to assign tickets to others if they are not invited and accepted as collaborators.
 - Issues and PRs are very similar as they use issues underneath both.
 
