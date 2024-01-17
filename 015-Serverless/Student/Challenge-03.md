@@ -44,13 +44,13 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
-    | **Name**      |                                                                          **Value**                                                                          |
+    | **Secret Name**      |                                                                          **Value**                                                                          |
     | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
     | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
     | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
     | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
-
+**HINT**: you have to configure a Managed Identity for the Function to be able to read from the Keyvault secrets using RBAC. Also, Secret URI must finish with "/" when not referring a version, example @Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)
 
 ## Success Criteria
 
@@ -64,3 +64,4 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 - [Creating an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account)
 - [Key Vault Secret Identifiers](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 - [Configure Azure Functions and KeyVault to work together](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli#granting-your-app-access-to-key-vault)
+

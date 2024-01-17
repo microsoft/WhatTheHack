@@ -8,7 +8,7 @@ In this challenge, you will apply application settings using the Microsoft Azure
 
 ## Description
 
-1. Add the application settings in the **first** function app (with name containing &quot;App&quot;) you created as follows:
+1. Add the application settings in the **first** function app (.NET based, with name containing &quot;App&quot;), as follows:
 
 | **Application Key** | **Value** |
 | --- | --- |

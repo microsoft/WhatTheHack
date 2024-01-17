@@ -21,3 +21,4 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 ## Learning Resources
 
 - [Functions Overview](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- To setup Azure Functions on Visual Studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)

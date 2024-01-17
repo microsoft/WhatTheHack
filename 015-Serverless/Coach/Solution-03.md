@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-None.
+See the bottom of this page for instructions on generating a CLI script using Copilot or ChatGPT.
 
 ## Step by Step Instructions
 
@@ -198,4 +198,43 @@ None.
 13) Underneath the **Read-write Keys** tab within the Keys blade, copy the **URI** and **Primary Key** values.
 
 14) Paste the values into a text editor, such as Notepad, for later reference.
+
+
+## Copilot prompt for Azure CLI
+
+Using Copilot, ask in Precise mode: 
+```
+Give me the Azure CLI commands to execute the following actions. Use variables for all the parameters:  
+
+- Create a resource group  
+
+- Create an Azure Cosmos DB account with the following characteristics: API type Core (SQL), Disable Geo-redundency and multi-region writes.  
+
+- Create an Azure Cosmos DB SQL database with Database Name "LicensePlates" .  
+
+- Create a container inside the Cosmos DB account, in the Database "LicensePlates" (do not provision database throughput) and Container ID "Processed", Partition key : "/licensePlateText"  
+
+- Create a similar second container, Database "LicensePlates", Container ID "NeedsManualReview", Partition key : "/fileName"  
+
+- Create a storage account, name INIT, Create two blob containers "images" and "export"  
+
+- Create an Event Grid Topic (leave schema as Event Grid Schema)  
+
+- Create a Computer Vision API service (S1 pricing tier)  
+
+- Create a Key Vault, Pricing Tier Standard 
+
+Get the Computer Vision Api Key and put it in a variable named computerVisionApiKey  
+
+Get the eventGrid Topic Key and put it in a variable named eventGridTopicKey  
+
+Get the CosmosDB Authorization Key and put it in a variable named cosmosDBAuthorizationKey 
+
+Get the blob Storage Connection string to the storage account and put it in a variable named blobStorageConnection 
+
+Create 4 secrets with their respective values: computerVisionApiKey , eventGridTopicKey , cosmosDBAuthorizationKey ,blobStorageConnection. 
+```
+(IMPORTANT: you still have to configure the RBAC for the Function to be able to read from the Keyvault using a Managed Identity)
+
+
 
