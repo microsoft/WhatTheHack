@@ -79,8 +79,23 @@ az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --sett
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings cosmosDBCollectionId=Processed
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings exportCsvContainerName=export
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "blobStorageConnection=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/blobStorageConnection/)"
-# TO-DO: EventGrid Topic Subscriptions
+
+# EventGrid System Topic Subscriptions
+appFuncId=$(az functionapp function show -g $RGName --name $functionTollBoothApp --function-name ProcessImage -o tsv --query id)
+storageAccId=$(az storage account show -n $storageAccountName -g $RGName -o tsv --query id)
+az eventgrid event-subscription create  --name SubsProcessImage --source-resource-id $storageAccId --endpoint $appFuncId --endpoint-type azurefunction --included-event-types Microsoft.Storage.BlobCreated
 
 # Challenge 06
-az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings wth-serverless_DOCUMENTDB=$cosmosDBEndpoint
-# TO-DO: EventGrid Topic Subscriptions
+cosmosDBConnectionString=$(az cosmosdb keys list --name $cosmosDbAccountName --resource-group $RGName --type connection-strings -o tsv --query "connectionStrings[?description=='Primary SQL Connection String'].connectionString")
+az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "wth-serverless_DOCUMENTDB=$cosmosDBConnectionString"
+
+# EventGrid Custom Topic Subscriptions
+eventFuncIdSave=$(az functionapp function show -g $RGName --name $functionTollBoothEvents --function-name savePlateData -o tsv --query id)
+eventFuncIdQueue=$(az functionapp function show -g $RGName --name $functionTollBoothEvents --function-name queuePlateForManualCheckup -o tsv --query id)
+eventGridTopicId=$(az eventgrid topic show --name $eventGridTopicName --resource-group $RGName --query id -o tsv)
+az eventgrid event-subscription create  --name saveplatedatasub --source-resource-id $eventGridTopicId --endpoint $eventFuncIdSave --endpoint-type azurefunction --included-event-types savePlateData
+az eventgrid event-subscription create  --name queueplateFormanualcheckupsub --source-resource-id $eventGridTopicId --endpoint $eventFuncIdQueue --endpoint-type azurefunction --included-event-types queuePlateForManualCheckup
+
+#NOTE: in theory, event grid topic subscriptions should work this way
+#az eventgrid topic event-subscription create  --name saveplatedatasub -g $RGName --topic-name $eventGridTopicName --endpoint $eventFuncIdSave --endpoint-type azurefunction --included-event-types savePlateData
+#az eventgrid topic event-subscription create  --name queueplateFormanualcheckupsub -g $RGName --topic-name $eventGridTopicName --endpoint $eventFuncIdQueue --endpoint-type azurefunction --included-event-types queuePlateForManualCheckup
