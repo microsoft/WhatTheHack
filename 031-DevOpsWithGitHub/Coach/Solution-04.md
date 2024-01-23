@@ -8,3 +8,9 @@
 
 ## Solution 
 - [Navigate to Solution for Challenge 04](./Solution/Solution-04/Solution04.yml)
+
+## Videos
+
+### Challenge 4 Solution
+
+[![Challenge 4 solution](../Images/WthVideoCover.jpg)](https://youtu.be/YWMt3uM8UyY "Challenge 4 solution")

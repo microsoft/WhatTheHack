@@ -8,3 +8,9 @@
 
 ## Solution 
 - [Navigate to Solution for Challenge 02](./Solution/Solution-02/devcontainer.json)
+
+## Videos
+
+### Challenge 2 Solution
+
+[![Challenge 2 solution](../Images/WthVideoCover.jpg)](https://youtu.be/tuTVRP0LHDE "Challenge 2 solution")

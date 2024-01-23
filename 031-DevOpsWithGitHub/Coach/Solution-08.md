@@ -8,3 +8,9 @@
 
 ## Solution 
 - [Navigate to Solution for Challenge 08](./Solution/Solution-08/Solution08.yml)
+
+## Videos
+
+### Challenge 8 Solution
+
+[![Challenge 8 solution](../Images/WthVideoCover.jpg)](https://youtu.be/YbesHl6t1SE "Challenge 8 solution")
