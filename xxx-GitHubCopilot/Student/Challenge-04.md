@@ -1,4 +1,4 @@
-# Challenge 04 - <Title of Challenge>
+# Challenge 04 - Debugging and Code Optimization with Copilot
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
