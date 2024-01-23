@@ -61,7 +61,7 @@ az functionapp identity assign -g $RGName -n $functionTollBoothApp --role "Key V
 az functionapp identity assign -g $RGName -n $functionTollBoothEvents  --role "Key Vault Secrets User"   --scope $keyvaultResourceId
 
 # Enable RBAC access policy in the KV, which will make our CLI permissions to the KV insufficient
-az keyvault update --name $keyVaultName --resource-group $resourceGroupName --enable-rbac-authorization true
+az keyvault update --name $keyVaultName --resource-group $RGName --enable-rbac-authorization true
 
 # Populate the Function App's AppSettings with the required values
 kvuri=$(az keyvault show  --name $keyVaultName --resource-group $RGName -o tsv --query properties.vaultUri) #returns URI, ends in /
