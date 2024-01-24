@@ -34,8 +34,9 @@ az eventgrid topic create --name $eventGridTopicName --location $location --reso
 # Create a Computer Vision API service
 az cognitiveservices account create --name $computerVisionServiceName --kind ComputerVision --sku S1 --location $location --resource-group $RGName --yes
 
-# Create a Key Vault
-az keyvault create --name $keyVaultName --resource-group $RGName --location $location --sku standard --enable-rbac-authorization false #we'll enable RBAC after creating the secrets via the CLI to avoid permission issues
+# Create a Key Vault (if done via the protal, set RBAC mode from the get-go, then add your ID as KV Admin role in order to read/write secrets)
+#via CLI it's easier to create secrets if RBAC is disabled now, we'll enable RBAC later, so we avoid CLI permission issues
+az keyvault create --name $keyVaultName --resource-group $RGName --location $location --sku standard --enable-rbac-authorization false
 
 # Create secrets in the Key Vault
 computerVisionApiKey=$(az cognitiveservices account keys list --name $computerVisionServiceName --resource-group $RGName --query key1 -o tsv)
@@ -52,15 +53,18 @@ az keyvault secret set --vault-name $keyVaultName --name "blobStorageConnection"
 az functionapp create --name $functionTollBoothApp --runtime dotnet --runtime-version 6 --storage-account $storageAccountName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
 az functionapp create --name $functionTollBoothEvents --runtime node --runtime-version 18 --storage-account $storageAccountName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
 
-# Grant permissions for the Functiosn to read secrets from KeyVault using RBAC
+# Grant permissions for the Functions to read secrets from KeyVault using RBAC
 keyvaultResourceId=$(az keyvault show --name $keyVaultName --resource-group $RGName -o tsv --query id) 
 
-## ATTENTION ##
-## if the "identity assign" commands fail via the CLI, perform this RBAC action from the Portal
+## if the "identity assign" commands below fail via the CLI, perform this RBAC action from the Portal
 az functionapp identity assign -g $RGName -n $functionTollBoothApp --role "Key Vault Secrets User"   --scope $keyvaultResourceId
 az functionapp identity assign -g $RGName -n $functionTollBoothEvents  --role "Key Vault Secrets User"   --scope $keyvaultResourceId
 
-# Enable RBAC access policy in the KV, which will make our CLI permissions to the KV insufficient
+# Setting up a KV secret for challenge 06 via the CLI before switching the KV to RBAC mode
+cosmosDBConnString=$(az cosmosdb keys list --name $cosmosDbAccountName --resource-group $RGName --type connection-strings -o tsv --query "connectionStrings[?description=='Primary SQL Connection String'].connectionString")
+az keyvault secret set --vault-name $keyVaultName --name "cosmosDBConnectionString" --value $cosmosDBConnString
+
+# Enable RBAC access policy in the KV, which will make our CLI permissions to the KV insufficient from this point forward
 az keyvault update --name $keyVaultName --resource-group $RGName --enable-rbac-authorization true
 
 # Populate the Function App's AppSettings with the required values
@@ -85,9 +89,10 @@ appFuncId=$(az functionapp function show -g $RGName --name $functionTollBoothApp
 storageAccId=$(az storage account show -n $storageAccountName -g $RGName -o tsv --query id)
 az eventgrid event-subscription create  --name SubsProcessImage --source-resource-id $storageAccId --endpoint $appFuncId --endpoint-type azurefunction --included-event-types Microsoft.Storage.BlobCreated
 
-# Challenge 06
-cosmosDBConnectionString=$(az cosmosdb keys list --name $cosmosDbAccountName --resource-group $RGName --type connection-strings -o tsv --query "connectionStrings[?description=='Primary SQL Connection String'].connectionString")
-az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "wth-serverless_DOCUMENTDB=$cosmosDBConnectionString"
+# Challenge 06 - Event functions
+az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
+#This CLI would put the connectionString as "plaintext" in the app env variable, use KV instead
+#az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=$cosmosDBConnString"
 
 # EventGrid Custom Topic Subscriptions
 eventFuncIdSave=$(az functionapp function show -g $RGName --name $functionTollBoothEvents --function-name savePlateData -o tsv --query id)
