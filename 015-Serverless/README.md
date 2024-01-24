@@ -61,11 +61,11 @@ This one possible Cloud Solution Architecture classifies under the **Application
 - Challenge 03: **[Create Resources](Student/Challenge-03.md)**
 	 - Provision the basic resources in Azure to prepare your deployment ground
 - Challenge 04: **[Configuration](Student/Challenge-04.md)**
-	 - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code
+	 - Configure application settings and update the TollBooth application code
 - Challenge 05: **[Deployment](Student/Challenge-05.md)**
-	 - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid
-- Challenge 06: **[Create Functions in the Portal](Student/Challenge-06.md)**
-	 - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics
+	 - Deploy the Tollbooth project to the "App" in the Function App and configure the Event Grid
+- Challenge 06: **[Create Functions using VScode](Student/Challenge-06.md)**
+	 - Create the event triggered functions to respond to Event Grid Topics
 - Challenge 07: **[Monitoring](Student/Challenge-07.md)**
 	 - Configure application monitoring with Application Insights Resource on Azure Portal
 - Challenge 08: **[Data Export Workflow](Student/Challenge-08.md)**
@@ -80,11 +80,11 @@ This one possible Cloud Solution Architecture classifies under the **Application
 ## Prerequisites
 
 - Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**.
-- Active Azure Subscription with **contributor level access or equivalent** to create or modify resources.
-- [Node.js 8+](https://www.npmjs.com/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
-- Visual Studio 2022 or Visual Studio Code
-- Azure development workload for Visual Studio 2022
-- Azure Functions and Web jobs tools
+- Active Azure Subscription with **owner level access or equivalent** to create or modify resources and add RBAC roles and Event Grid subscriptions
+- [Node.js 18+](https://nodejs.org/en/download/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required (NPM, installed by default with Node.js) The Azure SDK generally requires a minimum version of Node.js of 18.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 18.x for local and remove development, your code should run successfully.
+- Visual Studio Code (althogh Visual Studio 2022 works perfectly fine too)
+- Azure CLI
+- Azure Functions Core Tools
 - .NET 6 SDK
 - Any extentions required by your language of choice
 
