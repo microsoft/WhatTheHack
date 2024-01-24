@@ -16,16 +16,16 @@ In this hack you will be solving the common business problem that companies in t
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
-	 - Description of challenge
+- Challenge 01: **[Introduction to GitHub Copilot](Student/Challenge-01.md)**
+	 - Create your first program and explore GitHub Copilot.
+- Challenge 02: **[Advanced Concepts with Copilot](Student/Challenge-02.md)**
+	 - Discover and utilize GitHub Copilot's advanced features for more complex coding tasks.
+- Challenge 03: **[Best Practices When Using Copilot](Student/Challenge-03.md)**
+	 - Learn and implement best practices to maximize efficiency with GitHub Copilot.
+- Challenge 04: **[Debugging and Code Optimization with Copilot](Student/Challenge-04.md)**
+	 - Use GitHub Copilot for debugging and optimizing your code effectively.
+- Challenge 05: **[Leveraging Copilot for Test Case Generation](Student/Challenge-05.md)**
+	 - Generate test cases with the help of GitHub Copilot.
 - Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
