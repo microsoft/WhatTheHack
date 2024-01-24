@@ -18,12 +18,12 @@ In this challenge, you will apply application settings using the Microsoft Azure
 | eventGridTopicKey | eventGridTopicKey from Key Vault |
 | cosmosDBEndPointUrl | Cosmos DB URI |
 | cosmosDBAuthorizationKey | cosmosDBAuthorizationKey from Key Vault |
-| cosmosDBDatabaseId | Cosmos DB database id (LicensePlates) |
-| cosmosDBCollectionId | Cosmos DB processed collection id (Processed) |
-| exportCsvContainerName | Blob storage CSV export container name (export) |
+| cosmosDBDatabaseId | Cosmos DB database id (i.e "LicensePlates") |
+| cosmosDBCollectionId | Cosmos DB processed collection id (i.e "Processed") |
+| exportCsvContainerName | Blob storage CSV export container name (i.e "export") |
 | blobStorageConnection | blobStorageConnection from Key Vault |
  
-2. Open the Tollbooth folder in Visual Studio Code.
+2. Open the Tollbooth folder in Visual Studio Code. It's recommended to enable the suggested C# development extensions when prompted by VSCode.
 3. Open the Todo Tree Extension
 4. Open ProcessImage.cs. Notice that the Run method is decorated with the FunctionName attribute, which sets the name of the Azure Function to &quot;ProcessImage&quot;. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function&#39;s URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function&#39;s trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
@@ -55,6 +55,8 @@ await Send("savePlateData", "TollBooth/CustomerService", data);
 // TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
 await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 ```
+
+9. Optional: Execute **dotnet build** to validate any syntax errors, from the ToolBooth root folder.
 
 
 ## Success Criteria

@@ -11,6 +11,7 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 - Create a "Hello World" Azure Function in Visual Studio Code that:
     - Takes a name as an input parameter.
     - Returns the name back to you as an output.
+    - Uses any programming language of your choice
 
 ## Success Criteria
 

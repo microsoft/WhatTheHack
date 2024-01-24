@@ -40,7 +40,7 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 1. Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
-1. Configure your Tollbooth app to use KeyVault for secrets
+1. Learn how you'll configure your Tollbooth app to use KeyVault for secrets
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -48,13 +48,15 @@ In this challenge, you will provision a blob storage account using the Hot tier,
     | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
     | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
     | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
+    | cosmosDBConnectionString |                                                                    Cosmos DB Primary Connection String                                                                 |
     | blobStorageConnection    |                                                               Blob storage connection string                                                                |
 
 **HINT**: you have to configure a Managed Identity for the Function to be able to read from the Keyvault secrets using RBAC. Also, Secret URI must finish with "/" when not referring a version, example @Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)
 
 ## Success Criteria
 
-1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
+1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps). If you enabled Application Insights on any of your functions, it's OK, we'll change it later.
+2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal (check RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use)
 
 ## Learning Resources
 
@@ -64,4 +66,4 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 - [Creating an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account)
 - [Key Vault Secret Identifiers](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 - [Configure Azure Functions and KeyVault to work together](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli#granting-your-app-access-to-key-vault)
-
+- [Key Vault roles for RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations)
