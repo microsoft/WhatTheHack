@@ -42,9 +42,3 @@ You have successfully completed this challenge when you can:
 - Take note of how Copilot’s suggestions can vary greatly depending on the context of your code and the specific language syntax.
 - If Copilot's suggestions don't immediately align with your expectations, experiment with adjusting your code or comments to give it better context.
 - Remember, Copilot is a tool to aid your coding, not to replace the need for understanding the code itself. Use this opportunity to learn and understand the suggestions it provides.
-
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
