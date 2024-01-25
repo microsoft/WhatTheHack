@@ -17,8 +17,9 @@ Now that you've installed GitHub Copilot, it's time to delve into its capabiliti
 The aim is to construct a "Quote of the Day" application and see how Copilot can help you on this journey.  As you progress, focus on how Copilot:
 
 - **Boosts Productivity**: Observe how Copilot accelerates your development process, especially in crafting boilerplate code, or setting up project structures.
-- **Reacts to Your Actions**: Pay attention to Copilot's responsiveness to your coding style, the changes you make, and the context you provide. See how its suggestions evolve based on your interactions.
+- **Understanding Contextual Sensitivity**: Pay close attention to how context influences Copilot's behavior, whether it be your coding style, the changes you make, and the context you provide. See how its suggestions evolve based on your interactions.
 - **Interaction Flexibility**: Explore different ways to interact with Copilot. Whether it's accepting, modifying, or rejecting its suggestions, discover how each interaction molds the development experience.
+- **Refining Suggestions**: Learn to effectively modify Copilot's suggestions. See how it responds to your changes and note how it aligns its subsequent suggestions with your coding style and preferences.
 
 
 This challenge invites you to engage with Copilot's recommendations actively, integrating the ones that elevate your project while critically evaluating its limitations.
@@ -29,6 +30,8 @@ You have successfully completed this challenge when you can:
 
 - The "Quote of the Day" application functions correctly, displaying a new quote upon each interaction.
 - You can describe how GitHub Copilot assisted in the development process, providing specific examples of its contributions.
+- Show the different ways you interacted with GitHub Copilot, you should be able to show at least 3 different ways.
+- Show the strategies that you leveraged highlighting how your inputs and modifications steered its suggestions while using Copilot.
 
 ## Learning Resources
 
