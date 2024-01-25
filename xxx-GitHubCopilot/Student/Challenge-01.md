@@ -22,7 +22,7 @@ The aim is to construct a "Quote of the Day" application and see how Copilot can
 - **Refining Suggestions**: Learn to effectively modify Copilot's suggestions. See how it responds to your changes and note how it aligns its subsequent suggestions with your coding style and preferences.
 
 
-This challenge invites you to engage with Copilot's recommendations actively, integrating the ones that elevate your project while critically evaluating its limitations.
+This challenge invites you to engage with Copilot's recommendations actively, integrating the ones that elevate your project while critically evaluating its limitations.  Feel free to include additional features to interact with Copilot in different ways.
 
 ## Success Criteria
 
