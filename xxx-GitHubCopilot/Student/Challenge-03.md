@@ -1,26 +1,27 @@
-# Challenge 03 - Best Practices When Using Copilot
+# Challenge 03 - Leveraging GitHub Copilot in Your Dev Workflow
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
 
 ## Introduction
-Having explored the capabilities of GitHub Copilot, it's now time to refine your approach and adopt best practices that will make your experience with Copilot even more productive. This challenge will focus on strategies for interacting with Copilot effectively.
+In this challenge, you'll explore how GitHub Copilot can be your ally beyond just writing code. This challenge is about integrating Copilot deeper into your entire development workflow.
 
 ## Description
-In this challenge, you'll focus on mastering best practices for working with GitHub Copilot. You'll learn how to structure your requests, engage in prompt engineering, and set high-level goals to guide Copilot's suggestions. By the end of this challenge, you should be able to:
+GitHub Copilot is more than just a coding assistant; it's a tool that can enhance various aspects of software development. In this challenge, you will checkin your code into a git repository in GitHub.
 
-- **Craft Well-Defined Requests**: Understand the importance of clear and concise communication. Learn how detailed, well-defined requests can lead to more accurate and useful suggestions from Copilot.
-- **Engage in Prompt Engineering**: Explore the art of prompt engineering, which involves crafting inputs and comments in a way that guides Copilot towards the desired output. Discover techniques for effectively 'programming' Copilot through your prompts.
-- **Set High-Level Goals**: Learn to communicate the broader objectives of your project to Copilot. Understand how setting high-level goals can shape Copilot's suggestions and align them with your project's overarching vision.
+- **Craft Commit Messages with Copilot**: Use Copilot to help you write clear and descriptive commit messages that accurately summarize your code changes.
+- **Create PR Summaries**: Leverage Copilot to help you draft detailed and informative PR summaries, ensuring your team understands the purpose and content of your changes.
+- **Interact in PR Discussions**: Explore how Copilot can help you during the PR process when reviewing code.
+- **Build Pipelines with GitHub Actions**: Discover how Copilot can assist in creating CI workflows with GitHub Actions, helping you automate your build, test, and deployment processes.
 
-Through hands-on exercises and real-world examples, you'll practice these best practices and learn how to integrate them into your workflow for enhanced collaboration with Copilot.
+This challenge emphasizes the versatility of GitHub Copilot, showcasing its potential to streamline your entire development lifecycle.
 
 ## Success Criteria
-You will have successfully completed this challenge when you:
+Successfully complete this challenge by demonstrating that you can:
 
-1. Can demonstrate the ability to craft clear, concise, and well-defined requests that lead to useful suggestions from Copilot.
-2. Have effectively engaged in prompt engineering, showcasing how different prompts influence Copilot's output.
-3. Can articulate how setting high-level goals impacts the direction of Copilot's suggestions and aligns them with your project objectives.
-
+- Show how Copilot was able to assist you with the PR process.
+- Demonstrate a functional CI pipeline set up with Copilot's guidance.
+  
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Creating GitHub Actions for CI/CD](https://docs.github.com/en/actions)
