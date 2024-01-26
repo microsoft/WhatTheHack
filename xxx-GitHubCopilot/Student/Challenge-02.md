@@ -1,27 +1,27 @@
-# Challenge 02 - Advanced Concepts with Copilot
+# Challenge 02 - Best Practices When Using Copilot
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-Now that you've gotten a taste of GitHub Copilot's capabilities, it's time to dive deeper into how to effectively harness this tool. This challenge focuses on honing your ability to work with Copilot, enhancing your development process through strategic use of its features.
+Having explored the capabilities of GitHub Copilot, it's now time to refine your approach and adopt best practices that will make your experience with Copilot even more productive. This challenge will focus on strategies for interacting with Copilot effectively.
 
 ## Description
-In this challenge, you'll explore strategies to maximize the benefits of GitHub Copilot in your coding workflow. Rather than focusing on complexity of code, you'll concentrate on the depth of interaction with Copilot. You'll learn to fine-tune its suggestions to fit your coding style and requirements, and understand how subtle changes in your approach can significantly influence Copilot's output. Focus on:
+In this challenge, you'll focus on learning best practices for working with GitHub Copilot. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Below are some to take into consideration:
 
-- **Optimizing Interaction**: Engage with Copilot's suggestions for a variety of coding tasks. Experiment with different ways of describing your coding goals and see how it affects the suggestions you receive.
-- **Understanding Contextual Sensitivity**: Pay close attention to how context influences Copilot's behavior. Provide varied levels of detail and observe how it adapts its suggestions, aiming to understand the 'how' and 'why' behind its operations.
-- **Refining Suggestions**: Learn to effectively modify Copilot's suggestions. See how it responds to your changes and note how it aligns its subsequent suggestions with your coding style and preferences.
+- **Craft Well-Defined Requests**: Understand the importance of clear and concise communication. Grasp how articulating detailed, well-defined requests can steer Copilot to offer more accurate and beneficial suggestions, aligning closely with your coding objectives.
 
-This challenge is about mastering the art of working with an AI pair programmer, learning to guide and utilize its suggestions in the most effective way.
+- **Keep It Simple and Specific**: Simplify complex problems into smaller, more manageable tasks. Copilot tends to generate more precise and practical solutions when dealing with focused queries rather than broad, vague ones.
+
+- **Give Examples**: Provide some examples of what you are looking for which can help Copilot grasp the context and the specific pattern you're aiming for. 
+
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Can demonstrate proficiency in interacting with GitHub Copilot, effectively guiding it to align with your coding objectives.
-2. Demonstrate an understanding of how context and coding style influence Copilot's suggestions.
-3. Show the strategies that you leveraged highlighting how your inputs and modifications steered its suggestions while using Copilot.
+1. Demonstrate the differences before and after leveraging prompt engineering techniques.
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 
-
+## Tips
+- Context comes in many forms for Copilot.  Not only does it take context from what is around the cursor but also the filename and the other open tabs.
