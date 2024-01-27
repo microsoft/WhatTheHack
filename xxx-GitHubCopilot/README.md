@@ -2,15 +2,19 @@
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+Welcome to the GitHub Copilot What The Hack! This series of challenges will guide you through the nuances of leveraging GitHub Copilot effectively, from writing your first lines of code to optimizing complex systems, and even beyond coding into areas like debugging, testing, and documentation.
+
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
+This GitHub Copilot What The Hack will help you learn how to do the following with Copilot:
 
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+1. Scaffold new applications and create new features in existing applications
+2. Create test cases for your application
+3. Debug application bugs
+4. Optimize your application
+5. Best practices to optimize your experience with Copilot
+6. How to use Copilot beyond the application
 
 ## Challenges
 
@@ -18,14 +22,14 @@ In this hack you will be solving the common business problem that companies in t
 	 - Prepare your workstation to work with Azure.
 - Challenge 01: **[Introduction to GitHub Copilot](Student/Challenge-01.md)**
 	 - Create your first program and explore GitHub Copilot.
-- Challenge 02: **[Advanced Concepts with Copilot](Student/Challenge-02.md)**
+- Challenge 02: **[Best Practices When Using Copilot](Student/Challenge-02.md)**
 	 - Discover and utilize GitHub Copilot's advanced features for more complex coding tasks.
-- Challenge 03: **[Best Practices When Using Copilot](Student/Challenge-03.md)**
-	 - Learn and implement best practices to maximize efficiency with GitHub Copilot.
-- Challenge 04: **[Debugging and Code Optimization with Copilot](Student/Challenge-04.md)**
+- Challenge 03: **[Leveraging GitHub Copilot in Your Dev Workflow](Student/Challenge-03.md)**
+	 - Learn to leverage Copilot beyond just writing code.
+- Challenge 04: **[Leveraging Copilot for Test Case and Documentation](Student/Challenge-04.md)**
+	 - Generate test cases and documentation with the help of GitHub Copilot.
+- Challenge 05: **[Debugging and Code Optimization with Copilot](Student/Challenge-05.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
-- Challenge 05: **[Leveraging Copilot for Test Case Generation](Student/Challenge-05.md)**
-	 - Generate test cases with the help of GitHub Copilot.
 - Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
 	 - Description of challenge
 - Challenge 07: **[Title of Challenge](Student/Challenge-07.md)**
@@ -33,10 +37,9 @@ In this hack you will be solving the common business problem that companies in t
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- A GitHub account with GitHub Copilot subscription or Copilot Trial
+- Visual Studio Code with GitHub Copilot extension installed
+- Basic understanding of software development and version control systems
 
 ## Contributors
 
