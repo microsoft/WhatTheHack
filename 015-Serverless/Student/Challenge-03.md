@@ -16,23 +16,23 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 1. Create an Azure Cosmos DB account
 *If this takes a while, move ahead and come back to finish the containers*
     * API : Core (SQL)
-    * Disable Geo-redundency and multi-region writes
+    * Disable Geo-redundancy and multi-region writes
     * Create a container
-      * Database ID &quot;LicensePlates&quot;
+      * Database ID `LicensePlates`
       * Uncheck **Provision database throughput**
-      * Container ID &quot;Processed&quot;
-      * Partition key **: &quot;**/licensePlateText&quot;
+      * Container ID `Processed`
+      * Partition key : **`/licensePlateText`**
     * Create a second container
-      * Database ID created above &quot;LicensePlates&quot;
-      * Container ID &quot;NeedsManualReview&quot;
-      * Partition key **: &quot;**/fileName&quot;
+      * Database ID created above `LicensePlates`
+      * Container ID `NeedsManualReview`
+      * Partition key : **`/fileName`**
 1. Create a storage account (refer to this one as INIT)
-    * Create a container &quot;images&quot;
-    * Create a container &quot;export&quot;
-1. Create a function app (put &quot;App&quot; in the name)
+    * Create a container `images`
+    * Create a container `export`
+1. Create a function app (put `App` in the name)
     * For your tollbooth app, consumption plan, .NET runtime stack
     * Create new storage and disable application insights
-1. Create a function app (put &quot;Events&quot; in the name)
+1. Create a function app (put `Events` in the name)
     * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
 1. Create an Event Grid Topic (leave schema as Event Grid Schema)
@@ -45,13 +45,13 @@ In this challenge, you will provision a blob storage account using the Hot tier,
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
     | **Secret Name**      |                                                                          **Value**                                                                          |
-    | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
-    | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
-    | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
-    | cosmosDBConnectionString |                                                                    Cosmos DB Primary Connection String                                                                 |
-    | blobStorageConnection    |                                                               Blob storage connection string                                                                |
+    | `computerVisionApiKey`     |                                                                   Computer Vision API key                                                                   |
+    | `eventGridTopicKey`        |                                                                 Event Grid Topic access key                                                                 |
+    | `cosmosDBAuthorizationKey` |                                                                    Cosmos DB Primary Key                                                                    |
+    | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
+    | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-**HINT**: you have to configure a Managed Identity for the Function to be able to read from the Keyvault secrets using RBAC. Also, Secret URI must finish with "/" when not referring a version, example @Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)
+**HINT**: you have to configure a Managed Identity for the Function to be able to read from the Keyvault secrets using RBAC. Also, Secret URI must finish with "/" when not referring a version, example `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
 
 ## Success Criteria
 
