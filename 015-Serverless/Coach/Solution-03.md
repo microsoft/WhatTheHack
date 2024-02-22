@@ -202,7 +202,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 ## Copilot prompt for Azure CLI
 
-Using Copilot, ask in Precise mode: 
+**NOTE:** If you'd like, you can try using the Copilot prompt below to generate an Azure CLI script that can deploy the resources as described above. Your results may vary and you should check any generated script to validate it would do what is specified above.
+
+Using Microsoft Copilot, ask in Precise mode: 
 ```
 Give me the Azure CLI commands to execute the following actions. Use variables for all the parameters:  
 
