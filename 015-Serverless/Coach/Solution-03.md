@@ -185,9 +185,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
     a. For Database id, choose **Use existing** and select **`LicensePlates`**.
 
-    b. For Collection id, enter **NeedsManualReview**.
+    b. For Collection id, enter **`NeedsManualReview`**.
 
-    c. Partition key: **/fileName**
+    c. Partition key: **`/fileName`**
 
     d. Throughput: **5000**
 
@@ -236,7 +236,7 @@ Get the blob Storage Connection string to the storage account and put it in a va
 
 Create 4 secrets with their respective values: computerVisionApiKey , eventGridTopicKey , cosmosDBAuthorizationKey ,blobStorageConnection. 
 ```
-(IMPORTANT: you still have to configure the RBAC for the Function to be able to read from the Keyvault using a Managed Identity)
+(IMPORTANT: you still have to configure the RBAC for the Function to be able to read from the Key Vault using a Managed Identity)
 
 
 
