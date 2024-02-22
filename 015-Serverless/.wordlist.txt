@@ -5,3 +5,5 @@ Joshi
 Gwyneth
 Peña
 Siguenza
+Uncompress
+JPG
