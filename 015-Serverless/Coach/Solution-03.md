@@ -23,15 +23,15 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 3.  On the **Create storage account** blade, specify the following configuration options:
 
-    a. For **Resource group**, select the **Use existing** radio button, and specify the **ServerlessArchitecture** resource group.
+    a. For **Resource group**, select the **Use existing** radio button, and specify the **`ServerlessArchitecture`** resource group.
 
-    b. **Name**: enter a unique value for the storage account such as **tollboothstorageINIT** (ensure the green check mark appears).
+    b. **Name**: enter a unique value for the storage account such as **`tollboothstorageINIT`** (ensure the green check mark appears).
 
     c. Ensure the **Location** is the same region as the resource group.
 
     d. For performance, ensure **Standard** is selected.
 
-    e. For account kind, select **Blobstorage**.
+    e. For account kind, select **Blob Storage**.
 
     f. Select the **Hot** access tier.
 
@@ -39,7 +39,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 4.  Select **Review + create**, then select **Create**.
 
-5.  After the storage account has completed provisioning, open the storage account by opening the **ServerlessArchitecture** resource group, and then selecting the **storage account** name.
+5.  After the storage account has completed provisioning, open the storage account by opening the **`ServerlessArchitecture`** resource group, and then selecting the **storage account** name.
 
 6.  On the **Storage account** blade, select **Access Keys**, under Settings in the menu. Then on the **Access keys** blade, select the **Click to copy** button for **key1 connection string.**
 
@@ -60,9 +60,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 4.  On the **Create Function App** blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothFunctionApp**.
+    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **`TollBoothFunctionApp`**.
 
-    b. Specify the Resource Group **ServerlessArchitecture**.
+    b. Specify the Resource Group **`ServerlessArchitecture`**.
 
     c. For Runtime stack, select **.NET Core**.
 
@@ -86,9 +86,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 7.  On the **Create Function App** blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **TollBoothEvents**.
+    a. **Name**: Unique value for the App name (ensure the green check mark appears). Provide a name similar to **`TollBoothEvents`**.
 
-    b. Specify the Resource Group **ServerlessArchitecture**.
+    b. Specify the Resource Group **`ServerlessArchitecture`**.
 
     c. For Runtime stack, select **Node.js**.
 
@@ -119,9 +119,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 4.  On the **Create Topic** blade, specify the following configuration options:
 
-    a. **Name:** Unique value for the App name such as **TollboothEventGrid** (ensure the green check mark appears).
+    a. **Name:** Unique value for the App name such as **`TollboothEventGrid`** (ensure the green check mark appears).
 
-    b. Specify the Resource Group **ServerlessArchitecture**.
+    b. Specify the Resource Group **`ServerlessArchitecture`**.
 
     c. Select the same **location** as your Resource Group.
 
@@ -129,7 +129,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 5.  Select **Create**.
 
-6.  After the Event Grid topic has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Event Grid** topic name.
+6.  After the Event Grid topic has completed provisioning, open the account by opening the **`ServerlessArchitecture`** resource group, and then selecting the **Event Grid** topic name.
 
 7.  Select **Overview** in the menu, and then copy the **Topic Endpoint** value.
 
@@ -147,9 +147,9 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 3.  On the **Create new Azure Cosmos DB** **account** blade, specify the following configuration options:
 
-    a. Specify the Resource Group **ServerlessArchitecture**.
+    a. Specify the Resource Group **`ServerlessArchitecture`**.
 
-    a. For Account Name, type a unique value for the App name such as **ToolboothDB** (ensure the green check mark appears).
+    a. For Account Name, type a unique value for the App name such as **`TollBoothDB`** (ensure the green check mark appears).
 
     b. Select the **Core (SQL)** API.
 
@@ -161,19 +161,19 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 4.  Select **Review + create**, then select **Create**
 
-5.  After the Azure Cosmos DB account has completed provisioning, open the account by opening the **ServerlessArchitecture** resource group, and then selecting the **Azure Cosmos DB** account name.
+5.  After the Azure Cosmos DB account has completed provisioning, open the account by opening the **`ServerlessArchitecture`** resource group, and then selecting the **Azure Cosmos DB** account name.
 
 6.  Select **+ Add Container** from the top toolbar
 
 7.  On the **Add Container** blade, specify the following configuration options:
 
-    a. Enter **LicensePlates** for the **Database id**.
+    a. Enter **`LicensePlates`** for the **Database id**.
 
     b. Leave **Provision database throughput** unchecked.
 
     c. Enter **Processed** for the **Collection id**.
 
-    d. Partition key: **/licensePlateText**
+    d. Partition key: **`/licensePlateText`**
 
     e. Throughput: **5000**
 
@@ -183,7 +183,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 10) On the **Add Container** blade, specify the following configuration options:
 
-    a. For Database id, choose **Use existing** and select **LicensePlates**.
+    a. For Database id, choose **Use existing** and select **`LicensePlates`**.
 
     b. For Collection id, enter **NeedsManualReview**.
 
@@ -210,11 +210,11 @@ Give me the Azure CLI commands to execute the following actions. Use variables f
 
 - Create an Azure Cosmos DB account with the following characteristics: API type Core (SQL), Disable Geo-redundency and multi-region writes.  
 
-- Create an Azure Cosmos DB SQL database with Database Name "LicensePlates" .  
+- Create an Azure Cosmos DB SQL database with Database Name `LicensePlates` .  
 
-- Create a container inside the Cosmos DB account, in the Database "LicensePlates" (do not provision database throughput) and Container ID "Processed", Partition key : "/licensePlateText"  
+- Create a container inside the Cosmos DB account, in the Database `LicensePlates` (do not provision database throughput) and Container ID "Processed", Partition key : "`/licensePlateText`"  
 
-- Create a similar second container, Database "LicensePlates", Container ID "NeedsManualReview", Partition key : "/fileName"  
+- Create a similar second container, Database `LicensePlates`, Container ID "NeedsManualReview", Partition key : "/fileName"  
 
 - Create a storage account, name INIT, Create two blob containers "images" and "export"  
 
@@ -230,7 +230,7 @@ Get the eventGrid Topic Key and put it in a variable named eventGridTopicKey
 
 Get the CosmosDB Authorization Key and put it in a variable named cosmosDBAuthorizationKey 
 
-Get the blob Storage Connection string to the storage account and put it in a variable named blobStorageConnection 
+Get the blob Storage Connection string to the storage account and put it in a variable named Connection 
 
 Create 4 secrets with their respective values: computerVisionApiKey , eventGridTopicKey , cosmosDBAuthorizationKey ,blobStorageConnection. 
 ```
