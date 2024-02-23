@@ -15,6 +15,8 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code.
 
+**NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. IF you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
+
 ## Success Criteria
 
 1. Verify that you are able to open your function in a browser and pass your name in the query string.  You should see a message like:
