@@ -14,6 +14,7 @@ Two notes about the code you will use:
 
 - Create a new folder to contain your event processing functions, call it "Events" for instance- Create a new Project from the "Workspace (local)" dropdown in the Azure Extension tab of VSCode. Choose the events folder. Select Javascript. Model V4, Event Grid trigger, name `savePlateData`
 - Replace the code `savePlateData.js` with the following:
+
 ```javascript
 const { app, output } = require('@azure/functions'); 
 
@@ -37,6 +38,7 @@ app.eventGrid('savePlateData', {
     }, 
 }); 
 ```
+
 - Create a new Azure Function App, from the Azure "Resources" section, in the region of your choice
 - Deploy the `savePlateData` function to that Azure Function App, from the Azure "Workspace" Local Project you just created. You are asked if you want to Stream logs, click on it. If it disconnects after a while, stop and start again (from the Function App menu in VS Code)
 - Add a new Application Setting `cosmosDBConnectionString` with the connection string (or the corresponding KeyVault Secret reference) to Cosmos DB `LicensePlates`
@@ -51,6 +53,7 @@ app.eventGrid('savePlateData', {
 Now let's repeat the same steps for the second event function:
 - From VSCode, create another function in the same project that is triggered by event grid,  name `QueuePlateForManualCheckup`. The JS file should appear next to the other one.
 -  Replace the code with the following:
+
 ```javascript
 const { app, output } = require('@azure/functions'); 
 
@@ -74,6 +77,7 @@ app.eventGrid('queuePlateForManualCheckup', {
     },
 });
 ```
+
 - From the portal, go the `queuePlateForManualCheckup` function, add an event grid subscription
     * Name should contain "`QUEUE`"
     * Event Schema: Event Grid Schema.
