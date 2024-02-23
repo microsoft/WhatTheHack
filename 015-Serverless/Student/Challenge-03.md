@@ -12,49 +12,56 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 
 **HINT:** _Record names and keys_
 
-1. Create a resource group
-1. Create an Azure Cosmos DB account
+Create the resources in Azure according the following specifications:
+
+- Create a resource group
+- Create an Azure Cosmos DB account
 *If this takes a while, move ahead and come back to finish the containers*
     * API : Core (SQL)
-    * Disable Geo-redundency and multi-region writes
+    * Disable Geo-redundancy and multi-region writes
     * Create a container
-      * Database ID &quot;LicensePlates&quot;
+      * Database ID `LicensePlates`
       * Uncheck **Provision database throughput**
-      * Container ID &quot;Processed&quot;
-      * Partition key **: &quot;**/licensePlateText&quot;
+      * Container ID `Processed`
+      * Partition key : **`/licensePlateText`**
     * Create a second container
-      * Database ID created above &quot;LicensePlates&quot;
-      * Container ID &quot;NeedsManualReview&quot;
-      * Partition key **: &quot;**/fileName&quot;
-1. Create a storage account (refer to this one as INIT)
-    * Create a container &quot;images&quot;
-    * Create a container &quot;export&quot;
-1. Create a function app (put &quot;App&quot; in the name)
+      * Database ID created above `LicensePlates`
+      * Container ID `NeedsManualReview`
+      * Partition key : **`/fileName`**
+- Create a storage account (refer to this one as INIT)
+    * Create a container `images`
+    * Create a container `export`
+- Create a function app (put `App` in the name)
     * For your tollbooth app, consumption plan, .NET runtime stack
     * Create new storage and disable application insights
-1. Create a function app (put &quot;Events&quot; in the name)
+- Create a function app (put `Events` in the name)
     * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
-1. Create an Event Grid Topic (leave schema as Event Grid Schema)
-1. Create a Computer Vision API service (S1 pricing tier)
-1. Create a Key Vault
+- Create an Event Grid Topic (leave schema as Event Grid Schema)
+- Create a Computer Vision API service (S1 pricing tier)
+- Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
-1. Configure your Tollbooth app to use KeyVault for secrets
+- Learn how you will configure your Tollbooth app to use KeyVault for secrets
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
-    | **Name**      |                                                                          **Value**                                                                          |
-    | computerVisionApiKey     |                                                                   Computer Vision API key                                                                   |
-    | eventGridTopicKey        |                                                                 Event Grid Topic access key                                                                 |
-    | cosmosDBAuthorizationKey |                                                                    Cosmos DB Primary Key                                                                    |
-    | blobStorageConnection    |                                                               Blob storage connection string                                                                |
+    | **Secret Name**      |                                                                          **Value**                                                                          |
+    | `computerVisionApiKey`     |                                                                   Computer Vision API key                                                                   |
+    | `eventGridTopicKey`        |                                                                 Event Grid Topic access key                                                                 |
+    | `cosmosDBAuthorizationKey` |                                                                    Cosmos DB Primary Key                                                                    |
+    | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
+    | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
+**HINT**: You have to configure a Managed Identity for the Function to be able to read from the Key Vault secrets using RBAC. Also, the Secret URI must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
+
+**HINT:** Understand the RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
 
 
 ## Success Criteria
 
-1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps)
+1. Validate that you have 11 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). If you enabled Application Insights on any of your functions, it's OK, we'll change it later.
+2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal
 
 ## Learning Resources
 
@@ -64,3 +71,4 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 - [Creating an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account)
 - [Key Vault Secret Identifiers](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 - [Configure Azure Functions and KeyVault to work together](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli#granting-your-app-access-to-key-vault)
+- [Key Vault roles for RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations)
