@@ -24,6 +24,8 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 
 ### Setup Local Workstation
 
+**NOTE:** If you are planning to use GitHub Codespaces, skip this section as all pre-reqs will be setup in the Codespace environment.
+
 Set up your *local* environment:
 - Visual Studio Code (or Visual Studio with Azure development workload)
 - Azure CLI
