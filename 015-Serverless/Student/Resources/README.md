@@ -2,13 +2,13 @@
 Contains all the source code and images needed for the What the Hack.
 
 ## License Plates
-The 'license plates' folder contains images for use in the cognitive services portion needed for Custom Vision.
+The `license plates` folder contains images for use in the cognitive services portion needed for Custom Vision.
 
 ## App
-The 'App' folder contains the "TollBooth" and "UploadImages" folders.
+The `App` folder contains the `TollBooth` and `UploadImages` folders.
 
-### TollBooth
-This folder contains the .NET "TollBooth" Azure Function application code needed by students to edit and deploy to Azure.  
+### TollBooth`
+This folder contains the .NET TollBooth Azure Function application code needed by students to edit and deploy to Azure.  
 
 ### UploadImages
 
