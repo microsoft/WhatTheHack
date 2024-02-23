@@ -12,8 +12,10 @@ In this challenge, you will provision a blob storage account using the Hot tier,
 
 **HINT:** _Record names and keys_
 
-1. Create a resource group
-1. Create an Azure Cosmos DB account
+Create the resources in Azure according the following specifications:
+
+- Create a resource group
+- Create an Azure Cosmos DB account
 *If this takes a while, move ahead and come back to finish the containers*
     * API : Core (SQL)
     * Disable Geo-redundancy and multi-region writes
@@ -26,21 +28,21 @@ In this challenge, you will provision a blob storage account using the Hot tier,
       * Database ID created above `LicensePlates`
       * Container ID `NeedsManualReview`
       * Partition key : **`/fileName`**
-1. Create a storage account (refer to this one as INIT)
+- Create a storage account (refer to this one as INIT)
     * Create a container `images`
     * Create a container `export`
-1. Create a function app (put `App` in the name)
+- Create a function app (put `App` in the name)
     * For your tollbooth app, consumption plan, .NET runtime stack
     * Create new storage and disable application insights
-1. Create a function app (put `Events` in the name)
+- Create a function app (put `Events` in the name)
     * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
-1. Create an Event Grid Topic (leave schema as Event Grid Schema)
-1. Create a Computer Vision API service (S1 pricing tier)
-1. Create a Key Vault
+- Create an Event Grid Topic (leave schema as Event Grid Schema)
+- Create a Computer Vision API service (S1 pricing tier)
+- Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
-1. Learn how you'll configure your Tollbooth app to use KeyVault for secrets
+- Learn how you will configure your Tollbooth app to use KeyVault for secrets
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -51,12 +53,15 @@ In this challenge, you will provision a blob storage account using the Hot tier,
     | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
     | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-**HINT**: you have to configure a Managed Identity for the Function to be able to read from the Keyvault secrets using RBAC. Also, Secret URI must finish with "/" when not referring a version, example `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
+**HINT**: You have to configure a Managed Identity for the Function to be able to read from the Key Vault secrets using RBAC. Also, the Secret URI must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
+
+**HINT:** Understand the RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
+
 
 ## Success Criteria
 
-1. You have 11 resources in your resource group in the same region (Includes the 2 storage accounts associated to your function apps). If you enabled Application Insights on any of your functions, it's OK, we'll change it later.
-2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal (check RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use)
+1. Validate that you have 11 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). If you enabled Application Insights on any of your functions, it's OK, we'll change it later.
+2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal
 
 ## Learning Resources
 
