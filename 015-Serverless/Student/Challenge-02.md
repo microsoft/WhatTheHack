@@ -11,7 +11,9 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 - Create a "Hello World" Azure Function in Visual Studio Code that:
     - Takes a name as an input parameter.
     - Returns the name back to you as an output.
-    - Uses any programming language of your choice
+    - Use any programming language of your choice
+  
+**NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code.
 
 ## Success Criteria
 
