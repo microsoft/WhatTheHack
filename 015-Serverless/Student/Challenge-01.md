@@ -53,7 +53,7 @@ You can see your balance of available codespace hours on the [GitHub billing pag
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace". 
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main". 
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
