@@ -19,7 +19,7 @@ In this challenge, you will deploy the **first** function app (.NET based, with 
   - Event type : Blob Created _only_
   - Endpoint type : Select your `ProcessImage` Azure Function
 
-**NOTE** As per January 2024, the Azure Portal UI will display an error in the "Integration" section of the function, once it's published. This is due to an open bug with the [Azure Function Core Tools for .NET functions](https://github.com/Azure/azure-functions-core-tools/issues/3157#issuecomment-1843236365) which can be worked around by manually fixing the Blob Storage Input binding in `functions.json` to add `"direction":"in"` and then packaging the function ZIP file. This may not be a mandatory step, the code should work fine.
+**NOTE:** As per January 2024, the Azure Portal UI will display an error in the "Integration" section of the function, once it's published. This is due to an open bug with the [Azure Function Core Tools for .NET functions](https://github.com/Azure/azure-functions-core-tools/issues/3157#issuecomment-1843236365) which can be worked around by manually fixing the Blob Storage Input binding in `functions.json` to add `"direction":"in"` and then packaging the function ZIP file. This may not be a mandatory step, the code should work fine.
 
 ## Success Criteria
 
