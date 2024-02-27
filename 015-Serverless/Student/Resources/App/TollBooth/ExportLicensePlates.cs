@@ -2,16 +2,23 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 
 namespace TollBooth
 {
-    public static class ExportLicensePlates
+    public class ExportLicensePlates
     {
-        [FunctionName("ExportLicensePlates")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
+        private readonly ILogger _logger;
+
+        public ExportLicensePlates(ILogger<ExportLicensePlates> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("ExportLicensePlates")]
+        public static async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestData  req, ILogger log)
         {
             int exportedCount = 0;
             log.LogInformation("Finding license plate data to export");
@@ -31,8 +38,7 @@ namespace TollBooth
                 }
                 else
                 {
-                    log.LogInformation(
-                        "Export file could not be uploaded. Skipping database update that marks the documents as exported.");
+                    log.LogInformation("Export file could not be uploaded. Skipping database update that marks the documents as exported.");
                 }
 
                 log.LogInformation($"Exported {exportedCount} license plates");
@@ -42,9 +48,16 @@ namespace TollBooth
                 log.LogWarning("No license plates to export");
             }
 
-            return exportedCount == 0
-                ? req.CreateResponse(HttpStatusCode.NoContent)
-                : req.CreateResponse(HttpStatusCode.OK, $"Exported {exportedCount} license plates");
+            if (exportedCount == 0) {
+                var response = req.CreateResponse(HttpStatusCode.NoContent);
+                response.WriteString("No license plates to export");
+                return response;
+            }
+            else {
+                var response = req.CreateResponse(HttpStatusCode.OK);
+                response.WriteString($"Exported {exportedCount} license plates");
+                return response;
+            }
         }
     }
 }

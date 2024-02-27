@@ -10,6 +10,9 @@ computerVisionServiceName="wth-serverless-ocr"
 keyVaultName="wth-serverless-kvx"
 functionTollBoothApp="wth-serverless-appz"
 functionTollBoothEvents="wth-serverless-eventsz"
+keyVaultName="wth-serverless-kvx"
+functionTollBoothApp="wth-serverless-appz"
+functionTollBoothEvents="wth-serverless-eventsz"
 
 # Create a resource group
 az group create --name $RGName --location $location
@@ -25,6 +28,7 @@ az cosmosdb sql container create --account-name $cosmosDbAccountName --database-
 # Create a storage account
 az storage account create --name $storageAccountName --resource-group $RGName --location $location --sku Standard_LRS
 az storage account create --name $funcStorageAccName --resource-group $RGName --location $location --sku Standard_LRS
+az storage account create --name $funcStorageAccName --resource-group $RGName --location $location --sku Standard_LRS
 
 # Create two blob containers "images" and "export"
 az storage container create --name images --account-name $storageAccountName
@@ -33,6 +37,7 @@ az storage container create --name export --account-name $storageAccountName
 # Create an Event Grid Topic
 az eventgrid topic create --name $eventGridTopicName --location $location --resource-group $RGName
 
+# Create a Computer Vision API service. WARNING: first you have to create a Cognitive Services instance via the web portal and ACCEPT the Responsable AI conditions
 # Create a Computer Vision API service. WARNING: first you have to create a Cognitive Services instance via the web portal and ACCEPT the Responsable AI conditions
 az cognitiveservices account create --name $computerVisionServiceName --kind ComputerVision --sku S1 --location $location --resource-group $RGName --yes
 
@@ -52,6 +57,8 @@ az keyvault secret set --vault-name $keyVaultName --name "cosmosDBAuthorizationK
 az keyvault secret set --vault-name $keyVaultName --name "blobStorageConnection" --value $blobStorageConnection
 
 # Creat the function Apps
+az functionapp create --name $functionTollBoothApp --runtime dotnet-isolated --runtime-version 8 --storage-account $funcStorageAccName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
+az functionapp create --name $functionTollBoothEvents --runtime node --runtime-version 18 --storage-account $funcStorageAccName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
 az functionapp create --name $functionTollBoothApp --runtime dotnet-isolated --runtime-version 8 --storage-account $funcStorageAccName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
 az functionapp create --name $functionTollBoothEvents --runtime node --runtime-version 18 --storage-account $funcStorageAccName --consumption-plan-location "$location" --resource-group $RGName --functions-version 4
 
@@ -76,6 +83,7 @@ eventgridEndpoint=$(az eventgrid topic show --name $eventGridTopicName --resourc
 cosmosDBEndpoint=$(az cosmosdb show  --name $cosmosDbAccountName --resource-group $RGName -o tsv --query documentEndpoint) #returns URI, ends in /
 
 #be careful, if running in WSL, it may pick up your windows AZ CLI instance and then append \r characters in the variable substitution. Ensure WSL has the interop setting to appendWindowsPath = false. It can also show up in the KV secrets, making .NET to complain "New-line characters are not allowed in header values."
+#be careful, if running in WSL, it may pick up your windows AZ CLI instance and then append \r characters in the variable substitution. Ensure WSL has the interop setting to appendWindowsPath = false. It can also show up in the KV secrets, making .NET to complain "New-line characters are not allowed in header values."
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "computerVisionApiUrl="$cognitiveEndpoint"vision/v2.0/ocr"
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "computerVisionApiKey=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/computerVisionApiKey/)"
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings eventGridTopicEndpoint=$eventgridEndpoint
@@ -92,9 +100,18 @@ az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --sett
 ###################################################################
 
 # EventGrid System Topic Subscriptions pointing to the .NET APP function
+###################################################################
+## NOW IT'S TIME TO FINALIZE CHALLENGE 5 AND DEPLOY THE .NET APP ##
+###################################################################
+
+# EventGrid System Topic Subscriptions pointing to the .NET APP function
 appFuncId=$(az functionapp function show -g $RGName --name $functionTollBoothApp --function-name ProcessImage -o tsv --query id)
 storageAccId=$(az storage account show -n $storageAccountName -g $RGName -o tsv --query id)
 az eventgrid event-subscription create  --name SubsProcessImage --source-resource-id $storageAccId --endpoint $appFuncId --endpoint-type azurefunction --included-event-types Microsoft.Storage.BlobCreated
+
+# you can test the upload of images to the Storage via the Portal, or even easier with this CLI
+# az storage blob upload --account-name $storageAccountName --container-name images --file .\us-1.jpg --overwrite
+
 
 # you can test the upload of images to the Storage via the Portal, or even easier with this CLI
 # az storage blob upload --account-name $storageAccountName --container-name images --file .\us-1.jpg --overwrite
@@ -106,6 +123,10 @@ az eventgrid event-subscription create  --name SubsProcessImage --source-resourc
 az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "wth_COSMOSDB=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
 #The above uses KV. If you rader use "plaintext" in the app env variable, use the cli below
 #az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=$cosmosDBConnString"
+
+##########################################################
+## NOW IT'S TIME TO DEPLOY THE NODE.JS EVENTS FUNCTIONS ##
+##########################################################
 
 ##########################################################
 ## NOW IT'S TIME TO DEPLOY THE NODE.JS EVENTS FUNCTIONS ##
