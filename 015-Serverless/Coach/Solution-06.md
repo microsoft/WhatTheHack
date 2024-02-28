@@ -8,6 +8,8 @@ Integration has changed in the new functions portal.  Might have to go to the ol
 
 ## Step by Step Instructions
 
+The Student Guide has step-by-step guidance for VSCode. The below instructions refer to the Azure Portal workflow, which can evolve over time and not be accurate. 
+
 ### Help references
 
 - [Create your first function in the Azure portal](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function)
@@ -38,19 +40,27 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 6)  Replace the code in the new SavePlateData function with the following:
 
 ```javascript
-module.exports = function(context, eventGridEvent) {
-  context.log(typeof eventGridEvent);
-  context.log(eventGridEvent);
+const { app, output } = require('@azure/functions'); 
 
-  context.bindings.outputDocument = {
-    fileName: eventGridEvent.data['fileName'],
-    licensePlateText: eventGridEvent.data['licensePlateText'],
-    timeStamp: eventGridEvent.data['timeStamp'],
-    exported: false
-  };
+const cosmosOutput = output.cosmosDB({ 
+    databaseName: 'LicensePlates', 
+    collectionName: 'Processed', 
+    createIfNotExists: true, 
+    connectionStringSetting: 'cosmosDBConnectionString', 
+}); 
 
-  context.done();
-};
+app.eventGrid('savePlateData', { 
+    return: cosmosOutput, 
+    handler: (event, context) => { 
+        context.log('Event grid function processed event:', event); 
+        return { 
+            fileName: event.data['fileName'], 
+            licensePlateText: event.data['licensePlateText'], 
+            timeStamp: event.data['timeStamp'], 
+            exported: false 
+        }; 
+    }, 
+}); 
 ```
 
 8.  Select **Save**.
@@ -124,19 +134,27 @@ In this task, you will create a new function triggered by Event Grid and outputs
 5.  Replace the code in the new QueuePlateForManualCheckup function with the following:
 
 ```javascript
-module.exports = async function(context, eventGridEvent) {
-  context.log(typeof eventGridEvent);
-  context.log(eventGridEvent);
+const { app, output } = require('@azure/functions'); 
 
-  context.bindings.outputDocument = {
-    fileName: eventGridEvent.data['fileName'],
-    licensePlateText: '',
-    timeStamp: eventGridEvent.data['timeStamp'],
-    resolved: false
-  };
+const cosmosOutput = output.cosmosDB({ 
+    databaseName: 'LicensePlates', 
+    collectionName: 'NeedsManualReview', 
+    createIfNotExists: true, 
+    connectionStringSetting: 'cosmosDBConnectionString', 
+}); 
 
-  context.done();
-};
+app.eventGrid('queuePlateForManualCheckup', { 
+    return: cosmosOutput, 
+    handler: (event, context) => { 
+        context.log('Event grid function processed event:', event); 
+        return { 
+            fileName: event.data['fileName'], 
+            licensePlateText: '', 
+            timeStamp: event.data['timeStamp'], 
+            resolved: false 
+        };
+    },
+});
 ```
 
 6.  Select **Save**.
