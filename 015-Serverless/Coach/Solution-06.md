@@ -44,9 +44,9 @@ const { app, output } = require('@azure/functions');
 
 const cosmosOutput = output.cosmosDB({ 
     databaseName: 'LicensePlates', 
-    collectionName: 'Processed', 
+    containerName: 'Processed', 
     createIfNotExists: true, 
-    connectionStringSetting: 'cosmosDBConnectionString', 
+    connection: 'cosmosDBConnectionString', 
 }); 
 
 app.eventGrid('savePlateData', { 
@@ -57,7 +57,8 @@ app.eventGrid('savePlateData', {
             fileName: event.data['fileName'], 
             licensePlateText: event.data['licensePlateText'], 
             timeStamp: event.data['timeStamp'], 
-            exported: false 
+            exported: false,
+            id: event.id 
         }; 
     }, 
 }); 
@@ -138,9 +139,9 @@ const { app, output } = require('@azure/functions');
 
 const cosmosOutput = output.cosmosDB({ 
     databaseName: 'LicensePlates', 
-    collectionName: 'NeedsManualReview', 
+    containerName: 'NeedsManualReview', 
     createIfNotExists: true, 
-    connectionStringSetting: 'cosmosDBConnectionString', 
+    connection: 'cosmosDBConnectionString', 
 }); 
 
 app.eventGrid('queuePlateForManualCheckup', { 
@@ -151,7 +152,8 @@ app.eventGrid('queuePlateForManualCheckup', {
             fileName: event.data['fileName'], 
             licensePlateText: '', 
             timeStamp: event.data['timeStamp'], 
-            resolved: false 
+            resolved: false,
+            id: event.id
         };
     },
 });
