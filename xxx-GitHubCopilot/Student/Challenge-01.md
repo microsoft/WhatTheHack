@@ -9,8 +9,11 @@ Ensure that GitHub Copilot is installed in your IDE as part of Challenge 0. This
 
 ## Introduction
 
-Now that you've installed GitHub Copilot, it's time to delve into its capabilities. In this challenge, you'll write your first program with the help of Copilot and explore how it can assist you in this task.
+Now that you've installed GitHub Copilot, it's time to delve into its capabilities. In this challenge, you'll write your first program with the help of Copilot and explore how it can assist you in this task.  We recommend considering taking one of two approaches when selecting the language you will be using:
 
+- **Working with a Familiar Language**: Opt for a programming language you're already comfortable with to directly experience how GitHub Copilot can boost your development speed and efficiency. This choice allows you to focus on Copilot's ability to enhance your existing coding skills and streamline tasks you're accustomed to.
+
+- **Exploring a New Language**: Choose a programming language you're less familiar with, or entirely new to you, to explore how GitHub Copilot can facilitate your learning process and ease the transition into unfamiliar coding territories. 
 
 ## Description
 
