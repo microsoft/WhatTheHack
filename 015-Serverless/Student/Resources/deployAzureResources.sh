@@ -18,6 +18,7 @@ az provider register -n 'Microsoft.DocumentDB'
 az provider register -n 'Microsoft.EventGrid'
 az provider register -n 'Microsoft.KeyVault'
 az provider register -n 'Microsoft.Web'
+az provider register -n 'Microsoft.CognitiveServices' --accept-terms
 
 # Create a resource group
 az group create --name $RGName --location $location
