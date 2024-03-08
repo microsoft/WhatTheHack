@@ -45,3 +45,7 @@ You have successfully completed this challenge when you can:
 - Take note of how Copilot’s suggestions can vary greatly depending on the context of your code and the specific language syntax.
 - If Copilot's suggestions don't immediately align with your expectations, experiment with adjusting your code or comments to give it better context.
 - Remember, Copilot is a tool to aid your coding, not to replace the need for understanding the code itself. Use this opportunity to learn and understand the suggestions it provides.
+
+## Advanced Challenges (Optional)
+
+**Looking for an Extra Challenge?**: Consider switching gears for a broader experience. If your initial approach involved using a language you know well, try completing this challenge in one that is less familiar? Conversely, if you started with a language that was new to you, circle back and see the difference in speed when using GitHub Copilot with a language you're proficient in.
