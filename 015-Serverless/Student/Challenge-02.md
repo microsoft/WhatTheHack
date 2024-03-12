@@ -16,7 +16,9 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code. Optionally, you can also try a "Hello World" in JavaScript, which will be useful in Challenge 06.
 
-**NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. IF you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
+**NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
+
+**NOTE:** An empty folder "HelloWorld" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
 
 ## Success Criteria
 
@@ -27,7 +29,7 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 ## Learning Resources
 
 - [Functions Overview](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [Quickstart: Create a C# function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-csharp#run-the-function-in-azure)
+- [Quickstart: Create a C# function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-csharp)
 - [Quickstart: Create a JavaScript function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4)
 - Complete guide to develop functions on Visual Studio Code, [follow this advanced guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)
 - [How to get the Function URL via the Azure Portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-javascript#test-the-function)
