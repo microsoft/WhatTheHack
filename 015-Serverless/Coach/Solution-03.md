@@ -175,7 +175,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
     d. Partition key: **`/licensePlateText`**
 
-    e. Throughput: **5000**
+    e. Throughput: **500**
 
 8)  Select **OK**.
 
@@ -189,7 +189,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
     c. Partition key: **`/fileName`**
 
-    d. Throughput: **5000**
+    d. Throughput: **500**
 
 11) Select **OK**.
 
@@ -199,6 +199,24 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 14) Paste the values into a text editor, such as Notepad, for later reference.
 
+### Task 5: Create the Cognitive Services API
+
+Look in the portal for Azure AI services, then Computer vision. Select S1 pricing, leave all other options as default. Learn more in the [Azure AI Visiong doc page](https://learn.microsoft.com/en-gb/azure/ai-services/computer-vision/)
+
+### Task 6: Create the Keyvault secrets
+
+Create a KeyVault with RBAC permission model (from the Access Configuration menu), everything else by default. Add yourself as KeyVault administrator from the Access Control (IAM) menu. If soft-delete is enabled, that keyvault won't be removed when deleted, so that name cannot be used again (this may affect those Coaches using the CLI for a 2nd time) until manually purged.
+
+Here's a table with example values for the secrets, redacted (to ensure the right syntax). 
+**NOTE FOR LINUX/WSL USERS**: If there's a \r or \n in the value, weird things will happen in the code. Ensure you just copy&paste the values from the portal.
+
+| **Secret** | **Value** |
+| --- | --- |
+| `blobStorageConnection` | DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=wthserverless2014xxz;AccountKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxqeyH6w==;BlobEndpoint=https://wthserverless2014xxz.blob.core.windows.net/;FileEndpoint=https://wthserverless2014xxz.file.core.windows.net/;QueueEndpoint=https://wthserverless2014xxz.queue.core.windows.net/;TableEndpoint=https://wthserverless2014xxz.table.core.windows.net/ |
+| `computerVisionApiKey` | cXxxxxxxxxxxxxxxxxxxxxx0b |
+| `cosmosDBAuthorizationKey` | vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQQ== |
+| `cosmosDBConnectionString` | AccountEndpoint=https://wth-serverless-cosmosdbxx.documents.azure.com:443/;AccountKey=vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQ==; |
+| `eventGridTopicKey` | Pxxxxxxxxxxxxxxxxxxxxx8= |
 
 ## Copilot prompt for Azure CLI
 

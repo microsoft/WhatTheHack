@@ -38,12 +38,10 @@ Create the resources in Azure according the following specifications:
     * For your tollbooth events, consumption plan, Node.js runtime stack
     * Create new storage and disable application insights
 - Create an Event Grid Topic (leave schema as Event Grid Schema)
-- Create a Computer Vision API service (S1 pricing tier)
+- Create a Computer Vision API service (S1 pricing tier), nowadays called Azure AI Vision
 - Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
-- Learn how you will configure your Tollbooth app to use KeyVault for secrets
-
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
     | **Secret Name**      |                                                                          **Value**                                                                          |
@@ -53,9 +51,7 @@ Create the resources in Azure according the following specifications:
     | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
     | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-**HINT**: You have to configure a Managed Identity for the Function to be able to read from the Key Vault secrets using RBAC. Also, the Secret URI must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
-
-**HINT:** Understand the RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
+- Configure the RBAC role "KeyVault Administrator" for yourself, to read and write secrets via the portal, which is a more privileged role than the "KeyVault Secrets User" role that the functions will use to just read secrets using a Managed Identity.
 
 
 ## Success Criteria
@@ -72,3 +68,4 @@ Create the resources in Azure according the following specifications:
 - [Key Vault Secret Identifiers](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 - [Configure Azure Functions and KeyVault to work together](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli#granting-your-app-access-to-key-vault)
 - [Key Vault roles for RBAC](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations)
+- [Azure Computer Vision API, aka Azure AI Vision](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview#getting-started)
