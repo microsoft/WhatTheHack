@@ -349,7 +349,8 @@ function create_vm_in_csr_vnet () {
 function accept_csr_terms () {
     publisher=cisco
     offer=cisco-csr-1000v
-    sku=16_12-byol
+    #sku=17_03_08a-byol
+    sku=17_03_08a-byol
     # sku=17_3_4a-byol  # Newest version available
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     # Accept terms
@@ -374,7 +375,7 @@ function create_csr () {
     csr_bgp_ip="10.${csr_id}.0.10"
     publisher=cisco
     offer=cisco-csr-1000v
-    sku=16_12-byol
+    sku=17_03_08a-byol
     # sku=17_3_4a-byol  # Newest version available
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     nva_size=Standard_B2ms
@@ -480,12 +481,12 @@ function config_csr_base () {
     csr_id=$1
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
     asn=$(get_router_asn_from_id "$csr_id")
-    myip=$(curl -s4 ifconfig.co)
+    myip=$(dig @resolver4.opendns.com myip.opendns.com +short)
     # Check we have a valid IP
     until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
     do
         sleep 5
-        myip=$(curl -s4 ifconfig.co)
+        myip=$(dig @resolver4.opendns.com myip.opendns.com +short)
     done
     echo "Our IP seems to be $myip"
     default_gateway="10.${csr_id}.0.1"
@@ -912,6 +913,7 @@ function config_gw_logging () {
 
 # Deploy base config for all CSRs
 function config_csrs_base () {
+    echo "Starting CSR Base config"
     for router in "${routers[@]}"
     do
         type=$(get_router_type  "$router")
@@ -1076,6 +1078,8 @@ fi
 # Ask confirmation before starting creating stuff
 # [[ $BASH_VERSION ]] && read -rsn1 -p"Press any key to start creating Azure resources into Azure subscription \"$subscription_name\"...";echo
 # [[ $ZSH_VERSION ]] && read -krs "?Press any key to start creating Azure resources into Azure subscription \"$subscription_name\"...";echo
+
+
 
 # Accept CSR image terms
 accept_csr_terms
