@@ -157,7 +157,7 @@ function create_vng () {
         echo "Creating test virtual machine $test_vm_name in vnet $vnet_name in new subnet $test_vm_subnet_prefix..."
         az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" >/dev/null
         # Not using $psk as password because it might not fulfill the password requirements for Azure VMs
-        az vm create -n "$test_vm_name" -g "$rg" -l "$location" --image UbuntuLTS --size "$test_vm_size" \
+        az vm create -n "$test_vm_name" -g "$rg" -l "$location" --image Ubuntu2204 --size "$test_vm_size" \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
             --public-ip-address "${test_vm_name}-pip" --public-ip-address-allocation static \
             --vnet-name "$vnet_name" --subnet testvm --no-wait 2>/dev/null
@@ -329,7 +329,7 @@ function create_vm_in_csr_vnet () {
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating VM $vm_name in vnet $vnet_name..."
-        az vm create -n "$vm_name" -g "$rg" -l "$location" --image ubuntuLTS --size $vm_size \
+        az vm create -n "$vm_name" -g "$rg" -l "$location" --image Ubuntu2204 --size $vm_size \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
             --public-ip-address "${vm_name}-pip" --vnet-name "$vnet_name" --public-ip-address-allocation static \
             --subnet "$vm_subnet_name" --subnet-address-prefix "$vm_subnet_prefix" --no-wait 2>/dev/null
