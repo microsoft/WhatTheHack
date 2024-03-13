@@ -321,8 +321,7 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
 }
 
 
-//TODO: Grant permissions for the Functions to read secrets from KeyVault using RBAC
-
+//Grant permissions for the Functions to read secrets from KeyVault using RBAC
 var functionAppPrincipalId = functionApp.identity.principalId
 var functionEventsPrincipalId = functionEvents.identity.principalId
 
