@@ -314,6 +314,29 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
 
 //TODO: Grant permissions for the Functions to read secrets from KeyVault using RBAC
 
+var functionAppPrincipalId = functionApp.identity.principalId
+var functionEventsPrincipalId = functionEvents.identity.principalId
+
+var roleDefinitionID = '4633458b-17de-408a-b874-0445c86b69e6' //Key Vault Secret User
+
+var roleAssignmentKVAppName = guid(functionApp.id, roleDefinitionID, resourceGroup().id)
+resource roleAssignmentKVApp 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: roleAssignmentKVAppName
+  properties: {
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionID)
+    principalId: functionAppPrincipalId
+  }
+}
+
+var roleAssignmentKVEventsName = guid(functionEvents.id, roleDefinitionID, resourceGroup().id)
+resource roleAssignmentKVEvents 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: roleAssignmentKVEventsName
+  properties: {
+    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionID)
+    principalId: functionEventsPrincipalId
+  }
+}
+
 //TODO: Set up KV secret for Challenge 6
 
 //TODO: Close the door behind you and enable RBAC for KV
