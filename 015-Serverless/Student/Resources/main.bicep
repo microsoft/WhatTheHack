@@ -12,7 +12,7 @@ var funcStorageAccountName = 'func${uniqueString(resourceGroup().id)}'
 var hostingPlanName = '${resourcePrefix}-hostingplan'
 var functionTollBoothApp = '${resourcePrefix}-app-${uniqueString(resourceGroup().id)}'
 var functionTollBoothEvents = '${resourcePrefix}-events-${uniqueString(resourceGroup().id)}'
-
+ 
 // Create an Azure Cosmos DB account 
 resource cosmosDb 'Microsoft.DocumentDB/databaseAccounts@2021-06-15' = {
   name: cosmosDbAccountName
@@ -198,6 +198,26 @@ resource funcStorageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   kind: 'StorageV2'
 }
 
+//Add AppInsights for the functions
+resource applicationInsightsApp 'Microsoft.Insights/components@2020-02-02' = {
+  name: functionTollBoothApp
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Request_Source: 'rest'
+  }
+}
+resource applicationInsightsEvents 'Microsoft.Insights/components@2020-02-02' = {
+  name: functionTollBoothEvents
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    Request_Source: 'rest'
+  }
+}
+
 //Create hosting plan
 resource hostingPlan 'Microsoft.Web/serverfarms@2023-01-01' = {
   name: hostingPlanName
@@ -243,6 +263,10 @@ resource functionApp 'Microsoft.Web/sites@2023-01-01' = {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'dotnet-isolated'
         }
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsightsApp.properties.InstrumentationKey
+        }
       ]
     }
   }
@@ -278,10 +302,15 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'node'
         }
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsightsEvents.properties.InstrumentationKey
+        }
       ]
     }
   }
 }
+
 
 //TODO: Grant permissions for the Functions to read secrets from KeyVault using RBAC
 
