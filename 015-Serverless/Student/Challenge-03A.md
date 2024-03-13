@@ -22,41 +22,23 @@ Normally, you must provision these resources in Azure yourself before you can st
 
 ## Description
 
-In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will deploy from Visual Studio, and the other you will manage using the Azure portal. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Then, you will provision a new Cognitive Services Computer Vision API service for applying object character recognition (OCR) on the license plates.  Lastly, you will implement Key Vault for secure some of the resource keys.
+In this challenge, you will explore the resources that have been pre-deployed in your Azure environment.  Don't worry, we still left a few tasks for you to figure out.
 
-**HINT:** _Record names and keys_
+Each of the Azure PaaS services have secrets that the Azure Function application code needs to access those services. The *easy* thing would be to just put those secrets in the source code so the functions can access each service. However, the *easy* way is rarely the **CORRECT** way to do things.
 
-Create the resources in Azure according the following specifications:
+**NOTE:** Placing secrets in plain-text code files could result in your company or organization being in the news headlines for all the wrong reasons.
 
-- Create a resource group
-- Create an Azure Cosmos DB account
-*If this takes a while, move ahead and come back to finish the containers*
-    * API : Core (SQL)
-    * Disable Geo-redundancy and multi-region writes
-    * Create a container
-      * Database ID `LicensePlates`
-      * Uncheck **Provision database throughput**
-      * Container ID `Processed`
-      * Partition key : **`/licensePlateText`**
-    * Create a second container
-      * Database ID created above `LicensePlates`
-      * Container ID `NeedsManualReview`
-      * Partition key : **`/fileName`**
-- Create a storage account (refer to this one as INIT)
-    * Create a container `images`
-    * Create a container `export`
-- Create a function app (put `App` in the name)
-    * For your tollbooth app, consumption plan, .NET runtime stack
-    * Create new storage and disable application insights
-- Create a function app (put `Events` in the name)
-    * For your tollbooth events, consumption plan, Node.js runtime stack
-    * Create new storage and disable application insights
-- Create an Event Grid Topic (leave schema as Event Grid Schema)
-- Create a Computer Vision API service (S1 pricing tier)
-- Create a Key Vault
-    * Pricing Tier : Standard
-    * Create Secrets According to below
-- Learn how you will configure your Tollbooth app to use KeyVault for secrets
+It is a best practice to store secrets in a key management service like Azure Key Vault, and then have the application request those secret values from Key Vault on demand as needed. This solution has multiple benefits, including:
+- The secrets are not placed in plain text code files where they can be compromised (by committing them to a Git repository)
+- The application developer does not need to know or see the secret values
+- The secrets can be managed by an operations team independently of application developers
+
+The secrets for each of the services have already been stored in the Azure Key Vault for you. By default, you will NOT have access to view the secrets (even though you are the owner of your Azure subscription and the resources deployed in it).
+
+Your challenges are to:
+- Figure out how to grant yourself access to view the secrets in the Key Vault
+- The Azure Functions each have an managed identity that have already been granted access to the Key Vault for you. Figure out where that permission is set.
+- Validate each of secrets listed in the table below is populated with a value
 
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -67,15 +49,13 @@ Create the resources in Azure according the following specifications:
     | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
     | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-**HINT**: You have to configure a Managed Identity for the Function to be able to read from the Key Vault secrets using RBAC. Also, the Secret URI must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
-
 **HINT:** Understand the RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
-
 
 ## Success Criteria
 
-1. Validate that you have 11 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). If you enabled Application Insights on any of your functions, it's OK, we'll change it later.
+1. Validate that you have 11 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). 
 2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal
+3. Demonstrate to your coach that you understand how/where the Azure Function Apps have been granted access to the Key Vault.
 
 ## Learning Resources
 
