@@ -14,11 +14,12 @@ In this challenge, you'll focus on learning best practices for working with GitH
 
 - **Give Examples**: Provide some examples of what you are looking for which can help Copilot grasp the context and the specific pattern you're aiming for. 
 
+Practice these techniques with GitHub Copilot by either refining your Quote of the Day app or experimenting freely in your IDE. 
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Demonstrate the differences before and after leveraging prompt engineering techniques.
+1. Demonstrate the differences before and after leveraging prompt engineering techniques.  You should be able to demonstrate all three scenarios.
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
