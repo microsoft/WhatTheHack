@@ -152,6 +152,7 @@ var computerVisionApiKey = cognitiveServices.listKeys().key1
 var cosmosDBAuthorizationKey = cosmosDb.listKeys().primaryMasterKey
 var blobStorageConnection = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value}'
 var eventGridTopicKey = eventGridTopic.listKeys().key1
+var cosmosDBConnString = cosmosDb.listConnectionStrings().connectionStrings[0].connectionString
 
 //Put the keys in Key Vault
 resource computerVisionSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
@@ -175,6 +176,14 @@ resource cosmosDBSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
   name: 'CosmosDBAuthorizationKey'
   properties: {
     value: cosmosDBAuthorizationKey
+  }
+}
+
+resource cosmosDBConnSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: keyVault
+  name: 'CosmosDBConnectionString'
+  properties: {
+    value: cosmosDBConnString
   }
 }
 
@@ -252,7 +261,7 @@ resource functionApp 'Microsoft.Web/sites@2023-01-01' = {
           value: funcStorageAccount.name
         }
         {
-          name: 'FUNCTIONS_EXTENSTION_VERSION'
+          name: 'FUNCTIONS_EXTENSION_VERSION'
           value: '~4'
         }
         {
@@ -291,7 +300,7 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
           value: funcStorageAccount.name
         }
         {
-          name: 'FUNCTIONS_EXTENSTION_VERSION'
+          name: 'FUNCTIONS_EXTENSION_VERSION'
           value: '~4'
         }
         {
@@ -336,7 +345,3 @@ resource roleAssignmentKVEvents 'Microsoft.Authorization/roleAssignments@2022-04
     principalId: functionEventsPrincipalId
   }
 }
-
-//TODO: Set up KV secret for Challenge 6
-
-//TODO: Close the door behind you and enable RBAC for KV
