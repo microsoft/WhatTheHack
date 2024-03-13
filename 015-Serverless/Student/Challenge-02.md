@@ -18,11 +18,11 @@ Azure Functions are an integral part of a Serverless architecture.  Azure Functi
 
 **NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
 
-**NOTE:** An empty folder "HelloWorld" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
+**NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
 
 ## Success Criteria
 
-- Verify that you are able to open your function in a browser (you need the complete Function URL) and pass your name in the query string (i.e ?name=YourName). You should see a message like:
+- Verify that you are able to open your function in a browser (you need the complete Function URL) and pass your name in the query string (i.e `?name=YourName`). You should see a message like:
 *`Hello, YourName. This HTTP triggered function executed successfully.`*
 - Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App
 
