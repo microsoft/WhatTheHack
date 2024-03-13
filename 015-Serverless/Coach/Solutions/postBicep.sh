@@ -54,7 +54,7 @@ az eventgrid event-subscription create  --name SubsProcessImage --source-resourc
 # Challenge 06 - Event functions
 
 #The CLI below uses the classic connection string app environment. 
-az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "wth_COSMOSDB=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
+az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
 
 ##########################################################
 ## NOW IT'S TIME TO DEPLOY THE NODE.JS EVENTS FUNCTIONS ##
