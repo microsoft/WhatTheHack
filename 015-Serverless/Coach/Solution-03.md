@@ -201,7 +201,7 @@ See the bottom of this page for instructions on generating a CLI script using Co
 
 ### Task 5: Create the Cognitive Services API
 
-Look in the portal for Azure AI services, then Computer vision. Select S1 pricing, leave all other options as default. Learn more in the [Azure AI Visiong doc page](https://learn.microsoft.com/en-gb/azure/ai-services/computer-vision/)
+Look in the portal for Azure AI services, then Computer vision. Select S1 pricing, leave all other options as default. Learn more in the [Azure AI Vision doc page](https://learn.microsoft.com/en-gb/azure/ai-services/computer-vision/)
 
 ### Task 6: Create the Keyvault secrets
 
@@ -212,11 +212,11 @@ Here's a table with example values for the secrets, redacted (to ensure the righ
 
 | **Secret** | **Value** |
 | --- | --- |
-| `blobStorageConnection` | DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=wthserverless2014xxz;AccountKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxqeyH6w==;BlobEndpoint=https://wthserverless2014xxz.blob.core.windows.net/;FileEndpoint=https://wthserverless2014xxz.file.core.windows.net/;QueueEndpoint=https://wthserverless2014xxz.queue.core.windows.net/;TableEndpoint=https://wthserverless2014xxz.table.core.windows.net/ |
-| `computerVisionApiKey` | cXxxxxxxxxxxxxxxxxxxxxx0b |
-| `cosmosDBAuthorizationKey` | vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQQ== |
-| `cosmosDBConnectionString` | AccountEndpoint=https://wth-serverless-cosmosdbxx.documents.azure.com:443/;AccountKey=vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQ==; |
-| `eventGridTopicKey` | Pxxxxxxxxxxxxxxxxxxxxx8= |
+| `blobStorageConnection` | `DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=wthserverless2014xxz;AccountKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxqeyH6w==;BlobEndpoint=https://wthserverless2014xxz.blob.core.windows.net/;FileEndpoint=https://wthserverless2014xxz.file.core.windows.net/;QueueEndpoint=https://wthserverless2014xxz.queue.core.windows.net/;TableEndpoint=https://wthserverless2014xxz.table.core.windows.net/` |
+| `computerVisionApiKey` | `cXxxxxxxxxxxxxxxxxxxxxx0b` |
+| `cosmosDBAuthorizationKey` | `vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQQ==` |
+| `cosmosDBConnectionString` | `AccountEndpoint=https://wth-serverless-cosmosdbxx.documents.azure.com:443/;AccountKey=vxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxQ==;` |
+| `eventGridTopicKey` | `Pxxxxxxxxxxxxxxxxxxxxx8=` |
 
 ## Copilot prompt for Azure CLI
 
