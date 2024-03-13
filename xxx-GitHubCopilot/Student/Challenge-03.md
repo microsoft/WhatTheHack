@@ -17,7 +17,6 @@ This challenge emphasizes the versatility of GitHub Copilot, showcasing its pote
 ## Success Criteria
 Successfully complete this challenge by demonstrating that you can:
 
-- Show how Copilot was able to assist you with the PR process.
 - Demonstrate a functional CI pipeline set up with Copilot's guidance.
   
 ## Learning Resources
