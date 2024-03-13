@@ -321,7 +321,11 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '18'
+          value: '~18'
+        }
+        {
+          name: 'WEBSITE_RUN_FROM_PACKAGE'
+          value: '1'
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
