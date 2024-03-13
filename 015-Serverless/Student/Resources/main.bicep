@@ -301,7 +301,7 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
     serverFarmId: hostingPlan.id
     reserved: true
     siteConfig: {
-      linuxFxVersion: linuxFxVersion
+      linuxFxVersion: 'NODE|18-LTS'
       appSettings: [
         {
           name: 'AzureWebJobsStorage'
