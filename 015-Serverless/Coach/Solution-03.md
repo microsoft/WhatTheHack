@@ -28,10 +28,11 @@ Whether you provide the automation script to the students or a lab provider, you
 
 1. Navigate to the [`/Coach/Solutions/Challenge-03-Accelerator`](/Solutions/Challenge-03-Accelerator) folder in this repo.
 2. Download the `deployAzureResources.sh` & `main.bicep` files to your local workstation and ensure they are both in the same folder.
-3. Open a Terminal/WSL with Bash shell to the folder where you downloaded the files.
-4. Make the `deployAzureResources.sh` file executable with the following command: `chmod +x deployAzureResources.sh`
-5. Log into the Azure CLI: `az login`
-6. Run the deployment script: `./deployAzureResources.sh`
+    - **NOTE:** If you are providing the script & bicep template to the students, you should package them to a ZIP file and distribute directly to the students.  You should NOT direct students to the What The Hack repo link here in the Coach Guide!
+4. Open a Terminal/WSL with Bash shell to the folder where you downloaded the files.
+5. Make the `deployAzureResources.sh` file executable with the following command: `chmod +x deployAzureResources.sh`
+6. Log into the Azure CLI: `az login`
+7. Run the deployment script: `./deployAzureResources.sh`
 
 While the script is running, you can monitor its progress in the Azure Portal by navigating to the Resource Group `wth-serverless-rg` and checking the `Deployments` pane.
 
