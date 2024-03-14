@@ -4,8 +4,9 @@
     "features": {
         "ghcr.io/devcontainers/features/common-utils": {},
         "ghcr.io/devcontainers/features/azure-cli": {},
-        "ghcr.io/devcontainers/features/dotnet:2": "6.0",
-        "ghcr.io/devcontainers/features/node:1": {}
+        "ghcr.io/devcontainers/features/dotnet:2": "8.0",
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
     },
     "hostRequirements": {
       "cpus": 1
