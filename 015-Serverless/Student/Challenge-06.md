@@ -12,7 +12,7 @@ Two notes about the code you will use:
 
 ## Description
 
-- Create a new folder to contain your event processing functions, call it "Events" for instance- Create a new Project from the "Workspace (local)" dropdown in the Azure Extension tab of VSCode. Choose the events folder. Select Javascript. Model V4, Event Grid trigger, name `savePlateData`
+- Create a new folder to contain your event processing functions, call it "Events" for instance. Create a new Project from the "Workspace (local)" dropdown in the Azure Extension tab of VSCode. Choose the Events folder. Select Javascript. Model V4, Event Grid trigger, name `savePlateData`
 - Replace the code `savePlateData.js` with the following:
 
 ```javascript

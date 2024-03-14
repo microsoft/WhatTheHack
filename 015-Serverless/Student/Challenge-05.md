@@ -24,6 +24,9 @@ In the portal, add an event grid subscription to the `ProcessImage` function wit
 - Resource : The first storage account you created.
 - Event type : Blob Created _only_
 - Endpoint type : Select your `ProcessImage` Azure Function
+- Filters: none
+
+**HINT** There are multiple ways to configure an Event Grid Subscription to a System Topic. One of the easiest is to start from the Storage Account, section Events, tab "Event Subscriptions". You can pick any name for the Subscription or the System Topic Name.
 
 ### Run Water Through The Pipes
 

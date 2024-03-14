@@ -21,9 +21,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code. Optionally, you can also try a "Hello World" in JavaScript, which will be useful in Challenge 06.
 
-**NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
-
-**NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live.
+**NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live. This is because when using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
 
 **NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
 
@@ -50,9 +48,9 @@ When using VS Code in GitHub Codespaces, you can navigate to other folders and o
 - [How to get the Function URL via the Azure Portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-javascript#test-the-function)
 
 ## APPENDIX Hello World code
-In case there's a change in the lates VS Code, here's a Hello World example for C# (.NET 8)
+In case there's a change in the latest VS Code, here's a Hello World example for C# (.NET 8)
 
-```
+```csharp
 using System.Net;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -86,7 +84,7 @@ namespace HelloWorldName
 ```
 
 You also need a Program.cs entrypoint at the root, so it works in [Isolated mode](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows)
-```
+```csharp
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
