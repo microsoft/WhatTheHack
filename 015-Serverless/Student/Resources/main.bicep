@@ -10,7 +10,7 @@ var computerVisionServiceName = '${resourcePrefix}-ocr'
 var eventGridTopicName = '${resourcePrefix}-topic-${uniqueString(resourceGroup().id)}'
 var funcStorageAccountName = 'func${uniqueString(resourceGroup().id)}'
 var hostingPlanName = '${resourcePrefix}-hostingplan'
-var hostingPlanName2 = '${resourcePrefix}-hostingplanEvents'
+//var hostingPlanName2 = '${resourcePrefix}-hostingplanEvents'
 var functionTollBoothApp = '${resourcePrefix}-app-${uniqueString(resourceGroup().id)}'
 var functionTollBoothEvents = '${resourcePrefix}-events-${uniqueString(resourceGroup().id)}'
  
@@ -292,17 +292,17 @@ resource functionApp 'Microsoft.Web/sites@2023-01-01' = {
 
 //Second hosting plan for Events function
 //Create hosting plan
-resource hostingPlan2 'Microsoft.Web/serverfarms@2023-01-01' = {
-  name: hostingPlanName2
-  location: location
-  sku: {
-    name: 'Y1'
-    tier: 'Dynamic'
-  }
-  properties: {
-    reserved: true
-  }
-}
+// resource hostingPlan2 'Microsoft.Web/serverfarms@2023-01-01' = {
+//   name: hostingPlanName2
+//   location: location
+//   sku: {
+//     name: 'Y1'
+//     tier: 'Dynamic'
+//   }
+//   properties: {
+//     reserved: true
+//   }
+// }
 
 //Create function app for TollBoothEvents
 resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
@@ -313,7 +313,7 @@ resource functionEvents 'Microsoft.Web/sites@2023-01-01' = {
     type:'SystemAssigned'
   }
   properties:{
-    serverFarmId: hostingPlan2.id
+    serverFarmId: hostingPlan.id
     reserved: true
     siteConfig: {
       linuxFxVersion: 'NODE|18'
