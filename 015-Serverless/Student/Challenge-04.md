@@ -71,10 +71,9 @@ await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
 
 - Optional: Execute **dotnet build** to validate any syntax errors, from the TollBooth root folder.
 
+### Understand the TollBooth App code (Optional)
 
-## OPTIONAL Understand the TollBooth App code
-
-- **`ProcessImage.cs`**. Notice that the Run method is decorated with the `FunctionName` attribute, which sets the name of the Azure Function to "`ProcessImage`". This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Exercise 1. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
+- **`ProcessImage.cs`**. Notice that the `Run` method is decorated with the `FunctionName` attribute, which sets the name of the Azure Function to `ProcessImage`. This is triggered by HTTP requests sent to it from the Event Grid service. You tell Event Grid that you want to get these notifications at your function's URL by creating an event subscription, which you will do in a later task, in which you subscribe to blob-created events. The function's trigger watches for new blobs being added to the images container of the storage account that was created in Challenge 2. The data passed to the function from the Event Grid notification includes the URL of the blob. That URL is in turn passed to the input binding to obtain the uploaded image from Blob storage.
 
 - **`FindLicensePlateText.cs`**. This class is responsible for contacting the Computer Vision API to find and extract the license plate text from the photo, using OCR. Notice that this class also shows how you can implement a resilience pattern using [Polly](https://github.com/App-vNext/Polly), an open source .NET library that helps you handle transient errors. This is useful for ensuring that you do not overload downstream services, in this case, the Computer Vision API. This will be demonstrated later on when visualizing the Function's scalability.
 
