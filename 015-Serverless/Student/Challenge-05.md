@@ -27,7 +27,7 @@ In the portal, add an event grid subscription to the `ProcessImage` function wit
 
 ### Run Water Through The Pipes
 
-Once the TollBooth application is published and configured, upload license plate image to the storage account to trigger the function.
+Once the TollBooth application is published and configured, upload a license plate image to the storage account to trigger the function.
 
 ## Success Criteria
 
