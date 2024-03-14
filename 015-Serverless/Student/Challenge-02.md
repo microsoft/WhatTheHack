@@ -14,7 +14,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
 
 - Create a "Hello World" Azure Function in Visual Studio Code that:
     - Uses an HTTP Trigger
-    - Returns "Hello YourName!" as an output (with your actual Name)
+    - Returns "`Hello <YourName>!`" as an output (with your actual name in place of `<YourName>`)
     - Use any programming language of your choice.
 - Build & Test your sample application locally (or in your GitHub Codespace) by invoking it from a web browser
 - Deploy the function into a new Azure Function App in Azure and test it using its public URL
@@ -23,9 +23,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
 
 **NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live. This is because when using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
 
-**NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
-
-**TIP** You can also use the CLI to create a new function project folder and generate the quickstart code for any language, [like this HelloWorld for C#](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=windows%2Cazure-cli#create-a-local-function-project). Remember to Open VS Code at that folder in order to have an easier user experience with the Azure Functions extension
+**NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package (and GitHub Codespace), you can use it to create your new Functions project workspace, or create a new empty folder.
 
 ### Navigating Folders with VS Code on GitHub Codespaces
 
@@ -46,50 +44,3 @@ When using VS Code in GitHub Codespaces, you can navigate to other folders and o
 - [Quickstart: Create a JavaScript function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4)
 - Complete guide to develop functions on Visual Studio Code, [follow this advanced guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)
 - [How to get the Function URL via the Azure Portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-javascript#test-the-function)
-
-## APPENDIX Hello World code
-In case there's a change in the latest VS Code, here's a Hello World example for C# (.NET 8)
-
-```csharp
-using System.Net;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Extensions.Logging;
-
-namespace HelloWorldName
-{
-    public class HttpExample
-    {
-        private readonly ILogger _logger;
-
-        public HttpExample(ILoggerFactory loggerFactory)
-        {
-            _logger = loggerFactory.CreateLogger<HttpExample>();
-        }
-
-        [Function("HttpExample")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
-        {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-
-            var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-
-            response.WriteString("Hellow World!");
-
-            return response;
-        }
-    }
-}
-```
-
-You also need a Program.cs entrypoint at the root, so it works in [Isolated mode](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows)
-```csharp
-using Microsoft.Extensions.Hosting;
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWorkerDefaults()
-    .Build();
-
-host.Run();
-```
