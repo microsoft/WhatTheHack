@@ -14,3 +14,9 @@
 - In the command line enter: `git add --all` - This will add all of the files you just copied to the folder to be be tracked.
 - Now we need to commit our changes by typing `git commit -am "My first commit"`
 - Finally we need to push to the remote repository in github by doing `git push -u`.  You may see a warning which will provide the full command if this is the first time you are doing this to target the github server.
+
+## Videos
+
+### Challenge 1 Solution
+
+[![Challenge 1 solution](../Images/WthVideoCover.jpg)](https://youtu.be/8duTFL5fyWg "Challenge 1 solution")

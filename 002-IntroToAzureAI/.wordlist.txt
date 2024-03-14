@@ -1,0 +1,5 @@
+Edell
+IntelligentKiosk
+ServiceHelpers
+botframework
+customvision

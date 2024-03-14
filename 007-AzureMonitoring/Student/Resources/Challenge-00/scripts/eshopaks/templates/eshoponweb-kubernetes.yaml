@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-web
+  labels:
+    app: eshop-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eshop-web
+  template:
+    metadata:
+      labels:
+        app: eshop-web
+    spec:
+      containers:
+      - name: eshop-web
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+          requests:
+            cpu: 500m
+            memory: 128Mi
+        ports:
+        - containerPort: 80
+        env:
+        - name: ApplicationInsights__ConnectionString
+          value: {{ .Values.connectionStrings.appInsightsConnection }}
+        - name: ConnectionStrings__CatalogConnection
+          value: {{ .Values.connectionStrings.catalogConnection }}
+        - name: ConnectionStrings__IdentityConnection
+          value: {{ .Values.connectionStrings.identityConnection }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-web
+  labels:
+    app: eshop-web
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: eshop-web

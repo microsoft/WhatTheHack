@@ -24,8 +24,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code
 - Challenge 05: **[Deployment](./Solution-05.md)**
 	 - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid
-- Challenge 06: **[Create Functions in the Portal](./Solution-06.md)**
-	 - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics
+- Challenge 06: **[Create Functions Using VS Code](./Solution-06.md)**
+	 - Create the event triggered functions in VS Code to respond to Event Grid Topics
 - Challenge 07: **[Monitoring](./Solution-07.md)**
 	 - Configure application monitoring with Application Insights Resource on Azure Portal
 - Challenge 08: **[Data Export Workflow](./Solution-08.md)**
