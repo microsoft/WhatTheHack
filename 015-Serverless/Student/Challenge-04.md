@@ -4,15 +4,19 @@
 
 ## Introduction
 
-The function code doesn't have any credentials or settings stored in files. Instead, it uses Environment Variables (configured via Application Settings) to point to the specific databases or storage accounts it uses. For further security, the credentials are not directly stored in the Application Settings, we just point to the KeyVault secret instead, and let Azure dynamically fetch the secret values thanks to Managed Identities and RBAC.
+The TollBooth application's function code does not have any credentials or settings stored in its code files. Instead, it reads its secrets and configuration settings from Environment Variables that must be set and passed in by the hosting environment (Azure Function App).
 
-In this challenge, you'll create application settings with references to this environment's databases and access keys (from the previous challenge), leveraging the native KeyVault integration. 
+Azure Function Apps enable you to set these values in their hosting envrionment. They are known as Application Settings. For further security, the secret values are not directly stored in the Application Settings, we just point to the KeyVault secret instead, and let Azure dynamically fetch the secret values thanks to Managed Identities and RBAC.
 
-Then, you'll open the source code and copy&paste the missing code (in `TODO's`) as well as references to the application setting variable names.
+## Description
 
-## Step by Step Instructions
+In this challenge, you will create Application Settings for each of the configuration settings and secrets the TollBooth app requires, leveraging the native KeyVault integration.  
 
-- Add the application settings in the **first** Azure Function App (.NET based, with name containing &quot;App&quot;), as follows:
+You will also prepare the TollBooth application's code by adding code snippets that reference the Environment Variables and other functions it will call.
+
+### Configure Function App Application Settings in Azure
+
+Via the Azure Portal, add the application settings in the **first** Azure Function App (.NET based, with name containing `app`), as follows:
 
 | **Application Key** | **Value** |
 | --- | --- |
@@ -27,10 +31,14 @@ Then, you'll open the source code and copy&paste the missing code (in `TODO's`) 
 | `exportCsvContainerName` | Blob storage CSV export container name (i.e "`export`") |
 | `blobStorageConnection` | `blobStorageConnection` pointer to the Key Vault secret |
 
-**HINT** the pointers to KeyVault Secrets must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://kvname.vault.azure.net/secrets/blobStorageConnection/)`
+**HINT:** The pointers to KeyVault Secrets must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://kvname.vault.azure.net/secrets/blobStorageConnection/)`
 
-- Configure a Managed Identity for the Function. 
-- Go to the Keyvault, Access Control (IAM), and add the Managed Identity with the proper RBAC permissions to read secrets.
+If you did not configure the Function App in Azure to access Key Vault in the previous challenge, you will need to do this now:
+- Configure a Managed Identity for the Function App. 
+- Go to the Key Vault's Access Control (IAM) settings, and add the Managed Identity with the proper Azure RBAC permissions to read secrets.
+
+### Configure TollBooth Application Code
+
 - Open the Tollbooth folder in Visual Studio Code. It's recommended to enable the suggested C# development extensions when prompted by VSCode.
 - Open the Todo Tree Extension. You will see a list of TODO tasks, where each task represents one line of code that needs to be completed.
 
