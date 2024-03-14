@@ -17,7 +17,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
     - Returns "Hello YourName!" as an output (with your actual Name)
     - Use any programming language of your choice.
 - Build & Test your sample application locally (or in your GitHub Codespace) by invoking it from a web browser
-- Deploy the function into a new Azure Function App in Azure
+- Deploy the function into a new Azure Function App in Azure and test it using its public URL
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code. Optionally, you can also try a "Hello World" in JavaScript, which will be useful in Challenge 06.
 
@@ -27,7 +27,29 @@ You can develop, test, and debug an Azure Function using developer tools that si
 
 **NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
 
-### Hello World code
+**TIP** You can also use the CLI to create a new function project folder and generate the quickstart code for any language, [like this HelloWorld for C#](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=windows%2Cazure-cli#create-a-local-function-project). Remember to Open VS Code at that folder in order to have an easier user experience with the Azure Functions extension
+
+### Navigating Folders with VS Code on GitHub Codespaces
+
+When using VS Code in GitHub Codespaces, you can navigate to other folders and open them by:
+- Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
+- Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
+
+## Success Criteria
+
+- Verify that you are able to open your function in a browser (you need the complete Function URL). You should see a message like:
+*`Hello, YourName!`*
+- Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App in Azure
+
+## Learning Resources
+
+- [Functions Overview](https://docs.microsoft.com/azure/azure-functions/functions-overview)
+- [Quickstart: Create a C# function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-csharp)
+- [Quickstart: Create a JavaScript function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4)
+- Complete guide to develop functions on Visual Studio Code, [follow this advanced guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)
+- [How to get the Function URL via the Azure Portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-javascript#test-the-function)
+
+## APPENDIX Hello World code
 In case there's a change in the lates VS Code, here's a Hello World example for C# (.NET 8)
 
 ```
@@ -63,22 +85,13 @@ namespace HelloWorldName
 }
 ```
 
-### Navigating Folders with VS Code on GitHub Codespaces
+You also need a Program.cs entrypoint at the root, so it works in [Isolated mode](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows)
+```
+using Microsoft.Extensions.Hosting;
 
-When using VS Code in GitHub Codespaces, you can navigate to other folders and open them by:
-- Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
-- Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .Build();
 
-## Success Criteria
-
-- Verify that you are able to open your function in a browser (you need the complete Function URL). You should see a message like:
-*`Hello, YourName!`*
-- Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App in Azure
-
-## Learning Resources
-
-- [Functions Overview](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-- [Quickstart: Create a C# function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-csharp)
-- [Quickstart: Create a JavaScript function using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node?pivots=nodejs-model-v4)
-- Complete guide to develop functions on Visual Studio Code, [follow this advanced guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)
-- [How to get the Function URL via the Azure Portal](https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?pivots=programming-language-javascript#test-the-function)
+host.Run();
+```
