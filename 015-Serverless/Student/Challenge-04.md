@@ -27,7 +27,7 @@ Via the Azure Portal, add the application settings in the **first** Azure Functi
 | `cosmosDBEndPointUrl` | Cosmos DB URI |
 | `cosmosDBAuthorizationKey` | `cosmosDBAuthorizationKey` pointer to the Key Vault secret |
 | `cosmosDBDatabaseId` | Cosmos DB database id (i.e "`LicensePlates`") |
-| `cosmosDBCollectionId` | Cosmos DB processed collection id (i.e "`Processed`") |
+| `cosmosDBCollectionId` | Cosmos DB processed container id (i.e "`Processed`") |
 | `exportCsvContainerName` | Blob storage CSV export container name (i.e "`export`") |
 | `blobStorageConnection` | `blobStorageConnection` pointer to the Key Vault secret |
 
