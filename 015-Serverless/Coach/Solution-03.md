@@ -26,7 +26,7 @@ To use the Challenge 03 Accelerator when delivering the hack, you have two optio
 
 Whether you provide the automation script to the students or a lab provider, you can use the following instructions to deploy it:
 
-1. Navigate to the [`/Coach/Solutions/Challenge-03-Accelerator`](../Solutions/Challenge-03-Accelerator) folder in this repo.
+1. Navigate to the [`/Coach/Solutions/Challenge-03-Accelerator`](Solutions/Challenge-03-Accelerator) folder in this repo.
 2. Download the `deployAzureResources.sh` & `main.bicep` files to your local workstation and ensure they are both in the same folder.
     - **NOTE:** If you are providing the script & bicep template to the students, you should package them to a ZIP file and distribute directly to the students.  You should NOT direct students to the What The Hack repo link here in the Coach Guide!
 4. Open a Terminal/WSL with Bash shell to the folder where you downloaded the files.
