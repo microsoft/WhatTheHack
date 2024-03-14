@@ -28,7 +28,7 @@ Each of the Azure PaaS services have secrets that the Azure Function application
 
 **NOTE:** Placing secrets in plain-text code files could result in your company or organization being in the news headlines for all the wrong reasons.
 
-It is a best practice to store secrets in a key management service like Azure Key Vault, and then have the application request those secret values from Key Vault on demand as needed. This solution has multiple benefits, including:
+It is a best practice to store secrets in a key management service like [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts), and then have the application request those secret values from Key Vault on demand as needed. This solution has multiple benefits, including:
 - The secrets are not placed in plain text code files where they can be compromised (by committing them to a Git repository)
 - The application developer does not need to know or see the secret values
 - The secrets can be managed by an operations team independently of application developers
