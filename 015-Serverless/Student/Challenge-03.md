@@ -67,7 +67,6 @@ Create the resources in Azure according the following specifications:
 - Create a Computer Vision API service (S1 pricing tier), nowadays called Azure AI Vision
 - Create a Key Vault
     * Pricing Tier : Standard
-    * Create Secrets According to below
 
 ### Configure Azure Key Vault
 
