@@ -6,7 +6,40 @@
 
 See the bottom of this page for instructions on generating a CLI script using Copilot or ChatGPT.
 
+## Challenge 03 Accelerator
+
+By default, Challenge 03 involves having the students doing a lot of discovery by navigating the Azure Portal to deploy all of the PaaS resources that make up the TollBooth application's Serverless architecture.  This is a worthy challenge, but can be time consuming.
+
+If the organization you are delivering this hack to has limited time, you may wish to "accelerate" students through this challenge by providing them with an automation script & bicep template that pre-deploys all of the Azure resources required by Challenge 3.
+
+There is a "hidden" Challenge 03 Accelerator page in the Student guide. You can point students at this page by having them add an "A" to the end of the Challenge 03 link in the Student Guide:
+- `https://microsoft.github.io/WhatTheHack/015-Serverless/Student/Challenge-03A.html`
+
+This page has abbreviated challenge tasks that include having the students:
+- Figure out how to view the secrets in Key Vault
+- Identify how the Function Apps have access to the Key Vault
+- Validate there are values in each of the Key Vault secrets
+
+To use the Challenge 03 Accelerator when delivering the hack, you have two options:
+1. Provide the automation script to the students for them to run on their own.
+2. Provide the automation script to an Azure Lab provider (like [Spektra Systems](https://spektrasystems.com/)) and have the lab provider pre-deploy it to lab environments ahead of the hack.
+
+Whether you provide the automation script to the students or a lab provider, you can use the following instructions to deploy it:
+
+1. Navigate to the [`/Coach/Solutions/Challenge-03-Accelerator`](/Solutions/Challenge-03-Accelerator) folder in this repo.
+2. Download the `deployAzureResources.sh` & `main.bicep` files to your local workstation and ensure they are both in the same folder.
+3. Open a Terminal/WSL with Bash shell to the folder where you downloaded the files.
+4. Make the `deployAzureResources.sh` file executable with the following command: `chmod +x deployAzureResources.sh`
+5. Log into the Azure CLI: `az login`
+6. Run the deployment script: `./deployAzureResources.sh`
+
+While the script is running, you can monitor its progress in the Azure Portal by navigating to the Resource Group `wth-serverless-rg` and checking the `Deployments` pane.
+
+**NOTE:** If you plan to deploy these resources to different resource groups in a shared subscription, you must modify the `RGName` value in the `deployAzureResources.sh` script for each deployment so you don't collide on the same Resource Group.
+
 ## Step by Step Instructions
+
+If you wish to deploy the resources manually and stay ahead of the students, you can follow the step-by-step instructions here, along with some references to the documentation that explains further details.
 
 ### Help references
 
