@@ -20,4 +20,4 @@ This folder is empty by design. Students should open this folder in a separate V
 
 ## `/HelloWorld`
 
-This folder is empty by design. Students should open this folder in a separate Visual Studio Code window to create the HelloWorld Azure Function in Challenge 02.
+This folder is empty by design. Students should open this folder in a separate Visual Studio Code window to create the Hello World Azure Function in Challenge 02.
