@@ -6,25 +6,39 @@
 
 Azure Functions are an integral part of a Serverless architecture.  Azure Functions allows you to run small pieces of code (called "functions") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale.
 
+The goals of this challenge are to get you familiar with the both the developer tools experience for creating a function, and the Azure Portal experience managing how that function is deployed in Azure.
+
 ## Description
 
+You can develop, test, and debug an Azure Function using developer tools that simulate the Azure hosting environment on your workstation (or GitHub Codespace). Once a function's code has been developed and tested locally, it can be published to Azure in a compute resource called a "Function App".  A "Function App" in Azure is a hosting envrionment where your function code will be published to and made available to be invoked by other processes.
+
 - Create a "Hello World" Azure Function in Visual Studio Code that:
+    - Uses an HTTP Trigger
     - Takes a name as an input parameter.
     - Returns the name back to you as an output.
-    - Use any programming language of your choice
-- Deploy the function into a new Azure Function App
+    - Use any programming language of your choice.
+- Build & Test your sample application locally (or in your GitHub Codespace) by invoking it from a web browser
+- Deploy the function into a new Azure Function App in Azure
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code. Optionally, you can also try a "Hello World" in JavaScript, which will be useful in Challenge 06.
 
 **NOTE:** When using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
 
+**NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live.
+
 **NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
+
+### Navigating Folders with VS Code on GitHub Codespaces
+
+When using VS Code in GitHub Codespaces, you can navigate to other folders and open them by:
+    - Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
+    - Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
 
 ## Success Criteria
 
 - Verify that you are able to open your function in a browser (you need the complete Function URL) and pass your name in the query string (i.e `?name=YourName`). You should see a message like:
 *`Hello, YourName. This HTTP triggered function executed successfully.`*
-- Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App
+- Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App in Azure
 
 ## Learning Resources
 
