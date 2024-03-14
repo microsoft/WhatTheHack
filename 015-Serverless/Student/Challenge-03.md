@@ -42,6 +42,9 @@ Create the resources in Azure according the following specifications:
 - Create a Key Vault
     * Pricing Tier : Standard
     * Create Secrets According to below
+ 
+- Learn how you will configure your Tollbooth app to use KeyVault for secrets
+
     |                          |                                                                                                                                                             |
     | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
     | **Secret Name**      |                                                                          **Value**                                                                          |
@@ -51,8 +54,9 @@ Create the resources in Azure according the following specifications:
     | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
     | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-- Configure the RBAC role "KeyVault Administrator" for yourself, to read and write secrets via the portal, which is a more privileged role than the "KeyVault Secrets User" role that the functions will use to just read secrets using a Managed Identity.
+**HINT**: You have to configure a Managed Identity for the Function to be able to read from the Key Vault secrets using RBAC. Also, the Secret URI must finish with a trailing "/" when not referring a version. For example: `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kv.vault.azure.net/secrets/blobStorageConnection/)`
 
+- Configure the RBAC role "KeyVault Administrator" for yourself, to read and write secrets via the portal, which is a more privileged role than the "KeyVault Secrets User" role that the functions will use to just read secrets using a Managed Identity.
 
 ## Success Criteria
 
