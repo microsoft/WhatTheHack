@@ -159,5 +159,5 @@ In this task, you will add an Azure Cosmos DB output binding to the `QueuePlateF
 
 
 # Result
-This is what the Event Subscription looks like when properly configured with the savePlateData function endpoint and the custom filter ![eventsub](./images/image-43.png)
+This is what the Event Subscription looks like when properly configured with the `savePlateData` function endpoint and the custom filter ![eventsub](./images/image-43.png)
 ![eventsubdata](./images/image-44.png)
