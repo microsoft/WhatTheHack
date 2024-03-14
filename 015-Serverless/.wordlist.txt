@@ -10,10 +10,5 @@ JPG
 Codespace
 Codespaces
 TollBooth
-UploadImages
 Codespace's
 Spektra
-YourName
-savePlateData
-HelloWorld
-entrypoint
