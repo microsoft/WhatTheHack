@@ -3,10 +3,10 @@
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
-Having explored the capabilities of GitHub Copilot, it's now time to refine your approach and adopt best practices that will make your experience with Copilot even more productive. This challenge will focus on strategies for interacting with Copilot effectively.
+Having explored GitHub Copilot's capabilities, it's time to dive deeper and refine your approach. This challenge will not only focus on adopting best practices for effective interaction with Copilot but also apply these strategies to integrate a new feature into your "Quote of the Day" app.
 
 ## Description
-In this challenge, you'll focus on learning best practices for working with GitHub Copilot. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Below are some to take into consideration:
+In this challenge, you'll focus on learning best practices for working with GitHub Copilot to implement a new feature in your app. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Below are some to take into consideration:
 
 - **Craft Well-Defined Requests**: Understand the importance of clear and concise communication. Grasp how articulating detailed, well-defined requests can steer Copilot to offer more accurate and beneficial suggestions, aligning closely with your coding objectives.
 
@@ -14,12 +14,13 @@ In this challenge, you'll focus on learning best practices for working with GitH
 
 - **Give Examples**: Provide some examples of what you are looking for which can help Copilot grasp the context and the specific pattern you're aiming for. 
 
-Practice these techniques with GitHub Copilot by either refining your Quote of the Day app or experimenting freely in your IDE. 
+Implement a new feature, such as personalized quote categorization, user preferences for quote categories, or a keyword search for quotes, using these best practices.
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
 1. Demonstrate the differences before and after leveraging prompt engineering techniques.  You should be able to demonstrate all three scenarios.
+2. Showcase the new feature(s) you have implemented.
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
