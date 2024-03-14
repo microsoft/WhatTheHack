@@ -39,7 +39,7 @@ If you did not configure the Function App in Azure to access Key Vault in the pr
 
 ### Configure TollBooth Application Code
 
-- Open the Tollbooth folder in Visual Studio Code. It's recommended to enable the suggested C# development extensions when prompted by VSCode.
+- Open the `/Tollbooth` folder in Visual Studio Code. It's recommended to enable the suggested C# development extensions when prompted by VSCode.
 - Open the Todo Tree Extension. You will see a list of TODO tasks, where each task represents one line of code that needs to be completed.
 
     > ![A list of TODO tasks, including their description, project, file, and line number display.](../images/image38.png 'TODO tasks')
