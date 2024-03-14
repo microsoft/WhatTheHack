@@ -17,3 +17,7 @@ This folder contains the .NET "UploadImages" Azure Function application code nee
 ## Events
 
 This folder is empty by design. Students should open this folder in a separate Visual Studio Code window to create the Node.js Azure Functions in Challenge 06.
+
+## HelloWorld
+
+This folder is empty by design. Students should open this folder in a separate Visual Studio Code window to create the HelloWorld Azure Function in Challenge 02.
