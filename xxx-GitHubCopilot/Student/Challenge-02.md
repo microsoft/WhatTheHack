@@ -20,7 +20,7 @@ Implement a new feature, such as personalized quote categorization, user prefere
 You will have successfully completed this challenge when you:
 
 1. Demonstrate the differences before and after leveraging prompt engineering techniques.  You should be able to demonstrate all three scenarios.
-2. Showcase the new feature(s) you have implemented.
+2. Show that you have successfully integrated a new feature into your application.
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
