@@ -16,7 +16,7 @@ In this challenge, you will deploy the TollBooth function code to the **first** 
 
 **Make sure the publish is successful before moving to the next step**
 
-### Configure Event Grid Subsription to Trigger `ProcessImage` Function
+### Configure Event Grid Subscription to Trigger `ProcessImage` Function
 
 In the portal, add an event grid subscription to the `ProcessImage` function with the following specifications:
 - Event Schema: Event Grid Schema.
