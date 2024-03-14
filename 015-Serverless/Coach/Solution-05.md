@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Explain to the students how to upload the LicensePlates images to the Storage account, "images" container. 
+Explain to the students how to upload the License Plates images to the Storage account, "images" container. 
 > ![Uploading pictures](./images/image-41.png 'Uploading pictures')
 Then, how to Stream logs from the Azure Function, either from VSCode, or via the Portal in the Monitor Section, as shown in the image below
 > ![Streaming Logs from the Function.](./images/image-40.png 'Monitoring Funciton logs')
