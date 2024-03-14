@@ -10,7 +10,7 @@ The goals of this challenge are to get you familiar with the both the developer 
 
 ## Description
 
-You can develop, test, and debug an Azure Function using developer tools that simulate the Azure hosting environment on your workstation (or GitHub Codespace). Once a function's code has been developed and tested locally, it can be published to Azure in a compute resource called a "Function App".  A "Function App" in Azure is a hosting envrionment where your function code will be published to and made available to be invoked by other processes.
+You can develop, test, and debug an Azure Function using developer tools that simulate the Azure hosting environment on your workstation (or GitHub Codespace). Once a function's code has been developed and tested locally, it can be published to Azure in a compute resource called a "Function App".  A "Function App" in Azure is a hosting environment where your function code will be published to and made available to be invoked by other processes.
 
 - Create a "Hello World" Azure Function in Visual Studio Code that:
     - Uses an HTTP Trigger
