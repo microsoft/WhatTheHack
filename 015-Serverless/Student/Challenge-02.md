@@ -14,8 +14,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
 
 - Create a "Hello World" Azure Function in Visual Studio Code that:
     - Uses an HTTP Trigger
-    - Takes a name as an input parameter.
-    - Returns the name back to you as an output.
+    - Returns "Hello YourName!" as an output (with your actual Name)
     - Use any programming language of your choice.
 - Build & Test your sample application locally (or in your GitHub Codespace) by invoking it from a web browser
 - Deploy the function into a new Azure Function App in Azure
@@ -29,7 +28,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
 **NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package, you can use it to create your new Functions project workspace, or create a new empty folder.
 
 ### Hello World code
-In case there's a change in the lates VS Code, here's a Hello World example for C# (.NET 8) that takes "name" as a parameter
+In case there's a change in the lates VS Code, here's a Hello World example for C# (.NET 8)
 
 ```
 using System.Net;
@@ -56,7 +55,7 @@ namespace HelloWorldName
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
-            response.WriteString("Welcome to Azure Functions!");
+            response.WriteString("Hellow World!");
 
             return response;
         }
@@ -72,8 +71,8 @@ When using VS Code in GitHub Codespaces, you can navigate to other folders and o
 
 ## Success Criteria
 
-- Verify that you are able to open your function in a browser (you need the complete Function URL) and pass your name in the query string (i.e `?name=YourName`). You should see a message like:
-*`Hello, YourName. This HTTP triggered function executed successfully.`*
+- Verify that you are able to open your function in a browser (you need the complete Function URL). You should see a message like:
+*`Hello, YourName!`*
 - Understand the basic parts of an Azure Function's code and how to publish it to an Azure Function App in Azure
 
 ## Learning Resources
