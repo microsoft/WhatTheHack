@@ -49,11 +49,11 @@ Your challenges are to:
     | `cosmosDBConnectionString` |                                                                    Cosmos DB Primary Connection String                                                                 |
     | `blobStorageConnection`    |                                                               Blob storage connection string                                                                |
 
-**HINT:** Understand the RBAC role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
+**HINT:** Understand the Azure RBAC (Role Based Access Control) role "KeyVault Administrator", which is more privileged than the "KeyVault Secrets User" role that the functions will use.
 
 ## Success Criteria
 
-1. Validate that you have 11 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). 
+1. Validate that you have 13 resources in your resource group in the same region (This includes the 2 storage accounts associated to your function apps). 
 2. Ensure you have permissions to read/write the Key Vault Secrets using the Portal
 3. Demonstrate to your coach that you understand how/where the Azure Function Apps have been granted access to the Key Vault.
 
