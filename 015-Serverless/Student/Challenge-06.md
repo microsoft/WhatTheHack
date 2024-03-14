@@ -48,7 +48,7 @@ app.eventGrid('savePlateData', {
     * Event Schema: Event Grid Schema.
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
-    * Event Type : Add `savePlateData`
+    * Event Type to filter: Add `savePlateData`
     * Endpoint : Select `SavePlateData` Function.
 
 Now let's repeat the same steps for the second event function:
@@ -85,7 +85,7 @@ app.eventGrid('queuePlateForManualCheckup', {
     * Event Schema: Event Grid Schema.
     * Topic Type: Event Grid Topics.
     * Resource: your recently created Event Grid.
-    * Add Event Type `queuePlateForManualCheckup`
+    * Event Type to filter `queuePlateForManualCheckup`
     * Endpoint: Select `QueuePlateForManualCheckup` Function.
 
 ## Success Criteria

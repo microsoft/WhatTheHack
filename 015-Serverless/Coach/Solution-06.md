@@ -17,7 +17,7 @@ The Student Guide has step-by-step guidance for VSCode. The below instructions r
 
 ### Task 1: Create function to save license plate data to Azure Cosmos DB
 
-In this task, you will create a new Node.js function triggered by Event Grid and that outputs successfully processed license plate data to Azure Cosmos DB.
+In this task, you will create a new Node.js function triggered by Event Grid and that outputs successfully processed license plate data to Azure Cosmos DB. The Student guide uses VSCode. We document here how to do it via the Azure Portal, for educational purposes.
 
 1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
@@ -37,34 +37,9 @@ In this task, you will create a new Node.js function triggered by Event Grid and
 
     b. Select **Create**.
 
-6)  Replace the code in the new `SavePlateData` function with the following:
+6.  Replace the code in the new `SavePlateData` function with the one provided in the Student Guide.
 
-```javascript
-const { app, output } = require('@azure/functions'); 
-
-const cosmosOutput = output.cosmosDB({ 
-    databaseName: 'LicensePlates', 
-    containerName: 'Processed', 
-    createIfNotExists: true, 
-    connection: 'cosmosDBConnectionString', 
-}); 
-
-app.eventGrid('savePlateData', { 
-    return: cosmosOutput, 
-    handler: (event, context) => { 
-        context.log('Event grid function processed event:', event); 
-        return { 
-            fileName: event.data['fileName'], 
-            licensePlateText: event.data['licensePlateText'], 
-            timeStamp: event.data['timeStamp'], 
-            exported: false,
-            id: event.id 
-        }; 
-    }, 
-}); 
-```
-
-8.  Select **Save**.
+7.  Select **Save**.
 
 ### Task 2: Add an Event Grid subscription to the `SavePlateData` function
 
@@ -84,11 +59,13 @@ In this task, you will add an Event Grid subscription to the `SavePlateData` fun
 
     e. For resource, select your recently created Event Grid.
 
-    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
+    f. For Event Tyeps, click **Add Event Type**, then enter **`savePlateData`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
 
-    g. Leave Web Hook as the Endpoint Type.
+    g. Ensure the Endpoint Type is Azure Functions and the Endpoint is your **`savePlateData`**
 
 3.  Leave the remaining fields at their default values and select **Create**.
+
+**NOTE** We filter this subscription to only receive the event types specified within the `SendToEventGrid` class in the TollBooth solution. This will ensure that all other event types are ignored by your functions.
 
 ### Task 3: Add an Azure Cosmos DB output to the `SavePlateData` function
 
@@ -132,32 +109,7 @@ In this task, you will create a new function triggered by Event Grid and outputs
 
 4.  Select **Create**.
 
-5.  Replace the code in the new `QueuePlateForManualCheckup` function with the following:
-
-```javascript
-const { app, output } = require('@azure/functions'); 
-
-const cosmosOutput = output.cosmosDB({ 
-    databaseName: 'LicensePlates', 
-    containerName: 'NeedsManualReview', 
-    createIfNotExists: true, 
-    connection: 'cosmosDBConnectionString', 
-}); 
-
-app.eventGrid('queuePlateForManualCheckup', { 
-    return: cosmosOutput, 
-    handler: (event, context) => { 
-        context.log('Event grid function processed event:', event); 
-        return { 
-            fileName: event.data['fileName'], 
-            licensePlateText: '', 
-            timeStamp: event.data['timeStamp'], 
-            resolved: false,
-            id: event.id
-        };
-    },
-});
-```
+5.  Replace the code in the new `QueuePlateForManualCheckup` function with the one provided in the Student Guide.
 
 6.  Select **Save**.
 
@@ -179,9 +131,9 @@ In this task, you will add an Event Grid subscription to the `QueuePlateForManua
 
     e. For resource, select your recently created Event Grid.
 
-    f. Ensure that **Subscribe to all event types** is checked. You will enter a custom event type later.
+    f. For Event Tyeps, click **Add Event Type**, then enter **`QueuePlateForManualCheckup`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
 
-    g. Leave Web Hook as the Endpoint Type.
+    g. Ensure the Endpoint Type is Azure Functions and the Endpoint is your **`savePlateData`**
 
 3.  Leave the remaining fields at their default values and select **Create**.
 
@@ -205,31 +157,7 @@ In this task, you will add an Azure Cosmos DB output binding to the `QueuePlateF
 
 4.  Select **Save**.
 
-### Task 7: Configure custom event types for the new Event Grid subscriptions
 
-In this task, you will configure a custom event type for each new Event Grid subscription you created for your functions in the previous steps of this exercise. Currently the event types are set to All. We want to narrow this down to only the event types specified within the `SendToEventGrid` class in the TollBooth solution. This will ensure that all other event types are ignored by your functions.
-
-1.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
-
-2.  Open the **`ServerlessArchitecture`** resource group, then select your Event Grid Topic.
-
-3.  At the bottom of the **Overview** blade, you will see both Event Grid subscriptions created from the functions. Select **`saveplatedatasub`**.
-
-4.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
-
-5.  Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
-
-6.  Select **Add Event Type**, then enter **`savePlateData`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
-
-7.  Select **Save**.
-
-8.  Select the **`queueplateformanualcheckupsub`** Event Grid subscription at the bottom of the **Overview** blade.
-
-9.  Select the **Filters** tab, then _uncheck_ **Subscribe to all event types**.
-
-10. Select the **Delete** button (x inside of a circle) on the **All** event type to delete it.
-
-11. Select **Add Event Type**, then enter **`queuePlateForManualCheckup`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
-
-12. Select **Save**.
-
+# Result
+This is what the Event Subscription looks like when properly configured with the savePlateData function endpoint and the custom filter ![eventsub](./images/image-43.png)
+![eventsubdata](./images/image-44.png)
