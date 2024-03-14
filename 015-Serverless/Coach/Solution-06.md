@@ -1,4 +1,4 @@
-# Challenge 06 - Create Functions in the Portal - Coach's Guide 
+# Challenge 06 - Create Functions Using VS Code - Coach's Guide 
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 

@@ -1,7 +1,7 @@
 #!/bin/bash -x
 # Variables
 RGName="rg-wth-serverless"
-location="westus3"
+location="canadacentral"
 cosmosDbAccountName="wth-serverless-cosmosdbxx"
 storageAccountName="wthserverless2014xxz"
 funcStorageAccName="funccodewth2014xxz"
@@ -15,7 +15,7 @@ functionTollBoothEvents="wth-serverless-eventsz"
 az group create --name $RGName --location $location
 
 # Create an Azure Cosmos DB account and a SQL-compatible Database
-az cosmosdb create --name $cosmosDbAccountName --kind GlobalDocumentDB --resource-group $RGName --locations regionName=$location  --capabilities EnableServerless
+az cosmosdb create --name $cosmosDbAccountName --kind GlobalDocumentDB --resource-group $RGName --locations regionName=$location 
 az cosmosdb sql database create --account-name $cosmosDbAccountName --name LicensePlates --resource-group $RGName
 
 # Create the containers inside the Cosmos DB account
@@ -101,9 +101,7 @@ az eventgrid event-subscription create  --name SubsProcessImage --source-resourc
 
 
 # Challenge 06 - Event functions
-
-#The CLI below uses the classic connection string app environment. 
-az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "wth_COSMOSDB=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
+az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/cosmosDBConnectionString/)"
 #The above uses KV. If you rader use "plaintext" in the app env variable, use the cli below
 #az functionapp config appsettings set -g $RGName -n $functionTollBoothEvents --settings "cosmosDBConnectionString=$cosmosDBConnString"
 
@@ -121,10 +119,3 @@ az eventgrid event-subscription create  --name queueplateFormanualcheckupsub --s
 #NOTE: in theory, event grid topic subscriptions should work this way
 #az eventgrid topic event-subscription create  --name saveplatedatasub -g $RGName --topic-name $eventGridTopicName --endpoint $eventFuncIdSave --endpoint-type azurefunction --included-event-types savePlateData
 #az eventgrid topic event-subscription create  --name queueplateFormanualcheckupsub -g $RGName --topic-name $eventGridTopicName --endpoint $eventFuncIdQueue --endpoint-type azurefunction --included-event-types queuePlateForManualCheckup
-
-
-
-#ALT INSTRUCTIONS FOR CHALLENGE 06 
-# There's a new feature for Functions called Service Connector, but for this to work, we must adapt the node.js code https://learn.microsoft.com/en-gb/azure/service-connector/how-to-integrate-cosmos-sql?tabs=nodejs#sample-code
-#az functionapp connection create cosmos-sql -g $RGName --connection wth_COSMOSDB --client-type nodejs -n $functionTollBoothEvents --tg $RGName --account $cosmosDbAccountName --database LicensePlates --system-identity
-#az functionapp connection validate  -g $RGName --connection wth_COSMOSDB -n $functionTollBoothEvents
