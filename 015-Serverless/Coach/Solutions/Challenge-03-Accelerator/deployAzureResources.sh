@@ -14,4 +14,4 @@ az provider register -n 'Microsoft.CognitiveServices' --accept-terms
 az group create --name $RGName --location $location
 
 # Deploy bicep template
-az group deployment create -f main.bicep -g $RGName -n wth-serverless-rg
+az deployment group create -f main.bicep -g $RGName -n wth-serverless-rg
