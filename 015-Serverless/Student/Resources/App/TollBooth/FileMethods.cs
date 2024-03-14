@@ -6,15 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Azure.Storage.Blobs;
 using TollBooth.Models;
 
 namespace TollBooth
 {
     internal class FileMethods
     {
-        private readonly CloudBlobClient _blobClient;
+        private readonly BlobServiceClient _blobClient;
         private readonly string _containerName = Environment.GetEnvironmentVariable("exportCsvContainerName");
         private readonly string _blobStorageConnection = Environment.GetEnvironmentVariable("blobStorageConnection");
         private readonly ILogger _log;
@@ -22,11 +21,9 @@ namespace TollBooth
         public FileMethods(ILogger log)
         {
             _log = log;
-            // Retrieve storage account information from connection string.
-            var storageAccount = CloudStorageAccount.Parse(_blobStorageConnection);
-
+            // reference https://elcamino.cloud/articles/2020-03-30-azure-storage-blobs-net-sdk-v12-upgrade-guide-and-tips.html
             // Create a blob client for interacting with the blob service.
-            _blobClient = storageAccount.CreateCloudBlobClient();
+            _blobClient =  new BlobServiceClient("StorageConnectionString");
         }
 
         public async Task<bool> GenerateAndSaveCsv(IEnumerable<LicensePlateDataDocument> licensePlates)
@@ -48,10 +45,10 @@ namespace TollBooth
                     _log.LogInformation($"Beginning file upload: {blobName}");
                     try
                     {
-                        var container = _blobClient.GetContainerReference(_containerName);
+                        var container =  _blobClient.GetBlobContainerClient(_containerName);
 
                         // Retrieve reference to a blob.
-                        var blob = container.GetBlockBlobReference(blobName);
+                        var blob = container.GetBlobClient(blobName);
                         await container.CreateIfNotExistsAsync();
 
                         // Upload blob.
