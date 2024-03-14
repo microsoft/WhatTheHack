@@ -59,7 +59,7 @@ In this task, you will add an Event Grid subscription to the `SavePlateData` fun
 
     e. For resource, select your recently created Event Grid.
 
-    f. For Event Tyeps, click **Add Event Type**, then enter **`savePlateData`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
+    f. For Event Types, click **Add Event Type**, then enter **`savePlateData`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
 
     g. Ensure the Endpoint Type is Azure Functions and the Endpoint is your **`savePlateData`**
 
@@ -131,7 +131,7 @@ In this task, you will add an Event Grid subscription to the `QueuePlateForManua
 
     e. For resource, select your recently created Event Grid.
 
-    f. For Event Tyeps, click **Add Event Type**, then enter **`QueuePlateForManualCheckup`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
+    f. For Event Types, click **Add Event Type**, then enter **`QueuePlateForManualCheckup`** into the event types field. If you specified a different name in the `SendToEventGrid` class in the TollBooth solution, use that instead.
 
     g. Ensure the Endpoint Type is Azure Functions and the Endpoint is your **`savePlateData`**
 

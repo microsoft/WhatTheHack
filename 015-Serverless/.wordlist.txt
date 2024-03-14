@@ -13,3 +13,7 @@ TollBooth
 UploadImages
 Codespace's
 Spektra
+YourName
+savePlateData
+HelloWorld
+entrypoint
