@@ -79,16 +79,8 @@ This one possible Cloud Solution Architecture classifies under the **Application
 
 ## Prerequisites
 
-- Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**.
 - Active Azure Subscription with **owner level access or equivalent** to create or modify resources and add RBAC roles and Event Grid subscriptions
-- [Node.js 18+](https://nodejs.org/en/download/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required (NPM, installed by default with Node.js) The Azure SDK generally requires a minimum version of Node.js of 18.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 18.x for local and remove development, your code should run successfully.
-- Visual Studio Code (although Visual Studio 2022 works perfectly fine too)
-- Azure CLI
-- Azure Functions Core Tools
-- .NET 6 SDK
-- Any extensions required by your language of choice
-
-*To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
+- Specific instructions about the development environment can be found on **[Challenge 01](Student/Challenge-01.md)**
 
 ## Contributors
 
