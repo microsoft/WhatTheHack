@@ -6,7 +6,7 @@
 
 The TollBooth application's function code does not have any credentials or settings stored in its code files. Instead, it reads its secrets and configuration settings from Environment Variables that must be set and passed in by the hosting environment (Azure Function App).
 
-Azure Function Apps enable you to set these values in their hosting envrionment. They are known as Application Settings. For further security, the secret values are not directly stored in the Application Settings, we just point to the KeyVault secret instead, and let Azure dynamically fetch the secret values thanks to Managed Identities and RBAC.
+Azure Function Apps enable you to set these values in their hosting environment. They are known as Application Settings. For further security, the secret values are not directly stored in the Application Settings, we just point to the KeyVault secret instead, and let Azure dynamically fetch the secret values thanks to Managed Identities and RBAC.
 
 ## Description
 
