@@ -31,8 +31,8 @@ You can develop, test, and debug an Azure Function using developer tools that si
 ### Navigating Folders with VS Code on GitHub Codespaces
 
 When using VS Code in GitHub Codespaces, you can navigate to other folders and open them by:
-    - Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
-    - Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
+- Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
+- Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
 
 ## Success Criteria
 
