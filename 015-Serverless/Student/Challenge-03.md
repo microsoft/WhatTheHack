@@ -29,8 +29,11 @@ While deploying each resource is a challenge in and of itself, there are two hig
 In this challenge, you will provision a blob storage account using the Hot tier, and create two containers within to store uploaded photos and exported CSV files. You will then provision two Function Apps instances, one you will host the "App" function code, and one will host the "Events" function code. Next, you will create a new Event Grid topic. After that, you will create an Azure Cosmos DB account with two collections. Then, you will provision a new Cognitive Services Computer Vision API service (aka Azure AI Vision Service) for applying object character recognition (OCR) on the license plates.  Lastly, you will implement Key Vault for secure some of the resource keys.
 
 **TIP:** It is recommended that you ensure all resources use the same resource group for easier cleanup. 
+
 **TIP:** Deploy resources in the same region as the resource group. 
+
 **TIP:** Remember that some resources need to have unique names.
+
 **TIP:** *Record names and keys as you go*, you will need these later.
 
 You can deploy the resources however you like (Azure Portal, Bicep, Azure CLI, Terraform, etc). However, it is a good idea to use the Azure Portal so that you can learn the available settings for each resource.
@@ -70,7 +73,7 @@ Create the resources in Azure according the following specifications:
 
 Each of the Azure PaaS services have secrets that the Azure Function application code needs to access those services. The *easy* thing would be to just put those secrets in the source code so the functions can access each service. However, the *easy* way is rarely the **CORRECT** way to do things.
 
-**NOTE:** Placing secrets in plain-text code files could result in your company or organization being in the news headlines for all the ***wrong*** reasons.
+   **NOTE:** Placing secrets in plain-text code files could result in your company or organization being in the news headlines for all the ***wrong*** reasons.
 
 It is a best practice to store secrets in a key management service like [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts), and then have the application request those secret values from Key Vault on demand as needed. This solution has multiple benefits, including:
 - The secrets are not placed in plain text code files where they can be compromised (by committing them to a Git repository)
