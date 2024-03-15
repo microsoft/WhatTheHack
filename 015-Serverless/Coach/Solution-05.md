@@ -4,6 +4,11 @@
 
 ## Notes & Guidance
 
+Explain to the students how to upload the License Plates images to the Storage account, "images" container. 
+> ![Uploading pictures](./images/image-41.png 'Uploading pictures')
+Then, how to Stream logs from the Azure Function, either from VSCode, or via the Portal in the Monitor Section, as shown in the image below
+> ![Streaming Logs from the Function.](./images/image-40.png 'Monitoring Funciton logs')
+
 *As of May 2020, there is a new Portal view of the functions*
 1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
 2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value

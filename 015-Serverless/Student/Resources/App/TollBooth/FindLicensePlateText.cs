@@ -1,17 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using TollBooth.Models;
 using Polly;
@@ -44,11 +37,11 @@ namespace TollBooth
             const string requestParameters = "language=unk&detectOrientation=true";
             // Get the API URL and the API key from settings.
             // TODO 2: Populate the below two variables with the correct AppSettings properties.
-            var uriBase = Environment.GetEnvironmentVariable("");
-            var apiKey = Environment.GetEnvironmentVariable("");
-
+            // var uriBase = ...
+            // var apiKey = ...
+            
             var resiliencyStrategy = DefineAndRetrieveResiliencyStrategy();
-
+            
             // Configure the HttpClient request headers.
             _client.DefaultRequestHeaders.Clear();
             _client.DefaultRequestHeaders.Accept.Clear();
@@ -60,12 +53,16 @@ namespace TollBooth
 
             try
             {
+                _log.LogInformation("Sending OCR request");
                 // Execute the REST API call, implementing our resiliency strategy.
                 HttpResponseMessage response = await resiliencyStrategy.ExecuteAsync(() => _client.PostAsync(uri, GetImageHttpContent(imageBytes)));
 
                 // Get the JSON response.
-                var result = await response.Content.ReadAsAsync<OCRResult>();
+                //var result = await response.Content.Async<OCRResult>();
+                _log.LogInformation("Processing OCR response");
+                var result = JsonConvert.DeserializeObject<OCRResult>(await response.Content.ReadAsStringAsync());
                 licensePlate = GetLicensePlateTextFromResult(result);
+                
             }
             catch (BrokenCircuitException bce)
             {
@@ -73,7 +70,7 @@ namespace TollBooth
             }
             catch (Exception e)
             {
-                _log.LogCritical($"Critical error: {e.Message}", e);
+                _log.LogCritical($"Critical error: {e.Message} for uri {uri}", e, uri);
             }
 
             _log.LogInformation($"Finished OCR request. Result: {licensePlate}");
@@ -217,7 +214,7 @@ namespace TollBooth
             // This is designed to handle Exceptions from the Computer Vision API, as well as
             // a number of recoverable status messages, such as 500, 502, and 504.
             var circuitBreakerPolicyForRecoverable = Policy
-                .Handle<HttpResponseException>()
+                .Handle<Exception>()
                 .OrResult<HttpResponseMessage>(r => httpStatusCodesWorthRetrying.Contains(r.StatusCode))
                 .CircuitBreakerAsync(
                     handledEventsAllowedBeforeBreaking: 3,

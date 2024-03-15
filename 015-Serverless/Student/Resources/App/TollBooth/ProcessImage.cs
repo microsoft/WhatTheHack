@@ -13,29 +13,34 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Azure.Messaging.EventGrid;
 using Azure.Messaging.EventGrid.SystemEvents;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Blob;
 using TollBooth.Models;
+using Microsoft.Azure.Functions.Worker;
+using System.Linq;
 
 namespace TollBooth
 {
-    public static class ProcessImage
+    public class ProcessImage
     {
+        private readonly ILogger log;
+
+        public ProcessImage(ILogger<ProcessImage> logger)
+        {
+            log = logger;
+        }
+
         private static HttpClient _client;
         private static string GetBlobNameFromUrl(string bloblUrl)
         {
             var uri = new Uri(bloblUrl);
-            var cloudBlob = new CloudBlob(uri);
-            return cloudBlob.Name;
+            //return uri.Segments.Last();
+            return uri.LocalPath;
         }
 
-        [FunctionName("ProcessImage")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent,
-            [Blob(blobPath: "{data.url}", access: FileAccess.Read,
-                Connection = "blobStorageConnection")] Stream incomingPlate,
-            ILogger log)
+        // Reference https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/Blob/BlobInputBindingSamples.cs
+        [Function("ProcessImage")]
+        public async Task Run([EventGridTrigger] EventGridEvent eventGridEvent, [BlobInput(blobPath: "{data.url}",
+                Connection = "blobStorageConnection")] Stream incomingPlate)
         {
             var licensePlateText = string.Empty;
             // Reuse the HttpClient across calls as much as possible so as not to exhaust all available sockets on the server on which it runs.
@@ -47,7 +52,6 @@ namespace TollBooth
                 {
                     var createdEvent = eventGridEvent.Data.ToObjectFromJson<StorageBlobCreatedEventData>();
                     var name = GetBlobNameFromUrl(createdEvent.Url);
-
                     log.LogInformation($"Processing {name}");
 
                     byte[] licensePlateImage;
@@ -58,7 +62,7 @@ namespace TollBooth
                     }
 
                     // TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.
-                    // COMPLETE: licensePlateText = await new.....
+                    // licensePlateText = await new ...
 
                     // Send the details to Event Grid.
                     await new SendToEventGrid(log, _client).SendLicensePlateData(new LicensePlateData()

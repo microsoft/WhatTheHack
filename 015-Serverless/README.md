@@ -23,11 +23,11 @@ In this hack, you will be solving the business problem of event driven scale for
 
 ## Solution Architecture
 
-The solution begins with vehicle photos being uploaded to an Azure Storage blob storage container, as they are captured. A blob storage trigger fires on each image upload, executing the photo processing **Azure Function** endpoint (on the side of the diagram), which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. 
+The solution begins with vehicle photos being uploaded to an Azure Storage blob storage container, as they are captured. A blob storage trigger fires on each image upload, executing the photo processing **Azure Function** endpoint (on the side of the diagram) named "`ProcessImage`", which in turn sends the photo to the **Cognitive Services Computer Vision API OCR** service to extract the license plate data. 
 
-If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called &quot;savePlateData&quot;. However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called &quot;queuePlateForManualCheckup&quot;. 
+If processing was successful and the license plate number was returned, the function submits a new Event Grid event, along with the data, to an Event Grid topic with an event type called `savePlateData`. However, if the processing was unsuccessful, the function submits an Event Grid event to the topic with an event type called `queuePlateForManualCheckup`. 
 
-Two separate functions are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. 
+Two separate functions (`savePlateData` and `queuePlateForManualCheckup`) are configured to trigger when new events are added to the Event Grid topic, each filtering on a specific event type, both saving the relevant data to the appropriate **Azure Cosmos DB** collection for the outcome, using the Cosmos DB output binding. 
 
 A **Logic App** that runs on a 15-minute interval executes an Azure Function via its HTTP trigger, which is responsible for obtaining new license plate data from Cosmos DB and exporting it to a new CSV file saved to Blob storage. If no new license plate records are found to export, the Logic App sends an email notification to the Customer Service department via their Office 365 subscription. 
 
@@ -61,11 +61,11 @@ This one possible Cloud Solution Architecture classifies under the **Application
 - Challenge 03: **[Create Resources](Student/Challenge-03.md)**
 	 - Provision the basic resources in Azure to prepare your deployment ground
 - Challenge 04: **[Configuration](Student/Challenge-04.md)**
-	 - Configure application settings on the Microsoft Azure Portal and update the TollBooth application code
+	 - Configure application settings and update the TollBooth application code
 - Challenge 05: **[Deployment](Student/Challenge-05.md)**
-	 - Deploy the Tollbooth project to the "App" in the Azure Portal Function App and configure the Event Grid
-- Challenge 06: **[Create Functions in the Portal](Student/Challenge-06.md)**
-	 - Create the event triggered functions in the Azure Portal to respond to Event Grid Topics
+	 - Deploy the Tollbooth project to the "App" in the Function App and configure the Event Grid
+- Challenge 06: **[Create Functions using VScode](Student/Challenge-06.md)**
+	 - Create the event triggered functions to respond to Event Grid Topics
 - Challenge 07: **[Monitoring](Student/Challenge-07.md)**
 	 - Configure application monitoring with Application Insights Resource on Azure Portal
 - Challenge 08: **[Data Export Workflow](Student/Challenge-08.md)**
@@ -79,16 +79,8 @@ This one possible Cloud Solution Architecture classifies under the **Application
 
 ## Prerequisites
 
-- Your laptop: Win, MacOS or Linux OR A development machine that you have **administrator rights**.
-- Active Azure Subscription with **contributor level access or equivalent** to create or modify resources.
-- [Node.js 8+](https://www.npmjs.com/): Install latest long-term support (LTS) runtime environment for local workstation development. A package manager is also required. Node.js installs NPM in the 8.x version. The Azure SDK generally requires a minimum version of Node.js of 8.x. Azure hosting services, such as Azure App service, provides runtimes with more recent versions of Node.js. If you target a minimum of 8.x for local and remove development, your code should run successfully.
-- Visual Studio 2022 or Visual Studio Code
-- Azure development workload for Visual Studio 2022
-- Azure Functions and Web jobs tools
-- .NET 6 SDK
-- Any extentions required by your language of choice
-
-*To setup Azure Functions on Visual studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
+- Active Azure Subscription with **owner level access or equivalent** to create or modify resources and add RBAC roles and Event Grid subscriptions
+- Specific instructions about the development environment can be found on **[Challenge 01](Student/Challenge-01.md)**
 
 ## Contributors
 
@@ -96,3 +88,5 @@ This one possible Cloud Solution Architecture classifies under the **Application
 - Devanshi Joshi
 - Nikki Conley
 - Gwyneth Peña-Siguenza
+- Marc Garcia
+- Peter Laudati
