@@ -21,7 +21,7 @@ You can develop, test, and debug an Azure Function using developer tools that si
   
 **NOTE:** The TollBooth application that you will work with for the rest of this hack uses C#. You may find it useful to understand how a basic "Hello World" Azure Function works in C# before you explore the TollBooth application's code. Optionally, you can also try a "Hello World" in JavaScript, which will be useful in Challenge 06.
 
-**NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live. This is because when using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages, you will need to open a separate VS Code window to work with each language.
+**NOTE:** It is easier to create & manage Azure Functions if you have VS Code "Open Folder" to the folder where you want to the code to live. This is because when using VS Code, the [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions&ssr=false#overview) can only work with one language stack at a time. If you have Azure Functions authored in multiple languages and/or folders, you will need to open a separate VS Code window to the individual folder to work with each language.
 
 **NOTE:** An empty folder "`HelloWorld`" is provided with the Resources package (and GitHub Codespace), you can use it to create your new Functions project workspace, or create a new empty folder.
 
@@ -29,7 +29,8 @@ You can develop, test, and debug an Azure Function using developer tools that si
 
 When using VS Code in GitHub Codespaces, you can navigate to other folders and open them by:
 - Selecting `Open Folder` from the "hamburger menu" in the upper left corner of the VS Code window.
-- Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK"..
+- Navigate to the folder from the drop down that appears at the top of the VS Code window and click "OK".
+- The Codespace will re-load in the browser, with VS Code opened to the folder you chose.
 
 ## Success Criteria
 
