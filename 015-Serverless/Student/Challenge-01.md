@@ -82,4 +82,5 @@ If using GitHub Codespaces:
         - `TollBooth`
         - `UploadImages`
     - `/Events`
+    - `/HelloWorld`
     - `/license plates`
