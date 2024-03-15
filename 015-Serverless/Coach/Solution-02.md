@@ -17,7 +17,7 @@ Code: ResourceKindRequireAcceptTerms
 
 - If using Codespaces, in order to work with a folder containing a function written in a different language, we must click the "hamburger" menu on the top left, then Open Folder in New Window, and select the folder with the function. This is because the VS Code extension for Azure Functions assumes the Local Workspace Project to contain functions of the same single language. This may be worked around using [Multi-root workspaces](https://github.com/microsoft/vscode-azurefunctions/wiki/Multiple-function-projects) , but it hasn't been tested in Codespaces with Azure functions 
 
-**TIP:** Students can also use the CLI to create a new function project folder and generate the quickstart code for any language, [like this HelloWorld for C#](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=windows%2Cazure-cli#create-a-local-function-project). Remember to Open VS Code at that folder in order to have an easier user experience with the Azure Functions extension.   IF students go down this path, support them as best you can, but you might want to recommend they stick to VS Code if they get stuck.
+**TIP:** Students can also use the CLI to create a new function project folder and generate the quickstart code for any language, [like this "Hello World" for C#](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-csharp?tabs=windows%2Cazure-cli#create-a-local-function-project). Remember to Open VS Code at that folder in order to have an easier user experience with the Azure Functions extension.   IF students go down this path, support them as best you can, but you might want to recommend they stick to VS Code if they get stuck.
 
 
 ## Step by Step Instructions
@@ -61,7 +61,7 @@ namespace HelloWorldName
 }
 ```
 
-You also need a Program.cs entrypoint at the root, so it works in [Isolated mode](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows)
+You also need a Program.cs entry point at the root, so it works in [Isolated mode](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows)
 ```csharp
 using Microsoft.Extensions.Hosting;
 
