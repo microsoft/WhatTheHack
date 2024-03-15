@@ -47,7 +47,7 @@ If you did not configure the Function App in Azure to access Key Vault in the pr
 - Click on **TODO 1**, which will open **`ProcessImage.cs`**. Replace the comment to complete the first task in `ProcessImage.cs`:
 
 ```csharp
-// **TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.**
+// TODO 1: Set the licensePlateText value by awaiting a new FindLicensePlateText.GetLicensePlate method.
 licensePlateText = await new FindLicensePlateText(log, _client).GetLicensePlate(licensePlateImage);
 ```
 

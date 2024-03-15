@@ -20,7 +20,9 @@ Example:
 | `exportCsvContainerName` | `export` |
 | `blobStorageConnection` | `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kvx.vault.azure.net/secrets/blobStorageConnection/)` |
 
-## Step by Step Instructions
+The end result for the Event Grid system topic subscription, from the Storage account to the App Function Process Images, looks like this
+![Event Subscription](./images/image-42.png)
+
 
 ### Help references
 
