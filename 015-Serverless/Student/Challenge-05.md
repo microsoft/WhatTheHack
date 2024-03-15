@@ -14,7 +14,7 @@ In this challenge, you will deploy the TollBooth function code to the **first** 
 
 - Deploy the Tollbooth app to the `App` function app you created earlier
 
-**Make sure the publish is successful before moving to the next step**
+**NOTE:** You must make sure the publish is successful before moving to the next step!
 
 ### Configure Event Grid Subscription to Trigger `ProcessImage` Function
 
@@ -26,7 +26,7 @@ In the portal, add an event grid subscription to the `ProcessImage` function wit
 - Endpoint type : Select your `ProcessImage` Azure Function
 - Filters: none
 
-**HINT** There are multiple ways to configure an Event Grid Subscription to a System Topic. One of the easiest is to start from the Storage Account, section Events, tab "Event Subscriptions". You can pick any name for the Subscription or the System Topic Name.
+**HINT:** There are multiple ways to configure an Event Grid Subscription to a System Topic. One of the easiest is to start from the Storage Account. Navigate to the Events pane, then to the "Event Subscriptions" tab. You can pick any name for the Subscription or the System Topic Name.
 
 ### Run Water Through The Pipes
 
