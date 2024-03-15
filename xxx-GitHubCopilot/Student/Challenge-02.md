@@ -14,8 +14,6 @@ In this challenge, you'll focus on learning best practices for working with GitH
 
 - **Give Examples**: Provide some examples of what you are looking for which can help Copilot grasp the context and the specific pattern you're aiming for. 
 
-Implement a new feature, such as personalized quote categorization, user preferences for quote categories, or a keyword search for quotes, using these best practices.
-
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
