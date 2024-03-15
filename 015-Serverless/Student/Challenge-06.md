@@ -58,7 +58,6 @@ app.eventGrid('savePlateData', {
 }); 
 ```
 
-- Create a new Azure Function App, from the Azure "Resources" section, in the region of your choice
 - In the Azure Resources pane of Azure Extension tab of VSCode, deploy the `savePlateData` function to the Function App with `events` in the name, from the Azure "Workspace" Local Project you just created.
 - You are asked if you want to Stream logs, click on it. If it disconnects after a while, stop and start again (from the Function App menu in VS Code)
 - Add a new Application Setting `cosmosDBConnectionString` with the connection string (or the corresponding KeyVault Secret reference) to Cosmos DB `LicensePlates`
@@ -105,6 +104,9 @@ app.eventGrid('queuePlateForManualCheckup', {
 });
 ```
 
+- In the Azure Resources pane of Azure Extension tab of VSCode, deploy the `queuePlateForManualCheckup` function to the Function App with `events` in the name, from the Azure "Workspace" Local Project.
+- You are asked if you want to Stream logs, click on it. If it disconnects after a while, stop and start again (from the Function App menu in VS Code)
+- Add a new Application Setting `cosmosDBConnectionString` with the connection string (or the corresponding KeyVault Secret reference) to Cosmos DB `LicensePlates`
 - From the Azure Portal, open the Function app, function `queuePlateForManualCheckup`, and go to Integration. From the Event Grid Trigger, add an event grid subscription
     * Name should contain "`QUEUE`"
     * Event Schema: Event Grid Schema.
