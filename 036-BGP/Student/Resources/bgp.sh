@@ -412,6 +412,48 @@ function create_csr () {
     fi
 }
 
+# Creates a CSR NVA
+# Example: create csr NVA in Azure environment
+# This is function is created to customise for the Network sqaad BGP Hack
+
+function create_azure_csr () {
+    azure_csr_id=$1
+    azure_csr_name=vng${azure_csr_id}
+    azure_csr_vnet_prefix="10.${azure_csr_id}.0.0/16"
+    azure_csr_subnet_prefix="10.${azure_csr_id}.2.0/24"
+    azure_csr_bgp_ip="10.${azure_csr_id}.2.10"
+    publisher=cisco
+    offer=cisco-csr-1000v
+    sku=17_03_08a-byol
+    # sku=17_3_4a-byol  # Newest version available
+    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
+    nva_size=Standard_B2ms
+    # Create azure_csr
+    echo "Creating VM azure-csr${azure_csr_id}-nva in Vnet $azure_csr_vnet_prefix..."
+    vm_id=$(az vm show -n "azure-csr${azure_csr_id}-nva" -g "$rg" --query id -o tsv 2>/dev/null)
+    if [[ -z "$vm_id" ]]
+    then
+        az vm create -n "azure-csr${azure_csr_id}-nva" -g "$rg" -l "$location" --image "${publisher}:${offer}:${sku}:${version}" --size "$nva_size" \
+            --generate-ssh-keys --public-ip-address "azure-csr${azure_csr_id}-pip" --public-ip-address-allocation static \
+            --vnet-name "$azure_csr_name" --vnet-address-prefix "$azure_csr_vnet_prefix" --subnet azure-nva --subnet-address-prefix "$azure_csr_subnet_prefix" \
+            --private-ip-address "$azure_csr_bgp_ip" --no-wait 2>/dev/null
+        sleep 30 # Wait 30 seconds for the creation of the PIP
+    else
+        echo "VM azure-csr${azure_csr_id}-nva already exists"
+    fi
+    # Adding UDP ports 500 and 4500 to NSG
+    nsg_name=azure-csr${azure_csr_id}-nvaNSG
+    az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ike --priority 1010 \
+      --source-address-prefixes Internet --destination-port-ranges 500 4500 --access Allow --protocol Udp \
+      --description "UDP ports for IKE"  >/dev/null
+
+    # Configuring the NIC for IP forwarding
+    echo "Enabling IP forwading in azure-csr${azure_csr_id}-nva..."
+    nva_nic_id=$(az vm show -n "azure-csr${azure_csr_id}-nva" -g $rg --query 'networkProfile.networkInterfaces[0].id' -o tsv)
+    az network nic update --ids $nva_nic_id --ip-forwarding -o none --only-show-errors
+}
+
+
 # Connects a CSR to one VNG
 function connect_csr () {
     csr_id=$1
@@ -1100,6 +1142,9 @@ for router in "${routers[@]}"
 do
     verify_router "$router"
 done
+
+# Create NVA in Vnet Gatewy 2 Network
+create_azure_csr "2"
 
 # Config BGP routers
 wait_for_csrs_finished
