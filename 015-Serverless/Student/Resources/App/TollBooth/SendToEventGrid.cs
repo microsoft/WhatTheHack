@@ -27,12 +27,12 @@ namespace TollBooth
             if (data.LicensePlateFound)
             {
                 // TODO 3: Modify send method to include the proper eventType name value for saving plate data.
-                await Send("savePlateData", "TollBooth/CustomerService", data);
+                // await ...
             }
             else
             {
                 // TODO 4: Modify send method to include the proper eventType name value for queuing plate for manual review.
-                await Send("queuePlateForManualCheckup", "TollBooth/CustomerService", data);
+                // await ...
             }
         }
 
