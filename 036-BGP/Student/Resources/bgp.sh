@@ -94,6 +94,29 @@ function wait_until_csr_available () {
     clean_string "$ssh_output"
 }
 
+# Wait until a public IP address answers via SSH
+# The only thing CSR-specific is the command sent
+# Created for Network Squad BGP Hack
+# function wait_until_azure_csr_available () {
+#     wait_interval=15
+#     csr_id=$1
+#     csr_ip=$(az network public-ip show -n "azure-csr${csr_id}-pip" -g "$rg" --query ipAddress -o tsv)
+#     echo "Waiting for CSR${csr_id} with IP address $csr_ip to answer over SSH..."
+#     start_time=$(date +%s)
+#     ssh_command="show version | include uptime"  # 'show version' contains VM name and uptime
+#     ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
+#     until [[ -n "$ssh_output" ]]
+#     do
+#         sleep $wait_interval
+#         ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
+#     done
+#     run_time=$(("$(date +%s)" - "$start_time"))
+#     ((minutes=run_time/60))
+#     ((seconds=run_time%60))
+#     echo "IP address $csr_ip is available (wait time $minutes minutes and $seconds seconds). Answer to SSH command \"$ssh_command\":"
+#     clean_string "$ssh_output"
+# }
+
 # Wait until all VNGs in the router list finish provisioning
 function wait_for_csrs_finished () {
     for router in "${routers[@]}"
@@ -611,6 +634,72 @@ function config_csr_base () {
     wr mem
 EOF
 }
+
+# Deploy baseline VPN and BGP config to a Cisco  CSR in Azure
+# Created for Network Squad BGP demo
+# function config_azure_csr_base () {
+#     csr_id=$1
+#     csr_ip=$(az network public-ip show -n "azure-csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
+#     asn="65003"
+#     myip=$(dig @resolver4.opendns.com myip.opendns.com +short)
+#     # Check we have a valid IP
+#     until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+#     do
+#         sleep 5
+#         myip=$(dig @resolver4.opendns.com myip.opendns.com +short)
+#     done
+#     echo "Our IP seems to be $myip"
+#     default_gateway="10.${csr_id}.2.1"
+#     echo "Configuring CSR ${csr_ip} for VPN and BGP..."
+#     username=$(whoami)
+#     password=$psk
+#     ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+#     config t
+#       username ${username} password 0 ${password}
+#       username ${username} privilege 15
+#       username ${default_username} password 0 ${password}
+#       username ${default_username} privilege 15
+#       no ip domain lookup
+#       no ip ssh timeout
+#       crypto ikev2 keyring azure-keyring
+#       crypto ikev2 proposal azure-proposal
+#         encryption aes-cbc-256 aes-cbc-128 3des
+#         integrity sha1
+#         group 2
+#       crypto ikev2 policy azure-policy
+#         proposal azure-proposal
+#       crypto ikev2 profile azure-profile
+#         match address local interface GigabitEthernet1
+#         authentication remote pre-share
+#         authentication local pre-share
+#         keyring local azure-keyring
+#       crypto ipsec transform-set azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
+#         mode tunnel
+#       crypto ipsec profile azure-vti
+#         set security-association lifetime kilobytes 102400000
+#         set transform-set azure-ipsec-proposal-set
+#         set ikev2-profile azure-profile
+#       crypto isakmp policy 1
+#         encr aes
+#         authentication pre-share
+#         group 14
+#       crypto ipsec transform-set csr-ts esp-aes esp-sha-hmac
+#         mode tunnel
+#       crypto ipsec profile csr-profile
+#         set transform-set csr-ts
+#       router bgp $asn
+#         bgp router-id interface GigabitEthernet1
+#         network 10.${csr_id}.0.0 mask 255.255.0.0
+#         bgp log-neighbor-changes
+#         maximum-paths eibgp 4
+#       ip route ${myip} 255.255.255.255 ${default_gateway}
+#       ip route 10.${csr_id}.2.0 255.255.255.0 ${default_gateway}
+#       line vty 0 15
+#         exec-timeout 0 0
+#     end
+#     wr mem
+# EOF
+# }
 
 # Configure a tunnel a BGP neighbor for a specific remote endpoint on a Cisco CSR
 # "mode" can be either IKEv2 or ISAKMP. I havent been able to bring up 
@@ -1198,6 +1287,13 @@ create_azure_csr "2"
 
 # Create Route Server in  Vnet Gatewy 2 Network
 create_route_server "2"
+
+# # Wait for CSR to be available
+# wait_until_azure_csr_available "2"
+
+
+# # Config Azure CSR Base
+# config_azure_csr_base "2"
 
 # Verify VMs/VNGs exist
 for router in "${routers[@]}"
