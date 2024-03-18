@@ -61,8 +61,8 @@ EOF
 You might need to restart your BGP adjacencies to make the change take effect quicker:
 
 ```bash
-ssh -n $csr3 "clear ip bgp *"
-ssh -n $csr4 "clear ip bgp *"
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa $csr3 "clear ip bgp *"
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa $csr4 "clear ip bgp *"
 ```
 
 Now let's look again at how VNG1 learns 10.3.0.0/16:
