@@ -14,7 +14,7 @@ Deploy this configuration to CSR3 and CSR4:
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr3" >/dev/null 2>&1 <<'EOF'
 config t
     route-map fromvngs permit 5
       match ip address prefix-list Vnet1
@@ -30,7 +30,7 @@ end
 wr mem
 EOF
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<'EOF'
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr4" >/dev/null 2>&1 <<'EOF'
 conf t
     route-map fromvngs permit 5
       match ip address prefix-list Vnet1

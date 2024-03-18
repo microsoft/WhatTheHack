@@ -31,7 +31,7 @@ We can configure one or both of the branch CSRs to propagate a default. In this 
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr3" >/dev/null 2>&1 <<'EOF'
 config t
     ip prefix-list S2B permit 0.0.0.0/0
     router bgp 65100

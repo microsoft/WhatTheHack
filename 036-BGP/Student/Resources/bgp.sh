@@ -437,7 +437,7 @@ function create_azure_csr () {
             --generate-ssh-keys --public-ip-address "azure-csr${azure_csr_id}-pip" --public-ip-address-allocation static \
             --vnet-name "$azure_csr_name" --vnet-address-prefix "$azure_csr_vnet_prefix" --subnet azure-nva --subnet-address-prefix "$azure_csr_subnet_prefix" \
             --private-ip-address "$azure_csr_bgp_ip" --no-wait 2>/dev/null
-        sleep 30 # Wait 30 seconds for the creation of the PIP
+        sleep 120 # Wait 30 seconds for the creation of the PIP
     else
         echo "VM azure-csr${azure_csr_id}-nva already exists"
     fi
@@ -451,6 +451,35 @@ function create_azure_csr () {
     echo "Enabling IP forwading in azure-csr${azure_csr_id}-nva..."
     nva_nic_id=$(az vm show -n "azure-csr${azure_csr_id}-nva" -g $rg --query 'networkProfile.networkInterfaces[0].id' -o tsv)
     az network nic update --ids $nva_nic_id --ip-forwarding -o none --only-show-errors
+}
+
+# Create Azure Route Server
+# This is function is created to customise for the Network sqaad BGP Hack
+function create_route_server () {
+    
+    route_server_id=$1
+    route_server=vng${route_server_id}
+    route_server_vnet_prefix="10.${azure_csr_id}.0.0/16"
+    route_server_subnet_prefix="10.${azure_csr_id}.3.0/24"
+   
+    
+    # Create Azure Route Server
+
+    echo "Creating Azure Route Server"
+    az network vnet subnet create --name RouteServerSubnet --resource-group $rg --vnet-name $route_server --address-prefix $route_server_subnet_prefix >/dev/null
+
+
+    subnet_id=$(az network vnet subnet show --name RouteServerSubnet --resource-group $rg --vnet-name $route_server --query id -o tsv) 
+    echo $subnet_id
+
+    az network public-ip create --name "ars-${route_server}-pip" --resource-group $rg --version IPv4 --sku Standard >/dev/null
+
+    az network routeserver create --name "ars-${route_server}" --resource-group $rg --hosted-subnet $subnet_id --public-ip-address "ars-${route_server}-pip" >/dev/null
+
+    # Enable Branch to Branch flag.
+    #az network routeserver update --name ARSHack --resource-group $rg --allow-b2b-traffic true
+
+
 }
 
 
@@ -1143,15 +1172,15 @@ do
     verify_router "$router"
 done
 
-# Create NVA in Vnet Gatewy 2 Network
-create_azure_csr "2"
-
 # Config BGP routers
 wait_for_csrs_finished
 config_csrs_base
 
+
+
 # Fix NSGs to allow all traffic between RFC1918 addresses
 fix_all_nsgs
+
 
 # Wait for VNGs to finish provisioning and configuring logging
 wait_for_gws_finished
@@ -1163,6 +1192,12 @@ for connection in "${connections[@]}"
 do
     create_connection "$connection"
 done
+
+# Create NVA in Vnet Gatewy 2 Network
+create_azure_csr "2"
+
+# Create Route Server in  Vnet Gatewy 2 Network
+create_route_server "2"
 
 # Verify VMs/VNGs exist
 for router in "${routers[@]}"

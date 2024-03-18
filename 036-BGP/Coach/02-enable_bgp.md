@@ -35,7 +35,7 @@ csr3=$(az network public-ip show -n csr3-pip -g $rg --query ipAddress -o tsv) &&
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -196,7 +196,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -364,7 +364,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -381,7 +381,7 @@ EOF
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
