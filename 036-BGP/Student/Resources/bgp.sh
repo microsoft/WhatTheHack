@@ -1285,8 +1285,8 @@ done
 # Create NVA in Vnet Gatewy 2 Network
 create_azure_csr "2"
 
-# Create Route Server in  Vnet Gatewy 2 Network
-create_route_server "2"
+# # Create Route Server in  Vnet Gatewy 2 Network
+# create_route_server "2"
 
 # # Wait for CSR to be available
 # wait_until_azure_csr_available "2"
