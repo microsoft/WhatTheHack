@@ -1,0 +1,44 @@
+name: Create a WTH Release - Push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  determine-changed-hackathon:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+        all_changed_hackathons: ${{ steps.convert-to-json-array.outputs.all_changed_hackathons }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Get changed hackathons
+        id: changed-hackathon-directories
+        uses: tj-actions/changed-files@25ef3926d147cd02fc7e931c1ef50772bbb0d25d
+        with:
+          dir_names: true
+          dir_names_exclude_current_dir: true
+          dir_names_max_depth: 1
+          files:
+            '**/Student/Resources/**'
+          files_ignore: |
+            .github/**
+            000-HowToHack/**
+            _layouts/**
+            _assets/**
+      - name: Convert space-separated string to JSON array
+        id: convert-to-json-array
+        run: |
+          JSON_ARRAY=$(echo ${{ steps.changed-hackathon-directories.outputs.all_changed_files }} | tr -d '\n' | jq -R -s -c 'split(" ")')
+          echo "all_changed_hackathons=$JSON_ARRAY" >> $GITHUB_OUTPUT
+  package:
+    needs: determine-changed-hackathon
+    if: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons != '[]' }}
+    uses: ./.github/workflows/create-wth-release-common.yml
+    with:
+      hackathonNames: ${{ needs.determine-changed-hackathon.outputs.all_changed_hackathons }}
+      pathToStudentResources: 'Student/Resources'
+      branchName: release
