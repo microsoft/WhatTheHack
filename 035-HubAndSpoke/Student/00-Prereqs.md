@@ -14,12 +14,12 @@ In this challenge we'll be setting up all the tools we will need to complete our
 - Ask your coach about the subscription you are going to use to fulfill the challenges
 - Install the recommended toolset, being one of this:
     - The Powershell way (same tooling for Windows, Linux or Mac):
-        - [Powershell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/overview)
+        - [Powershell core (7.x)](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
         - [Azure Powershell modules](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
         - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
         - [vscode Powershell extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
     - The Azure CLI way:
-        - [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), if you are running Windows and want to install the Azure CLI under a Linux shell like bash or zsh
+        - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install), if you are running Windows and want to install the Azure CLI under a Linux shell like bash or zsh
         - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
         - [Visual Studio Code](https://code.visualstudio.com/): the Windows Powershell ISE might be an option here for Windows users, but VS Code is far, far better
         - [VScode Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
@@ -48,7 +48,7 @@ We recommend to review the below LinkedIn training and Azure docs(< 4 hours) in 
     - Looking up IP addresses with DNS (DNS Hierarchical structure, DNS Record Types)
 
 - [Learning Subnetting](https://www.linkedin.com/learning/learning-subnetting-2019?u=3322)
-    - The structure of ipv4 addressess
+    - The structure of ipv4 addresses
         - Address classes
         - Public vs. private ipv4 communication
     - Types of IPv4 Communication
