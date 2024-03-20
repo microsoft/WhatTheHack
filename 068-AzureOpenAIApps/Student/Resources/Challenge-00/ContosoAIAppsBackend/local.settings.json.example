@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "AzureWebJobsStorage": "",
+    "COSMOS_CONNECTION": "",
+    "CITRUS_STORAGE": "",
+    "CITRUS_BUS": "",
+    "AZURE_OPENAI_API_KEY": "",
+    "AZURE_OPENAI_ENDPOINT": "https://contosoizzyai.openai.azure.com/",
+    "AZURE_OPENAI_MODEL_DEPLOYMENT_NAME": "2024-02-15-preview",
+    "AZURE_OPENAI_VERSION_NUMBER": "2024-02-15-preview",
+    "AZURE_OPENAI_RUN_RETRIEVAL_DELAY_SECONDS": 5
+
+  }
+}
