@@ -44,16 +44,17 @@ For the hack event October 23 - November 3, 2023, you can download the file here
 
 Please install these additional tools:
 
-- [Node v18.18.2](https://nodejs.org/en/download) - Only 18.18.2
-- Make sure [NPM 9.8.1](https://nodejs.org/en/download) - Comes with Node Installation
+- [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
+- Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 - Install the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools#installing) V4 Globally Using NPM
+- Install [Python 3.11](https://www.python.org/downloads/)
+- Install [Python Package Install PIP](https://pypi.org/project/pip/) 
 
 In the `/Challenge-00/` folder of the `Resources.zip` file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
 
-The sample applications were developed using Typescript/Javascript. 
+The sample applications were developed using Python/Typescript/Javascript. 
 
-If you are more comfortable with Python, Java or C#, you may follow the examples to create equivalent apps using your programming language of choice.
 
 Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
 
