@@ -129,17 +129,27 @@ We will need to provision the above-mentioned Azure resources that will be used 
 
 Once the resources have been provisioned, please ensure that you set up the environment variables needed to power the back end Azure function app
 
+Copy over the example local.settings.json.example file and rename it to local.settings.json
+
 The local.settings.json file is where all the environment variables used locally by the function app are defined.
+
+You will need Python 3.11 running locally. If this is not available in your environment, please install Python 3.11
+
+Install PIP (The Python Package Installer)
+https://pypi.org/project/pip/
+
+Install version 4 of the Azure Function Core Tools
+https://www.npmjs.com/package/azure-functions-core-tools
 
 ````bash
 # Navigate to the directory
 cd ContosoAIAppsBackend
 
 # Install dependencies
-npm install
+pip install -r requirements.txt
 
 # Start up the function app
-npm start 
+func start 
 
 ````
 
