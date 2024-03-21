@@ -14,7 +14,7 @@ Application Insights can be integrated with Azure Function Apps to provide robus
 2. Add application insights to your &quot;App&quot; function app and &quot;Events&quot; function app
     * Name: APPINSIGHTS\_INSTRUMENTATIONKEY
 3. Open the Live Metrics Stream for the app insights in the &quot;App&quot; function app (may take a few minutes for App Insights to appear)
-4. Open the UploadImages folder and execute **dotnet build** and then **dot net run** with the &quot;blobStorageConnection&quot;string as an arugment.
+4. Open the UploadImages folder and execute **dotnet build** and then **dotnet run "yourBlobConnectionString>" ** with the &quot;blobStorageConnection&quot;string as an argument, between quotes.
 
 **NOTE** Check the UploadImages\Program.cs and review the two folder paths in the Directory.GetFiles() method (line 124 and 131). 
 
