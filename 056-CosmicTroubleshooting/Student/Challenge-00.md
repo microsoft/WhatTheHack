@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the CosmicTroubleshooting What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Cosmic Troubleshooting What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 :warning: **NOTE:** This is not an Introduction to Cosmos DB hack. This hack assumes you already have a solid understanding on Azure Cosmos DB (and more specifically the Core API). If you need to skill-up with enough knowledge to get through this What The Hack, please have a look at the following resources:
 
@@ -37,6 +37,8 @@ You might not need all of them for the hack you are participating in. However, i
 ## Description
 
 Now that you have the common prerequisites installed on your workstation, there are prerequisites specific to this hack.
+
+Your Azure Subscription should have a quota of at least 4 instances for Azure Load Testing. Please also ensure you have the `Microsoft.LoadTestService` Resource provider registered ([How-To register a Resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types))
 
 Your coach will provide you with a `Resources.zip` file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 

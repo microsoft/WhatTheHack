@@ -1,0 +1,45 @@
+﻿@page
+@model RockPaperScissorsBoom.Server.Pages.Competitors.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Competitor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Competitor.Name" class="control-label"></label>
+                <input asp-for="Competitor.Name" class="form-control" />
+                <span asp-validation-for="Competitor.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competitor.BotType" class="control-label"></label>
+                <input asp-for="Competitor.BotType" class="form-control" />
+                <span asp-validation-for="Competitor.BotType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Competitor.Url" class="control-label"></label>
+                <input asp-for="Competitor.Url" class="form-control" />
+                <span asp-validation-for="Competitor.Url" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Competitor.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

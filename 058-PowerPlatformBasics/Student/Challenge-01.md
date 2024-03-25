@@ -13,7 +13,7 @@ During the COVID-19 pandemic, Tailspin toys identified challenges in their suppl
  
 - Minimal user interface maintenance as much of the experience is delivered via configuration versus outright coding.
 - Predominantly a low code development platform.
-- Model-driven apps with tried and tested application lifecycle management options.
+- Canvas and Model-driven apps with tried and tested application lifecycle management options.
 - Supports a strong and flexible data security model affecting the degree to which users can interact with table records and columns. 
 - Logic can be introduced to ensure that columns contain the data that adheres to the business rules.
 - Solution will be maintained by the team via Citizen Developer
@@ -36,12 +36,17 @@ Your coach will provide you with a `Resources.zip` file that contains resource f
 
 **Bonus Challenge:** Have the team present to the Tailspin Toys board their platform of choice and why.  Include milestones if confident.
 
-**NOTE:** This challenge will require licenses to complete the challenge using a trial account. For more information on creating a trial account, see the `TenantSetup.pdf` in the `Resources.zip` file provided by your coach.
+**NOTE:** This challenge will require licenses to complete the challenge using a trial account.
+- Your coach may provide credentials to enviroments
+- Or you may create trials yourself. For more information on creating a trial account, see the `TenantSetup.pdf` in the `Resources.zip` file provided by your coach.
 
 ## Success Criteria
 
 - Provide the coaches with the platform of choice which should be Power Platform.
-- You should detail the team structure, show how you will collaborate, and demonstrate how the environment is setup.   
+- You should detail the team structure, show how you will collaborate, and understand how the environment is setup.
+- Successfully log into the Power Automate maker portal
+- Successfully log into the Power Apps maker portal
+- Locate your environment which has dataverse provisioned
 - **BONUS:**  Deliver this in PPT to the coaches similar to showing to key stakeholders and decision makers.
 - **BONUS:**  Show licensing and Costs associated to solutions
 
@@ -49,6 +54,7 @@ Your coach will provide you with a `Resources.zip` file that contains resource f
 
 * [AI Builder Model](https://docs.microsoft.com/en-us/ai-builder/build-model)
 * [Microsoft Power Platform documentation](https://docs.microsoft.com/en-us/power-platform/)
+* [Overview of Canvas Apps](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/getting-started)
 * [The benefits of the model-driven approach](https://docs.microsoft.com/en-us/power-apps/maker/model-driven-apps/app-value-proposition)
 * [Administer Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/admin-documentation)
 * [Licensing overview for Microsoft Power Platform](https://docs.microsoft.com/en-us/power-platform/admin/pricing-billing-skus)

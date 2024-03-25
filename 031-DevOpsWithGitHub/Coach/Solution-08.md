@@ -1,17 +1,16 @@
-# Challenge 08: Monitoring: Application Insights - Coach's Guide
+# Challenge 08: Continuous Delivery (CD) - Coach's Guide
 
 [< Previous Solution](./Solution-07.md) - **[Home](./README.md)** - [Next Solution >](./Solution-09.md)
 
 ## Notes & Guidance
 
-- There are many different metrics you can setup to view the status of your site.  Things such as requests, http return codes, or connections are valid depending on the site.  
-    - To add them, go to your app insights instance. 
-    - Select "Dashboard" on the top left"
-    - Right click on your dashboard and select "Edit"
-    - On the right, you will see many different selections to choose a new tile.  Select "Metrics Chart"
-    - A new tile will appear, click on it to modify the metrics of that tile.
-    - Select one of the options to reflect what the tile will represent such as number of connections.
+- See solution, in `/Solutions` folder for GitHub Action Workflow file.
 
-- Outside availability tests
-    - https://docs.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability
+## Solution 
+- [Navigate to Solution for Challenge 08](./Solution/Solution-08/Solution08.yml)
 
+## Videos
+
+### Challenge 8 Solution
+
+[![Challenge 8 solution](../Images/WthVideoCover.jpg)](https://youtu.be/YbesHl6t1SE "Challenge 8 solution")

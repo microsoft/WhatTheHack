@@ -1,0 +1,9 @@
+// Preview Performance counters
+Perf 
+| where Computer has "<your-computer-name>"
+| take 20
+
+// All Events in the past hour
+Event
+| where TimeGenerated > ago(1h)
+| sort by TimeGenerated desc

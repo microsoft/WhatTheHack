@@ -21,9 +21,7 @@ This hack builds on a traditional Hub and Spoke topology and introduces Azure Ro
 	 - Warming up
 - Challenge 02: **[Introduce Azure Route Server and peer with a Network Virtual appliance.](Student/Challenge-02.md)**
 	 - Azure Route Server basic concepts, interaction with NVAs
-- Challenge 03: **[Connect Network Virtual Appliance to an SDWAN environment](Student/Challenge-03.md)**
-	 - Azure Route Server interaction with Virtual Network Gateways (VPN or ExpressRoute)
-- Challenge 04: **[Introduce a High Availability with Central Network Virtual Appliances](Student/Challenge-04.md)**
+- Challenge 03: **[Introduce a High Availability with Central Network Virtual Appliances](Student/Challenge-03.md)**
 	 - High Availability concepts
 
 ## Prerequisites

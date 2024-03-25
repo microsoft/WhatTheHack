@@ -4,6 +4,11 @@
 
 ## Notes & Guidance
 
+Explain to the students how to upload the License Plates images to the Storage account, "images" container. 
+> ![Uploading pictures](./images/image-41.png 'Uploading pictures')
+Then, how to Stream logs from the Azure Function, either from VSCode, or via the Portal in the Monitor Section, as shown in the image below
+> ![Streaming Logs from the Function.](./images/image-40.png 'Monitoring Funciton logs')
+
 *As of May 2020, there is a new Portal view of the functions*
 1) Those that are not familiar with Azure functions will not know about how the Applications Settings work with the Function Code
 2) Key Vault reference in the Function App will require a reference __@Microsoft.KeyVault__ in the app setting value
@@ -22,6 +27,8 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 - [Deploy Functions to Azure](https://www.thebestcsharpprogrammerintheworld.com/2018/08/21/deploy-an-azure-function-created-from-visual-studio-2/)
 
+### Bug with generated functions.json (December 2023)
+Known bug that affected C# functions built and uploaded using the VSCode Functions extensions: _The following bindings are missing the required direction property and may have been placed incorrectly: `incomingPlate`. Please update the bindings in your functions.json file._ - see [https://github.com/Azure/azure-functions-core-tools/issues/3157](https://github.com/Azure/azure-functions-core-tools/issues/3157#issuecomment-1843236365) for the workaround, in case the bug is still open.
 
 ### **Errors in new portal**
 **The new Function App portal will display errors and not allow students to edit the Event Grid subscriptions.  These will need to be done in the old Function App portal**
@@ -34,7 +41,7 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 > **Note**: If you do not see the ability to publish to an Azure Function, you may need to update your Visual Studio instance.
 
-1.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **ServerlessArchitecture** resource group and select the Function App whose name ends with **FunctionApp**.
+1.  In the App Service form, select your **Subscription**, select **Resource Group** under **View**, then expand your **`ServerlessArchitecture`** resource group and select the Function App whose name ends with **`FunctionApp`**.
 
 2.  Whatever you named the Function App when you provisioned it is fine. Just make sure it is the same one to which you applied the Application Settings in Task 1 of this exercise.
 
@@ -46,21 +53,21 @@ Success looks like this ![Key Vault Success](./images/keyvault-success.PNG)
 
 5.  Using a new tab or instance of your browser navigate to the Azure Management portal, <http://portal.azure.com>.
 
-6.  Open the **ServerlessArchitecture** resource group, then select the Azure Function App to which you just published.
+6.  Open the **`ServerlessArchitecture`** resource group, then select the Azure Function App to which you just published.
 
 7.  Expand the functions underneath your Function App in the menu. You should see both functions you just published from the Visual Studio solution listed.
 
-8.  Now we need to add an Event Grid subscription to the ProcessImage function so the function is triggered when new images are added to blob storage. Select the **ProcessImage** function, then select **Add Event Grid subscription**.
+8.  Now we need to add an Event Grid subscription to the `ProcessImage` function so the function is triggered when new images are added to blob storage. Select the **`ProcessImage`** function, then select **Add Event Grid subscription**.
 
 9.  On the **Create Event Subscription** blade, specify the following configuration options:
 
-    a. **Name**: Unique value for the App name similar to **processimagesub** (ensure the green check mark appears).
+    a. **Name**: Unique value for the App name similar to **`processimagesub`** (ensure the green check mark appears).
 
     b. **Event Schema**: Select Event Grid Schema.
 
     c. For **Topic Type**, select **Storage Accounts**.
 
-    d. Select your **subscription** and **ServerlessArchitecture** resource group.
+    d. Select your **subscription** and **`ServerlessArchitecture`** resource group.
 
     e. For resource, select your recently created Event Grid.
 

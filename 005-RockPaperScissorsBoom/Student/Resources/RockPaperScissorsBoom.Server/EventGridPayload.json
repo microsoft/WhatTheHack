@@ -1,0 +1,17 @@
+[
+  {
+    "topic": "",
+    "subject": "string",
+    "id": "string",
+    "eventType": "string",
+    "eventTime": "string",
+    "data": {
+      "GameId": "string",
+      "Winner": "string",
+      "HostName": "string",
+      "TeamName": "string"
+    },
+    "dataVersion": "string",
+    "metadataVersion": "string"
+  }
+]
