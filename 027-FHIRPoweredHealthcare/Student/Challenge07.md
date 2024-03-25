@@ -1,6 +1,6 @@
 # Challenge 7: Load DICOM Imaging Data
 
-[< Previous Challenge](./Challenge06.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge06.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge08.md)
 
 ## Introduction
 
