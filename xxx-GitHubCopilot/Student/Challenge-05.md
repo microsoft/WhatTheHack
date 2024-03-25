@@ -1,6 +1,6 @@
 # Challenge 05 - Debugging and Code Optimization with Copilot
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** 
 
 ## Introduction
 In this final challenge, you'll harness the power of GitHub Copilot to identify and resolve security vulnerabilities in a pre-written code snippet*. You will also optimize your code, refining its performance and maintainability based on the intelligent suggestions provided by Copilot. This challenge is an opportunity to deepen your understanding of how Copilot can be an integral part of your debugging and code optimization processes.
