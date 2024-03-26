@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge07.md) - **[Home](../README.md)**
 
-## Introduction
+## Introduction 
 
 *This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
 
