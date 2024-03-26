@@ -1,4 +1,4 @@
-# Coach's Guide: Challenge 8 - FHIR to OMOP Transformation
+# Coach's Guide: Challenge 8 - OMOP Analytics
 
 [< Previous Challenge](./Solution07.md) - **[Home](../README.md)**
 

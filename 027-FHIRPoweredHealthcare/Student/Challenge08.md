@@ -1,4 +1,4 @@
-# Challenge 8: FHIR to OMOP Transformation
+# Challenge 8: OMOP Analytics
 
 [< Previous Challenge](./Challenge07.md) - **[Home](../README.md)**
 

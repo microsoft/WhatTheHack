@@ -30,6 +30,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) th
     - Ingest, transform and load medical IoT device data into FHIR using MedTech service.
 - Challenge 7: **[Load DICOM Imaging Data](./Solution07.md)**
     - Ingest, search and retrieve imaging data persisted in the DICOM service.
+- Challenge 8: **[OMOP Analytics](Student/Challenge08.md)**
+    - Deploy Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment to leverage AI capabilities of the Fabric platform.
 
 ## Coach Prerequisites
 

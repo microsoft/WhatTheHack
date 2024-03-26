@@ -23,7 +23,7 @@ This hack will help you:
 5. Export and anonymize FHIR data for downstream processing.
 6. Ingest, transform and load medical IoT device data into FHIR using MedTech service.
 7. Ingest, search and retrieve imaging data persisted in the DICOM service.
-8. Export and transform FHIR data to OMOP using Health Data Solution in Microsoft Fabric
+8. Deploy Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment to leverage AI capabilities of the Fabric platform.
 
 ## Challenges
 <center><img src="./images/challenges_architecture.png" width="850"></center>
@@ -39,7 +39,7 @@ This hack will help you:
 - Challenge 5: **[Export and Anonymize FHIR EHR Data](Student/Challenge05.md)**
 - Challenge 6: **[Ingest and Persist IoT Medical Device Data](Student/Challenge06.md)**
 - Challenge 7: **[Load DICOM Imaging Data](Student/Challenge07.md)**
-- Challenge 8: **[FHIR to OMOP Transformation](Student/Challenge08.md)**
+- Challenge 8: **[OMOP Analytics](Student/Challenge08.md)**
 
 ## Prerequisites
 The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.md).
