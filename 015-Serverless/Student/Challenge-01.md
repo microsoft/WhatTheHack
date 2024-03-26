@@ -61,7 +61,7 @@ Your coach will provide you with a `Resources.zip` file containing the source co
 
 **NOTE:** What The Hacks are normally run as live events where coaches advise small groups of 3-5 people as they try to solve the hack's challenges. For the [`#ServerlessSeptember`](https://azure.github.io/Cloud-Native/serverless-september/) event, the Microsoft Reactor team is challenging folks to complete the Azure Serverless hack on their own and share their solutions. 
 
-To support this event, we are making the [`Resources.zip`](https://aka.ms/serverless-september/wth/resources) file available for download [here](https://aka.ms/serverless-september/wth/resources).
+To support this event, we are making the [Resources.zip file available for download here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/microsoft/WhatTheHack/tree/master/015-Serverless/Student/Resources).
 
 ## Success Criteria
 
