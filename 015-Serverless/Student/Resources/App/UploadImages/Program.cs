@@ -121,14 +121,14 @@ namespace UploadImagesCore
             if (upload1000)
             {
                 _sourceImages =
-                    Directory.GetFiles(@"..\..\..\..\..\license plates\copyfrom\")
+                    Directory.GetFiles(@"../../license plates/copyfrom")
                         .Select(f => new MemoryStream(File.ReadAllBytes(f)))
                         .ToList();
             }
             else
             {
                 _sourceImages =
-                    Directory.GetFiles(@"..\..\..\..\..\license plates\")
+                    Directory.GetFiles(@"../../license plates")
                         .Select(f => new MemoryStream(File.ReadAllBytes(f)))
                         .ToList();
             }

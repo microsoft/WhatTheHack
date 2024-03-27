@@ -57,11 +57,9 @@ Set up your *local* environment:
 
 *To setup Azure Functions on Visual Studio Code, [follow this guide.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=csharp)*
  
-Your coach will provide you with a `Resources.zip` file containing the source code and supporting files for this hack.  Uncompress the file on your local workstation.
+[Download the student `Resources.zip` file here](https://aka.ms/wth/serverless/resources), containing the source code and supporting files for this hack.  Uncompress the file on your local workstation.
 
 **NOTE:** What The Hacks are normally run as live events where coaches advise small groups of 3-5 people as they try to solve the hack's challenges. For the [`#ServerlessSeptember`](https://azure.github.io/Cloud-Native/serverless-september/) event, the Microsoft Reactor team is challenging folks to complete the Azure Serverless hack on their own and share their solutions. 
-
-To support this event, we are making the [`Resources.zip`](https://aka.ms/serverless-september/wth/resources) file available for download [here](https://aka.ms/serverless-september/wth/resources).
 
 ## Success Criteria
 
