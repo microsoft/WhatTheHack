@@ -42,7 +42,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 - **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
 
-Hint: You need to deploy and configure the Healthcare data foundations capability after deploying Healthcare data solutions (preview) to your Fabric workspace.
+  Hint: You need to deploy and configure the Healthcare data foundations capability after deploying Healthcare data solutions (preview) to your Fabric workspace.
 
 - **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.**
 
