@@ -52,17 +52,10 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
   - [Configure the drug exposure insights sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-insights-sample-notebook) to demonstrate an exploratory analysis on the drug_era table using PySpark in notebook
 
-- **[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualtization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively.**
+- **[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively.**
 
 
 You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
 
 ## Success Criteria
 *Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
@@ -74,9 +67,10 @@ You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.P
 *Sample success criteria for the IoT sample challenge:*
 
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+- Verify that the Healthcare data solution foundation is deployed and configured.
+- Verify that the data connection is set up using FHIR service.
+- Verify that the OMOP analytics is deployed and configured
+- Demonostrate visualization using OMOP analytics
 
 
 ## Learning Resources
@@ -86,8 +80,6 @@ _List of relevant links and online articles that should give the attendees the k
 *Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
 
 ***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
 
 - [What is Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)
 - [Healthcare data soluton architecture overview](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)
