@@ -12,9 +12,3 @@ Codespaces
 TollBooth
 Codespace's
 Spektra
-TollboothMonitor
-UploadImages
-blobStorageConnection
-yourBlobConnectionString
-GetFiles
-UploadImages
