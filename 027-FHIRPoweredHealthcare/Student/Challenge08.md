@@ -10,7 +10,8 @@
 
 *For example:*
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+In Healthcare data solutions (preview), the OMOP analytics capability facilitates the deployment of the Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment. This deployment provides researchers within the OMOP community access to OneLake's expansive scale and the AI capabilities of the Fabric platform. The setup enables efficient and reliable execution of standardized analytics for patient and population-level observational studies.  The OMOP analytical capabilities empower researchers to perform comparative analyses, such as evaluating different procedures and drug exposures, or examining correlations between drug exposures and condition occurrences.
+
 
 ## Description
 
@@ -30,7 +31,16 @@ When setting up an IoT device, it is important to understand how 'thingamajigs' 
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once you’re in, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  Using prebuilt pipelines to deploy the OMOP CDM to Fabric, you can utilize the provided notebooks for the following: 
+- Construct statistical models
+- Conduct population distribution studies
+- Utilize Power BI reports to visually compare various interventions and their effects on patient outcomes
+
+OMOP analytics deployment prerequisites
+- First, deploy, configure, and execute the Healthcare data foundations pipelines
+- Connect a sample data to your Fabric workspace by deploying sample data
+
+To run the provided sample notebooks, ensure you download the sample data in your environment as explained in Deploy sample data.
 
 You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
@@ -66,9 +76,10 @@ _List of relevant links and online articles that should give the attendees the k
 
 *Sample IoT resource links:*
 
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [Overview of OMOP analytics in Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-overview)
+- [Deploy and configure Healthcare data foundation](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)
+- [Deploy sample data](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-sample-data)
+- 
 
 ## Tips
 
