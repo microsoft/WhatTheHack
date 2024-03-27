@@ -33,7 +33,7 @@ Below is the overview of the **[Healthcare data solution architecture](https://l
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
+In this challenge, you will [deploy]((https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
 - **[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)**
 
@@ -89,9 +89,13 @@ _List of relevant links and online articles that should give the attendees the k
 
 *Sample IoT resource links:*
 
-- [Overview of OMOP analytics in Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-overview)
+- [What is Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)
+- [Healthcare data soluton architecture overview](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)
+- [Deploy Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)
 - [Deploy and configure Healthcare data foundation](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)
-- [Deploy sample data](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-sample-data)
+- [Deploy and configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)
+- [Overview of OMOP analytics in Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-overview)
+- [Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)
 - 
 
 ## Tips
