@@ -12,6 +12,8 @@
 
 In Healthcare data solutions (preview), the OMOP analytics capability facilitates the deployment of the Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment. This deployment provides researchers within the OMOP community access to OneLake's expansive scale and the AI capabilities of the Fabric platform. The setup enables efficient and reliable execution of standardized analytics for patient and population-level observational studies.  The OMOP analytical capabilities empower researchers to perform comparative analyses, such as evaluating different procedures and drug exposures, or examining correlations between drug exposures and condition occurrences.
 
+Below is the overview of the **[Healthcare data solution architecture](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)**:
+<center><img src="../images/challenge08-architecture.png" width="550"></center>
 
 ## Description
 
@@ -31,16 +33,30 @@ In Healthcare data solutions (preview), the OMOP analytics capability facilitate
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once you’re in, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  Using prebuilt pipelines to deploy the OMOP CDM to Fabric, you can utilize the provided notebooks for the following: 
+In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks for the following: 
 - Construct statistical models
 - Conduct population distribution studies
 - Utilize Power BI reports to visually compare various interventions and their effects on patient outcomes
 
-OMOP analytics deployment prerequisites
-- First, deploy, configure, and execute the Healthcare data foundations pipelines
-- Connect a sample data to your Fabric workspace by deploying sample data
+[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)
 
-To run the provided sample notebooks, ensure you download the sample data in your environment as explained in Deploy sample data.
+Deployment prerequisites:
+- [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
+- [Setu up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
+- [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
+
+First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)
+
+[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.
+
+[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards
+- [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
+- [Configure the drug exposure era sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-era-sample-notebook) to generate the drug_era table records in OMOP using the PySpark in notebook
+
+- [Configure the drug exposure insights sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-insights-sample-notebook) to demonstrate an exploratory analysis on the drug_era table using PySpark in notebook
+
+[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualtization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively
+
 
 You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
