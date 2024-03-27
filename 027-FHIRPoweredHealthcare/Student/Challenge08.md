@@ -38,24 +38,24 @@ In this challenge, you will deploy your Healthcare data solutions (preview) to t
 - Conduct population distribution studies
 - Utilize Power BI reports to visually compare various interventions and their effects on patient outcomes
 
-[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)
+- **[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)**
 
-Deployment prerequisites:
+- **Prerequisites:**
 - [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
 - [Setu up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
 - [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
 
-First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)
+- **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)**
 
-[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.
+- **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.**
 
-[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards
-- [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
-- [Configure the drug exposure era sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-era-sample-notebook) to generate the drug_era table records in OMOP using the PySpark in notebook
+- **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.**
+  - [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
+  - [Configure the drug exposure era sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-era-sample-notebook) to generate the drug_era table records in OMOP using the PySpark in notebook
 
-- [Configure the drug exposure insights sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-insights-sample-notebook) to demonstrate an exploratory analysis on the drug_era table using PySpark in notebook
+  - [Configure the drug exposure insights sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-insights-sample-notebook) to demonstrate an exploratory analysis on the drug_era table using PySpark in notebook
 
-[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualtization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively
+- **[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualtization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively.**
 
 
 You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
