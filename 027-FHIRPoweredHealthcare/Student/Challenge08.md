@@ -33,10 +33,7 @@ Below is the overview of the **[Healthcare data solution architecture](https://l
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks for the following: 
-- Construct statistical models
-- Conduct population distribution studies
-- Utilize Power BI reports to visually compare various interventions and their effects on patient outcomes
+In this challenge, you will deploy your Healthcare data solutions (preview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
 - **[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)**
 
