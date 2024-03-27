@@ -33,16 +33,16 @@ Below is the overview of the **[Healthcare data solution architecture](https://l
 
 *Sample challenge text for the IoT Hack Of The Century:*
 
-In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
-
-- **[Deploy Healthcare data solutions(preview) in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)**
+In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
 - **Prerequisites:**
-- [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
-- [Setu up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
-- [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
+  - [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
+  - [Setu up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
+  - [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
 
-- **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)**
+- **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
+
+Hint: You need to deploy and configure the Healthcare data foundations capability after deploying Healthcare data solutions (preview) to your Fabric workspace.
 
 - **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.**
 
