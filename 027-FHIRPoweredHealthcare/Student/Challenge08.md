@@ -31,7 +31,7 @@ Below is the overview of the **[Healthcare data solution architecture](https://l
 
 ***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
 
-*Sample challenge text for the IoT Hack Of The Century:*
+*For example:*
 
 In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
@@ -64,7 +64,7 @@ You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder
 
 *Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
 
-*Sample success criteria for the IoT sample challenge:*
+*For example:*
 
 To complete this challenge successfully, you should be able to:
 - Verify that the Healthcare data solution foundation is deployed and configured.
@@ -81,6 +81,8 @@ _List of relevant links and online articles that should give the attendees the k
 
 ***Note:** Use descriptive text for each link instead of just URLs.*
 
+*For example:*
+
 - [What is Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)
 - [Healthcare data soluton architecture overview](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)
 - [Deploy Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)
@@ -88,7 +90,6 @@ _List of relevant links and online articles that should give the attendees the k
 - [Deploy and configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)
 - [Overview of OMOP analytics in Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-overview)
 - [Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)
-- 
 
 ## Tips
 
