@@ -1,5 +1,6 @@
 [
   {
+    "classifier_moddel_id" : "f01-classfication",
     "extractor_model_name": "specify the value from Azure for your form-01 extractor model name",
     "model_description": "This is used to extract the contents of Form 01 using Azure Doc Intelligence",
     "fields": [
@@ -33,6 +34,7 @@
     ]
   },
   {
+    "classifier_moddel_id" : "f02-classfication",
     "extractor_model_name": "specify the value from Azure for your form-02 extractor model name",
     "model_description": "This is used to extract the contents of Form 02 using Azure Doc Intelligence",
     "fields": [
@@ -66,6 +68,7 @@
     ]
   },
   {
+    "classifier_moddel_id" : "f03-classfication",
     "extractor_model_name": "specify the value from Azure for your form-03 extractor model name",
     "model_description": "This is used to extract the contents of Form 03 using Azure Doc Intelligence",
     "fields": [
@@ -102,6 +105,7 @@
     ]
   },
   {
+    "classifier_moddel_id" : "f04-classfication",
     "extractor_model_name": "specify the value from Azure for your form-04 extractor model name",
     "model_description": "This is used to extract the contents of Form 04 (Meal Preferences + Allergy Declarations) using Azure Doc Intelligence",
     "fields": [
@@ -158,6 +162,9 @@
       },
       {
         "checkbox_allergens_eggs": "allergens_eggs"
+      },
+      {
+        "table_name": "temperature_preferences"
       },
       {
         "table_column_header_meal_item": "meal_item"
