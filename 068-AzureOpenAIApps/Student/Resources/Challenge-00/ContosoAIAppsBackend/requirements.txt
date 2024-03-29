@@ -6,6 +6,9 @@ azure-identity
 azure-cosmos
 azure-servicebus
 azure-search-documents
-azure-ai-documentintelligence
+azure-ai-documentintelligence == 1.0.0b2
 redis
 openai
+langchain
+langchain_community
+langchain_openai

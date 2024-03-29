@@ -3,7 +3,7 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
-    "AzureWebJobsStorage": "",
+    "AzureWebJobsStorage": "Got to the Portal and grab ",
     "COSMOS_CONNECTION": "",
     "CITRUS_STORAGE": "",
     "CITRUS_BUS": "",

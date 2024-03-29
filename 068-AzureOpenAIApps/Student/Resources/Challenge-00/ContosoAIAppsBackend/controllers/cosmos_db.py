@@ -8,6 +8,7 @@ from azure.functions._cosmosdb import Document
 cosmos_controller = func.Blueprint()
 
 
+@cosmos_controller.function_name("cosmos_controller")
 @cosmos_controller.cosmos_db_trigger(arg_name='documents',
                                      connection="COSMOS_CONNECTION",
                                      database_name="contosodb1",
