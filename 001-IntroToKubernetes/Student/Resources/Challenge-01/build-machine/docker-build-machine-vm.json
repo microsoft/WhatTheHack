@@ -17,8 +17,9 @@
     },
     "adminPassword": {
       "type": "securestring",
+      "minLength": 12,
       "metadata": {
-        "description": "Password for the Virtual Machine."
+        "description": "Password for the Virtual Machine. That is 12 characters or more, with both uppercase, lowercase, numerical and special characters!"
       }
     },
     "ubuntuOSVersion": {
