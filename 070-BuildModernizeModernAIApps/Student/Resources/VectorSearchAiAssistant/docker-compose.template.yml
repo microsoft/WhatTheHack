@@ -1,0 +1,46 @@
+services:
+  api:
+    image: ${REGISTRY:-ms-openai-cosmosdb}/chat-service-api:${TAG:-latest}
+    build:
+      context: ./
+      dockerfile: ./ChatServiceWebApi/Dockerfile
+    ports:
+    - "80:80"
+    environment:
+      DOTNET_URLS: http://+:80
+      ASPNETCORE_ENVIRONMENT: Production
+      AllowedHosts: '*'
+      MSCosmosDBOpenAI__CognitiveSearch__IndexName: 'vector-index'
+      MSCosmosDBOpenAI__CognitiveSearch__MaxVectorSearchResults: '10'
+      MSCosmosDBOpenAI__CognitiveSearch__Endpoint: '{{searchEndpoint}}'
+      MSCosmosDBOpenAI__CognitiveSearch__Key: '{{searchAdminKey}}'
+      MSCosmosDBOpenAI__OpenAI__CompletionsDeployment: 'completions'
+      MSCosmosDBOpenAI__OpenAI__EmbeddingsDeployment: 'embeddings'
+      MSCosmosDBOpenAI__OpenAI__MaxConversationBytes: '2000'
+      MSCosmosDBOpenAI__OpenAI__Endpoint: '{{OpenAiEndpoint}}'
+      MSCosmosDBOpenAI__OpenAI__Key: '{{OpenAiKey}}'
+      MSCosmosDBOpenAI__CosmosDB__Containers: 'completions, customer, product'
+      MSCosmosDBOpenAI__CosmosDB__Database: 'database'
+      MSCosmosDBOpenAI__CosmosDB__Endpoint: '{{cosmosEndpoint}}'
+      MSCosmosDBOpenAI__CosmosDB__Key: '{{cosmosKey}}'
+      MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageContainer: 'system-prompt'
+      MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageConnection: '{{blobStorageConnectionString}}'
+      MSCosmosDBOpenAI__SystemPromptName: 'RetailAssistant.Default'
+      Logging__Loglevel__Default: 'Debug'
+      Logging__Loglevel__Microsoft__AspNetCore: 'Debug'
+  web:
+    image: ${REGISTRY:-ms-openai-cosmosdb}/chat-web-app:${TAG:-latest}
+    build:
+      context: ./
+      dockerfile: ./Search/Dockerfile
+    ports:
+    - "8080:80"
+    environment:
+      DOTNET_URLS: http://+:80
+      ASPNETCORE_ENVIRONMENT: Production
+      AllowedHosts: '*'
+      DetailedErrors: 'true'
+      MSCosmosDBOpenAI__ChatManager__APIUrl: "http://api:80"
+      MSCosmosDBOpenAI__ChatManager__APIRoutePrefix: ""
+      Logging__Loglevel__Default: 'Debug'
+      Logging__Loglevel__Microsoft__AspNetCore: 'Debug'

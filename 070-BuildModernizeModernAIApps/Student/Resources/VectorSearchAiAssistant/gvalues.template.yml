@@ -1,0 +1,46 @@
+cognitiveSearch:
+  key: '{{searchAdminKey}}'
+  endpoint: '{{searchEndpoint}}'
+  indexName: 'vector-index'
+  maxVectorSearchResults: 10
+openAi:
+  completionsDeployment: 'completions'
+  completionsDeploymentMaxTokens: 8096
+  embeddingsDeployment: 'embeddings'
+  embeddingsDeploymentMaxTokens: 8191
+  chatCompletionPromptName: 'RetailAssistant.Default'
+  shortSummaryPromptName: 'Summarizer.TwoWords'
+  promptOptimization:
+    completionsMinTokens: 50
+    completionsMaxTokens: 300
+    systemMaxTokens: 1500
+    memoryMinTokens: 1500
+    memoryMaxTokens: 7000
+    messagesMinTokens: 100
+    messagesMaxTokens: 200
+  endpoint: '{{openAiEndpoint}}'
+  key: '{{openAiKey}}'
+cosmosDb:
+  containers: 'completions, customer, product'
+  monitoredContainers: 'customer, product'
+  database: 'database'
+  changeFeedLeaseContainer: 'leases'
+  endpoint: '{{cosmosEndpoint}}'
+  key: '{{cosmosKey}}'
+durableSystemPrompt:
+  blobStorageContainer: 'system-prompt'
+  blobStorageConnection: '{{blobStorageConnectionString}}'
+cognitiveSearchMemorySource:
+  configBlobStorageContainer: 'memory-source'
+  configFilePath: 'ACSMemorySourceConfig.json'
+  configBlobStorageConnection: '{{blobStorageConnectionString}}'
+  key: '{{searchAdminKey}}'
+  endpoint: '{{searchEndpoint}}'
+blobStorageMemorySource:
+  configBlobStorageContainer: 'memory-source'
+  configFilePath: 'BlobMemorySourceConfig.json'
+  configBlobStorageConnection: '{{blobStorageConnectionString}}'
+apiUrl: {{apiUrl}}
+routePrefix: /api
+applicationInsights:
+  connectionString: "{{aiConnectionString}}"
