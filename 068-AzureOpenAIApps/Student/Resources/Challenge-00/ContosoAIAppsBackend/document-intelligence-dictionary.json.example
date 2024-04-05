@@ -1,189 +1,83 @@
 [
   {
-    "classifier_model_id" : "f01-classfication",
+    "classifier_document_type": "f01-classification",
     "extractor_model_name": "specify the value from Azure for your form-01 extractor model name",
     "model_description": "This is used to extract the contents of Form 01 using Azure Doc Intelligence",
-    "fields": [
-      {
-        "student_id": "student_id"
-      },
-      {
-        "student_name": "student_name"
-      },
-      {
-        "school_district": "school_district"
-      },
-      {
-        "school_name": "school_name"
-      },
-      {
-        "exam_date": "exam_date"
-      },
-      {
-        "question_1": "q1"
-      },
-      {
-        "question_2": "q2"
-      },
-      {
-        "question_3": "q3"
-      },
-      {
-        "question_4": "q4"
-      }
-    ]
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4"
+    }
   },
   {
-    "classifier_model_id" : "f02-classfication",
+    "classifier_document_type": "f02-classification",
     "extractor_model_name": "specify the value from Azure for your form-02 extractor model name",
     "model_description": "This is used to extract the contents of Form 02 using Azure Doc Intelligence",
-    "fields": [
-      {
-        "student_id": "student_id"
-      },
-      {
-        "student_name": "student_name"
-      },
-      {
-        "school_district": "school_district"
-      },
-      {
-        "school_name": "school_name"
-      },
-      {
-        "exam_date": "exam_date"
-      },
-      {
-        "question_1": "q1"
-      },
-      {
-        "question_2": "q2"
-      },
-      {
-        "question_3": "q3"
-      },
-      {
-        "question_4": "q4"
-      }
-    ]
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4"
+    }
   },
   {
-    "classifier_model_id" : "f03-classfication",
+    "classifier_document_type": "f03-classification",
     "extractor_model_name": "specify the value from Azure for your form-03 extractor model name",
     "model_description": "This is used to extract the contents of Form 03 using Azure Doc Intelligence",
-    "fields": [
-      {
-        "student_id": "student_id"
-      },
-      {
-        "student_name": "student_name"
-      },
-      {
-        "school_district": "school_district"
-      },
-      {
-        "school_name": "school_name"
-      },
-      {
-        "exam_date": "exam_date"
-      },
-      {
-        "question_1": "q1"
-      },
-      {
-        "question_2": "q2"
-      },
-      {
-        "question_3": "q3"
-      },
-      {
-        "question_4": "q4"
-      },
-      {
-        "question_5": "q5"
-      }
-    ]
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4",
+      "question_5": "q5"
+    }
   },
   {
-    "classifier_model_id" : "f04-classfication",
+    "classifier_document_type": "f04-classification",
     "extractor_model_name": "specify the value from Azure for your form-04 extractor model name",
     "model_description": "This is used to extract the contents of Form 04 (Meal Preferences + Allergy Declarations) using Azure Doc Intelligence",
-    "fields": [
-      {
-        "guest_full_name": "guest_full_name"
-      },
-      {
-        "guest_phone_number": "guest_phone_number"
-      },
-      {
-        "guest_email_address": "guest_email_address"
-      },
-      {
-        "checkbox_meal_preferences_vegetarian": "meal_preferences_vegetarian"
-      },
-      {
-        "checkbox_meal_preferences_vegan": "meal_preferences_vegan"
-      },
-      {
-        "checkbox_meal_preferences_pescatarian": "meal_preferences_pescatarian"
-      },
-      {
-        "checkbox_meal_preferences_paleo": "meal_preferences_paleo"
-      },
-      {
-        "checkbox_meal_preferences_keto": "meal_preferences_keto"
-      },
-      {
-        "checkbox_meal_preferences_gluten_free": "meal_preferences_gluten_free"
-      },
-      {
-        "checkbox_meal_preferences_lactose_free": "meal_preferences_latose_free"
-      },
-      {
-        "checkbox_meal_preferences_kosher": "meal_preferences_kosher"
-      },
-      {
-        "checkbox_meal_preferences_halal": "meal_preferences_halal"
-      },
-      {
-        "checkbox_allergens_peanuts": "allergens_peanuts"
-      },
-      {
-        "checkbox_allergens_milk": "allergens_milk"
-      },
-      {
-        "checkbox_allergens_soy": "allergens_soy"
-      },
-      {
-        "checkbox_allergens_seafood": "allergens_seafood"
-      },
-      {
-        "checkbox_allergens_gluten": "allergens_gluten"
-      },
-      {
-        "checkbox_allergens_eggs": "allergens_eggs"
-      },
-      {
-        "table_name": "temperature_preferences"
-      },
-      {
-        "table_column_header_meal_item": "meal_item"
-      },
-      {
-        "table_column_header_quantity": "quantity"
-      },
-      {
-        "table_column_header_min_temp": "min_temperature"
-      },
-      {
-        "table_column_header_max_temp": "max_temperature"
-      },
-      {
-        "signature_field_name": "guest_signature"
-      },
-      {
-        "signature_date_field_name": "guest_signature"
-      }
-    ]
+    "fields": {
+      "guest_full_name": "guest_full_name",
+      "guest_phone_number": "phone_number",
+      "guest_email_address": "email_address",
+      "checkbox_meal_preferences_vegetarian": "meal_preferences_vegetarian",
+      "checkbox_meal_preferences_vegan": "meal_preferences_vegan",
+      "checkbox_meal_preferences_pescatarian": "meal_preferences_pescatarian",
+      "checkbox_meal_preferences_paleo": "meal_preferences_paleo",
+      "checkbox_meal_preferences_keto": "meal_preferences_keto",
+      "checkbox_meal_preferences_gluten_free": "meal_preferences_gluten_free",
+      "checkbox_meal_preferences_lactose_free": "meal_preferences_lactose_free",
+      "checkbox_meal_preferences_kosher": "meal_preferences_kosher",
+      "checkbox_meal_preferences_halal": "meal_preferences_halal",
+      "checkbox_allergens_peanuts": "allergens_peanuts",
+      "checkbox_allergens_milk": "allergens_milk",
+      "checkbox_allergens_soy": "allergens_soy",
+      "checkbox_allergens_seafood": "allergens_seafood",
+      "checkbox_allergens_gluten": "allergens_gluten",
+      "checkbox_allergens_eggs": "allergens_eggs",
+      "table_name": "temperature_preferences",
+      "table_column_header_meal_item": "meal_items",
+      "table_column_header_quantity": "quantity",
+      "table_column_header_min_temp": "min_temperature",
+      "table_column_header_max_temp": "max_temperature",
+      "signature_field_name": "guest_signature",
+      "signature_date_field_name": "signature_date"
+    }
   }
 ]
