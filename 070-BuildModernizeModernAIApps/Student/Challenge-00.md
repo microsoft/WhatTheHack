@@ -41,13 +41,41 @@ Please install these additional tools:
 - Docker Desktop
 - Helm v3.11.1 or greater - https://helm.sh/ (for AKS)
 
-In the \`/Challenge00/\` folder of the Resources.zip file, you will find an ARM template, \`setupIoTEnvironment.json\` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
+You have two deployment options: AKS and Azure Container Apps. You can choose either one, but you should have the tools installed for both. Which one you choose will depend on your familiarity with the tools and your team's preference.
 
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
-\`\`\`
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
-\`\`\`
+### AKS deployment
+
+Open a new terminal and navigate to where you extracted the Resources.zip file, then execute the following commands:
+
+```bash
+cd ./aks
+azd up
+```
+
+You will be prompted for the target subscription, location, and desired environment name.  The target resource group will be `rg-` followed by the environment name (i.e. `rg-my-aks-deploy`)
+
+To validate the deployment using AKS run the following script. When the script it complete it will also output this value. You can simply click on it to launch the app.
+
+```bash
+az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
+```
+
+### Deploy with Azure Container Apps
+
+This script will deploy all services including a new Azure OpenAI account using Azure Container Apps. (This can be a good option for users not familiar with AKS)
+
+```bash
+cd ./aca
+azd up
+```
+
+You will be prompted for the target subscription, location, and desired environment name.  The target resource group will be `rg-` followed by the environment name (i.e. `rg-my-aca-deploy`)
+
+To validate the deployment to ACA run the following script:
+
+```bash
+az containerapp show -n <aca-name> -g <resource-group-name>
+```
 
 ## Success Criteria
 
@@ -59,6 +87,7 @@ To complete this challenge successfully, you should be able to:
   - `embeddings` with the `text-embedding-ada-002` model
 - Verify that you have Azure Cognitive Search in the basic tier.
 - Verify that the solution contains Azure Container Apps, an Azure Container Registry, and an Azure Storage Account.
+- Verify that the `product` and `customer` containers contain data.
 
 ## Learning Resources
 
