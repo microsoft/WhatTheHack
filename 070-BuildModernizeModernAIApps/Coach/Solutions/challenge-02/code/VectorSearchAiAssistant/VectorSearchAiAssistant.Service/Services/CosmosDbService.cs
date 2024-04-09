@@ -109,10 +109,6 @@ namespace VectorSearchAiAssistant.Service.Services
 
         private async Task StartChangeFeedProcessors()
         {
-            /* TODO: Challenge 2.  
-             * Uncomment and complete the following lines as instructed.
-             */
-
             _logger.LogInformation("Initializing the Cognitive Search index...");
             await _cognitiveSearchService.Initialize(_memoryTypes.Values.ToList());
 
@@ -121,8 +117,6 @@ namespace VectorSearchAiAssistant.Service.Services
 
             try
             {
-                // TODO: Create a change feed processor that listens for new JsonDocument instances added to the tracked containers.
-                // Note that the function GenericChangeFeedHandler has been started for you below.
                 foreach (string monitoredContainerName in _settings.MonitoredContainers.Split(',').Select(s => s.Trim()))
                 {
                     var changeFeedProcessor = _containers[monitoredContainerName]
@@ -156,10 +150,6 @@ namespace VectorSearchAiAssistant.Service.Services
             IReadOnlyCollection<dynamic> changes,
             CancellationToken cancellationToken)
         {
-            /* TODO: Challenge 2.  
-             * Uncomment and complete the following lines as instructed.
-             */
-            
             if (changes.Count == 0)
                 return;
 
@@ -184,8 +174,6 @@ namespace VectorSearchAiAssistant.Service.Services
                     else
                     {
                         var entity = jObject.ToObject(typeMetadata.Type);
-
-                        // TODO: Add the entity to the Cognitive Search content index and the Semantic Kernel memory
 
                         // Add the entity to the Cognitive Search content index
                         // The content index is used by the Cognitive Search memory source to run create memories from faceted queries

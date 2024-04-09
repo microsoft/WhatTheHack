@@ -5,11 +5,13 @@ using Microsoft.SemanticKernel.AI.ChatCompletion;
 using Microsoft.SemanticKernel.AI.Embeddings;
 using Microsoft.SemanticKernel.AI.TextCompletion;
 using Microsoft.SemanticKernel.Connectors.Memory.AzureCognitiveSearch;
+using Microsoft.SemanticKernel.Planners;
 using Microsoft.SemanticKernel.Plugins.Memory;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using VectorSearchAiAssistant.SemanticKernel.Chat;
 using VectorSearchAiAssistant.SemanticKernel.Plugins.Core;
+using VectorSearchAiAssistant.SemanticKernel.Plugins.Fun;
 using VectorSearchAiAssistant.SemanticKernel.Plugins.Memory;
 using VectorSearchAiAssistant.SemanticKernel.Text;
 using VectorSearchAiAssistant.Service.Interfaces;
@@ -116,7 +118,8 @@ public class SemanticKernelRAGService : IRAGService
             var shortTermMemories = new List<string>();
             foreach (var memorySource in _memorySources)
             {
-                shortTermMemories.AddRange(await memorySource.GetMemories());
+                if (memorySource is BlobStorageMemorySource)
+                    shortTermMemories.AddRange(await memorySource.GetMemories());
             }
 
             foreach (var stm in shortTermMemories
@@ -147,64 +150,18 @@ public class SemanticKernelRAGService : IRAGService
 
         await EnsureShortTermMemory();
 
-        var memoryPlugin = new TextEmbeddingObjectMemoryPlugin(
-            _longTermMemory,
+        var policyPlugin = new PolicyPlugin(
             _shortTermMemory,
             _logger);
 
-        var memories = await memoryPlugin.RecallAsync(
-            userPrompt,
-            _settings.CognitiveSearch.IndexName,
-            0.8,
-            _settings.CognitiveSearch.MaxVectorSearchResults);
+        _semanticKernel.ImportFunctions(policyPlugin);
+        var shakespearePlugin = new ShakespearePlugin(_semanticKernel);
 
-        // Read the resulting user prompt embedding as soon as possible
-        var userPromptEmbedding = memoryPlugin.LastInputTextEmbedding?.ToArray();
+        var planner = new SequentialPlanner(_semanticKernel);
+        var plan = await planner.CreatePlanAsync(userPrompt);
+        var planResult = await _semanticKernel.RunAsync(plan);
 
-        List<string> memoryCollection;
-        if (string.IsNullOrEmpty(memories))
-            memoryCollection = new List<string>();
-        else
-            memoryCollection = JsonConvert.DeserializeObject<List<string>>(memories);
-
-        var chatBuilder = new ChatBuilder(
-                _semanticKernel,
-                _settings.OpenAI.CompletionsDeploymentMaxTokens,
-                _memoryTypes,
-                promptOptimizationSettings: _settings.OpenAI.PromptOptimization);
-
-        /* TODO: 
-         * Uncomment and complete the following chain to add the
-         * SystemPrompt, Memories, and MessageHistory in the correct order.
-         */
-        var chatHistory = chatBuilder
-            .WithSystemPrompt(
-                await _systemPromptService.GetPrompt(_settings.OpenAI.ChatCompletionPromptName))
-            .WithMemories(
-                memoryCollection)
-            .WithMessageHistory(
-                messageHistory.Select(m => (new AuthorRole(m.Sender.ToLower()), m.Text.NormalizeLineEndings())).ToList())
-            .Build();
-
-        chatHistory.AddUserMessage(userPrompt);
-
-        /* TODO: 
-         * Get the ChatCompletionService
-         * Invoke the GetChatCompletions method asynchronously 
-         */
-
-        var chat = _semanticKernel.GetService<IChatCompletion>();
-        var completionResults = await chat.GetChatCompletionsAsync(chatHistory);
-
-        // TODO: Get the first completionResults and retrieve the ChatMessage from that
-        var reply = await completionResults[0].GetChatMessageAsync();
-
-        // TODO: Extract the OpenAIChatResult to get to the prompt and completion token counts
-        var rawResult = (completionResults[0] as ITextResult).ModelResult.GetOpenAIChatResult();
-
-        //TODO: Replace the following return value with the correct values according to function signature
-        // (all default values below should be replaced).
-        return new(reply.Content, chatHistory[0].Content, rawResult.Usage.PromptTokens, rawResult.Usage.CompletionTokens, userPromptEmbedding);
+        return new(planResult.GetValue<string>(), userPrompt, 0, 0, null);
     }
 
     public async Task<string> Summarize(string sessionId, string userPrompt)

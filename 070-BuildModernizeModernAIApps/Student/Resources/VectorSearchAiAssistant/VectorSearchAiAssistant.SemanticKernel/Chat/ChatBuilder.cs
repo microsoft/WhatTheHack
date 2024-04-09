@@ -82,7 +82,7 @@ namespace VectorSearchAiAssistant.SemanticKernel.Chat
         {
             OptimizePromptSize();
 
-            /* TODO: Challenge 3.  
+            /* TODO: Challenge 2.  
              * Uncomment and complete the following lines as instructed.
              */
 

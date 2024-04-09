@@ -91,7 +91,7 @@ public class ChatService : IChatService
     /// </summary>
     public async Task<Completion> GetChatCompletionAsync(string? sessionId, string userPrompt)
     {        
-        /* TODO: Challenge 3. 
+        /* TODO: Challenge 2. 
         * Complete the todo tasks as instructed by the comments
         */
 

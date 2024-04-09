@@ -141,7 +141,7 @@ public class SemanticKernelRAGService : IRAGService
 
     public async Task<(string Completion, string UserPrompt, int UserPromptTokens, int ResponseTokens, float[]? UserPromptEmbedding)> GetResponse(string userPrompt, List<Message> messageHistory)
     {
-        /* TODO: Challenge 3. 
+        /* TODO: Challenge 2. 
          * Complete the todo tasks as instructed by the comments
          */
 
