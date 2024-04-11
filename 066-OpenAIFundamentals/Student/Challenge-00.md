@@ -136,7 +136,7 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 ### Setup Azure OpenAI
 
-Once you have set up a Jupyter notebook environment, you create an Azure OpenAI resource and do some initial configuration.
+Once you have set up a Jupyter notebook environment, create an Azure OpenAI resource in your Azure Subscription and do some initial configuration.
 
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) 
 - Deploy the following models in your Azure OpenAI resource.
@@ -169,7 +169,7 @@ If working on a local workstation:
     - `/notebooks`
     - `.env`
     - `requirements.txt`
-  - Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
 
 ## Learning Resources
 
