@@ -8,22 +8,11 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
-
-- [Student Resources](#student-resources)
 - [Access Azure OpenAI](#access-azure-openai)
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
+  - [GitHub Codespaces](#setup-github-codespace)
+  - [Local Workstation](#setup-local-workstation)
 - [Setup Azure OpenAI](#setup-azure-openai)
-- [Additional Prerequisites](#additional-common-prerequisites)
-
-### Student Resources
-
-Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete the challenges for this hack.  
-
-These resources include Jupyter notebooks, starter code, and sample data sources. 
-
-You should download and unpack the `Resources.zip` file there to your local workstation.  The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
-
-For the hack event September 18 - 29, 2023, you can download the file here: [`Resources.zip`](https://aka.ms/wthopenaifundamentalsresources)
 
 ### Access Azure OpenAI 
 
@@ -36,35 +25,114 @@ An Azure subscription is necessary to [apply for Azure OpenAI access](https://ak
 
 ### Setup Jupyter Notebook Environment
 
-You will be working with Jupyter Notebooks and Python to interact with Azure OpenAI.
+You will be working with Jupyter Notebooks and Python to interact with Azure OpenAI for the hack.
 
-[Jupyter Notebook](https://jupyter.org/) is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
+[Jupyter Notebooks](https://jupyter.org/) are an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
 
-Jupyter notebooks require an environment to run in. You can setup an environment on your local workstation or you can use the Azure Machine Learning Workspace to run them in the cloud.
+Jupyter notebooks require an environment to run in.
 
-#### Local Workstation Environment
+You can use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) where we have a pre-configured Jupyter lab environment set up and ready to go for you, or you can setup a Jupyter lab environment on your local workstation.
 
-If you plan to work on your local workstation, please ensure you have the following tools and resources before hacking:
+A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
+
+- [Use GitHub Codespaces](#use-github-codespaces)
+- [Use Local Workstation](#use-local-workstation)
+
+We highly recommend using GitHub Codespaces to make it easier complete this hack.
+
+#### Use GitHub Codespaces
+
+You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup)!
+
+GitHub Codespaces is available for developers in every organization. All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
+
+You can see your balance of available codespace hours on the [GitHub billing page](https://github.com/settings/billing/summary).
+
+The GitHub Codespace for this hack will host the Jupyter Notebook files, configuration files, and other data files needed for this event. Here are the steps you will need to follow:
+
+- Your coach will provide you with a link to the Github Repo for this hack. Please open this link and sign in with your personal Github account. 
+
+**NOTE:** Make sure you do not sign in with your enterprise managed Github account.
+
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
+
+Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
+
+- When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
+
+- **TODO:** THIS LINE SHOULDN'T BE NECESSARY ==> You should be able to view your codespace. Enter in the following command in the terminal: `pip install -r requirements.txt`. This should successfully install all the libraries you need.
+
+- **TODO:** REMOVE THIS LINE AS STUDENTS CAN'T DO THIS UNTIL CHALLENGE 1 ==> Fill out your .env file with the Azure resource credentials. You can fill the values in this file as you go through the challenges.
+
+- You are ready to run the Jupyter Notebook files, hooray!
+
+You are good to go!  Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
+
+#### Use Local Workstation
+
+**NOTE:** You can skip this section if are using GitHub Codespaces!
+
+If you want to setup a Jupyter Notebooks environment on your local workstation, expand the section below and follow the requirements listed. 
+
+<details>
+<summary>Click to expand/collapse Local Workstation Requirements</summary>
+
+
+To work on your local workstation, please ensure you have the following tools and resources before hacking:
+
+- [Student Resources](#student-resources)
+- [Visual Studio Code](#visual-studio-code)
+- [Python](#python)
+- [Conda Runtime](#conda)
+- [Azure CLI (Optional)](#azure-cli-optional)
+
+##### Student Resources
+
+The Jupyter notebooks, starter code, and sample data sources for this hack are available in a Student Resources package.
+
+- [Download and unpack the `Resources.zip`](https://aka.ms/wthopenaifundamentalsresources) package to your local workstation. 
+
+The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
+
+##### Visual Studio Code
+
+Visual Studio Code is a code editor which you will work with Jupyter notebooks.
+
+- [Install VS Code](https://getvisualstudiocode.com)
+
+##### Python
+
 - [Python Installation](https://www.python.org/downloads), version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
+
+##### Conda
+
 - Conda Installation, for project environment management and package management, version \>= conda 4.1.6. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
   - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 - Environment setup:
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using `python --version` and `conda --version`
   - Create a project environment using Conda - `conda create --name <env_name>`
   - Activate Conda environment - `conda activate <env_name>`
-  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the `Resources/Notebooks` section of the zip folder. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
+  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the `/Notebooks` folder of the `Resources.zip` file. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
   - Open the project in VS Code using `code .`
   - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
 
 For more information, see [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
+##### Azure CLI (Optional)
+
+While it is not necessary for this hack, you may wish to use the Azure CLI to interact with Azure in addition to the Azure Portal.
+
+- [Install Azure CLI](https://aka.ms/installazurecli)
+
 #### Cloud Environment
 
-If you are not interested or able to set up a Jupyter Notebook environment on your local workstation, you can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
+There is a *THIRD* way of setting up a Jupyter Notebook environment if you don't want to set it up on your local workstation or use GitHub Codespaces. You can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
 
 For more information, see: [Run Jupyter Notebooks in your Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
 
 Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/Notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
+
+</details>
 
 ### Setup Azure OpenAI
 
@@ -72,33 +140,40 @@ Once you have set up a Jupyter notebook environment, you create an Azure OpenAI 
 
 - [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) 
 - Deploy the following models in your Azure OpenAI resource.
+  - `gpt-4`
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
     - **NOTE:** A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
 - Add required credentials of Azure resources in the sample `.env` file, which we have provided as `sample-env.txt` in the `Resources` folder. You can get these credentials through the Azure Portal within your AOAI resource. Click on Keys and Endpoint from the dropdown menu on the left side. After entering your credentials and environment variables in the provided fields, rename the file to `.env`. Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
-  - **NOTE:** Additional Azure resources such as Azure Form Recognizer and Azure Cognitive Search will be required for later challenges. 
-
-## Additional Common Prerequisites
-
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
-
-You might not need all of them for this hack you are participating in. However, if you work with Azure on a regular basis, we suggest considering having the following in your developer toolkit.
-
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+  - **NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. 
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
+If using GitHub Codespaces:
+
+- Verify you have the following files & folders available in the Codespace's VS Code window:
+    - `/data`
+    - `/notebooks`
+    - `.env`
+    - `requirements.txt`
+- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+
+If working on a local workstation: 
+
 - Verify that you have Python and Conda installed
 - Verify that you can run Jupyter Notebooks in Visual Studio Code or Azure Machine Learning Studio
-- Verify that you have created the AOAI resource and deployed the necessary deployments
+- Verify you have the following files & folders locally wherever you unpacked the `Resources.zip` file:
+    - `/data`
+    - `/notebooks`
+    - `.env`
+    - `requirements.txt`
+  - Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
 
 ## Learning Resources
 
+- [GitHub Codespaces Overview](https://docs.github.com/en/codespaces/overview)
 - [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 - [Jupyter Notebooks](https://jupyter.org/)
 - [Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
