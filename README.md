@@ -106,6 +106,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Data & AI
 - [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
+- [Fabric Real-time Analytics](/069-FabricRealTimeAnalytics/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
