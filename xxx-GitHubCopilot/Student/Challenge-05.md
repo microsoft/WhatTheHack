@@ -5,7 +5,7 @@
 ## Introduction
 In this final challenge, you'll harness the power of GitHub Copilot to identify and resolve security vulnerabilities in a pre-written code snippet*. You will also optimize your code, refining its performance and maintainability based on the intelligent suggestions provided by Copilot. This challenge is an opportunity to deepen your understanding of how Copilot can be an integral part of your debugging and code optimization processes.
 
-*Please note, while GitHub Copilot can identify vulnerabilities and filter out security vulnerabilities in its suggestions[Link](https://github.blog/2023-02-14-github-copilot-now-has-a-better-ai-model-and-new-capabilities/), it does not replace traditional security tools such as GitHub Advanced Security. 
+*Please note, while GitHub Copilot can identify vulnerabilities and filter out security vulnerabilities in its suggestions [Link](https://github.blog/2023-02-14-github-copilot-now-has-a-better-ai-model-and-new-capabilities/), it does not replace traditional security tools such as GitHub Advanced Security which have more robust capabilities at identifying vulnerabilities. 
 
 ## Description
 This challenge is centered around enhancing your debugging and code optimization skills with the help of GitHub Copilot. We will be using the codebase from [OWASP Juice Shop](https://github.com/juice-shop/juice-shop) which is an intentially insecure web application.  You do not need to grab the entire application for this challenge, you may select one of the many files in the routes directory instead. Your tasks are to:
