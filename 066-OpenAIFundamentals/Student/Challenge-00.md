@@ -64,9 +64,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - **TODO:** REMOVE THIS LINE AS STUDENTS CAN'T DO THIS UNTIL CHALLENGE 1 ==> Fill out your .env file with the Azure resource credentials. You can fill the values in this file as you go through the challenges.
 
-- You are ready to run the Jupyter Notebook files, hooray!
-
-You are good to go!  Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
+You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
 
 #### Use Local Workstation
 
