@@ -1,5 +1,5 @@
 {
-  "name": "What The Hack",
+  "name": "068 - Azure OpenAI Apps",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "postCreateCommand": "npm install -g @angular/cli azure-functions-core-tools@4",
   "features": {
@@ -8,5 +8,8 @@
     "ghcr.io/devcontainers/features/powershell:1": {
       "modules": "az"
     }
+  },
+  "hostRequirements": {
+    "cpus": 4
   }
 }
