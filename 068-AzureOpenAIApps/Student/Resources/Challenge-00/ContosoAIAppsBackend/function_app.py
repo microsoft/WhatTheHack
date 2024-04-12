@@ -11,7 +11,7 @@ from controllers.azure_blob import azure_blob_controller
 from controllers.azure_service_bus import service_bus_controller
 from controllers.cosmos_db import cosmos_controller
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 app.register_functions(yachts_controller)
 app.register_functions(customers_controller)

@@ -17,7 +17,7 @@ contoso_tourists_controller = func.Blueprint()
 
 @contoso_tourists_controller.function_name("contoso_tourists_basic")
 @contoso_tourists_controller.route(route="contoso-tourists-basic", methods=["POST"],
-                            auth_level=AuthLevel.FUNCTION)
+                            auth_level=AuthLevel.ANONYMOUS)
 def contoso_tourists(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 

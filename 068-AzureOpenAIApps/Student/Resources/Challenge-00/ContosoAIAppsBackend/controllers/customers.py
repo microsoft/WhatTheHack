@@ -12,7 +12,7 @@ customers_controller = func.Blueprint()
 
 @customers_controller.function_name("customers_controller")
 @customers_controller.route(route="customers/{customerId?}", methods=["GET", "PUT", "POST", "DELETE"],
-                            auth_level=AuthLevel.FUNCTION)
+                            auth_level=AuthLevel.ANONYMOUS)
 def customers_handler(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
