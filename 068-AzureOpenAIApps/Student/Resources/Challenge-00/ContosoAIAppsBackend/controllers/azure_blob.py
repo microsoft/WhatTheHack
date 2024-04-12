@@ -7,7 +7,7 @@ azure_blob_controller = func.Blueprint()
 
 
 @azure_blob_controller.function_name("azure_blob_controller")
-@azure_blob_controller.blob_trigger(arg_name='izzystream', connection='CITRUS_STORAGE',
+@azure_blob_controller.blob_trigger(arg_name='izzystream', connection='SOURCE_DATA_STORAGE',
                                     path='government/{blobName}')
 def azure_blob_handler(izzystream: func.InputStream):
     logging.info('Python Azure Blob trigger function processed a request.')
