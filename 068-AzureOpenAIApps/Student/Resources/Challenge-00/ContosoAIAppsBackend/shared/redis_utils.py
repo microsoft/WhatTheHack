@@ -39,9 +39,53 @@ class RedisUtil:
         self.redis_client.delete(key)
 
     def l_push(self, key, values):
-        """Appends a value to the redis list for the specified key to the head of the list"""
-        return self.redis_client.lpush(key, values)
+        """Appends a value to the head of the list for the specified key to the head of the list"""
+        self.redis_client.lpush(key, values)
+        return self
 
     def l_range(self, key, start, end):
         """Retrieves the items in the list for the specified key"""
         return self.redis_client.lrange(key, start, end)
+
+    def r_push(self, key, values):
+        """Appends a value to the tail of the list for the specified key to the head of the list"""
+        self.redis_client.lpush(key, values)
+        return self
+
+    def r_push_json(self, key, values):
+        """Appends a value to the tail of the list for the specified key to the head of the list"""
+        value_to_serialize = json.dumps(values)
+        return self.r_push(key, value_to_serialize)
+
+    def l_push_json(self, key, values):
+        value_to_serialize = json.dumps(values)
+        return self.l_push(key, value_to_serialize)
+
+    def l_range_json(self, key, start, end):
+        serialized_values = self.l_range(key, start, end)
+        deserialized_values: list = []
+        for serialized_value in serialized_values:
+            deserialized_value = json.loads(serialized_value)
+            deserialized_values.append(deserialized_value)
+        return deserialized_values
+
+    def increment(self, key, increment: int = 1):
+        return self.redis_client.incrby(key, increment)
+
+    def increment_float(self, key, increment: float = 1.0):
+        return self.redis_client.incrbyfloat(key, increment)
+
+    def decrement(self, key, decrement: int = 1):
+        return self.redis_client.decrby(key, decrement)
+
+    def decrement_float(self, key, decrement: float = 1.0):
+        return self.redis_client.incrbyfloat(key, (decrement * -1.0))
+
+    def exists(self, key):
+        return self.redis_client.exists(key)
+
+    def expire(self, key: str, time: int):
+        return self.redis_client.expire(key, time)
+
+    def set_expire(self, key, value, time: int):
+        return self.redis_client.setex(key, value, time)

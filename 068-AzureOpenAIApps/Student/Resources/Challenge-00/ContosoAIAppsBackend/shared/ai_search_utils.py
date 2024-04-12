@@ -1,4 +1,5 @@
 import os
+from typing import Any
 
 from azure.core.credentials import AzureKeyCredential
 from azure.search.documents import SearchClient
@@ -21,7 +22,6 @@ class AISearchUtils:
         self.index_client = SearchIndexClient(vector_store_address, credential=credential)
 
     def delete_documents(self, document_ids: list[str], key_field_name):
-
         documents_to_delete = []
 
         for document_id in document_ids:
@@ -32,16 +32,19 @@ class AISearchUtils:
 
         return response
 
+    def index_exists(self, index_name: str):
+        index_list = self.index_client.list_index_names()
+        return index_name in index_list
+
     def filter_query(self, search_text, filter_query: str):
+        search_result = self.client.search(search_text=search_text, filter=filter_query)
+        return search_result
 
-        list_of_indices = self.index_client.list_index_names()
+    def upload_document(self, document: dict[str, Any]):
+        documents: list[dict] = [document]
+        self.client.upload_documents(documents)
 
-        l2 = []
-        for i in list_of_indices:
-            l2.append(i)
+    def delete_document_by_id(self, document_id: str):
+        ids = [{'id': document_id}]
+        self.client.delete_documents(ids)
 
-        if l2:
-            search_result = self.client.search(search_text=search_text,filter=filter_query)
-            return search_result
-
-        return []

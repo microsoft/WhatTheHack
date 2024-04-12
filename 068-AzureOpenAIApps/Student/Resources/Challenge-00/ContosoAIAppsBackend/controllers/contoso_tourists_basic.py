@@ -1,32 +1,31 @@
 import logging
+
 import azure.functions as func
 from azure.functions import AuthLevel
 import json
 import os
 
-from azure.search.documents.indexes.models import SimpleField, SearchFieldDataType, SearchableField, SearchField
+from azure.search.documents.indexes.models import SearchFieldDataType, SimpleField, SearchableField, SearchField
 from langchain_community.vectorstores.azuresearch import AzureSearch
-from langchain_core.documents import Document
 from langchain_openai import AzureOpenAIEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from shared.ai_search_utils import AISearchUtils
+from models.customers import Customers
+from shared.function_utils import APISuccessOK
 
-azure_blob_controller = func.Blueprint()
+contoso_tourists_controller = func.Blueprint()
 
 
-@azure_blob_controller.function_name("azure_blob_controller")
-@azure_blob_controller.blob_trigger(arg_name='contosostream', connection='CITRUS_STORAGE',
-                                    path='government/{blobName}')
-def azure_blob_handler(contosostream: func.InputStream):
-    logging.info('Python Azure Blob trigger function processed a request.')
+@contoso_tourists_controller.function_name("contoso_tourists_basic")
+@contoso_tourists_controller.route(route="contoso-tourists-basic", methods=["POST"],
+                            auth_level=AuthLevel.FUNCTION)
+def contoso_tourists(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
 
-    file_content_encoding = 'utf-8'
-    logging.info(contosostream.name)
-    logging.info(contosostream.length)
+    headers = req.headers
 
-    blob_content = contosostream.read().decode(file_content_encoding)
-    logging.info(blob_content)
+    query_mode = headers.get("x-query-mode", "vector-search")
+
+    body = req.get_json()
 
     contoso_documents_index_name = os.environ.get('AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME')
     azure_openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT', '')
@@ -36,10 +35,6 @@ def azure_blob_handler(contosostream: func.InputStream):
 
     vector_store_address = os.environ.get('AZURE_AI_SEARCH_ENDPOINT')
     vector_store_admin_key = os.environ.get('AZURE_AI_SEARCH_ADMIN_KEY')
-
-    ai_search_util = AISearchUtils(contoso_documents_index_name)
-
-    source_identifier = contosostream.name
 
     langchain_embeddings_object = AzureOpenAIEmbeddings(
         azure_deployment=azure_openai_embedding_deployment,
@@ -103,26 +98,24 @@ def azure_blob_handler(contosostream: func.InputStream):
         fields=fields
     )
 
-    search_results = ai_search_util.filter_query("*", f"source eq '{source_identifier}'")
+    user_question = body['message']
 
-    matching_document_ids: list[str] = []
+    # Perform a similarity search
+    docs = vector_store.similarity_search(
+        query=user_question,
+        k=3,
+        search_type="similarity",
+    )
 
-    for document in search_results:
-        matching_document_ids.append(document['id'])
+    display_docs = []
 
-    if matching_document_ids and len(matching_document_ids) == 0:
-        ai_search_util.delete_documents(matching_document_ids, key_field_name="id")
+    for doc in docs:
+        display_docs.append(doc.page_content)
 
-    doc_meta = {"title": "Documents from {}".format(source_identifier),
-                "source": source_identifier, "filename": source_identifier, }
+    assistant_response = docs[0].page_content
 
-    document = Document(page_content=blob_content, metadata=doc_meta)
+    chat_response = {"reply": assistant_response, "query": user_question, "matches": display_docs}
 
-    splitter = RecursiveCharacterTextSplitter(separators=["\n\n"], chunk_size=512, chunk_overlap=0)
+    json_string = json.dumps(chat_response)
 
-    # Chunks of docs after splitting the blob chunks into reasonable chunks of smaller size
-    document_chunks = splitter.split_documents([document])
-
-    vector_store.add_documents(document_chunks)
-
-    print("Added {} documents".format(len(document_chunks)))
+    return APISuccessOK(json_string).build_response()
