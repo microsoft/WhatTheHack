@@ -154,7 +154,7 @@ To complete this challenge successfully, you should be able to:
 
 If using GitHub Codespaces:
 
-- Verify you have the following files & folders available in the Codespace's VS Code window:
+- Verify you have the following files & folders available in the Codespace:
     - `/data`
     - `/notebooks`
     - `.env`
