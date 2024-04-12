@@ -13,5 +13,8 @@
     "AZURE_OPENAI_VERSION_NUMBER": "2024-02-15-preview",
     "AZURE_OPENAI_RUN_RETRIEVAL_DELAY_SECONDS": 5
 
+  } "Host": {
+    "LocalHttpPort": 7072,
+    "CORS": "*"
   }
 }
