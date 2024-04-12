@@ -42,7 +42,7 @@ We highly recommend using GitHub Codespaces to make it easier complete this hack
 
 #### Use GitHub Codespaces
 
-You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup)!
+You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup).
 
 GitHub Codespaces is available for developers in every organization. All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
 
@@ -59,10 +59,6 @@ The GitHub Codespace for this hack will host the Jupyter Notebook files, configu
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
-
-- **TODO:** THIS LINE SHOULDN'T BE NECESSARY ==> You should be able to view your codespace. Enter in the following command in the terminal: `pip install -r requirements.txt`. This should successfully install all the libraries you need.
-
-- **TODO:** REMOVE THIS LINE AS STUDENTS CAN'T DO THIS UNTIL CHALLENGE 1 ==> Fill out your .env file with the Azure resource credentials. You can fill the values in this file as you go through the challenges.
 
 You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
 
@@ -142,8 +138,15 @@ Once you have set up a Jupyter notebook environment, create an Azure OpenAI reso
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
     - **NOTE:** A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
-- Add required credentials of Azure resources in the sample `.env` file, which we have provided as `sample-env.txt` in the `Resources` folder. You can get these credentials through the Azure Portal within your AOAI resource. Click on Keys and Endpoint from the dropdown menu on the left side. After entering your credentials and environment variables in the provided fields, rename the file to `.env`. Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
-  - **NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. 
+- Add required credentials of Azure resources in the `.env` file.
+  - GitHub Codespaces: You will find the `.env` file in the root of the codespace.
+  - Local workstation: You will find the `.env` file in the root of the folder where you have unpacked the student resource package.
+  
+  **HINT:** You can get these credentials through the Azure Portal within your AOAI resource. Click on `Keys and Endpoint` from the dropdown menu on the left side.
+   
+  **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
+  
+**NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. 
 
 ## Success Criteria
 
@@ -176,3 +179,4 @@ If working on a local workstation:
 - [Jupyter Notebooks](https://jupyter.org/)
 - [Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
 - [Run Jupyter Notebooks In Your (Azure Machine Learning) Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
+- [How to setup .env in Python](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items)
