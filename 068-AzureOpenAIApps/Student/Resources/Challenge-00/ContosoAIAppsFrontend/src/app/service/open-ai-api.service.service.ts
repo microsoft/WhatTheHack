@@ -14,7 +14,7 @@ export class OpenAiApiServiceService {
 
     const clientMessage = {message};
 
-    return this.http.post<T>(`${this.apiUrl}/api/openai-chatbot`, clientMessage);
+    return this.http.post<T>(`${this.apiUrl}/api/contoso-tourists-basic`, clientMessage);
   }
 
   public sendLimoChatbotMessage<T>(message: string) {
