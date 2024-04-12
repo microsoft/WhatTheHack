@@ -31,11 +31,10 @@ Questions you should be able to answer by the end of this challenge:
 You will run the following Jupyter notebook to complete the tasks for this challenge:
 - `CH-01-PromptEngineering.ipynb`
 
-To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
-
 The file can be found in your Codespace under the `/notebooks` folder. 
-If you are working locally or in the Cloud, you can find it in the `/Notebooks` folder of `Resources.zip` file. 
+If you are working locally or in the Cloud, you can find it in the `/notebooks` folder of `Resources.zip` file. 
 
+To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 Sections in this Challenge:
 1. Parameter Experimentation
