@@ -2,7 +2,7 @@
 
 ## Introduction
 
-121323 - The Azure OpenAI Fundamentals What The Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this hack can serve as a foundation for building your own solution with Azure OpenAI.
+The Azure OpenAI Fundamentals What The Hack is an introduction to understanding the conceptual foundations of Azure OpenAI models. Materials from this hack can serve as a foundation for building your own solution with Azure OpenAI.
 
 This hack consists of five challenges and is designed to be self-administered, so anyone can complete the material independently. Whether you have limited to no experience with Machine Learning or have experimented with OpenAI before but want a deeper understanding of how to implement an AI solution, this hack is for you.
 

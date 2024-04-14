@@ -106,7 +106,7 @@ Visual Studio Code is a code editor which you will work with Jupyter notebooks.
   - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using `python --version` and `conda --version`
   - Create a project environment using Conda - `conda create --name <env_name>`
   - Activate Conda environment - `conda activate <env_name>`
-  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the `/Notebooks` folder of the `Resources.zip` file. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
+  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the root folder of the `Resources.zip` file. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
   - Open the project in VS Code using `code .`
   - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
 
@@ -124,7 +124,7 @@ There is a *THIRD* way of setting up a Jupyter Notebook environment if you don't
 
 For more information, see: [Run Jupyter Notebooks in your Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
 
-Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/Notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
+Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
 
 </details>
 
