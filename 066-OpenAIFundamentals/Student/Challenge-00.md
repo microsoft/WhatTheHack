@@ -137,16 +137,27 @@ Once you have set up a Jupyter notebook environment, create an Azure OpenAI reso
   - `gpt-4`
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
-    - **NOTE:** A couple of challenges may require a few additional prerequisites so be sure to check those out in the respective challenges. 
-- Add required credentials of Azure resources in the `.env` file.
-  - GitHub Codespaces: You will find the `.env` file in the root of the codespace.
-  - Local workstation: You will find the `.env` file in the root of the folder where you have unpacked the student resource package.
-  
+
+#### Setup Jupyter Notebooks Configuration File
+
+The code in the Jupyter notebooks retrieve their configuration values from environment variables configured in a `.env` file. Some of these configuration values are secrets (such as the key to access your Azure OpenAI resource). 
+
+**NOTE:** A `.env` file should never be stored in a Git repo.  Therefore, we have provided a sample file named `.env.sample` that contains a list of environment variables required by the Jupyter notebooks.
+
+You will find the `.env.sample` file in the root of the codespace. If you are working on your local workstation, you will find the `.env.sample` file in the root of the folder where you have unpacked the student `Resources.zip` file.
+
+- Rename the file from `.env.sample` to `.env`.
+- Add required credentials of Azure resources in the `.env` file.  
+
   **HINT:** You can get these credentials through the Azure Portal within your AOAI resource. Click on `Keys and Endpoint` from the dropdown menu on the left side.
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
   
-**NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. 
+**NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. You can add these values to the `.env` file later as you progress through the challenges.
+
+**NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
+
+**NOTE:** On MacOS, files that start with a `.` are hidden files and are not viewable in Finder when browsing the file system. They will be visible in both VS Code or GitHub Codespaces.
 
 ## Success Criteria
 
@@ -157,7 +168,8 @@ If using GitHub Codespaces:
 - Verify you have the following files & folders available in the Codespace:
     - `/data`
     - `/notebooks`
-    - `.env`
+    - `.env` <= Renamed from `.env.sample`
+    - `.gitignore`
     - `requirements.txt`
 - Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
 
@@ -168,7 +180,8 @@ If working on a local workstation:
 - Verify you have the following files & folders locally wherever you unpacked the `Resources.zip` file:
     - `/data`
     - `/notebooks`
-    - `.env`
+    - `.env` <= Renamed from `.env.sample`
+    - `.gitignore`
     - `requirements.txt`
 - Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
 
