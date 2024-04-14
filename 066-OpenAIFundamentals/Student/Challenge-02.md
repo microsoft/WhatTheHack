@@ -17,7 +17,7 @@ Model deployment for the challenge:
   - `gpt-35-turbo`
  **If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.**
 
-- Add required credentials of Azure resources in the ``.env`` file
+- Add required credentials of Azure resources in the `.env` file
 
 Questions you should be able to answer by the end of this challenge:
 - What are the capacities of each Azure OpenAI model?

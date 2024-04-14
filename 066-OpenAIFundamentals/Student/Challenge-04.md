@@ -7,7 +7,7 @@
 - Azure Form Recognizer resource for extracting text from raw unstructured data
 - Azure Cognitive Search resource for indexing and retrieving relevant information
 - Azure OpenAI service for Generative AI Models and Embedding Models
-- Add required credentials of above resources in .env file 
+- Add required credentials of above resources in `.env` file 
 - Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ``` if you have not already
 
 ## Introduction
