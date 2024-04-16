@@ -83,6 +83,7 @@ To work on your local workstation, please ensure you have the following tools an
 - Install [Python Package Install PIP](https://pypi.org/project/pip/) 
 
 </details>
+
 ### Student Resources
 The sample applications were developed using Python/Typescript/Javascript. 
 
