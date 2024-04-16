@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "philippe-perrin-sonarsource",
+    "projectKey": "philippe-perrin-sonarsource_WhatTheHack"
+  }
+}
