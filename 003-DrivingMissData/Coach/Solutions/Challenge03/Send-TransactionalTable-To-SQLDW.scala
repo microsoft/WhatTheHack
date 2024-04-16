@@ -214,7 +214,7 @@ UNION ALL
 
 
 // COMMAND ----------
-
+val blobAccessKey1 =  "zGpUIfM9mlxPaeTq41ItcVE4pgoP0IRFm1f3FTxEcrHEUde3Mac7l8Wwz2qATQmySJOcAFB/QU18Hy4GEDC0AQ=="
 val blobStorage = "dta01storage.blob.core.windows.net"
 val blobContainer = "nyctaxi-curated"
 val blobAccessKey =  "zGpUIfM9mlxPaeTq41ItcVE4pgoP0IRFm1f3FTxEcrHEUde3Mac7l8Wwz2qATQmySJOcAFB/QU18Hy4GEDC0AQ=="
