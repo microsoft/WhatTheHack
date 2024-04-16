@@ -1,6 +1,6 @@
 [
   {
-    "classifier_document_type": "f01-classification",
+    "classifier_document_type": "f01-geography-climate",
     "extractor_model_name": "specify the value from Azure for your form-01 extractor model name",
     "model_description": "This is used to extract the contents of Form 01 using Azure Doc Intelligence",
     "fields": {
@@ -16,7 +16,7 @@
     }
   },
   {
-    "classifier_document_type": "f02-classification",
+    "classifier_document_type": "f02-geography-climate",
     "extractor_model_name": "specify the value from Azure for your form-02 extractor model name",
     "model_description": "This is used to extract the contents of Form 02 using Azure Doc Intelligence",
     "fields": {
@@ -32,7 +32,7 @@
     }
   },
   {
-    "classifier_document_type": "f03-classification",
+    "classifier_document_type": "f03-geography-politics",
     "extractor_model_name": "specify the value from Azure for your form-03 extractor model name",
     "model_description": "This is used to extract the contents of Form 03 using Azure Doc Intelligence",
     "fields": {
@@ -49,13 +49,13 @@
     }
   },
   {
-    "classifier_document_type": "f04-classification",
+    "classifier_document_type": "f04-meal-preferences",
     "extractor_model_name": "specify the value from Azure for your form-04 extractor model name",
     "model_description": "This is used to extract the contents of Form 04 (Meal Preferences + Allergy Declarations) using Azure Doc Intelligence",
     "fields": {
       "guest_full_name": "guest_full_name",
-      "guest_phone_number": "phone_number",
-      "guest_email_address": "email_address",
+      "guest_phone_number": "guest_phone_number",
+      "guest_email_address": "guest_email_address",
       "checkbox_meal_preferences_vegetarian": "meal_preferences_vegetarian",
       "checkbox_meal_preferences_vegan": "meal_preferences_vegan",
       "checkbox_meal_preferences_pescatarian": "meal_preferences_pescatarian",
@@ -71,7 +71,7 @@
       "checkbox_allergens_seafood": "allergens_seafood",
       "checkbox_allergens_gluten": "allergens_gluten",
       "checkbox_allergens_eggs": "allergens_eggs",
-      "table_name": "temperature_preferences",
+      "table_name": "temperature_settings",
       "table_column_header_meal_item": "meal_items",
       "table_column_header_quantity": "quantity",
       "table_column_header_min_temp": "min_temperature",

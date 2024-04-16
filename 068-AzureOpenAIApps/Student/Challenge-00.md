@@ -4,17 +4,14 @@
 
 ## Introduction
 
-Thank you for participating in the OpenAIOnAzure What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Azure Open AI Apps What The Hack. Before you can hack, you will need to set up some prerequisites.
 
-## Common Prerequisites
+## Description
 
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
-
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+In this challenge, you will setup the necessary pre-requisites and environment to complete the rest of the hack, including:
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
-- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
@@ -26,23 +23,58 @@ You might not need all of them for the hack you are participating in. However, i
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 - [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
-## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
+### Access Azure OpenAI 
 
-### Student Resources
+You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
+- [Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
-Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete the challenges for this hack.  
+Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
 
-These resources include Azure Functions, Angular Apps, starter code, and sample data sources. 
+An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
-You should download and unpack the `Resources.zip` file there to your local workstation.  The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
+## Setup environment 
 
-For the hack event October 23 - November 3, 2023, you can download the file here: [`Resources.zip`](https://aka.ms/wthopenaiappsresources)
+You can either use Github Codespaces or your local workstation. 
 
-### Installing Additonal Tools
+- [Use GitHub Codespaces](#use-github-codespaces)
+- [Use Local Workstation](#use-local-workstation)
 
-Please install these additional tools:
+### Github Codespaces
+
+We will be using Github Codespaces for this hack. A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
+
+You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup).
+
+GitHub Codespaces is available for developers in every organization. All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
+
+You can see your balance of available codespace hours on the [GitHub billing page](https://github.com/settings/billing/summary).
+
+The GitHub Codespace for this hack will host the Jupyter Notebook files, configuration files, and other data files needed for this event. Here are the steps you will need to follow:
+
+- A GitHub repo containing the student resources and Codespace for this hack is hosted here:
+  - [WTH OpenAI Fundamentals Codespace Repo](https://github.com/devanshithakar12/wth-aiapps-codespace/tree/main)
+  - Please open this link and sign in with your personal Github account. 
+
+**NOTE:** Make sure you do not sign in with your enterprise managed Github account.
+
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
+
+Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
+
+- When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
+
+
+### Use Local Workstation
+**NOTE:** You can skip this section if are using GitHub Codespaces!
+
+If you want to setup your environment on your local workstation, expand the section below and follow the requirements listed. 
+
+<details>
+<summary>Click to expand/collapse Local Workstation Requirements</summary>
+
+
+To work on your local workstation, please ensure you have the following tools and resources before hacking:
 
 - [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
 - Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
@@ -51,10 +83,8 @@ Please install these additional tools:
 - Install [Python 3.11](https://www.python.org/downloads/)
 - Install [Python Package Install PIP](https://pypi.org/project/pip/) 
 
-In the `/Challenge-00/` folder of the `Resources.zip` file, you will find sample apps provide the initial hack environment you will work with in subsequent challenges.
-
+## Student Resources
 The sample applications were developed using Python/Typescript/Javascript. 
-
 
 Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
 
