@@ -73,15 +73,9 @@ If you want to setup your environment on your local workstation, expand the sect
 <details>
 <summary>Click to expand/collapse Local Workstation Requirements</summary>
 
-
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
 
-- [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
-- Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
-- Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
-- Install the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools#installing) V4 Globally Using NPM
-- Install [Python 3.11](https://www.python.org/downloads/)
-- Install [Python Package Install PIP](https://pypi.org/project/pip/) 
+
 
 ## Student Resources
 The sample applications were developed using Python/Typescript/Javascript. 
