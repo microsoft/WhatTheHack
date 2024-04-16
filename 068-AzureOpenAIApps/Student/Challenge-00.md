@@ -73,8 +73,6 @@ If you want to setup your environment on your local workstation, expand the sect
 <details>
 <summary>Click to expand/collapse Local Workstation Requirements</summary>
 
-
-
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
 
 - [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
@@ -84,6 +82,7 @@ To work on your local workstation, please ensure you have the following tools an
 - Install [Python 3.11](https://www.python.org/downloads/)
 - Install [Python Package Install PIP](https://pypi.org/project/pip/) 
 
+</details>
 ### Student Resources
 The sample applications were developed using Python/Typescript/Javascript. 
 
