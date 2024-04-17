@@ -110,21 +110,6 @@ Please run the validation steps first before you deploy the resources to ensure 
 
 The deployment process takes about 30 minutes to complete.
 
-### Deploying the Resources with Powershell
-
-````Powershell
-
-# Command to Create a Resource Group
-New-AzResourceGroup -Name contosoizzygroup -Location "East US"
-
-# Validate the ARM template and the Parameter file
-Test-AzResourceGroupDeployment -ResourceGroupName contosoizzygroup -TemplateFile ai-apps-wth-resources.json -TemplateParameterFile ai-apps-wth-resources.parameters.json
-
-# Deploy the Resources with Parameter File
-New-AzResourceGroupDeployment -Mode Incremental -Name rollout01 -ResourceGroupName contosoizzygroup -TemplateFile ai-apps-wth-resources.json -TemplateParameterFile ai-apps-wth-resources.parameters.json
-
-````
-
 ### Deploying the Resources with Bash
 
 ````bash
@@ -140,21 +125,6 @@ az deployment group create --mode Incremental --resource-group contosoizzygroup 
 
 ````
 
-##### Setting up the Cognitive Search Indices
-
-Use the Postman script to set up the index using the following variables for Postman
-
-Make sure you use the service name for your Cognitive Search Instance as well as its admin key
-
-| Variable Name  | Variable Value     |
-|----------------|--------------------|
-| apiVersion     | 2023-10-01-Preview |
-| serviceName    | contosoizzysearch1 |
-| indexName      | yachts             |
-| adminKey       | YourAdminKeyHere   |
-
-You will need to set up an index for the yachts and contosoIslands indices
-
 ##### Setting up the Backend Azure Function App Locally
 
 We will need to provision the above-mentioned Azure resources that will be used to power the apps.
@@ -165,20 +135,35 @@ Copy over the example local.settings.json.example file and rename it to local.se
 
 The local.settings.json file is where all the environment variables used locally by the function app are defined.
 
-You will need Python 3.11 running locally. If this is not available in your environment, please install Python 3.11
+You will need Python 3.11 running in Code Spaces. If this is not available in your environment, please install Python 3.11
 
-Install PIP (The Python Package Installer)
-https://pypi.org/project/pip/
+Make sure that you have the correct python, node, Azure Function and npm versions when you log into Code Spaces
 
-Install version 4 of the Azure Function Core Tools
-https://www.npmjs.com/package/azure-functions-core-tools
+These are the commands to verify the installed version of these environment dependencies:
+
+````bash
+# check the python version
+python --version
+
+# check the Azure function core tools version
+func --version
+
+# check the node version
+node --version
+
+# check the npm version
+npm --version
+
+# check the angular cli version
+ng --version
+
+````
+
+Once all the dependencies have been verified, power up the Azure Function Backend:
 
 ````bash
 # Navigate to the directory
 cd ContosoAIAppsBackend
-
-# Install dependencies
-pip install -r requirements.txt
 
 # Start up the function app
 func start 
@@ -196,9 +181,6 @@ If your function app is running on a different port or machine, please update th
 ```
 # Navigates into the folder 
 cd ContosoAIAppsFrontend
-
-# Installs the dependencies
-npm install
 
 # Starts up the web application on your local machine
 npm start
@@ -218,6 +200,8 @@ To complete this challenge successfully, you should be able to:
   - Azure Service Bus with at least one queue set up
   - Azure Redis Cache Instance
   - Azure Document Intelligence Service (formerly Azure Form Recognizer)
+ 
+Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
 
 ## Learning Resources
 
