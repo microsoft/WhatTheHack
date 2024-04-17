@@ -31,7 +31,7 @@ Only use the functions you have been provided with.
 
 If you are not sure what the answer is, tell the customer that you are not sure.
 
-```
+````
 #### Tools Configuration
 
 For the tools configuration, what is critical is the accurate description of the tool as well as each of the parameters it expects.
