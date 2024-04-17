@@ -1,9 +1,7 @@
 import logging
 import azure.functions as func
-from azure.functions import AuthLevel
-import json
 
-from shared.application_initialization_logic import initialize_contoso_documents_index
+from shared.application_initialization_logic import initialize_contoso_documents_index, initialize_yachts_index
 
 app_initializer_controller = func.Blueprint()
 
@@ -18,3 +16,6 @@ def app_initializer_handler(mytimer: func.TimerRequest) -> None:
 
     # initialize contoso documents index for langchain integration
     initialize_contoso_documents_index()
+
+    # initialize contoso yachts index for langchain integration
+    initialize_yachts_index()

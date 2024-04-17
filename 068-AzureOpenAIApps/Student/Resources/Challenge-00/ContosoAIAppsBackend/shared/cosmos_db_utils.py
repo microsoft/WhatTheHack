@@ -4,10 +4,12 @@ from azure.cosmos import CosmosClient, DatabaseProxy, ContainerProxy
 
 
 class CosmosDbUtils:
-    def __init__(self, database: str, collection: str):
+    def __init__(self, collection: str):
         cosmos_connection_string = os.environ["COSMOS_CONNECTION"]
+        cosmos_database_name_string = os.environ["COSMOS_DATABASE_NAME"]
+
         self.client: CosmosClient = CosmosClient.from_connection_string(conn_str=cosmos_connection_string)
-        self.database_name: str = database
+        self.database_name: str = cosmos_database_name_string
         self.collection_name: str = collection
 
     def get_database(self) -> DatabaseProxy:

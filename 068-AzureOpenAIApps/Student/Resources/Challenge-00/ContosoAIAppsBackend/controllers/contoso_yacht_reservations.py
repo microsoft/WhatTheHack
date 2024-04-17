@@ -6,14 +6,14 @@ import json
 from shared.function_utils import APISuccessOK
 from shared.virtual_assistant_tools import get_contoso_document_vector_store
 
-contoso_tourists_controller = func.Blueprint()
+contoso_yacht_reservations_controller = func.Blueprint()
 
 
-@contoso_tourists_controller.function_name("contoso_tourists_basic")
-@contoso_tourists_controller.route(route="contoso-tourists-basic", methods=["POST"],
-                            auth_level=AuthLevel.ANONYMOUS)
-def contoso_tourists(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+@contoso_yacht_reservations_controller.function_name("contoso_yachts_chat_completion")
+@contoso_yacht_reservations_controller.route(route="contoso-yachts-chat", methods=["POST"],
+                                             auth_level=AuthLevel.ANONYMOUS)
+def contoso_tourists2(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('contoso_yacht_reservations_controller processed a request.')
 
     headers = req.headers
 

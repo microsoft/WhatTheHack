@@ -11,7 +11,7 @@ yachts_controller = func.Blueprint()
 
 @yachts_controller.function_name("yachts_controller")
 @yachts_controller.route(route="yachts/{yachtId?}", methods=["GET", "PUT", "POST", "DELETE"],
-                         auth_level=AuthLevel.ANONYMOUS)
+                         auth_level=AuthLevel.FUNCTION)
 def yachts_handler(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 

@@ -1,5 +1,10 @@
 import json
 import os
+from enum import StrEnum
+
+from typing import TypedDict
+
+from openai.types.chat import ChatCompletionToolParam
 
 
 class DocumentIntelligenceSetting:
@@ -17,10 +22,40 @@ class DocumentIntelligenceSetting:
         return self.__repr__()
 
 
+class AssistantConfig(TypedDict):
+    system_message: str
+    tools: list[ChatCompletionToolParam]
+
+
+class AssistantName(StrEnum):
+    ELIZABETH = 'elizabeth'
+    ESTHER = 'esther'
+    MIRIAM = 'miriam'
+    PRISCILLA = 'priscilla'
+    SARAH = 'sarah'
+
+
 class ApplicationSettings:
 
     def __init__(self):
         self.root_directory = os.path.dirname(os.path.abspath(__file__))
+
+    def get_assistant_config(self, assistant_name: AssistantName):
+        tools_file_path = self.root_directory + "/assistant_configurations/" + assistant_name + ".json"
+        system_message_file_path = self.root_directory + "/assistant_configurations/" + assistant_name + ".txt"
+
+        json_data: AssistantConfig = {"system_message": "", "tools": []}
+
+        with open(tools_file_path, "r") as tools_file:
+            tools_list = json.load(tools_file)
+            json_data['tools'] = tools_list
+
+        with open(system_message_file_path, "r") as system_message_file:
+            file_content_encoding = 'utf-8'
+            system_message_content = system_message_file.read()
+            json_data['system_message'] = system_message_content
+
+        return json_data
 
     def document_intelligence_settings(self) -> list[DocumentIntelligenceSetting]:
         file_path = self.root_directory + "/document-intelligence-dictionary.json"
@@ -34,7 +69,6 @@ class ApplicationSettings:
             file.close()
 
         for document_intelligence in json_data:
-
             classifier_document_type = document_intelligence['classifier_document_type']
             extractor_model_name = document_intelligence['extractor_model_name']
             model_description = document_intelligence['model_description']
@@ -47,7 +81,6 @@ class ApplicationSettings:
 
             result.append(document_config)
         return result
-
 
     def retrieve_document_intelligence_section(self, index: int):
         sections = self.document_intelligence_settings()

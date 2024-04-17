@@ -44,6 +44,10 @@ class AISearchUtils:
         documents: list[dict] = [document]
         self.client.upload_documents(documents)
 
+    def patch_document(self, document: dict[str, Any]):
+        documents: list[dict] = [document]
+        self.client.merge_documents(documents)
+
     def delete_document_by_id(self, document_id: str):
         ids = [{'id': document_id}]
         self.client.delete_documents(ids)

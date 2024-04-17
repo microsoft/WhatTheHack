@@ -1,3 +1,5 @@
+from typing import Awaitable
+
 import redis
 import json
 import os
@@ -16,7 +18,11 @@ class RedisUtil:
 
     def set(self, key, value):
         """Sets a value in the redis for the specified key"""
-        self.redis_client.set(key, value)
+        value_to_store = value
+        if value is None:
+            value_to_store = ""
+        value_to_store = value_to_store.encode('utf-8')
+        self.redis_client.set(key, value_to_store)
         return self
 
     def set_json(self, key, value):
@@ -26,11 +32,17 @@ class RedisUtil:
 
     def get(self, key):
         """Gets a value from the redis for the specified key"""
-        return self.redis_client.get(key)
+        return_value = self.redis_client.get(key)
+        if return_value is None:
+            return None
+        else:
+            return return_value.decode("utf-8")
 
-    def get_json(self, key):
+    def get_json(self, key: str):
         """Gets a deserialized value from the redis for the specified key"""
         serialized_value = self.get(key)
+        if serialized_value is None or serialized_value == "":
+            serialized_value = '{}'
         de_serialized_value = json.loads(serialized_value)
         return de_serialized_value
 
@@ -49,11 +61,11 @@ class RedisUtil:
 
     def r_push(self, key, values):
         """Appends a value to the tail of the list for the specified key to the head of the list"""
-        self.redis_client.lpush(key, values)
+        self.redis_client.rpush(key, values)
         return self
 
     def r_push_json(self, key, values):
-        """Appends a value to the tail of the list for the specified key to the head of the list"""
+        """Appends a value to the tail of the list for the specified key"""
         value_to_serialize = json.dumps(values)
         return self.r_push(key, value_to_serialize)
 
@@ -69,10 +81,16 @@ class RedisUtil:
             deserialized_values.append(deserialized_value)
         return deserialized_values
 
-    def increment(self, key, increment: int = 1):
+    def l_range_all(self, key):
+        return self.l_range(key, 0, -1)
+
+    def l_range_json_all(self, key):
+        return self.l_range_json(key, 0, -1)
+
+    def increment(self, key, increment: int = 1) -> int:
         return self.redis_client.incrby(key, increment)
 
-    def increment_float(self, key, increment: float = 1.0):
+    def increment_float(self, key, increment: float = 1.0) -> float:
         return self.redis_client.incrbyfloat(key, increment)
 
     def decrement(self, key, decrement: int = 1):
@@ -82,7 +100,10 @@ class RedisUtil:
         return self.redis_client.incrbyfloat(key, (decrement * -1.0))
 
     def exists(self, key):
-        return self.redis_client.exists(key)
+        result = self.redis_client.exists(key)
+        if result:
+            return True
+        return False
 
     def expire(self, key: str, time: int):
         return self.redis_client.expire(key, time)
