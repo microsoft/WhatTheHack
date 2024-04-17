@@ -18,7 +18,7 @@ There are two existing customers in the database, and there are 5 yachts that cu
 
 ## Description
 
-In this challenge, you will create two virtual assistants:
+In this challenge, you will create 3 virtual assistants:
 - Contoso Islands Travel Assistant
 - Contoso Yachts Assistant
 
@@ -31,7 +31,7 @@ This assistant should be able to answer any question about the country of Contos
 
 #### Contoso Yachts Assistant
 
-Reservations can only be made up to 30 days from the current date.
+Reservations can only be made up to 3 days from the current date.
 Reservations must be within the passenger capacity of the yacht.
 Reservations should contain the full name, email address and customer identifier in the database.
 

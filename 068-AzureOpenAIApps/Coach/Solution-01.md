@@ -17,5 +17,5 @@ The architecture diagram below illustrates how the data is expected to flow from
 - contoso_yachts
 - contoso_documents 
 
-The student should also verify that subsequent modifications of the yacht records in Cosmos DB or uploads of additional documents or modification of existing documents will trigger updates to the AI Search indices
+The student should also verify that subsequent modifications of the yacht records in Cosmos DB or uploads of additional documents or modification of existing documents by the student will trigger updates to the AI Search indices
 
