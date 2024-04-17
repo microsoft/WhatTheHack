@@ -3,11 +3,11 @@ import {OpenAiApiServiceService} from "../service/open-ai-api.service.service";
 import {SimpleChatResponse} from "../models/chat-models";
 
 @Component({
-  selector: 'app-limo-chatbot',
-  templateUrl: './limo-chatbot.component.html',
-  styleUrls: ['./limo-chatbot.component.css']
+  selector: 'app-ask-miriam',
+  templateUrl: './ask-miriam.component.html',
+  styleUrls: ['./ask-miriam.component.css']
 })
-export class LimoChatbotComponent {
+export class AskMiriamComponent {
 
   userMessage!: string;
   assistantReply!: string;
@@ -18,11 +18,11 @@ export class LimoChatbotComponent {
   public sendMessage() {
     const userMessage = this.userMessage;
     this.chatMessages.push({ role: 'user', content: userMessage });
-    this.openAiApiService.sendLimoChatbotMessage<SimpleChatResponse>(this.userMessage)
-      .subscribe(response => {
-        this.assistantReply = response.reply;
-        this.chatMessages.push({ role: 'assistant', content: this.assistantReply });
-        this.userMessage = '';
-      });
+    this.openAiApiService.askMiriam<SimpleChatResponse>(this.userMessage)
+        .subscribe(response => {
+          this.assistantReply = response.reply;
+          this.chatMessages.push({ role: 'assistant', content: this.assistantReply });
+          this.userMessage = '';
+        });
   }
 }

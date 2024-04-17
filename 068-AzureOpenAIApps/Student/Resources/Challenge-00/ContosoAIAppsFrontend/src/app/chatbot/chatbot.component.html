@@ -1,3 +1,5 @@
+<a [routerLink]="['/list-assistants']">Return to List of Assistants</a>
+<h3>Basic Chatbot</h3>
 <div class="chat-container">
   <div *ngFor="let message of chatMessages" [ngClass]="message.role">
     {{ message.content }}
