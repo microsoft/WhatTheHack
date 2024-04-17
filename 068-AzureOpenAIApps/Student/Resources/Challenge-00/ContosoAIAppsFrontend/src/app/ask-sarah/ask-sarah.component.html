@@ -1,6 +1,7 @@
 <a [routerLink]="['/list-assistants']">Return to List of Assistants</a>
 <h3>Assistant Name: Sarah</h3>
 <h5>Assistant description</h5>
+<img class="assistant-image" ngSrc="assets/sarah-ai-assistant.jpg" height="1024" width="1024" alt="AI Assistant Sarah"/>
 <div class="chat-container">
     <div *ngFor="let message of chatMessages" [ngClass]="message.role">
         {{ message.content }}

@@ -12,6 +12,7 @@ import { AskEstherComponent } from './ask-esther/ask-esther.component';
 import { AskMiriamComponent } from './ask-miriam/ask-miriam.component';
 import { AskPriscillaComponent } from './ask-priscilla/ask-priscilla.component';
 import { AskSarahComponent } from './ask-sarah/ask-sarah.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -25,12 +26,13 @@ import { AskSarahComponent } from './ask-sarah/ask-sarah.component';
     AskPriscillaComponent,
     AskSarahComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
