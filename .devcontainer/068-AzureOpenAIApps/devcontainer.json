@@ -1,14 +1,7 @@
 {
-  "name": "068 - Azure OpenAI Apps",
+  "name": "What The Hack",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "postCreateCommand": "npm install -g @angular/cli azure-functions-core-tools@4",
-  "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "068-AzureOpenAIApps/README.md"
-      ]
-    }
-  },
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {},
     "ghcr.io/devcontainers/features/node:1": {},
@@ -16,7 +9,27 @@
       "modules": "az"
     }
   },
-  "hostRequirements": {
+  "customizations": {
+      "codespaces": {
+        "openFiles": [
+          "068-AzureOpenAIApps/README.md"
+        ]
+      },
+      "vscode": {
+        "extensions": [
+          "ms-dotnettools.vscode-dotnet-runtime",
+          "ms-dotnettools.csdevkit",
+          "ms-dotnettools.csharp",
+          "ms-azuretools.vscode-azurefunctions",
+          "ms-vscode.vscode-typescript-next",
+          "ms-vscode.azure-account",
+          "ms-azuretools.vscode-azureresourcegroups",
+          "gruntfuggly.todo-tree"
+        ]
+      }
+    },
+    "hostRequirements": {
     "cpus": 4
   }
+  
 }
