@@ -94,6 +94,24 @@ You fill find the following folders containing the sample front end and backend 
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on:
 
+### Setup Service Principal (Only applicable for MFST FTE's with FDPO Subscription)
+<details>
+<summary>Click to expand/collapse Local Workstation Requirements</summary>
+
+  This is helpful to setup your Service Principal with Contributor role permissions so that you can access your azure subscription. 
+  
+  `az ad sp create-for-rbac --name myServicePrincipalName1 --role contributor --scopes /subscriptions/00000000-0000-0000-0000-000000000000`
+  `az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>`
+  `az configure: y, 3, press enter three times`
+  `az account list`
+  `az account show`
+  
+  If you have more than one subscription and you want to set it to the right one:
+  `az account set -s "Enter Your Subscription ID"
+  `az account show`
+  
+</details>
+
 ### Install dependencies for Frontend and Backend 
 Make sure you are in the right directory:
 cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsFrontend/
