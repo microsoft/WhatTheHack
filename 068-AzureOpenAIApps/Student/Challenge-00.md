@@ -12,17 +12,6 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
-
 
 ### Access Azure OpenAI 
 
@@ -58,11 +47,12 @@ The GitHub Codespace for this hack will host the Jupyter Notebook files, configu
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main". Make sure your Codespace is using the 4-core option when you configure it.
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
+- Note: If your codespace times out, just go ahead and restart it. You can increase the timeout of Codespace, by doing....
 
 
 ### Use Local Workstation
@@ -74,7 +64,16 @@ If you want to setup your environment on your local workstation, expand the sect
 <summary>Click to expand/collapse Local Workstation Requirements</summary>
 
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
-
+- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
+- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 - [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
 - Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
@@ -95,14 +94,27 @@ You fill find the following folders containing the sample front end and backend 
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on:
 
+### Install dependencies for Frontend and Backend 
+Make sure you are in the right directory:
+cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsFrontend/
+ 
+`npm install`
+
+Navigate to the Backend and Install the Python Dependencies 
+cd ../ContosoAIAppsBackend/
+ 
+`pip install -r requirements.txt`
+
 ### Provisioning Azure Resources
+Make sure you are in the right directory:
+cd ../Challenge-00/
 
 The examples below shows how to deploy the ARM template using Powershell or Bash
 
 These are the variables:
 
 - Deployment Name: rollout01
-- Resource Group Name: contosoizzygroup
+- Resource Group Name: <Enter-Your-Resource-Group>
 - Template File: ai-apps-wth-resources.json
 - Parameter Files with Values: ai-apps-wth-resources.parameters.json
 
@@ -115,13 +127,13 @@ The deployment process takes about 30 minutes to complete.
 ````bash
 
 # Create a resource group
-az group create --name contosoizzygroup --location eastus
+az group create --name <Enter-Your-Resource-Group> --location eastus
 
 # Validate the ARM template and Parameter Files
-az deployment group validate --resource-group contosoizzygroup --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
+az deployment group validate --resource-group <Enter-Your-Resource-Group> --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
 
 # Deploy the resources
-az deployment group create --mode Incremental --resource-group contosoizzygroup --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
+az deployment group create --mode Incremental --resource-group <Enter-Your-Resource-Group> --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
 
 ````
 
