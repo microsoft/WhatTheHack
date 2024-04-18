@@ -1,5 +1,5 @@
 {
-  "name": "What The Hack",
+  "name": "What The Hack AI Apps",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "postCreateCommand": "npm install -g @angular/cli azure-functions-core-tools@4",
   "features": {
@@ -8,5 +8,28 @@
     "ghcr.io/devcontainers/features/powershell:1": {
       "modules": "az"
     }
+  },
+  "customizations": {
+      "codespaces": {
+        "openFiles": [
+          "068-AzureOpenAIApps/README.md"
+        ]
+      },
+      "vscode": {
+        "extensions": [
+          "ms-dotnettools.vscode-dotnet-runtime",
+          "ms-dotnettools.csdevkit",
+          "ms-dotnettools.csharp",
+          "ms-azuretools.vscode-azurefunctions",
+          "ms-vscode.vscode-typescript-next",
+          "ms-vscode.azure-account",
+          "ms-azuretools.vscode-azureresourcegroups",
+          "gruntfuggly.todo-tree"
+        ]
+      }
+    },
+    "hostRequirements": {
+    "cpus": 4
   }
+  
 }
