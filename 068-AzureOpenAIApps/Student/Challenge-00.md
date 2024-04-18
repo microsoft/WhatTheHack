@@ -155,7 +155,7 @@ node --version
 npm --version
 
 # check the angular cli version
-ng --version
+ng version
 
 ````
 
