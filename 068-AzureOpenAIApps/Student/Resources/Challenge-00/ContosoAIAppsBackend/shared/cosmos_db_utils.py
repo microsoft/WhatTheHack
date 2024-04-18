@@ -27,10 +27,12 @@ class CosmosDbUtils:
         return self
 
     def create_item(self, item: dict):
+        """Returns a dictionary representing the item created"""
         container_proxy = self.get_collection()
         return container_proxy.create_item(item)
 
     def upsert_item(self, item: dict):
+        """Returns a dictionary representing the item upserted"""
         container_proxy = self.get_collection()
         return container_proxy.upsert_item(item)
 

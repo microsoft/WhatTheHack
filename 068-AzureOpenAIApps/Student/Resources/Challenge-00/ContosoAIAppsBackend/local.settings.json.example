@@ -3,15 +3,29 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
-    "AzureWebJobsStorage": "Got to the Portal and grab ",
+    "AzureWebJobsStorage": "",
     "COSMOS_CONNECTION": "",
+    "COSMOS_DATABASE_NAME" : "contosodb1",
     "CITRUS_STORAGE": "",
     "CITRUS_BUS": "",
-    "AZURE_OPENAI_API_KEY": "",
-    "AZURE_OPENAI_ENDPOINT": "https://contosoizzyai.openai.azure.com/",
-    "AZURE_OPENAI_MODEL_DEPLOYMENT_NAME": "2024-02-15-preview",
+    "REDIS_HOST": "contoso.redis.cache.windows.net",
+    "REDIS_PORT": "6380",
+    "REDIS_PASSWORD": "A1MYATjDOEQau7058TXtknWgYHh79vzkuAzCaNDixx0=",
+    "AZURE_OPENAI_API_KEY": "57eda0615a4a49bfb6e20ee292617168",
+    "AZURE_OPENAI_ENDPOINT": "https://izzyswedish.openai.azure.com/",
+    "AZURE_OPENAI_MODEL_DEPLOYMENT_NAME": "izzygpt4",
+    "AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME": "izzyembeddingada",
     "AZURE_OPENAI_VERSION_NUMBER": "2024-02-15-preview",
-    "AZURE_OPENAI_RUN_RETRIEVAL_DELAY_SECONDS": 5
-
+    "AZURE_OPENAI_RUN_RETRIEVAL_DELAY_SECONDS": 5,
+    "AZURE_AI_SEARCH_ENDPOINT": "https://contosoizzysearch0.search.windows.net",
+    "AZURE_AI_SEARCH_ADMIN_KEY": "GnYavWsOAxTXZX3Smrsj0JH3mIEnshdKYqceGFqKX7AzSeD0UajC",
+    "AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME": "contoso_documents",
+    "AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME": "contoso_yachts",
+    "COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY" : "0",
+    "CONFIGURE_SDKS_TO_USE_MANAGED_IDENTITY_FOR_AUTHENTICATION": "0"
+  },
+  "Host": {
+    "LocalHttpPort": 7072,
+    "CORS": "*"
   }
 }

@@ -1,11 +1,17 @@
 import json
 import os
+import time
+from datetime import datetime, timedelta, date
+from typing import Dict
 
 from azure.search.documents.indexes.models import SimpleField, SearchFieldDataType, SearchableField, SearchField
 from langchain_community.vectorstores.azuresearch import AzureSearch
 from langchain_openai import AzureOpenAIEmbeddings
 
+from models.application_models import Customer, YachtDetails, YachtReservation, YachtReservationFull
 from models.yacht import Yacht
+from shared.cosmos_db_utils import CosmosDbUtils
+from shared.redis_utils import RedisUtil
 
 
 def get_ai_search_vector_store(ai_search_index_name: str, fields: list[SearchField]):
@@ -269,3 +275,266 @@ def get_contoso_information(query: str) -> str:
     response = contoso_document_retrieval_hybrid(query)
 
     return json.dumps(response)
+
+
+def check_if_customer_account_exists(customer_email_address: str) -> bool:
+    """Returns True if customer account exists and False otherwise"""
+
+    response = get_customer_account_details(customer_email_address)
+
+    return response is not None
+
+
+def get_customer_account_details(customer_email_address: str) -> Customer | None:
+    """Returns True if customer account exists and False otherwise"""
+
+    query = f"SELECT * FROM c WHERE c.email = '{customer_email_address}'"
+
+    cosmos_util = CosmosDbUtils("customers")
+
+    response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+
+    if response is not None:
+        email = response['email']
+        first_name = response['firstName']
+        last_name = response['lastName']
+        customer: Customer = {"email": email, "firstName": first_name, "lastName": last_name}
+        return customer
+
+    else:
+        return None
+
+
+def create_customer_account(email: str, first_name: str, last_name: str) -> Customer:
+    cosmos_util = CosmosDbUtils("customers")
+
+    customer_profile: Customer = {"email": email, "firstName": first_name, "lastName": last_name}
+
+    customer_record: Customer = cosmos_util.create_item(customer_profile)
+
+    return customer_record
+
+
+def get_customer_account_balance(customer_email: str) -> float:
+    lookup_key = "bank_account_balance_{}".format(customer_email)
+    redis_util = RedisUtil()
+    account_balance = redis_util.increment_float(lookup_key, 0.0)
+    return account_balance
+
+
+def make_bank_account_deposit(customer_email: str, deposit_amount: float) -> float:
+    lookup_key = "bank_account_balance_{}".format(customer_email)
+    redis_util = RedisUtil()
+    account_balance = redis_util.increment_float(lookup_key, deposit_amount)
+    return account_balance
+
+
+def make_bank_account_withdrawal(customer_email: str, withdrawal_amount: float) -> float:
+    lookup_key = "bank_account_balance_{}".format(customer_email)
+    redis_util = RedisUtil()
+    account_balance = redis_util.decrement_float(lookup_key, withdrawal_amount)
+    return account_balance
+
+
+def get_yacht_details(yacht_id: str) -> YachtDetails | None:
+    """Returns the YachtDetails object"""
+
+    query = f"SELECT * FROM c WHERE c.yachtId = '{yacht_id}'"
+
+    cosmos_util = CosmosDbUtils("yachts")
+
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+
+    if retrieval_response is not None:
+        yacht_id = retrieval_response['yachtId']
+        name = retrieval_response['name']
+        max_capacity = int(retrieval_response['maxCapacity'])
+        price = float(retrieval_response['price'])
+        description = retrieval_response['description']
+        yacht_details: YachtDetails = {"yachtId": yacht_id, "name": name,
+                                       "maxCapacity": max_capacity, "price": price,
+                                       "description": description}
+        return yacht_details
+
+    else:
+        return None
+
+
+def calculate_reservation_grand_total_amount(yacht_id: str, number_of_passengers: int) -> float:
+    """Calculates the reservation grand total"""
+    yacht_details: YachtDetails = get_yacht_details(yacht_id)
+    yacht_unit_price = yacht_details['price']
+    return number_of_passengers * yacht_unit_price
+
+
+def yacht_capacity_travel_party_size(yacht_id: str, travel_party_size: int) -> bool:
+    """Returns True if yacht capacity is less than or equal to the travel party size"""
+    yacht_details: YachtDetails = get_yacht_details(yacht_id)
+    yacht_capacity = int(yacht_details['maxCapacity'])
+    return travel_party_size <= yacht_capacity
+
+
+def bank_account_balance_is_sufficient(bank_account_balance: float, reservation_total: float) -> bool:
+    """Returns True if the bank account balance is sufficient to cover the transaction"""
+    return bank_account_balance >= reservation_total
+
+
+def yacht_is_available_for_date(yacht_id: str, date: str) -> bool:
+    query = f"SELECT r.yachtId FROM r WHERE r.yachtId = '{yacht_id}' AND r.reservationDate = '{date}'"
+
+    cosmos_util = CosmosDbUtils("reservations")
+
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+
+    items = []
+    for item in retrieval_response:
+        items.append(item)
+
+    return len(items) == 0
+
+
+def get_valid_reservation_search_dates() -> list[str]:
+    """"Returns the list of valid date ranges allowable to make reservation"""
+
+    number_of_days = 5
+    valid_date_ranges: list[str] = []
+    today_date: date = date.today()
+
+    for days_to_add in range(0, number_of_days + 1):
+        current_date = today_date + timedelta(days=days_to_add)
+        # the date in YYYY-MM-DD format
+        iso_date = current_date.isoformat()
+        valid_date_ranges.append(iso_date)
+
+    return valid_date_ranges
+
+
+def is_valid_search_date(search_date: str) -> bool:
+    valid_date_ranges = get_valid_reservation_search_dates()
+    return search_date in valid_date_ranges
+
+
+def yacht_booked_reservation_dates(yacht_id: str) -> list[str]:
+    query = f"SELECT r.reservationDate FROM r WHERE r.yachtId = '{yacht_id}'"
+    cosmos_util = CosmosDbUtils("reservations")
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+    items = []
+    for item in retrieval_response:
+        items.append(item['reservationDate'])
+
+    return items
+
+
+def yacht_ids_booked_on_reservation_dates(reservation_date: str) -> list[str]:
+    query = f"SELECT r.yachtId FROM r WHERE r.reservationDate = '{reservation_date}'"
+    cosmos_util = CosmosDbUtils("reservations")
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+    items = []
+    for item in retrieval_response:
+        items.append(item['yachtId'])
+
+    return items
+
+
+def get_yacht_availability_by_id(yacht_id: str) -> list[str]:
+    """Returns an array of ISO 8601 dates available for a specific yachtId"""
+    possible_dates_for_reservation = get_valid_reservation_search_dates()
+    booked_reservation_dates = yacht_booked_reservation_dates(yacht_id)
+
+    set_possible_dates = set(possible_dates_for_reservation)
+    set_booked_dates = set(booked_reservation_dates)
+
+    open_dates = set_possible_dates - set_booked_dates
+
+    return sorted(list(open_dates))
+
+
+def get_yacht_availability_by_date(search_date: str) -> list[str]:
+    all_yacht_ids = ["100", "200", "300", "400", "500"]
+    booked_yacht_ids = yacht_ids_booked_on_reservation_dates(search_date)
+
+    set_possible = set(all_yacht_ids)
+    set_booked = set(booked_yacht_ids)
+
+    open_yachts = set_possible - set_booked
+
+    return sorted(list(open_yachts))
+
+
+def create_yacht_reservation(yacht_id: str, reservation_date: str,
+                             customer_email: str, passenger_count: int) -> YachtReservation:
+    current_unix_time = int(time.time())
+    reservation_id = str(current_unix_time)
+
+    yacht_reservation: YachtReservationFull = {
+        "id": reservation_id,
+        "reservationId": reservation_id, "yachtId": yacht_id,
+        "reservationDate": reservation_date, "emailAddress": customer_email,
+        "numberOfPassengers": passenger_count}
+
+    cosmos_util = CosmosDbUtils("reservations")
+    insert_response: YachtReservation = cosmos_util.create_item(yacht_reservation)
+
+    return insert_response
+
+
+def yacht_reservation_exists(reservation_id: str) -> bool:
+    retrieval_response: YachtReservation = get_reservation_details(reservation_id)
+    return retrieval_response is not None
+
+
+def get_reservation_details(reservation_id: str) -> YachtReservation | None:
+    query = f"SELECT * FROM r WHERE r.reservationId = '{reservation_id}'"
+
+    cosmos_util = CosmosDbUtils("reservations")
+
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+
+    for item in retrieval_response:
+        reservation_id = item["reservationId"]
+        yacht_id = item["yachtId"]
+        reservation_date = item["reservationDate"]
+        customer_email = item["emailAddress"]
+        passenger_count = item["numberOfPassengers"]
+
+        yacht_reservation: YachtReservation = {
+            "reservationId": reservation_id, "yachtId": yacht_id,
+            "reservationDate": reservation_date, "emailAddress": customer_email,
+            "numberOfPassengers": passenger_count}
+
+        return yacht_reservation
+
+    return None
+
+
+def cancel_yacht_reservation(reservation_id: str):
+    exists = yacht_reservation_exists(reservation_id)
+    if exists:
+        cosmos_util = CosmosDbUtils("reservations")
+        cosmos_util.delete_item(reservation_id, reservation_id)
+        return True
+    return False
+
+
+def get_customer_reservations(customer_email: str) -> list[YachtReservation]:
+    query = f"SELECT * FROM r WHERE r.emailAddress = '{customer_email}'"
+
+    cosmos_util = CosmosDbUtils("reservations")
+
+    retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+
+    items: list[YachtReservation] = []
+    for item in retrieval_response:
+        reservation_id = item["id"]
+        yacht_id = item["yachtId"]
+        email_address = item["emailAddress"]
+        reservation_date = item["reservationDate"]
+        number_of_passengers = item["numberOfPassengers"]
+
+        reservation: YachtReservation = {"reservationId": reservation_id,
+                                         "yachtId": yacht_id, "emailAddress": email_address,
+                                         "reservationDate": reservation_date,
+                                         "numberOfPassengers": number_of_passengers}
+        items.append(reservation)
+
+    return items
