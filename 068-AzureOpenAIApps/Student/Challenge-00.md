@@ -161,9 +161,9 @@ We will need to provision the above-mentioned Azure resources that will be used 
 
 Once the resources have been provisioned, please ensure that you set up the environment variables needed to power the back end Azure function app
 
-Copy over the example local.settings.json.example file and rename it to local.settings.json
+Copy over the example `local.settings.json.example` file and rename it to `local.settings.json`
 
-The local.settings.json file is where all the environment variables used locally by the function app are defined.
+The `local.settings.json` file is where all the environment variables used locally by the function app are defined.
 
 You will need Python 3.11 running in Code Spaces. If this is not available in your environment, please install Python 3.11
 
