@@ -1,14 +1,18 @@
+import json
 import logging
 
 import azure.functions as func
 from azure.functions import AuthLevel
-import json
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
+from shared.assistant_tools_esther import v_check_if_customer_account_exists, v_get_customer_account_details, \
+    v_create_customer_account, v_make_bank_account_deposit, v_get_customer_account_balance, \
+    v_make_bank_account_withdrawal
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
-from shared.virtual_assistant_tools import get_contoso_document_vector_store, contoso_document_retrieval_hybrid, \
-    get_contoso_information
+from shared.virtual_assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
+    create_customer_account, \
+    get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal
 
 ask_esther_controller = func.Blueprint()
 
@@ -25,14 +29,19 @@ def ask_esther(req: func.HttpRequest) -> func.HttpResponse:
     user_question = body['message']
 
     settings = ApplicationSettings()
-    assistant_config: AssistantConfig = settings.get_assistant_config(assistant_name=AssistantName.ELIZABETH)
+    assistant_config: AssistantConfig = settings.get_assistant_config(assistant_name=AssistantName.ESTHER)
 
-    system_message1 = assistant_config["system_message"]
-    tools_config1 = assistant_config["tools"]
+    system_message = assistant_config["system_message"]
+    tools_config = assistant_config["tools"]
 
-    util = ToolUtils(system_message1, tools_config1, conversation_id)
+    util = ToolUtils(system_message, tools_config, conversation_id)
 
-    util.register_tool_mapping("get_information", get_contoso_information)
+    util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
+    util.register_tool_mapping("get_customer_account_details", v_get_customer_account_details)
+    util.register_tool_mapping("create_customer_account", v_create_customer_account)
+    util.register_tool_mapping("get_customer_account_balance", v_get_customer_account_balance)
+    util.register_tool_mapping("make_bank_account_deposit", v_make_bank_account_deposit)
+    util.register_tool_mapping("make_bank_account_withdrawal", v_make_bank_account_withdrawal)
 
     results = util.run_conversation(user_question)
 

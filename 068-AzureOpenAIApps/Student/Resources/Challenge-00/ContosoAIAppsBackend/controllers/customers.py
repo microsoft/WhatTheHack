@@ -4,7 +4,7 @@ import azure.functions as func
 from azure.functions import AuthLevel
 import json
 
-from models.application_models import Customers
+from models.application_models import Customer
 from shared.function_utils import APISuccessOK
 
 customers_controller = func.Blueprint()

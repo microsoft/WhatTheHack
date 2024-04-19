@@ -1,8 +1,8 @@
 import json
 import os
 import time
-from datetime import datetime, timedelta, date
-from typing import Dict
+from datetime import timedelta, date
+from typing import Any
 
 from azure.search.documents.indexes.models import SimpleField, SearchFieldDataType, SearchableField, SearchField
 from langchain_community.vectorstores.azuresearch import AzureSearch
@@ -271,7 +271,7 @@ def contoso_yachts_filtered_search(query: str,
     return results
 
 
-def get_contoso_information(query: str) -> str:
+def get_contoso_information(query: str, **kwargs: Any) -> str:
     response = contoso_document_retrieval_hybrid(query)
 
     return json.dumps(response)
@@ -292,23 +292,24 @@ def get_customer_account_details(customer_email_address: str) -> Customer | None
 
     cosmos_util = CosmosDbUtils("customers")
 
-    response = cosmos_util.query_container(query, enable_cross_partition_query=True)
+    responses = cosmos_util.query_container(query, enable_cross_partition_query=True)
 
-    if response is not None:
+    for response in responses:
         email = response['email']
         first_name = response['firstName']
         last_name = response['lastName']
         customer: Customer = {"email": email, "firstName": first_name, "lastName": last_name}
         return customer
 
-    else:
-        return None
+    return None
 
 
-def create_customer_account(email: str, first_name: str, last_name: str) -> Customer:
+def create_customer_account(customer_email: str, first_name: str, last_name: str) -> Customer:
     cosmos_util = CosmosDbUtils("customers")
 
-    customer_profile: Customer = {"email": email, "firstName": first_name, "lastName": last_name}
+    customer_profile: Customer = {"email": customer_email, "firstName": first_name, "lastName": last_name}
+
+    customer_profile["id"] = customer_email
 
     customer_record: Customer = cosmos_util.create_item(customer_profile)
 

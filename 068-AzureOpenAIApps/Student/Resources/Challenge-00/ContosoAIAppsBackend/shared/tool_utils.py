@@ -1,5 +1,5 @@
 import os
-from typing import Callable
+from typing import Callable, Any
 
 from openai import AzureOpenAI
 import json

@@ -1,14 +1,13 @@
+import json
 import logging
 
 import azure.functions as func
 from azure.functions import AuthLevel
-import json
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
-from shared.virtual_assistant_tools import get_contoso_document_vector_store, contoso_document_retrieval_hybrid, \
-    get_contoso_information
+from shared.virtual_assistant_tools import get_contoso_information
 
 ask_elizabeth_controller = func.Blueprint()
 
@@ -27,10 +26,10 @@ def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
     settings = ApplicationSettings()
     assistant_config: AssistantConfig = settings.get_assistant_config(assistant_name=AssistantName.ELIZABETH)
 
-    system_message1 = assistant_config["system_message"]
-    tools_config1 = assistant_config["tools"]
+    system_message = assistant_config["system_message"]
+    tools_configuration = assistant_config["tools"]
 
-    util = ToolUtils(system_message1, tools_config1, conversation_id)
+    util = ToolUtils(system_message, tools_configuration, conversation_id)
 
     util.register_tool_mapping("get_information", get_contoso_information)
 
