@@ -23,7 +23,7 @@ The application frontend is a Blazor application with Intelligent Agent UI funct
 ### Prerequisites
 
 - Azure Subscription
-- Subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu)
+- Subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://aka.ms/oaiapply)
 - Visual Studio 2022
 - .NET 7 SDK
 - Docker Desktop
