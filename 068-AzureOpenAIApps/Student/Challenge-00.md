@@ -155,6 +155,9 @@ az deployment group create --mode Incremental --resource-group <Enter-Your-Resou
 
 ````
 
+##### Setting up Document Intelligence
+
+
 ##### Setting up the Backend Azure Function App Locally
 
 We will need to provision the above-mentioned Azure resources that will be used to power the apps.
@@ -238,4 +241,5 @@ Your Azure Function Backend and Front End applications should be up and running 
 Here are some resources that should provide you with background information and educational content on the resources you have just deployed
 
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
+- [Document Intelligence Region/API Version Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
 
