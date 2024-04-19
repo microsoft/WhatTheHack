@@ -16,7 +16,7 @@ azure_blob_controller = func.Blueprint()
 
 
 @azure_blob_controller.function_name("azure_blob_controller")
-@azure_blob_controller.blob_trigger(arg_name='contosostream', connection='CITRUS_STORAGE',
+@azure_blob_controller.blob_trigger(arg_name='contosostream', connection='DOCUMENT_STORAGE',
                                     path='government/{blobName}')
 def azure_blob_handler(contosostream: func.InputStream):
     logging.info('Python Azure Blob trigger function processed a request.')
