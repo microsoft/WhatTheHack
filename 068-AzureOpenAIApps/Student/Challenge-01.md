@@ -22,15 +22,19 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the documents/contoso-islands folder in your Resources) that have been uploaded to Azure Blob Storage.
+There are documents (from the documents/contoso-islands folder in your Resources) that have been uploaded to the **government** container in the Azure Blob Storage account.
 
-There are also documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to Azure Cosmos DB containers.
+There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
 Your task is to design a system that leverages Azure Function trigger to keep track of new documents and modification to existing documents.
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
 The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure Cognitive Search is recommended but feel free to use any other vector database of your preference.
+
+If everything works properly then the text files newly uploaded to modified in  the **government** container in Blob store should show up in the contoso documents AI Search index configured and defined in the **AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME** application setting.
+
+Likewise, updates to the **yachts** JSON records in Cosmos DB should automatically show up in the AI Search index defined in the **AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME** setting in your application settings.
 
 ## Success Criteria
 
