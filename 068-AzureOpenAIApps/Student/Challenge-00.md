@@ -155,9 +155,6 @@ az deployment group create --mode Incremental --resource-group <Enter-Your-Resou
 
 ````
 
-##### Setting up Document Intelligence
-
-
 ##### Setting up the Backend Azure Function App Locally
 
 We will need to provision the above-mentioned Azure resources that will be used to power the apps.
