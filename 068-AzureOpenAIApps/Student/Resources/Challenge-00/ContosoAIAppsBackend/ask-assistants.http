@@ -1,0 +1,71 @@
+
+# You will need to install the following VSCode extension: humao.rest-client
+
+# Make sure that you specify the api_endpoint and conversation_id shared variables in your extension config
+
+# Please click on the "Send Request" option above each URL to transmit the request to the backend
+
+# This will allow you to test your function endpoint to make sure they are ready to be intergrated with the frontend
+
+
+# Use this to interact with Elizabeth (Click Send Request)
+@api_endpoint = http://localhost:7072
+@conversation_id = 22334567
+
+POST {{api_endpoint}}/api/assistants-ask-elizabeth HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+{
+    "message": "what is your name?"
+}
+
+
+###
+
+
+# Use this to interact with Esther (Click Send Request)
+POST {{api_endpoint}}/api/assistants-ask-esther HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+{
+    "message": "what is your name?"
+}
+
+
+###
+
+# Use this to interact with Miriam (Click Send Request)
+POST {{api_endpoint}}/api/assistants-ask-miriam HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+
+{
+    "message": "Can you provide details about yacht id 100?"
+}
+
+###
+
+# Use this to interact with Priscilla (Click Send Request)
+POST {{api_endpoint}}/api/assistants-ask-priscilla HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+
+{
+    "message": "what is your name?"
+}
+
+###
+
+# Use this to interact with Sarah (Click Send Request)
+POST {{api_endpoint}}/api/assistants-ask-sarah HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+
+{
+    "message": "what is your name?"
+}
