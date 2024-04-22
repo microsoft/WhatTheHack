@@ -26,7 +26,7 @@ There are documents (from the documents/contoso-islands folder in your Resources
 
 There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
-Your task is to design a system that leverages Azure Function trigger to keep track of new documents and modification to existing documents.
+Your task is to design configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
