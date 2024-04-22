@@ -11,7 +11,12 @@ Below is the overview of the **[Healthcare data solution architecture](https://l
 
 ## Description
 
-In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
+In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to extract and flatten the data from your FHIR service (deployed in challenge 1), transform the prepared data to OMOP and deploy the OMOP CDM to the Fabric medallion architecture.  It comprises of three fundamental layers:
+- Bronze (raw zone): this first layer stores the source data in its original format. The data in this layer is typically append-only and immutable.
+- Silver (enriched zone): this layer stores data sourced from the bronze layer. Here, data undergoes refinement processes, including validation checks and enrichment techniques, to enhance its accuracy and utility for downstream analytics.
+- Gold (curated zone): this final layer stores data sourced from the silver layer. The data is refined to meet specific downstream business and analytics requirements. This layer serves as the primary source for high-quality, aggregated data sets ready for comprehensive analysis and insights extraction.
+
+(Optional) Once the FHIR data is transformed into OMOP standards persisted in the Gold Lakehouse you can utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
 - **Prerequisites:**
   - [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
