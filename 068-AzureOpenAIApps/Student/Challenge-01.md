@@ -26,7 +26,7 @@ There are documents (from the documents/contoso-islands folder in your Resources
 
 There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
-Your task is to design a system that leverages Azure Function trigger to keep track of new documents and modification to existing documents.
+Your task is to design configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
@@ -39,8 +39,8 @@ Likewise, updates to the **yachts** JSON records in Cosmos DB should automatical
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes
-- The embeddings for the documents are correctly computed using the Azure OpenAI embedding models
+- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records
+- The embeddings for the documents in AI Search are updated when the text files are updated and when the description of the yacht is modified.
 - Any new document or change to an existing document in Cosmos DB must be reflected in the vector store index
 - Any new document uploaded into the Azure Blob Store container must be reflected in the vector store index.
 
