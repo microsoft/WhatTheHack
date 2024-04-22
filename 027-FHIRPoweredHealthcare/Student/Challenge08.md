@@ -28,69 +28,39 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 **Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
 
+**Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
+
 - **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.**
   - [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
-  - [Configure the drug exposure era sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-era-sample-notebook) to generate the drug_era table records in OMOP using the PySpark in notebook
 
-  - [Configure the drug exposure insights sample notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-drug-exposure-insights-sample-notebook) to demonstrate an exploratory analysis on the drug_era table using PySpark in notebook
-
-- **[Use the OMOP analytics sample notebooks](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-sample-notebooks) to achieve visualization after the data pipelines hydrate the FHIR clinical data in the silver and gold lakehouses, respectively.**
-
-
-You can find a sample \`thingamajig.config\` file in the \`/ChallengeXX\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+You can find a sample \`thingamajig.config\` file in the \`/Challenge08\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
 ## Success Criteria
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*For example:*
 
 To complete this challenge successfully, you should be able to:
-- Verify that the Healthcare data solution foundation is deployed and configured.
-- Verify that the data connection is set up using FHIR service.
+- Verify that the Healthcare data solution foundation is deployed and configured
+- Verify that the data connection is set up using FHIR service
+- Verify that the FHIR export service extracted data in FHIR service to a container named 'export-landing-zone' in your Azure Storage 
+- Verity that the exported raw FHIR data is persisted in the delta tables in the Bronze Datalake
+- Verified that data in the Bronze Lakehouse has been flatten in preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) standards and persisted in Siver Lakehouse
 - Verify that the OMOP analytics is deployed and configured
-- Demonostrate visualization using OMOP analytics
-
+- Verify that the prepared flatten data in Silver Lakehouse is tranformed into OMOP Common Data Model (CDM) and persisted in the Gold Lakehouse
 
 ## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*For example:*
 
 - [What is Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview)
 - [Healthcare data soluton architecture overview](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)
 - [Deploy Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy)
+- [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
+- [Set up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
+- [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
 - [Deploy and configure Healthcare data foundation](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)
+- [Configure the global configuration notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook)
 - [Deploy and configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)
+- [Configure the FHIR export service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure#configure-the-fhir-export-service)
+- [Configure and deploy msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion)
+- [Configure and deploy msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten)
 - [Overview of OMOP analytics in Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-overview)
 - [Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)
+- [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook)
 
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
