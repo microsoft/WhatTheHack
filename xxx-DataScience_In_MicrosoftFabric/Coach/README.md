@@ -1,8 +1,8 @@
-# What The Hack - DataScience_In_MicrosoftFabric - Coach Guide
+# What The Hack - Data Science In Microsoft Fabric
 
 ## Introduction
 
-Welcome to the coach's guide for the DataScience_In_MicrosoftFabric What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Data Science In Microsoft Fabric What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -11,23 +11,21 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
+	 - Configure your Fabric workspace and gather your data
+- Challenge 01: **[Bring your data to the OneLake](./Solution-01.md)**
+	 - Creating a shortcut to the available data
+- Challenge 02: **[Prepare your data for ML](./Solution-02.md)**
+	 - Clean and transform the data into a useful format while leveraging Data Wrangler
+- Challenge 03: **[Train and register the model](./Solution-03.md)**
+	 - Train a machine learning model with ML Flow with the help of Copilot
+- Challenge 04: **[Generate batch predictions](./Solution-04.md)**
+	 - Score a static dataset with the model
+- Challenge 05: **[Generate real-time predictions](./Solution-05.md)**
+	 - Score data with the model as it is streamed into Fabric
+- Challenge 06: **[Create a PowerBI Report with your predictions](./Solution-06.md)**
+	 - Build a PowerBI report with the scored data
+- Challenge 07: **[ROADMAP: Deploy an inferencing endpoint](./Solution-07.md)**
+	 - Deploy and connect to an inferencing endpoint to be able to score data from outside Fabric
 
 ## Coach Prerequisites
 
@@ -43,37 +41,33 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
 
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
-## Azure Requirements
+## Azure and M365 Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+Required resources during this hack:
+- Azure storage account to upload training data
+- Fabric capacity if not using the trial
+- A Fabric Capacity sized F64 or larger is required to use Fabric Copilot, which is optional for this hack
 
-_For example:_
+Each student will need a PowerBI Pro or Premium per user license for Challenge 06, build a PowerBI Report, unless they are using the Fabric Trial or a capacity sized larger than F64. 
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+## Suggested Hack Agenda 
 
-## Suggested Hack Agenda (Optional)
+You may schedule this hack in any format, as long as the challenges are completed sequentially.
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+Time estimate for each challenge:
+- Challenge 00: 15 minutes
+- Challenge 01: 15 minutes
+- Challenge 02: 30 minutes
+- Challenge 03: 1 hour
+- Challenge 04: 30 minutes
+- Challenge 05: 45 minutes
+- Challenge 06: 45 minutes
+- Challenge 07 (Roadmap): 45 minutes
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
