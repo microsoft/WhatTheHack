@@ -10,9 +10,9 @@ from shared.assistant_tools_esther import v_check_if_customer_account_exists, v_
     v_make_bank_account_withdrawal
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
-from shared.virtual_assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
+from shared.assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
     create_customer_account, \
-    get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal
+    get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal, get_current_unix_timestamp
 
 ask_esther_controller = func.Blueprint()
 
@@ -34,7 +34,7 @@ def ask_esther(req: func.HttpRequest) -> func.HttpResponse:
     system_message = assistant_config["system_message"]
     tools_config = assistant_config["tools"]
 
-    util = ToolUtils(system_message, tools_config, conversation_id)
+    util = ToolUtils(AssistantName.ESTHER, system_message, tools_config, conversation_id)
 
     util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
     util.register_tool_mapping("get_customer_account_details", v_get_customer_account_details)
@@ -51,5 +51,12 @@ def ask_esther(req: func.HttpRequest) -> func.HttpResponse:
 
     json_string = json.dumps(chat_response)
 
-    return APISuccessOK(json_string).build_response()
+    current_timestamp = get_current_unix_timestamp()
+    api_response = APISuccessOK(json_string)
+
+    final_response = (api_response.add_response_header("x-assistant-name", AssistantName.ESTHER)
+                      .add_response_header("x-conversation-id", conversation_id)
+                      .add_response_header("x-response-id", current_timestamp))
+
+    return final_response.build_response()
 

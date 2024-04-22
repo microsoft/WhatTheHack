@@ -9,12 +9,14 @@ from openai.types.chat import ChatCompletionToolParam, ChatCompletion, ChatCompl
     ChatCompletionSystemMessageParam, ChatCompletionUserMessageParam, ChatCompletionMessage
 from openai.types.chat.completion_create_params import ResponseFormat
 
+from application_settings import AssistantName
 from shared.redis_utils import RedisUtil
 
 
 class ToolUtils:
 
-    def __init__(self, system_message: str, tools: list[ChatCompletionToolParam], conversation_id: str):
+    def __init__(self, assistant_name: AssistantName, system_message: str, tools: list[ChatCompletionToolParam],
+                 conversation_id: str):
         azure_openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT')
         azure_openai_api_key = os.environ.get('AZURE_OPENAI_API_KEY')
         azure_openai_api_version = os.environ.get('AZURE_OPENAI_VERSION_NUMBER')
@@ -33,6 +35,7 @@ class ToolUtils:
         self.tool_mappings: dict[str, Callable[..., str]] = {}
         self.response_format: ResponseFormat = {"type": "text"}
 
+        self.assistant_name = "assistant_{}".format(assistant_name)
         self.conversation_id = conversation_id
 
     def set_response_format_text(self):
@@ -48,16 +51,19 @@ class ToolUtils:
         self.tool_mappings[tool_name] = tool_definition
         return self
 
-    def retrieve_previous_messages(self):
+    def _prepare_lookup_key(self) -> str:
+        lookup_key = self.assistant_name + "_chat_messages_" + self.conversation_id
+        return lookup_key
 
-        lookup_key = "chat_messages_" + self.conversation_id
+    def retrieve_previous_messages(self):
+        lookup_key = self._prepare_lookup_key()
 
         redis_util = RedisUtil()
         messages = redis_util.l_range_json_all(lookup_key)
         return messages
 
     def append_new_message(self, message: ChatCompletionUserMessageParam | ChatCompletionAssistantMessageParam):
-        lookup_key = "chat_messages_" + self.conversation_id
+        lookup_key = self._prepare_lookup_key()
         redis_util = RedisUtil()
         redis_util.r_push_json(lookup_key, message)
 

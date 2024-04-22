@@ -4,7 +4,7 @@ import azure.functions as func
 from azure.functions import AuthLevel
 import json
 from shared.function_utils import APISuccessOK
-from shared.virtual_assistant_tools import get_contoso_document_vector_store
+from shared.assistant_tools import get_contoso_document_vector_store
 
 contoso_yacht_reservations_controller = func.Blueprint()
 

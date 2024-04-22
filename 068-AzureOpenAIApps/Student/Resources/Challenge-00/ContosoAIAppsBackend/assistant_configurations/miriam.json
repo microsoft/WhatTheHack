@@ -1,0 +1,20 @@
+[
+  {
+      "type": "function",
+      "function": {
+          "name": "get_yacht_details",
+          "description": "Retrieves the details of the yacht such as name, price, maximum capacity and description",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "string",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  }
+              },
+              "required": ["yacht_id"]
+          }
+      }
+  }
+]

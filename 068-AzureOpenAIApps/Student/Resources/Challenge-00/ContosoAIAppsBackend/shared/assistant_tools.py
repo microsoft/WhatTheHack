@@ -2,7 +2,7 @@ import json
 import os
 import time
 from datetime import timedelta, date
-from typing import Any
+import re
 
 from azure.search.documents.indexes.models import SimpleField, SearchFieldDataType, SearchableField, SearchField
 from langchain_community.vectorstores.azuresearch import AzureSearch
@@ -12,6 +12,14 @@ from models.application_models import Customer, YachtDetails, YachtReservation, 
 from models.yacht import Yacht
 from shared.cosmos_db_utils import CosmosDbUtils
 from shared.redis_utils import RedisUtil
+
+
+def serialize_assistant_response(assistant_response: any) -> str:
+    """This function is used to serialize the assistant response from any data type into a JSON string
+    :param assistant_response: any the data to be serialized
+    :returns: a JSON string representation of the assistant response"""
+    string_response = json.dumps(assistant_response)
+    return string_response
 
 
 def get_ai_search_vector_store(ai_search_index_name: str, fields: list[SearchField]):
@@ -271,10 +279,9 @@ def contoso_yachts_filtered_search(query: str,
     return results
 
 
-def get_contoso_information(query: str, **kwargs: Any) -> str:
+def get_contoso_information(query: str) -> list[str]:
     response = contoso_document_retrieval_hybrid(query)
-
-    return json.dumps(response)
+    return response
 
 
 def check_if_customer_account_exists(customer_email_address: str) -> bool:
@@ -346,12 +353,12 @@ def get_yacht_details(yacht_id: str) -> YachtDetails | None:
 
     retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
 
-    if retrieval_response is not None:
-        yacht_id = retrieval_response['yachtId']
-        name = retrieval_response['name']
-        max_capacity = int(retrieval_response['maxCapacity'])
-        price = float(retrieval_response['price'])
-        description = retrieval_response['description']
+    for item in retrieval_response:
+        yacht_id = item['yachtId']
+        name = item['name']
+        max_capacity = int(item['maxCapacity'])
+        price = float(item['price'])
+        description = item['description']
         yacht_details: YachtDetails = {"yachtId": yacht_id, "name": name,
                                        "maxCapacity": max_capacity, "price": price,
                                        "description": description}
@@ -364,11 +371,11 @@ def get_yacht_details(yacht_id: str) -> YachtDetails | None:
 def calculate_reservation_grand_total_amount(yacht_id: str, number_of_passengers: int) -> float:
     """Calculates the reservation grand total"""
     yacht_details: YachtDetails = get_yacht_details(yacht_id)
-    yacht_unit_price = yacht_details['price']
+    yacht_unit_price = float(yacht_details['price'])
     return number_of_passengers * yacht_unit_price
 
 
-def yacht_capacity_travel_party_size(yacht_id: str, travel_party_size: int) -> bool:
+def yacht_travel_party_size_within_capacity(yacht_id: str, travel_party_size: int) -> bool:
     """Returns True if yacht capacity is less than or equal to the travel party size"""
     yacht_details: YachtDetails = get_yacht_details(yacht_id)
     yacht_capacity = int(yacht_details['maxCapacity'])
@@ -397,7 +404,7 @@ def yacht_is_available_for_date(yacht_id: str, date: str) -> bool:
 def get_valid_reservation_search_dates() -> list[str]:
     """"Returns the list of valid date ranges allowable to make reservation"""
 
-    number_of_days = 5
+    number_of_days = int(os.environ.get("YACHT_RESERVATION_MAX_NUMBER_OF_DAYS", "3"))
     valid_date_ranges: list[str] = []
     today_date: date = date.today()
 
@@ -416,6 +423,7 @@ def is_valid_search_date(search_date: str) -> bool:
 
 
 def yacht_booked_reservation_dates(yacht_id: str) -> list[str]:
+    """This is a private function that is used internally to retrieve dates that a specific yacht has been booked"""
     query = f"SELECT r.reservationDate FROM r WHERE r.yachtId = '{yacht_id}'"
     cosmos_util = CosmosDbUtils("reservations")
     retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
@@ -427,6 +435,7 @@ def yacht_booked_reservation_dates(yacht_id: str) -> list[str]:
 
 
 def yacht_ids_booked_on_reservation_dates(reservation_date: str) -> list[str]:
+    """This is a private function that is used internally to retrieve yachts booked for a specific date"""
     query = f"SELECT r.yachtId FROM r WHERE r.reservationDate = '{reservation_date}'"
     cosmos_util = CosmosDbUtils("reservations")
     retrieval_response = cosmos_util.query_container(query, enable_cross_partition_query=True)
@@ -451,6 +460,7 @@ def get_yacht_availability_by_id(yacht_id: str) -> list[str]:
 
 
 def get_yacht_availability_by_date(search_date: str) -> list[str]:
+    """Returns a list of yacht ids open and available for a specific date"""
     all_yacht_ids = ["100", "200", "300", "400", "500"]
     booked_yacht_ids = yacht_ids_booked_on_reservation_dates(search_date)
 
@@ -517,7 +527,7 @@ def cancel_yacht_reservation(reservation_id: str):
     return False
 
 
-def get_customer_reservations(customer_email: str) -> list[YachtReservation]:
+def get_customer_yacht_reservations(customer_email: str) -> list[YachtReservation]:
     query = f"SELECT * FROM r WHERE r.emailAddress = '{customer_email}'"
 
     cosmos_util = CosmosDbUtils("reservations")
@@ -539,3 +549,17 @@ def get_customer_reservations(customer_email: str) -> list[YachtReservation]:
         items.append(reservation)
 
     return items
+
+
+def is_properly_formatted_email_address(email_address: str) -> bool:
+    regex_pattern_object = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+    result = re.fullmatch(regex_pattern_object, email_address)
+    if result:
+        return True
+    else:
+        return False
+
+
+def get_current_unix_timestamp() -> int:
+    current_unix_time = int(time.time())
+    return current_unix_time

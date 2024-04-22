@@ -1,12 +1,11 @@
-import json
+from shared.assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
+    create_customer_account, get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal, \
+    serialize_assistant_response, is_properly_formatted_email_address
 
-from shared.virtual_assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
-    create_customer_account, get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal
 
-
-def serialize_assistant_response(assistant_response: any) -> str:
-    string_response = json.dumps(assistant_response)
-    return string_response
+def v_is_properly_formatted_email_address(email_address: str) -> str:
+    result = is_properly_formatted_email_address(email_address)
+    return serialize_assistant_response(result)
 
 
 def v_check_if_customer_account_exists(customer_email_address: str) -> str:

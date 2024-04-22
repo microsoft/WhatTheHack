@@ -5,9 +5,10 @@ import azure.functions as func
 from azure.functions import AuthLevel
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
+from shared.assistant_tools import get_current_unix_timestamp
+from shared.assistant_tools_elizabeth import v_get_contoso_information
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
-from shared.virtual_assistant_tools import get_contoso_information
 
 ask_elizabeth_controller = func.Blueprint()
 
@@ -29,9 +30,9 @@ def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
     system_message = assistant_config["system_message"]
     tools_configuration = assistant_config["tools"]
 
-    util = ToolUtils(system_message, tools_configuration, conversation_id)
+    util = ToolUtils(AssistantName.ELIZABETH, system_message, tools_configuration, conversation_id)
 
-    util.register_tool_mapping("get_information", get_contoso_information)
+    util.register_tool_mapping("get_information", v_get_contoso_information)
 
     results = util.run_conversation(user_question)
 
@@ -41,5 +42,12 @@ def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
 
     json_string = json.dumps(chat_response)
 
-    return APISuccessOK(json_string).build_response()
+    current_timestamp = get_current_unix_timestamp()
+    api_response = APISuccessOK(json_string)
+
+    final_response = (api_response.add_response_header("x-assistant-name", AssistantName.ELIZABETH)
+                      .add_response_header("x-conversation-id", conversation_id)
+                      .add_response_header("x-response-id", current_timestamp))
+
+    return final_response.build_response()
 
