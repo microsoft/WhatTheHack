@@ -1,6 +1,74 @@
-# Challenge 00 - <Title of Challenge> - Coach's Guide 
+# Challenge 00 - Prerequisites - Ready, Set, GO! - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
+
+## Introduction
+
+Thank you for participating in the Data Science In Microsoft Fabric What The Hack. Before you can hack, you will need to set up some prerequisites.
+
+## Common Prerequisites
+
+We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
+
+You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+
+<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
+
+- [Azure Subscription](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Managing Cloud Resources](../Student/000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../Student/000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+    - [Azure PowerShell CmdLets](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
+  - [Azure Cloud Shell](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+- [Azure Storage Explorer](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+
+## Description
+
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+
+Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. This folder contains the data that you will use during this hack. Please download and unzip the folder.
+
+Now, head to the Azure portal. You will need to deploy an Azure Storage Account. You can do so by using the following Azure Cloud Shell commands. Open a new cloud shell (top right of your screen) and enter these commands one by one: 
+
+Create a new resource group:
+- `az group create --name FabricDSWTH --location eastus`
+Deploy a Storage Account:
+- `az storage account create --name fabricdswth --resource-group FabricDSWTH --sku Standard_LRS `
+Enable hirearchical namespace:
+- 'az storage account hns-migration start --request-type upgrade --name fabricdswth`
+
+## Success Criteria
+
+_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
+
+_The success criteria should not be a list of instructions._
+
+_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
+
+_Sample success criteria for the IoT prerequisites challenge:_
+
+To complete this challenge successfully, you should be able to:
+
+- Verify that you have a bash shell with the Azure CLI available.
+- Verify that the ARM template has deployed the following resources in Azure:
+  - Azure IoT Hub
+  - Virtual Network
+  - Jumpbox VM
+
+## Learning Resources
+
+_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+
+_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
+
+**\*Note:** Use descriptive text for each link instead of just URLs.\*
+
+_Sample IoT resource links:_
+
+- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
+- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
 
 ## Notes & Guidance
 
