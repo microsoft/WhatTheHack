@@ -39,8 +39,8 @@ Likewise, updates to the **yachts** JSON records in Cosmos DB should automatical
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes
-- The embeddings for the documents are correctly computed using the Azure OpenAI embedding models
+- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records
+- The embeddings for the documents in AI Search are updated when the text files are updated and when the description of the yacht is modified.
 - Any new document or change to an existing document in Cosmos DB must be reflected in the vector store index
 - Any new document uploaded into the Azure Blob Store container must be reflected in the vector store index.
 
