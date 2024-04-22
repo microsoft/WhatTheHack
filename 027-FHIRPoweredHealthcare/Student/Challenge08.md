@@ -31,21 +31,19 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 - **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.**
 
-**Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
+**Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the `msft_bronze` lakehouse**
 
-**Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
+**Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the `msft_bronze` lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
 
 - **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.**
   - [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
-
-You can find a sample \`thingamajig.config\` file in the \`/Challenge08\` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 - Verify that the Healthcare data solution foundation is deployed and configured
 - Verify that the data connection is set up using FHIR service
-- Verify that the FHIR export service extracted data in FHIR service to a container named 'export-landing-zone' in your Azure Storage 
+- Verify that the FHIR export service extracted data in FHIR service to a container named `export-landing-zone` in your Azure Storage 
 - Verity that the exported raw FHIR data is persisted in the delta tables in the Bronze Datalake
 - Verified that data in the Bronze Lakehouse has been flatten in preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) standards and persisted in Siver Lakehouse
 - Verify that the OMOP analytics capability in Healthcare data solutions is deployed and configured
