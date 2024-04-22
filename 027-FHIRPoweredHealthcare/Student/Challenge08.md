@@ -4,34 +4,12 @@
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
 In Healthcare data solutions (preview), the OMOP analytics capability facilitates the deployment of the Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment. This deployment provides researchers within the OMOP community access to OneLake's expansive scale and the AI capabilities of the Fabric platform. The setup enables efficient and reliable execution of standardized analytics for patient and population-level observational studies.  The OMOP analytical capabilities empower researchers to perform comparative analyses, such as evaluating different procedures and drug exposures, or examining correlations between drug exposures and condition occurrences.
 
 Below is the overview of the **[Healthcare data solution architecture](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)**:
 <center><img src="../images/challenge08-architecture.png" width="550"></center>
 
 ## Description
-
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
-
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
-
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
-
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's \`Student/Resources\` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
-
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*For example:*
 
 In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) your [Healthcare data solutions (preview)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to the Fabric workspace and unlock the Healthcare data foundations capability. Once deployed, you can configure the system to align with the Observational Medical Outcomes Partnership (OMOP) community standards.  You'll use prebuilt pipelines to deploy the OMOP CDM to Fabric, and then utilize the provided notebooks to construct statistical models, conduct population distribution studies and utilize Power BI reports to visually compare various interventions and their effects on patient outcomes.
 
@@ -44,7 +22,11 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
   Hint: You need to deploy and configure the Healthcare data foundations capability after deploying Healthcare data solutions (preview) to your Fabric workspace.
 
+- **[Configure the global configuration notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook) deployed with Healthcare data foundation running the deployed pipelines or notebooks**
+
 - **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure) to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.**
+
+**Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
 
 - **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.**
   - [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) to transform resources in the sliver lakehouse into OMOP common data model
