@@ -41,13 +41,9 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
-- Verify that the Healthcare data solution foundation is deployed and configured
-- Verify that the data connection is set up using FHIR service
-- Verify that the FHIR export service extracted data in FHIR service to a container named `export-landing-zone` in your Azure Storage 
 - Verity that the exported raw FHIR data is persisted in the delta tables in the Bronze Datalake
-- Verified that data in the Bronze Lakehouse has been flatten in preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) standards and persisted in Siver Lakehouse
-- Verify that the OMOP analytics capability in Healthcare data solutions is deployed and configured
-- Verify that the prepared flatten data in Silver Lakehouse is tranformed into OMOP Common Data Model (CDM) and persisted in the Gold Lakehouse
+- Verified that the data in the Bronze Lakehouse has been flatten in preparation for standardized analytics through OMOP standards and persisted in Siver Lakehouse
+- Verify that the prepared flatten data in the Silver Lakehouse is tranformed into OMOP Common Data Model (CDM) and persisted in the Gold Lakehouse
 
 ## Learning Resources
 
