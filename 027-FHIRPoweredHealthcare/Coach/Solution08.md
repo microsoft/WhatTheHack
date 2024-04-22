@@ -39,7 +39,7 @@ In this challenge, you will deploy deploy the [OMOP analytics](https://learn.mic
       - Open 'FHIR data ingestion' capability on the Health Data Solutions home page
       - Run 'Deploy to workspace' on the capability page to provision the 'mfst_fhir_export_service' notebook
       - [Configure the FHIR export service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure#configure-the-fhir-export-service) on the 'FHIR data ingestion' capability management page
-        - Before running the 'msft_fhir_export_service' notebook, you must have already [configure the global configuration notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook).
+        - Before running the 'msft_fhir_export_service' notebook (above), you must have already [configure the global configuration notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook)
         - Configure the 'msft_fhir_export_service' notebook key parameters as follows:
           - spark: Spark session
           - max_polling_days: The maximum number of days to poll the FHIR server for export to complete. The default value is set to three days. The values can range from one day to seven days
