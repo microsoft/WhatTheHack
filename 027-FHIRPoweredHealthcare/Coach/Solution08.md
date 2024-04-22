@@ -7,6 +7,33 @@
 In this challenge, you will deploy deploy the [OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-omop-analytics) capability in [Health Data Solutions in Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to your workspace to prepare data for standardized analytics through [Observational Medical Outcomes Partnership (OMOP)](https://www.ohdsi.org/data-standardization/) open community standards.  The [OMOP Common Data Model (CDM)](https://www.ohdsi.org/data-standardization/) is an open community data standard, designed to standardize the structure and content of observational data and to enable efficient analyses that can produce reliable evidence.
 
 - **Prerequites:**
+  - **[Set up Fabric data connection to connect to FHIR service (deployed in challenge 1)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#use-fhir-service)**
+    - [Set up Azure Language service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#set-up-azure-language-service)
+      - Create a new Azure Language service to your Resource Group in Azure portal using default settings to build apps with natural language understanding capbilities
+    - [Deploy 'Healthcare data solutions in Microsoft Fabric' Azure Marketplace offer](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-azure-marketplace-offer) to enable Lakehouse Analytics for Healthcare
+      - Configure key parameters:
+        - Resource group: Select your resource group
+        - Language service: Select the language service previously created in your resource group
+        - Fhir Server Uri: Optional parameter to be provided only if you're ingesting data from the Azure FHIR service. Enter your FHIR server's URI value here
+        - Export Start Time: Specify your preferred start time to initiate bulk data ingestion from your FHIR service to the lake
+      - Deployed Azure resources:
+        - Application Insights Smart Detection (Action Group)
+        - Failure Anomalies (Smart detection alert rule)
+        - msft-api-datamanager (Application Insights)
+        - msft-asp-datamanager (App Service Plan)
+        - msft-ds-delayDeployment (Deployment Script)
+        - msft-funct-datamanager-export (Function App)
+        - msft-kv (Key Vault)
+        - msft-log datamanager (Log Analytics workspace)
+        - msftst (Storage Accoount)
+        - msftstexport (Storage Account)
+      - Update FHIR server configuration:
+        - Update the FHIR service to have a system assigned managed identity
+        - Update the FHIR service's export Azure storage account name to point to the Healthcare data solution's storage account 
+        - On the Healthcare data solution's storage account, assign the Azure RBAC role Storage blob data contributor to the FHIR service to enable the FHIR service to read and write to the storage account.
+        - On the FHIR service, assign the Azure RBAC role FHIR Data Exporter to the function app to enable the function app to execute the FHIR $export API.
+        - Update the FHIR Service Uri and Export Start Time app settings on the export function app
+
   - **[Deploy and configure Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)**
     - Open Healthcare data foundations capability on the Healthcare data solutions home page
     - Run 'Deploy to workspace' on the Healthcare data foundation capability page to deploy lakehouse and notebook artifacts to transform FHIR data to OMOP standards.
