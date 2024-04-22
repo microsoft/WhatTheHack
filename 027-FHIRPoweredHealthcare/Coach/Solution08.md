@@ -18,7 +18,7 @@ In this challenge, you will deploy deploy the [OMOP analytics](https://learn.mic
       - msft_raw_bronze_ingestion Notebook
       - msft_silver_sample_flatten_extensions_utility Notebook
     - [Configure the global configuration notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook) deployed with Healthcare data foundation running the deployed pipelines or notebooks.  
-      - Use the 'healthcare#_msft_config_notebook' to configure key configuration parameters for all data transformation:
+      - Use the 'msft_config_notebook' to configure key configuration parameters for all data transformation:
           - Workspace Config
             - workspace_name: Identifier for the workspace, either its GUID or name.
             - solution_name: Identifier for the healthcare workload artifact, formatted as
@@ -51,13 +51,13 @@ In this challenge, you will deploy deploy the [OMOP analytics](https://learn.mic
         source_path_pattern = 'abfss://<workspace_name>@onelake.dfs.fabric.microsoft.com/{bronze_lakehouse_name}.Lakehouse/Files/FHIRData/**/<resource_name>[^a-zA-Z]*ndjson'
 
 - **Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
-  -  Configure key parameters:
+  - Configure key parameters:
     - max_files_per_trigger: Maximum number of new files to consider for every trigger. The data type of the value is integer
     - source_path_pattern: The pattern to use for monitoring source folders. The data type of the value is variable
       - Default value: The landing zone paths under abfss://{workspace_name}@{one_lake_endpoint}/{bronze_database_name}/Files/landing_zone/**/**/**/<resource_name>[^a-zA-Z]*ndjson
   - Run 'msft_raw_bronze_ingestion' Notebook that calls the  BronzeIngestionService module in Healthcare data solutions library to ingest the FHIR data stored in location defined by 'source_path_pattern' value
 
-- **Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the healthcare#_msft_bronze lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
+- **Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
   - Run 'msft_bronze_silver_flatten' Notebook that calls the  SilverIngestionService module in Healthcare data solutions library to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the 'msft_silver' lakehouse
 
 - **[Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) capability in Healthcare data solutions to enables data preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards**
