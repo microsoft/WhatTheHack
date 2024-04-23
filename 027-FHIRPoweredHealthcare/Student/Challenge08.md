@@ -19,9 +19,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 (Optional) After transforming FHIR data to OMOP standards persisted in the Gold Lakehouse, you can leverage the provided notebooks to build statistical models, perform population distribution studies, and use Power BI reports for visual comparisons of different interventions and their impact on patient health outcomes.
 
 - **Prerequisites:**
-  - [Set up data connection using FHIR service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
-  - [Set up Azure Lanugage Service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#set-up-azure-language-service)
-  - [Deploy the Healthcare data solutions in Microsoft Fabric via Azure Marketplace](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#deploy-azure-marketplace-offer)
+  - [Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)
 
 - **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
 
