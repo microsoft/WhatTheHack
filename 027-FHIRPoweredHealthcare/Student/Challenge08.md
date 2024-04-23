@@ -18,8 +18,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 (Optional) After transforming FHIR data to OMOP standards persisted in the Gold Lakehouse, you can leverage the provided notebooks to build statistical models, perform population distribution studies, and use Power BI reports for visual comparisons of different interventions and their impact on patient health outcomes.
 
-- **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** and set up data connection to use FHIR service (deployed in challenge 1)
-  Hint: After the deployment, the following Azure resources are provisioned to your environment:
+- **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** and set up data connection to use FHIR service (deployed in challenge 1).  After the deployment, the following Azure resources are provisioned to your environment:
   - Application Insights Smart Detection (Action Group)
   - Failure Anomalies (Smart detection alert rule)
   - msft-api-datamanager (Application Insights)
@@ -31,8 +30,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
   - msftst (Storage Accoount)
   - msftstexport (Storage Account)
 
-- **[Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** in Healthcare data solutions to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
-  Hint: After the deployment, the following Lakehouse and Notebook artifacts are deployed to your workspace:
+- **[Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** in Healthcare data solutions to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. After the deployment, the following Lakehouse and Notebook artifacts are deployed to your workspace:
   - msft_bronze Lakehouse
   - msft_gold_omop Lakehouse
   - msft_silver Lakehouse
@@ -43,24 +41,19 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 - **[Configure the global configuration (msft_config_notebook) notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook)** deployed with Healthcare data foundation to set up and manage configurations for data transformation in Healthcare data solutions
 
-- **[Deploy & configure FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)** capability to bring FHIR data from Azure Health Data Service (AHDS) FHIR service to OneLake.
+- **Configure and run [FHIR data ingestion (msft_config_notebook)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)** Notebook to bring FHIR data (deployed in challenge 1) to Microsoft Fabric OneLake.
 
-- **Configure and run [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the `msft_bronze` lakehouse**
+- **Configure and run [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion)** Notebook to ingest data into delta tables in the `msft_bronze` lakehouse
 
-- **Configure and run [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the `msft_bronze` lakehouse and to ingest the resulting data into the `msft_silver` lakehouse**
+- **Configure and run [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten)** to flatten FHIR resources in the `msft_bronze` lakehouse and to ingest the resulting data into the `msft_silver` lakehouse
 
-- **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)** to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.
-  Hint: After the deployment, the following Notebook artifacts are deployed to your workspace:
+- **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)** to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.  After the deployment, the following Notebook artifacts are deployed to your workspace:
   - msft_silver_omop Notebook
   - msft_omop_sample_drug_exposure_era Notebook
   - msft_omop_sample_drug_exposure_insights Notebook
 
-- **[Configure and run the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook)** to transform resources in the sliver lakehouse into OMOP common data model
+- **Configure and run [msft_silver_omop](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook)** Notebook to transform resources in the sliver lakehouse into OMOP common data model
   
-  Hint: After the deployment, the following Notebook artifacts are deployed to your workspace:
-  - msft_silver_omop Notebook
-  - msft_omop_sample_drug_exposure_era Notebook
-  - msft_omop_sample_drug_exposure_insights Notebook
 
 ## Success Criteria
 
