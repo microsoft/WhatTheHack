@@ -9,6 +9,7 @@
                 "properties": {
                     "customer_email_address": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer used to look if the account exists"
                     }
                 },
@@ -26,6 +27,7 @@
                 "properties": {
                     "customer_email_address": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer used to look if the account exists"
                     }
                 },
@@ -43,6 +45,7 @@
                 "properties": {
                     "customer_email": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer"
                     },
                     "first_name": {
@@ -68,6 +71,7 @@
                 "properties": {
                     "customer_email": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer"
                     }
                 },
@@ -85,6 +89,7 @@
                 "properties": {
                     "customer_email": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer"
                     },
                     "deposit_amount": {
@@ -106,6 +111,7 @@
                 "properties": {
                     "customer_email": {
                         "type": "string",
+                        "format": "email",
                         "description": "The email address of the customer"
                     },
                     "withdrawal_amount": {

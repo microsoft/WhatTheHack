@@ -1,11 +1,37 @@
 import io
 import json
-from typing import IO
+import os
+from typing import IO, Callable
 
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeResult, DocumentField, \
     DocumentAnalysisFeature, DocumentSelectionMarkState, DocumentSignatureType
 from azure.core.credentials import AzureKeyCredential
+
+from application_settings import ApplicationSettings
+
+
+class ClassificationResult:
+    def __init__(self, document_type: str, confidence: float, pages: list[str]):
+        self.document_type = document_type
+        self.pages = pages
+        self.confidence = confidence
+
+    def get_document_type(self):
+        return self.document_type
+
+    def get_pages(self):
+        return self.pages
+
+    def get_confidence(self):
+        return self.confidence
+
+    def __str__(self):
+        obj = {"document_type": self.document_type, "pages": self.pages, "confidence": self.confidence}
+        return json.dumps(obj)
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class DocumentIntelligenceUtil:
@@ -18,7 +44,7 @@ class DocumentIntelligenceUtil:
         credentials = AzureKeyCredential(key)
         self.client = DocumentIntelligenceClient(endpoint, credentials, api_version=api_version)
 
-    def classify_buffer(self, classifier_model_id: str, buffer: bytes):
+    def classify_buffer(self, classifier_model_id: str, buffer: bytes) -> list[ClassificationResult]:
 
         buffer_bytes: IO[bytes] = io.BytesIO(buffer)
 
@@ -68,9 +94,21 @@ class DocumentIntelligenceUtil:
 class TemperaturePreference:
     def __init__(self, meal_item: str, quantity: str, min_temperature: str, max_temperature: str):
         self.meal_item = meal_item
-        self.quantity = int(quantity)
-        self.min_temperature = float(min_temperature)
-        self.max_temperature = float(max_temperature)
+        self.quantity = self._get_default_int_if_empty(quantity)
+        self.min_temperature = self._get_default_float_if_empty(min_temperature)
+        self.max_temperature = self._get_default_float_if_empty(max_temperature)
+
+    def _get_default_int_if_empty(self, value: str):
+        if value:
+            return int(value)
+        else:
+            return 0
+
+    def _get_default_float_if_empty(self, value: str):
+        if value:
+            return float(value)
+        else:
+            return 0.0
 
     def __repr__(self):
         obj = self.__dict__
@@ -84,35 +122,19 @@ class TemperaturePreference:
                 "min_temperature": self.min_temperature, "max_temperature": self.max_temperature}
 
 
-class ClassificationResult:
-    def __init__(self, document_type: str, confidence: float, pages: list[str]):
-        self.document_type = document_type
-        self.pages = pages
-        self.confidence = confidence
-
-    def get_document_type(self):
-        return self.document_type
-
-    def get_pages(self):
-        return self.pages
-
-    def get_confidence(self):
-        return self.confidence
-
-    def __str__(self):
-        obj = {"document_type": self.document_type, "pages": self.pages, "confidence": self.confidence}
-        return json.dumps(obj)
-
-    def __repr__(self):
-        return self.__str__()
-
-
 class ExtractionResult:
 
     def __init__(self, field_mappings: dict):
         self.confidence = 0.0
         self.raw_text = None
         self.field_mappings = field_mappings
+
+    def get_submission(self):
+        results = {
+            "confidence": self.confidence,
+            "raw_text": self.raw_text
+        }
+        return results
 
     def get_field_key(self, field_key: str):
         keys = self.field_mappings.keys()
@@ -204,6 +226,10 @@ class ExtractionResult:
     def __str__(self):
         return self.__repr__()
 
+    def prepare_question(self, question_id: str, question: str, answer: str):
+        question = {"question_id": question_id, "examination_question": question, "student_answer": answer}
+        return question
+
 
 class Form01ExtractionResult(ExtractionResult):
 
@@ -220,6 +246,30 @@ class Form01ExtractionResult(ExtractionResult):
         self.question_2 = ""
         self.question_3 = ""
         self.question_4 = ""
+
+    def get_submission(self):
+        results = {
+            "student_id": self.student_id,
+            "student_name": self.student_name,
+            "school_district": self.school_district,
+            "school_name": self.school_name,
+            "exam_date": self.exam_date,
+            "questions": [
+                self.prepare_question("1",
+                                      "What are the names of the islands that make up Contoso Islands?",
+                                      self.question_1),
+                self.prepare_question("2",
+                                      "Where is the capital of Contoso Islands?",
+                                      self.question_2),
+                self.prepare_question("3",
+                                      "How many seasons does the Contoso Islands have?",
+                                      self.question_3),
+                self.prepare_question("4",
+                                      "What month is the start of the dry season?",
+                                      self.question_4)
+            ]
+        }
+        return results
 
     def parse_extraction_result(self, analyzed_result: AnalyzeResult):
         if (analyzed_result and analyzed_result.documents and analyzed_result.documents[0] and
@@ -261,6 +311,30 @@ class Form02ExtractionResult(Form01ExtractionResult):
     def __init__(self, field_mappings: dict):
         super().__init__(field_mappings)
 
+    def get_submission(self):
+        results = {
+            "student_id": self.student_id,
+            "student_name": self.student_name,
+            "school_district": self.school_district,
+            "school_name": self.school_name,
+            "exam_date": self.exam_date,
+            "questions": [
+                self.prepare_question("1",
+                                      "What is the national currency of the Contoso Islands?",
+                                      self.question_1),
+                self.prepare_question("2",
+                                      "What is the income tax rate in Contoso Islands?",
+                                      self.question_2),
+                self.prepare_question("3",
+                                      "What are the official languages spoken in the Contoso Islands?",
+                                      self.question_3),
+                self.prepare_question("4",
+                                      "How many people travel to Contoso Islands each year?",
+                                      self.question_4)
+            ]
+        }
+        return results
+
 
 class Form03ExtractionResult(Form01ExtractionResult):
     def __init__(self, field_mappings: dict):
@@ -277,6 +351,33 @@ class Form03ExtractionResult(Form01ExtractionResult):
             extracted_fields: dict[str, DocumentField] = document.fields
             self.question_5 = self.get_value_string(extracted_fields, question_5_field_key)
 
+    def get_submission(self):
+        results = {
+            "student_id": self.student_id,
+            "student_name": self.student_name,
+            "school_district": self.school_district,
+            "school_name": self.school_name,
+            "exam_date": self.exam_date,
+            "questions": [
+                self.prepare_question("1",
+                                      "Who is the president of Contoso Islands?",
+                                      self.question_1),
+                self.prepare_question("2",
+                                      "Who is the vice president of Contoso Islands?",
+                                      self.question_2),
+                self.prepare_question("3",
+                                      "Where does the vice president of Contoso Islands Live?",
+                                      self.question_3),
+                self.prepare_question("4",
+                                      "Who is the Minister of Agriculture?",
+                                      self.question_4),
+                self.prepare_question("5",
+                                      "Who is the Minister of Finance?",
+                                      self.question_5)
+            ]
+        }
+        return results
+
 
 class Form04ExtractionResult(ExtractionResult):
     MEAL_PREFERENCE_VEGETARIAN = "Vegetarian"
@@ -292,7 +393,7 @@ class Form04ExtractionResult(ExtractionResult):
 
     ALLERGEN_PEANUTS = "Peanuts"
     ALLERGEN_MILK = "Milk"
-    ALLERGEN_SOY = "SoY"
+    ALLERGEN_SOY = "Soy"
 
     ALLERGEN_GLUTEN = "Gluten"
     ALLERGEN_EGGS = "Eggs"
@@ -309,6 +410,19 @@ class Form04ExtractionResult(ExtractionResult):
         self.meal_preferences: list[str] = []
         self.allergens: list[str] = []
         self.temperature_preferences: list[dict] = []
+
+    def get_submission(self):
+        results = {
+            "guest_full_name": self.guest_full_name,
+            "guest_phone_number": self.guest_phone_number,
+            "guest_email_address": self.guest_email_address,
+            "guest_signature": self.guest_signature,
+            "signature_date": self.signature_date,
+            "meal_preferences": self.meal_preferences,
+            "allergens": self.allergens,
+            "temperature_preferences": self.temperature_preferences
+        }
+        return results
 
     def append_to_allergens_if_selected(self, is_selected, value_if_exists):
         if is_selected:
@@ -422,9 +536,9 @@ class Form04ExtractionResult(ExtractionResult):
                                              temp_preferences_column_names)
             for table_row in table_rows:
                 current_meal_item_key = self.get_field_value_if_exists(table_row, table_column_header_meal_item_key)
-                current_quantity = self.get_field_value_if_exists(table_row,table_column_header_quantity_key)
-                current_min_temp = self.get_field_value_if_exists(table_row,table_column_header_min_temp_key)
-                current_max_temp = self.get_field_value_if_exists(table_row,table_column_header_max_temp_key)
+                current_quantity = self.get_field_value_if_exists(table_row, table_column_header_quantity_key)
+                current_min_temp = self.get_field_value_if_exists(table_row, table_column_header_min_temp_key)
+                current_max_temp = self.get_field_value_if_exists(table_row, table_column_header_max_temp_key)
 
                 # construct the temperature preference using the extracted cell fields from columns
                 current_temp_preference = TemperaturePreference(current_meal_item_key, current_quantity,
@@ -432,3 +546,91 @@ class Form04ExtractionResult(ExtractionResult):
 
                 # append it to our object field of table rows
                 self.append_to_temperature_preferences(current_temp_preference)
+
+
+
+
+class DocumentProcessor:
+    def __init__(self):
+        self.document_classifications = {}
+        self.document_class_map: dict[str, str] = {}
+        self.field_mappings: dict[str, dict[str, str]] = {}
+
+        self.load_configuration()
+
+        endpoint = os.environ.get("DOCUMENT_INTELLIGENCE_ENDPOINT")
+        key = os.environ.get("DOCUMENT_INTELLIGENCE_KEY")
+        api_version = os.environ.get("DOCUMENT_INTELLIGENCE_API_VERSION", "2024-02-29-preview")
+
+        self.document_intelligence_util = DocumentIntelligenceUtil(endpoint, key, api_version)
+
+    def register_classification(self, classification_id: str, extractor_id: str,
+                                field_map: dict[str, str], position_key: str):
+        self.document_class_map[classification_id] = extractor_id
+        self.field_mappings[classification_id] = field_map
+        self.document_classifications[classification_id] = position_key
+
+    def get_document_classification(self, classification_id: str) -> str:
+        return self.document_classifications[classification_id]
+
+    def is_exam_submission(self, classification_id: str) -> bool:
+        exam_classifications = ["f01", "f02", "f03"]
+        classification_key = self.get_document_classification(classification_id)
+        return classification_key in exam_classifications
+
+    def is_meal_preference(self, classification_id: str) -> bool:
+        return self.is_exam_submission(classification_id) is False
+
+    def load_configuration(self):
+        application_settings = ApplicationSettings()
+        document_intelligence_settings = application_settings.document_intelligence_settings()
+
+        f01 = document_intelligence_settings[0]
+        self.register_classification(f01.classifier_document_type, f01.extractor_model_name, f01.fields, "f01")
+
+        f02 = document_intelligence_settings[1]
+        self.register_classification(f02.classifier_document_type, f02.extractor_model_name, f02.fields, "f02")
+
+        f03 = document_intelligence_settings[2]
+        self.register_classification(f03.classifier_document_type, f03.extractor_model_name, f03.fields, "f03")
+
+        f04 = document_intelligence_settings[3]
+        self.register_classification(f04.classifier_document_type, f04.extractor_model_name, f04.fields, "f04")
+
+    def process_buffer(self, buffer: bytes):
+        classifier_model_id = os.environ.get("DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID", "2024-02-29-preview")
+        classifications = self.document_intelligence_util.classify_buffer(classifier_model_id, buffer)
+
+        return classifications
+
+    def extract_contents(self, buffer: bytes, classifier_model: str, pages: list[str]):
+        """Retrieves the digested and processed submission details"""
+        extractor_model_id = self.document_class_map[classifier_model]
+        contents = self.document_intelligence_util.extract_buffer(extractor_model_id, buffer, pages)
+        position = self.document_classifications[classifier_model]
+
+        if position == "f01":
+            mappings = self.field_mappings[classifier_model]
+            model = Form01ExtractionResult(mappings)
+            model.parse_extraction_result(contents)
+            return model.get_submission()
+
+        elif position == "f02":
+            mappings = self.field_mappings[classifier_model]
+            model = Form02ExtractionResult(mappings)
+            model.parse_extraction_result(contents)
+            return model.get_submission()
+
+        elif position == "f03":
+            mappings = self.field_mappings[classifier_model]
+            model = Form03ExtractionResult(mappings)
+            model.parse_extraction_result(contents)
+            return model.get_submission()
+
+        elif position == "f04":
+            mappings = self.field_mappings[classifier_model]
+            model = Form04ExtractionResult(mappings)
+            model.parse_extraction_result(contents)
+            return model.get_submission()
+
+        return None

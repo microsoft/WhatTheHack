@@ -1,6 +1,6 @@
 import os
 from typing import Any, Iterable, Dict
-from azure.cosmos import CosmosClient, DatabaseProxy, ContainerProxy
+from azure.cosmos import CosmosClient, DatabaseProxy, ContainerProxy, PartitionKey
 
 
 class CosmosDbUtils:
@@ -11,6 +11,11 @@ class CosmosDbUtils:
         self.client: CosmosClient = CosmosClient.from_connection_string(conn_str=cosmos_connection_string)
         self.database_name: str = cosmos_database_name_string
         self.collection_name: str = collection
+
+    def create_collection(self, partition_key_path: str):
+        partition_key_path = PartitionKey(path=partition_key_path)
+        container_identifier = self.collection_name
+        self.get_database().create_container_if_not_exists(id=container_identifier, partition_key=partition_key_path)
 
     def get_database(self) -> DatabaseProxy:
         return self.client.get_database_client(self.database_name)

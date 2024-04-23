@@ -14,6 +14,8 @@ from azure.search.documents.indexes.models import (
     SimpleField,
 )
 
+from shared.cosmos_db_utils import CosmosDbUtils
+
 
 def initialize_yachts_index():
 
@@ -181,3 +183,12 @@ def initialize_contoso_documents_index():
     index_exists = ai_search_util.index_exists(contoso_documents_index_name)
 
     print("{} AI Search Index exists {}".format(contoso_documents_index_name, index_exists))
+
+
+def initialize_cosmos_collections():
+
+    cosmos_db_grades_util = CosmosDbUtils("grades")
+    cosmos_db_grades_util.create_collection("/submissionId")
+
+    cosmos_db_meals_util = CosmosDbUtils("mealpreferences")
+    cosmos_db_meals_util.create_collection("/registrationId")

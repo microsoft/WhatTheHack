@@ -9,9 +9,9 @@ from openai.types.chat import ChatCompletionToolParam
 
 class DocumentIntelligenceSetting:
     def __init__(self, classifier_type, extractor_type, model_description, fields: dict[str, str]):
-        self.classifier_document_type = classifier_type
-        self.extractor_model_name = extractor_type
-        self.model_description = model_description
+        self.classifier_document_type: str = classifier_type
+        self.extractor_model_name: str = extractor_type
+        self.model_description: str = model_description
         self.fields: dict[str, str] = fields
 
     def __repr__(self):

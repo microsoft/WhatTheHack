@@ -9,6 +9,10 @@ class Yacht(TypedDict):
     description: str
 
 
+class YachtSearchResponse(Yacht):
+    id: str
+
+
 class YachtEmbeddingHash(TypedDict):
     yachtId: str
     embedding: list[float]

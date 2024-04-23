@@ -1,7 +1,8 @@
 import logging
 import azure.functions as func
 
-from shared.application_initialization_logic import initialize_contoso_documents_index, initialize_yachts_index
+from shared.application_initialization_logic import initialize_contoso_documents_index, initialize_yachts_index, \
+    initialize_cosmos_collections
 
 app_initializer_controller = func.Blueprint()
 
@@ -19,3 +20,6 @@ def app_initializer_handler(mytimer: func.TimerRequest) -> None:
 
     # initialize contoso yachts index for langchain integration
     initialize_yachts_index()
+
+    # initialize cosmos db collections
+    initialize_cosmos_collections()
