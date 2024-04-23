@@ -89,8 +89,8 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 - **Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
   - Run 'msft_bronze_silver_flatten' Notebook that calls the  SilverIngestionService module in Healthcare data solutions library to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the 'msft_silver' lakehouse
-
-- **[Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) capability in Healthcare data solutions to enables data preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards**
+ 
+ - **[Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) capability in Healthcare data solutions to enables data preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards**
   - [Deploy OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-omop-analytics) to your workspace
     - Open the OMOP analytics capability on the Health Data Solutions home page
     - Run 'Deploy to workspace' on the OMOP Analytics Capabilities page to deploy OMOP's common data model to Farbric using pre-built pipelines to hydrate OMOP using the Healthcare foundations and OMOP analytics capabilities
@@ -98,11 +98,11 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
         - msft_silver_omop Notebook
         - msft_omop_sample_drug_exposure_era Notebook
         - msft_omop_sample_drug_exposure_insights Notebook
-  
-  - [Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#configure-the-omop-silver-notebook) to transforms resources in the 'msft_silver' lakehouse into OMOP common data model (CDM)
-    - Configure key parameters:
-      - 'silver_database_name' in the 'msft_config' notebook defines the silver lakehouse identifier. 
-      - 'omop_database_name' in the 'msft_config' notebook defines the OMOP lakehouse the transformed data is persisted
+
+- **[Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#configure-the-omop-silver-notebook)** to transforms resources in the 'msft_silver' lakehouse into OMOP common data model (CDM)
+  - Configure key parameters:
+    - 'silver_database_name' in the 'msft_config' notebook defines the silver lakehouse identifier. 
+    - 'omop_database_name' in the 'msft_config' notebook defines the OMOP lakehouse the transformed data is persisted
   - Run 'msft_silver_omop' notebook job to transform resources in the 'msft_silver' lakehouse into OMOP common data model and persist the transformed data into the OMOP lakehouse
 
 
