@@ -42,7 +42,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 - **[Configure the global configuration (msft_config_notebook)](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#configure-the-global-configuration-notebook)** Notebook deployed with Healthcare data foundation to set up and manage configurations for data transformation in Healthcare data solutions
 
 - **Deploy and configure [FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)** capability to bring FHIR data (deployed in challenge 1) to Microsoft Fabric OneLake. After the deployment, the following Notebook artifact is deployed to your workspace:
-  - msft_fhir_export_service Notebook, which is a FHIR ingestion pipeline to export your FHIR data (deployed in challenge 1) and persist in the raw JSON in the Lake
+  - msft_fhir_export_service Notebook, which is a FHIR ingestion pipeline to export your FHIR data (deployed in challenge 1) and persist in the raw JSON in the lake
 
 - **Configure and run [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion)** Notebook to ingest data into delta tables in the `msft_bronze` lakehouse
 
@@ -53,7 +53,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
   - msft_omop_sample_drug_exposure_era Notebook
   - msft_omop_sample_drug_exposure_insights Notebook
 
-- **Configure and run [msft_silver_omop](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook)** Notebook to transform resources in the sliver lakehouse into OMOP common data model
+- Configure and run **[msft_silver_omop](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook)** Notebook to transform resources in the sliver lakehouse into OMOP common data model
   
 
 ## Success Criteria
