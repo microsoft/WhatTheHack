@@ -48,6 +48,6 @@ The prerequisites for the hack are covered in [Challenge 0](Student/Challenge00.
 ## Contributor
 - Richard Liang
 - Ben Cheng
-- Eric Leonard
+- Ramraj Rajkumar 
 
 
