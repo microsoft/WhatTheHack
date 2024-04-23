@@ -6,7 +6,7 @@
 
 In the Healthcare data solutions (preview), OMOP analytics in the Fabric lakehouse allows for the deployment of the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM), giving researchers within the OMOP community access to OneLake’s scale and Microsoft Fabric’s AI. This setup supports standardized analytics for observational studies, enabling researchers to compare procedures and drug exposures and explore drug-condition correlations.
 
-Below is the overview of the **[Healthcare data solutions architecture](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture)**:
+Below is the overview of the **[Healthcare data solutions in Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture) solution architecture**:
 <center><img src="../images/challenge08-architecture.png" width="550"></center>
 
 ## Description
