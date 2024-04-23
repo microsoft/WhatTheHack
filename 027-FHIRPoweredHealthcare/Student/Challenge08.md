@@ -18,10 +18,20 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 (Optional) After transforming FHIR data to OMOP standards persisted in the Gold Lakehouse, you can leverage the provided notebooks to build statistical models, perform population distribution studies, and use Power BI reports for visual comparisons of different interventions and their impact on patient health outcomes.
 
-- **Prerequisites:**
-  - [Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service) to use FHIR service data connection
+- **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** and set up data connection to use FHIR service (deployed in challenge 1)
+  Hint: After the deployment, the following Azure resources are provisioned to your environment:
+  - Application Insights Smart Detection (Action Group)
+  - Failure Anomalies (Smart detection alert rule)
+  - msft-api-datamanager (Application Insights)
+  - msft-asp-datamanager (App Service Plan)
+  - msft-ds-delayDeployment (Deployment Script)
+  - msft-funct-datamanager-export (Function App)
+  - msft-kv (Key Vault)
+  - msft-log datamanager (Log Analytics workspace)
+  - msftst (Storage Accoount)
+  - msftstexport (Storage Account)
 
-- **First, [Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
+- **[Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. 
 
   Hint: After deploying the Healthcare data solutions (preview) to your Fabric workspace, it’s essential to set up the Healthcare data foundations OMOP Analytics capability to align with your FHIR to OMOP data transformation needs.
 

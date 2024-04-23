@@ -10,34 +10,32 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 - Gold (curated zone): this final layer, sourced from the Silver layer, refines data to align with specific downstream business and analytical needs.  It’s the primary source for high-quality, aggregated datasets, ready for in-depth analysis and insight extraction.
 
 
-
-- **Prerequites:**
-  - **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service) to use FHIR service data connection**
-    - [Set up Azure Language service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#set-up-azure-language-service)
-      - Create a new Azure Language service to your Resource Group in Azure portal using default settings to build apps with natural language understanding capbilities
-    - [Deploy 'Healthcare data solutions in Microsoft Fabric' Azure Marketplace offer](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-azure-marketplace-offer) to enable Lakehouse Analytics for Healthcare
-      - Configure key parameters:
-        - Resource group: Select your resource group
-        - Language service: Select the language service previously created in your resource group
-        - Fhir Server Uri: Optional parameter to be provided only if you're ingesting data from the Azure FHIR service. Enter your FHIR server's URI value here
-        - Export Start Time: Specify your preferred start time to initiate bulk data ingestion from your FHIR service to the lake
-      - Deployed Azure resources:
-        - Application Insights Smart Detection (Action Group)
-        - Failure Anomalies (Smart detection alert rule)
-        - msft-api-datamanager (Application Insights)
-        - msft-asp-datamanager (App Service Plan)
-        - msft-ds-delayDeployment (Deployment Script)
-        - msft-funct-datamanager-export (Function App)
-        - msft-kv (Key Vault)
-        - msft-log datamanager (Log Analytics workspace)
-        - msftst (Storage Accoount)
-        - msftstexport (Storage Account)
-      - Update FHIR server configuration:
-        - Update the FHIR service to have a system assigned managed identity
-        - Update the FHIR service's export Azure storage account name to point to the Healthcare data solution's storage account 
-        - On the Healthcare data solution's storage account, assign the Azure RBAC role Storage blob data contributor to the FHIR service to enable the FHIR service to read and write to the storage account.
-        - On the FHIR service, assign the Azure RBAC role FHIR Data Exporter to the function app to enable the function app to execute the FHIR $export API.
-        - Update the FHIR Service Uri and Export Start Time app settings on the export function app
+- **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** and set up data connection to use FHIR service (deployed in challenge 1)
+  - [Set up Azure Language service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#set-up-azure-language-service)
+    - Create a new Azure Language service to your Resource Group in Azure portal using default settings to build apps with natural language understanding capbilities
+  - [Deploy 'Healthcare data solutions in Microsoft Fabric' Azure Marketplace offer](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-azure-marketplace-offer) to enable Lakehouse Analytics for Healthcare
+    - Configure key parameters:
+      - Resource group: Select your resource group
+      - Language service: Select the language service previously created in your resource group
+      - Fhir Server Uri: Optional parameter to be provided only if you're ingesting data from the Azure FHIR service. Enter your FHIR server's URI value here
+      - Export Start Time: Specify your preferred start time to initiate bulk data ingestion from your FHIR service to the lake
+    - Deployed Azure resources:
+      - Application Insights Smart Detection (Action Group)
+      - Failure Anomalies (Smart detection alert rule)
+      - msft-api-datamanager (Application Insights)
+      - msft-asp-datamanager (App Service Plan)
+      - msft-ds-delayDeployment (Deployment Script)
+      - msft-funct-datamanager-export (Function App)
+      - msft-kv (Key Vault)
+      - msft-log datamanager (Log Analytics workspace)
+      - msftst (Storage Accoount)
+      - msftstexport (Storage Account)
+    - Update FHIR server configuration:
+      - Update the FHIR service to have a system assigned managed identity
+      - Update the FHIR service's export Azure storage account name to point to the Healthcare data solution's storage account 
+      - On the Healthcare data solution's storage account, assign the Azure RBAC role Storage blob data contributor to the FHIR service to enable the FHIR service to read and write to the storage account.
+      - On the FHIR service, assign the Azure RBAC role FHIR Data Exporter to the function app to enable the function app to execute the FHIR $export API.
+      - Update the FHIR Service Uri and Export Start Time app settings on the export function app
 
   - **[Deploy and configure Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)**
     - Open Healthcare data foundations capability on the Healthcare data solutions home page
