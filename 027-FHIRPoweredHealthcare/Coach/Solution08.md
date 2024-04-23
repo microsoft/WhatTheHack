@@ -12,7 +12,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 
 
 - **Prerequites:**
-  - **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service) to use FHIR service data connection
+  - **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service) to use FHIR service data connection**
     - [Set up Azure Language service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#set-up-azure-language-service)
       - Create a new Azure Language service to your Resource Group in Azure portal using default settings to build apps with natural language understanding capbilities
     - [Deploy 'Healthcare data solutions in Microsoft Fabric' Azure Marketplace offer](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-azure-marketplace-offer) to enable Lakehouse Analytics for Healthcare
