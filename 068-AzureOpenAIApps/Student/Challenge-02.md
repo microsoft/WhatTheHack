@@ -49,7 +49,61 @@ This assistants allows customers to manage bank accounts.
 - It can also check account balances
 - It can also make deposits and withdrawals from the bank accounts
 
-  
+#### Configuring Your Virtual Assistants
+
+ In your ContosoAIAppsBackend folder there is an assistant_configurations folder that contains two files: one json and one text file
+
+ The text file (.txt) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
+
+ The json file (.json) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
+
+ For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
+
+ ````json
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "ask_question",
+            "description": "Retrieves answers to relevant questions about the country Contoso Islands",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The question about Contoso Islands"
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+    },
+    {
+      "type": "function",
+      "function": {
+          "name": "get_yacht_details",
+          "description": "Retrieves the details of the yacht such as name, price, maximum capacity and description",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "string",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  }
+              },
+              "required": ["yacht_id"]
+          }
+      }
+  },
+]
+
+ ````
+
+ You can use the rest-api-ask-assistants.http REST Client to interact with the first assistant (Elizabeth) to make sure it is all working properly. The question you have for the AI assistant needs to be in the "message" field for the JSON object for the body of the HTTP request.
+
+ Once this is up and running for the backend, you can navigate to the page for Elizabeth to send you questions to her.
+
 ## Success Criteria for Each Assistant
 
 To complete the challenge successfully, the solution should demonstrate the following:
