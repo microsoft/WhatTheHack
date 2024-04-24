@@ -12,8 +12,8 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 
 - [Access Azure OpenAI](#access-azure-openai)
 - [Setup Development Environment](#setup-development-environment)
-  - [GitHub Codespaces](#use-github-codespace)
-  - [Local Workstation](#use-local-workstation)
+  - [Use GitHub Codespaces](#use-github-codespaces)
+  - [Use Local Workstation](#use-local-workstation)
 - [Setup Sample Application](#setup-sample-application)
   - [Deploy Azure Resources](#deploy-azure-resources)
   - [Setup App Backend](#setup-app-backend)
