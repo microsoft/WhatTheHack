@@ -4,11 +4,11 @@
 
 ## Pre-requisites 
 
-* Azure Form Recognizer resource for extracting text from raw unstructured data
-* Azure Cognitive Search resource for indexing and retrieving relevant information
-* Azure OpenAI service for Generative AI Models and Embedding Models
-* Add required credentials of above resources in .env file 
-* Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ```
+- Azure Form Recognizer resource for extracting text from raw unstructured data
+- Azure Cognitive Search resource for indexing and retrieving relevant information
+- Azure OpenAI service for Generative AI Models and Embedding Models
+- Add required credentials of above resources in `.env` file 
+- Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ``` if you have not already
 
 ## Introduction
 
@@ -22,21 +22,25 @@ RAG aims to overcome limitations found in purely generative models, including is
 
 Questions you should be able to answer by the end of the challenge:
 
-* How do we create ChatGPT-like experiences on Enterprise data? In other words, how do we "ground" powerful Large Language Models (LLMs) to primarily our own data?
-* Why is the combination of retrieval and generation steps so important and how do they allow integration of knowledge bases and LLMs for downstream AI tasks?
-* Given the token limit constraints, how does RAG approach help in dealing with long and complex documents?
-* How can this approach be applied to wide range of applications such as question answering, summarization, dialogue systems, and content generation?
+- How do we create ChatGPT-like experiences on Enterprise data? In other words, how do we "ground" powerful Large Language Models (LLMs) to primarily our own data?
+- Why is the combination of retrieval and generation steps so important and how do they allow integration of knowledge bases and LLMs for downstream AI tasks?
+- Given the token limit constraints, how does RAG approach help in dealing with long and complex documents?
+- How can this approach be applied to wide range of applications such as question answering, summarization, dialogue systems, and content generation?
 
 Some Considerations:
 
-* **Evaluation challenges:** Evaluating the performance of RAG poses challenges, as traditional metrics may not fully capture the improvements achieved through retrieval. Developing task-specific evaluation metrics or conducting human evaluations can provide more accurate assessments of the quality and effectiveness of the approach.
-* **Ethical considerations:** While RAG provides powerful capabilities, it also introduces ethical considerations. The retrieval component should be carefully designed and evaluated to avoid biased or harmful information retrieval. Additionally, the generated content should be monitored and controlled to ensure it aligns with ethical guidelines and does not propagate misinformation or harmful biases.
+- **Evaluation challenges:** Evaluating the performance of RAG poses challenges, as traditional metrics may not fully capture the improvements achieved through retrieval. Developing task-specific evaluation metrics or conducting human evaluations can provide more accurate assessments of the quality and effectiveness of the approach.
+- **Ethical considerations:** While RAG provides powerful capabilities, it also introduces ethical considerations. The retrieval component should be carefully designed and evaluated to avoid biased or harmful information retrieval. Additionally, the generated content should be monitored and controlled to ensure it aligns with ethical guidelines and does not propagate misinformation or harmful biases.
 
-You will run the following two Jupyter notebooks for this challenge. You can find them in the `/Notebooks` folder of `Resources.zip` file.
+You will run the following two Jupyter notebooks for this challenge:
 
-* `CH-04-A-RAG_for_structured_data.ipynb` 
-* `CH-04-B-RAG_for_unstructured_data.ipynb`
+- `CH-04-A-RAG_for_structured_data.ipynb` 
+- `CH-04-B-RAG_for_unstructured_data.ipynb`
 
+These files can be found in your Codespace under the `/notebooks` folder. 
+If you are working locally or in the Cloud, you can find them in the `/notebooks` folder of `Resources.zip` file. 
+
+To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 ## Success Criteria
 
