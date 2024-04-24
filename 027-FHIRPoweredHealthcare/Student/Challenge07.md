@@ -32,8 +32,8 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
     - `clientSecret` - Client secret for your Postman app.
 
     New values you need to input:
-    - `resource` - https://dicom.healthcareapis.azure.com
-    - `baseUrl` - Service URL appended with `/v1`. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: `https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1`
+    - `resource` - `https://dicom.healthcareapis.azure.com`
+    - `baseUrl` - Service URL appended with `/v1`. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add `/v1` on the end: `https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1`
 
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service

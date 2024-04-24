@@ -7,9 +7,9 @@ Your team's assistance is needed to implement the following scenarios:
    * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
    * Extract FHIR data via FHIR Analytics pipeline for data exploration in Synapse Studio / SSMS / PowerBI and perform downstream transformation against raw health data stored in Parquet format.
    * Export de-identified FHIR data and store in staging Data Lake storage for downstream processing.
-   * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech service in Azure Health Data Services to facilitate discovery of clinicial insights and a patient's health and wellness.
+   * Ingest, transform, correlate and persist medical IoT device data in FHIR using the MedTech service in Azure Health Data Services to facilitate discovery of clinical insights and a patient's health and wellness.
    * Load and search imaging data using the DICOM service in Azure Health Data Services to integrate clinical and imaging data for many healthcare scenarios including: creating cohorts for research, provide longitudinal view of a patient during diagnosis, finding outcomes of similar patients to plan treatment options, etc.
-   * Extract the FHIR data from the first challenge, convert it to the OMOP format, and store secnariosit in the Lakehouse to facilitate downstream analytics.
+   * Extract the FHIR data from the first challenge, transform it to the OMOP open standards, and store resulted data in the OMOP Gold Lakehouse to facilitate downstream analytics.
 
 You will implement a collection of Microsoft Health reference architectures using the **[Azure Health Data Services](https://docs.microsoft.com/en-us/azure/healthcare-apis/)** platform that best fit Contoso Healthcare requirements. Below is the holistic conceptual end-to-end Microsoft Health Architectures for the FHIR ecosystem.
 
