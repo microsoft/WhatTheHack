@@ -4,8 +4,8 @@
 
 ## Pre-requisites
 
-* Cognitive Search Index implementation from Challenge 4
-* Install required libraries in the `requirements.txt` file via `pip install -r requirements.txt`
+- Cognitive Search Index implementation from Challenge 4
+- Install required libraries in the `requirements.txt` file via `pip install -r requirements.txt` if you have not already.
 
 ## Introduction
 
@@ -23,9 +23,14 @@ Sections in this Challenge:
 2. Evaluating truthfulness using Ground-Truth Datasets
 3. Evaluating truthfulness using GPT without Ground-Truth Datasets
 
-You will run the following Jupyter notebook for this challenge. You can find it in the `/Notebooks` folder of `Resources.zip` file.
+You will run the following Jupyter notebook for this challenge:
 
-* `CH-05-ResponsibleAI.ipynb`
+- `CH-05-ResponsibleAI.ipynb`
+
+The file can be found in your Codespace under the `/notebooks` folder. 
+If you are working locally or in the Cloud, you can find it in the `/notebooks` folder of `Resources.zip` file. 
+
+To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 ## Success Criteria
 
