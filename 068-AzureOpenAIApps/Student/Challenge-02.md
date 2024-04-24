@@ -116,7 +116,7 @@ To complete the challenge successfully, the solution should demonstrate the foll
 
 ## Learning Resources
 
-Here are a list of resources that should assist you with completing this challenge:
+Here are a list of resources that should assist you with completing this challenge: 
 
 *Sample resources:*
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)

@@ -18,6 +18,7 @@ In an era where information is constantly evolving, staying up-to-date with docu
 
 This approach enhances the efficiency and effectiveness of various applications, from content recommendation engines to fraud detection, by providing accurate and timely representations of the documents in question, making it an indispensable component of modern data processing and analysis pipelines.
 
+
 ## Description
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
@@ -26,7 +27,16 @@ There are documents (from the documents/contoso-islands folder in your Resources
 
 There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
-Your task is to design configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
+![Auto Vectorization](../images/auto-vectorization-1.svg)
+
+In the diagram above, the following sequence of activities are taking place:
+- step 1: the newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
+- step 2 and 3: the azure function is determining if it needs to compute the embeddings for the new/modified record from the data sources
+- steps 4 and 5: if necessary, the embeddings are computed by communicating with the embedding API for the correct embeddings for each document chunk
+- step 6: the vectors are now sent to the vector database (AI Search)
+
+
+Your task is to configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
