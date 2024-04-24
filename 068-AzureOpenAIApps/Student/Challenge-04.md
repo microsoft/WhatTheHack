@@ -21,10 +21,19 @@ If this quota is reached, the service bus queue will need to be suspended for a 
 ## Description
 
 In this challenge, we will do the following:
+
 - modify the application configuration to enable quota enforcement. This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
 - modify the application configuration to specify the llm transaction aggregate window: This is done by changing the LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS to 120
 - modify the application configuration to specify the number of transactions allowed for each school district within the window : This is done by changing the LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS to 5
 - modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS to 300
+
+
+| Configuration Name | Examples| Description|
+|--------------|-----------|------------|
+| LLM_QUOTA_ENFORCEMENT | 0     | Whether or not Quota enforcement is enabled for the app        |
+| LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS      | 60  | The number of seconds that define the transaction aggregation window for quota enforcement       |
+| LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS      | 3  | The number of transactions allowed per school district within the transaction window       |
+| LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS      | 600  | The number of seconds the district needs to wait before processing can resume       |
 
 
 For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 5 submissions within a 2 minute period.
