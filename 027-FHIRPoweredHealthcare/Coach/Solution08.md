@@ -9,6 +9,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 - Silver (enriched zone): this layer receives data from the Bronze layer and refines it through validation and enrichment processes, improving its accuracy and value for downstream analytics.
 - Gold (curated zone): this final layer, sourced from the Silver layer, refines data to align with specific downstream business and analytical needs.  It’s the primary source for high-quality, aggregated datasets, ready for in-depth analysis and insight extraction.
 
+**Prerequites:**
 
 - **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** and set up data connection to use FHIR service (deployed in challenge 1)
   - [Set up Azure Language service](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json#set-up-azure-language-service)
@@ -75,21 +76,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
           - max_polling_days: The maximum number of days to poll the FHIR server for export to complete. The default value is set to three days. The values can range from one day to seven days
           - kv_name: Name of the key vault service. Configure this value in the global configuration notebook
           - function_url_secret_name: Name of the secret in the key vault service that contains the function URL. Configure this value too in the global configuration notebook
-    - Run the 'msft_fhir_export_service' notebook to export FHIR data to a container named 'export-landing-zone' in the Azure Storage account
-    - Create a shortcut of this folder in your storage account in the bronze lakehouse
-      - For example:
-        source_path_pattern = 'abfss://<workspace_name>@onelake.dfs.fabric.microsoft.com/{bronze_lakehouse_name}.Lakehouse/Files/FHIRData/**/<resource_name>[^a-zA-Z]*ndjson'
 
-- **Configure and deploy [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
-  - Configure key parameters:
-    - max_files_per_trigger: Maximum number of new files to consider for every trigger. The data type of the value is integer
-    - source_path_pattern: The pattern to use for monitoring source folders. The data type of the value is variable
-      - Default value: The landing zone paths under abfss://{workspace_name}@{one_lake_endpoint}/{bronze_database_name}/Files/landing_zone/**/**/**/<resource_name>[^a-zA-Z]*ndjson
-  - Run 'msft_raw_bronze_ingestion' Notebook that calls the  BronzeIngestionService module in Healthcare data solutions library to ingest the FHIR data stored in location defined by 'source_path_pattern' value
-
-- **Configure and deploy [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
-  - Run 'msft_bronze_silver_flatten' Notebook that calls the  SilverIngestionService module in Healthcare data solutions library to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the 'msft_silver' lakehouse
- 
  - **[Deploy and configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure) capability in Healthcare data solutions to enables data preparation for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards**
   - [Deploy OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#deploy-omop-analytics) to your workspace
     - Open the OMOP analytics capability on the Health Data Solutions home page
@@ -99,7 +86,23 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
         - msft_omop_sample_drug_exposure_era Notebook
         - msft_omop_sample_drug_exposure_insights Notebook
 
-- **[Configure the OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#configure-the-omop-silver-notebook)** to transforms resources in the 'msft_silver' lakehouse into OMOP common data model (CDM)
+**First, run FHIR ingestion pipeline to export your FHIR data (deployed in challenge 1) and store the raw JSON in the lake**
+  - Run the 'msft_fhir_export_service' notebook to export FHIR data to a container named 'export-landing-zone' in the Azure Storage account
+  - Create a shortcut of this folder in your storage account in the bronze lakehouse
+    - For example:
+        source_path_pattern = 'abfss://<workspace_name>@onelake.dfs.fabric.microsoft.com/{bronze_lakehouse_name}.Lakehouse/Files/FHIRData/**/<resource_name>[^a-zA-Z]*ndjson'
+
+**Configure and run [msft_raw_bronze_ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook to ingest data into delta tables in the 'msft_bronze' lakehouse**
+  - Configure key parameters:
+    - max_files_per_trigger: Maximum number of new files to consider for every trigger. The data type of the value is integer
+    - source_path_pattern: The pattern to use for monitoring source folders. The data type of the value is variable
+      - Default value: The landing zone paths under abfss://{workspace_name}@{one_lake_endpoint}/{bronze_database_name}/Files/landing_zone/**/**/**/<resource_name>[^a-zA-Z]*ndjson
+  - Run 'msft_raw_bronze_ingestion' Notebook that calls the  BronzeIngestionService module in Healthcare data solutions library to ingest the FHIR data stored in location defined by 'source_path_pattern' value
+
+**Configure and run [msft_bronze_silver_flatten](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the healthcare#_msft_silver lakehouse**
+  - Run 'msft_bronze_silver_flatten' Notebook that calls the  SilverIngestionService module in Healthcare data solutions library to flatten FHIR resources in the 'msft_bronze' lakehouse and to ingest the resulting data into the 'msft_silver' lakehouse
+ 
+**[Configure and run OMOP silver notebook](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure?toc=%2Findustry%2Fhealthcare%2Ftoc.json&amp%3Bbc=%2Findustry%2Fbreadcrumb%2Ftoc.json#configure-the-omop-silver-notebook)** to transforms resources in the 'msft_silver' lakehouse into OMOP common data model (CDM)
   - Configure key parameters:
     - 'silver_database_name' in the 'msft_config' notebook defines the silver lakehouse identifier. 
     - 'omop_database_name' in the 'msft_config' notebook defines the OMOP lakehouse the transformed data is persisted

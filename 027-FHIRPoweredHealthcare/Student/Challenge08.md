@@ -31,7 +31,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
   - msftst (Storage Accoount)
   - msftstexport (Storage Account)
 
-- **[Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** Capability in Healthcare data solutions to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. After the deployment, the following Lakehouse and Notebook artifacts are deployed to your workspace:
+- **[Deploy Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#deploy-healthcare-data-foundations)** capability in Healthcare data solutions to provide ready-to-run data pipelines designed to efficiently structure data for analytics and AI/machine learning modeling. After the deployment, the following Lakehouse and Notebook artifacts are deployed to your workspace:
   - msft_bronze Lakehouse
   - msft_gold_omop Lakehouse
   - msft_silver Lakehouse
@@ -45,7 +45,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
 - **Deploy and configure [FHIR data ingestion](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/fhir-data-ingestion-configure)** capability to bring FHIR data (deployed in challenge 1) to Microsoft Fabric OneLake. After the deployment, the following Notebook artifact is deployed to your workspace:
   - msft_fhir_export_service Notebook
 
-- **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)** Capability to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.  After the deployment, the following Notebook artifacts are deployed to your workspace:
+- **[Deploy & configure OMOP analytics](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure)** capability to prepare data for standardized analytics through Observational Medical Outcomes Partnership (OMOP) open community standards.  After the deployment, the following Notebook artifacts are deployed to your workspace:
   - msft_silver_omop Notebook
   - msft_omop_sample_drug_exposure_era Notebook
   - msft_omop_sample_drug_exposure_insights Notebook
