@@ -39,7 +39,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
       - Update the FHIR Service Uri and Export Start Time app settings on the export function app
 
 - **[Deploy and configure Healthcare data foundations](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure)**
-  - Open Healthcare data foundations capability on the Healthcare data solutions home page
+  - Open `Healthcare data foundations` capability on the Healthcare data solutions home page
   - Run `Deploy to workspace` on the Healthcare data foundation capability page to deploy lakehouse and notebook artifacts to transform FHIR data to OMOP standards.
     - `msft_bronze` Lakehouse
     - `msft_gold_omop` Lakehouse
