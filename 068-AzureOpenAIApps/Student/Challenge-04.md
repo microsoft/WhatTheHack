@@ -1,4 +1,4 @@
-# Challenge 04 - Securing Resources, Quota Monitoring and Enforcement
+# Challenge 04 - Quota Monitoring and Enforcement
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
@@ -8,19 +8,26 @@ This challenge assumes that all requirements for Challenges 01, 02 and 03 were s
 
 ## Introduction
 
-When building any application for production scenarios, it is always a good idea to build it responsibly and securely.
+When building any application for production scenarios, there may be scenarios where the quota for the LLMs have to be distributed fairly to prevent or minimize opportunities for starvation amongst the consumers.
 
-For this challenge, the goal will be to ensure that no credentials or keys for Blob Store, Azure Cognitive Search, Cosmos DB or OpenAI is stored in environment variables.
-The goal will be to use Azure-Managed Identities to authenticate against these resources from the application.
+For this challenge, our goal is to ensure that for the automated exam grading for each school district, each school district is not exceeding the allocated quota.
 
-We will also make sure that for the automated exam grading for each school district, each school district is not exceeding the allocated quota.
+The are 4 school districts and they do not have equal number of schools or students so the goal is to ensure that the resource allocation is distributed fairly and equally to each school district.
 
-You will ensure that each school district does not process more than 4 submissions within a 5-minute period. If this quota is reached, the service bus queue will need to be suspended for 5 minutes and then processing for that school district can resume again.
+You will ensure that each school district does not process more than 4 submissions within a 5-minute period. 
+
+If this quota is reached, the service bus queue will need to be suspended for a certain amount of time and then processing for that school district can resume again after the cool down period has elapsed.
+
 ## Description
 
 In this challenge, we will do the following:
-- updating the application connection setup for Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus to use managed identities and not credentials from environment variables
-- enforcing that the quotas are adhered to and no school district is able to process more than 4 submissions within a 5 minute period.
+- modify the application configuration to enable quota enforcement. This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
+- modify the application configuration to specify the llm transaction aggregate window: This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
+- modify the application configuration to specify the number of transactions allowed for each school district within the window : This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
+- modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
+
+
+For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 4 submissions within a 5 minute period.
 
 ## Success Criteria
 
