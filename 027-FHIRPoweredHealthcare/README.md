@@ -1,9 +1,9 @@
 # What the Hack - FHIR Powered Healthcare
 ## Introduction
-Contoso Healthcare is implementing Fast Healthcare Interoperability Resources (FHIR) to rapidly and securely exchange data in the HL7 FHIR standard format with a single, simplified data management solution for protected health information (PHI). FHIR service in the Azure Health Data Services platform is a fully managed, enterprise-grade FHIR Server in the cloud lets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
+Contoso Healthcare is implementing Fast Healthcare Interoperability Resources (FHIR) to rapidly and securely exchange data in the `HL7` FHIR standard format with a single, simplified data management solution for protected health information (PHI). FHIR service in the Azure Health Data Services platform is a fully managed, enterprise-grade FHIR Server in the cloud lets you quickly connect existing data sources, such as electronic health record systems and research databases. Create new opportunities with analytics, machine learning, and actionable intelligence across your health data.
 
 Your team's assistance is needed to implement the following scenarios:
-   * Ingest and process patient record in HL7 FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format, and persist them into a FHIR compliant store to facilitate health data interoperability.
+   * Ingest and process patient record in `HL7` FHIR Bundle or legacy formats from EHR systems into a common FHIR-based standard format, and persist them into a FHIR compliant store to facilitate health data interoperability.
    * Securely connect and search FHIR patient data stored in a FHIR Server through a patient lookup web app to enhance patient engagement.
    * Extract FHIR data via FHIR Analytics pipeline for data exploration in Synapse Studio / SSMS / PowerBI and perform downstream transformation against raw health data stored in Parquet format.
    * Export de-identified FHIR data and store in staging Data Lake storage for downstream processing.
@@ -18,7 +18,7 @@ You will implement a collection of Microsoft Health reference architectures usin
 ## Learning Objectives
 This hack will help you:
 1. Deploy FHIR service in Azure Health Data Services platform and persist generated synthetic FHIR data into it.
-2. Convert and Load HL7v2 messages and C-CDA clinical data into FHIR Service.
+2. Convert and Load `HL7v2` messages and `C-CDA` clinical data into FHIR Service.
 3. Develop JavaScript Single Page App (SPA) to search and view FHIR patient data.
 4. Transform and explore FHIR data for secondary use analytics.
 5. Export and anonymize FHIR data for downstream processing.
@@ -34,7 +34,7 @@ This hack will help you:
 - Challenge 1: **[Extract and Load FHIR EHR Data](Student/Challenge01.md)**
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract and Load HL7v2 & C-CDA EHR Data](Student/Challenge02.md)**
+- Challenge 2: **[Extract and Load `HL7v2` & `C-CDA` EHR Data](Student/Challenge02.md)**
 - Challenge 3: **[Search FHIR EHR Data](Student/Challenge03.md)**
 - Challenge 4: **[Explore and Analyze FHIR EHR Data](Student/Challenge04.md)**
 - Challenge 5: **[Export and Anonymize FHIR EHR Data](Student/Challenge05.md)**

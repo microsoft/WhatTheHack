@@ -18,8 +18,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) th
     - Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR Data](./Solution02.md)**
-    - Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
+- Challenge 2: **[Extract and Load `HL7v2` and `C-CDA` EHR Data](./Solution02.md)**
+    - Convert and Load `HL7v2` and `C-CDA` clinical data into FHIR Service.
 - Challenge 3: **[Search FHIR EHR Data](./Solution03.md)**
     - Develop Single Page App (SPA) to search and view FHIR EHR data.
 - Challenge 4: **[Explore and Analyze FHIR EHR Data](./Solution04.md)**
