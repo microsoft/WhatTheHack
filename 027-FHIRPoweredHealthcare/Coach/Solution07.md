@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (STOW-RS), Search (QIDO-RS), and Retrieve (WADO-RS).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliant boundary in the Azure Health Data Services workspace.
+In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (STOW-RS), Search (`QIDO-RS`), and Retrieve (`WADO-RS`).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliant boundary in the Azure Health Data Services workspace.
 
 - **Deploy a DICOM service instance within your Azure Health Data Services workspace (deployed in challenge 1).**
     - Go to your `Azure Health Data Service` workspace (deployed in challenge 1)
@@ -50,7 +50,7 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
   - Call `Retrieve-xxx` API calls in `Conformance-as-Postman` collection to Retrieve DICOM studies
   - Check logs for changes in DICOM service via Change Feed
     - Call `GET /changefeed` API call to retrieve logs of all the changes that occur in DICOM service
-    - Call `GET /changefeed/latest` API call to retrieve log of latest changes that occrur in DICOM service
+    - Call `GET /changefeed/latest` API call to retrieve log of latest changes that occur in DICOM service
   - Call `xxx-extended-query tags` API calls in `Conformance-as-Postman` collection to manage extended query tags in DICOM studies
     - Add extended query tags
     - List extended query tags
