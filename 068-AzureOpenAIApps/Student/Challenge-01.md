@@ -27,7 +27,7 @@ There are documents (from the documents/contoso-islands folder in your Resources
 
 There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
-![Auto Vectorization](../images/auto-vectorization-1.svg)
+![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
 In the diagram above, the following sequence of activities are taking place:
 - step 1: the newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
