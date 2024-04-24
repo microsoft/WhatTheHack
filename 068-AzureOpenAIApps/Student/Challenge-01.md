@@ -18,6 +18,7 @@ In an era where information is constantly evolving, staying up-to-date with docu
 
 This approach enhances the efficiency and effectiveness of various applications, from content recommendation engines to fraud detection, by providing accurate and timely representations of the documents in question, making it an indispensable component of modern data processing and analysis pipelines.
 
+
 ## Description
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
@@ -26,7 +27,16 @@ There are documents (from the documents/contoso-islands folder in your Resources
 
 There are also some JSON documents (from the contoso-db/contoso-yachts and contoso-db/customers folders) that have been uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
 
-Your task is to design configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
+![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
+
+In the diagram above, the following sequence of activities are taking place:
+- step 1: the newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
+- step 2 and 3: the azure function is determining if it needs to compute the embeddings for the new/modified record from the data sources
+- steps 4 and 5: if necessary, the embeddings are computed by communicating with the embedding API for the correct embeddings for each document chunk
+- step 6: the vectors are now sent to the vector database (AI Search)
+
+
+Your task is to configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
@@ -36,6 +46,67 @@ If everything works properly then the text files newly uploaded to modified in  
 
 Likewise, updates to the **yachts** JSON records in Cosmos DB should automatically show up in the AI Search index defined in the **AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME** setting in your application settings.
 
+We need to upload documents to Azure Blob Store and Cosmos DB.
+
+To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk using the following two commands
+
+````bash
+# navigate to document directory
+cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
+
+# create the government container if it does not exist
+az storage container create --account-name {mystorageaccountname} --name {containerName} 
+
+az storage container create --account-name contosoizzy1storage --name government
+
+# upload single documents one at a time
+az storage blob upload --account-name {mystorageaccountname}  -f {filenameToUpload} -c {destinationContainer} --overwrite
+
+az storage blob upload --account-name contosoizzy1storage  -f climate.txt -c government --overwrite
+
+# upload all files simultaneously from the current directory
+az storage blob upload-batch --account-name {myStorageAccountName} -d {myStorageContainer} -s {sourceDirectory}
+
+az storage blob upload-batch --account-name contosopeterod1storage -d government -s .
+
+````
+
+The contents of the Yacht details are stored in the following directory
+
+````bash
+
+cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts
+
+````
+
+To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder
+
+Simply Click on "Send Request" for each command to execute
+
+This shows how to create or update existing yacht records in the database via the REST API
+
+![How to Create Yacht records](../images/humao-rest-client-create-yachts.png)
+
+This shows how to retrieve existing yacht records from the database via the REST API
+
+![How to Retrieve Yacht records](../images/humao-rest-client-retrieve-yachts.png)
+
+This shows how to remove existing yacht records from the database via the REST API
+
+![How to delete/remove yacht records](../images/humao-rest-client-delete-yachts.png)
+
+There are in-file variables that you may have to edit to control the destination and contents of the HTTP requests you are making to the back end service
+
+![HTTP Request Variables](../images/humao-rest-client-in-file-variables.png)
+
+The api_endpoint controls the destination of the http request, the conversation_id variable is used to keep track of different requests to the back end and the yacht_id specifies the specific yacht record we are targetting
+
+````bash
+@api_endpoint = http://localhost:7072
+@conversation_id = 22334567
+@yacht_id = "100"
+
+````
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
