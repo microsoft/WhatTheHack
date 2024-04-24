@@ -47,12 +47,13 @@ The GitHub Codespace for this hack will host the Jupyter Notebook files, configu
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main". Make sure your Codespace is using the 4-core option when you configure it.
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
-- Note: If your codespace times out, just go ahead and restart it. You can increase the timeout of Codespace, by doing....
+
+**NOTE:** If your codespace times out, just go ahead and restart it. You can increase the timeout of Codespace, by doing....
 
 
 ### Use Local Workstation
@@ -98,23 +99,69 @@ The apps also contain helper utilities, functions and tools to help you speed up
 <details>
 <summary>Click to expand/collapse SP Requirements </summary>
 
-  This is helpful to setup your Service Principal with Contributor role permissions so that you can access your azure subscription. 
+ Go to the Azure Portal and open the Cloud Shell. Run the following command to create a service principal with the Contributor role on the subscription. Replace the <NAME> with a meaningful name.  Replace the subscription ID with your subscription ID.
   ````bash
-  az ad sp create-for-rbac --name myServicePrincipalName1 --role contributor --scopes /subscriptions/00000000-0000-0000-0000-000000000000
-  az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
-  az configure: y, 3, press enter three times
-  az account list
-  az account show
-  
-  If you have more than one subscription and you want to set it to the right one:
-  az account set -s "Enter Your Subscription ID"
-  az account show
+  az ad sp create-for-rbac --name <NAME> --role contributor --scopes /subscriptions/00000000-0000-0000-0000-000000000000
   ````
+  Your output should look something like this:
+
+  ![Service Principle](/068-AzureOpenAIApps/images/service-principle.png)
+
+<b>Make sure you save the output of the above command as you will need it later.</b>
+
 </details>
 
+
+### Provisioning Azure Resources
+In the codespace, the terminal will default to be visible so you can execute the following comamnds.
+```bash
+cd infra
+pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
+```
+
+- SubscriptionId: The Azure Subscription ID where you want to deploy the resources
+- Location: The Azure Region where you want to deploy the resources
+- ResourceGroupName: The name of the resource group where you want to deploy the resources
+
+
+**NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
+
+<details>
+<summary>Click to expand/collapse Service Principal Login </summary>
+
+```bash
+cd infra
+pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName "" -UseServicePrincipal -ServicePrincipalId "" -ServicePrincipalPassword "" -TenantId ""
+```
+- ServicePrincipalId: The App ID
+- ServicePrincipalPassword: The Service Principal Password
+- TenantId: The Azure Tenant ID where you want to deploy the resources
+
+</details>
+
+The deployment process takes about 30 minutes to complete.
+
+**NOTE:** If you have any errors during the deployment, there may be a conflict with the resources you are trying to deploy. In particlar, if you have capacity issue or quota issues.  You will need to re-deploy.
+ - For capacity issues, you may need to try a different region in your deployment.
+ - For and Open AI quota issues, you can add an otional parameter for the OpenAI region by adding the following parameter to the deployment command:
+ 
+```bash
+-OpenAILocation ""
+```
+
+  - OpenAILocation: The Azure Region where the models are available.  As of April 2024, the available regions are: australiaeast, canadaeast, francecentral, northcentralus, southindia, swedencentral, uksouth, westus.  Don't use eastus2 as it is the default in the deployment code.
+
+ - For and Document Intelligence quota issues, you can add an otional parameters for the Document Intelligence region by adding the following parameter to the deployment command:
+
+```bash
+-DocumentIntelligenceLocation ""
+```
+ - DocumentIntelligenceLocation: The Azure Region where the Document Intelligence is  available.  As of April 2024, the available regions are: westus2 and westeurope.  Don't use eastus as it is the default in the deployment code.
+
+
+
 ### Install dependencies for Frontend and Backend 
-Make sure you are in the right directory:
-cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsFrontend/
+Run the following command in the Terminal:
  
 `npm install`
 
@@ -123,82 +170,14 @@ cd ../ContosoAIAppsBackend/
  
 `pip install -r requirements.txt`
 
-### Provisioning Azure Resources
-Make sure you are in the right directory:
-cd ../Challenge-00/
+### Running the Backend Azure Function App
 
-The examples below shows how to deploy the ARM template using Powershell or Bash
+Navigate to the directory and Start up the function app
 
-These are the variables:
-
-- Deployment Name: rollout01
-- Resource Group Name: <Enter-Your-Resource-Group>
-- Template File: ai-apps-wth-resources.json
-- Parameter Files with Values: ai-apps-wth-resources.parameters.json
-
-Please run the validation steps first before you deploy the resources to ensure that the values are valid before your proceed with your deployment.
-
-The deployment process takes about 30 minutes to complete.
-
-### Deploying the Resources with Bash
-
-````bash
-
-# Create a resource group
-az group create --name <Enter-Your-Resource-Group> --location eastus
-
-# Validate the ARM template and Parameter Files
-az deployment group validate --resource-group <Enter-Your-Resource-Group> --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
-
-# Deploy the resources
-az deployment group create --mode Incremental --resource-group <Enter-Your-Resource-Group> --name rollout01 --template-file ai-apps-wth-resources.json  --parameters @ai-apps-wth-resources.parameters.json
-
-````
-
-##### Setting up the Backend Azure Function App Locally
-
-We will need to provision the above-mentioned Azure resources that will be used to power the apps.
-
-Once the resources have been provisioned, please ensure that you set up the environment variables needed to power the back end Azure function app
-
-Copy over the example `local.settings.json.example` file and rename it to `local.settings.json`
-
-The `local.settings.json` file is where all the environment variables used locally by the function app are defined.
-
-You will need Python 3.11 running in Code Spaces. If this is not available in your environment, please install Python 3.11
-
-Make sure that you have the correct python, node, Azure Function and npm versions when you log into Code Spaces
-
-These are the commands to verify the installed version of these environment dependencies:
-
-````bash
-# check the python version
-python --version
-
-# check the Azure function core tools version
-func --version
-
-# check the node version
-node --version
-
-# check the npm version
-npm --version
-
-# check the angular cli version
-ng version
-
-````
-
-Once all the dependencies have been verified, power up the Azure Function Backend:
-
-````bash
-# Navigate to the directory
+```
 cd ContosoAIAppsBackend
-
-# Start up the function app
 func start 
-
-````
+```
 
 ### Setting up the Frontend User Interface
 
