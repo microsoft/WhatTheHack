@@ -10,8 +10,14 @@ Thank you for participating in the Azure Open AI Apps What The Hack. Before you 
 
 In this challenge, you will setup the necessary pre-requisites and environment to complete the rest of the hack, including:
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
+- [Access Azure OpenAI](#access-azure-openai)
+- [Setup Development Environment](#setup-development-environment)
+  - [GitHub Codespaces](#setup-github-codespace)
+  - [Local Workstation](#setup-local-workstation)
+- [Setup Sample Application](#setup-sample-application)
+  - [Deploy Azure Resources](#deploy-azure-resources)
+  - [Setup App Backend](#setup-app-backend)
+  - [Setup App Frontend](#setup-app-frontend)
 
 ### Access Azure OpenAI 
 
@@ -22,16 +28,20 @@ Before you can start the hack, you will also need to apply for access to Azure O
 
 An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
-## Setup environment 
+### Setup Development Environment 
 
-You can either use Github Codespaces or your local workstation. 
+You will need a set of developer tools to work with the sample application for this hack. 
+
+You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can setup the developer tools on your local workstation.
+
+A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
 
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
 
-### Github Codespaces
+**NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
-We will be using Github Codespaces for this hack. A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
+#### Use Github Codespaces
 
 You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup).
 
@@ -39,10 +49,10 @@ GitHub Codespaces is available for developers in every organization. All persona
 
 You can see your balance of available codespace hours on the [GitHub billing page](https://github.com/settings/billing/summary).
 
-The GitHub Codespace for this hack will host the Jupyter Notebook files, configuration files, and other data files needed for this event. Here are the steps you will need to follow:
+The GitHub Codespace for this hack will host the developer tools, sample application code, configuration files, and other data files needed for this hack. Here are the steps you will need to follow:
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [WTH OpenAI Fundamentals Codespace Repo](https://github.com/devanshithakar12/wth-aiapps-codespace/tree/main)
+  - [WTH Azure OpenAI Apps Codespace Repo](https://github.com/devanshithakar12/wth-aiapps-codespace/)
   - Please open this link and sign in with your personal Github account. 
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
@@ -53,10 +63,12 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-**NOTE:** If your codespace times out, just go ahead and restart it. You can increase the timeout of Codespace, by doing....
+Your developer environment is ready, hooray! Skip to section: [Deploy Azure Resources](#deploy-azure-resources)
 
+**NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
 
-### Use Local Workstation
+#### Use Local Workstation
+
 **NOTE:** You can skip this section if are using GitHub Codespaces!
 
 If you want to setup your environment on your local workstation, expand the section below and follow the requirements listed. 
@@ -82,24 +94,51 @@ To work on your local workstation, please ensure you have the following tools an
 - Install [Python 3.11](https://www.python.org/downloads/)
 - Install [Python Package Install PIP](https://pypi.org/project/pip/) 
 
+#### Student Resources
+
+The sample application code, Azure deployment scripts, and sample data sources for this hack are available in a Student Resources package.
+
+- [Download and unpack the Resources.zip](<INSERT LINK HERE>) package to your local workstation.
+
+The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
+
 </details>
 
-### Student Resources
-The sample applications were developed using Python/Typescript/Javascript. 
+### Setup Sample Application
+
+**TODO:** Add overview of the sample application here and the Azure architecture that will support it in the cloud.
+
+The sample application for this hack was developed using Python and Typescript/Javascript. 
 
 Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
 
-You fill find the following folders containing the sample front end and backend API application to help you get started:
-- ContosoAIAppsBackend (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
-- ContosoAIAppsFrontend (contains an Angular App that provides a user interface to some example virtual assistants)
+In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
+- `/ContosoAIAppsBackend` (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
+- `/ContosoAIAppsFrontend` (contains an Angular App that provides a user interface to some example virtual assistants)
 
-The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on:
+The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
 
-### Setup Service Principal (Only applicable for MFST FTE's with FDPO Subscription)
+#### Deploy Azure Resources
+
+We have provided a deployment script and a set of Bicep templates which will deploy and configure the Azure resources required to run the sample application in the cloud. You can find these files in the `/infra` folder.
+
+The deployment script uses the Azure PowerShell Commandlets to log into your Azure subscription. The script can be run from the terminal in your Codespace, or the terminal on your local workstation.
+
+**NOTE:** Logging into your Azure subscription with PowerShell or the Azure CLI from a GitHub Codespace requires a Device Login Code. Some Azure subscriptions may block this method of authentication. For subscriptions where authentication with a Device Login Code is not permitted, you will need to create and use an Azure Service Principal to login from GitHub Codespaces.
+
+##### Setup Service Principal
+
+If your Azure subscription does not allow authentication with a Device Login Code, expand the hidden section below to learn how to create an Azure Service Principal.
+
+**NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal.
+
 <details>
 <summary>Click to expand/collapse SP Requirements </summary>
 
- Go to the Azure Portal and open the Cloud Shell. Run the following command to create a service principal with the Contributor role on the subscription. Replace the <NAME> with a meaningful name.  Replace the subscription ID with your subscription ID.
+To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script.
+
+Run the following command to create a service principal with the Contributor role on the subscription. Replace the `<NAME>` with a meaningful name.  Replace the subscription ID (`00000000-0000-0000-0000-000000000000`) with your Azure subscription ID.
+
   ````bash
   az ad sp create-for-rbac --name <NAME> --role contributor --scopes /subscriptions/00000000-0000-0000-0000-000000000000
   ````
@@ -111,9 +150,10 @@ The apps also contain helper utilities, functions and tools to help you speed up
 
 </details>
 
+##### Provisioning Azure Resources
 
-### Provisioning Azure Resources
 In the codespace, the terminal will default to be visible so you can execute the following comamnds.
+
 ```bash
 cd infra
 pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
@@ -122,7 +162,6 @@ pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
 - SubscriptionId: The Azure Subscription ID where you want to deploy the resources
 - Location: The Azure Region where you want to deploy the resources
 - ResourceGroupName: The name of the resource group where you want to deploy the resources
-
 
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
 
@@ -143,7 +182,7 @@ The deployment process takes about 30 minutes to complete.
 
 **NOTE:** If you have any errors during the deployment, there may be a conflict with the resources you are trying to deploy. In particlar, if you have capacity issue or quota issues.  You will need to re-deploy.
  - For capacity issues, you may need to try a different region in your deployment.
- - For and Open AI quota issues, you can add an otional parameter for the OpenAI region by adding the following parameter to the deployment command:
+ - For and Open AI quota issues, you can add an optional parameter for the OpenAI region by adding the following parameter to the deployment command:
  
 ```bash
 -OpenAILocation ""
@@ -160,7 +199,7 @@ The deployment process takes about 30 minutes to complete.
 
 
 
-### Install dependencies for Frontend and Backend 
+#### Install dependencies for Frontend and Backend 
 Run the following command in the Terminal:
  
 `npm install`
@@ -170,7 +209,7 @@ cd ../ContosoAIAppsBackend/
  
 `pip install -r requirements.txt`
 
-### Running the Backend Azure Function App
+#### Running the Backend Azure Function App
 
 Navigate to the directory and Start up the function app
 
@@ -179,7 +218,7 @@ cd ContosoAIAppsBackend
 func start 
 ```
 
-### Setting up the Frontend User Interface
+#### Setting up the Frontend User Interface
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
 
