@@ -22,19 +22,22 @@ If this quota is reached, the service bus queue will need to be suspended for a 
 
 In this challenge, we will do the following:
 - modify the application configuration to enable quota enforcement. This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
-- modify the application configuration to specify the llm transaction aggregate window: This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
-- modify the application configuration to specify the number of transactions allowed for each school district within the window : This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
-- modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
+- modify the application configuration to specify the llm transaction aggregate window: This is done by changing the LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS to 120
+- modify the application configuration to specify the number of transactions allowed for each school district within the window : This is done by changing the LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS to 5
+- modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS to 300
 
 
-For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 4 submissions within a 5 minute period.
+For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 5 submissions within a 2 minute period.
+
+Any violation of this policy will result in a cool down period of 5 minutes.
 
 ## Success Criteria
 
+The service bus queue for each district should be suspended by disabling the receive queue when this threshold is reachd
+
 A successfully completed solution should accomplish the following goals:
 
-- Connection to Azure Cosmos DB, Azure Blob Store, Azure OpenAI and Azure Service Bus are using only managed identities
-- The quota enforcement is adhered to and that no school district exceeds the quota limit
+- The quota enforcement is adhered to and that no school district exceeds the quota limit. You should not see any new grading activity by the LLM during the cool down period.
 
 
 
