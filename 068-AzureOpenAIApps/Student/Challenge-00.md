@@ -12,8 +12,8 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 
 - [Access Azure OpenAI](#access-azure-openai)
 - [Setup Development Environment](#setup-development-environment)
-  - [GitHub Codespaces](#setup-github-codespace)
-  - [Local Workstation](#setup-local-workstation)
+  - [GitHub Codespaces](#use-github-codespace)
+  - [Local Workstation](#use-local-workstation)
 - [Setup Sample Application](#setup-sample-application)
   - [Deploy Azure Resources](#deploy-azure-resources)
   - [Setup App Backend](#setup-app-backend)
@@ -159,9 +159,9 @@ cd infra
 pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
 ```
 
-- SubscriptionId: The Azure Subscription ID where you want to deploy the resources
-- Location: The Azure Region where you want to deploy the resources
-- ResourceGroupName: The name of the resource group where you want to deploy the resources
+- `SubscriptionId`: The Azure Subscription ID where you want to deploy the resources
+- `Location`: The Azure Region where you want to deploy the resources
+- `ResourceGroupName`: The name of the resource group where you want to deploy the resources
 
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
 
@@ -172,9 +172,9 @@ pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
 cd infra
 pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName "" -UseServicePrincipal -ServicePrincipalId "" -ServicePrincipalPassword "" -TenantId ""
 ```
-- ServicePrincipalId: The App ID
-- ServicePrincipalPassword: The Service Principal Password
-- TenantId: The Azure Tenant ID where you want to deploy the resources
+- `ServicePrincipalId`: The App ID
+- `ServicePrincipalPassword`: The Service Principal Password
+- `TenantId`: The Azure Tenant ID where you want to deploy the resources
 
 </details>
 
@@ -209,7 +209,7 @@ cd ../ContosoAIAppsBackend/
  
 `pip install -r requirements.txt`
 
-#### Running the Backend Azure Function App
+#### Setup App Backend
 
 Navigate to the directory and Start up the function app
 
@@ -218,7 +218,7 @@ cd ContosoAIAppsBackend
 func start 
 ```
 
-#### Setting up the Frontend User Interface
+#### Setup App Frontend
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
 
