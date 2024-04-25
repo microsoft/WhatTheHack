@@ -27,3 +27,4 @@ learnings
 specific
 Engineering
 subchannel
+LangChain's
