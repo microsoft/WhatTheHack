@@ -31,7 +31,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) th
 - Challenge 7: **[Load DICOM Imaging Data](./Solution07.md)**
     - Ingest, search and retrieve imaging data persisted in the DICOM service.
 - Challenge 8: **[OMOP Analytics](Student/Challenge08.md)**
-    - Deploy Observational Medical Outcomes Partnership (OMOP) common data model (CDM) in the Fabric lakehouse environment to leverage AI capabilities of the Fabric platform.
+    - Transform FHIR data to OMOP open standards for downstream analytics using Healthcare Data Solutions.
 
 ## Coach Prerequisites
 
@@ -71,6 +71,8 @@ This hack will deploy the following Azure resources and OSS components to implem
 - Event Grid System Topic (Triggers processing of FHIR bundles placed in the FHIR Loader storage account)
 - Azure Data Factory (Export/Anonymize pipeline in challenge 5)
 - Event Hub (managed event ingesting service in challenge 6)
+- Healthcare Data Solutions (Pre-built pipelines to convert FHIR data to OMOP open standards within Microsoft Fabric Lakehouse in challenge 8)
+- Microsoft Fabric (Pre-built Lakehouses and Notebooks in challenge 8)
 
 ## Repository Contents
 

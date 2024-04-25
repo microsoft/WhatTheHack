@@ -4,19 +4,19 @@
 
 ## Introduction
 
-In the Healthcare data solutions (preview), OMOP analytics in the Fabric Lakehouse allows for the deployment of the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM), giving researchers within the OMOP community access to OneLake’s scale and Microsoft Fabric’s AI. This setup supports standardized analytics for observational studies, enabling researchers to compare procedures and drug exposures and explore drug-condition correlations.
+In the [Healthcare data solutions in Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview), `OMOP Analytics` capability within Fabric Lakehouse allows for the deployment of the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM), giving researchers within the OMOP community access to OneLake’s scale and harness AI in Microsoft Fabric. This setup supports standardized analytics for observational studies, enabling researchers to compare procedures and drug exposures and explore drug-condition correlations.
 
 Below is the overview of the **[Healthcare data solutions in Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/solution-architecture) solution architecture**:
 <center><img src="../images/challenge08-architecture.png" width="550"></center>
 
 ## Description
 
-In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) [Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/overview) to your Microsoft Fabric workspace to access the Healthcare data foundations capabilities. Configure it to meet OMOP standards, use pre-built pipelines to process data exported from your FHIR service, transform it to OMOP, and implement the OMOP CDM within the Microsoft Fabric medallion architecture, which consists of the following three core layers:
+In this challenge, you will [deploy Healthcare data solutions](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy) to your Microsoft Fabric workspace to access the Healthcare data foundations and OMOP analytics capabilities. Configure them to meet OMOP standards, use pre-built pipelines to process data exported from your FHIR service, transform it to OMOP, and implement the OMOP CDM within the Microsoft Fabric medallion architecture, which consists of the following three core layers:
 - `Bronze` (raw zone): this first layer stores the source data in its original format. The data in this layer is typically append-only and immutable.
 - `Silver` (enriched zone): this layer receives data from the Bronze layer and refines it through validation and enrichment processes, improving its accuracy and value for downstream analytics.
 - `Gold` (curated zone): this final layer, sourced from the Silver layer, refines data to align with specific downstream business and analytical needs.  It’s the primary source for high-quality, aggregated datasets, ready for in-depth analysis and insight extraction.
 
-(Optional) After transforming FHIR data to OMOP standards persisted in the Gold Lakehouse, you can leverage the provided notebooks to build statistical models, perform population distribution studies, and use Power BI reports for visual comparisons of different interventions and their impact on patient health outcomes.
+(Optional) Once FHIR data is transformed to OMOP standards in the Gold Lakehouse, utilize pre-built Notebooks to construct statistical models, conduct population studies, and generate Power BI reports for comparative analysis of various interventions on patient health outcomes.
 
 **Prerequisites:**
 - **[Deploy the Healthcare data solutions in Microsoft Fabric](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/deploy#use-fhir-service)** Azure Marketplace offer and set up data connection to use FHIR service (deployed in challenge 1).  After the deployment, the following Azure resources are provisioned to your environment:
@@ -60,7 +60,7 @@ In this challenge, you will [deploy](https://learn.microsoft.com/en-us/industry/
   - Hint: [Configure and run `msft_bronze_silver_flatten`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) Notebook
 
 **Transform resources in the Sliver Lakehouse into OMOP Common Data Model and persist in Gold (`msft_gold_omop`) Lakehouse**
-  - Hint: Configure and run [`msft_silver_omop`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) Notebook
+  - Hint: [Configure and run `msft_silver_omop`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) Notebook
   
 
 ## Success Criteria
