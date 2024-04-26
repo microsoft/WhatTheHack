@@ -197,24 +197,13 @@ The deployment process takes about 30 minutes to complete.
 ```
  - DocumentIntelligenceLocation: The Azure Region where the Document Intelligence is  available.  As of April 2024, the available regions are: westus2 and westeurope.  Don't use eastus as it is the default in the deployment code.
 
-
-
-#### Install dependencies for Frontend and Backend 
-Run the following command in the Terminal:
- 
-`npm install`
-
-Navigate to the Backend and Install the Python Dependencies 
-cd ../ContosoAIAppsBackend/
- 
-`pip install -r requirements.txt`
-
 #### Setup App Backend
 
-Navigate to the directory and Start up the function app
+Navigate to the `/ContosoAIAppsBackend` folder and Start up the function app
 
 ```
 cd ContosoAIAppsBackend
+pip install -r requirements.txt
 func start 
 ```
 
@@ -222,13 +211,17 @@ func start
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
 
-Navigate into the ContosoAIAppsFrontend folder and install the application dependencies
+Navigate into the `/ContosoAIAppsFrontend` folder and install the application dependencies
 
 If your function app is running on a different port or machine, please update the src/environments/environment.ts config file accordingly
+**TODO:** Add Instructions on how to grab the codespace port forwarding URL into environment.ts
 
 ```
 # Navigates into the folder 
 cd ContosoAIAppsFrontend
+
+# Installs the node packages required for the frontend
+npm install
 
 # Starts up the web application on your local machine
 npm start
