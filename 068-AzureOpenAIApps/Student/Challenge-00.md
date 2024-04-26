@@ -215,6 +215,7 @@ Navigate into the `/ContosoAIAppsFrontend` folder and install the application de
 
 If your function app is running on a different port or machine, please update the src/environments/environment.ts config file accordingly
 **TODO:** Add Instructions on how to grab the codespace port forwarding URL into environment.ts
+**TODO:** Add instruction to open a new terminal window. Give explanation of how to open a 2nd terminal in Codespace.
 
 ```
 # Navigates into the folder 
