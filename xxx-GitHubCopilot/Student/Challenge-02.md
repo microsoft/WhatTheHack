@@ -8,7 +8,7 @@ Having explored GitHub Copilot's capabilities, it's time to dive deeper and refi
 ## Description
 In this challenge, you'll focus on learning best practices for working with GitHub Copilot to implement a new feature in your app. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Below are some to take into consideration:
 
-- **Craft Well-Defined Requests**: Understand the importance of clear and concise communication. Grasp how articulating detailed, well-defined requests can steer Copilot to offer more accurate and beneficial suggestions, aligning closely with your coding objectives.
+- **Set The Stage**: Understand the importance of setting the stage of what we are building. A high level overview of what we are trying to achieve can help Copilot offer more accurate and beneficial suggestions, aligning closely with your coding objectives.
 
 - **Keep It Simple and Specific**: Simplify complex problems into smaller, more manageable tasks. Copilot tends to generate more precise and practical solutions when dealing with focused queries rather than broad, vague ones.
 
