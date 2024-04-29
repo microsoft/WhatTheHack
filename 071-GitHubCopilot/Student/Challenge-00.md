@@ -50,8 +50,3 @@ You're ready to start the challenges if you:
 - [Getting Started with GitHub](https://docs.github.com/en/get-started)
 - [Visual Studio Code Documentation](https://code.visualstudio.com/docs)
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
