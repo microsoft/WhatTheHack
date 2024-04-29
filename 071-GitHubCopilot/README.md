@@ -1,4 +1,4 @@
-# What The Hack - GitHubCopilot
+# What The Hack - GitHub Copilot
 
 ## Introduction
 
