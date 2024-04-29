@@ -39,5 +39,4 @@ This GitHub Copilot What The Hack will help you learn how to do the following wi
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Andy Huang
