@@ -9,6 +9,6 @@
   - Keep it simple and specific - Now that we have a high level goal, we can't have Copilot write out the entire thing as there may be too much.  Lets break things down to smaller chunks and have Copilot assist us
   - Examples are great when you have a dataset or schema that Copilot wasn't aware of.  You can even have Copilot learn about some custom module that you may have internally.
 - Note that they may not be able to try all examples in their feature implementation.  They can just test it out with sandbox code.
-- One example of a new feature may be to add categories for the quote.  Zenquotes does support passing categories in.
+- One example of a new feature may be to add categories for the quote.  zenquotes does support passing categories in.
  
 - https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/ - This article goes deeper on the best practices
