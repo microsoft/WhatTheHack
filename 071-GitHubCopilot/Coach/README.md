@@ -1,8 +1,8 @@
-# What The Hack - GitHubCopilot - Coach Guide
+# What The Hack - GitHub Copilot - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the GitHubCopilot What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the GitHub Copilot What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
