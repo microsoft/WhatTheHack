@@ -28,7 +28,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 Please install these additional tools:
 
