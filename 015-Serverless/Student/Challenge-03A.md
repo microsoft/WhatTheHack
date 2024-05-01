@@ -16,11 +16,34 @@ As per the diagram below, the TollBooth application is composed of multiple Azur
 
 The TollBooth application's Azure Function source code is just one piece of the overall solution. That code depends on each of these services being deployed and configured properly.
 
-If your coach has directed you to this page, give them a HUGE "Thank you"!  The Azure PaaS resources that will support the TollBooth application have already been pre-deployed for you to a lab environment.
-
-Normally, you must provision these resources in Azure yourself before you can start developing the solution. 
-
 ## Description
+
+If your coach has directed you to this page, give them a HUGE "Thank you"!  The Azure PaaS resources that will support the TollBooth application have already either already been pre-deployed for you to a lab environment, or you will deploy a Bicep template that will do it automatically for you.
+
+Normally, you must provision these resources manually in Azure yourself before you can start developing the solution. 
+
+### Deploy Resources via Automation
+
+If your coach directs you to deploy the resources into your Azure environment, follow the instruction below.
+
+If your coach has provided you an Azure lab environment with the resources pre-deployed, skip to [Explore Resources and Access Key Vault Secrets](#explore-resources-and-access-key-vault-secrets).
+
+Follow these steps to deploy the Azure resources for the TollBooth application app:
+
+1. Your coach will provide you a link to a `ServerlessAccelerator.zip` file. Download and unpack the file on your local workstation.
+1. From WSL/Terminal/Cloud Shell, navigate to the folder where `ServerlessAccelerator.zip` file has been un-zipped.
+1. Set permissions on the `deployAzureResources.sh` script file so that it can be executed: `chmod +x deployAzureResources.sh`
+1. Log into the Azure CLI: `az login`    
+1. Run the script from the bash shell in WSL/Terminal (this will NOT work in PowerShell): 
+    `./deployAzureResources.sh`
+
+While the script is running, you can monitor its progress in the Azure Portal by navigating to the Resource Group `wth-serverless-rg` and checking the `Deployments` pane.
+
+**NOTE:** The script should take approximately 20 minutes to deploy.
+
+**NOTE:** If the script results in an error that says you must accept the terms for Responsible AI before you can deploy Cognitive Vision API via automation, you may need to deploy Cognitive Vision API manually via the Azure portal. Please see your coach for guidance.
+
+### Explore Resources and Access Key Vault Secrets
 
 In this challenge, you will explore the resources that have been pre-deployed in your Azure environment.  Don't worry, we still left a few tasks for you to figure out.
 
