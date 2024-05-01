@@ -1,6 +1,7 @@
-param rgName string = 'wth-serverless-test'
+// This Bicep template will pre-deploy the resources to support
+// the TollBooth sample application for the Azure Serverless What The Hack
 
-var location = resourceGroup().location
+param location string = resourceGroup().location
 
 var resourcePrefix = 'wth-serverless'
 var cosmosDbAccountName = '${resourcePrefix}-cosmosdb-${uniqueString(resourceGroup().id)}'
