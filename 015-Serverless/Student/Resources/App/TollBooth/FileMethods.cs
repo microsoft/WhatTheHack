@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -23,7 +23,7 @@ namespace TollBooth
             _log = log;
             // reference https://elcamino.cloud/articles/2020-03-30-azure-storage-blobs-net-sdk-v12-upgrade-guide-and-tips.html
             // Create a blob client for interacting with the blob service.
-            _blobClient =  new BlobServiceClient("StorageConnectionString");
+            _blobClient =  new BlobServiceClient(_blobStorageConnection);
         }
 
         public async Task<bool> GenerateAndSaveCsv(IEnumerable<LicensePlateDataDocument> licensePlates)
@@ -53,8 +53,8 @@ namespace TollBooth
 
                         // Upload blob.
                         stream.Position = 0;
-                        // TODO 7: Asyncronously upload the blob from the memory stream.
-                        // COMPLETE: await blob...;
+
+                        await blob.UploadAsync(stream, true);
 
                         successful = true;
                     }
