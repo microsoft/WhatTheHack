@@ -36,7 +36,7 @@ Follow these steps to deploy the Azure resources for the TollBooth application a
 1. Your coach will provide you a link to a `ServerlessAccelerator.zip` file. Download and unpack the file on your local workstation.
 1. From WSL/Terminal/Cloud Shell, navigate to the folder where `ServerlessAccelerator.zip` file has been un-zipped.
 1. Set permissions on the `deployAzureResources.sh` script file so that it can be executed: 
-    ```chmod +x deployAzureResources.sh```
+    `chmod +x deployAzureResources.sh`
 1. Log into the Azure CLI: `az login`    
 1. Run the script from the bash shell in WSL/Terminal (this will NOT work in PowerShell): 
     `./deployAzureResources.sh`
