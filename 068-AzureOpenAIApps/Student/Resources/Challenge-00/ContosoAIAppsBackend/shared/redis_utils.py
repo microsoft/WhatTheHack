@@ -16,19 +16,19 @@ class RedisUtil:
 
         self.redis_client = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, ssl=True)
 
-    def set(self, key, value):
+    def set(self, key, value, expiration=None):
         """Sets a value in the redis for the specified key"""
         value_to_store = value
         if value is None:
             value_to_store = ""
         value_to_store = value_to_store.encode('utf-8')
-        self.redis_client.set(key, value_to_store)
+        self.redis_client.set(key, value_to_store, ex=expiration)
         return self
 
-    def set_json(self, key, value):
+    def set_json(self, key, value, expiration=None):
         """Sets a value in the redis for the specified key after the item is JSON serialized"""
         value_to_serialize = json.dumps(value)
-        return self.set(key, value_to_serialize)
+        return self.set(key, value_to_serialize, expiration)
 
     def get(self, key):
         """Gets a value from the redis for the specified key"""

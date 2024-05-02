@@ -236,6 +236,9 @@ class Form01ExtractionResult(ExtractionResult):
     def __init__(self, field_mappings: dict):
         super().__init__(field_mappings)
 
+        self.exam_id = "F01"
+        self.exam_name = "Civics - Geography and Climate Exam"
+
         self.student_id = ""
         self.student_name = ""
         self.school_district = ""
@@ -249,6 +252,8 @@ class Form01ExtractionResult(ExtractionResult):
 
     def get_submission(self):
         results = {
+            "exam_id": self.exam_id,
+            "exam_name": self.exam_name,
             "student_id": self.student_id,
             "student_name": self.student_name,
             "school_district": self.school_district,
@@ -311,8 +316,13 @@ class Form02ExtractionResult(Form01ExtractionResult):
     def __init__(self, field_mappings: dict):
         super().__init__(field_mappings)
 
+        self.exam_id = "F02"
+        self.exam_name = "Civics - Tourism and Economy"
+
     def get_submission(self):
         results = {
+            "exam_id": self.exam_id,
+            "exam_name": self.exam_name,
             "student_id": self.student_id,
             "student_name": self.student_name,
             "school_district": self.school_district,
@@ -341,6 +351,9 @@ class Form03ExtractionResult(Form01ExtractionResult):
         super().__init__(field_mappings)
         self.question_5 = ""
 
+        self.exam_id = "F03"
+        self.exam_name = "Civics - Government and Politics"
+
     def parse_extraction_result(self, analyzed_result: AnalyzeResult):
         super().parse_extraction_result(analyzed_result)
 
@@ -353,6 +366,8 @@ class Form03ExtractionResult(Form01ExtractionResult):
 
     def get_submission(self):
         results = {
+            "exam_id": self.exam_id,
+            "exam_name": self.exam_name,
             "student_id": self.student_id,
             "student_name": self.student_name,
             "school_district": self.school_district,
@@ -546,8 +561,6 @@ class Form04ExtractionResult(ExtractionResult):
 
                 # append it to our object field of table rows
                 self.append_to_temperature_preferences(current_temp_preference)
-
-
 
 
 class DocumentProcessor:

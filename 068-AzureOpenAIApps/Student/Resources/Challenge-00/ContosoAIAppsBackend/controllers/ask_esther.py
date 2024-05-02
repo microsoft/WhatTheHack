@@ -5,14 +5,12 @@ import azure.functions as func
 from azure.functions import AuthLevel
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
-from shared.assistant_tools_esther import v_check_if_customer_account_exists, v_get_customer_account_details, \
-    v_create_customer_account, v_make_bank_account_deposit, v_get_customer_account_balance, \
-    v_make_bank_account_withdrawal
+from shared.assistant_tools import get_current_unix_timestamp
+from shared.assistant_tools_common import v_check_if_customer_account_exists, v_get_customer_account_details
+from shared.assistant_tools_esther import v_create_customer_account, v_get_customer_account_balance, \
+    v_make_bank_account_deposit, v_make_bank_account_withdrawal
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
-from shared.assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
-    create_customer_account, \
-    get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal, get_current_unix_timestamp
 
 ask_esther_controller = func.Blueprint()
 

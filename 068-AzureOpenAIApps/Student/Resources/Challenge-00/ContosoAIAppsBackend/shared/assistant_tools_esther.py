@@ -1,19 +1,11 @@
-from shared.assistant_tools import check_if_customer_account_exists, get_customer_account_details, \
-    create_customer_account, get_customer_account_balance, make_bank_account_deposit, make_bank_account_withdrawal, \
-    serialize_assistant_response, is_properly_formatted_email_address
+from shared.assistant_tools import (create_customer_account, get_customer_account_balance, make_bank_account_deposit,
+                                    make_bank_account_withdrawal, \
+                                    serialize_assistant_response, is_properly_formatted_email_address)
 
 
 def v_is_properly_formatted_email_address(email_address: str) -> str:
     result = is_properly_formatted_email_address(email_address)
     return serialize_assistant_response(result)
-
-
-def v_check_if_customer_account_exists(customer_email_address: str) -> str:
-    return serialize_assistant_response(check_if_customer_account_exists(customer_email_address))
-
-
-def v_get_customer_account_details(customer_email_address: str) -> str:
-    return serialize_assistant_response(get_customer_account_details(customer_email_address))
 
 
 def v_create_customer_account(customer_email: str, first_name: str, last_name: str) -> str:

@@ -16,6 +16,6 @@ The result of your analysis of the answers provided by the student must be JSON 
     "answers_analysis": [
         {"question_id": "1", "examination_question": "Who is the president of Contoso Islands?", "student_answer": "The president of Contoso Islands is Israel Samuel", "correct_answer": "The correct answer is Israel Samuel", "is_correct": true},
         {"question_id": "2", "examination_question": "Who is the vice president of Contoso Islands?", "student_answer": "The vice president of Contoso Islands is Angel Mathews", "correct_answer": "The correct answer is Angel Mathews", "is_correct": true},
-        {"question_id": "3", "examination_question": "Where is the capital of Contoso Islands?", "student_answer": "The capital of Contoso Islands is Windermere", "correct_answer": "The correct answer is Windermere","is_correct": true},
+        {"question_id": "3", "examination_question": "Where is the capital of Contoso Islands?", "student_answer": "The capital of Contoso Islands is Windermere", "correct_answer": "The correct answer is Windermere","is_correct": true}
     ]
 }

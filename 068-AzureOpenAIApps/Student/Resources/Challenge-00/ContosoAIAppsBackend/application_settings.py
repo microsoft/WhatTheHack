@@ -33,6 +33,7 @@ class AssistantName(StrEnum):
     MIRIAM = 'miriam'
     PRISCILLA = 'priscilla'
     SARAH = 'sarah'
+    SOLOMON = 'solomon'
 
 
 class ApplicationSettings:

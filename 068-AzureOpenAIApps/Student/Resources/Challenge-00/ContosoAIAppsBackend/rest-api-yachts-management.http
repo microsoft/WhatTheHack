@@ -5,10 +5,9 @@
 
 # This will allow you to test your function endpoint to make sure they are ready to be intergrated with the frontend
 
-# These in-file variables are used to define the request settings for all HTTP requests below
 @api_endpoint = http://localhost:7072
 @conversation_id = 22334567
-@yacht_id = "200"
+@yacht_id = "100"
 
 # Make sure that you specify the api_endpoint and conversation_id shared variables in your extension config
 
@@ -22,11 +21,6 @@ Accept: application/json
 GET {{api_endpoint}}/api/yachts-management/{{yacht_id}} HTTP/1.1
 Accept: application/json
 
-###
-
-# Use this to delete a single yacht from the database (Click Send Request)
-DELETE  {{api_endpoint}}/api/yachts-management/{{yacht_id}} HTTP/1.1
-Accept: application/json
 
 ###
 
@@ -36,9 +30,9 @@ Content-Type: application/json
 x-conversation-id: {{conversation_id}}
 
 {
-    "yachtId": "600",
-    "price": 100.00,
-    "name": "Contoso Magic",
-    "maxCapacity": 300,
-    "description": "Contoso Magic is a 300-person capacity yacht operated by Contoso Travels. It costs approximately $95 million US dollars. It was entered into service on January 1 2023. It has a maximum speed of 35 mph."
+  "yachtId": "400",
+  "price": 250.00,
+  "name": "Artificial Idiot",
+  "maxCapacity": 99,
+  "description": "The Artificial Idiot aka A.I. is a 99-person capacity yacht operated by Contoso Travels. It costs approximately 12 million US dollars. It was entered into service on April 1 2023. It has a maximum speed of 35 mph."
 }

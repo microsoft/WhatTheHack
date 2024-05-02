@@ -5,8 +5,9 @@ from azure.functions import AuthLevel
 import json
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
+from shared.assistant_tools_common import v_check_if_customer_account_exists
 from shared.assistant_tools_miriam import v_get_yacht_details, v_bank_account_balance_is_sufficient, \
-    v_check_if_customer_account_exists, v_calculate_reservation_grand_total_amount, v_get_bank_account_balance, \
+    v_calculate_reservation_grand_total_amount, v_get_bank_account_balance, \
     v_yacht_travel_party_size_within_capacity, v_get_valid_reservation_search_dates, v_yacht_is_available_for_date, \
     v_is_valid_search_date, v_get_yacht_availability_by_id, v_get_yacht_availability_by_date, \
     v_yacht_reservation_exists, v_get_reservation_details, v_cancel_yacht_reservation, \

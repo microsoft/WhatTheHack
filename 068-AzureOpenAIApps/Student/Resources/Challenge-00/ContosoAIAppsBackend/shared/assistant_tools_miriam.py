@@ -1,18 +1,9 @@
-from shared.assistant_tools import check_if_customer_account_exists, serialize_assistant_response, get_yacht_details, \
+from shared.assistant_tools import serialize_assistant_response, get_yacht_details, \
     calculate_reservation_grand_total_amount, yacht_travel_party_size_within_capacity, \
     bank_account_balance_is_sufficient, yacht_is_available_for_date, get_valid_reservation_search_dates, \
     is_valid_search_date, get_yacht_availability_by_id, get_yacht_availability_by_date, create_yacht_reservation, \
     yacht_reservation_exists, get_reservation_details, cancel_yacht_reservation, get_customer_yacht_reservations, \
     get_customer_account_balance
-
-
-def v_check_if_customer_account_exists(customer_email_address: str) -> str:
-    """Checks if the customer account exists in the database for this email address
-
-    :param customer_email_address: str - the email address of the customer
-    :return: str returns True if the customer account exists and False otherwise"""
-    result = check_if_customer_account_exists(customer_email_address)
-    return serialize_assistant_response(result)
 
 
 def v_get_yacht_details(yacht_id: str) -> str:

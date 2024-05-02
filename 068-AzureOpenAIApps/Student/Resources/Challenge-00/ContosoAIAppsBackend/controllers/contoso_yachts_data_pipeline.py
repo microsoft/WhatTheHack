@@ -45,7 +45,7 @@ def cosmos_db_handler(documents: func.DocumentList):
 
 def process_document_change(yacht_record: Yacht):
     contoso_yachts_index_name = os.environ.get('AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME')
-    azure_openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT', '')
+    azure_openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT')
     azure_openai_api_key = os.environ.get('AZURE_OPENAI_API_KEY')
     azure_openai_api_version = os.environ.get('AZURE_OPENAI_API_VERSION')
     azure_openai_embedding_deployment = os.environ.get('AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME')
@@ -137,7 +137,9 @@ def process_document_change(yacht_record: Yacht):
         fields=fields
     )
 
-    check_hash: bool = True
+    compute_embeddings_on_if_necessary = int(os.environ.get("COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY", "0"))
+    check_hash: bool = compute_embeddings_on_if_necessary == 1
+
     # This check prevents computing the embedding everytime any field is modified including numbers
     # and fields besides the description field that needs vector search
     if check_hash and cache_exists and description_hash == yacht_description_sha1_hash:

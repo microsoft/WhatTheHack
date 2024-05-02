@@ -30,17 +30,20 @@ azure_document_intelligence_controller = func.Blueprint()
 @azure_document_intelligence_controller.blob_trigger(arg_name='documentstream', connection='DOCUMENT_STORAGE',
                                                      path='submissions/{blobName}')
 def azure_document_intelligence_handler(documentstream: func.InputStream):
-    logging.info('Python Azure Blob trigger function processed a request.')
+    logging.info('document_intelligence_controller function processed a request.')
 
     logging.info(documentstream.name)
     logging.info(documentstream.length)
-
     document_buffer = documentstream.read()
+
+    print("A total of {} bytes detected".format(len(document_buffer)))
 
     document_processor_util = DocumentProcessor()
     service_bus_util = ServiceBusUtils()
 
     classifications = document_processor_util.process_buffer(document_buffer)
+
+    print("These are the classification results: {}".format(classifications))
 
     for classification in classifications:
         pages = classification.pages
@@ -60,7 +63,10 @@ def azure_document_intelligence_handler(documentstream: func.InputStream):
             exam_submission['submissionId'] = submission_id
 
             cosmos_db_util = CosmosDbUtils("examsubmissions")
+            print("Saving Exam Submission to Cosmos DB {}".format(exam_submission))
             cosmos_db_util.create_item(exam_submission)
+
+            print("Saving Exam Submission to Destination Queue {}: {}".format(destination_queue, exam_submission))
             service_bus_util.send_object_to_queue(destination_queue, exam_submission)
 
         elif is_meal_preference:
@@ -71,4 +77,6 @@ def azure_document_intelligence_handler(documentstream: func.InputStream):
             meal_preference_submission['registrationId'] = submission_id
 
             cosmos_db_util = CosmosDbUtils("mealpreferences")
+
+            print("Saving Meal Preference to Cosmos DB {}".format(meal_preference_submission))
             cosmos_db_util.create_item(meal_preference_submission)
