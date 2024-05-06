@@ -1,3 +1,4 @@
 theme: jekyll-theme-midnight
 title: What The Hack
 include: [CONTRIBUTING.md]
+markdown: CommonMarkGhPages
