@@ -50,6 +50,22 @@ In app insights, you should see the following events registered for each documen
 - **PROCESS_DOCUMENT_EMBEDDING_COMPUTE**
 - **PROCESS_YACHT_EMBEDDING_COMPUTE**
 
+You should also be able to see the hashes in the Redis Cache
+
+````bash
+
+# Run this to see all the keys in the Cache
+SCAN 0 COUNT 1000 MATCH *
+
+# Run this for each key to retrieve the value
+GET {key}
+GET yacht_embeddings_cache_400
+GET document_embeddings_cache_government/definition.txt
+
+````
+
+![Application Insights](../images/redis-embeddings.png)
+
 ## Success Criteria
 
 A successfully completed solution should accomplish the following goals:
