@@ -1,9 +1,7 @@
 import logging
-import azure.functions as func
-from azure.functions import AuthLevel
-import json
 import os
 
+import azure.functions as func
 from azure.search.documents.indexes.models import SimpleField, SearchFieldDataType, SearchableField, SearchField
 from langchain_community.vectorstores.azuresearch import AzureSearch
 from langchain_core.documents import Document
@@ -25,9 +23,13 @@ def azure_blob_handler(contosostream: func.InputStream):
     logging.info(contosostream.name)
     logging.info(contosostream.length)
 
+    source_identifier = contosostream.name
     blob_content = contosostream.read().decode(file_content_encoding)
+
     logging.info(blob_content)
 
+
+def process_blob_contents(blob_content: str, source_identifier: str):
     contoso_documents_index_name = os.environ.get('AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME')
     azure_openai_endpoint = os.environ.get('AZURE_OPENAI_ENDPOINT', '')
     azure_openai_api_key = os.environ.get('AZURE_OPENAI_API_KEY')
@@ -38,8 +40,6 @@ def azure_blob_handler(contosostream: func.InputStream):
     vector_store_admin_key = os.environ.get('AZURE_AI_SEARCH_ADMIN_KEY')
 
     ai_search_util = AISearchUtils(contoso_documents_index_name)
-
-    source_identifier = contosostream.name
 
     langchain_embeddings_object = AzureOpenAIEmbeddings(
         azure_deployment=azure_openai_embedding_deployment,
