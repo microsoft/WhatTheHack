@@ -8,7 +8,7 @@ quota_controller = func.Blueprint()
 
 
 @quota_controller.function_name("app_llm_quota_enforcement_manager")
-@quota_controller.timer_trigger(schedule="0 */1 * * * *",
+@quota_controller.timer_trigger(schedule="*/15 * * * * *",
                                 arg_name="mytimer",
                                 run_on_startup=True)
 def llm_quota_enforcement_manager(mytimer: func.TimerRequest) -> None:

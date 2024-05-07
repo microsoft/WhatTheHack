@@ -10,7 +10,7 @@ from shared.assistant_tools_priscilla import v_list_available_activities, v_gues
     v_retrieve_guest_activity_preferences_and_requests
 from shared.assistant_tools_sarah import v_is_registered_student, v_get_student_submissions, \
     v_get_student_submissions_by_date, v_get_student_submissions_by_exam_id, v_get_student_grades, \
-    v_get_submission_details, v_get_submission_grade_details
+    v_get_submission_details, v_get_submission_grade_details, v_student_has_exam_submissions, v_student_has_exam_grades
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
 
@@ -38,6 +38,11 @@ def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
 
     util.register_tool_mapping("is_registered_student",
                                v_is_registered_student)
+    util.register_tool_mapping("student_has_exam_submissions",
+                               v_student_has_exam_submissions)
+    util.register_tool_mapping("student_has_exam_grades",
+                               v_student_has_exam_grades)
+
     util.register_tool_mapping("get_student_submissions",
                                v_get_student_submissions)
     util.register_tool_mapping("get_student_submissions_by_date",

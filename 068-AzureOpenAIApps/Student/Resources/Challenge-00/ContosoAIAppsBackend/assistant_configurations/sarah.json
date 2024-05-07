@@ -17,10 +17,44 @@
       }
   },
   {
+      "type": "function",
+      "function": {
+          "name": "student_has_exam_submissions",
+          "description": "Checks if a particular student has submitted an exam for grading. Returns True if successful and False otherwise",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                      "type": "string",
+                      "description": "A 7-digit number that uniquely identifies a student"
+                  }
+              },
+              "required": ["student_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "student_has_exam_grades",
+          "description": "Checks if a particular student has grades available for one or more of the exams they submitted for grading. Returns True if successful and False otherwise",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                      "type": "string",
+                      "description": "A 7-digit number that uniquely identifies a student"
+                  }
+              },
+              "required": ["student_id"]
+          }
+      }
+  },
+  {
         "type": "function",
         "function": {
             "name": "get_student_submissions",
-            "description": "Retrieves a list of exams submitted by the student for grading",
+            "description": "Retrieves all the exams that the student has submitted for grading",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -102,7 +136,7 @@
     "type": "function",
     "function": {
         "name": "get_student_grades",
-        "description": "Retrieves the grades and summaries for all exam submissions from a specific student id",
+        "description": "Retrieves the grades for a student for all exams",
         "parameters": {
             "type": "object",
             "properties": {

@@ -42,6 +42,26 @@ def v_get_submission_grade_details(student_id: str, submission_id: str) -> str:
     return serialize_assistant_response(result)
 
 
+def v_student_has_exam_submissions(student_id: str) -> str:
+    result = student_has_exam_submissions(student_id)
+    return serialize_assistant_response(result)
+
+
+def v_student_has_exam_grades(student_id: str) -> str:
+    result = student_has_exam_grades(student_id)
+    return serialize_assistant_response(result)
+
+
+def student_has_exam_submissions(student_id: str) -> bool:
+    submissions = get_student_submissions(student_id)
+    return len(submissions) > 0
+
+
+def student_has_exam_grades(student_id: str) -> bool:
+    grades = get_student_grades(student_id)
+    return len(grades) > 0
+
+
 def get_student_submissions(student_id: str):
     cosmos_util = CosmosDbUtils("examsubmissions")
 

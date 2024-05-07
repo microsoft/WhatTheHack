@@ -50,7 +50,7 @@
   },
   {
     "classifier_document_type": "f04-activity-preferences",
-    "extractor_model_name": "f04-extractor2",
+    "extractor_model_name": "f04-extractor",
     "model_description": "This is used to extract the contents of Form 04 (Activity Preferences) using Azure Doc Intelligence",
     "fields": {
       "guest_full_name": "guest_full_name",

@@ -13,3 +13,4 @@ langchain == 0.1.16
 langchain-community == 0.0.32
 langchain-openai == 0.1.3
 azure-monitor-opentelemetry == 1.4.1
+azure-monitor-events-extension == 0.1.0

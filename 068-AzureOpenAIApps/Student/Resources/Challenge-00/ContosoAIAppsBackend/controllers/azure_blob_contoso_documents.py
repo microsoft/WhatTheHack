@@ -9,6 +9,9 @@ from langchain_openai import AzureOpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from shared.ai_search_utils import AISearchUtils
+from shared.crypto_utils import CryptoUtils
+from shared.logging_utils import LoggingUtils
+from shared.redis_utils import RedisUtil
 
 azure_blob_controller = func.Blueprint()
 
@@ -27,6 +30,29 @@ def azure_blob_handler(contosostream: func.InputStream):
     blob_content = contosostream.read().decode(file_content_encoding)
 
     logging.info(blob_content)
+
+    redis_util = RedisUtil()
+
+    redis_lookup_key = "document_embeddings_cache_{}".format(source_identifier)
+    cache_exists = redis_util.exists(redis_lookup_key)
+
+    document_redis_sha1_hash = redis_util.get(redis_lookup_key)
+    blob_document_hash = CryptoUtils.sha1_hash_string(blob_content)
+
+    compute_embeddings_on_if_necessary = int(os.environ.get("COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY", "0"))
+    check_hash: bool = compute_embeddings_on_if_necessary == 1
+
+    if check_hash and cache_exists and blob_document_hash == document_redis_sha1_hash:
+        print("Hash already exists. Ignoring this trigger. No embedding will be computed.")
+        custom_event = {"filename": source_identifier, "hash": document_redis_sha1_hash}
+        event_name = "SKIP_DOCUMENT_EMBEDDING_COMPUTE"
+        LoggingUtils.track_event(event_name, custom_event)
+    else:
+        print("Hash does not exist. Processing this trigger to compute the embeddings")
+        custom_event = {"filename": source_identifier, "hash": document_redis_sha1_hash}
+        event_name = "PROCESS_DOCUMENT_EMBEDDING_COMPUTE"
+        LoggingUtils.track_event(event_name, custom_event)
+        process_blob_contents(blob_content, source_identifier)
 
 
 def process_blob_contents(blob_content: str, source_identifier: str):

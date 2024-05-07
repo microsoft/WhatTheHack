@@ -14,6 +14,7 @@ from langchain_openai import AzureOpenAIEmbeddings
 from models.yacht import Yacht, YachtEmbeddingHash
 from shared.ai_search_utils import AISearchUtils
 from shared.crypto_utils import CryptoUtils
+from shared.logging_utils import LoggingUtils
 from shared.redis_utils import RedisUtil
 
 cosmos_controller = func.Blueprint()
@@ -158,6 +159,10 @@ def process_document_change(yacht_record: Yacht):
         yacht_object['metadata'] = json.dumps(metadata)
 
         print("Patching Yacht object with {}".format(yacht_object))
+        custom_event = {"yacht_id": yacht_id, "hash": yacht_description_sha1_hash}
+        event_name = "SKIP_YACHT_EMBEDDING_COMPUTE"
+        LoggingUtils.track_event(event_name, custom_event)
+
         ai_search_util.patch_document(yacht_object)
 
     else:
@@ -174,8 +179,11 @@ def process_document_change(yacht_record: Yacht):
 
         documents = [new_document]
 
-        print("Inserting Yacht object {}".format(metadata_object))
-
         redis_util.set(redis_lookup_key, description_hash)
+
+        print("Inserting Yacht object {}".format(metadata_object))
+        custom_event = {"yacht_id": yacht_id, "hash": yacht_description_sha1_hash}
+        event_name = "PROCESS_YACHT_EMBEDDING_COMPUTE"
+        LoggingUtils.track_event(event_name, custom_event)
 
         vector_store.add_documents(documents)

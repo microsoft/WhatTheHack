@@ -1,5 +1,6 @@
 import os
 
+from shared.logging_utils import LoggingUtils
 from shared.redis_utils import RedisUtil
 from shared.service_bus_utils import ServiceBusUtils
 
@@ -59,6 +60,10 @@ class QuotaEnforcementManager:
             cool_down_seconds = self.quota_enforcement_cool_down_seconds
             self.redis_util.set(enforcement_flag_key, "1", cool_down_seconds)
             self.service_bus_util.update_queue_receive_disabled(self.queue_name)
+
+            event_name = "ACTIVATE_QUEUE_{}".format(self.queue_name)
+            LoggingUtils.track_event(event_name)
+
             print("Queue {} is now suspended".format(self.queue_name))
 
         return 1
@@ -76,6 +81,8 @@ class QuotaEnforcementManager:
             print("Queue is still suspended due to quota enforcement {}".format(self.queue_name))
         else:
             print("Reactivating Queue {}".format(self.queue_name))
+            event_name = "DEACTIVATE_QUEUE_{}".format(self.queue_name)
+            LoggingUtils.track_event(event_name)
             self.service_bus_util.update_queue_active(self.queue_name)
 
         return 1
