@@ -20,8 +20,15 @@ In this challenge, we will do the following:
 
 - ensure that documents are only processed for embeddings if their textual contents have been updated.
 - ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
-- 
+
 Ensure that the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting local.settings.json is set to 0
+
+When this value is set to Zero, embeddings are computed regardless of whether the text contents have been modified.
+When it is set to One, embeddings are only calulated if the text contents have been updated.
+
+The application solves this by maintaing a copy of the document or description contents' SHA1 HASH in memory and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
+
+## Verification
 
 Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
 Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
