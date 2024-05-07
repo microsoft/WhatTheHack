@@ -52,7 +52,7 @@ def azure_document_intelligence_handler(documentstream: func.InputStream):
         result = document_processor_util.extract_contents(document_buffer, document_type, pages)
 
         is_exam_submission = document_processor_util.is_exam_submission(document_type)
-        is_meal_preference = document_processor_util.is_meal_preference(document_type)
+        is_activity_preference = document_processor_util.is_activity_preference(document_type)
 
         submission_id = str(get_current_unix_timestamp())
 
@@ -69,14 +69,15 @@ def azure_document_intelligence_handler(documentstream: func.InputStream):
             print("Saving Exam Submission to Destination Queue {}: {}".format(destination_queue, exam_submission))
             service_bus_util.send_object_to_queue(destination_queue, exam_submission)
 
-        elif is_meal_preference:
-            meal_preference_submission = result
-            meal_preference_submission['id'] = submission_id
+        elif is_activity_preference:
+            activity_preference = result
 
-            # registration id for the meal preference and allergen declaration
-            meal_preference_submission['registrationId'] = submission_id
+            guest_email_address = result['guest_email_address']
+            activity_preference['id'] = guest_email_address
+            activity_preference['registrationId'] = guest_email_address
+            activity_preference['profileId'] = submission_id
 
-            cosmos_db_util = CosmosDbUtils("mealpreferences")
+            cosmos_db_util = CosmosDbUtils("activitypreferences")
 
-            print("Saving Meal Preference to Cosmos DB {}".format(meal_preference_submission))
-            cosmos_db_util.create_item(meal_preference_submission)
+            print("Saving Activity Preference to Cosmos DB {}".format(activity_preference))
+            cosmos_db_util.upsert_item(activity_preference)

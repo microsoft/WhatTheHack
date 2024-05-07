@@ -1,16 +1,19 @@
-import logging
+import json
 import os
+from logging import getLogger, DEBUG
 
 import azure.functions as func
 from azure.functions import AuthLevel
-import json
+from azure.monitor.opentelemetry import configure_azure_monitor
 
-from models.yacht import Yacht, YachtSearchResponse
 from shared.ai_search_utils import AISearchUtils
 from shared.cosmos_db_utils import CosmosDbUtils
 from shared.function_utils import APISuccessOK, APINotFound, APIBadRequest
 from shared.yacht_management_utils import yacht_management_list_yachts, yacht_management_get_yacht_details, \
     remove_non_alphanumeric
+
+configure_azure_monitor()
+logger = getLogger(__name__)
 
 yachts_crud_controller = func.Blueprint()
 
@@ -19,9 +22,11 @@ yachts_crud_controller = func.Blueprint()
 @yachts_crud_controller.route(route="yachts-management/{yachtId?}", methods=["GET", "PUT", "DELETE"],
                               auth_level=AuthLevel.FUNCTION)
 def yachts_management_controller(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
+    logger.info('Python HTTP trigger function processed a request.')
 
     request_method = req.method.upper()
+
+    logger.info(f"Yacht REST Service Request method: {request_method}")
 
     if request_method == "GET":
         return handle_get_request(req)
@@ -38,6 +43,7 @@ def handle_delete_request(request: func.HttpRequest):
     yacht_id = request.route_params.get('yachtId', None)
 
     print("This is the incoming yacht id: {}".format(yacht_id))
+    logger.info("YachtId to be DELETED: {}".format(yacht_id))
 
     if yacht_id is not None:
         yacht_details = yacht_management_get_yacht_details(yacht_id)
@@ -48,6 +54,7 @@ def handle_delete_request(request: func.HttpRequest):
             cosmos_util.delete_item(record_identifier, yacht_id)
             matching_document_ids: list[str] = [yacht_id]
             ai_search_util.delete_documents(matching_document_ids, key_field_name="id")
+            logger.info("YachtId {} has been DELETED".format(yacht_id))
             message = "Yacht id {} has been deleted from the databases".format(yacht_id)
             confirmation_message = {
                 "yachtId": yacht_id,
@@ -57,6 +64,7 @@ def handle_delete_request(request: func.HttpRequest):
             return APISuccessOK(response).build_response()
         else:
             message = {"message": "No yacht matches yacht identifier provided", "yacht_identifier": yacht_id}
+            logger.info("YachtId {} was NOT FOUND".format(yacht_id))
             response = json.dumps(message)
             return APINotFound(response).build_response()
 
@@ -75,6 +83,7 @@ def handle_put_request(request: func.HttpRequest):
 
     yacht_details = cosmos_util.upsert_item(yacht_object)
     response = json.dumps(yacht_details)
+    logger.info("YachtId {} was UPDATED".format(yacht_id))
     return APISuccessOK(response).build_response()
 
 
@@ -88,12 +97,19 @@ def handle_get_request(request: func.HttpRequest):
 
         if yacht_details is not None:
             response = json.dumps(yacht_details)
+            logger.info("Single Yacht Retrieval for {}".format(yacht_identifier))
             return APISuccessOK(response).build_response()
         else:
             message = {"message": "No yacht matches yacht identifier provided", "yacht_identifier": yacht_identifier}
             response = json.dumps(message)
+            logger.info("Yacht Retrieval for {} Was NOT Successful".format(yacht_identifier))
             return APINotFound(response).build_response()
     else:
         yachts = yacht_management_list_yachts()
-        response = json.dumps(yachts)
+        list_yachts = {
+            "count": len(yachts),
+            "yachts": yachts
+        }
+        response = json.dumps(list_yachts)
+        logger.info("Yacht Listing Retrieval".format(yacht_identifier))
         return APISuccessOK(response).build_response()

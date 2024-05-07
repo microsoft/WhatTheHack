@@ -1,6 +1,7 @@
 import io
 import json
 import os
+from datetime import datetime
 from typing import IO, Callable
 
 from azure.ai.documentintelligence import DocumentIntelligenceClient
@@ -91,12 +92,11 @@ class DocumentIntelligenceUtil:
         return self.__str__()
 
 
-class TemperaturePreference:
-    def __init__(self, meal_item: str, quantity: str, min_temperature: str, max_temperature: str):
-        self.meal_item = meal_item
-        self.quantity = self._get_default_int_if_empty(quantity)
-        self.min_temperature = self._get_default_float_if_empty(min_temperature)
-        self.max_temperature = self._get_default_float_if_empty(max_temperature)
+class ActivityRequest:
+    def __init__(self, experience_name: str, preferred_time: str, party_size: str):
+        self.experience_name = experience_name
+        self.preferred_time = preferred_time
+        self.party_size = self._get_default_int_if_empty(party_size)
 
     def _get_default_int_if_empty(self, value: str):
         if value:
@@ -118,8 +118,8 @@ class TemperaturePreference:
         return self.__repr__()
 
     def __json__(self):
-        return {"meal_item": self.meal_item, "quantity": self.quantity,
-                "min_temperature": self.min_temperature, "max_temperature": self.max_temperature}
+        return {"experience_name": self.experience_name,
+                "preferred_time": self.preferred_time, "party_size": self.party_size}
 
 
 class ExtractionResult:
@@ -128,6 +128,14 @@ class ExtractionResult:
         self.confidence = 0.0
         self.raw_text = None
         self.field_mappings = field_mappings
+
+    def convert_american_date_to_iso(self, american_date: str) -> str:
+        input_format = "%m/%d/%Y"
+        output_format = "%Y-%m-%d"
+
+        date_object = datetime.strptime(american_date, input_format)
+
+        return date_object.strftime(output_format)
 
     def get_submission(self):
         results = {
@@ -251,6 +259,9 @@ class Form01ExtractionResult(ExtractionResult):
         self.question_4 = ""
 
     def get_submission(self):
+
+        exam_date = self.convert_american_date_to_iso(self.exam_date)
+
         results = {
             "exam_id": self.exam_id,
             "exam_name": self.exam_name,
@@ -258,7 +269,7 @@ class Form01ExtractionResult(ExtractionResult):
             "student_name": self.student_name,
             "school_district": self.school_district,
             "school_name": self.school_name,
-            "exam_date": self.exam_date,
+            "exam_date": exam_date,
             "questions": [
                 self.prepare_question("1",
                                       "What are the names of the islands that make up Contoso Islands?",
@@ -320,6 +331,7 @@ class Form02ExtractionResult(Form01ExtractionResult):
         self.exam_name = "Civics - Tourism and Economy"
 
     def get_submission(self):
+        exam_date = self.convert_american_date_to_iso(self.exam_date)
         results = {
             "exam_id": self.exam_id,
             "exam_name": self.exam_name,
@@ -327,7 +339,7 @@ class Form02ExtractionResult(Form01ExtractionResult):
             "student_name": self.student_name,
             "school_district": self.school_district,
             "school_name": self.school_name,
-            "exam_date": self.exam_date,
+            "exam_date": exam_date,
             "questions": [
                 self.prepare_question("1",
                                       "What is the national currency of the Contoso Islands?",
@@ -365,6 +377,7 @@ class Form03ExtractionResult(Form01ExtractionResult):
             self.question_5 = self.get_value_string(extracted_fields, question_5_field_key)
 
     def get_submission(self):
+        exam_date = self.convert_american_date_to_iso(self.exam_date)
         results = {
             "exam_id": self.exam_id,
             "exam_name": self.exam_name,
@@ -372,7 +385,7 @@ class Form03ExtractionResult(Form01ExtractionResult):
             "student_name": self.student_name,
             "school_district": self.school_district,
             "school_name": self.school_name,
-            "exam_date": self.exam_date,
+            "exam_date": exam_date,
             "questions": [
                 self.prepare_question("1",
                                       "Who is the president of Contoso Islands?",
@@ -395,60 +408,39 @@ class Form03ExtractionResult(Form01ExtractionResult):
 
 
 class Form04ExtractionResult(ExtractionResult):
-    MEAL_PREFERENCE_VEGETARIAN = "Vegetarian"
-    MEAL_PREFERENCE_VEGAN = "Vegan"
-    MEAL_PREFERENCE_PESCATARIAN = "Pescatarian"
-    MEAL_PREFERENCE_PALEO = "Paleo"
-    MEAL_PREFERENCE_KETO = "Keto"
-
-    MEAL_PREFERENCE_GLUTEN_FREE = "Gluten-Free"
-    MEAL_PREFERENCE_LACTOSE_FREE = "Lactose-Free"
-    MEAL_PREFERENCE_KOSHER = "Kosher"
-    MEAL_PREFERENCE_HALAL = "Halal"
-
-    ALLERGEN_PEANUTS = "Peanuts"
-    ALLERGEN_MILK = "Milk"
-    ALLERGEN_SOY = "Soy"
-
-    ALLERGEN_GLUTEN = "Gluten"
-    ALLERGEN_EGGS = "Eggs"
-    ALLERGEN_SEAFOOD = "Seafood"
+    ACTIVITY_FLOATING_MUSEUMS = "Contoso Floating Museums"
+    ACTIVITY_SOLAR_YACHTS = "Contoso Solar Yachts"
+    ACTIVITY_SPA = "Contoso Beachfront Spa"
+    ACTIVITY_DOLPHIN_TOUR = "Contoso Dolphin and Turtle Tour"
 
     def __init__(self, field_mappings: dict):
         super().__init__(field_mappings)
 
         self.guest_full_name = ""
-        self.guest_phone_number = ""
         self.guest_email_address = ""
         self.guest_signature = False
         self.signature_date = ""
-        self.meal_preferences: list[str] = []
-        self.allergens: list[str] = []
-        self.temperature_preferences: list[dict] = []
+        self.activity_preferences: list[str] = []
+        self.activity_requests: list[dict] = []
 
     def get_submission(self):
+        signature_date = self.convert_american_date_to_iso(self.signature_date)
         results = {
             "guest_full_name": self.guest_full_name,
-            "guest_phone_number": self.guest_phone_number,
             "guest_email_address": self.guest_email_address,
             "guest_signature": self.guest_signature,
-            "signature_date": self.signature_date,
-            "meal_preferences": self.meal_preferences,
-            "allergens": self.allergens,
-            "temperature_preferences": self.temperature_preferences
+            "signature_date": signature_date,
+            "activity_preferences": self.activity_preferences,
+            "activity_requests": self.activity_requests
         }
         return results
 
-    def append_to_allergens_if_selected(self, is_selected, value_if_exists):
+    def append_to_activity_if_selected(self, is_selected, value_if_exists):
         if is_selected:
-            self.allergens.append(value_if_exists)
+            self.activity_preferences.append(value_if_exists)
 
-    def append_to_meal_preferences_if_selected(self, is_selected, value_if_exists):
-        if is_selected:
-            self.meal_preferences.append(value_if_exists)
-
-    def append_to_temperature_preferences(self, temperature_preference: TemperaturePreference):
-        self.temperature_preferences.append(temperature_preference.__json__())
+    def append_to_activity_requests(self, request: ActivityRequest):
+        self.activity_requests.append(request.__json__())
 
     def get_field_value_if_exists(self, dictionary: dict, field_name: str, default='') -> str:
         if field_name in dictionary:
@@ -460,35 +452,21 @@ class Form04ExtractionResult(ExtractionResult):
                 analyzed_result.documents[0].fields):
             # extracting guest information, contact info and signatures
             guest_full_name_key = self.get_field_key("guest_full_name")
-            guest_phone_number_key = self.get_field_key("guest_phone_number")
             guest_email_address_key = self.get_field_key("guest_email_address")
             guest_signature_key = self.get_field_key("signature_field_name")
             guest_signature_date_key = self.get_field_key("signature_date_field_name")
 
-            # extract meal preferences and allergen declarations
-            checkbox_meal_preferences_vegetarian_key = self.get_field_key("checkbox_meal_preferences_vegetarian")
-            checkbox_meal_preferences_vegan_key = self.get_field_key("checkbox_meal_preferences_vegan")
-            checkbox_meal_preferences_pescatarian_key = self.get_field_key("checkbox_meal_preferences_pescatarian")
-            checkbox_meal_preferences_paleo_key = self.get_field_key("checkbox_meal_preferences_paleo")
-            checkbox_meal_preferences_keto_key = self.get_field_key("checkbox_meal_preferences_keto")
-            checkbox_meal_preferences_gluten_free_key = self.get_field_key("checkbox_meal_preferences_gluten_free")
-            checkbox_meal_preferences_lactose_free_key = self.get_field_key("checkbox_meal_preferences_lactose_free")
-            checkbox_meal_preferences_kosher_key = self.get_field_key("checkbox_meal_preferences_kosher")
-            checkbox_meal_preferences_halal_key = self.get_field_key("checkbox_meal_preferences_halal")
-
-            checkbox_allergens_peanuts_key = self.get_field_key("checkbox_allergens_peanuts")
-            checkbox_allergens_milk_key = self.get_field_key("checkbox_allergens_milk")
-            checkbox_allergens_soy_key = self.get_field_key("checkbox_allergens_soy")
-            checkbox_allergens_seafood_key = self.get_field_key("checkbox_allergens_seafood")
-            checkbox_allergens_gluten_key = self.get_field_key("checkbox_allergens_gluten")
-            checkbox_allergens_eggs_key = self.get_field_key("checkbox_allergens_eggs")
+            # activity interests and preferences
+            checkbox_contoso_floating_museums_key = self.get_field_key("checkbox_contoso_floating_museums")
+            checkbox_contoso_solar_yachts_key = self.get_field_key("checkbox_contoso_solar_yachts")
+            checkbox_contoso_beachfront_spa_key = self.get_field_key("checkbox_contoso_beachfront_spa")
+            checkbox_contoso_dolphin_turtle_tour_key = self.get_field_key("checkbox_contoso_dolphin_turtle_tour")
 
             # extracting meal temperature preferences
-            guest_temperature_preferences_table_key = self.get_field_key("table_name")
-            table_column_header_meal_item_key = self.get_field_key("table_column_header_meal_item")
-            table_column_header_quantity_key = self.get_field_key("table_column_header_quantity")
-            table_column_header_min_temp_key = self.get_field_key("table_column_header_min_temp")
-            table_column_header_max_temp_key = self.get_field_key("table_column_header_max_temp")
+            guest_activity_requests_table_key = self.get_field_key("table_name")
+            table_column_header_experience_name_key = self.get_field_key("table_column_header_experience_name")
+            table_column_header_preferred_time_key = self.get_field_key("table_column_header_preferred_time")
+            table_column_header_party_size_key = self.get_field_key("table_column_header_party_size")
 
             document = analyzed_result.documents[0]
             extracted_fields = document.fields
@@ -499,68 +477,41 @@ class Form04ExtractionResult(ExtractionResult):
                 self.raw_text = raw_text
 
             self.guest_full_name = self.get_value_string(extracted_fields, guest_full_name_key)
-            self.guest_phone_number = self.get_value_string(extracted_fields, guest_phone_number_key)
             self.guest_email_address = self.get_value_string(extracted_fields, guest_email_address_key)
             self.signature_date = self.get_value_string(extracted_fields, guest_signature_date_key)
             self.guest_signature = self.is_document_signed(extracted_fields, guest_signature_key)
 
-            is_vegetarian = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_vegetarian_key)
-            is_vegan = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_vegan_key)
-            is_pescatarian = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_pescatarian_key)
-            is_paleo = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_paleo_key)
-            is_keto = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_keto_key)
-            is_gluten_free = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_gluten_free_key)
-            is_lactose_free = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_lactose_free_key)
-            is_kosher = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_kosher_key)
-            is_halal = self.is_selected_mark(extracted_fields, checkbox_meal_preferences_halal_key)
+            is_interested_in_museums = self.is_selected_mark(extracted_fields, checkbox_contoso_floating_museums_key)
+            is_interested_in_yachts = self.is_selected_mark(extracted_fields, checkbox_contoso_solar_yachts_key)
+            is_interested_in_spa = self.is_selected_mark(extracted_fields, checkbox_contoso_beachfront_spa_key)
+            is_interested_in_dolphins = self.is_selected_mark(extracted_fields,
+                                                              checkbox_contoso_dolphin_turtle_tour_key)
 
-            has_allergen_peanuts = self.is_selected_mark(extracted_fields, checkbox_allergens_peanuts_key)
-            has_allergen_milk = self.is_selected_mark(extracted_fields, checkbox_allergens_milk_key)
-            has_allergen_soy = self.is_selected_mark(extracted_fields, checkbox_allergens_soy_key)
-            has_allergen_seafood = self.is_selected_mark(extracted_fields, checkbox_allergens_seafood_key)
-            has_allergen_gluten = self.is_selected_mark(extracted_fields, checkbox_allergens_gluten_key)
-            has_allergen_eggs = self.is_selected_mark(extracted_fields, checkbox_allergens_eggs_key)
-
-            self.append_to_meal_preferences_if_selected(is_vegetarian, self.MEAL_PREFERENCE_VEGETARIAN)
-            self.append_to_meal_preferences_if_selected(is_vegan, self.MEAL_PREFERENCE_VEGAN)
-            self.append_to_meal_preferences_if_selected(is_pescatarian, self.MEAL_PREFERENCE_PESCATARIAN)
-            self.append_to_meal_preferences_if_selected(is_paleo, self.MEAL_PREFERENCE_PALEO)
-            self.append_to_meal_preferences_if_selected(is_keto, self.MEAL_PREFERENCE_KETO)
-            self.append_to_meal_preferences_if_selected(is_gluten_free, self.MEAL_PREFERENCE_GLUTEN_FREE)
-            self.append_to_meal_preferences_if_selected(is_lactose_free, self.MEAL_PREFERENCE_LACTOSE_FREE)
-            self.append_to_meal_preferences_if_selected(is_kosher, self.MEAL_PREFERENCE_KOSHER)
-            self.append_to_meal_preferences_if_selected(is_halal, self.MEAL_PREFERENCE_HALAL)
-
-            self.append_to_allergens_if_selected(has_allergen_peanuts, self.ALLERGEN_PEANUTS)
-            self.append_to_allergens_if_selected(has_allergen_milk, self.ALLERGEN_MILK)
-            self.append_to_allergens_if_selected(has_allergen_soy, self.ALLERGEN_SOY)
-            self.append_to_allergens_if_selected(has_allergen_seafood, self.ALLERGEN_SEAFOOD)
-            self.append_to_allergens_if_selected(has_allergen_gluten, self.ALLERGEN_GLUTEN)
-            self.append_to_allergens_if_selected(has_allergen_eggs, self.ALLERGEN_EGGS)
+            self.append_to_activity_if_selected(is_interested_in_museums, self.ACTIVITY_FLOATING_MUSEUMS)
+            self.append_to_activity_if_selected(is_interested_in_yachts, self.ACTIVITY_SOLAR_YACHTS)
+            self.append_to_activity_if_selected(is_interested_in_spa, self.ACTIVITY_SPA)
+            self.append_to_activity_if_selected(is_interested_in_dolphins, self.ACTIVITY_DOLPHIN_TOUR)
 
             # defines the column names we are expecting from the extracted table
             temp_preferences_column_names = [
-                table_column_header_meal_item_key,
-                table_column_header_quantity_key,
-                table_column_header_min_temp_key,
-                table_column_header_max_temp_key
+                table_column_header_experience_name_key,
+                table_column_header_preferred_time_key,
+                table_column_header_party_size_key
             ]
             # load the table rows and columns dynamically
 
-            table_rows = self.get_table_rows(extracted_fields, guest_temperature_preferences_table_key,
+            table_rows = self.get_table_rows(extracted_fields, guest_activity_requests_table_key,
                                              temp_preferences_column_names)
             for table_row in table_rows:
-                current_meal_item_key = self.get_field_value_if_exists(table_row, table_column_header_meal_item_key)
-                current_quantity = self.get_field_value_if_exists(table_row, table_column_header_quantity_key)
-                current_min_temp = self.get_field_value_if_exists(table_row, table_column_header_min_temp_key)
-                current_max_temp = self.get_field_value_if_exists(table_row, table_column_header_max_temp_key)
+                current_experience = self.get_field_value_if_exists(table_row, table_column_header_experience_name_key)
+                current_pref_time = self.get_field_value_if_exists(table_row, table_column_header_preferred_time_key)
+                current_party_size = self.get_field_value_if_exists(table_row, table_column_header_party_size_key)
 
-                # construct the temperature preference using the extracted cell fields from columns
-                current_temp_preference = TemperaturePreference(current_meal_item_key, current_quantity,
-                                                                current_min_temp, current_max_temp)
+                # construct the activity request using the extracted cell fields from columns
+                current_activity_request = ActivityRequest(current_experience, current_pref_time, current_party_size)
 
                 # append it to our object field of table rows
-                self.append_to_temperature_preferences(current_temp_preference)
+                self.append_to_activity_requests(current_activity_request)
 
 
 class DocumentProcessor:
@@ -591,7 +542,7 @@ class DocumentProcessor:
         classification_key = self.get_document_classification(classification_id)
         return classification_key in exam_classifications
 
-    def is_meal_preference(self, classification_id: str) -> bool:
+    def is_activity_preference(self, classification_id: str) -> bool:
         return self.is_exam_submission(classification_id) is False
 
     def load_configuration(self):

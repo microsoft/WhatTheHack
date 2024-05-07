@@ -61,7 +61,7 @@ def process_document_change(yacht_record: Yacht):
     yacht_price = yacht_record['price']
     yacht_max_capacity = yacht_record['maxCapacity']
     yacht_description = yacht_record['description']
-    description_hash = CryptoUtils.sha1_hash(yacht_description)
+    description_hash = CryptoUtils.sha1_hash_string(yacht_description)
 
     redis_lookup_key = "yacht_embeddings_cache_{}".format(yacht_id)
     cache_exists = redis_util.exists(redis_lookup_key)

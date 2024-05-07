@@ -190,5 +190,8 @@ def initialize_cosmos_collections():
     cosmos_db_grades_util = CosmosDbUtils("grades")
     cosmos_db_grades_util.create_collection("/submissionId")
 
-    cosmos_db_meals_util = CosmosDbUtils("mealpreferences")
-    cosmos_db_meals_util.create_collection("/registrationId")
+    cosmos_db_activities_util = CosmosDbUtils("activitypreferences")
+    cosmos_db_activities_util.create_collection("/registrationId")
+
+    cosmos_db_activities_util = CosmosDbUtils("students")
+    cosmos_db_activities_util.create_collection("/studentId")

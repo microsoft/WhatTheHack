@@ -2,6 +2,7 @@ import json
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
 from models.exam_submissions import ExamSubmission, ExamSubmissionQuestion, ExamAnswerAnalysis, AnswerAnalysis
+from models.students import ExamGrade
 from shared.assistant_tools import get_current_unix_timestamp
 from shared.assistant_tools_solomon import v_get_examination_reference_information, v_get_exam_answers
 from shared.cosmos_db_utils import CosmosDbUtils
@@ -12,6 +13,23 @@ class GradeExamSubmission:
     def __init__(self, submission: ExamSubmission):
         self.submission = submission
         self.conversation_id = str(get_current_unix_timestamp())
+
+    def compute_letter_grade(self, exam_score: float) -> ExamGrade:
+
+        if exam_score < 60.00:
+            return ExamGrade.F
+
+        elif exam_score < 70.00:
+            return ExamGrade.D
+
+        elif exam_score < 80.00:
+            return ExamGrade.C
+
+        elif exam_score < 90.00:
+            return ExamGrade.B
+
+        else:
+            return ExamGrade.A
 
     def process_submission(self):
         settings = ApplicationSettings()
@@ -62,12 +80,14 @@ class GradeExamSubmission:
                     correct_answers += 1
 
             exam_score = (correct_answers / total_questions) * 100
+            letter_grade: ExamGrade = self.compute_letter_grade(exam_score)
 
             results = {
                 "answers_analysis": answers_analysis,
                 "correct_answers": correct_answers,
                 "total_questions": total_questions,
-                "exam_score": exam_score
+                "exam_score": exam_score,
+                "letter_grade": letter_grade
             }
 
             analysis_response.update(results)
@@ -77,5 +97,3 @@ class GradeExamSubmission:
         cosmos_util.upsert_item(analysis_response)
 
         return analysis_response
-
-

@@ -1,0 +1,52 @@
+
+# You will need to install the following VSCode extension: humao.rest-client
+
+# Please click on the "Send Request" option above each URL to transmit the request to the backend
+
+# This will allow you to test your function endpoint to make sure they are ready to be intergrated with the frontend
+
+@api_endpoint = http://localhost:7072
+@conversation_id = 22334567
+@student_id = "100"
+
+# Make sure that you specify the api_endpoint and conversation_id shared variables in your extension config
+
+# Use this to retrieve all students (Click Send Request)
+GET {{api_endpoint}}/api/students-management HTTP/1.1
+Accept: application/json
+
+###
+
+# Use this to retrieve a single student (Click Send Request)
+GET {{api_endpoint}}/api/students-management/{{student_id}} HTTP/1.1
+Accept: application/json
+
+
+###
+
+# Use this to create or update a single record for existing students (Click Send Request)
+PUT {{api_endpoint}}/api/students-management HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+{"studentId": 4123457, "schoolDistrict": "Grapefruit", "fullName": "Devanshi Gupta", "schoolName": "Pisces High School"}
+
+###
+
+# Use this to create or update bulk records for existing students (Click Send Request)
+POST {{api_endpoint}}/api/students-management HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+[
+    {"studentId": 4123456, "schoolDistrict": "Grapefruit", "fullName": "David Ramirez", "schoolName": "Pisces High School"},
+    {"studentId": 4123457, "schoolDistrict": "Grapefruit", "fullName": "Devanshi Gupta", "schoolName": "Pisces High School"},
+    {"studentId": 4123458, "schoolDistrict": "Grapefruit", "fullName": "Israel Martinez", "schoolName": "Pisces High School"},
+    {"studentId": 4123459, "schoolDistrict": "Grapefruit", "fullName": "Amanda Peterson", "schoolName": "Pisces High School"},
+    {"studentId": 4123460, "schoolDistrict": "Grapefruit", "fullName": "Charlotte Brown", "schoolName": "Pisces High School"},
+    {"studentId": 4123461, "schoolDistrict": "Grapefruit", "fullName": "Pete Collins", "schoolName": "Pisces High School"},
+    {"studentId": 4123462, "schoolDistrict": "Grapefruit", "fullName": "Kevin Murphy", "schoolName": "Pisces High School"},
+    {"studentId": 4123463, "schoolDistrict": "Grapefruit", "fullName": "Nikki Campbell", "schoolName": "Pisces High School"},
+    {"studentId": 4123464, "schoolDistrict": "Grapefruit", "fullName": "George Turner", "schoolName": "Pisces High School"},
+    {"studentId": 4123465, "schoolDistrict": "Grapefruit", "fullName": "Peter Reed", "schoolName": "Pisces High School"}
+  ]
