@@ -36,7 +36,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 9. Confirm the creation date and time for each file
 10. Make sure you have changed the date properly to yesterday's date
 11. Confirm if the creation date and time were defined as expected
-12. Validate if the all files from `~/lab` were sucessfully placed into `~/mybackup`
+12. Validate if the all files from `~/lab` were successfully placed into `~/mybackup`
 13. Make sure if you were able to remove everything using just one command 
 14. Show all log files copied from `/var/log` into `~/logbackup`
 15. Confirm how many lines exist in `/etc/wgetrc`
