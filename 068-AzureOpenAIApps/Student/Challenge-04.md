@@ -31,9 +31,9 @@ In this challenge, we will do the following:
 | Configuration Name | Examples| Description|
 |--------------|-----------|------------|
 | LLM_QUOTA_ENFORCEMENT | 0     | Whether or not Quota enforcement is enabled for the app        |
-| LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS      | 60  | The number of seconds that define the transaction aggregation window for quota enforcement       |
-| LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS      | 3  | The number of transactions allowed per school district within the transaction window       |
-| LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS      | 600  | The number of seconds the district needs to wait before processing can resume. Should be greater than the transaction window       |
+| LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS      | 120  | The number of seconds that define the transaction aggregation window for quota enforcement       |
+| LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS      | 5  | The number of transactions allowed per school district within the transaction window       |
+| LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS      | 300  | The number of seconds the district needs to wait before processing can resume. Should be greater than the transaction window       |
 
 
 For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 5 submissions within a 2 minute period.
