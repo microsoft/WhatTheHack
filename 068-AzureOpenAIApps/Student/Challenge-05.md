@@ -35,6 +35,8 @@ After this has been verified,  updated **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** 
 Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
 Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
 
+![Application Insights](../images/app-insights.png)
+
 In app insights, you should see the following events registered for each document and yacht you have modified respectively:
 - **SKIP_YACHT_EMBEDDING_COMPUTE**
 - **SKIP_DOCUMENT_EMBEDDING_COMPUTE**
