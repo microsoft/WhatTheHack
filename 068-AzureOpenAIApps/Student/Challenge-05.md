@@ -37,7 +37,7 @@ In app insights, you should see the following events registered for each documen
 - **PROCESS_DOCUMENT_EMBEDDING_COMPUTE**
 - **PROCESS_YACHT_EMBEDDING_COMPUTE**
 
-After this has been verified,  updated **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting is set to 1
+After this has been verified, update the value of the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting and set to 1
 
 Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
 Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
@@ -57,7 +57,7 @@ In app insights, you should see the following events registered for each documen
 - **PROCESS_DOCUMENT_EMBEDDING_COMPUTE**
 - **PROCESS_YACHT_EMBEDDING_COMPUTE**
 
-You should also be able to see the hashes in the Redis Cache
+For each of the modification attempts, you should also be able to see the hashes in the Redis Cache for the corresponding document and yacht
 
 ````bash
 
