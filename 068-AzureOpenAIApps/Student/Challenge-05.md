@@ -12,23 +12,53 @@ Making sure that the application performs and is also cost-effective is crucial 
 
 In this challenge, we will ensure that unnecessary calls are eliminated from the application.
 
+This is accomplished by keeping a copy of the document or description contents' SHA1 in memory and comparing it to subsequent receipts to ensure that we only compute the embedding if the text contents have been modified.
+
 ## Description
 
 In this challenge, we will do the following:
+
 - ensure that documents are only processed for embeddings if their textual contents have been updated.
 - ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
+- 
+Ensure that the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting local.settings.json is set to 0
+
+Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
+Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
+
+In app insights, you should see the following events registered for each document filename and yacht id you have modified respectively:
+- **PROCESS_DOCUMENT_EMBEDDING_COMPUTE**
+- **PROCESS_YACHT_EMBEDDING_COMPUTE**
+
+After this has been verified,  updated **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting is set to 1
+
+Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
+Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
+
+In app insights, you should see the following events registered for each document and yacht you have modified respectively:
+- **SKIP_YACHT_EMBEDDING_COMPUTE**
+- **SKIP_DOCUMENT_EMBEDDING_COMPUTE**
+
+This means that the embedding was only computed if the yacht description or text content of the documents were modified.
+
+Using the HTTP client, make changes to each yacht description fields and save the changes.
+Using the file uploader, re-upload all the files to the government blob container with minor punctuation (commas, paragraphs, periods) and save the changes and reupload.
+
+In app insights, you should see the following events registered for each document and yacht you have modified respectively:
+- **PROCESS_DOCUMENT_EMBEDDING_COMPUTE**
+- **PROCESS_YACHT_EMBEDDING_COMPUTE**
 
 ## Success Criteria
 
 A successfully completed solution should accomplish the following goals:
 
 - Ensure that for the updates to the Yachts, if only the pricing or capacity details are updated no embedding should be processed.
+- Ensure that for documents, the embeddings are only computed if the text contents were modified.
 
 
 ## Learning Resources
 
 https://redis.io/docs/data-types/strings/
-
 https://redis.io/docs/data-types/lists/
 
 ## Tips
