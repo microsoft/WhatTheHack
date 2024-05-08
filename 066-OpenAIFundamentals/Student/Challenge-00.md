@@ -70,8 +70,8 @@ You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup
 
 If you want to setup a Jupyter Notebooks environment on your local workstation, expand the section below and follow the requirements listed. 
 
-<details>
-<summary>Click to expand/collapse Local Workstation Requirements</summary>
+<details markdown=1>
+<summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
 
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
