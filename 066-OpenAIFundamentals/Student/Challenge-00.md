@@ -72,6 +72,7 @@ If you want to setup a Jupyter Notebooks environment on your local workstation, 
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
+<br/>
 
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
 
