@@ -29,7 +29,7 @@ If your coach directs you to deploy the resources into your Azure environment, e
 If your coach has provided you an Azure lab environment with the resources pre-deployed, skip to [Explore Resources and Access Key Vault Secrets](#explore-resources-and-access-key-vault-secrets).
 
 <details markdown=1>
-<summary markdown="span">Click to expand/collapse Deploy Resources via Automation Instructions</summary>
+<summary markdown="span"><strong>Click to expand/collapse Deploy Resources via Automation Instructions</strong></summary>
 
 Follow these steps to deploy the Azure resources for the TollBooth application app:
 
@@ -47,6 +47,7 @@ While the script is running, you can monitor its progress in the Azure Portal by
 **NOTE:** If the script results in an error that says you must accept the terms for Responsible AI before you can deploy Cognitive Vision API via automation, you will need to accept the Responsible AI terms in the Azure portal. You can do this by starting to create a Cognitive Vision API resource in the Azure portal, but stopping before you actually create the resource. The Responsible AI terms will be accepted as you proceed through the portal's "wizard" for deploying a Computer Vision API resource.
 
 </details>
+<br/>
 
 ### Explore Resources and Access Key Vault Secrets
 

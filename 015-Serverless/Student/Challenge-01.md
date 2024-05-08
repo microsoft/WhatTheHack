@@ -67,6 +67,7 @@ Set up your *local* environment:
 **NOTE:** What The Hacks are normally run as live events where coaches advise small groups of 3-5 people as they try to solve the hack's challenges. For the [`#ServerlessSeptember`](https://azure.github.io/Cloud-Native/serverless-september/) event, the Microsoft Reactor team is challenging folks to complete the Azure Serverless hack on their own and share their solutions. 
 
 </details>
+<br/>
 
 ## Success Criteria
 
