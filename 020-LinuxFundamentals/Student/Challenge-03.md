@@ -27,7 +27,7 @@ In this challenge you will learn basic commands about file manipulation such as 
 
 1. Show all the files that have been modified in the last 60 minutes within `/var`
 2. Make sure you checked the different file types of the files `/bin/htop`, `/etc/passwd` and `/usr/bin/passwd`
-3. Ensure you were able to download the files [`azure-linux.svg`](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg) and [`InfographicRC2.pdf`](https://azure.microsoft.com/mediahandler/files/resourcefiles/infographic-reliability-with-microsoft-azure/InfographicRC2.pdf) successfully into your home diretory
+3. Ensure you were able to download the files [`azure-linux.svg`](https://docs.microsoft.com/en-us/learn/achievements/azure-linux.svg) and [`InfographicRC2.pdf`](https://azure.microsoft.com/mediahandler/files/resourcefiles/infographic-reliability-with-microsoft-azure/InfographicRC2.pdf) successfully into your home directory
 4. Confirm the different file types 
 5. Validate the renaming of `azure-linux.svg` to `azure-linux.pdf` 
 6. After the renaming of the extension, check if the file type was changed
