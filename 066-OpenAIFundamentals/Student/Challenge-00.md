@@ -72,7 +72,6 @@ If you want to setup a Jupyter Notebooks environment on your local workstation, 
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
-<br/>
 
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
 
@@ -129,6 +128,7 @@ For more information, see: [Run Jupyter Notebooks in your Workspace](https://lea
 Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
 
 </details>
+<br/>
 
 ### Setup Azure OpenAI
 
