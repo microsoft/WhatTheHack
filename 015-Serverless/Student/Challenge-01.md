@@ -46,6 +46,11 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 **NOTE:** If you are planning to use GitHub Codespaces, skip this section as all pre-reqs will be setup in the Codespace environment.
 
+If you want to set up the developer environment on your local workstation, expand the section below and follow the requirements listed.
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
+
 Set up your *local* environment:
 - Visual Studio Code (or Visual Studio with Azure development workload)
 - Azure CLI
@@ -60,6 +65,9 @@ Set up your *local* environment:
 [Download the student `Resources.zip` file here](https://aka.ms/wth/serverless/resources), containing the source code and supporting files for this hack.  Uncompress the file on your local workstation.
 
 **NOTE:** What The Hacks are normally run as live events where coaches advise small groups of 3-5 people as they try to solve the hack's challenges. For the [`#ServerlessSeptember`](https://azure.github.io/Cloud-Native/serverless-september/) event, the Microsoft Reactor team is challenging folks to complete the Azure Serverless hack on their own and share their solutions. 
+
+</details>
+<br/>
 
 ## Success Criteria
 
