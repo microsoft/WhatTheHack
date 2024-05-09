@@ -115,6 +115,10 @@ The graded exams corresponding to each submission ends up in the **grades** coll
 
 For the activity preferences for each customer uploaded, these are parsed and they end up in the **activitypreferences** Cosmos DB container.
 
+### Student Records
+
+Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Comsos DB database.
+
 ### AI Assistants
 Once you have verify that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the following AI Assistants to query the database to get the answers from these data stores.
 
