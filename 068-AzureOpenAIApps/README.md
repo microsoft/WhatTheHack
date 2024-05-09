@@ -8,6 +8,18 @@ This hands-on set of challenges will provide participants with experience on how
 
 The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products including but not limited to Azure Cognitive Services, Partner offerings on Microsoft and Open-Source projects.
 
+Building AI applications involves a lot of things. For example, the AI engineer needs to know the following:
+
+The language models that power the AI application needs the data it is using to make decisions to be in the right format so as to enable it respond appropriately to queries and requests from its users. The data pipeline necessary to automate this is crucial for the success of any AI application powered by small or large language models. A lot of times the data is not readily consumable by the app and it needs to be digested, parsed and simplified to extract the data in the format that can be readily leveraged by the language model and this requires using resources such as Azure Document Intelligence, Azure AI Vision, Azure Custom Vision, Azure Video Indexer to mention just a few. In this hack, we focus on just one of these parsers - Azure Document Intelligence used to parse records uploaded to Azure Blob Store and Cosmos DB.
+
+Furthermore, you need to understand the types of vector databases you need to power your application knowledge store depending on the use cases in your app such as vector embedding length, storage capacity, query throughput, latency requirements and query types.
+
+The application also has to maintain state, control usage throughput and store the relevant metadata used to simplify the interaction between the users of the app and the virtual agents and this requires leveraging queuing mechanisms, key-value and document stores such as Azure Service Bus, Azure Redis Cache and Azure Cosmos DB. In this hack, you will be going through scenarios where this is necessary.
+
+When it comes to the user experience, configuring the assistants with the appropriate system prompts and tools enables the language models to retrieve the relevant data from the knowledge stores while processing requests from the users. This hack will work you through how to configure the language models as well as the system prompts and tools necessary to direct the LLM while it provides responses to the users or even other application segments during automated tasks.
+
+The goal of this hack is to get engineers and architects ready for building effective, scalable apps that will perform well in production scenarios.
+
 ### Exit Competencies: 
 The participants will learn how to:
 - Select different architectures to implement Open AI solutions on Azure based on the scenarios.
@@ -16,10 +28,8 @@ The participants will learn how to:
 - Understand the different libraries, frameworks, capabilities and tools available to implement intelligent AI apps.
 - Implement Q&A virtual assistants using RAG architectures powered by vector stores, full text search and hybrid search.
 - Understand techniques and options available on Azure for processing and storing data used for implementing RAG architectures.
-- Secure access to Azure Open AI Resources.
-- Integrate Azure Private Virtual Networks with Azure Open AI.
 - Perform capacity planning and quota enforcement for Open AI resources.
-- Manage availability, business continuity and disaster recovery.
+- Easily observe what is taking place inside the deployed applications
 - Implement solutions for batch and near real-time use cases.
 
 ## Challenges
