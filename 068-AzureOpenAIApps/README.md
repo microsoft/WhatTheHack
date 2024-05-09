@@ -64,6 +64,7 @@ We thank them for sharing their experience and creativity to design the scenario
 - [Melody Yin](https://github.com/melody-N07)
 - [Mike Richter](https://github.com/michaelsrichter)
 - [Nikki Conley](https://github.com/nikkiconley)
+- [Pete Rodriguez](https://github.com/perktime)
 - [Peter Laudati](https://github.com/jrzyshr)
 - [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
 - [Thomas Mathew](https://github.com/tmathew1000)
