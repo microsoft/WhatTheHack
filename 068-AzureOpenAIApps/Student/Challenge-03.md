@@ -35,6 +35,7 @@ The graded exams corresponding to each submission ends up in the **grades** coll
 
 For the activity preferences for each customer uploaded, these are parsed and they end up in the **activitypreferences** Cosmos DB container.
 
+### AI Assistants
 Once you have verify that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the following AI Assistants to query the database to get the answers from these data stores.
 
 You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
