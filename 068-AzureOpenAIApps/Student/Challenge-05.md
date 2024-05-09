@@ -16,9 +16,9 @@ The embedding calls are only necessary when the description field for the yacht 
 
 To simplify the tracking of these events we have set up the following 4 events in Azure Monitor using Azure Application Insights custom events
 
-- **PROCESS_DOCUMENT_EMBEDDING_COMPUTE** - this means the the embedding was computed for the document upload to Blob Store
-- **PROCESS_YACHT_EMBEDDING_COMPUTE** - 
-- **SKIP_DOCUMENT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the document upload to Blob Store
+- **PROCESS_DOCUMENT_EMBEDDING_COMPUTE** - the embedding was computed for the document upload to Blob Store
+- **PROCESS_YACHT_EMBEDDING_COMPUTE** - the embedding was computed for the yacht upload to Cosmos DB
+- **SKIP_DOCUMENT_EMBEDDING_COMPUTE** - the embedding was NOT computed for the document upload to Blob Store
 - **SKIP_YACHT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the yacht upload to Cosmos DB
 
 When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to **0** all embeddings are processed regardless of whether there are any changes in the text field of the record.
