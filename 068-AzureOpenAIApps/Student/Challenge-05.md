@@ -8,6 +8,8 @@ This challenge assumes that all requirements for Challenges 01, 02, 03 and 04 we
 
 ## Introduction
 
+Calculating embeddings costs money and we do not have to pay for the embedding computation if nothing has changed in the documents. Depending on the embedding service and the amount of documents as well as the frequency of the event triggers there have been customers/partners that have spent hundreds of thousands of dollars recomputing embeddings for documents that did not change.
+
 The goal of this challenge is to ensure that expensive calls such as computing the embedding vectors for the documents are only performed if necessary.
 
 When non-text fields for yachts such as pricing and capacity are modified, we should not have to update the embedding vectors for the description field. The expensive embedding calls to OpenAI should only be made when the text fields such as description have been updated. Similarly, if we simply re-upload the Contoso Islands government files to blob store without making any changes the embedding calls should also be skipped when these uploads trigger the Azure functions.
@@ -26,8 +28,6 @@ When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application con
 When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to **1**, embeddings are only processed if there are any changes in the text field of the record.
 
 ## Description
-
-Calculating embeddings costs money and we do not have to pay for the embedding computation if nothing has changed in the documents.
 
 In this challenge, we will do the following:
 
