@@ -34,9 +34,8 @@ The participants will learn how to:
 	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Islands tourists that are looking to make a reservation for a Yacht tour for a specific date.
 - Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
-- Challenge 04: **[Securing Resources, Quota Monitoring and Enforcement](Student/Challenge-04.md)**
+- Challenge 04: **[Quota Monitoring and Enforcement](Student/Challenge-04.md)**
 	 - Design and implement a solution to monitor the usage of OpenAI resources as well as the enforcement of quotas allocated to multiple users within an organization.
-	 - Design and implement a solution that ensures that credentials to OpenAI resources are not in environment variables or configuration files while leveraging Azure Virtual Networks ensure that the OpenAI endpoints are only reachable from specific networks.
 - Challenge 05: **[Performance and Cost and Optimizations](Student/Challenge-05.md)**
      - Design and implement a solution that optimizes the application performance and minimizes the operational costs of the OpenAI solutions.
 
@@ -56,12 +55,13 @@ We seize this opportunity to express our sincere gratitude to all our contributo
 
 We thank them for sharing their experience and creativity to design the scenarios and for taking the time to review the content that has been developed.
 
-- [Israel Ekpo](https://github.com/izzymsft)
-- [Mike Richter](https://github.com/michaelsrichter)
-- [Thomas Mathew](https://github.com/tmathew1000)
-- [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
-- [Peter Laudati](https://github.com/jrzyshr)
-- [Amanda Wong](https://github.com/wongamanda)
-- [Devanshi Thakar](https://github.com/devanshithakar12)
 - [Alexis Joseph](https://github.com/alexistj)
+- [Amanda Wong](https://github.com/wongamanda)
+- [Charlotte Oickle](https://github.com/charlietfcgirl)
+- [Devanshi Thakar](https://github.com/devanshithakar12)
+- [Israel Ekpo](https://github.com/izzymsft)
 - [Melody Yin](https://github.com/melody-N07)
+- [Mike Richter](https://github.com/michaelsrichter)
+- [Peter Laudati](https://github.com/jrzyshr)
+- [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
+- [Thomas Mathew](https://github.com/tmathew1000)
