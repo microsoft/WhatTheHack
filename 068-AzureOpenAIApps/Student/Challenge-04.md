@@ -14,7 +14,7 @@ For this challenge, our goal is to ensure that for the automated exam grading fo
 
 The are 4 school districts and they do not have equal number of schools or students so the goal is to ensure that the resource allocation is distributed fairly and equally to each school district.
 
-You will ensure that each school district does not process more than 4 submissions within a 5-minute period. 
+You will ensure that each school district does not process more than 5 submissions within a 2-minute period. 
 
 If this quota is reached, the service bus queue will need to be suspended for a certain amount of time and then processing for that school district can resume again after the cool down period has elapsed.
 
