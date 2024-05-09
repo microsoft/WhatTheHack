@@ -8,27 +8,39 @@ This challenge assumes that all requirements for Challenges 01, 02, 03 and 04 we
 
 ## Introduction
 
-Making sure that the application performs and is also cost-effective is crucial to the long-term sustainability of every project.
+The goal of this challenge is to ensure that expensive calls such as computing the embedding vectors for the documents are only performed if necessary.
 
-In this challenge, we will ensure that unnecessary calls are eliminated from the application.
+When non-text fields for yachts such as pricing and capacity are modified, we should not have to update the embedding vectors for the description field. The expensive embedding calls to OpenAI should only be made when the text fields such as description have been updated. Similarly, if we simply re-upload the Contoso Islands government files to blob store without making any changes the embedding calls should also be skipped when these uploads trigger the Azure functions.
 
-This is accomplished by keeping a copy of the document or description contents' SHA1 in memory and comparing it to subsequent receipts to ensure that we only compute the embedding if the text contents have been modified.
+The embedding calls are only necessary when the description field for the yacht is updated or when the text contents in these government files are modified and the files are reuploaded.
+
+To simplify the tracking of these events we have set up the following 4 events in Azure Monitor using Azure Application Insights custom events
+
+- **PROCESS_DOCUMENT_EMBEDDING_COMPUTE** - this means the the embedding was computed for the document upload to Blob Store
+- **PROCESS_YACHT_EMBEDDING_COMPUTE** - 
+- **SKIP_DOCUMENT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the document upload to Blob Store
+- **SKIP_YACHT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the yacht upload to Cosmos DB
+
+When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to zero all embeddings are processed regardless of whether there are any changes in the text field of the record.
+
+When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to one, embeddings are only processed if there are any changes in the text field of the record.
 
 ## Description
 
 In this challenge, we will do the following:
 
-- ensure that documents are only processed for embeddings if their textual contents have been updated.
+- when the application needs to enforce cost management, we ensure that documents are only processed for embeddings if their textual contents have been updated.
 - ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
 
-Ensure that the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting local.settings.json is set to 0
+
+## Challenge Verification
+
+To kick things off, ensure that the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** application setting local.settings.json is set to 0
 
 When this value is set to Zero, embeddings are computed regardless of whether the text contents have been modified.
-When it is set to One, embeddings are only calulated if the text contents have been updated.
+When it is set to 1, embeddings are only calulated if the text contents have been updated.
 
-The application solves this by maintaing a copy of the document or description contents' SHA1 HASH in memory and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
-
-## Verification
+The application solves this by maintaing a copy of the document or description contents' SHA1 HASH in memory via Azure Redis Cache and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
 
 Using the HTTP client, make changes to each yacht price and maxCapacity fields and save the changes.
 Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
