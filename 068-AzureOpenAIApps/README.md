@@ -61,6 +61,7 @@ We thank them for sharing their experience and creativity to design the scenario
 - [Devanshi Thakar](https://github.com/devanshithakar12)
 - [George Luiz Bittencourt](https://github.com/glzbcrt)
 - [Israel Ekpo](https://github.com/izzymsft)
+- [Kevin M. Gates](https://github.com/kevinmgates)
 - [Melody Yin](https://github.com/melody-N07)
 - [Mike Richter](https://github.com/michaelsrichter)
 - [Nikki Conley](https://github.com/nikkiconley)
