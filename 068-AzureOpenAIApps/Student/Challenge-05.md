@@ -27,6 +27,8 @@ When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application con
 
 ## Description
 
+Calculating embeddings costs money and we do not have to pay for the embedding computation if nothing has changed in the documents.
+
 In this challenge, we will do the following:
 
 - when the application needs to enforce cost management, we ensure that documents are only processed for embeddings if their textual contents have been updated.
