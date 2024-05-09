@@ -59,6 +59,7 @@ We thank them for sharing their experience and creativity to design the scenario
 - [Amanda Wong](https://github.com/wongamanda)
 - [Charlotte Oickle](https://github.com/charlietfcgirl)
 - [Devanshi Thakar](https://github.com/devanshithakar12)
+- [George Luiz Bittencourt](https://github.com/glzbcrt)
 - [Israel Ekpo](https://github.com/izzymsft)
 - [Melody Yin](https://github.com/melody-N07)
 - [Mike Richter](https://github.com/michaelsrichter)
