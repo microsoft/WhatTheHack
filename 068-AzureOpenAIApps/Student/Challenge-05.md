@@ -21,9 +21,9 @@ To simplify the tracking of these events we have set up the following 4 events i
 - **SKIP_DOCUMENT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the document upload to Blob Store
 - **SKIP_YACHT_EMBEDDING_COMPUTE** - this means the the embedding was NOT computed for the yacht upload to Cosmos DB
 
-When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to zero all embeddings are processed regardless of whether there are any changes in the text field of the record.
+When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to **0** all embeddings are processed regardless of whether there are any changes in the text field of the record.
 
-When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to one, embeddings are only processed if there are any changes in the text field of the record.
+When the **COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY** setting in the application config is set to **1**, embeddings are only processed if there are any changes in the text field of the record.
 
 ## Description
 
