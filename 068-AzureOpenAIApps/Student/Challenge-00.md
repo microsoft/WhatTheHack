@@ -130,7 +130,7 @@ The deployment script uses the Azure PowerShell Commandlets to log into your Azu
 
 If your Azure subscription does not allow authentication with a Device Login Code, expand the hidden section below to learn how to create an Azure Service Principal.
 
-**NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal.
+**NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI.
 
 <details>
 <summary>Click to expand/collapse SP Requirements </summary>
