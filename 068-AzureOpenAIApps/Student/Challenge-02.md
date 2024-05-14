@@ -55,7 +55,7 @@ This assistants allows customers to manage bank accounts.
 
  The text file (.txt) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
 
- The json file (.json) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
+ The JSON file (.json) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
 
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
