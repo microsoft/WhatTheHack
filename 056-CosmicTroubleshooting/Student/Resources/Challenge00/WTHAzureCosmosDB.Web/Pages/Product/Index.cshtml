@@ -1,0 +1,72 @@
+﻿@page "{itemId}"
+@model ProductIndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <input type="hidden" asp-for='ProductInstance.ItemId' />
+    <input type="hidden" asp-for='ProductInstance.Name' />
+    <input type="hidden" asp-for='ProductInstance.Price' />
+    <input type="hidden" asp-for='ProductInstance.Description' />
+    <input type="hidden" asp-for='ProductInstance.ImageURI' />
+    <input type="hidden" asp-for='ProductInstance.Id' />
+    <input type="hidden" asp-for='ProductInstance.Type' />
+    <div class="row">
+        <div class="col-sm-6">
+            <img src='@Model.ProductInstance.ImageURI' class="img-fluid"
+                style="width:100%;height:500px;object-fit:cover;" />
+        </div>
+        <div class="col-sm-6">
+            <div class="card h-50">
+                <div class='card-body'>
+                    <div class="text">
+                        <h5>@Model.ProductInstance.Name</h5>
+                    </div>
+                    <hr />
+                    <div class="text">
+                        @Model.ProductInstance.Description
+                    </div>
+                </div>
+            </div>
+            <div class='card mb-auto mt-2'>
+                <div class='card-body'>
+                    <div class="text text-center">
+                        <h4>Price: $@Model.ProductInstance.Price</h5>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-4">
+                            <label class='form-label'>Quantity:</label>
+                        </div>
+                        <div class="col-5">
+                            <input class="form-control" asp-for='Quantity' min="1"></input>
+                        </div>
+                        <div class='col-3'>
+                            <button id="btnAddCart" type='submit' class="btn btn-success">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class='col-4'>
+                            <label class="form-label" style="width: 200px;">For customer:</label>
+                        </div>
+                        <div class='col-8'>
+                            <select asp-for='CustomerId' class="form-select">
+                                <option value="1">Customer1</option>
+                                <option value="2">Customer2</option>
+                                <option value="3">Customer3</option>
+                                <option value="4">Customer4</option>
+                                <option value="5">Customer5</option>
+                                <option value="6">Customer6</option>
+                                <option value="7">Customer7</option>
+                                <option value="8">Customer8</option>
+                                <option value="9">Customer9</option>
+                                <option value="10">Customer10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

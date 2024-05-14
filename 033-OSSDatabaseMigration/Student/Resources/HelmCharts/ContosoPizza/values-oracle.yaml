@@ -2,8 +2,8 @@ replicaCount: 1
 
 # Change the application settings here
 appConfig:
-  databaseType: "oracle" # mysql, oracle, or postgres
-  dataSourceURL: "jdbc:oracle:thin:@//10.0.158.180:1521/xe" # your JDBC connection string goes here.
+  databaseType: "oracle" # mysql or postgres
+  dataSourceURL: "jdbc:oracle:thin:@//10.71.210.209:1521/xe" # your JDBC connection string goes here.
   dataSourceUser: "C##WTH" # your database username goes here
   dataSourcePassword: "OCPHack8" # your database password goes here
   webPort: 8083 # the port the app listens on

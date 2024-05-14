@@ -50,6 +50,15 @@ param functionRuntime string = 'dotnet'
 @description('App Service plan name')
 param appServicePlanName string = toLower('asp-${base_name}')
 
+
+@description('Jumphost virtual machine username')
+param jumpboxVmUsername string = 'svradmin'
+
+@secure()
+@minLength(8)
+@description('Jumphost virtual machine password')
+param jumpboxVmPassword string 
+
 var laws_name_var = 'laws-${base_name}'
 var app_insights_name_var = 'ai-${base_name}'
 var vnet_name_var = 'vnet-${base_name}'
@@ -61,8 +70,13 @@ var apim_dns_name_var = 'azure-api.net'
 var apim_nsg_name_var = 'nsg-${apim_name_var}'
 var agw_nsg_name_var = 'nsg-${app_gateway_name_var}'
 var funcapp_name_var = 'func-${base_name}'
-var vm_name_var = 'vm-${base_name}'
+var vm_name_var = 'jumpboxVM'
 var vm_nsg_name_var = 'nsg-${vm_name_var}'
+var bastion_name_var = 'bastion-${base_name}'
+var pip_bastion_name_var = 'pip-bas-${base_name}'
+
+var shutdownTime = '1800'
+var shutdownTimeZone = 'AUS Eastern Standard Time'
 
 module logAnalyticsModule 'modules/laws.bicep' = {
   name: laws_name_var
@@ -165,9 +179,32 @@ module functionModule 'modules/functionapp.bicep' = {
 module vmModule 'modules/vm.bicep' = {
   name: vm_name_var
   params: {
-    adminPassword: 'P@ssw-rd!1234'
-    adminUsername: 'svradmin'
+    adminPassword: jumpboxVmPassword
+    adminUsername: jumpboxVmUsername
+    vmName: vm_name_var
     subnetId: vnetModule.outputs.vmSubnetResourceId
     location: location
+  }
+}
+
+module vmAutoShutdownModule 'modules/devtest.bicep' = {
+  name: 'vmAutoShutdownModule'
+  params: {
+    autoShutdownStatus: 'Enabled'
+    autoShutdownTime: shutdownTime
+    autoShutdownTimeZone: shutdownTimeZone
+    location: location
+    virtualMachineName: vm_name_var
+    virtualMachineResourceId: vmModule.outputs.vmResourceId
+  }
+}
+
+module bastionModule 'modules/bastion.bicep' = {
+  name: bastion_name_var
+  params: {
+    location: location
+    bastionHostName: bastion_name_var
+    publicIpName: pip_bastion_name_var
+    bastionSubnetId: vnetModule.outputs.bastionSubnetResourceId
   }
 }

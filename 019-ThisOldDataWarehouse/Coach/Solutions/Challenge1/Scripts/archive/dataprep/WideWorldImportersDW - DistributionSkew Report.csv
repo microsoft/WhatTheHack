@@ -1,8 +1,0 @@
-Table name, Distributed Column, Skew Percent, Skew Status
-Fact.Movement,Movement Key,0,Green
-Fact.Order,Order Key,0,Green
-dbo.sessiontouser,SessionID,0,Green
-Fact.Purchase,Purchase Key,0,Green
-Fact.Sale,Sale Key,0,Green
-Fact.Stock Holding,Stock Holding Key,0,Green
-Fact.Transaction,Transaction Key,0,Green

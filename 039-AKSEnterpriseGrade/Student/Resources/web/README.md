@@ -44,7 +44,7 @@ Replace the image and the text `your_api_ip_or_hostname` with the relevant value
 ```bash
 # Deploy on ACI
 rg=your_resource_group
-az container create -n web -g $rg -e "API_URL=http://your_api_ip_or_hostname:8080" --image fasthacks/sqlweb:1.0--ip-address public --ports 80
+az container create -n web -g $rg -e "API_URL=http://your_api_ip_or_hostname:8080" --image fasthacks/sqlweb:1.0 --ip-address public --ports 80
 ```
 
 ### Run this image on Kubernetes

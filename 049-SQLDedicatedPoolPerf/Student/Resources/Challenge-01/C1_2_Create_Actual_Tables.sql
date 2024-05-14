@@ -36,146 +36,146 @@ GO
 
 
 CREATE TABLE Sales.DimAccount  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)' )  
 AS  
 SELECT * FROM [Staging].[DimAccount]  
 GO
 
 
 CREATE TABLE Sales.DimCurrency  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimCurrency]  
 GO
 
 CREATE TABLE Sales.DimCustomer  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimCustomer]  
 GO
 
 
 CREATE TABLE Sales.DimDate  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimDate]  
 GO
 
 
 CREATE TABLE Sales.DimDepartmentGroup  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimDepartmentGroup]  
 GO
 
 
 CREATE TABLE Sales.DimEmployee  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimEmployee]  
 GO
 
 
 CREATE TABLE Sales.DimGeography  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimGeography]  
 GO
 
 
 CREATE TABLE Sales.DimOrganization  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimOrganization]  
 GO
 
 
 CREATE TABLE Sales.DimProduct  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimProduct]  
 GO
 
 
 CREATE TABLE Sales.DimProductCategory  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimProductCategory]  
 GO
 
 
 CREATE TABLE Sales.DimProductSubcategory  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables' , 'Choose the proper storage (Heap or CCI)' )  
 AS  
 SELECT * FROM [Staging].[DimProductSubcategory]  
 GO
 
 
 CREATE TABLE Sales.DimPromotion  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimPromotion]  
 GO
 
 
 CREATE TABLE Sales.DimReseller  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)' )  
 AS  
 SELECT * FROM [Staging].[DimReseller]  
 GO
 
 
 CREATE TABLE Sales.DimSalesReason  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimSalesReason]  
 GO
 
 
 CREATE TABLE Sales.DimSalesTerritory  
-WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimSalesTerritory]  
 GO
 
 
 CREATE TABLE Sales.DimScenario  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[DimScenario]  
 GO
 
 
 CREATE TABLE Sales.FactCurrencyRate  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[FactCurrencyRate]  
 GO
 
 
 CREATE TABLE Sales.FactFinance  
-WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[FactFinance] 
 GO
 
 
 CREATE TABLE Sales.FactInternetSales  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[FactInternetSales]  
 GO
 
 
 CREATE TABLE Sales.FactInternetSalesReason  
-WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH  (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[FactInternetSalesReason]  
 GO
 
 
 CREATE TABLE Sales.FactResellerSales 
-WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables'  )  
+WITH (   DISTRIBUTION = 'Choose the proper distribution method for production tables', 'Choose the proper storage (Heap or CCI)'  )  
 AS  
 SELECT * FROM [Staging].[FactResellerSales]  
 GO

@@ -3,18 +3,10 @@
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
+Check inside the predefined variables and update them so the pipelines can be reusable.
+See [Use predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) for more information.
 
-This is the only section you need to include.
+- Recommended to use the deploy app service task in the assistant.  The students can specify the container registry and image they want to deploy from.
+- To create the approval gates, students will need to create environments in ADO and assign them to each respective stage.  Stages are required in this challenge while they were a nice to have previously.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Check the solution file as ADO pipeline solution sample [Solution-06.yaml](./Solutions/Solution-06.yaml)

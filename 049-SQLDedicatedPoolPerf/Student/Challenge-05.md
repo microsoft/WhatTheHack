@@ -21,6 +21,8 @@ You can find all the files for this challnge into the Zip file provided by your 
 
 Create a set of T-SQL commands to get information about:
 - Top 10 Slowest queries and their steps
+- Errors occurred during the last 24 hours
+- Tables size 
 
 
 ### Monitor Dedicated SQL pool using Log Analytic - Diagnostics

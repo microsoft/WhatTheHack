@@ -1,0 +1,52 @@
+trafficcontrol:
+  imageCredentials:
+    registry: crdaprtestusscdev.azurecr.io
+    username: crdaprtestusscdev
+    password: ***REMOVED***
+    email: noreply@email.com
+    pullPolicy: Always
+    secretName: acr-credentials
+  trafficControlService:
+    dapr:
+      port: 3500
+      appId: traffic-control-service
+  fineCollectionService:
+    dapr:
+      port: 3500
+      appId: fine-collection-service
+  vehicleRegistrationService:
+    dapr:
+      port: 3500
+      appId: vehicle-registration-service
+  userAssignedManagedIdentity:
+    name: mi-daprTest-ussc-dev
+    clientId: 41f484a0-167d-43a5-9a3e-114972aae88e
+
+daprComponents:
+  secrets:
+    componentName: trafficcontrol-secrets
+    keyVaultName: kv-daprTest-ussc-dev
+  stateStore:
+    componentName: statestore
+    redisHost: redis-daprTest-ussc-dev.redis.cache.windows.net:6380
+    redisPassword: ***REMOVED***
+  inputBindings:
+    consumerGroup: trafficcontrolservice
+    storageAccountName: saqf7lm6d6dblpg
+    storageAccountKey: ***REMOVED***
+    entryCam:
+      componentName: entrycam
+      connectionString: Endpoint=sb://ehn-trafficcontrol-daprtest-ussc-dev.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=***REMOVED***;EntityPath=entrycam
+      storageContainerName: trafficcontrol-entrycam
+    exitCam:
+      componentName: exitcam
+      connectionString: Endpoint=sb://ehn-trafficcontrol-daprtest-ussc-dev.servicebus.windows.net/;SharedAccessKeyName=listen;SharedAccessKey=***REMOVED***;EntityPath=exitcam
+      storageContainerName: trafficcontrol-exitcam 
+  pubSub:
+    componentName: pub-sub
+    connectionString: Endpoint=sb://sb-daprtest-ussc-dev.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=***REMOVED***
+  outputBindings:
+    componentName: emailservice
+    url: https://prod-35.eastus.logic.azure.com:443/workflows/9f1f6e2b8a6548daadaafa3f0029afeb/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=***REMOVED***
+
+tenantId: 4abfaf16-9535-4531-85a9-c85268607bae

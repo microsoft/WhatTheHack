@@ -1,0 +1,28 @@
+<a name="speakers"></a>
+<div class="contentband bottom-ruled autosize">
+    <div class="row">
+        <div class="small-12 large-12">
+            <h1 class="page-title"><span class="header-icon workshops" style="text-indent: 0em">O</span>speakers</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-12 column band-panel center">
+            <ul id="speakers-list" class="speakers-list" data-bind="foreach: filteredSpeakers">
+
+                <li *ngFor="let speaker of speakers">
+                    <div *ngIf="speaker.photo !== '' && speaker.photo !== null">
+                        <img [src]="'assets/images/' + speaker.photo" />
+                    </div>
+                    <h1><a><span [innerHTML]="speaker.first"></span> <span [innerHTML]="speaker.last"></span></a></h1>
+                    <h2>
+                        <span [innerHTML]="speaker.title ? speaker.title : ''"></span>
+                        <span *ngIf="speaker.title !== '' &&  speaker.company "> | </span>
+                        <span [innerHTML]="speaker.company "></span>
+                    </h2>
+                    <p class="abstract"><span [innerHTML]="speaker.bio"></span></p>
+
+                    <div style="clear: both;"></div>
+                </li>
+            </ul>
+        </div>
+    </div>

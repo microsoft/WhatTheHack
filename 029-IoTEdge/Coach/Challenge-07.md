@@ -10,4 +10,4 @@ Remember that Device Streams are in **preview**.
 
 Additionally:
 
-- Block inbound SSH traffic (por 22) in your IoT Device. If you're running it in Azure, this can be done for example with a Network Security Group (NSG) attatched to the Vnet. Confirm the device is stil reachable.
+- Block inbound SSH traffic (port 22) in your IoT Device. If you're running it in Azure, this can be with a Network Security Group (NSG) attached to a VNet. Confirm the device is still reachable.

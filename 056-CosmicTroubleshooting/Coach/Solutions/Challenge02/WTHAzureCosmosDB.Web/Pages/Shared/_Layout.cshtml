@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Stuff and More Stuff Co.</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WTHAzureCosmosDB.Web.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Stuff and More Stuff Co.</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Cart/1">Carts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Order/1?storeId=1">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Shipment/1">Shipments</a>
+                        </li>
+                    </ul>
+                </div>         
+                <div class="col-md-3 text-end">
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#devToolsModal">Dev. tools</button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="devToolsModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="devToolsModalLabel">Developer tools</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-left">
+    @{ #if DEBUG }
+                                <i>Load testing feature is not available on localhost</i>
+    @{#else}
+                                <div class="form-label">Simulate load on website</div>
+                                <form class="row" method="post" asp-page="/DevTools" asp-page-handler="CreateNewLoadTest">
+                                    @* <div class="col-5">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="users" class="form-control" value="250" disabled>
+                                            <span class="input-group-text">users</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="loops" class="form-control" value="5" dis>
+                                            <span class="input-group-text">loops</span>
+                                        </div>
+                                    </div> *@
+                                    <div class="col-6">
+                                        <input type="hidden" name="users" value="250">
+                                        <input type="hidden" name="loops" value="5">
+                                        <button class="btn btn-outline-success" type="submit">Start New Simulation</button>
+                                    </div>
+                                </form>
+                                <br />
+    @{#endif}
+                                <button type="button" id="callAjaxButton" style="display: none;">Get current status</button>
+                                <div id="altTestStatus"></div><br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Stuff and More Stuff Co. - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script type="text/javascript">
+        var isTestRunning = true;
+        var testsCount = 0;
+        $("#callAjaxButton").click(function(){
+            testsCount++;
+            var statusDom = $("#altTestStatus");
+            statusDom.html("<p>-- wait for test output --</p>");
+            var i = setInterval(function(){
+                if(!isTestRunning || testsCount > 50){
+                    clearInterval(i);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "https://@ViewContext.ViewData["PROXY_FUNC_HOSTNAME"]/api/ProxyAltRequest/?code=@ViewContext.ViewData["PROXY_FUNC_KEY"]",
+                    data:{
+                        "altDataPlaneEndpoint": "@ViewContext.ViewData["LOADT_DATA_PLANE_ENDPOINT"]",
+                        "testRunId": "@ViewContext.ViewData["AltLastTestRunId"]",
+                        "accessToken": "@ViewContext.ViewData["LOADT_ACCESS_TOKEN"]",
+                    },
+                    contentType: 'application/x-www-form-urlencoded',
+                    dataType: "json",
+                    
+                    success: function (msg) {
+                        console.log(msg);
+                        if(msg.status == "ACCEPTED"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>WAITING</span> The test is waiting to be executed.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 0%\"></div></div>");
+                        }
+                        else if(msg.status == "PROVISIONING"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>PROVISIONING</span> The test is currently being provisioned.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 10%\"></div></div>");
+                        }
+                        else if(msg.status == "CONFIGURING"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>PROVISIONING</span> The test is currently being configured.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 25%\"></div></div>");
+                        }
+                        else if(msg.status == "EXECUTING"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-info'>EXECUTING</span> The test is currently simulating the load.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar progress-bar-striped progress-bar-animated\" style=\"width: 50%\"></div></div>");
+                        }
+                        else if(msg.status == "DONE"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-success'>END</span> The simulation ended successfully.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar bg-success progress-bar-striped\" style=\"width: 100%\"></div></div>");
+                            isTestRunning = false;
+                        }
+                        else if(msg.status == "FAILED"){
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-danger'>ERROR</span> The simulation ended in ERROR state.</p>" +
+                            "<div class=\"progress\"><div class=\"progress-bar bg-danger progress-bar\" style=\"width: 100%\"></div></div>");
+                            isTestRunning = false;
+                        }
+                        else{
+                            statusDom.html("<p><strong>Load simulation status</strong></p><p><span class='badge bg-danger'>UNKNOWN ERROR</span> Unknown error during gathering current state.</p>");
+                            isTestRunning = false;
+                        }
+                   
+                    },
+                    error: function(msg){
+                        statusDom.html("<p>Error, check console log</p>");
+                        console.log(msg);
+                    }
+                });
+                
+            }, 5000);
+        });
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return false;
+        };
+        $(document).ready(function(){
+            
+            if(getUrlParameter('openDevToolsModal') == '1'){
+                $("#devToolsModal").modal('show');
+                
+                if("@ViewContext.ViewData["AltLastTestRunId"]" != ""){
+                    $("#callAjaxButton").click();
+                }
+            }
+            else{
+                if("@ViewContext.ViewData["AltLastTestRunId"]" != ""){
+                    $("#callAjaxButton").css('display', 'block');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

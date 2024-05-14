@@ -1,20 +1,11 @@
-# Challenge 04 - Azure Pipelines: Infrastructure as Code - Coach's Guide 
+# Challenge 04 - Azure Pipelines: Continuous Integration - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+- Students can create a new pipeline to perform a CI build.  They should leverage the Dot Net Core CLI task to perform the dotnet actions
+- We don't want to continue from our last pipeline as we don't want to build our infrastructure at the same time as building our code.  You could have conditions but this may be too far than the students need to go
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+- Check the solution file as ADO pipeline solution sample [Solution-04.yaml](./Solutions/Solution-04.yaml)
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here

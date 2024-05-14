@@ -24,6 +24,7 @@ Students has to do one of the following AIS environments, click on the link belo
   1. 3 Network Security Groups
   1. Private DNS zone (azure-api.net)
   1. Jumpbox VM
+  1. Bastion
   1. Virtual Network with 3-4 subnets
 
   Eventually, the environment would look like the one below:
@@ -34,7 +35,7 @@ Students has to do one of the following AIS environments, click on the link belo
     az deployment group create --template-file main.bicep --parameters [enter parameter values you need to overwrite]
     ```
   - Ensure that the students have [published the APIM Developer portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) because they will need to use this in Challenge 04.  The students should log-in to the jumpbox VM to do this.
-    - First, they need to [set the DNS entries for the APIM service endpoints in the hosts file](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2#dns-configuration#:~:text=To%20access%20these%20API%20Management%20,%20(Windows)%20or%20%2Fetc%2Fhosts%20(Linux%2C%20macOS)).  Map the endpoints to the assigned private virtual IP address (usually 10.1.0.5), as follows:
+    - First, they need to [set the DNS entries for the APIM service endpoints in the hosts file](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2#dns-configuration#:~:text=To%20access%20these%20API%20Management%20,%20(Windows)%20or%20%2Fetc%2Fhosts%20(Linux%2C%20macOS)).  Map the endpoints to the assigned private virtual IP address (usually 10.0.1.5), as follows:
     ![Set DNS Entries APIM 1](./images/Solution01_Set_DNS_Entries_APIM_1.jpg)
     - Then, open a browser and go the Azure portal (still in the jumpbox VM).  In the menu list, go to Developer portal - Portal overview and click the Developer Portal button which will open a browser to create the Developer portal instance in Edit mode. 
     ![Set DNS Entries APIM 2](./images/Solution01_Set_DNS_Entries_APIM_2.jpg)

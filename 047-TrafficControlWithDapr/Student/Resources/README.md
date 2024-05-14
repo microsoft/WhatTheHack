@@ -1,5 +1,9 @@
 # TrafficControl Application & Services Description
 
+- [Challenge 0: Install local tools and Azure prerequisites](../Challenge-00.md)
+- [Challenge 2 - Dapr Service Invocation](../Challenge-02.md)
+- [Challenge 3 - Dapr Pub/Sub Messaging](../Challenge-03.md)
+
 ## Architecture
 
 The traffic-control application architecture consists of four microservices:
@@ -17,12 +21,12 @@ The following sequence diagram describes how the application works:
 
 <img src="../../images/sequence.png" alt="Sequence diagram" style="zoom:67%;" />
 
-1. The Camera `Simulation` generates a random license plate number and sends a *VehicleRegistered* message (containing this license plate number, a random entry-lane (1-3) and the timestamp) to the `/entrycam` endpoint of the `TrafficControlService`.
-1. The `TrafficControlService` stores the *VehicleState* (license plate number and entry-timestamp).
-1. After a random interval, the Camera `Simulation` sends a follow-up *VehicleRegistered* message to the `/exitcam` endpoint of the `TrafficControlService`. It contains the license plate number generated in step 1, a random exit-lane (1-3), and the exit timestamp.
-1. The `TrafficControlService` retrieves the previously-stored *VehicleState*.
-1. The `TrafficControlService` calculates the average speed of the vehicle using the entry and exit timestamp. It also stores the *VehicleState* with the exit timestamp for audit purposes, which is left out of the sequence diagram for clarity.
-1. If the average speed is above the speed-limit, the `TrafficControlService` calls the `/collectfine` endpoint of the `FineCollectionService`. The request payload will be a *SpeedingViolation* containing the license plate number of the vehicle, the identifier of the road, the speeding-violation in KMh, and the timestamp of the violation.
+1. The Camera `Simulation` generates a random license plate number and sends a _VehicleRegistered_ message (containing this license plate number, a random entry-lane (1-3) and the timestamp) to the `/entrycam` endpoint of the `TrafficControlService`.
+1. The `TrafficControlService` stores the _VehicleState_ (license plate number and entry-timestamp).
+1. After a random interval, the Camera `Simulation` sends a follow-up _VehicleRegistered_ message to the `/exitcam` endpoint of the `TrafficControlService`. It contains the license plate number generated in step 1, a random exit-lane (1-3), and the exit timestamp.
+1. The `TrafficControlService` retrieves the previously-stored _VehicleState_.
+1. The `TrafficControlService` calculates the average speed of the vehicle using the entry and exit timestamp. It also stores the _VehicleState_ with the exit timestamp for audit purposes, which is left out of the sequence diagram for clarity.
+1. If the average speed is above the speed-limit, the `TrafficControlService` calls the `/collectfine` endpoint of the `FineCollectionService`. The request payload will be a _SpeedingViolation_ containing the license plate number of the vehicle, the identifier of the road, the speeding-violation in KMh, and the timestamp of the violation.
 1. The `FineCollectionService` calculates the fine for the speeding-violation.
 1. The `FineCollectionService` calls the `/vehicleinfo/{license-number}` endpoint of the `VehicleRegistrationService` with the license plate number of the speeding vehicle to retrieve vehicle and owner information.
 1. The `FineCollectionService` sends a fine notice to the owner of the vehicle by email.
@@ -31,7 +35,7 @@ All actions described in the previous sequence are logged to the console during 
 
 Your coach will provide you with a `Resources.zip` package file that contains the starting projects for the WhatTheHack. It contains a version of the services that use plain HTTP communication and store state in memory. With each challenge, you'll add a Dapr building block to enhance this application architecture.
 
-*It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications.*
+_It's important to understand that all calls between services are direct, synchronous HTTP calls using the HttpClient library in .NET Core. While sometimes necessary, this type of synchronous communication [isn't considered a best practice](https://docs.microsoft.com/dotnet/architecture/cloud-native/service-to-service-communication#requestresponse-messaging) for distributed microservice applications. When possible, you should consider decoupling microservices using asynchronous messaging. However, decoupling communication can dramatically increase the architectural and operational complexity of an application. You'll soon see how Dapr reduces the inherent complexity of distributed microservice applications._
 
 ## End-state with Dapr applied
 
@@ -58,7 +62,7 @@ The following sequence diagram shows how the solution will work after implementi
 
 <img src="../../images/sequence-dapr.png" alt="Sequence diagram with Dapr" style="zoom:67%;" />
 
-*It's helpful to refer back to the preceding sequence diagram as you progress through the challenges.*
+_It's helpful to refer back to the preceding sequence diagram as you progress through the challenges._
 
 ## Prevent port collisions
 
@@ -70,7 +74,7 @@ For most of the challenges, you'll run the microservices in the solution on your
 | FineCollectionService      | 6001             | 3601                   | 60001                  |
 | VehicleRegistrationService | 6002             | 3602                   | 60002                  |
 
-Use the ports specified in the preceding table *whether* using the DIY or step-by-step approach.
+Use the ports specified in the preceding table _whether_ using the DIY or step-by-step approach.
 
 You'll specify the ports from the command-line when starting a service with the Dapr CLI using the following command-line arguments:
 

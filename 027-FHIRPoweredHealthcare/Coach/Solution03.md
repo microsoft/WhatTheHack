@@ -1,98 +1,148 @@
-# Coach's Guide: Challenge 3 - Extract, transform and load C-CDA synthetic medical data
+# Coach's Guide: Challenge 3 - Search FHIR EHR Data
 
-[< Previous Challenge](./Solution02.md) - **[Home](./readme.md)** - [Next Challenge>](./Solution04.md)
+[< Previous Challenge](./Solution02.md) - **[Home](./README.md)** - [Next Challenge>](./Solution04.md)
 
 ## Notes & Guidance
 
-In this challenge, you will use the **[FHIR Converter](https://github.com/microsoft/FHIR-Converter)** reference architecture in **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)**, deployed in **[challenge 2](./Solution02.md)**, to ingest, transform, and load clinical healthcare data into FHIR Server.  You will generate synthetic patient clinical data (C-CDA), convert them into FHIR Bundle and ingest them into FHIR Server.  To generate synthetic patient data, you will use **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** open source Java tool to simulate patient clinical data in HL7 C-CDA format. 
+In this challenge, you will create a new Single Page App (SPA) integrated with Microsoft Authentication Library (MSAL) to connect, read and search for FHIR patient data.
 
-**Clinical data ingest and convert Scenario**
+![JavaScript SPA App - Implicit Flow](../images/JavaScriptSPA-ImplicitFlow.jpg)
 
-In this scenario, you will develop a logic app based workflow to perform the C-CDA-to-FHIR conversion using **[FHIR Converter API](https://github.com/microsoft/FHIR-Converter/blob/master/docs/api-summary.md)** and import the resulting FHIR Bundle into FHIR Server.
+- Make sure the following Node.js prerequistes have been completed
+  - To see if you already have Node.js and npm installed and check the installed version, run: 
+    ```bash
+    node -v
+    npm -v
+    ```
 
-**Deploy **[Microsoft Health Architectures](https://github.com/microsoft/health-architectures)** samples for C-CDA-to-FHIR ingest and convert scenarios**
+  - Download and install **[Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+    - Download latest **[Node.js pre-built installer](https://nodejs.org/en/download/)** for your platform
+    - Run the installer downloaded to install node.js
+    - Post installation, a cmdline window will popup to install additional tools for Node.js.  In the cmdline window, 
+    ```Command
+    Press any key to continue...
+    ```
+- Create a new JavaScript SPA patient search app 
+  - **Option 1: Create a Node.js SPA AAD MSAL Patient Search app**
+    - This step-by-step guide will create a vanilla JavaScript SPA to query protected web API, i.e. Microsoft Graph API, but you will modify it to access FHIR Server web API that accepts tokens from the Microsoft identity platform endpoint. 
+    - In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. This token will be used to acquire patient data via FHIR Server API.
+    - Setup you web server or project, download **[project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)**
+    - Create and initialize your project
+      - Initialize your SPA, run `npm init` at your project root folder
+      - Install required dependencies, run 
+        ```bash
+        npm install express --save
+        npm install morgan --save
+        ```
 
-- Use **[HL7toFHIR converion](https://github.com/microsoft/health-architectures/tree/master/HL7Conversion#hl7tofhir-conversion)** pipeline infrastructure (deployed in **[challenge 2](./Solution02.md)**) to expose the C-CDA Conversion service endpoint: 
+    - Create a simple server to serve your SPA in `server.js` file.
+        - Setup front-end source folder, i.e. `JavaScriptSPA`
+        - Setup route for `index.html`
+        - Start the server
+    - Create the SPA UI in `index.html` file that handles the following:
+      - Implements UI built with Bootstrap 4 Framework
+      -	Imports script files for 
+        - configuration, 
+        - authentication,
+        - API call
+    - Access and update DOM elements in `ui.js` file
+      - User authentication interface (SignIn/SignOut)
+      - Display patient search results interface
+    - **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+      - Set a redirect URL to your JavaScrip Web App URL (Azure and Local) in the `Public Client` `Web Platform Configuration` of your App Registration tenant.
+        - Note: These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
+    - Configure your JavaScript SPA parameters for authentication, in `authConfig.js` file, where:
+        - `clientId`: <Enter_the_Application_Id_Here> is the Application (client) ID for the application you registered.
+        - `authority`: <Enter_Authority_URL_Here> is the Authority value from FHIR Server Authentication setting.
+        - `redirectUri`: <Enter_the_redirect_uri> is your JavaScrip Web App URL from App Service.
+        - `Scope`: <Enter FHIR_Server_endpoint/.default>
+    - Process MSAL authentication and acquire token to call FHIR Server API in `authPopup.js` file
+    - Store REST endpoint for FHIR server in `graphConfig.js` file
+    - Make REST call to FHIR Server in `graph.js` file
+      - Create helper function `callMSGraph()` to make the HTTP GET request against the protected FHIR API resource that requires a token. 
+        - This method appends the acquired token in the HTTP Authorization header.
+        - The request then uses `fetch` method to call the API and returns the response to the caller. 
+    - Add search components in `index.html` to implement patient lookup.
+      - Add a search input textbox to enter search criteria
+      - Add a submit button to perform the patient search
 
-   `https://<SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
-
-- Deploy a new logic app based workflow to perform the C-CDA-to-FHIR conversion and import the resulting FHIR bundle into FHIR Server.  Your BLOB triggered logic app needs to perform the following steps in the workflow:
-    - Step 1: Trigger workflow when a BLOB is added or modified in `cda` container
-    - Step 2: Get BLOB content from C-CDA XML file in `cda` BLOB container.
-    - Step 3: Compose BLOB content as Input object.
-    - Step 4: HTTP - Call FHIR Converter API
-        - Method: POST
-        - URI: `https://<fhirhl7conv_SERVICE_NAME>.azurewebsites.net/api/convert/cda/ccd.hbs`
-        - Body: Compose object output (file content)
-    - Step 5: Import Response Body (FHIR bundle) to FHIR Server 
-        - Connected to FHIR Server through **[FHIR Server Proxy](https://github.com/microsoft/health-architectures/blob/master/FHIR/FHIRProxy/readme.md)**
-        - Set message object to retuned FHIR resource
-
-**Generate patient clinical data using **[SyntheaTM Patient Generator](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** tool**
-
-**[SyntheaTM](https://github.com/synthetichealth/synthea#syntheatm-patient-generator)** is a Synthetic Patient Population Simulator. The goal is to output synthetic, realistic (but not real), patient data and associated health records in a variety of formats.  Read **[Synthea wiki](https://github.com/synthetichealth/synthea/wiki)** for more information.
-- **[Developer Quick Start](https://github.com/synthetichealth/synthea#developer-quick-start)**
-    - **[Installation](https://github.com/synthetichealth/synthea#installation)**
-        - System Requirements: SyntheaTM requires Java 1.8 or above.
-        - Clone the SyntheaTM repo, then build and run the test suite:
-            ```bash
-            $ git clone https://github.com/synthetichealth/synthea.git
-            $ cd synthea
-            $ ./gradlew build check test
-            ```
-        Note: This step may have been done in **[Challenge 1](./Solution01.md)**.
-
-    - Update the **[default properties](https://github.com/synthetichealth/synthea#changing-the-default-properties)** for CDA output
-        ```propoerties
-        exporter.baseDirectory = ./output/cda
-        ...
-        exporter.ccda.export = true
-        exporter.fhir.export = false
-        ...
-        # the number of patients to generate, by default
-        # this can be overridden by passing a different value to the Generator constructor
-        generate.default_population = 1000
+  - **Option 2: Create React AAD MSAL Patient Search SPA**
+    - Build a new SPA in React using **[Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app)** toolchain.  It sets up your development environment with latest JavaScript features and optimizes your app for production. 
+    
+      - You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine. To create a project, run:
+        ```bash
+        npx create-react-app react-patient-search
+        cd react-patient-search
+        npm start
         ```
         
-        **Note:** The default properties file values can be found at src/main/resources/synthea.properties. By default, synthea does not generate CCDA, CPCDA, CSV, or Bulk FHIR (ndjson). You'll need to adjust this file to activate these features. See the **[wiki](https://github.com/synthetichealth/synthea/wiki)** for more details.
-    - Generate Synthetic Patients
-        Generating the population 1000 at a time...
+        **Note:** `npx` on the first line above refers to a package runner tool that comes with npm 5.2+.
+
+    - Use **[Microsoft Authentication Library for JavaScript (MSAL.js) 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#microsoft-authentication-library-for-javascript-msaljs-20-for-browser-based-single-page-applications)** for Browser-Based Single-Page Applications
+      -Install **[MSAL React package](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/README.md#installation)**, run:
         ```bash
-        ./run_synthea -p 1000
+        npm install react react-dom
+        npm install @azure/msal-react @azure/msal-browser
         ```
-    - For this configuration, Synthea will output 1000 patient records in FHIR formats in `./output/cda` folder.
+    - Setup `index.js` in root project folder to handle the app startup and basic HTTP web server functionality similar what's done in traditional Apache.
+      - Import `react-dom` package to provide DOM-specific methods to be used in the app.
+        ```DotNet
+        import ReactDOM from "react-dom";
+        ```
+      - Setup **[React Redux store](https://react-redux.js.org/introduction/basic-tutorial)** to make it available to the app. 
+        ```DotNet
+        import { Provider } from "react-redux";
+        import { basicReduxStore } from "./reduxStore";
+        ```
+      - Setup `react-dom` `render` method to render React app to the web page.
+      - **[Providing the Redux store](https://react-redux.js.org/introduction/basic-tutorial#providing-the-store)** by wrapping the app with the `<Provider />` API provided by React Redux in the `ReactDOM.render()` function.
+        ```DotNet
+        ReactDOM.render(
+          <Provider store={basicReduxStore}>
+            <App />
+          </Provider>,
+          document.getElementById("root")
+        );
+        ```
+    - Create React SPA UI in `App.js` to handle MS Identity Platorm authentication services and patient search UI functionalities.
+      - Import authentication provider and instantiate it only once as a singleton service.
+      - Implement patient search UI built with Bootstrap 4 Framework.
+          - **[Include React Bootstrap package in your app](https://react-bootstrap.github.io/getting-started/introduction/)**
+          - **[Create a simple search app in your React app](https://medium.com/developer-circle-kampala/how-to-create-a-simple-search-app-in-react-df3cf55927f5)**
+            - Create a search component
+            - Add a search input textbox and submit button to perform the search
+            - Create helper functions to handle search events in JavaScript
+    -	Setup MSAL authentication services in `authService.js`:
+        - MSAL configuration
+        - Initialize **[MSAL (@azure/msal-react)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#initialization-of-msal)** in React app
+        - Configure **[Authority and Redirect URL](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#optional-configure-redirect-uri)** properties in `authProvider.js`
+        - MSAL client authentication,
+          - **[Single-page application: Sign-in and Sign-out](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-sign-in?tabs=javascript2)**
+    - Create patient search function `callPatientSearch.js` to setup and call FHIR API using `fetch` method
+      - Single-page application: **[Call a web API](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-call-api?tabs=javascript#call-a-web-api)** 
+      - use the `acquireTokenSilent` method to acquire or renew an access token before you call a web API
+    - Access and update DOM elements in `updateUI.js` to render patient search results
 
-**Bulk Load Synthea generated patient FHIR Bundles to FHIR Server**
-- Copy the Synthea generated C-CDA patient data (XML) in `./output/cda` folder to `cda` BLOB container in `{ENVIRONMENTNAME}store` Storage Account created for FHIR Converter.  This will automatically trigger the new logic app C-CDA to FHIR conversion workflow created above to convert and persist resulted FHIR bundle into FHIR Server. 
-    - To Copy data to Azure Storage using **[AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)** commandline tool
-        - **[Download AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy)**
-        - **[Run AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#run-azcopy)**
-        - Add directory location of AzCopy executable to your system path
-        - Type `azcopy` or `./azcopy` in Windows PowerShell command prompts to get started
-        - Use a SAS token to copy Synthea generated patient clinical data XML file(s) to hl7ingest Azure Blob storage
-            - Sample AzCopy command:
-               ```bash
-               azcopy copy "<your Synthea ./output/cda directory>" "<hl7ingest blob container URL appended with SAS token>"
-               ```
-    - Alternatively, copy data to Azure Storage using **[Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#upload-blobs-to-the-container)** user interface
-        - Navigate to Storage Account blade in Azure Portal, expand BLOB CONTAINERS and click on `cda` to list container content
-        - Click `Upload`, and in `Upload blob` window, browse to Synthea `./result/cda` folder and select C-CDA XML files to upload
-    - Monitor Log Stream in function app `cdafhirconvert.BlobTrigger1`
-        - Verify in log that `FhirBundleBlobTrigger` function auto runs when new blob detected
-            Sample log output:
-            ```bash
-            Executing 'hl7ingestBlobTrigger' (Reason='New blob detected...)...
-            ...
-            Uploaded /...
-            ...
-            Executed 'hl7ingestBlobTrigger' (Succeeded, ...)
-            ```
-**Use Postman to retrieve Patients clinical data via FHIR Patients API**
-- Open Postman and import Postman collection and environment variables for FHIR API (if you have not imported them).
-- Run FHIR API HTTP Requests to validate imported clinical data.
+- (Optional) Include any other modern UI features to improve the user experience.
+- **[Register your app](https://docs.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-javascript-spa#register-your-application)**
+  - Set a redirect URL to your local and Azure JavaScript Web App URL in the `Public Client` `Web Platform Configuration` of your App Registration tenant with directory admin access.
 
-**Note:** See **[challenge 1 solution file](./Solution01.md)** for detailed guide on using Postman to access FHIR Server APIs.
+    **Note:** These URIs will accept as destinations when returning authentication responses (tokens) after successfully authenticating users.
 
-
-
-
+- Test and run your code locally 
+  - Set redirectUri to `https://localhost:3000` in `authConfig.js` file 
+  - Run at cmdline:
+    ```bash
+    npm install
+    nmp start
+    ```
+- **[Deploy your React web app](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)** to Azure from VS Code
+  - Set `redirectUri` to `https://[react-patient-search-app-name].azurewebsites.net` in `authConfig.js` file
+  - Deploy your React web app using VS Code and the Azure App Service extension
+- Test updated sample JavaScript app with patient Lookup feature
+  - Browse to App Service website URL in In-private / Incognito window
+  - Sign in with your secondary tenant (or tenant where App Registration is configured) used in deploying FHIR Server Samples reference architecture
+  - You should see a list of patients that were loaded into FHIR Server
+  - Enter full or partial name (Given or Family) in the Search box and click Search button
+    - This will call the FHIR API interface that filters patient data that contains the specified Given name or Family name configured and return the patient search results to browser
+ 

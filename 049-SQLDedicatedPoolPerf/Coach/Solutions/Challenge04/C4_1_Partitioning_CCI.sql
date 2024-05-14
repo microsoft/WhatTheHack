@@ -17,7 +17,7 @@ https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/s
 
 
 /****************************************************************************************
-STEP 1 of 6 - Run this query against Not partitioned table, it should complete in about 1.5 minute
+STEP 1 of 5 - Run this query against Not partitioned table, it should complete in about 1.5 minute
 ****************************************************************************************/
 --Original Query
 SET RESULT_SET_CACHING OFF
@@ -42,7 +42,7 @@ OPTION(LABEL = 'Not Partitioned Table')
 GO
 
 /****************************************************************************************
-STEP 2 of 6 - check its MPP plan, it should use 5 steps.
+STEP 2 of 5 - check its MPP plan, it should use 5 steps.
 Focus on ShuffleMoveOperation (Step_index = 2) which takes approx 50 seconds to complete
 ****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Not Partitioned Table'
@@ -76,7 +76,7 @@ GO
 
 
 /****************************************************************************************
-STEP 2 of 6 - check its MPP plan, it should use the same but it takes more to complete
+STEP 4 of 5 - check its MPP plan, it should use the same but it takes more to complete
 Shufflemoveoperation (Step_index = 2) is takin more to move the same amount of data
 ****************************************************************************************/
 SELECT * FROM sys.dm_pdw_exec_requests WHERE [LABEL] = 'Partitioned Table'
@@ -84,7 +84,7 @@ SELECT * FROM sys.dm_pdw_request_steps WHERE request_id = 'request_id'
 GO
 
 /****************************************************************************************
-STEP 2 of 6 - Create the view below and check CCI health for Sales.FactInternetSales_Partitioned
+STEP 5 of 5 - Create the view below and check CCI health for Sales.FactInternetSales_Partitioned
 Slowness is due to un-healthy CCI index.
 all rows resides in Open row-groups (HEAP, not CCI) and this affect performance.
 This table doesn't have enough reows to benefit from CCI and partitions.

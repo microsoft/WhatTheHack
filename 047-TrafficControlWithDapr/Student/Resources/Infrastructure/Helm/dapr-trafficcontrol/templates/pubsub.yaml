@@ -1,0 +1,13 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: {{ .Values.daprComponents.pubSub.componentName }}
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+    - name: connectionString
+      value: {{ .Values.daprComponents.pubSub.connectionString }}
+scopes:
+  - {{ .Values.trafficcontrol.trafficControlService.dapr.appId }}
+  - {{ .Values.trafficcontrol.fineCollectionService.dapr.appId }}

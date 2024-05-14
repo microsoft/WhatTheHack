@@ -15,7 +15,7 @@ https://docs.microsoft.com/en-us/sql/t-sql/language-elements/kill-transact-sql?v
 ****************************************************************************************/
 
 /****************************************************************************************
-STEP 1 of 5 - BEFORE RUN THIS SCALE YOUR DEDICATED SQL POOL TO DW100c
+STEP 1 of 4 - BEFORE RUN THIS SCALE YOUR DEDICATED SQL POOL TO DW100c
 
 This command should never complete
 Run this select after you run C3_B_Simulate_Queries.ps1 powershell script.
@@ -44,7 +44,7 @@ OPTION(LABEL = 'Test Concurrency DW100')
 GO
 
 /****************************************************************************************
-STEP 2 of 5 - Checking what is going on
+STEP 2 of 4 - Checking what is going on
 You should find 4 session with status = 'running' and one with status = 'suspended' 
 DW1000 allows max 4 running concurrent query. New submitted queries will be queued and their status will be 'Suspended'
 
@@ -58,7 +58,7 @@ SELECT * FROM sys.dm_pdw_waits WHERE session_id = 'sessions_id'
 GO
 
 /****************************************************************************************
-STEP 3 of 5 - to increase the number of available concurrent queries you have to chose an higher SLO
+STEP 3 of 4 - to increase the number of available concurrent queries you have to chose an higher SLO
 Customer's workload can do it programmatically via Powershell, T-SQL, REST API
 
 In this example we will leverage T-SQL code to scale to DW500c.
@@ -108,7 +108,7 @@ GO
 
 
 /****************************************************************************************
-STEP 4 of 5 - Run this select after you triggered again the C3_B_Simulate_Queries.ps1 powershell script.
+STEP 4 of 4 - Run this select after you triggered again the C3_B_Simulate_Queries.ps1 powershell script.
 While PS1 script is still running (it should take hours to complete) run below query
 It should complete in few seconds
 ****************************************************************************************/

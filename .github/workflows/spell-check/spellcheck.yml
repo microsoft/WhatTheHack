@@ -1,0 +1,22 @@
+matrix:
+  - name: Markdown
+    sources:
+      - "README.md"
+    default_encoding: utf-8
+    aspell:
+      lang: en
+      ignore-case: true
+    dictionary:
+      wordlists:
+        - ".github/workflows/spell-check/.wordlist.txt"
+      encoding: utf-8
+    pipeline:
+      - pyspelling.filters.markdown:
+          markdown_extensions:
+          - pymdownx.superfences
+          - md_in_html
+      - pyspelling.filters.html:
+          comments: false
+          ignores:
+            - code
+            - pre

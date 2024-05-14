@@ -32,13 +32,16 @@ For this module to be successful, participants must have the following tasks com
 
 + Details on the OPCPublisher module, command line options and configuration file format [look here](https://github.com/azure/iot-edge-opc-publisher)  This is important for participants to understand many OPC servers require authentication and tags may have different polling intervals/update requirements. 
 
-+ [Details on container create options](https://github.com/Azure/iot-edge-opc-publisher/blob/main/CommandLineArguments.md) for the OPCPublisher module
++ [Details on container create options](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher-commandline.md) for the OPCPublisher module
     - Worth noting some parameters that can impact cost such as:
         -  --ms that highlights the size of messages to be sent to IoT hub.  making this 0 for instance will cause more data to be sent.  
         - --ih has to do with the protocol used to transmit data to IoT hub which is important to understand for participants to know what FW rules would be needed on the plant-floor.
         - --op highlights the publishing interval from OPC UA servers
         - --di controls the diagnostics logs emitted on the IoT Edge device 
         - --site controls the name of the site reported to IoT Hub
++ Considering that the OPC Publisher configuration isn't the most straight forward, students and coaches may use the following guides to help move forward if needed. 
+    - [Ingesting OPC UA data with Azure Digital Twins](https://learn.microsoft.com/en-us/azure/digital-twins/how-to-ingest-opcua-data)
+    - [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher/)
 
 * * *  
 ### Configuring the OPC Publisher file
@@ -48,4 +51,4 @@ Important to note int the pn.json are the paths on the IoT edge that need to be 
 
 * * * 
 ## Advanced Challenges (Optional)
-It would also make sense to discuss the [Device Provisioning service](https://docs.microsoft.com/en-us/azure/iot-dps) and understand how this could be used to provision Edge devices in 'plants' around the globe using TPM or certificate based attestation.  While it's too challenging to perform these tasks as part of this lab; there are some paths that could be employed to provision a VM in Azure with a virtual TPM chip.  This would be a stretch assignment but something that could be explored with advanced teams.  [Details](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-tpm-attestation)
+It would also make sense to discuss the [Device Provisioning service](https://docs.microsoft.com/en-us/azure/iot-dps) and understand how this could be used to provision Edge devices in 'plants' around the globe using TPM or certificate based attestation.  While it's too challenging to perform these tasks as part of this lab; there are some paths that could be employed to provision a VM in Azure with a virtual TPM chip.  This would be a stretch assignment but something that could be explored with advanced teams.  [TPM Attestation](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-tpm-attestation)

@@ -1,93 +1,190 @@
 param appName string
 param region string
 param environment string
-param adminUsername string
-param publicSSHKey string
+param location string = resourceGroup().location
+param shouldDeployToContainerApps bool = false
+param containerAppTrafficControlServiceObject object = {}
+param containerAppFineCollectionServiceObject object = {}
+param containerAppVehicleRegistrationServiceObject object = {}
 
-var longName = '${appName}-${environment}'
-
-module keyVaultModule 'keyVault.bicep' = {
-  name: 'keyVaultDeploy'  
+module names 'resource-names.bicep' = {
+  name: 'resource-names'
   params: {
-    longName: longName
+    appName: appName
+    region: region
+    env: environment
   }
 }
 
-module serviceBusModule 'serviceBus.bicep' = {
-  name: 'serviceBusDeploy'
+module loggingDeployment 'logging.bicep' = {
+  name: 'logging-deployment'
   params: {
-    longName: longName
+    appInsightsName: names.outputs.appInsightsName
+    logAnalyticsWorkspaceName: names.outputs.logAnalyticsWorkspaceName
+    location: location
   }
 }
 
-module logicAppModule 'logicApp.bicep' = {
-  name: 'logicAppDeploy'
+module managedIdentityDeployment 'managed-identity.bicep' = {
+  name: 'managed-identity-deployment'
   params: {
-    longName: longName
-  }  
-}
-
-module containerRegistryModule 'containerRegistry.bicep' = {
-  name: 'containerRegistryDeploy'
-  params: {
-    longName: longName
+    location: location
+    managedIdentityName: names.outputs.managedIdentityName
   }
 }
 
-module aksModule 'aks.bicep' = {
-  name: 'aksDeploy'
+module keyVaultDeployment 'key-vault.bicep' = {
+  name: 'key-vault-deployment'
   params: {
-    longName: longName
-    adminUsername: adminUsername
-    publicSSHKey: publicSSHKey
-  }  
+    #disable-next-line BCP335
+    keyVaultName: names.outputs.keyVaultName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+  }
 }
 
-module redisCacheModule 'redisCache.bicep' = {
-  name: 'redisCacheDeploy'
+module serviceBusDeployment 'service-bus.bicep' = {
+  name: 'service-bus-deployment'
   params: {
-    longName: longName
-  }  
+    serviceBusNamespaceName: names.outputs.serviceBusNamespaceName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
 }
 
-module mqttModule 'mqtt.bicep' = {
-  name: 'mqttDeploy'
+module logicAppDeployment 'logic-app.bicep' = {
+  name: 'logic-app-deployment'
   params: {
-    longName: longName
-  }  
+    logicAppName: names.outputs.logicAppName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
 }
 
-module storageAccountModule 'storage.bicep' = {
-  name: 'storageAccountDeploy'
+module containerRegistryDeployment 'container-registry.bicep' = {
+  name: 'container-registry-deployment'
   params: {
-    longName: longName
-  }  
+    containerRegistryName: names.outputs.containerRegistryName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+  }
 }
 
-output subscriptionId string = subscription().subscriptionId
+module aksDeployment 'aks.bicep' = if (!shouldDeployToContainerApps) {
+  name: 'aks-deployment'
+  params: {
+    aksName: names.outputs.aksName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+  }
+}
+
+module acaEnvironmentDeployment 'managed-environment.bicep' = if (shouldDeployToContainerApps) {
+  name: 'aca-environment-deployment'
+  params: {
+    containerAppEnvironmentName: names.outputs.containerAppEnvironmentName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    appInsightsName: loggingDeployment.outputs.appInsightsName
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+    serviceBusNamespaceName: serviceBusDeployment.outputs.serviceBusNamespaceName
+    logicAppName: logicAppDeployment.outputs.logicAppName
+    containerAppTrafficControlServiceObject: containerAppTrafficControlServiceObject
+    containerAppFineCollectionServiceObject: containerAppFineCollectionServiceObject
+    keyVaultName: keyVaultDeployment.outputs.keyVaultName
+    redisCacheName: redisCacheDeployment.outputs.redisCacheName
+    storageAccountName: storageAccountDeployment.outputs.storageAccountName
+    storageAccountEntryCamContainerName: storageAccountDeployment.outputs.storageAccountEntryCamContainerName
+    storageAccountExitCamContainerName: storageAccountDeployment.outputs.storageAccountExitCamContainerName
+    daprComponentEntryCamInputBindingsName: names.outputs.daprComponentEntryCamInputBindingsName
+    daprComponentExitCamInputBindingsName: names.outputs.daprComponentExitCamInputBindingsName
+    daprComponentOutputBindingsName: names.outputs.daprComponentOutputBindingsName
+    daprComponentStateStoreName: names.outputs.daprComponentStateStoreName
+    daprComponentPubSubName: names.outputs.daprComponentPubSubName
+    daprComponentSecretsName: names.outputs.daprComponentSecretsName
+    eventHubConsumerGroupName: mqttDeployment.outputs.eventHubConsumerGroupName
+    eventHubEntryCamName: mqttDeployment.outputs.eventHubEntryCamName
+    eventHubExitCamName: mqttDeployment.outputs.eventHubExitCamName
+    eventHubNamespaceName: mqttDeployment.outputs.eventHubNamespaceName
+    eventHubListenAuthorizationRuleName: mqttDeployment.outputs.eventHubListenAuthorizationRuleName
+  }
+}
+
+module acaDeployment 'container-app.bicep' = if (shouldDeployToContainerApps) {
+  name: 'aca-deployment'
+  params: {
+    containerAppEnvironmentName: names.outputs.containerAppEnvironmentName
+    location: location
+    containerAppTrafficControlServiceObject: containerAppTrafficControlServiceObject
+    containerAppFineCollectionServiceObject: containerAppFineCollectionServiceObject
+    containerAppVehicleRegistrationServiceObject: containerAppVehicleRegistrationServiceObject
+    containerRegistryName: containerRegistryDeployment.outputs.containerRegistryName
+    managedIdentityName: managedIdentityDeployment.outputs.managedIdentityName
+  }
+}
+
+module redisCacheDeployment 'redis-cache.bicep' = {
+  name: 'redis-cache-deployment'
+  params: {
+    redisCacheName: names.outputs.redisCacheName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+  }
+}
+
+module mqttDeployment 'mqtt.bicep' = {
+  name: 'mqtt-deployment'
+  params: {
+    iotHubName: names.outputs.iotHubName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    eventHubConsumerGroupName: names.outputs.eventHubConsumerGroupName
+    eventHubNamespaceName: names.outputs.eventHubNamespaceName
+    eventHubEntryCamName: names.outputs.eventHubEntryCamName
+    eventHubExitCamName: names.outputs.eventHubExitCamName
+    eventHubListenAuthorizationRuleName: names.outputs.eventHubListenAuthorizationRuleName
+  }
+}
+
+module storageAccountDeployment 'storage.bicep' = {
+  name: 'storage-account-deployment'
+  params: {
+    storageAccountName: names.outputs.storageAccountName
+    logAnalyticsWorkspaceName: loggingDeployment.outputs.logAnalyticsWorkspaceName
+    location: location
+    storageAccountEntryCamContainerName: names.outputs.storageAccountEntryCamContainerName
+    storageAccountExitCamContainerName: names.outputs.storageAccountExitCamContainerName
+  }
+}
+
+output aksFQDN string = aksDeployment.outputs.aksfqdn
+output aksName string = aksDeployment.outputs.aksName
+output aksNodeResourceGroupName string = aksDeployment.outputs.aksNodeResourceGroupName
+output aksazurePortalFQDN string = aksDeployment.outputs.aksazurePortalFQDN
+output appInsightsInstrumentationKey string = loggingDeployment.outputs.appInsightsInstrumentationKey
+output appInsightsName string = loggingDeployment.outputs.appInsightsName
+output containerRegistryLoginServerName string = containerRegistryDeployment.outputs.containerRegistryLoginServerName
+output containerRegistryName string = containerRegistryDeployment.outputs.containerRegistryName
+output eventHubEntryCamName string = mqttDeployment.outputs.eventHubEntryCamName
+output eventHubExitCamName string = mqttDeployment.outputs.eventHubExitCamName
+output eventHubNamespaceHostName string = mqttDeployment.outputs.eventHubNamespaceHostName
+output eventHubNamespaceName string = mqttDeployment.outputs.eventHubNamespaceName
+output iotHubName string = mqttDeployment.outputs.iotHubName
+output keyVaultName string = keyVaultDeployment.outputs.keyVaultName
+output keyVaultResourceId string = keyVaultDeployment.outputs.keyVaultResourceId
+output logicAppAccessEndpoint string = logicAppDeployment.outputs.logicAppAccessEndpoint
+output logicAppName string = logicAppDeployment.outputs.logicAppName
+output redisCacheName string = redisCacheDeployment.outputs.redisCacheName
 output resourceGroupName string = resourceGroup().name
-output serviceBusName string = serviceBusModule.outputs.serviceBusName
-output serviceBusEndpoint string = serviceBusModule.outputs.serviceBusEndpoint
-output redisCacheName string = redisCacheModule.outputs.redisCacheName
-//output redisCachePrimaryAccessKey string = redisCacheModule.outputs.redisCachePrimaryAccessKey
-output keyVaultName string = keyVaultModule.outputs.keyVaultName
-output logicAppName string = logicAppModule.outputs.logicAppName
-output logicAppAccessEndpoint string = logicAppModule.outputs.logicAppAccessEndpoint
-output containerRegistryName string = containerRegistryModule.outputs.containerRegistryName
-output containerRegistryLoginServerName string = containerRegistryModule.outputs.containerRegistryLoginServerName
-output aksName string = aksModule.outputs.aksName
-output aksFQDN string = aksModule.outputs.aksfqdn
-output aksazurePortalFQDN string = aksModule.outputs.aksazurePortalFQDN
-output aksNodeResourceGroupName string = aksModule.outputs.aksNodeResourceGroupName
-output iotHubName string = mqttModule.outputs.iotHubName
-output eventHubNamespaceName string = mqttModule.outputs.eventHubNamespaceName
-output eventHubNamespaceHostName string = mqttModule.outputs.eventHubNamespaceHostName
-output eventHubEntryCamName string = mqttModule.outputs.eventHubEntryCamName
-output eventHubExitCamName string = mqttModule.outputs.eventHubExitCamName
-output storageAccountName string = storageAccountModule.outputs.storageAccountName
-output storageAccountEntryCamContainerName string = storageAccountModule.outputs.storageAccountEntryCamContainerName
-output storageAccountExitCamContainerName string = storageAccountModule.outputs.storageAccountExitCamContainerName
-output storageAccountKey string = storageAccountModule.outputs.storageAccountContainerKey
-output appInsightsName string = aksModule.outputs.appInsightsName
-output appInsightsInstrumentationKey string = aksModule.outputs.appInsightsInstrumentationKey
-output keyVaultResourceId string = keyVaultModule.outputs.keyVaultResourceId
+output serviceBusConnectionString string = serviceBusDeployment.outputs.serviceBusConnectionString
+output serviceBusEndpoint string = serviceBusDeployment.outputs.serviceBusEndpoint
+output serviceBusNamespaceName string = serviceBusDeployment.outputs.serviceBusNamespaceName
+output storageAccountEntryCamContainerName string = storageAccountDeployment.outputs.storageAccountEntryCamContainerName
+output storageAccountExitCamContainerName string = storageAccountDeployment.outputs.storageAccountExitCamContainerName
+output storageAccountKey string = storageAccountDeployment.outputs.storageAccountContainerKey
+output storageAccountName string = storageAccountDeployment.outputs.storageAccountName
+output subscriptionId string = subscription().subscriptionId
+output userAssignedManagedIdentityClientId string = managedIdentityDeployment.outputs.userAssignedManagedIdentityClientId

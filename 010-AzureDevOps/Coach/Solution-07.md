@@ -4,17 +4,10 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Branch policy will need to be setup via the UI.  This link should show all of the steps needed:
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
+https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops&tabs=browser
 
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
+Note that you need to explicitly mention there are no triggers with trigger: none.  See solution for example:
 
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Check the solution file as ADO pipeline solution sample [Solution-07.yaml](./Solutions/Solution-07.yaml)

@@ -1,0 +1,57 @@
+imageCredentials:
+  registry:
+  username:
+  password:
+  email:
+  pullPolicy: Always
+  secretName: acr-credentials
+
+trafficControlService:
+  name: traffic-control-service
+  containerPort: 6000
+  repositoryName: traffic-control-service
+  imageTag: latest
+  dapr:
+    port: 3500
+    appId: traffic-control-service
+
+fineCollectionService:
+  name: fine-collection-service
+  containerPort: 6001
+  repositoryName: fine-collection-service
+  imageTag: latest
+  dapr:
+    port: 3500
+    appId: fine-collection-service
+
+vehicleRegistrationService:
+  name: vehicle-registration-service
+  containerPort: 6002
+  repositoryName: vehicle-registration-service
+  imageTag: latest
+  dapr:
+    port: 3500
+    appId: vehicle-registration-service
+
+livenessProbe:
+  path: /healthz
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+readinessProbe:
+  path: /healthz
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+replicaCount: 1
+
+serviceAccount:
+  name: dapr-trafficcontrol-service-account
+
+userAssignedManagedIdentity:
+  name:
+  clientId:

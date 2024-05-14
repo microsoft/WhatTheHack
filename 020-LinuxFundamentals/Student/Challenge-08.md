@@ -18,6 +18,7 @@ In this challenge you will learn some basic stuff on shell scripting and the usa
 
 ## Learning Resources
 
+- [Shell Scripting Tutorial](https://www.shellscript.sh/)
 - [How create SHell Script in Linux](https://www.linuxjournal.com/content/how-create-shell-script-linux)
 - [Create Shell Scripts in Linux](https://www.tecmint.com/create-shell-scripts-in-linux/)
 - [The beginners guide to shell scripting](https://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/)

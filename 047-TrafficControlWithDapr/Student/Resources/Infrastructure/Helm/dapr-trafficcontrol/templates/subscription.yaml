@@ -1,0 +1,10 @@
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: pub-sub
+spec:
+  topic: {{ .Values.daprComponents.pubSub.topic }}
+  route: /collectfine
+  pubsubname: {{ .Values.daprComponents.pubSub.componentName }}
+scopes:
+  - {{ .Values.trafficcontrol.fineCollectionService.dapr.appId }}

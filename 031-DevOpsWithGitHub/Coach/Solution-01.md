@@ -1,28 +1,22 @@
-# Challenge 01: Track your work with GitHub Project Boards - Coach's Guide
+# Challenge 01 - Setup Your Repository - Coach's Guide
 
-**[Home](./README.md)** - [Next Solution >](./Solution-02.md)
+[< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
-- Make sure students dont get the new "Project (Beta)" confused with the traditional Project boards.
-- Students wont be able to assign tickets to others if they are not invited and accepted as collaborators.
-- Issues and PRs are very similar as they use issues underneath both.
+- Some students create their first repository via github desktop.  Make sure students understand how a distributed source control such as git is different from a centralized source control system such as TFVC. 
 
-- To add collaborators
-    - In your repository, select "Settings"
-    - On the left hand side, select "Collaborators"
-    - Select "Add people"
-    - In the popup, enter the user you wish to add
-    - The user will need to accept the invite before this is complete.
-- Create Automated Kanban Board
-    - In your repository, select "Projects"
-    - Make sure on the left hand side you select "Projects", the one not in beta
-    - Select "New Project"
-    - Fill in the name you want.
-    - Select "Automated Kanban" in the template drop down.
-    - Select "Create Project
-- Creating Issues
-    - In your repository, select "Issues" 
-    - Select "New Issue"
-    - Create the issue for each challenge.  Make sure you link the issue to the project on the right hand side before creating.
-    - New issues if linked properly should show up in the "To do" column.  Once you set to closed, it should move to "Done" column.  If you are viewing the issues in the kanban board, you are able to drag the issues across the columns.
+- To clone a repository via command line: `git clone $URL` in the directory you want to copy the repository to.
+  - To get the $URL, go to your repository in github.
+  - Select "<> Code" which should be a green button.
+  - In the clone section, click on the copy button to get the url.
+- Add the files the coaches provided in the same directory.
+- In the command line enter: `git add --all` - This will add all of the files you just copied to the folder to be be tracked.
+- Now we need to commit our changes by typing `git commit -am "My first commit"`
+- Finally we need to push to the remote repository in github by doing `git push -u`.  You may see a warning which will provide the full command if this is the first time you are doing this to target the github server.
+
+## Videos
+
+### Challenge 1 Solution
+
+[![Challenge 1 solution](../Images/WthVideoCover.jpg)](https://youtu.be/8duTFL5fyWg "Challenge 1 solution")

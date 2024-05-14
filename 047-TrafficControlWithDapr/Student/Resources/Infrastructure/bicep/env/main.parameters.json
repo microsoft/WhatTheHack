@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "value": "dapr<your-initials><3-random-numbers>"
+    },
+    "region": {
+      "value": "ussc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "containerAppTrafficControlServiceObject": {
+      "value": {
+        "name": "ca-traffic-control-service",
+        "appId": "trafficcontrolservice",
+        "appPort": 6000,
+        "repositoryName": "trafficcontrolservice",
+        "imageTag": "assignment08",
+        "cpu": 1,
+        "memory": "2.0Gi"
+      }
+    },
+    "containerAppFineCollectionServiceObject": {
+      "value": {
+        "name": "ca-fine-collection-service",
+        "appId": "finecollectionservice",
+        "appPort": 6001,
+        "repositoryName": "finecollectionservice",
+        "imageTag": "assignment08",
+        "cpu": 1,
+        "memory": "2.0Gi"
+      }
+    },
+    "containerAppVehicleRegistrationServiceObject": {
+      "value": {
+        "name": "ca-vehicle-registration-service",
+        "appId": "vehicleregistrationservice",
+        "appPort": 6002,
+        "repositoryName": "vehicleregistrationservice",
+        "imageTag": "assignment08",
+        "cpu": 1,
+        "memory": "2.0Gi"
+      }
+    }
+  }
+}

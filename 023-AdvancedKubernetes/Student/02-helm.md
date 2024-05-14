@@ -28,7 +28,7 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 1. Update your created chart to add the Ingress route
    - HINT: This updates the original chart you created
    - HINT: You only need to modify the values.yaml file
-   - HINT: The default annotations are ok
+   - HINT: The default annotations need to be commented back in
    - HINT: Use nip.io for DNS resolution
 1. Verify App is available at myapp.$INGRESS_IP.nip.io
    - HINT: `INGRESS_IP=$(kubectl get service -n ingress-basic nginx-ingress-ingress-nginx-controller -o json |

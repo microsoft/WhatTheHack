@@ -1,0 +1,43 @@
+<div class="contentband bottom-ruled autosize">
+  <div class="row">
+    <div class="small-12 large-12">
+      <h1 class="page-title"><span class="header-icon sessions" style="text-indent: 0px">9</span>Stats</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 large-12 column band-panel center">
+      <table>
+        <tr>
+          <td><b>webTaskId</b></td>
+          <td align="left"><span [innerHTML]="stats.webTaskId"></span></td>
+        </tr>
+        <tr>
+          <td><b>taskId</b></td>
+          <td align="left"><span [innerHTML]="stats.taskId"></span></td>
+        </tr>
+        <tr>
+          <td><b>hostName</b></td>
+          <td align="left"><span [innerHTML]="stats.hostName"></span></td>
+        </tr>
+        <tr>
+          <td><b>pid</b></td>
+          <td align="left"><span [innerHTML]="stats.pid"></span></td>
+        </tr>
+        <tr>
+          <td><b>mem</b></td>
+          <td align="left"><span>{{stats.mem| json}}</span></td>
+        </tr>
+        <tr>
+          <td><b>counters</b></td>
+          <td align="left"><span>{{stats.counters| json}}</span></td>
+        </tr>
+        <tr>
+          <td><b>uptime</b></td>
+          <td align="left"><span [innerHTML]="stats.uptime"></span></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
