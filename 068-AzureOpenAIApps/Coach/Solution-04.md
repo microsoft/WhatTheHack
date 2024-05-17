@@ -4,6 +4,6 @@
 
 ## Notes & Guidance
 
-The students will use the Azure CLI to upload the submission documents located in `challenge-artifacts/contoso-education/submissions`:
-Example: 
+The students will use the Azure CLI to upload the submission documents located in `challenge-artifacts/contoso-education/submissions`:<br>
+Example: <br>
 `az storage blob upload-batch --account-name contosopeterod1storage -d submissions -s .`
