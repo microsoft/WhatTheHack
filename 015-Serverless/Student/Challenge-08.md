@@ -35,7 +35,7 @@ In this challenge, you create a new Logic App for your data export workflow. Thi
 
 ```csharp
     // TODO 7: Asyncronously upload the blob from the memory stream.
-     await blob.UploadAsync(stream, true);
+    await blob.UploadAsync(stream, true);
  ```
  8. Publish to Azure
  9. In your App Azure Function, add `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true` in the application settings.
