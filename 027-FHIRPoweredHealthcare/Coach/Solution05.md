@@ -1,6 +1,6 @@
-# Coach's Guide: Challenge 5 - : Export and Anonymize FHIR EHR Data
+# Coach's Guide: Challenge 5 - Export and Anonymize FHIR EHR Data
 
-[< Previous Challenge](./Solution04.md) - **[Home](../README.md)** - [Next Challenge>](./Solution06.md)
+[< Previous Challenge](./Solution04.md) - **[Home](./README.md)** - [Next Challenge>](./Solution06.md)
 
 ## Notes & Guidance
 
