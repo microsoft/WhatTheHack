@@ -16,6 +16,10 @@ section {
   margin-top: 0;
 }
 
+summary {
+  display:list-item
+}
+
 .wrapper {
   max-width: none;
   margin: 0 50px;
