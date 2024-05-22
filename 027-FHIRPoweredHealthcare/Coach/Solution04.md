@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 4 - Explore and Analyze FHIR EHR Data
 
-[< Previous Challenge](./Solution03.md) - **[Home](../README.md)** - [Next Challenge>](./Solution05.md)
+[< Previous Challenge](./Solution03.md) - **[Home](./README.md)** - [Next Challenge>](./Solution05.md)
 
 ## Introduction
 
