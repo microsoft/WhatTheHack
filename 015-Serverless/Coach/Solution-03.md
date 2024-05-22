@@ -42,7 +42,7 @@ For education purposes, there's also a script `after-accelerator-ch04-06.sh` wit
 
 ## May 2024 Serverless Lab at MS Build
 
-For MS Build conference on May 2024 we created a shorter version of this WTH, automating most of challenge 01 to 07, removing challenge 08 altogether, so it can be completed in a couple hours (starting from a codespace with the TODO code already replaced and all Azure resources pre-created). Note that the MSBuild lab have different numbered activities (lab 1 to 5). Coaches can look at the instructions and the Bicep code in the Coach/Solutions/may2024-lab-msbuild folder, as it has less things to configure, so it can be used for training the Coaches or to prepare a custom version of this WTH. Note that this folder won't be updated by WTH maintainers going forward (so expect the code to become outdated in the future)
+For MS Build conference on May 2024 we created a shorter version of this WTH, automating most of challenge 01 to 07, removing challenge 08 altogether, so it can be completed in a couple hours (starting from a codespace with the TODO code already replaced and all Azure resources pre-created). Note that the lab have different numbered activities (lab 1 to 5). Coaches can look at the instructions and the Bicep code in the Coach/Solutions/may2024-lab-msbuild folder, as it has less things to configure, so it can be used for training the Coaches or to prepare a custom version of this WTH. Note that this folder won't be updated by WTH maintainers going forward (so expect the code to become outdated in the future)
 
 ## Step by Step Instructions
 
