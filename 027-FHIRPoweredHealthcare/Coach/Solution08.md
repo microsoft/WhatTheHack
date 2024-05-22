@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 8 - OMOP Analytics
 
-[< Previous Challenge](./Solution07.md) - **[Home](../README.md)**
+[< Previous Challenge](./Solution07.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
