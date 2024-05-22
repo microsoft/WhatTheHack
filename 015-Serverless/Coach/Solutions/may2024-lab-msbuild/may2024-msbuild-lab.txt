@@ -41,7 +41,7 @@ Lab 5 - Scan 1000 images and observe the behaviour at scale
 - Create a Computer Vision service via the Azure Portal, in the same resource group, **Free Tier**, and accept the Responsable AI terms & conditions
 - Once created, copy the Key and the Endpoint URL and paste them into the following box for later reference.
 
-    *Computer Vision Key*: @lab.TextBox(ComputerVisionKey)  Example: 4fb781579b854f6b960a217ef2e702f2
+    *Computer Vision Key*: @lab.TextBox(ComputerVisionKey)  Example: REDACTEDSECRET_XXXX
 
     *Computer Vision URL*: @lab.TextBox(ComputerVisionURL) Example: https://ocrserverless123s.cognitiveservices.azure.com/
 
@@ -134,7 +134,7 @@ Lab 5 - Scan 1000 images and observe the behaviour at scale
 - On a brower tab, open the LiveStream dashboard to monitor the whole system at once
 
 - On the Azure Portal, navigate to the Storage Account under *Security + Networking - Access Keys* section and copy here the first Connection String. The script needs the Blob Storage connection you copied earlier)
-    *Storage Connection String*: @lab.TextBox(StorageConnString) Example: DefaultEndpointsProtocol=https;AccountName=funcicpz1211pgj2qm;AccountKey=3iZuLubgg32yY1xB30ijCITt24zP36fvix8fzE3/4rw2bje31HH8DOe2aZriKbpPgEq4Mk6JpeqY+ASt5Tbfew==;EndpointSuffix=core.windows.net
+    *Storage Connection String*: @lab.TextBox(StorageConnString) Example: DefaultEndpointsProtocol=https;AccountName=funcicpz1211pgj2qm;AccountKey=REDACTEDSECRET_XXXX==;EndpointSuffix=core.windows.net
 
 - In VSCode, open the TollBooth folder C:\LabFiles\App or click the Desktop Shortcut to the App workspace
 - Edit the file *C:\LabFiles\App\UploadImages\Program.cs* in lines 124 and 131, so it points to the right folder: 
