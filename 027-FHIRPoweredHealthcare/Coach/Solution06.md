@@ -1,6 +1,6 @@
-# Coach's Guide: Challenge 6 - : Ingest and Persist IoT Medical Device Data
+# Coach's Guide: Challenge 6 - Ingest and Persist IoT Medical Device Data
 
-[< Previous Challenge](./Solution05.md) - **[Home](../README.md)** - [Next Challenge>](./Solution07.md)
+[< Previous Challenge](./Solution05.md) - **[Home](./README.md)** - [Next Challenge>](./Solution07.md)
 
 ## Notes & Guidance
 
