@@ -29,7 +29,6 @@ STOW-RS
 QIDO-RS
 WADO-RS
 AAD
-dcm
 HDICOM
 Anonymize
 anonymize
