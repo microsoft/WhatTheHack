@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 7 - Load DICOM Imaging Data
 
-[< Previous Challenge](./Solution06.md) - **[Home](../README.md)** - [Next Challenge>](./Solution08.md)
+[< Previous Challenge](./Solution06.md) - **[Home](./README.md)** - [Next Challenge>](./Solution08.md)
 
 ## Notes & Guidance
 
