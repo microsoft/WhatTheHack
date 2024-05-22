@@ -6,7 +6,6 @@ lakehouses
 lakehouse's
 OneLake
 OneLake's
-datamanager
 EHR
 CDA
 C-CDA
@@ -25,9 +24,6 @@ IoT
 SSMS
 PowerBI
 SPA
-STOW-RS
-QIDO-RS
-WADO-RS
 AAD
 HDICOM
 Anonymize
