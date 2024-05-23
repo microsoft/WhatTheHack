@@ -1,10 +1,10 @@
 # Coach's Guide: Challenge 7 - Load DICOM Imaging Data
 
-[< Previous Challenge](./Solution06.md) - **[Home](../README.md)**
+[< Previous Challenge](./Solution06.md) - **[Home](./README.md)** - [Next Challenge>](./Solution08.md)
 
 ## Notes & Guidance
 
-In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (STOW-RS), Search (QIDO-RS), and Retrieve (WADO-RS).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliant boundary in the Azure Health Data Services workspace.
+In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (`STOW-RS`), Search (`QIDO-RS`), and Retrieve (`WADO-RS`).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliant boundary in the Azure Health Data Services workspace.
 
 - **Deploy a DICOM service instance within your Azure Health Data Services workspace (deployed in challenge 1).**
     - Go to your `Azure Health Data Service` workspace (deployed in challenge 1)
@@ -36,21 +36,21 @@ In this challenge, you will deploy, configure and use **[DICOM service](https://
     - clientSecret - Client secret for your Postman app.
 
     New values you need to input:
-    - resource - https://dicom.healthcareapis.azure.com
-    - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
+    - `resource` - `https://dicom.healthcareapis.azure.com`
+    - `baseUrl` - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add `/v1` on the end: `https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1`
 
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service
-    - Call `POST AuthorizeGetToken` API call in `Conformance-as-Postman` collection to obtian the access token needed to access DICOM data
+    - Call `POST AuthorizeGetToken` API call in `Conformance-as-Postman` collection to obtain the access token needed to access DICOM data
   - Store DICOM instance with sample DICOM files
-    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
-    - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
-    - For each sample .dcm file, Send appropriate `POST Store-single-instance...` call to populate your DICOM service with the three .dcm single instance files.
+    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `Conformance-as-Postman` collection for each sample DICOM files (`red-triangle.dcm`, `green-square.dcm` and `blue-circle.dcm`)
+    - Select the appropriate `.dcm` file (downloaded previously) for each API call in the `Body` tab.
+    - For each sample `.dcm` file, Send appropriate `POST Store-single-instance...` call to populate your DICOM service with the three `.dcm` single instance files.
   - Call `Search-for-xxx` API calls in `Conformance-as-Postman` collection to Search for DICOM studies
   - Call `Retrieve-xxx` API calls in `Conformance-as-Postman` collection to Retrieve DICOM studies
   - Check logs for changes in DICOM service via Change Feed
-    - Call `GET /changefeed` API call to retreive logs of all the changes that occur in DICOM service
-    - Call `GET /changefeed/latest` API call to retrieve log of latest changes that ocrrur in DICOM service
+    - Call `GET /changefeed` API call to retrieve logs of all the changes that occur in DICOM service
+    - Call `GET /changefeed/latest` API call to retrieve log of latest changes that occur in DICOM service
   - Call `xxx-extended-query tags` API calls in `Conformance-as-Postman` collection to manage extended query tags in DICOM studies
     - Add extended query tags
     - List extended query tags

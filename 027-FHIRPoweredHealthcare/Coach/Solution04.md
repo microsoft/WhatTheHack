@@ -1,6 +1,6 @@
 # Coach's Guide: Challenge 4 - Explore and Analyze FHIR EHR Data
 
-[< Previous Challenge](./Solution03.md) - **[Home](../README.md)** - [Next Challenge>](./Solution05.md)
+[< Previous Challenge](./Solution03.md) - **[Home](./README.md)** - [Next Challenge>](./Solution05.md)
 
 ## Introduction
 
@@ -77,7 +77,7 @@ Hint: you will see folders for only those Resources that are present in your FHI
         ```PowerShell
         Connect-AzAccount -SubscriptionId 'yyyy-yyyy-yyyy-yyyy'
         ```
-    - Run PowerShell script under the scripts folder (..\FhirToDataLake\scripts)
+    - Run PowerShell script under the scripts folder (`..\FhirToDataLake\scripts`)
         ```PowerShell
         ./Set-SynapseEnvironment.ps1 -SynapseWorkspaceName "{Name of your Synapse workspace instance}" -StorageName "{Name of your storage account where Parquet files are written}".
         ```

@@ -1,6 +1,6 @@
-# Coach's Guide: Challenge 6 - : Ingest and Persist IoT Medical Device Data
+# Coach's Guide: Challenge 6 - Ingest and Persist IoT Medical Device Data
 
-[< Previous Challenge](./Solution05.md) - **[Home](../README.md)** - [Next Challenge>](./Solution07.md)
+[< Previous Challenge](./Solution05.md) - **[Home](./README.md)** - [Next Challenge>](./Solution07.md)
 
 ## Notes & Guidance
 
@@ -11,7 +11,7 @@ The **[MedTech service](https://docs.microsoft.com/en-us/azure/healthcare-apis/i
 **[Azure IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper)** is the MedTech toolkit to visualize and configure normalize mapping between the medical Iot data and FHIR.  Once you completed the FHIR mapping, you can export it and upload the mapping files to your **[MedTech service Device Mapping](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings)** configuration in Azure Portal.
 
 ### IoMT MedTech service scenario
-You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persitence in your FHIR service (deployed in challenge 1) as Observation resources.
+You will deploy an instance of MedTech service in your Azure Health Data Service workspace, and configure it to receive and transform medical IoT data for persistence in your FHIR service (deployed in challenge 1) as Observation resources.
 
 **Deploy and configure **[Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)** for MedTech service to **[ingest](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/iot-data-flow#ingest)** medical IoT device data**
 - Create **[Event Hubs namespace](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace)** using Azure Portal
@@ -31,7 +31,7 @@ You will deploy an instance of MedTech service in your Azure Health Data Service
     - The message retention setting specifies how long the Event Hubs service keeps data.
 
 **Deploy **[MedTech Service manually](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/deploy-iot-connector-in-azure#deploy-the-medtech-service-manually)** in your AHDS workspace and configure it to use FHIR service deployed in challenge 1**
-- Open your AHDS worksapce
+- Open your AHDS workspace
 - Select Deploy MedTech service button
 - Select `+Add` MedTech service
 - Configure it to ingest IoT data from the newly created Event Hubs instance in this challenge

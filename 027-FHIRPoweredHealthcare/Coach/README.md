@@ -18,8 +18,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) th
     - Generate and load synthetic Electronic Health Record (EHR) data into FHIR Service.
 
 **These challenges can be completed in any order:**
-- Challenge 2: **[Extract and Load HL7v2 and C-CDA EHR Data](./Solution02.md)**
-    - Convert and Load HL7v2 and C-CDA clinical data into FHIR Service.
+- Challenge 2: **[Extract and Load `HL7v2` and `C-CDA` EHR Data](./Solution02.md)**
+    - Convert and Load `HL7v2` and `C-CDA` clinical data into FHIR Service.
 - Challenge 3: **[Search FHIR EHR Data](./Solution03.md)**
     - Develop Single Page App (SPA) to search and view FHIR EHR data.
 - Challenge 4: **[Explore and Analyze FHIR EHR Data](./Solution04.md)**
@@ -30,6 +30,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx?raw=true) th
     - Ingest, transform and load medical IoT device data into FHIR using MedTech service.
 - Challenge 7: **[Load DICOM Imaging Data](./Solution07.md)**
     - Ingest, search and retrieve imaging data persisted in the DICOM service.
+- Challenge 8: **[OMOP Analytics](Student/Challenge08.md)**
+    - Transform FHIR data to OMOP open standards for downstream analytics using Healthcare Data Solutions.
 
 ## Coach Prerequisites
 
@@ -59,8 +61,8 @@ This hack will deploy the following Azure resources and OSS components to implem
 - FHIR Analytics Pipeline - FHIR to Synapse sync agent (OSS pipeline to move FHIR data in FHIR service to Azure Data Lake for analytics with Synapse in challenge 4)
 - Tool for Health Data Anonymization pipeline (ADF pipeline to export and anonymize FHIR data in challenge 5)
 - Serverless SQL pool in Azure Synapse Analytics (Query service over the data in your data lake in challenge 4)
-- Azure Data Factory (Cloud ETL pipeline used in challege 5)
-- Azure Batch (Perform the deidentification in Tools for Health Data Anonymization in challenge 4))
+- Azure Data Factory (Cloud ETL pipeline used in challenge 5)
+- Azure Batch (Perform the de-identification in Tools for Health Data Anonymization in challenge 4)
 - App Service Plan (Shared by FHIR Loader function apps)
 - Storage account (Data Lake/Blob storage for various challenges)
 - Key Vault (Stores secrets and configuration settings in various challenges)
@@ -69,6 +71,8 @@ This hack will deploy the following Azure resources and OSS components to implem
 - Event Grid System Topic (Triggers processing of FHIR bundles placed in the FHIR Loader storage account)
 - Azure Data Factory (Export/Anonymize pipeline in challenge 5)
 - Event Hub (managed event ingesting service in challenge 6)
+- Healthcare Data Solutions (Pre-built pipelines to convert FHIR data to OMOP open standards within Microsoft Fabric Lakehouse in challenge 8)
+- Microsoft Fabric (Pre-built Lakehouses and Notebooks in challenge 8)
 
 ## Repository Contents
 
