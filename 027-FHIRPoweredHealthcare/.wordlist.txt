@@ -32,6 +32,8 @@ Anonymization
 USCDI
 datamart
 ADLSGEN2
+ADLSGEN
 Synthea
 IoMT
 AHDS
+parallelize
