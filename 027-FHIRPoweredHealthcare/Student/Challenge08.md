@@ -51,16 +51,16 @@ In this challenge, you will [deploy Healthcare data solutions](https://learn.mic
   - `msft_omop_sample_drug_exposure_insights` Notebook
   
 **First, run FHIR ingestion pipeline to export your FHIR data (deployed in challenge 1) and store the raw JSON in the lake**
-  - Hint: Configure and run `msft_fhir_export_service` Notebook
+  - **HINT:** Configure and run `msft_fhir_export_service` Notebook
 
 **Ingest raw data into delta tables in the Bronze (`msft_bronze`) Lakehouse**
-  - Hint: [Configure and run `msft_raw_bronze_ingestion`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook
+  - **HINT:** [Configure and run `msft_raw_bronze_ingestion`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_raw_bronze_ingestion) Notebook
 
 **Flatten raw FHIR JSON files in Bronze (`msft_bonze`) Lakehouse and to ingest the resulting data into the Silver (`msft_silver`) Lakehouse**
-  - Hint: [Configure and run `msft_bronze_silver_flatten`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) Notebook
+  - **HINT:** [Configure and run `msft_bronze_silver_flatten`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/healthcare-data-foundations-configure#healthcare_msft_bronze_silver_flatten) Notebook
 
 **Transform resources in the Sliver Lakehouse into OMOP Common Data Model and persist in Gold (`msft_gold_omop`) Lakehouse**
-  - Hint: [Configure and run `msft_silver_omop`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) Notebook
+  - **HINT:** [Configure and run `msft_silver_omop`](https://learn.microsoft.com/en-us/industry/healthcare/healthcare-data-solutions/omop-analytics-configure#configure-the-omop-silver-notebook) Notebook
   
 
 ## Success Criteria
