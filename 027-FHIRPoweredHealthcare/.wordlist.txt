@@ -32,3 +32,4 @@ Anonymization
 USCDI
 datamart
 ADLSGEN2
+Synthea
