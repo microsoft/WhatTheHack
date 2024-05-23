@@ -29,3 +29,6 @@ HDICOM
 Anonymize
 anonymize
 Anonymization
+USCDI
+datamart
+ADLSGEN2
