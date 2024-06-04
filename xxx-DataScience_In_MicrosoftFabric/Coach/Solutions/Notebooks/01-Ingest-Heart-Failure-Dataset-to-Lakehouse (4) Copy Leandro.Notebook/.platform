@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "01-Ingest-Heart-Failure-Dataset-to-Lakehouse (4) Copy Leandro",
+    "description": "New notebook"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "12b493d3-7103-4b45-aa70-9151ca17d89e"
+  }
+}
