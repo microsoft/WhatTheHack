@@ -1,0 +1,46 @@
+{
+  "Source": "JSON",
+  "Sink": "Cosmos-nosql",
+  "Operations": [
+    {
+      "SourceSettings": {
+        "FilePath": "https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/product.json"
+      },
+      "SinkSettings": {
+        "ConnectionString": "{{cosmosConnectionString}}",
+        "Database":"database",
+        "Container":"product",
+        "PartitionKeyPath":"/categoryId",
+        "RecreateContainer": false,
+        "BatchSize": 100,
+        "ConnectionMode": "Direct",
+        "MaxRetryCount": 5,
+        "InitialRetryDurationMs": 200,
+        "CreatedContainerMaxThroughput": 1000,
+        "UseAutoscaleForCreatedContainer": true,
+        "WriteMode": "InsertStream",
+        "IsServerlessAccount": false
+        }
+    },
+    {
+      "SourceSettings": {
+        "FilePath": "https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/customer.json"
+      },
+      "SinkSettings": {
+        "ConnectionString": "{{cosmosConnectionString}}",
+        "Database":"database",
+        "Container":"customer",
+        "PartitionKeyPath":"/customerId",
+        "RecreateContainer": false,
+        "BatchSize": 100,
+        "ConnectionMode": "Direct",
+        "MaxRetryCount": 5,
+        "InitialRetryDurationMs": 200,
+        "CreatedContainerMaxThroughput": 1000,
+        "UseAutoscaleForCreatedContainer": true,
+        "WriteMode": "InsertStream",
+        "IsServerlessAccount": false
+        }
+    }
+  ]
+}
