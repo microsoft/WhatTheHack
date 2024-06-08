@@ -9,7 +9,7 @@ Even though the instructions on the Student guide should be sufficient for the C
 Example:
 | **Application Key** | **Value** |
 | --- | --- |
-| `computerVisionApiUrl` | `https://westus.api.cognitive.microsoft.com/vision/v2.0/ocr` |
+| `computerVisionApiUrl` | `https://westus.api.cognitive.microsoft.com/vision/v3.2/ocr` |
 | `computerVisionApiKey` | `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kvx.vault.azure.net/secrets/computerVisionApiKey/)` |
 | `eventGridTopicEndpoint` | `https://wth-serverless-topic.canadacentral-1.eventgrid.azure.net/api/events` |
 | `eventGridTopicKey` | `@Microsoft.KeyVault(SecretUri=https://wth-serverless-kvx.vault.azure.net/secrets/eventGridTopicKey/)` |
