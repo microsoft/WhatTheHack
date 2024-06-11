@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Graph" Version="3.13.0" />
     <PackageReference Include="Microsoft.Graph.Auth" Version="1.0.0-preview.5" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.18.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.61.3" />
   </ItemGroup>
 
 </Project>
