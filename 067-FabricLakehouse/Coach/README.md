@@ -6,7 +6,7 @@ Welcome to the coach's guide for the Fabric Lakehouse What The Hack. Here you wi
 
 This hack includes an awesome [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
-You may also want to customise the deck to include logistics, timings, you and other coaches details, and other information specific to your event. Additional sea-themed puns are also encouraged. Yarrr...
+You may also want to customise the deck to include logistics, timings, you and other coaches details, and other information specific to your event. Additional sea-themed puns are also encouraged. Yarr...
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
