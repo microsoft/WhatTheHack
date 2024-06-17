@@ -14,7 +14,7 @@ The brief from Margie's Travel is fairly open-ended, so the first step is to con
 
 In this challenge you will first brainstorm categories of data you'd like to include. You'll then need to explore some of the open data sources available to you, and consider how they might be used to help build your story.
 
-Next, you'll select a few data sources to use in your solution and document your choices. Don't forget licensing considerations! Remember to think about open data sources, any potenital downsides of using your data provider (like availability, cost, etc). 
+Next, you'll select a few data sources to use in your solution and document your choices. Don't forget licensing considerations! Remember to think about open data sources, any potential downsides of using your data provider (like availability, cost, etc).
 
 Finally, you'll consider each of your sources and document which technology in Fabric would be most appropriate to retrieve, clean and store the data. You'll also need to consider how you will present your data stories and dive briefings.
 
