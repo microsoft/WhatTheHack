@@ -17,7 +17,7 @@ Students may wish:
 - to use a notebook, a dataflow or a combination of both to retrieve and land the data
 - to use the provided raw data files
 
-any of these are acceptable.
+Any of these are acceptable.
 
 Once the raw data has been landed, students will need to clean the data to bronze. The example solution uses a notebook to perform this step for shipwrecks and marine zones as this is the most applicable tool for processing spatial data. Since parquet does not support ``geometry`` types, shipwrecks and marine zones are stored as geojson in bronze.
 
