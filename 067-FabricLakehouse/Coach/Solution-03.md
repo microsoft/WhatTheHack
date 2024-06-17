@@ -20,7 +20,7 @@ __Dataflow2__
 
 __Notebooks__
 
-- ``Solution - Data Engineering.ipynb`` - this notebook contains a solution for both [Challenge 2](Solution-02.md) and Challenge 3 and should be read in conjunction with ``Data Exploration.ipynb``.
+- ``Solution - Data Engineering.ipynb`` - this notebook contains a solution for both [Challenge 2](./Solution-02.md) and [Challenge 3](./Solution-03.md) and should be read in conjunction with ``Data Exploration.ipynb``.
 
 - ``Data Exploration.ipynb`` - shows one way to explore the data and the contains the steps required to clean the data to bronze, and to enrich to silver. Coaches should step through each code cell to become familiar with the overall code, and be able to use snippets of code from this notebook to help students.
   
