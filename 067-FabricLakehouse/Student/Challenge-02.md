@@ -36,7 +36,7 @@ Error handling is always good, but not required for this challenge
 
 This section provides some background on the design of the Lakehouse for this challenge.
 
-A Fabric Lakehouse [can be defined](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview) as a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. Fabric leverages [Delta Lake](https://delta.io/) to store data in a lakehouse and expose as tables, similar to a more traditional database. It's these tables we can use query with SQL, Python or other tools like Excel and Power BI. Fabric can also store plain files (text, docx, png etc) in the Lakehouse, useful for use cases like data science and machine learning.
+A [Fabric Lakehouse] (https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview) can be defined as a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. Fabric leverages [Delta Lake](https://delta.io/) to store data in a lakehouse and expose as tables, similar to a more traditional database. It's these tables we can use query with SQL, Python or other tools like Excel and Power BI. Fabric can also store plain files (text, docx, png etc) in the Lakehouse, useful for use cases like data science and machine learning.
 
 One of the key decisions when building a data lake / Lakehouse is _how_ to arrange your data - we're wanting to go diving in the ocean, not squelching in the [swamp](https://en.wikipedia.org/wiki/Data_lake#Criticism). 
 
