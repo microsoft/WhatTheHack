@@ -10,7 +10,7 @@ Students will need access to a Fabric enabled workspace and Power BI desktop. Ag
 
 Students will need to have created a Lakehouse in their workspace either ahead of time, or on the day. This is covered in the [Create a Lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/create-lakehouse) tutorial on Learn for those not familiar.
 
-You should provide the students with the ``resources.zip`` file and ensure they have uploaded each of the contained folders to their Lakehouse. Unfortuantely, this has to be done one folder at a time so allow a small amount of time to complete. See the student resources section of the [Coach's Guide](./README.md) for details on creating the  ``resources.zip`` file.
+You should provide the students with the ``resources.zip`` file and ensure they have uploaded each of the contained folders to their Lakehouse. Unfortunately, this has to be done one folder at a time so allow a small amount of time to complete. See the student resources section of the [Coach's Guide](./README.md) for details on creating the  ``resources.zip`` file.
 
 ## Gotchas
 

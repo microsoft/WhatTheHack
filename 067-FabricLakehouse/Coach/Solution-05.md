@@ -16,6 +16,6 @@ You might like to award small prizes for the best team, the best presentation, o
 
 ## Finally
 
-Thanks for being a coach. We hope you enjoy delivering this hack as much as we enjoyed writing it. We value your feedback (and contributions) and you can always drop by our github diveshop, erm repo. 
+Thanks for being a coach. We hope you enjoy delivering this hack as much as we enjoyed writing it. We value your feedback (and contributions) and you can always drop by our GitHub diveshop, erm repo.
 
 ___Avast! Ye scurvy dogs! Yo ho ho and a bottle of rum!___
