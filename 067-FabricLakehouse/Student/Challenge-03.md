@@ -24,7 +24,7 @@ So, grab your mop and bucket and get cleaning up your data!
 
 To complete this challenge successfully, you should be able to:
 
-- Show how you have cleaned and combined your datasets, and explain why you chose a particular method (eg a notebook, or a copy data activity)
+- Show how you have cleaned and combined your datasets, and explain why you chose a particular method (e.g., a notebook, or a copy data activity)
 - Show that you have written your data to one (or more) delta tables in your Lakehouse
 - Demonstrate that your data is now ready to build your data story (This could be an exploratory dashboard, or a notebook, or even just some sample queries)
 
@@ -36,7 +36,7 @@ To complete this challenge successfully, you should be able to:
   
 ## Tips
 
-- Sometimes Spark is the best tool for the job, but sometimes it's not.  Don't be afraid to use more than one tool in the Fabric platform in your solution. Or try solving the same problem with different tools (eg. notebook and a dataflow).
+- Sometimes Spark is the best tool for the job, but sometimes it's not.  Don't be afraid to use more than one tool in the Fabric platform in your solution. Or try solving the same problem with different tools (e.g., notebook and a dataflow).
 
 ## Too comfortable?  Eager to do more?  Try an additional challenges!
 
