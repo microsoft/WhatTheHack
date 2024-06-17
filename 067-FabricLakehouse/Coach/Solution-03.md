@@ -6,7 +6,7 @@
 
 Challenge Three is about cleaning and loading data from ``Bronze`` files to ``Silver`` delta tables in preparation for reporting.
 
-The students should be encouraged to explore both notebooks and dataflows (for example, processing BOM forecast XML is easy in a dataflow, but the WAM-002 data is better suited to a notebook).
+The students should be encouraged to explore both notebooks and data flows (for example, processing BOM forecast XML is easy in a dataflow, but the WAM-002 data is better suited to a notebook).
 
 Overall, the method used by the students are very much a design choice by each.
 
@@ -125,7 +125,7 @@ Refer to [Default Power BI semantic models in Microsoft Fabric](https://learn.mi
 
 ### Optional - Gold Semantic Model
 
-More advanced students (or those with a data modelling background) may wish to create a dimensional model using Spark, dataflows or other tooling, instead of using the base tables. 
+More advanced students (or those with a data modelling background) may wish to create a dimensional model using Spark, data flows or other tooling, instead of using the base tables.
 
 Some suggestions:
 

@@ -7,7 +7,7 @@
 This challenge implements the design developed in Challenge 1, landing data in a "raw" format and cleaning to bronze, ready to further transform in [the next Challenge](./Solution-03.md).
 
 ## Outcome
-At the end of this challenge, students should have landed their data in OneLake and cleaned it to bronze. The data should be available in the Lakehouse as geojson files for shipwrecks and marine zones, and as an XML file for forecasts.
+At the end of this challenge, students should have landed their data in OneLake and cleaned it to bronze. The data should be available in the Lakehouse as GeoJSON files for shipwrecks and marine zones, and as an XML file for forecasts.
 
 ## Solution
 
@@ -19,7 +19,7 @@ Students may wish:
 
 Any of these are acceptable.
 
-Once the raw data has been landed, students will need to clean the data to bronze. The example solution uses a notebook to perform this step for shipwrecks and marine zones as this is the most applicable tool for processing spatial data. Since parquet does not support ``geometry`` types, shipwrecks and marine zones are stored as geojson in bronze.
+Once the raw data has been landed, students will need to clean the data to bronze. The example solution uses a notebook to perform this step for shipwrecks and marine zones as this is the most applicable tool for processing spatial data. Since parquet does not support ``geometry`` types, shipwrecks and marine zones are stored as GeoJSON in bronze.
 
 > **A Note on Forecasts**
 >Some students may wish to transform forecasts data from XML to json, csv, etc. and write to bronze files with a dataflow. They may then want to process this file to silver using Spark as part of Challenge 3. Whilst not strictly necessary it is perfectly acceptable to do so. However, the example dataflow solution in [Challenge 3](./Solution-03.md) processes forecasts directly to silver skipping this intermediate step.

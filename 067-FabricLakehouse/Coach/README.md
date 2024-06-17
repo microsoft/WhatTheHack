@@ -33,7 +33,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### About the Audience
 
-Students will most likely have a wide range of backgrounds and experience ranging from Data Engineers comfortable with Pyspark, T-SQL and datalake technology, to business analysts with little or no coding experience. The hack is intended to be accessible to all, but coaches should be aware of the following:
+Students will most likely have a wide range of backgrounds and experience ranging from Data Engineers comfortable with PySpark, T-SQL and data lake technology, to business analysts with little or no coding experience. The hack is intended to be accessible to all, but coaches should be aware of the following:
 
 - The hack is designed to be completed by teams of 2-4 students working together. Coaches should consider how to arrange students into teams to ensure a mix of skills and experience. However, for an event with more experienced (or daring) students the hack can be completed individually.
 - The hack is designed to be completed in a linear fashion. Encourage students to work outside of their areas of expertise, but be aware that some challenges may be more difficult for some students than others. Use your discretion - students may commence challenges in parallel. For example, a Power BI reporting expert may wish to start Challenge 4 while the other team members are data wrangling in Challenge 2/3.
@@ -67,7 +67,7 @@ This hack as been left very open ended - [TMTOWTDI](https://perl.fandom.com/wiki
 - Microsoft Fabric (duh!)
 - Python / PySpark
 - Dataflow Gen 2 / M / Power Query
-- Power BI / DAX
+- Power BI / Data Analysis Expressions (DAX)
 
 Coaches should deploy the solution files before the event to ensure they are familiar with the approach and the technologies used. Coaches should also be familiar with the datasets and source government agency websites used in the example solutions. Links are provided in the various [Solutions](./Solutions).
 
@@ -76,7 +76,7 @@ Coaches should deploy the solution files before the event to ensure they are fam
 - [What is Microsoft Fabric?](https://aka.ms/learnfabric)
 - [Microsoft Fabric Blog](https://aka.ms/FabricBlog)
 - [Import Existing Notebooks](https://learn.microsoft.com/en-us/fabric/data-engineering/how-to-use-notebook#import-existing-notebooks)
-- [Importing a datafow gen2 template](https://learn.microsoft.com/en-us/fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2)
+- [Importing a dataflow gen2 template](https://learn.microsoft.com/en-us/fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2)
 
 - [Fabric (trial) Known Issues](https://learn.microsoft.com/en-gb/fabric/get-started/fabric-known-issues)
 
@@ -104,7 +104,7 @@ Whilst it is entirely possible for an experienced data engineer to automate the 
 
 In [Challenge 2](../Student/Challenge-02.md), students will be required to land their data in OneLake and transform to Bronze. Instead of retrieving these data files via script or manually, students can use the provided ``Raw`` zone copies, from the 'suggested' sources.
 
-*"Yarr, ye done a good job finding treasure on the high seas, your Captain be proud of ye. Now, land ho that data ye-selves or, perchance take a looksee in the RAW chest. Now, swab the decks, I mean data, your Captain wants me bronze!"*
+*"Yarr, ye done a good job finding treasure on the high seas, your Captain be proud of ye. Now, land ho that data ye-selves or, perchance take a look-see in the RAW chest. Now, swab the decks, I mean data, your Captain wants me bronze!"*
 
 Using these provided ``Raw`` files will allow students to focus on data wrangling and transformation as opposed to the data retrieval, removing the requirement for SLIP registration and FTP access to BOM. Of course, if they want to do it the ~~hard~~ challenging way, they can!
 
@@ -112,7 +112,7 @@ In [Challenge 3](../Student/Challene-03.md), students enrich data to form a silv
 
 All students should be able to author a dataflow to load the BOM forecast XML to a delta table. (Yes, XML, I know, but this is a hack about archaeology so...).
 
-*"Yarr, coaches be needing to get in character. Me sure ye can make up some more piratey puns on using bronze and silver. Me sure, ye find this preferable to walking the plan!"*
+*"Yarr, coaches be needing to get in character. Me sure ye can make up some more pirate-y puns on using bronze and silver. Me sure, ye find this preferable to walking the plan!"*
 
 At the end of [Challenge 3](../Student/Challene-03.md) students should have a Silver zone dataset of forecast and shipwrecks loaded to delta tables ready for reporting. A notebook ``Solution - Data Engineering.ipynb`` with complete ``Raw`` to ``Silver`` transformation code can be found in [Solutions](./Solutions) (this should virtually be the same code found in ``createStudentResources.py``) An example dataflow M code can be found in ``Dataflow Load IDW11160 M Code.txt`` and a Power Query Template (``Load BOM Forecasts.pqt``) in the [Solutions](./Solutions) folder. See [Solution 2](./Solution-02.md) for more details on these solutions.
 
@@ -196,7 +196,7 @@ Zipping data/resources.zip
 C:\MyWTHFolder>
 ```
 
-You should now have a ``resources.zip`` file in the ``data`` folder, and unarchived files in the ``data/Raw``,``data/Bronze`` and ``data/Silver`` folders.
+You should now have a ``resources.zip`` file in the ``data`` folder, and un-archived files in the ``data/Raw``,``data/Bronze`` and ``data/Silver`` folders.
 
 
 ### Uploading the Data
@@ -260,10 +260,10 @@ Students will require Power BI desktop to be installed on their PC. Either the s
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resources (datafiles) required by the students are generated and not contained in this folder. See **Student Resources** above for details.
+  - Resources (data files) required by the students are generated and not contained in this folder. See **Student Resources** above for details.
   
 ## Other Fabric What The Hacks
 
-These WTHs are currently in development and will be released soon:
-- Fabric Datamesh - A more architecturally focused hack covering Data Mesh, Medalion Architecture, and Fabric
+These What The Hacks are currently in development and will be released soon:
+- Fabric Data Mesh - A more architecturally focused hack covering Data Mesh, Medallion Architecture, and Fabric
 - Fabric Realtime - A hack focused on realtime data processing with Fabric

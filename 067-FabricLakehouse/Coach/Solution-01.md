@@ -6,7 +6,7 @@
 
 This first challenge is all about finding the data but not importing it (yet). The output is a list of datasets that meet the requirements, a strategy for ingesting / processing and a selection of the "best" tool - notebook, dataflow etc. Actual development starts in challenge 2.
 
-For this challenge, the students will be searching for suitable datasources online. You should ensure that they are aware of the following:
+For this challenge, the students will be searching for suitable data sources online. You should ensure that they are aware of the following:
 
 - Licensing
 - Copyright
@@ -34,7 +34,7 @@ These two BOM datasets comprise forecasts for marine zones (with a textual zone 
   - ``IDM000003`` - Marine Zones - http://reg.bom.gov.au/catalogue/spatialdata.pdf
 
 
-This dataset contains wreck details (date, name, description etc) in geojson format, allowing joining to ``IDM000003`` and by extension, ``IDW11160``.
+This dataset contains wreck details (date, name, description etc) in GeoJSON format, allowing joining to ``IDM000003`` and by extension, ``IDW11160``.
 
 - WA Museum
   - ``WAM-002`` https://catalogue.data.wa.gov.au/dataset/shipwrecks (requires a free SLIP account and is CC BY 4.0)

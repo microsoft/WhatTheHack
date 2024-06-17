@@ -12,4 +12,4 @@ A good data story will have a clear narrative, and will be easy to follow. It wi
 
 ## Solution
 
-Data stories are subjective, and there are many ways to visualise the data. As such an example solution is not (yet) provided. If you are a PBI vis wiz, please feel free to contribute!
+Data stories are subjective, and there are many ways to visualise the data. As such an example solution is not (yet) provided. If you are a PBI visualization wizard, please feel free to contribute!

@@ -6,7 +6,7 @@
 
  Washed by the warm [Leeuwin Current](https://en.wikipedia.org/wiki/Leeuwin_Current), the coastal waters of Western Australia are a divers paradise, home to a diverse range of marine life including the world's largest fish, the [Whale Shark](https://en.wikipedia.org/wiki/Whale_shark). 
  
- On a more sombre note, these waters have also claimed more than [1400 shipwrecks](https://en.wikipedia.org/wiki/Shipwrecks_of_Western_Australia). Some of these wrecks are well known, such as the [Batavia](https://en.wikipedia.org/wiki/Batavia_(ship)) and the [HMS Sydney](https://en.wikipedia.org/wiki/HMAS_Sydney_(D48)), and are protected archaeological sites. But many are regularly explored by intrepid divers and snorkellers, having become popular tourist attractions.
+ On a more sombre note, these waters have also claimed more than [1400 shipwrecks](https://en.wikipedia.org/wiki/Shipwrecks_of_Western_Australia). Some of these wrecks are well known, such as the [Batavia](https://en.wikipedia.org/wiki/Batavia_(ship)) and the [HMS Sydney](https://en.wikipedia.org/wiki/HMAS_Sydney_(D48)), and are protected archaeological sites. But many are regularly explored by intrepid divers and snorkelers, having become popular tourist attractions.
 
 Margie's Travel is a travel agency specialising in diving holidays. They have heard about Microsoft Fabric, and have asked you to help them build a solution to allow their customers to explore the possibilities of diving some of the shipwrecks of Western Australia. 
 

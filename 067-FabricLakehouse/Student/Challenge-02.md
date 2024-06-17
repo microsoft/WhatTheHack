@@ -19,7 +19,7 @@ Next, you will need to download your source data and land it in OneLake. For thi
 
 Finally, you will need to process your data - gently. At this stage you should only be doing some basic processing, eg. data type conversion and possibly loaded into a table (or stored in some other suitable format) but very similar in appearance to the source data.
 
-If you get really stuck, don't worry! Your Coach is here to help and has provided you with a little something to unstick you. Remember we said no peeking in [Challenge 0](./Challenge-00.md)? If you're really stuck, talk to your coach and go have a peek at the notes at the end of [Challenge 0](./Challenge-00.md).
+If you get really stuck, don't worry! Your Coach is here to help and has provided you with a little something to un-stick you. Remember we said no peeking in [Challenge 0](./Challenge-00.md)? If you're really stuck, talk to your coach and go have a peek at the notes at the end of [Challenge 0](./Challenge-00.md).
 
 ## Success Criteria
 
