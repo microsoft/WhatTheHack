@@ -28,7 +28,7 @@ You will need to complete the following steps to set up your environment:
 
 ### Create a new workspace in Fabric
 
-If you are not familiar with Fabric workspaces, you should first read [Create a workspace](https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces) on Learn. When creating your workspace, you may need set the workspace's' Fabric license.
+If you are not familiar with Fabric workspaces, read [Create a workspace](https://learn.microsoft.com/en-us/fabric/get-started/create-workspaces) on Learn. When creating your workspace, you may need to set the workspace's Fabric license.
 
 Expand Advanced Settings and select the appropriate license. If you are using a trial subscription, select the Trial license, or select the Fabric capacity you have been assigned by your administrator.
 
