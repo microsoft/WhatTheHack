@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-Here the challenge is to visualise the data. Power BI is the obvious choice, but if a group wishes to build a dashboard in Excel, or use Power Apps, or React then that is fine too.
+This challenge is to visualise the data. Power BI is the obvious choice, but if a group wishes to build a dashboard in Excel, or use Power Apps, or React then that is fine too.
 
 Emphasis should be placed on the data story and meeting the requirements.
 
