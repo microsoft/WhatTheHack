@@ -14,7 +14,7 @@ At the end of this challenge, students should have landed their data in OneLake 
 Students may wish:
 
 - to download the data manually and upload to OneLake
-- to use a notebook, a dataflow or a combination of both to retrieve and land the data,
+- to use a notebook, a dataflow or a combination of both to retrieve and land the data
 - to use the provided raw data files
 
 any of these are acceptable.
