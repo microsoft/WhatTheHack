@@ -32,9 +32,9 @@ Now, it's time to hit up your favourite search or chat app and cast your nets fo
 
 To complete this challenge successfully, you should:
 
-- Have identified 2-3 datasources that you will use in your solution, including a brief description, how the data can be retrieved and the licensing model of each. No need to code anything just yet!
-- Have identified the method you plan to use to retrieve, clean and store each of your data sources, as well as the method you will use to present your data stories and dive briefings
-- Have documented your choices (a simple table or bullet points is fine). You'll need this later on!
+- Identify 2-3 datasources that you will use in your solution, including a brief description, how the data can be retrieved and the licensing model of each. No need to code anything just yet!
+- Identify the method you plan to use to retrieve, clean and store each of your data sources, as well as the method you will use to present your data stories and dive briefings
+- Document your choices (a simple table or bullet points is fine). You'll need this later on!
 
 ## Learning Resources
 
