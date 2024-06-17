@@ -13,7 +13,7 @@ For this challenge, the students will be searching for suitable datasources onli
 
 This object of this challenge is to get the students to think about:
 
-- the data they need to meet the requirements,
+- the data they need to meet the requirements
 - what sources are available
 - how it is licensed
 - how they can land this data automatically in OneLake
