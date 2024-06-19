@@ -16,7 +16,7 @@ Now that Tailspin Toys has signed off on your team’s hard work, their manageme
 In this challenge, you will create a customer service chatbot for greeting, answering FAQs, and to support Order queries from Customers and Account Managers
 Information:
 - Leverage and personalize out of the box topics such as greeting, survey, etc. 
-- Create topic suggestions using this site: FAQs - TailSpin Tools
+- Create topic suggestions using an site: FAQs - TailSpin Tools (any FAQ website page works)
 - Provide ability to identify customer and lookup order data
 - Common scenarios:
   * Did you receive order X

@@ -1,0 +1,13 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-rating-api
+spec:
+  podSelector:
+    matchLabels:
+      deployment: rating-api
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              deployment: rating-web

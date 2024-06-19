@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "resourceGroupName": {
+        "value": "PizzaAppEast"
+      },
+      "virtualNetworkName": {
+        "value": "PizzaAppEastVNet"
+      },
+      "subnetName": {
+        "value": "PizzaAppEastSNet"
+      },
+      "clusterName": {
+        "value": "PizzAappEast"
+      },
+      "maxPods": {
+        "value": 64
+      },
+      "systemPoolNodeCount": {
+        "value": 1
+      },
+      "systemPoolNodeType": {
+        "value": "Standard_D2s_v4"
+      },
+      "agentPoolNodeCount": {
+        "value": 1
+      },
+      "agentPoolNodeType": {
+        "value": "Standard_D2s_v4"
+      },
+      "location": {
+        "value": "eastus"
+      },
+      "dnsPrefix": {
+        "value": "pizzaappeast-dns"
+      },
+      "kubernetesVersion": {
+        "value": "1.25.5"
+      },
+      "networkPlugin": {
+        "value": "azure"
+      },
+      "enableRBAC": {
+        "value": true
+      },
+      "enablePrivateCluster": {
+        "value": false
+      },
+      "enableHttpApplicationRouting": {
+        "value": false
+      },
+      "enableAzurePolicy": {
+        "value": false
+      },
+      "serviceCidr": {
+        "value": "10.71.0.0/16"
+      },
+      "dnsServiceIP": {
+        "value": "10.71.0.3"
+      },
+      "dockerBridgeCidr": {
+        "value": "172.17.0.1/16"
+      },
+      "addressSpaces": {
+        "value": [
+          "10.250.0.0/16"
+        ]
+      },
+      "subnetAddressSpace": {
+        "value": "10.250.0.0/20"
+      },
+      "ddosProtectionPlanEnabled": {
+        "value": false
+      },
+      "workspaceName": {
+        "value": "PizzaAppEast"
+      },
+      "workspaceRegion": {
+        "value": "eastus"
+      }
+    }
+  }
+

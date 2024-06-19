@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   name: pub-sub
 spec:
-  topic: SpeedingViolation
+  topic: {{ .Values.daprComponents.pubSub.topic }}
   route: /collectfine
   pubsubname: {{ .Values.daprComponents.pubSub.componentName }}
 scopes:

@@ -29,6 +29,8 @@ In this challenge we'll be setting up all the tools we will need to complete our
 
 Your coach will provide you with a `Resources.zip` file that contains resource files you will use to complete some of the challenges for this hack.  
 
+You may also download the file here: ['Resources.zip'](https://aka.ms/wth/IntroToK8SResources)
+
 If you have installed all of the tools listed above on your local workstation, you should unpack the `Resources.zip` file there too.
 
 If you plan to use the Azure Cloud Shell, you should upload the `Resources.zip` file to your cloud shell first and then unpack it there.

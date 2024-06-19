@@ -55,6 +55,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
 - [AKS Enterprise-Grade](/039-AKSEnterpriseGrade/README.md)
+- [Intro to Azure Red Hat OpenShift](/063-IntroToAzureRedHatOpenshift/README.md)
 - [Azure Arc Enabled Kubernetes](/026-ArcEnabledKubernetes/readme.md)
 - [Azure Arc enabled servers](/025-ArcEnabledServers/readme.md)
 - [Infrastructure As Code: Bicep](/045-InfraAsCode-Bicep/README.md)
@@ -79,7 +80,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Microservices In Azure](/009-MicroservicesInAzure/README.md)
 - [Serverless](/015-Serverless/README.md)
 - [Migrating Applications To The Cloud](/016-AppMigration/README.md)
-- [IdentityForApps](/021-IdentityForApps/README.md)
+- [Identity For Apps](/021-IdentityForApps/README.md)
+- [Microsoft Entra ID for B2B](/062-EntraIDB2B/README.md)
 - [Linux Fundamentals](/020-LinuxFundamentals/README.md)
 - [FHIR Powered Healthcare](/027-FHIRPoweredHealthcare/README.md)
 - [Traffic Control with Dapr](/047-TrafficControlWithDapr/README.md)
@@ -90,7 +92,8 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Datadog On Azure](/059-DatadogOnAzure/README.md)
-- [DevOps with GitHub](/031-DevOpsWithGitHub/readme.md)
+- [DevOps with GitHub](/031-DevOpsWithGitHub/README.md)
+- [Modern Development and DevOps with GitHub](/065-ModernGitHubDev/README.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGithubActions/README.md)
 - [Azure DevOps](/010-AzureDevOps/README.md)
 - [Open Source DevOps](/014-OSSDevOps/readme.md)
@@ -99,8 +102,11 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [Sentinel Automated Response](/053-SentinelAutomatedResponse/README.md)
 - [Azure Load Testing](/054-AzureLoadTesting/README.md)
+- [Azure Chaos Studio for AKS](/055-ChaosStudio4AKS/README.md)
 
 ## Data & AI
+- [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
+- [Fabric Real-time Analytics](/069-FabricRealTimeAnalytics/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
@@ -113,10 +119,9 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Do You Even Synapse](/024-DoYouEvenSynapse/README.md)
 - [Incremental Synapse Pipelines](/048-IncrementalSynapsePipelines/README.md)
 - [Synapse Dedicated SQL Pool - Performance Best Practices](/049-SQLDedicatedPoolPerf/README.md)
+- [Bronze/Silver/Gold Using Synapse & Databricks](/060-SynapseAndDatabricks/README.md)
 - [Conversational AI](/030-ConversationalAI/README.md)
 - [Databricks/Intro to ML](/008-DatabricksIntroML/README.md)
-- [Intro To Azure AI](/002-IntroToAzureAI/README.md) - ARCHIVED
-- [Driving Miss Data](/003-DrivingMissData/README.md) - ARCHIVED
 
 ## Microsoft Teams Platform
 - [Microsoft Teams: Make It Real](/034-MicrosoftTeams-MakeItReal/README.md)
@@ -144,9 +149,9 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Archived
 
-These hacks have been archived due to obsolesence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
+These hacks have been archived due to obsolescence or dependencies on sample code or data that is no longer available. If you are interested in updating these hacks, [contributions are welcome](CONTRIBUTING.md)! Please consider contributing to keep What The Hack up to date.
 
-- [Intro To Azure AI](/002-IntroToAzureAI/README.md)
+- [Intro To Azure AI](/002-IntroToAzureAI/README.md) - Be sure to see our NEW hack on [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
 - [Driving Miss Data](/003-DrivingMissData/README.md)
 
 # License

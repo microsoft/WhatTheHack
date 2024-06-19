@@ -1,5 +1,6 @@
 name: Create new hack
 
+ 
 on:
   workflow_dispatch:
     inputs:
@@ -14,10 +15,12 @@ on:
 jobs:
   createNewWhatTheHackTemplate:
     runs-on: ubuntu-latest
+    permissions: 
+     contents: write
     env:
       BRANCH_NAME: xxx-${{ github.event.inputs.hackName }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Create new branch
         run: |
           git config user.name "GitHub Actions Bot"
