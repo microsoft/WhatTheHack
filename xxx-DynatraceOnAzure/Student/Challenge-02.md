@@ -33,11 +33,16 @@ For our hack, another version of the application exists that breaks out each of 
     az aks get-credentials --name "<aks-cluster-name>" --resource-group "<resource-group-name>"
     ```
     >💡**Hint:**  Refer back to Azure Portal under `<lastname>-dynatrace-azure-modernize-wth` resource group for aks cluster name
+1. Deploy the Dynatrace Kubernetes Operator
+    - Deploy Dynatrace Operator on the AKS cluster [via cluster extensions](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions) blade. 
+
+<!-- 
 1. Deploy Kubernetes Dynatrace Operator
     - Deploy Dynatrace Operator on the AKS Cluster using 7 steps of the Automated mode 
         >💡**Hint:** On Step 6, when you download the **dynakube.yaml**, you can use Upload/Download feature within Azure cloudshell to upload the file
             ![](images/challenge2-azure-cloudshell-upload.png)
-      
+-->
+
 1. Deploy sample application
     ```bash
     cd ~/azure-modernization-dt-orders-setup/app-scripts

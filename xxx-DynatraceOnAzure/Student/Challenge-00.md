@@ -14,9 +14,11 @@
 
 ## Introduction
 
- You are new engineer that is hired to modernize a e-commerce website for company called ``DTOrders``.  Your predecessor wrote this application use Node.js and has it running stably on Azure virtual machines.  But now your boss wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM to understand the basic of the application and use Dynatrace to understand the dependencies.  Then devise a strategy to migrate it to run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
+ You are new engineer that is hired to modernize a e-commerce website for company called ``DT Hackers``.  Your predecessor wrote this application use Node.js and has it running stably on Azure virtual machines.  But now your boss wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM to understand the basics of the application and use Dynatrace to understand what its downstream dependencies are.  
+ 
+ Then devise a strategy to migrate the application it to run on [Azure Kubernetes Services](https://azure.microsoft.com/en-us/products/kubernetes-service) cluster.  Along the way, you'll experience how Dynatrace  monitors the application on Azure VM and once migrated to AKS, you will compare the product functionality and how easy it is to monitor and manage your application with Dynatrace while you migrate and modernize your application.
 
- Upon successful migration, you'll present the deployed solution to your company's leadership to seek approval on how quickly and easily you achieve full stack observability in minutes, everything in context including metrics, logs, and trace for all your Azure workloads with Dynatrace.  While at at same time you'll achieve a fully automated, AI-assisted observability across Azure environments.
+ Upon successful migration, you'll present the deployed solution to your company's leadership to seek approval on how quickly and easily you achieve full stack observability in minutes, everything in context including metrics, logs, and trace for all your Azure workloads with Dynatrace.  While at at same time you'll achieve a fully automated, AI-assisted observability across Azure environment.
 
 ## Common Prerequisites
 
@@ -60,29 +62,29 @@ _Optionally, you may provide resource files such as a sample application, code s
 _Sample challenge zero text for the IoT Hack Of The Century:_
 -->
 
-Now that you have the common pre-requisites installed, there are prerequisites specific to this hack.
+Now that you've reviewed the common pre-requisites for this hack, let's jump in get started!
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+Your coach will also provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please install these additional tools:
+Please install these additional tools needed for this hack:
 
 1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
         <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
    -  Refer to the guide [to create new Dynatrace Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
-1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
+1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy many of the Azure resources needed for this hack.
 
 ### Dynatrace Prep
 
- For this challenge, you will deploy the DTOrders application and its underlying Azure VM resources to Azure using a set of pre-developed scripts. Once the application and its infrastructure are deployed, you will complete the hack's jumping in and fully analyze the application within Dynatrace.
+ For this challenge, you will deploy an application called ``DTOrders`` and its underlying Azure VM resources to Azure using a set of pre-developed scripts. Once the application and its infrastructure are deployed, you will complete the hack by jumping in to fully analyze the application within Dynatrace.
 
 
-- If not already done so, go to the [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) and request a free trial tenant
+- Access your [Azure Native Dynatrace Service](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration#access-your-dynatrace-environment) resource in Azure Portal.  Access the Dynatrace environment from the Azure Portal
 - Login to the Dynatrace tenant and create a Dynatrace API Access token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
     - Write API Token 
 
-- In a separate notepad, please write down the following things needed in a future step below  
+- In a separate notepad, please copy/paste the following things needed in a future step below  
   1) Keep the API token safe somewhere to be used in future step below, it will be following format: **dt0c01.ABC12345DEFGHI**
   2) Dynatrace tenant url, it should be in format link this: ``https://ABC.apps.dynatrace.com``
 - 
