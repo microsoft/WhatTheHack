@@ -59,7 +59,11 @@ Navigate through various screens of Dynatrace to understand the details of your 
     - Check to see which if you can find node.js and ApacheJmeter processes running on this host
     - Identify how many and names of containers that are running on this host
     - Identify the Azure tags applied to this host.
- 
+1. Navigate the new Infrastructure & Operations App
+    -
+    -
+    
+
 1. Navigate to Smartscape topology screen for this; while in host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
     - Identify which 2 downstream services are used by the frontend service to  communicates with
     - Identify which Azure region (data center) your host is running in

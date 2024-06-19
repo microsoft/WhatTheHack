@@ -14,7 +14,7 @@
 
 ## Introduction
 
- You are new engineer that is hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
+ You are new engineer that is hired to modernize a e-commerce website for company called ``DTOrders``.  Your predecessor wrote this application use Node.js and has it running stably on Azure virtual machines.  But now your boss wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM to understand the basic of the application and use Dynatrace to understand the dependencies.  Then devise a strategy to migrate it to run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
 
  Upon successful migration, you'll present the deployed solution to your company's leadership to seek approval on how quickly and easily you achieve full stack observability in minutes, everything in context including metrics, logs, and trace for all your Azure workloads with Dynatrace.  While at at same time you'll achieve a fully automated, AI-assisted observability across Azure environments.
 
@@ -69,7 +69,7 @@ Please install these additional tools:
 1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
         <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
-   -  Refer to the guide [to create new Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
+   -  Refer to the guide [to create new Dynatrace Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
 1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
 
@@ -79,24 +79,12 @@ Please install these additional tools:
 
 
 - If not already done so, go to the [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) and request a free trial tenant
-- Login to the Dynatrace tenant and create a Dynatrace API token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
-    - Read SLO
-    - Write SLO
-    - Read events
-    - Ingest events
-    - Read Settings
-    - Write Settings
-    - Read Entities
-    - Read Configuration
-    - Write Configuration
-    - Create ActiveGate Tokens
-    - Ingest metrics
-    - Access problem and event feed, metrics, and topology    - 
-    - PaaS integration - Installer download
-    - PaaS integration - Support alert
+- Login to the Dynatrace tenant and create a Dynatrace API Access token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
+    - Write API Token 
+
 - In a separate notepad, please write down the following things needed in a future step below  
   1) Keep the API token safe somewhere to be used in future step below, it will be following format: **dt0c01.ABC12345DEFGHI**
-  2) Dynatrace tenant url, it should be in format link this: ``https://ABC.live.dynatrace.com``
+  2) Dynatrace tenant url, it should be in format link this: ``https://ABC.apps.dynatrace.com``
 - 
 ### Azure Portal Prep
  - Login to Azure Portal and click on the **Cloud Shell** button on the menu in upper right hand corner ![](images/portal-shell-button.png)
