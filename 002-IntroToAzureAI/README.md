@@ -2,6 +2,8 @@
 
 **NOTE: This hack has been marked as "archived" since one of the data sources used by students is no longer available.**
 
+**NOTE:** Please see our NEW hack on [Azure OpenAI Fundamentals](../066-OpenAIFundamentals/README.md) which should replace this hack.
+
 If you would like to update this hack so we can "un-archive" it, please submit a proposal to the What The Hack team as per our [WTH Contribution Guide](https://aka.ms/wthcontribute). We welcome contributions and can provide you more details on what would be needed to update it.
 
 ## Introduction

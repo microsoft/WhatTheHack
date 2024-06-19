@@ -14,13 +14,13 @@ To get you started, we have provided your team with a starter canvas app which i
 
 Since the components are generalized, you will want to customize them to include proper icons and labels. 
 
-Once you have imported the starter Power App, your team will continue to design and build the app which will allow users to Customers, Orders, and order details.
+Once you have imported the starter Power App, your team will continue to design and build the app which will allow users to see Customers, Orders, and order details.
 
-Rename the canvas app to include your team number and specify the development environment. (e.g., Tailspin Toys – Team 2 – Dev).
+Rename the canvas app to include your team number and specify the development environment. (e.g., Tailspin Toys – Squad 2 – Dev).
 
 Now that your base app is imported, implement the following design requirements:
 - A working navigation component that allows the user to switch between app screens.  
-    - **HINT:** You will need to add and configure the navigation component from the base solution to the screens that you and your team creates
+    - **HINT:** You will need to add and configure the navigation component from the starter app to the screens that you and your team creates
 - Four app screens that show the following:
     * A screen and a label that shows the Customer records view
     * A screen and a label that shows the Order records view for a selected customer

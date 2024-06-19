@@ -1,10 +1,8 @@
-# What The Hack - AzureDevOps - Coach Guide
+# What The Hack - Azure DevOps - Coach Guide
 
 ## Introduction
 
 Welcome to the coach's guide for the Azure DevOps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
-
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -12,23 +10,23 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Setup](./Solution-00.md)**
 	 - Prepare your workstation to be a devops master!
-- Challenge 01: **[Azure DevOps: Introduction](./Solution-01.md)**
-	 - Learn motivations for DevOps & assess yourself
-- Challenge 02: **[Azure Boards: Agile Project Management](./Solution-02.md)**
+- Challenge 01: **[Azure Boards: Agile Project Management](./Solution-01.md)**
 	 - Learn how to work with Azure Boards
-- Challenge 03: **[Azure Repos: Introduction](./Solution-03.md)**
+- Challenge 02: **[Azure Repos: Introduction](./Solution-02.md)**
 	 - Setup an Azure Repo and learn how to integrate it with Azure Board task items
-- Challenge 04: **[Azure Pipelines: Infrastructure as Code](./Solution-04.md)**
+- Challenge 03: **[Azure Pipelines: Infrastructure as Code](./Solution-03.md)**
 	 - Deploy an ARM template via an Azure Pipelines job
-- Challenge 05: **[Azure Pipelines: Continuous Integration](./Solution-05.md)**
+- Challenge 04: **[Azure Pipelines: Continuous Integration](./Solution-04.md)**
 	 - Learn how to automate a build process for a sample app
+- Challenge 05: **[Azure Pipelines: Build and Push Docker Images to a Container Registry](./Solution-05.md)**
+	 - Build and push Docker images to a container registry(ACR)
 - Challenge 06: **[Azure Pipelines: Continuous Delivery](./Solution-06.md)**
 	 - Automate the deployment of an application into Azure
 - Challenge 07: **[Azure Repos: Branching & Policies](./Solution-07.md)**
 	 - Learn about Git branching and configure policies to ensure developers follow the rules
 - Challenge 08: **[Azure Monitoring: Application Insights](./Solution-08.md)**
 	 - Configure Application Insights to create work items in Azure Boards
-- Challenge 09: **[Azure Pipelines: OSS Scanning with WhiteSource Bolt](./Solution-09.md)**
+- Challenge 09: **[Azure Pipelines: OSS Scanning with Mend Bolt](./Solution-09.md)**
 	 - Get a taste of DevSecOps by configuring a code scanning tool in your CI Pipeline
 
 ## Coach Prerequisites

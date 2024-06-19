@@ -1,0 +1,15 @@
+@startuml
+
+title Rock Paper Scissors Dynamite
+
+(Rock) -> (Scissors)
+(Water Balloon) <-- (Rock)
+(Scissors) -> (Paper)
+(Water Balloon) <-- (Scissors)
+(Paper) --> (Rock)
+(Water Balloon) <-- (Paper)
+(Dynamite) --> (Scissors) 
+(Dynamite) --> (Paper) 
+(Dynamite) --> (Rock)
+(Dynamite) <-- (Water Balloon)
+@enduml

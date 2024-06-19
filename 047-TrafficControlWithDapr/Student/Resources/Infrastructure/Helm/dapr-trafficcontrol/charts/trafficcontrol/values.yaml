@@ -5,33 +5,33 @@ imageCredentials:
   email:
   pullPolicy: Always
   secretName: acr-credentials
-  
+
 trafficControlService:
   name: traffic-control-service
   containerPort: 6000
-  repositoryName: trafficcontrolservice
-  imageTag: assignment08
+  repositoryName: traffic-control-service
+  imageTag: latest
   dapr:
     port: 3500
-    appId: trafficcontrolservice
+    appId: traffic-control-service
 
 fineCollectionService:
   name: fine-collection-service
   containerPort: 6001
-  repositoryName: finecollectionservice
-  imageTag: assignment08
+  repositoryName: fine-collection-service
+  imageTag: latest
   dapr:
     port: 3500
-    appId: finecollectionservice
+    appId: fine-collection-service
 
 vehicleRegistrationService:
   name: vehicle-registration-service
   containerPort: 6002
-  repositoryName: vehicleregistrationservice
-  imageTag: assignment08
+  repositoryName: vehicle-registration-service
+  imageTag: latest
   dapr:
     port: 3500
-    appId: vehicleregistrationservice
+    appId: vehicle-registration-service
 
 livenessProbe:
   path: /healthz

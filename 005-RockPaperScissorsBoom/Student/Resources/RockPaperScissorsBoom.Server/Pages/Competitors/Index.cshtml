@@ -1,0 +1,48 @@
+﻿@page
+@model RockPaperScissorsBoom.Server.Pages.Competitors.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table table-striped w-auto">
+    <thead>
+        <tr class="table-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Competitor[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitor[0].BotType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitor[0].Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Competitor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BotType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
