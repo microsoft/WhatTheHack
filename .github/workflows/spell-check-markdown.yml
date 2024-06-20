@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@d6babd6899969df1a11d14c368283ea4436bca78
+        uses: tj-actions/changed-files@eaf854ef0c266753e1abec356dcf17d92695b251
         with:
           files: |
             **/*.md
