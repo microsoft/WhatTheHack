@@ -2,11 +2,9 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+*Azure ML Learning Resource Deployed.
+*Ml model is ready on Microsoft Fabric.
 
 ## Introduction
 
