@@ -15,7 +15,7 @@ You have been tasked to deploy the machine learning model which you have trained
 To complete this challenge, please verify that :
   - ML model is ready and downloaded from Microsoft Fabric.
   - Deployed Successfully on Azure ML real endpoints.
-  - Deployed model is predicting the heart failure prediction.  
+  - Deployed model is predicting the heart failure prediction. 
 
 
 ## Learning Resources
