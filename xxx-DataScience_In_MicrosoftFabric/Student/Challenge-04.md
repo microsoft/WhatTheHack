@@ -8,7 +8,7 @@
 
 ## Introduction
 
-You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference endpoint.  In this challenge, you must download the model from Microsoft Fabric worksapce and deployed manually to Azure ML end point inference so that it can be consumed by other applications.
+You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference endpoint.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurposed a model trained in Fabric for use by applications via scalable Azure compute clusters.  The ability to export and repurpose models opens endless opportunities!
 
 ## Description
 
