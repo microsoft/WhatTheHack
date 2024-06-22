@@ -3,8 +3,8 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Pre-requisites (Optional)
-*Azure ML Learning Resource Deployed.
-*Ml model is ready on Microsoft Fabric.
+- Azure ML Learning Resource Deployed.
+- Ml model is ready on Microsoft Fabric.
 
 ## Introduction
 
