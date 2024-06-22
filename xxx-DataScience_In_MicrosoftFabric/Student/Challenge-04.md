@@ -19,8 +19,8 @@ To complete this challenge, please verify that :
 
 
 ## Learning Resources
-  - https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg
-  - https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-automl-endpoint?view=azureml-api-2&tabs=Studio
+  - [Difference between Data science in Fabric and Azure Machine Learning](https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg)
+  - [How to deploy Autom ML model to Azure amchine learning](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-automl-endpoint?view=azureml-api-2&tabs=Studio)
     
 
 ## Tips
