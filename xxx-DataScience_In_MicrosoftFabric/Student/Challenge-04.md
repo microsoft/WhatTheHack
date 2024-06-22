@@ -13,23 +13,14 @@ You have been tasked to deploy the machine learning model which you have trained
 ## Success Criteria
 
 To complete this challenge, please verify that :
-
   - ML model is ready and downloaded from Microsoft Fabric.
-  - Deployed Succesfully on Azure ML real endpioints.
+  - Deployed Successfully on Azure ML real endpoints.
   - Deployed model is predicting the heart failure prediction.  
 
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
 ## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
+  - https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg
+  - 
 
 *Sample IoT resource links:*
 
