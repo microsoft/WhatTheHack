@@ -4,17 +4,11 @@
 
 ## Pre-requisites (Optional)
 - Azure ML Learning Resource Deployed.
-- Ml model is ready on Microsoft Fabric.
+- ML model is ready on Microsoft Fabric.
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference endpoint.  In this challenge, you must download the model from Microsoft Fabric worksapce and deployed manually to Azure ML end point inference so that it can be consumed by other applications.
 
 ## Description
 
