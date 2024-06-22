@@ -20,13 +20,8 @@ To complete this challenge, please verify that :
 
 ## Learning Resources
   - https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg
-  - 
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+  - https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-automl-endpoint?view=azureml-api-2&tabs=Studio
+    
 
 ## Tips
 
