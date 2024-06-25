@@ -8,5 +8,7 @@
 - Using postman, send the testing data to it to test it out.
 
 ## Notes & Guidance
-
-
+- Go to your data science worksapce where all the notebooks are stored.
+- That worksapce will have the ml model which you created in previous challenege
+- Exporting a model from Fabric is easy--just tap the Download ML model version button in the UI.
+-     
