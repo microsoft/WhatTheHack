@@ -2,19 +2,11 @@
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
+## Setup Steps
+- Download the ml model from Fabric workspace
+- Upload the model on azure machine learning studio
+- Using postman, send the testing data to it to test it out.
+
 ## Notes & Guidance
 
-This is the only section you need to include.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
