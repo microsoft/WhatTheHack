@@ -93,15 +93,14 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 ````
 
-The contents of the Yacht details are stored in the following directory
 
-````bash
 
-cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts
-
-````
 
 ### Uploading Documents to Azure Cosmos DB
+
+The contents of the Yacht details are stored in the directory **Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts**
+
+Make sure you manually copy the JSON contents of each file and use the REST client in **rest-api-yachts-management.http** to send each document via the REST API to Cosmos DB.
 
 To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
 
