@@ -44,7 +44,7 @@ Your task is to configure the Backend application Azure Function triggers to kee
 
 This will make sure that any change that takes place in the Blob Store or Cosmos DB containers will be detected and processed.
 
-The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure Cognitive Search is recommended but feel free to use any other vector database of your preference.
+The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure AI Search is recommended but feel free to use any other vector database of your preference.
 
 If everything works properly then the text files newly uploaded to modified in  the **government** container in Blob store should show up in the contoso documents AI Search index configured and defined in the **AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME** application setting.
 
@@ -136,6 +136,11 @@ The application has Azure Functions that watch the Cosmos DB database collection
 
 Each JSON request submission to the Yacht management REST API should also trigger the Azure function that processes the embeddings for the Yacht contents. You should also see these changes reflected in the Azure Search Index.
 
+You should be able to search for the documents in Azure AI Search
+
+![HTTP Request Variables](../images/contoso_yachts_index_search.png)
+
+
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
@@ -149,7 +154,7 @@ Here is a list of resources that should assist you with completing this challeng
 
 *Sample resources:*
 
-- [Vector Search with Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
+- [Vector Search with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 - [Vector Similarity Search with Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 - [Azure Function Triggers for Cosmos DB](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger)
 - [Azure Function Triggers for Azure Blob Store](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger)
