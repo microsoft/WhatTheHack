@@ -245,6 +245,8 @@ To complete this challenge successfully, you should be able to:
  
 Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
 
+You should also be able to ask each assistant for their name from the front-end and each assistant should respond correctly with the correct name configured in the app's system prompts.
+
 ## Learning Resources
 
 Here are some resources that should provide you with background information and educational content on the resources you have just deployed
