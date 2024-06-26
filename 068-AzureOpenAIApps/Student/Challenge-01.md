@@ -25,7 +25,7 @@ Contoso Yachts is a 40-person organization that specializes in booking tours in 
 
 There are documents (from the **ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands** folder in your Resources) that needs to be uploaded to the **government** container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the **ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts** and **ContosoAIAppsBackend/challenge-artifacts/cosmos-db/customers**) that needs to be uploaded to the corresponding Azure **yachts** and **customers** Cosmos DB containers respectively.
+There are also some JSON documents (from the **ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts** that needs to be uploaded to the corresponding Azure **yachts** Cosmos DB containers respectively.
 
 You can use the **az storage blob upload** command examples below to upload the document to Azure Blob Storage.
 
