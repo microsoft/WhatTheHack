@@ -55,6 +55,9 @@ We need to upload documents to Azure Blob Store and Cosmos DB.
 To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk using the following two commands
 
 ````bash
+
+az login
+
 # navigate to document directory
 cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
 
@@ -63,11 +66,21 @@ az storage container create --account-name {mystorageaccountname} --name {contai
 
 # This is just an example using contosoizzy1storage as the storage account. Plug in your own storage account name there
 az storage container create --account-name contosoizzy1storage --name government
+````
 
+Use these commands to upload the file to blob store individually.
+
+````bash
 # upload single documents one at a time
 az storage blob upload --account-name {mystorageaccountname}  -f {filenameToUpload} -c {destinationContainer} --overwrite
 
 az storage blob upload --account-name contosoizzy1storage  -f climate.txt -c government --overwrite
+
+````
+
+Use the commands to upload multiple files simultaneously
+
+````bash
 
 # upload all files simultaneously from the current directory
 az storage blob upload-batch --account-name {myStorageAccountName} -d {myStorageContainer} -s {sourceDirectory}
