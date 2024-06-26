@@ -32,7 +32,7 @@
   ![picture alt](./Screenshot_26-6-2024_01752_ml.azure.com.jpeg)
 
 - After the deployment completes (10-15 minutes, typically), make a quick "smoke test" within Azure ML Studio to ensure the deployment is functional, and we're using the correct data structures when calling it.
-  ![picture alt](./image-15.png)
+  ![picture alt](./Screenshot_26-6-2024_03016_ml.azure.com.jpeg)
 - Once the interactive test succeeds, it's time to move on to consume the model from outside the Azure ML environment.
 - Use postman to send data to deployed model endpoints to test the model.
 
