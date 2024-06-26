@@ -106,6 +106,8 @@ To successfully upload the documents to Cosmos DB, please use the REST Client in
 
 Simply Click on "Send Request" for each command to execute and upload each Yacht individually to the database.
 
+Each request should return a 200 HTTP status code.
+
 This shows how to create or update existing yacht records in the database via the REST API
 
 ![How to Create Yacht records](../images/humao-rest-client-create-yachts.png)
@@ -128,13 +130,16 @@ The api_endpoint controls the destination of the http request, the conversation_
 @api_endpoint = http://localhost:7072
 @conversation_id = 22334567
 @yacht_id = "100"
-
 ````
+
+The application has Azure Functions that watch the Cosmos DB database collections as well as the Azure Blob Store containers for changes. Each file upload to Azure Blob Store (new or modified) should trigger the Azure Function for you to see in the Terminal Console and the change triggering the Azure Functions. You should also see the document chunks uploaded to the AI Search Index.
+
+Each JSON request submission to the Yacht management REST API should also trigger the Azure function that processes the embeddings for the Yacht contents. You should also see these changes reflected in the Azure Search Index.
+
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records
-- The embeddings for the documents in AI Search are updated when the text files are updated and when the description of the yacht is modified.
+- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records in your VSCode.
 - Any new document or change to an existing document in Cosmos DB must be reflected in the vector store index
 - Any new document uploaded into the Azure Blob Store container must be reflected in the vector store index.
 
