@@ -199,6 +199,8 @@ The deployment process takes about 30 minutes to complete.
 
 #### Setup App Backend
 
+Open a new terminal in VScode and then 
+
 Navigate to the `/ContosoAIAppsBackend` folder and Start up the function app
 
 ```
@@ -210,6 +212,8 @@ func start
 #### Setup App Frontend
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
+
+Open another new terminal in VScode and then 
 
 Navigate into the `/ContosoAIAppsFrontend` folder and install the application dependencies
 
