@@ -1,5 +1,6 @@
 
-# You will need to install the following VSCode extension: humao.rest-client
+# If you are not running from Codespaces where this extension is automatically installed for you
+# You will need to install the following VSCode extension for your VSCode install: humao.rest-client
 
 # Please click on the "Send Request" option above each URL to transmit the request to the backend
 
