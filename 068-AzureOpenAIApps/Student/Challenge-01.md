@@ -56,7 +56,7 @@ To successfully upload the documents to blob store, you can navigate to the foll
 
 ````bash
 # navigate to document directory
-cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
+cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
 
 # create the government container if it does not exist
 az storage container create --account-name {mystorageaccountname} --name {containerName} 
