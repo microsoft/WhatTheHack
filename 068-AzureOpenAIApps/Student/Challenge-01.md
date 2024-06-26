@@ -61,6 +61,7 @@ cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsBackend/chall
 # create the government container if it does not exist
 az storage container create --account-name {mystorageaccountname} --name {containerName} 
 
+# This is just an example using contosoizzy1storage as the storage account. Plug in your own storage account name there
 az storage container create --account-name contosoizzy1storage --name government
 
 # upload single documents one at a time
