@@ -2,13 +2,14 @@
 <h3>Assistant Name: Elizabeth</h3>
 <h5>I help customers and tourists to answer questions about the country of Contoso Islands such as the climate, government, languages, economics and schools in the country of Contoso Islands.</h5>
 <img class="assistant-image" ngSrc="assets/elizabeth-ai-assistant.jpg" height="1024" width="1024" alt="AI Assistant Elizabeth"/>
+<div class="input-container">
+    <input [(ngModel)]="userMessage" placeholder="Enter your message" />
+    <button (click)="sendMessage()">Send</button>
+</div>
 <div class="chat-container">
     <div *ngFor="let message of chatMessages" [ngClass]="message.role">
         {{ message.content }}
     </div>
 </div>
 
-<div class="input-container">
-    <input [(ngModel)]="userMessage" placeholder="Enter your message" />
-    <button (click)="sendMessage()">Send</button>
-</div>
+

@@ -2,13 +2,14 @@
 <h3>Assistant Name: Miriam</h3>
 <h5>I help customers, tourists and guest to manage their yacht reservations such as checking availability, creating or cancelling reservations.</h5>
 <img class="assistant-image" ngSrc="assets/miriam-ai-assistant.jpg" height="1024" width="1024" alt="AI Assistant Miriam"/>
+<div class="input-container">
+    <input [(ngModel)]="userMessage" placeholder="Enter your message" />
+    <button (click)="sendMessage()">Send</button>
+</div>
 <div class="chat-container">
     <div *ngFor="let message of chatMessages" [ngClass]="message.role">
         {{ message.content }}
     </div>
 </div>
 
-<div class="input-container">
-    <input [(ngModel)]="userMessage" placeholder="Enter your message" />
-    <button (click)="sendMessage()">Send</button>
-</div>
+
