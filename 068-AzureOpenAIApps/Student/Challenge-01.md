@@ -100,9 +100,9 @@ cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yacht
 
 ### Uploading Documents to Azure Cosmos DB
 
-To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder
+To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
 
-Simply Click on "Send Request" for each command to execute
+Simply Click on "Send Request" for each command to execute and upload each Yacht individually to the database.
 
 This shows how to create or update existing yacht records in the database via the REST API
 
