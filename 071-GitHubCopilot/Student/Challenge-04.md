@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
-This challenge focuses on improving the quality and maintainability of your "Quote of the Day" app. You'll leverage GitHub Copilot's capabilities to generate comprehensive test cases and create detailed documentation. This challenge is about maintaining quality and improving ease of maintenance.
+This challenge focuses on improving the quality and maintainability of your Whack-a-Mole game. You'll leverage GitHub Copilot's capabilities to generate comprehensive test cases and create detailed documentation. This challenge is about maintaining quality and improving ease of maintenance.
 
 ## Description
 Utilize GitHub Copilot to guide you through the creation of meaningful test cases that cover various aspects of your application, from basic functionalities to edge cases. Following that, focus on enhancing your app's documentation with Copilot's assistance to ensure clarity and comprehensiveness. Your tasks are:
