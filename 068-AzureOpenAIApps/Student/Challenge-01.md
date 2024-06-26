@@ -56,8 +56,11 @@ We need to upload documents to Azure Blob Store and Cosmos DB.
 To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk using the following two commands
 
 ````bash
+# Use this command to login if you have a regular subscription
+az login --use-device-code
 
-az login
+# Use this command to login if you an FBDO susbcription
+az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 
 # navigate to document directory
 cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
