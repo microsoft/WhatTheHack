@@ -25,8 +25,8 @@
 
 - After uploading the files, the new model is available in the Models page of the Azure ML Workspace.
 - Once the model is registered in the Azure ML workspace, click on the model name, and then select Real-time endpoint from the Deploy menu.
-![picture alt](./image-13.png)
+![picture alt](./image-14.png)
 - A model opens up to configure the compute to use for the endpoint, and to specify the deployment name.
 - Specify the compute size desired for the endpoint, and the names for the endpoint and deployment, then tap the Deploy button.
 
-  ![picture alt](./image-14.png)
+  ![picture alt](./image-13.png)
