@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whack-a-Mole Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px); /* Adjust the number of columns and size as needed */
+            grid-gap: 10px; /* Space between boxes */
+            justify-content: center; /* Center the grid horizontally */
+            align-items: center; /* Center the grid vertically */
+        }
+
+        .box {
+            width: 100px; /* Box width */
+            height: 100px; /* Box height */
+            border: 2px solid black; /* Box border */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            background-color: #f0f0f0; /* Light background color for visibility */
+        }
+        .mole-container {
+            width: 100px; /* Match the mole size */
+            height: 100px; /* Match the mole size */
+            border: 2px solid black; /* Border around the mole */
+            border-radius: 50%; /* Match the mole's border-radius for a circular border */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mole {
+            background-color: brown;
+            border-radius: 50%;
+            width: 90px; /* Slightly less to fit inside the container */
+            height: 90px; /* Slightly less to fit inside the container */
+            opacity: 0; /* Moles are initially not visible */
+            transition: opacity 0.3s; /* Smooth transition for appearing and disappearing */
+        }
+
+        .mole.up {
+            opacity: 1; /* Moles are fully visible when they "pop up" */
+        }
+    </style>
+</head>
+<body>
+    <h2>Score: <span id="score">0</span></h2>
+
+    <div class="game-board">
+
+    </div>
+
+    <script>
+        const gameBoard = document.getElementById('gameBoard');
+        const scoreDisplay = document.getElementById('score');
+        let score = 0;
+        let lastMole;
+        let timeUp = false;
+
+        function randomTime(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        function randomMole(moles) {
+            const idx = Math.floor(Math.random() * moles.length);
+            const mole = moles[idx];
+            if (mole === lastMole) {
+                return randomMole(moles);
+            }
+            lastMole = mole;
+            return mole;
+        }
+
+        function peep() {
+            const moles = document.querySelectorAll('.mole');
+            const time = randomTime(500, 2000);
+            const mole = randomMole(moles);
+            mole.classList.add('up');
+            setTimeout(() => {
+                mole.classList.remove('up');
+                if (!timeUp) peep();
+            }, time);
+        }
+
+        function startGame() {
+            scoreDisplay.textContent = 0;
+            timeUp = false;
+            score = 0;
+            peep();
+            setTimeout(() => {
+                timeUp = true;
+                // Create a new div element for the "Game Over" message
+                const gameOverMessage = document.createElement('div');
+                gameOverMessage.textContent = 'Game Over';
+                // Style the div to display at the top of the screen
+                gameOverMessage.style.position = 'fixed';
+                gameOverMessage.style.top = '0';
+                gameOverMessage.style.left = '50%';
+                gameOverMessage.style.transform = 'translateX(-50%)';
+                gameOverMessage.style.fontSize = '2rem';
+                gameOverMessage.style.color = 'red';
+                gameOverMessage.style.backgroundColor = 'black';
+                gameOverMessage.style.padding = '10px';
+                gameOverMessage.style.zIndex = '1000'; // Ensure it's above other elements
+                // Append the div to the body
+                document.body.appendChild(gameOverMessage);
+            }, 10000); // Game time 10 seconds
+        }
+
+        function whack(e) {
+            // Ensure the event is trusted to prevent simulated clicks
+            if (!e.isTrusted) return;
+
+            // Check if the clicked element is a mole and it is "up"
+            if (this.classList.contains('mole') && this.classList.contains('up')) {
+                score++;
+                this.classList.remove('up'); // Hide the mole immediately after it's whacked
+                scoreDisplay.textContent = score;
+            }
+        }
+
+        function createMoles() {
+            const gameBoard = document.querySelector('.game-board'); // Ensure you have this line to select the game board
+            for (let i = 0; i < 16; i++) { // Keep the original number of moles at 16
+                const moleContainer = document.createElement('div');
+                moleContainer.classList.add('mole-container');
+
+                const mole = document.createElement('div');
+                mole.classList.add('mole');
+                mole.addEventListener('click', whack);
+
+                moleContainer.appendChild(mole); // Append mole to mole-container
+                gameBoard.appendChild(moleContainer); // Append mole-container to gameBoard
+            }
+        }
+
+        createMoles();
+        startGame(); // Call this function to start the game
+    </script>
+</body>
+</html>
