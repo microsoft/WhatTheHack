@@ -29,7 +29,7 @@
   
 - A model opens up to configure the compute to use for the endpoint, and to specify the deployment name.
 - Specify the compute size desired for the endpoint, and the names for the endpoint and deployment, then tap the Deploy button.
-  ![picture alt](./image-13.png)
+  ![picture alt](./Screenshot_26-6-2024_01752_ml.azure.com.jpeg)
 
 - After the deployment completes (10-15 minutes, typically), make a quick "smoke test" within Azure ML Studio to ensure the deployment is functional, and we're using the correct data structures when calling it.
   ![picture alt](./image-15.png)
