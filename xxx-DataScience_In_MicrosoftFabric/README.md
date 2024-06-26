@@ -27,9 +27,9 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 	 - Train a machine learning model with ML Flow with the help of Copilot (optional)
 - Challenge 04: **[Generate batch predictions](Student/Challenge-04.md)**
 	 - Score a static dataset with the model
-- Challenge 05: **[Generate real-time predictions](Student/Challenge-05.md)**
+- Challenge 05: **[Create a PowerBI report with your predictions](Student/Challenge-05.md)**
 	 - Score data with the model as it is streamed into Fabric
-- Challenge 06: **[Create a PowerBI Report with your predictions](Student/Challenge-06.md)**
+- Challenge 06: **[ROADMAP: Generate real-time predictions on Fabric](Student/Challenge-06.md)**
 	 - Build a PowerBI report with the scored data
 - Challenge 07: **[ROADMAP: Deploy an inferencing endpoint](Student/Challenge-07.md)**
 	 - Deploy and connect to an inferencing endpoint to be able to score data from outside Fabric
@@ -45,3 +45,4 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 
 - Pardeep Singla
 - Juan Llovet
+- Leandro Santana
