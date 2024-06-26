@@ -80,7 +80,7 @@ The contents of the Yacht details are stored in the following directory
 
 ````bash
 
-cd 068-AzureOpenAIApps/Student/Resources/Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts
+cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts
 
 ````
 
