@@ -52,6 +52,7 @@ Likewise, updates to the **yachts** JSON records in Cosmos DB should automatical
 
 We need to upload documents to Azure Blob Store and Cosmos DB.
 
+### Uploading Documents to Azure Blob Store
 To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk using the following two commands
 
 ````bash
@@ -96,6 +97,8 @@ The contents of the Yacht details are stored in the following directory
 cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts
 
 ````
+
+### Uploading Documents to Azure Cosmos DB
 
 To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder
 
