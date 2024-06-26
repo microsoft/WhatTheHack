@@ -29,7 +29,7 @@ There are also some JSON documents (from the **ContosoAIAppsBackend/challenge-ar
 
 You can use the **az storage blob upload** command examples below to upload the document to Azure Blob Storage.
 
-For Cosmos DB, you can upload the JSON documents using the Cosmos DB Data Explorer.
+For Cosmos DB, you can upload the JSON documents using the REST API client file **rest-api-yachts-management.http**.
 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
