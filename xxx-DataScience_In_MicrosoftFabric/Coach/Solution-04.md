@@ -16,4 +16,5 @@
 
 - Fabric will combine the ML Model along with a Python Object Serialization file (a/k/a pickle file) having a .pkl extension, and YAML files (.yml) that describe to other platforms the structure and interface provided by the model. All these files are packaged into a .zip file, which will be placed in your Downloads folder.
 - If you open the .zip file, you can review the model and metadata files before deploying them to other systems.
+  ![picture alt](./image-11.png)
   
