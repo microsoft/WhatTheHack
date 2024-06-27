@@ -110,7 +110,9 @@ You will be using this information in these python files to configure your assis
 
 ````
 
- ````json
+The format for the parameter description and typing follows the JSON schema specification so you can use [this tool](https://www.liquid-technologies.com/online-json-to-schema-converter) to figure out the data types for the parameters.
+
+````json 
 [
     {
         "type": "function",
@@ -170,6 +172,7 @@ To complete the challenge successfully, the solution should demonstrate the foll
 Here are a list of resources that should assist you with completing this challenge: 
 
 *Sample resources:*
+- [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter)
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
 - https://redis.io/docs/data-types/strings/
 - https://redis.io/docs/data-types/lists/
