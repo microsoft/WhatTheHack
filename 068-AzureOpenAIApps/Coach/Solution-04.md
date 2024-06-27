@@ -8,4 +8,4 @@ The students will use the Azure CLI to upload the submission documents located i
 Example: <br>
 `az storage blob upload-batch --account-name contosopeterod1storage -d submissions -s .`
 
-If the student gets a `429 Too Many Requests` in the Terminal output window, go to OpenAI Studio and edit the deployments for `text-embedding-ada-002` and increase the tokens per minute rate limit to maximum. Do the same thing for `gpt-4`.
+If the student gets a `429 Too Many Requests` in the Terminal output window, go to OpenAI Studio and edit the deployment for `text-embedding-ada-002` and increase the tokens per minute rate limit to maximum. Do the same thing for `gpt-4`.
