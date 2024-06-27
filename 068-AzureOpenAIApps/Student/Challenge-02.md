@@ -79,6 +79,7 @@ Make sure that the value of the first parameter to ToolUtils.register_tool_mappi
 
 The second parameter to ToolUtils.register_tool_mapping() is the actual python function definition.
 
+You will be using this information in these python files to configure your assistants tools and system messages.
 
 ````python
 
