@@ -188,10 +188,19 @@ If you have any errors with capacity or quota issues, you may need to re-deploy 
 - `Location`: The Azure region where you want to deploy the resources. (Default value is `eastus2`)
 - `OpenAILocation`: The Azure region where the Azure OpenAI resource will be deployed. (Default value is `eastus2`)
 - `DocumentIntelligenceLocation`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
- 
-As of June 2024, Azure OpenAI is available in the following regions: `eastus2`, `australiaeast`, `canadaeast`, `francecentral`, `northcentralus`, `southindia`, `swedencentral`, `uksouth`, `westus`
 
-As of June 2024, Azure Document Intelligence is available in the following regions: `eastus`, `westus2`, `westeurope`
+**NOTE:** The hack requires the Azure OpenAI Assistant API feature which is currently in preview and NOT available in ALL regions *where Azure OpenAI is available*!
+ 
+As of June 2024, Azure OpenAI with the Assistant API preview feature is available in the following regions: `eastus2`, `australiaeast`, 
+`francecentral`, `norwayeast`, `swedencentral`, `uksouth`, `westus`, `westus3`
+
+This information is subject to change over time, for the most up to date list of available locations see [Azure OpenAI Service Models - Assistants (Preview) Availability](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview)
+
+**NOTE:** This hack uses Python to interact with the Azure Document Intelligence API. Python is supported with the `2024-02-29-preview` version of the Document Intelligence API.  The `2024-02-29-preview` version of the API is currently NOT available in ALL regions *where Azure Document Intelligence is available*!
+
+As of June 2024, Azure Document Intelligence with support for API version `2024-02-29-preview` (with Python support) is available in the following regions: `eastus`, `westus2`, `westeurope`
+
+This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability]([https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0))
 
 #### Setup App Backend
 
