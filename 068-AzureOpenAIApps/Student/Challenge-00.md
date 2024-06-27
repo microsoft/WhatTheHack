@@ -200,7 +200,7 @@ This information is subject to change over time, for the most up to date list of
 
 As of June 2024, Azure Document Intelligence with support for API version `2024-02-29-preview` (with Python support) is available in the following regions: `eastus`, `westus2`, `westeurope`
 
-This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability]([https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0))
+This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
 
 #### Setup App Backend
 
