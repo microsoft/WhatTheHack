@@ -27,11 +27,14 @@ There are 20 sample documents in the  **Student/Resources/Challenge-00/ContosoAI
 
 Each folder containers 5 samples you will use for training the custom classifier and extractor.
 
-You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories:
+You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **classifications** container in Blob Store:
 
 At runtime in the automated data pipleline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
 ## Creating a Custom Classifier Model in Document Intelligence Studio
+
+You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID** setting in your applications settings config file.
+
 The custom classifier helps you to automate the recognition of the different document types or classes in your knowledge store
 
 Use these directions for [Buidling a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
