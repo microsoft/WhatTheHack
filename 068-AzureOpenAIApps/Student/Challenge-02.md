@@ -65,6 +65,42 @@ In this challenge, you will be asked to configure the system message and tools u
 
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
+#### The python function registration for each assistant are in the following files
+- controllers/ask_elizabeth.py
+- controllers/ask_esther.py
+- controllers/ask_miriam.py
+
+#### The python function definition for each assistant are in the following files:
+- shared/assistant_tools_elizabeth.py
+- shared/assistant_tools_esther.py
+- shared/assistant_tools_miriam.py
+
+Make sure that the value of the first parameter to ToolUtils.register_tool_mapping() matches the name of the function in the JSON function definition for the assistant configuration.
+
+The second parameter to ToolUtils.register_tool_mapping() is the actual python function definition.
+
+
+````python
+
+    util = ToolUtils(AssistantName.MIRIAM, system_message1, tools_config1, conversation_id)
+
+    util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
+    util.register_tool_mapping("get_yacht_details", v_get_yacht_details)
+    util.register_tool_mapping("get_bank_account_balance", v_get_bank_account_balance)
+    util.register_tool_mapping("bank_account_balance_is_sufficient", v_bank_account_balance_is_sufficient)
+    util.register_tool_mapping("get_valid_reservation_search_dates", v_get_valid_reservation_search_dates)
+    util.register_tool_mapping("yacht_is_available_for_date", v_yacht_is_available_for_date)
+    util.register_tool_mapping("is_valid_search_date", v_is_valid_search_date)
+    util.register_tool_mapping("get_yacht_availability_by_id", v_get_yacht_availability_by_id)
+    util.register_tool_mapping("get_yacht_availability_by_date", v_get_yacht_availability_by_date)
+    util.register_tool_mapping("yacht_reservation_exists", v_yacht_reservation_exists)
+    util.register_tool_mapping("get_reservation_details", v_get_reservation_details)
+    util.register_tool_mapping("cancel_yacht_reservation", v_cancel_yacht_reservation)
+    util.register_tool_mapping("get_customer_yacht_reservations", v_get_customer_yacht_reservations)
+    util.register_tool_mapping("create_yacht_reservation", v_create_yacht_reservation)
+
+````
+
  ````json
 [
     {
