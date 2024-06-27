@@ -144,7 +144,7 @@ Run the following command to create a service principal with the Contributor rol
   ````
   Your output should look something like this:
 
-  ![Service Principle](/068-AzureOpenAIApps/images/service-principle.png)
+  ![Service Principal](/068-AzureOpenAIApps/images/service-principle.png)
 
 <b>Make sure you save the output of the above command as you will need it later.</b>
 
@@ -152,15 +152,14 @@ Run the following command to create a service principal with the Contributor rol
 
 ##### Provisioning Azure Resources
 
-In the codespace, the terminal will default to be visible so you can execute the following comamnds.
+In the codespace, the terminal will default to be visible so you can execute the following comamnds:
 
 ```bash
 cd infra
-pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
+pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName ""
 ```
 
 - `SubscriptionId`: The Azure Subscription ID where you want to deploy the resources
-- `Location`: The Azure Region where you want to deploy the resources
 - `ResourceGroupName`: The name of the resource group where you want to deploy the resources
 
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
@@ -170,7 +169,7 @@ pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName ""
 
 ```bash
 cd infra
-pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName "" -UseServicePrincipal -ServicePrincipalId "" -ServicePrincipalPassword "" -TenantId ""
+pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName "" -UseServicePrincipal -ServicePrincipalId "" -ServicePrincipalPassword "" -TenantId ""
 ```
 - `ServicePrincipalId`: The App ID
 - `ServicePrincipalPassword`: The Service Principal Password
@@ -180,22 +179,19 @@ pwsh deploy.ps1 -SubscriptionId "" -Location "" -ResourceGroupName "" -UseServic
 
 The deployment process takes about 30 minutes to complete.
 
-**NOTE:** If you have any errors during the deployment, there may be a conflict with the resources you are trying to deploy. In particlar, if you have capacity issue or quota issues.  You will need to re-deploy.
- - For capacity issues, you may need to try a different region in your deployment.
- - For and Open AI quota issues, you can add an optional parameter for the OpenAI region by adding the following parameter to the deployment command:
+###### Capacity Issues
+
+At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
+
+If you have any errors with capacity or quota issues, you may need to re-deploy the solution using one or more of the optional location parameters below. Note the resource type and region that failed to deploy in any error messages, and choose a different region based on the information below.
+
+- `Location`: The Azure region where you want to deploy the resources. (Default value is `eastus2`)
+- `OpenAILocation`: The Azure region where the Azure OpenAI resource will be deployed. (Default value is `eastus2`)
+- `DocumentIntelligenceLocation`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
  
-```bash
--OpenAILocation ""
-```
+As of June 2024, Azure OpenAI is available in the following regions: `eastus2`, `australiaeast`, `canadaeast`, `francecentral`, `northcentralus`, `southindia`, `swedencentral`, `uksouth`, `westus`
 
-  - OpenAILocation: The Azure Region where the models are available.  As of April 2024, the available regions are: australiaeast, canadaeast, francecentral, northcentralus, southindia, swedencentral, uksouth, westus.  Don't use eastus2 as it is the default in the deployment code.
-
- - For and Document Intelligence quota issues, you can add an otional parameters for the Document Intelligence region by adding the following parameter to the deployment command:
-
-```bash
--DocumentIntelligenceLocation ""
-```
- - DocumentIntelligenceLocation: The Azure Region where the Document Intelligence is  available.  As of April 2024, the available regions are: westus2 and westeurope.  Don't use eastus as it is the default in the deployment code.
+As of June 2024, Azure Document Intelligence is available in the following regions: `eastus`, `westus2`, `westeurope`
 
 #### Setup App Backend
 
