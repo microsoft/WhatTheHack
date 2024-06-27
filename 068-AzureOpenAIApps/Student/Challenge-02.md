@@ -81,6 +81,8 @@ This is where the functions used in the tools are defined in python code
 - shared/assistant_tools_esther.py
 - shared/assistant_tools_miriam.py
 
+You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (priscilla and sarah) to see how it is configured to figure out the function description and parameter data types.
+
 Make sure that the value of the first parameter to ToolUtils.register_tool_mapping() matches the name of the function in the JSON function definition for the assistant configuration.
 
 The second parameter to ToolUtils.register_tool_mapping() is the actual python function definition.
