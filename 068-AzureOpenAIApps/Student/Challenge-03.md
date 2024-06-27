@@ -29,7 +29,7 @@ Each folder containers 5 samples you will use for training the custom classifier
 
 You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **classifications** container in Blob Store:
 
-At runtime in the automated data pipleline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
+At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
 ## Creating a Custom Classifier Model in Document Intelligence Studio
 
@@ -57,7 +57,7 @@ Make sure that the **extractor_model_name** field in your application config **d
 
 Also ensure that the field names such as **q1** and **q5** matches exactly what you have in Document Intelligence Studio.
 
-The first 3 extractro models a straightforward. However in the 4th document type, we have tables, signatures and checkboxes.
+The first 3 extractor models a straightforward. However in the 4th document type, we have tables, signatures and checkboxes.
 
 #### **document-intelligence-dictionary.json** 
 ````json
