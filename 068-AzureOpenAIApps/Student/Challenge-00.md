@@ -133,7 +133,7 @@ If your Azure subscription does not allow authentication with a Device Login Cod
 **NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI.
 
 <details>
-<summary>Click to expand/collapse SP Requirements </summary>
+<summary>Click to expand/collapse Setup Service Principal Requirements </summary>
 
 To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script.
 
@@ -165,7 +165,7 @@ pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName ""
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
 
 <details>
-<summary>Click to expand/collapse Service Principal Login </summary>
+<summary>Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
 
 ```bash
 cd infra
