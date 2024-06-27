@@ -66,11 +66,17 @@ In this challenge, you will be asked to configure the system message and tools u
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
 #### The python function registration for each assistant are in the following files
+
+This is where the tools are registered in the application.
+
 - controllers/ask_elizabeth.py
 - controllers/ask_esther.py
 - controllers/ask_miriam.py
 
 #### The python function definition for each assistant are in the following files:
+
+This is where the functions used in the tools are defined in python code
+
 - shared/assistant_tools_elizabeth.py
 - shared/assistant_tools_esther.py
 - shared/assistant_tools_miriam.py
