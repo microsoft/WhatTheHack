@@ -132,8 +132,8 @@ If your Azure subscription does not allow authentication with a Device Login Cod
 
 **NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI.
 
-<details>
-<summary>Click to expand/collapse Setup Service Principal Requirements </summary>
+<details markdown="1">
+<summary markdown="span">Click to expand/collapse Setup Service Principal Requirements </summary>
 
 To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script.
 
@@ -164,8 +164,8 @@ pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName ""
 
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
 
-<details>
-<summary>Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
+<details markdown="1">
+<summary markdown="span">Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
 
 ```bash
 cd infra
@@ -182,6 +182,11 @@ The deployment process takes about 30 minutes to complete.
 ###### Capacity Issues
 
 At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
+
+If you have any errors with capacity or quota issues, expand the hidden section below for troubleshooting instructions.
+
+<details markdown="1">
+<summary markdown="span">Click to expand/collapse Troubleshoot Capacity Issues</summary>
 
 If you have any errors with capacity or quota issues, you may need to re-deploy the solution using one or more of the optional location parameters below. Note the resource type and region that failed to deploy in any error messages, and choose a different region based on the information below.
 
@@ -201,6 +206,8 @@ This information is subject to change over time, for the most up to date list of
 As of June 2024, Azure Document Intelligence with support for API version `2024-02-29-preview` (with Python support) is available in the following regions: `eastus`, `westus2`, `westeurope`
 
 This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
+
+</details>
 
 #### Setup App Backend
 
