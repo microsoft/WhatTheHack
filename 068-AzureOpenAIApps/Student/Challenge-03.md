@@ -27,7 +27,7 @@ There are 20 sample documents in the  **Student/Resources/Challenge-00/ContosoAI
 
 Each folder containers 5 samples you will use for training the custom classifier and extractor.
 
-You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **classifications** container in Blob Store:
+You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **classifications** container in Blob Store.
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
