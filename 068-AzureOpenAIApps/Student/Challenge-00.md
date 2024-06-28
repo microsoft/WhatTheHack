@@ -16,8 +16,9 @@ In this challenge, you will setup the necessary pre-requisites and environment t
   - [Use Local Workstation](#use-local-workstation)
 - [Setup Sample Application](#setup-sample-application)
   - [Deploy Azure Resources](#deploy-azure-resources)
-  - [Setup App Backend](#setup-app-backend)
-  - [Setup App Frontend](#setup-app-frontend)
+  - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
+    - [Setup App Backend](#setup-app-backend)
+    - [Setup App Frontend](#setup-app-frontend)
 
 ### Access Azure OpenAI 
 
@@ -52,7 +53,7 @@ You can see your balance of available codespace hours on the [GitHub billing pag
 The GitHub Codespace for this hack will host the developer tools, sample application code, configuration files, and other data files needed for this hack. Here are the steps you will need to follow:
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [WTH Azure OpenAI Apps Codespace Repo](https://github.com/devanshithakar12/wth-aiapps-codespace/)
+  - [WTH Azure OpenAI Apps Codespace Repo](https://aka.ms/wth/openaiapps/codespace/)
   - Please open this link and sign in with your personal Github account. 
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
@@ -111,6 +112,11 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 The sample application for this hack was developed using Python and Typescript/Javascript. 
 
 Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
+
+There are three major steps to setup the Sample Application:
+- [Deploy Azure Resources](#deploy-azure-resources)
+- [Setup App Backend](#setup-app-backend)
+- [Setup App Frontend](#setup-app-frontend)
 
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
 - `/ContosoAIAppsBackend` (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
@@ -209,11 +215,20 @@ This information is subject to change over time, for the most up to date list of
 
 </details>
 
-#### Setup App Backend
+#### Setup App Backend and Frontend
 
-Open a new terminal in VScode and then 
+Now that the Azure resources to support the hack's sample application have been deployed, you will setup and run both the backend and frontend components in your development environment.  These components will run in your development environment (GitHub Codespace OR local workstation) throughout the duration of the hack as you work on the challenges.
 
-Navigate to the `/ContosoAIAppsBackend` folder and Start up the function app
+Here are some things to know about the developer environment:
+- Once you start each component, it will hold the Terminal session while the component is running.
+- Therefore, each component will require its own Terminal session in VS Code.
+- If you are using GitHub Codespaces and the Codespace times out while you are hacking, you will need to re-run the steps here to restart each component.
+
+##### Setup App Backend
+
+The sample application's Backend is implemented as an Azure Function. Azure Functions can be run in a local developer environment for testing before eventual deployment into Azure.  For this hack, you will run the application's Backend function code in your developer environment without publishing it to Azure.
+
+In a Terminal session in VSCode, navigate to the `/ContosoAIAppsBackend` folder and Start up the Backend function app by running the following commands:
 
 ```
 cd ContosoAIAppsBackend
@@ -221,17 +236,13 @@ pip install -r requirements.txt
 func start 
 ```
 
-#### Setup App Frontend
+##### Setup App Frontend
 
-This assumes that the UI is already set up and we just need to boot up the Angular app
+The sample application's Frontend is implemented as an Angular web application. For this hack, you will only run the application's Frontend in your development environment without publishing it to Azure.  
 
-Open another terminal in VScode and then 
-
-Navigate into the `/ContosoAIAppsFrontend` folder and install the application dependencies
-
-If your function app is running on a different port or machine, please update the src/environments/environment.ts config file accordingly
-**TODO:** Add Instructions on how to grab the codespace port forwarding URL into environment.ts
 **TODO:** Add instruction to open a new terminal window. Give explanation of how to open a 2nd terminal in Codespace.
+
+Open another Terminal session in VScode and then navigate into the `/ContosoAIAppsFrontend` folder. Install the application dependencies and start the Frontend by running the following commands:
 
 ```
 # Navigates into the folder 
@@ -243,6 +254,8 @@ npm install
 # Starts up the web application on your local machine
 npm start
 ```
+
+**NOTE:** The Frontend application is configured to connect to the Backend function's URL via a setting in the `/ContosoAIAppsFrontend/src/environments/environment.ts` file. If your Backend function app is running on a different port or machine, please update the `environment.ts` config file accordingly
 
 Open another terminal in VSCode so that you can continue the rest of the challenges. The ContosoAIAppsBackend and ContosoAIAppsFrontend will remain running in the background. 
 
