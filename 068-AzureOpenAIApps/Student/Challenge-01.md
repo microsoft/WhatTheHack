@@ -142,6 +142,7 @@ You should be able to search for the documents in Azure AI Search
 
 ![HTTP Request Variables](../images/contoso_yachts_index_search.png)
 
+You should then make a small change to one of the JSON files by changing some text in the description and then upload the file again. You should then be able to see the change reflected in the Azure AI Search index. Change the file back to how it was originally and upload the file again because it will be used in later challenges. 
 
 ## Success Criteria
 
