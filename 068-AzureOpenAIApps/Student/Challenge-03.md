@@ -35,7 +35,7 @@ At runtime in the automated data pipeline, the app will invoke the custom classi
 
 You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID** setting in your applications settings config file. <BR>
 
-Note: You may need to use the Settings icon in the Azure Portal to switch directories if your Entra ID belongs to more than one Azure tenant
+Note: You may need to use the Settings icon in the Azure Portal to switch directories if your Entra ID belongs to more than one Azure tenant.
 
 The custom classifier helps you to automate the recognition of the different document types or classes in your knowledge store
 
