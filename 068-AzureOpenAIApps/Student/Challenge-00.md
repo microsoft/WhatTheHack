@@ -160,7 +160,7 @@ pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName ""
 ```
 
 - `SubscriptionId`: The Azure Subscription ID where you want to deploy the resources
-- `ResourceGroupName`: The name of the resource group where you want to deploy the resources
+- `ResourceGroupName`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script. 
 
 **NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
 
