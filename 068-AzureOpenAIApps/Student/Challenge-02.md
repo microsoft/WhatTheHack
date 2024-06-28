@@ -183,8 +183,6 @@ Here are a list of resources that should assist you with completing this challen
 *Sample resources:*
 - [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter)
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
-- https://redis.io/docs/data-types/strings/
-- https://redis.io/docs/data-types/lists/
 
 ## Tips
 
