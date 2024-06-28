@@ -10,3 +10,4 @@ The signature field appears to only work by drawing a region and then selecting 
 
 Checkboxes sometimes can be finicky about how they are clicked and then assigned to a field. If you get an error, make sure you click the checkbox itself and not the checkmark/X within the checkbox. 
 
+If the model training fails, the student should retry the model training. Sometimes the Document Intelligence service might be under load and the training may just fail. 
