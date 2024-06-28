@@ -41,7 +41,7 @@ The custom classifier helps you to automate the recognition of the different doc
 
 Use these directions for [Buidling a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
 - f01-geography-climate 
-- f02-tourism-climate
+- f02-tourism-economy
 - f03-geography-politics
 - f04-activity-preferences
 
@@ -49,7 +49,7 @@ When creating your model identifiers please ensure that you use these names as t
 
 ## Create a Custom Neural Extraction Model in the Document Intelligence Studio
 
-Use these directions for [Building a Custom Extractor Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0&tabs=studio) to build and train each of the extractor models for the 4 document types:
+Use these directions for [Building a Custom Extractor Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0&tabs=studio) to build and train each of the extractor models for the 4 document types. You will need 4 projects (1 for each category of documents that references each Azure Blob storage container listed above). 
 
 Make sure that the **extractor_model_name** field in your application config **document-intelligence-dictionary.json** matches what you have in Document Intelligence Studio
 - f01-extractor-model
