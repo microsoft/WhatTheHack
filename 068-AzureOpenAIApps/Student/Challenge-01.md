@@ -53,26 +53,28 @@ Likewise, updates to the **yachts** JSON records in Cosmos DB should automatical
 We need to upload documents to Azure Blob Store and Cosmos DB.
 
 ### Uploading Documents to Azure Blob Store
-To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk using the following two commands
+To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk. Here is some sample code to help you. 
 
 ````bash
 # Use this command to login if you have a regular subscription
 az login --use-device-code
 
-# Use this command to login if you an FBDO susbcription
+# OR 
+
+# Use this command to login if you are on an FPDO susbcription
 az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 
 # navigate to document directory
-cd Challenge-00/ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
+cd ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
 
-# create the government container if it does not exist
+# create a container
 az storage container create --account-name {mystorageaccountname} --name {containerName} 
 
-# This is just an example using contosoizzy1storage as the storage account. Plug in your own storage account name there
+# This is just an example using contosoizzy1storage as the storage account. Plug in your own storage account name here
 az storage container create --account-name contosoizzy1storage --name government
 ````
 
-Use these commands to upload the file to blob store individually.
+Use these commands to upload the file to Azure blob storage individually.
 
 ````bash
 # upload single documents one at a time
@@ -82,7 +84,7 @@ az storage blob upload --account-name contosoizzy1storage  -f climate.txt -c gov
 
 ````
 
-Use the commands to upload multiple files simultaneously
+Use these commands to upload multiple files simultaneously
 
 ````bash
 
@@ -100,7 +102,7 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 The contents of the Yacht details are stored in the directory **Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts**
 
-Make sure you manually copy the JSON contents of each file and use the REST client in **rest-api-yachts-management.http** to send each document via the REST API to Cosmos DB.
+Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in **rest-api-yachts-management.http** to send each document via the REST API to Cosmos DB. There are five JSON files. 
 
 To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
 
