@@ -65,6 +65,14 @@ In this challenge, you will be asked to configure the system message and tools u
 
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
+#### Mapping Python Data Types to JSON Schema Types
+| Python Data Type    | JSON Schema Reference |
+| -------- | ------- |
+| [str](https://docs.python.org/3/library/string.html)  |  [string](https://json-schema.org/understanding-json-schema/reference/string)   |
+| [bool]()| [boolean](https://json-schema.org/understanding-json-schema/reference/boolean)|
+| [int](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [integer](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
+| [float](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [number](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
+
 #### The python function registration for each assistant are in the following files
 
 This is where the tools are registered in the application.
