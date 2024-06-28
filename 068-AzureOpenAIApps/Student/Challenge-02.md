@@ -72,6 +72,7 @@ In this challenge, you will be asked to configure the system message and tools u
 | [bool]()| [boolean](https://json-schema.org/understanding-json-schema/reference/boolean)|
 | [int](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [integer](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
 | [float](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [number](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
+| [list or tuple](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [array](https://json-schema.org/understanding-json-schema/reference/array) |
 
 #### The python function registration for each assistant are in the following files
 
