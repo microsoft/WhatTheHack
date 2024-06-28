@@ -34,7 +34,7 @@ To begin setting up your Azure subscription for this hack, you will run a bash s
  - Go to the Azure portal and click on the cloud shell button on the top navigation bar, to the right of the Copilot button.
  - Once the cloud shell connects, make sure you are using a Bash shell. If you are not, click on the button on the top-right corner of the cloud shell to switch to bash.
  - Click on the Manage Files button on the shell's navigation bar and select upload. Select the setup file from your computer.
- - Run the %%sh HackSetup.sh%% command in your cloud shell.
+ - Run the `sh HackSetup.sh` command in your cloud shell.
  - Follow the prompts in the shell.
 
 
