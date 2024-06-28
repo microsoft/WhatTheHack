@@ -22,10 +22,10 @@ In this section, hack participants must create a shortcut to the folder deployed
   - Click next to move to the next screen, then click on create to create the shortcut.
   - Verify that your shortcut is showing under the Files folder of the lakehouse navigator. You might need to click on the 3 dots and on refresh if your shortcut is not present initially.
 
--Running notebook 1:
+- Running notebook 1:
   - Go back to your workspace and select Notebook 01-Ingest-Heart-Failure...
   - Complete and run each cell sequentially in the notebook, using the instructions and documentation links.
   - Note: the full completed notebook is available in the coach resources folder in GitHub for reference.
 
--Exit criteria:
+- Exit criteria:
   - The heart.csv data is now saved as a delta table on the lakehouse
