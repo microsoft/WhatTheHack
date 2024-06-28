@@ -57,7 +57,7 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
+- Once you are signed in, click on the green "Code" button. Then click the three dots in the "Codespaces" section and select "New with Options...". We recommend selecting 4-cores for "Machine Type, if possible. Finally, click "Create Codespace".
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
