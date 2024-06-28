@@ -29,7 +29,7 @@ There are also some JSON documents (from the **ContosoAIAppsBackend/challenge-ar
 
 You can use the **az storage blob upload** command examples below to upload the document to Azure Blob Storage.
 
-For Cosmos DB, you can upload the JSON documents using the REST API client file **rest-api-yachts-management.http**.
+For Cosmos DB, you can upload the JSON documents using the REST API client file **rest-api-yachts-management.http**. Note: this file uses the `humao.rest-client` VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
