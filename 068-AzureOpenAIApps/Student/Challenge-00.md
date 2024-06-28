@@ -225,7 +225,7 @@ func start
 
 This assumes that the UI is already set up and we just need to boot up the Angular app
 
-Open another new terminal in VScode and then 
+Open another terminal in VScode and then 
 
 Navigate into the `/ContosoAIAppsFrontend` folder and install the application dependencies
 
@@ -243,6 +243,8 @@ npm install
 # Starts up the web application on your local machine
 npm start
 ```
+
+Open another terminal in VSCode so that you can continue the rest of the challenges. The ContosoAIAppsBackend and ContosoAIAppsFrontend will remain running in the background. 
 
 ## Success Criteria
 
