@@ -20,3 +20,6 @@ Coache's guidance:
 - There may be multiple ways to attain the same solution and multiple valid functions to use in each section, but not every combination of methods might yield the end result.
 - The aim of this challenge, as noted in the student guide, is to practice leveraging MLFlow within Fabric. This specific hack uses `sklearn` but other ML frameworks can be used in Fabric as well.
 - To assist students, coaches can clear up doubts/give hints on the specifics of splitting the data and fitting the model but students should focus on learning how to structure runs and experiments on MLFlow.
+
+## Success criteria
+  - The heart.csv data is now saved as a delta table on the lakehouse
