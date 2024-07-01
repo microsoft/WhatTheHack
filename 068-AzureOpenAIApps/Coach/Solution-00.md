@@ -32,6 +32,10 @@ These details are called out in the student guide, but Coaches should be prepare
 
 At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
 
+Here is a screenshot of a sample capacity error that students might get when attempting to run the deployment script:
+
+![sample error message](../images/example-capacity-deployment-error.png)
+
 If students have any errors with capacity or quota issues, please guide them through re-running the deployment script with the additional optional parameters to specify different regions for any resources that failed to deploy.  The hidden section below for troubleshooting instructions has also been included in the student guide, but please read through and understand it before delivering this hack.
 
 <details markdown="1">
