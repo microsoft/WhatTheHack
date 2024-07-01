@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the Data Science In Microsoft Fabric What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Data Science in Microsoft Fabric What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
