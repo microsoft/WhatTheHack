@@ -51,6 +51,9 @@ This information is subject to change over time, for the most up to date list of
 
 We **strongly** recommend students use GitHub Codespaces as their development environment over a local workstation.
 
+>[!NOTE]
+>As of July 2024, the Challenge 0 instructions for how to set up a local workstation have NOT been tested!
+
 Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. However, the only way to get debugging working in Python in the Azure Functions Runtime is to do it locally. We don't expect most students to need debugging but some more advanced students may want it to see how the code is working. 
 
 #### Debugging Python on Local Workstation
