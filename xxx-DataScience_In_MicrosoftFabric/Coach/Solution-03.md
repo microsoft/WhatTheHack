@@ -22,4 +22,4 @@ Coache's guidance:
 - To assist students, coaches can clear up doubts/give hints on the specifics of splitting the data and fitting the model but students should focus on learning how to structure runs and experiments on MLFlow.
 
 ## Success criteria
-  - The heart.csv data is now saved as a delta table on the lakehouse
+  - The model has been trained and registered with MLFlow and it has been checked with testing and validation data
