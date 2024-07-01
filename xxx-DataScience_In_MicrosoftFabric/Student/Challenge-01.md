@@ -9,8 +9,8 @@ As you observed at the end of setup in Challenge 0, you have been provided with 
 ## Description
 
 Your task in this challenge is to make your data available as a delta table in the Fabric OneLake. To do so, you must:
--Create a shortcut to the heart.csv file located in ADLS Gen2. 
--Load the data to the lakehouse you will be using throughout this hack
+- Create a shortcut to the heart.csv file located in ADLS Gen2. 
+- Load the data to the lakehouse you will be using throughout this hack
 
 To load the data to the lakehouse, you will be using a spark notebook. Open notebook 1 that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
 
@@ -19,9 +19,9 @@ Notebook sections:
 2. Write the dataframe to the lakehouse as a delta table
 
 By the end of this challenge, you should be able to understand and know how to use:
--Fabric Shortcuts, how do they work, why are they beneficial and what is required to use them
--Fabric Lakehouses, their role, how to create a new one and their different components
--Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
+- Fabric Shortcuts, how do they work, why are they beneficial and what is required to use them
+- Fabric Lakehouses, their role, how to create a new one and their different components
+- Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
 
 ## Success Criteria
 
