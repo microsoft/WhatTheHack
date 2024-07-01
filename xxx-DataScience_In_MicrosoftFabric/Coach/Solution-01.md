@@ -4,8 +4,16 @@
 
 ## Notes & Guidance
 
-In this section, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will alow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on notebook 2.
+In this section, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will alow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on Notebook 2.
 
+### Sections
+
+1. Create a Lakehouse (non-notebook)
+2. Create a Shortcut (non-notebook)
+3. Read the .csv file into a dataframe in the notebook (Notebook 1)
+4. Write the dataframe to the lakehouse as a delta table (Notebook 1)
+   
+### Student step-by-step instructions (creating a shortcut)
 - Creating a Lakehouse:
   -  Participants must create a lakehouse on the Fabric workspace they previously set up. In Fabric, navigate to the workspace.
   -  On the top left of the screen, select new and more options.
@@ -22,10 +30,16 @@ In this section, hack participants must create a shortcut to the folder deployed
   - Click next to move to the next screen, then click on create to create the shortcut.
   - Verify that your shortcut is showing under the Files folder of the lakehouse navigator. You might need to click on the 3 dots and on refresh if your shortcut is not present initially.
 
-- Running notebook 1:
-  - Go back to your workspace and select Notebook 01-Ingest-Heart-Failure...
-  - Complete and run each cell sequentially in the notebook, using the instructions and documentation links.
-  - Note: the full completed notebook is available in the coach resources folder in GitHub for reference.
+### Overview of student directions (running Notebook 1)
+- This section of the challenge is notebook based. All the instructions and links required for participants to successfully complete this section can be found on Notebook 3 in the `student/resources.zip/notebooks` folder.
+- To run the notebook, go to your Fabric workspace and select Notebook 1. Ensure that it is correctly attached to the lakehouse.
+- The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
+### Coaches' guidance
+- This challenge has 2 main sections, creating a shortcut and loading the files into delta tables.
+- The full version of Notebook 1, with all code cells filled in, can be found for reference in the `coach/solutions.zip` folder of this GitHub.
+- The aim of this challenge, as noted in the student guide, is to understand lakehouses, shortcuts and the delta format.
+- To assist students, coaches can clear up doubts regarding the Python syntax or how to get started with notebooks, but students should focus on learning how to set up shortcuts, navigate the Fabric UI and read/write to the delta lake.
+  
 ## Success criteria
   - The heart.csv data is now saved as a delta table on the lakehouse
