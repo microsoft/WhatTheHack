@@ -27,7 +27,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. This folder contains the data that you will use during this hack. Please download and unzip the folder.
+There is a Resources.zip file in this repo that contains the resources you will need to complete the hack. Please download and unzip the folder.
 
 To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the HackSetup.sh file in the resources folder. 
  - Donwnload the setup file to your computer
@@ -40,49 +40,7 @@ To begin setting up your Azure subscription for this hack, you will run a bash s
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
-
-## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Notes & Guidance
-
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+- Verify that you have a storage account with the heart.csv data in a container
+- (Optional) Verify that your Azure ML workspace has correctly deployed (if completing Challenge)
