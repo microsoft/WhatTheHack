@@ -29,6 +29,8 @@ Now that you have the common pre-requisites installed on your workstation, there
 
 There is a Resources.zip folder in this repo that contains the resources you will need to complete the hack. Please download and unzip the folder.
 
+**NOTE:** The resources.zip folder also includes the heart.csv file. You can upload this data directly to the Fabric Lakehouse if you decide you want to go through this hack without needing an Azure subscription. However, this will skip half of Challenge 1 and the important concept of using shortcuts in Fabric. If you are going to be setting up the Azure resources and using the shortcut, ignore the heart.csv file.
+
 To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the HackSetup.sh file in the resources folder. 
  - Donwnload the setup file to your computer
  - Go to the Azure portal and click on the cloud shell button on the top navigation bar, to the right of the Copilot button.
