@@ -1,4 +1,4 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - Bring your data to the OneLake
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
