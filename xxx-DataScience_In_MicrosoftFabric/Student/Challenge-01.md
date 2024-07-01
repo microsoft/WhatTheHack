@@ -30,6 +30,7 @@ The heart.csv data is now saved as a delta table on the lakehouse in the same wo
 ## Learning Resources
 
 [Microsoft Fabric Lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview)
+
 [ADLS Shortcuts in Fabric](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts#adls-shortcuts)
 
 Refer to Notebook 1 for more helpful links
