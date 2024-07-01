@@ -27,7 +27,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-There is a Resources.zip file in this repo that contains the resources you will need to complete the hack. Please download and unzip the folder.
+There is a Resources.zip folder in this repo that contains the resources you will need to complete the hack. Please download and unzip the folder.
 
 To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the HackSetup.sh file in the resources folder. 
  - Donwnload the setup file to your computer
