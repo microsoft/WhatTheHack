@@ -36,7 +36,7 @@ In this challenge, hack participants must create a shortcut to the folder deploy
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
 ### Coaches' guidance
-- This challenge has 2 main sections, creating a shortcut and loading the files into delta tables.
+- This challenge has 2 main sections, creating a shortcut and loading the files into delta tables. The first section must be completed before working on Notebook 1.
 - The full version of Notebook 1, with all code cells filled in, can be found for reference in the `coach/solutions.zip` folder of this GitHub.
 - The aim of this challenge, as noted in the student guide, is to understand lakehouses, shortcuts and the delta format.
 - To assist students, coaches can clear up doubts regarding the Python syntax or how to get started with notebooks, but students should focus on learning how to set up shortcuts, navigate the Fabric UI and read/write to the delta lake.
