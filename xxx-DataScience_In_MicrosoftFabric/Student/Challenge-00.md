@@ -37,10 +37,13 @@ To begin setting up your Azure subscription for this hack, you will run a bash s
  - Run the `sh HackSetup.sh` command in your cloud shell.
  - Follow the prompts in the shell.
 
+Fabric workspace and notebooks
+
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a storage account with the heart.csv data in a container
+- Verify that you have a Fabric workspace where your 4 notebooks are available
 - (Optional) Verify that your Azure ML workspace has correctly deployed (if completing Challenge)
