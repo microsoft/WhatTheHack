@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this section, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will alow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on Notebook 2.
+In this challenge, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will alow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on Notebook 2.
 
 ### Sections
 
