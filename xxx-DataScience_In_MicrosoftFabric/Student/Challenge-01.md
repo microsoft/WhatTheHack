@@ -50,4 +50,4 @@ Refer to Notebook 1 for more helpful links
 
 Interested in seeing the shortcut's low latency in action?
 
-Find another dataset of interest to you, save it in the same folder as heart.csv in your Azure storage account and watch the new file appear on Fabric.
+Find another dataset of interest to you, save it in the same folder as heart.csv in your Azure storage account and watch the new file appear on Fabric. Explore the differences between files/shortcuts and actual tables in Fabric and what is needed to keep your data up to date at each stage.
