@@ -4,9 +4,20 @@
 
 ## Notes & Guidance
 
+Table of contents for this Coach Guide:
+- [Deploying Azure Resources](#deploying-azure-resources)
+ - [Microsoft FTEs and the FDPO Tenant](#microsoft-ftes-and-the-fdpo-tenant)
+ - [Azure AI Capacity Issues](#azure-ai-capacity-issues)
+- [Codespaces vs Local Workstation](#codespaces-vs-local-workstations)
+ - [Debugging Python on Local Workstation](#debugging-python-on-local-workstation)
+- [GitHub Codespaces Tips](#github-codespaces-tips)
+  - [Working with Multiple Terminal Sessions in VS Code](#working-with-multiple-terminal-sessions-in-vs-code)
+  - [Run Codespace in VS Code on Local Workstation](#run-codespace-in-vs-code-on-local-workstation)
+  - [Python Debugging Not Available in Codespaces](#python-debugging-not-available-in-codespaces)
+
 ### Deploying Azure Resources
 
-#### Microsoft FTEs and the FDPO Teanant
+#### Microsoft FTEs and the FDPO Tenant
 
 Logging into Azure from GitHub Codespaces requires a Device Code login.
 
@@ -70,7 +81,7 @@ To debug on a local workstation, students will also need `gdb` (`sudo apt instal
 
 ### GitHub Codespaces Tips
 
-#### Working with Multiple Terminal Sessions in VS Code/Codespace
+#### Working with Multiple Terminal Sessions in VS Code
 
 During this hack, students will need to have multiple Terminal sessions open to keep the sample application's Frontend and Backend running while they hack.  If students are not familiar with how to manage multiple Terminal sessions in the VS Code interface within Codespace, you may want to demonstrate this to them.
 
