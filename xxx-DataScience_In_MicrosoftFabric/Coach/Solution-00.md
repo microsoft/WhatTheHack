@@ -51,4 +51,5 @@ After setting up your Azure resources, head to [Microsoft Fabric](https://fabric
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a storage account with the heart.csv data in a container
+- Verify that you have a Fabric workspace where your 4 notebooks are available
 - (Optional) Verify that your Azure ML workspace has correctly deployed (if completing Challenge)
