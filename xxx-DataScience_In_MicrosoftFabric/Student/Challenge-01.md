@@ -16,53 +16,39 @@ Your task in this challenge is to make your data available as a delta table in t
 
 To load the data to the lakehouse, you will be using a spark notebook. Open notebook 1 that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
 
+Notebook sections:
+1. Read the .csv file into a dataframe in the notebook
+2. Write the dataframe to the lakehouse as a delta table
+
+By the end of this challenge, you should be able to understand and know how to use:
+-Fabric Shortcuts, how do they work, why are they beneficial and what is required to use them
+-Fabric Lakehouses, their role, how to create a new one and their different components
+-Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
+
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+The heart.csv data is now saved as a delta table on the lakehouse in the same workspace where the notebooks are stored.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+[Microsoft Fabric Lakehouse](https://learn.microsoft.com/en-us/fabric/data-engineering/lakehouse-overview)
+[ADLS Shortcuts in Fabric](https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts#adls-shortcuts)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+Refer to Notebook 1 for more helpful links
 
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+- You will need to access your Azure subscription to complete this challenge, but you are not expected to change any settings. Requirements, such as the hierarchical namespace, have been taken care of by the setup script.
+- Navigating the storage account can be complicated. Leverage Microsoft Learn to ensure you are bringing the right information over from Azure to Fabric when you set up the shortcut. You might need to do multiple attempts if you pick the wrong fields.
+- If you do need to re-set the connection to the shortcut, make sure you are selecting "new connection" on the drop-down menu. The shortcut wizard will recognize the ADLS path and default to a previous connection instead of creating a new one.
+- There are multiple ways to authenticate to ADLS from the shortcut menu. Some are easier to use than others.
+- Notebooks depend on Lakehouses to read and write data.
+- As you move on to using notebooks, most cells depend on each other. If you are getting an error on a cell that you think shouldn't be there, navigate upstream to try to find what is wrong. Leverage Microsoft Learn and the provided documentation to make sure you are using the right functions. Check that you are using the correct variable names.
+- If you stop halfway through a notebook, your progress will be saved in the code cells but the variables might be deleted from memory. If that happens, run every cell from the start in succession to get back to the starting point.
 
 ## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+Interested in seeing the shortcut's low latency in action?
 
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+Find another dataset of interest to you, save it in the same folder as heart.csv in your Azure storage account and watch the new file appear on Fabric.
