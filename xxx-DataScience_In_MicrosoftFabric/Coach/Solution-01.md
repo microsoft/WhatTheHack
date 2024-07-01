@@ -1,4 +1,4 @@
-# Challenge 01 - <Title of Challenge> - Coach's Guide 
+# Challenge 01 - Bring your data to the OneLake - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
