@@ -4,6 +4,38 @@
 
 ## Notes & Guidance
 
+### Deploying Azure Resources
+
+#### Azure AI Capacity Issues
+
+At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
+
+If students have any errors with capacity or quota issues, please guide them through re-running the deployment script with the additional optional parameters to specify different regions for any resources that failed to deploy.  The hidden section below for troubleshooting instructions has also been included in the student guide, but please read through and understand it before delivering this hack.
+
+<details markdown="1">
+<summary markdown="span">Click to expand/collapse Troubleshoot Capacity Issues</summary>
+
+If you have any errors with capacity or quota issues, you may need to re-deploy the solution using one or more of the optional location parameters below. Note the resource type and region that failed to deploy in any error messages, and choose a different region based on the information below.
+
+- `Location`: The Azure region where you want to deploy the resources. (Default value is `eastus2`)
+- `OpenAILocation`: The Azure region where the Azure OpenAI resource will be deployed. (Default value is `eastus2`)
+- `DocumentIntelligenceLocation`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
+
+**NOTE:** The hack requires the Azure OpenAI Assistant API feature which is currently in preview and NOT available in ALL regions *where Azure OpenAI is available*!
+ 
+As of June 2024, Azure OpenAI with the Assistant API preview feature is available in the following regions: `eastus2`, `australiaeast`, 
+`francecentral`, `norwayeast`, `swedencentral`, `uksouth`, `westus`, `westus3`
+
+This information is subject to change over time, for the most up to date list of available locations see [Azure OpenAI Service Models - Assistants (Preview) Availability](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview)
+
+**NOTE:** This hack uses Python to interact with the Azure Document Intelligence API. Python is supported with the `2024-02-29-preview` version of the Document Intelligence API.  The `2024-02-29-preview` version of the API is currently NOT available in ALL regions *where Azure Document Intelligence is available*!
+
+As of June 2024, Azure Document Intelligence with support for API version `2024-02-29-preview` (with Python support) is available in the following regions: `eastus`, `westus2`, `westeurope`
+
+This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
+
+</details>
+
 ### Codespaces vs Local Workstation
 
 We **strongly** recommend students use GitHub Codespaces as their development environment over a local workstation.
