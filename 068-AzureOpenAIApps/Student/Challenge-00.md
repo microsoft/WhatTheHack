@@ -119,8 +119,9 @@ There are three major steps to setup the Sample Application:
 - [Setup App Frontend](#setup-app-frontend)
 
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
-- `/ContosoAIAppsBackend` (contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence)
-- `/ContosoAIAppsFrontend` (contains an Angular App that provides a user interface to some example virtual assistants)
+- `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence.
+- `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
+- `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the sample application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
 
