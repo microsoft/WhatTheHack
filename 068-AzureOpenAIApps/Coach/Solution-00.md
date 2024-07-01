@@ -24,9 +24,19 @@ To debug on a local workstation, students will also need `gdb` (`sudo apt instal
 
 ### GitHub Codespaces Tips
 
+#### Working with Multiple Terminal Sessions in VS Code/Codespace
+
+During this hack, students will need to have multiple Terminal sessions open to keep the sample application's Frontend and Backend running while they hack.  If students are not familiar with how to manage multiple Terminal sessions in the VS Code interface within Codespace, you may want to demonstrate this to them.
+
+Students can create additional Terminal sessions by clicking the `+` icon in the lower right side of the VS Code window. They can then switch between Terminal sessions by clicking the session name in the session list below the `+` icon as per the screenshot below.
+
+![Manage Multiple Terminals in VS Code]()
+
 #### Run Codespace in VS Code on Local Workstation
 
-Students may wish to use Visual Studio Code on their local workstation with Codespaces since it is a bit nicer than working in the browser. They can click the Codespaces area in the lower left corner of the Codespace browswer tab and select `Open in VS Code Desktop` as shown in screenshot below:
+Students may wish to use Visual Studio Code on their local workstation with Codespaces since it is a bit nicer than working in the browser. This makes it easier to keep track of the Codespace in a VS Code window versus having it get lost amongst many browser tabs. 
+
+To do this, students can click the Codespaces area in the lower left corner of the Codespace browswer tab and select `Open in VS Code Desktop` as shown in screenshot below:
 
 ![screenshot of how to open Codespace in VS Code](../images/open-codespace-in-vscode.png)
 
