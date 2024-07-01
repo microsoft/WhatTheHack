@@ -12,7 +12,7 @@ Your task in this challenge is to make your data available as a delta table in t
 - Create a shortcut to the heart.csv file located in ADLS Gen2. 
 - Load the data to the lakehouse you will be using throughout this hack
 
-To load the data to the lakehouse, you will be using a spark notebook. Open notebook 1 that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
+To load the data to the lakehouse, you will be using a spark notebook. Open Notebook 1, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
 
 Notebook sections:
 1. Read the .csv file into a dataframe in the notebook
