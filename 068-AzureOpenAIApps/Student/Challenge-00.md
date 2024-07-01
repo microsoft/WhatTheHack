@@ -197,7 +197,7 @@ If you have any errors with capacity or quota issues, expand the hidden section 
 
 If you have any errors with capacity or quota issues, you may need to re-deploy the solution using one or more of the optional location parameters below. Note the resource type and region that failed to deploy in any error messages, and choose a different region based on the information below.
 
-- `Location`: The Azure region where you want to deploy the resources. (Default value is `eastus2`)
+- `Location`: The Azure region where you want to deploy all resources EXCEPT Azure Open AI & Azure Document Intelligence. (Default value is `eastus2`)
 - `OpenAILocation`: The Azure region where the Azure OpenAI resource will be deployed. (Default value is `eastus2`)
 - `DocumentIntelligenceLocation`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
 
