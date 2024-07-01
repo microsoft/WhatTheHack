@@ -27,5 +27,5 @@ In this section, hack participants must create a shortcut to the folder deployed
   - Complete and run each cell sequentially in the notebook, using the instructions and documentation links.
   - Note: the full completed notebook is available in the coach resources folder in GitHub for reference.
 
-## Exit criteria
+## Success criteria
   - The heart.csv data is now saved as a delta table on the lakehouse
