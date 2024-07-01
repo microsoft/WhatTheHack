@@ -240,8 +240,6 @@ func start
 
 The sample application's Frontend is implemented as an Angular web application. For this hack, you will only run the application's Frontend in your development environment without publishing it to Azure.  
 
-**TODO:** Add instruction to open a new terminal window. Give explanation of how to open a 2nd terminal in Codespace.
-
 Open another Terminal session in VScode and then navigate into the `/ContosoAIAppsFrontend` folder. Install the application dependencies and start the Frontend by running the following commands:
 
 ```
