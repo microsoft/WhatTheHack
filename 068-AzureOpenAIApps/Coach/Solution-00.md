@@ -32,7 +32,7 @@ Students can create additional Terminal sessions by clicking the `+` icon in the
 
 Terminal sessions can be renamed by right-clicking on the session. Students may wish to rename the Frontend and Backend sessions so they can keep track of where they started the application components.
 
-![Manage Multiple Terminals in VS Code](../images/manage-multiple-terminals-vscode.png)
+![Manage Multiple Terminals in VS Code](../images/manage-multiple-terminal-sessions-vscode.png)
 
 #### Run Codespace in VS Code on Local Workstation
 
