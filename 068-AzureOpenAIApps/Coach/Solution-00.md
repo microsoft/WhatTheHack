@@ -6,6 +6,17 @@
 
 ### Deploying Azure Resources
 
+#### Microsoft FTEs and the FDPO Teanant
+
+Logging into Azure from GitHub Codespaces requires a Device Code login.
+
+Microsoft employees running the hack in a subscription in the FDPO (for demo purposes only) Entra ID tenant will need to create & use a Service Principal to run the deployment script in Challenge 0.  This is due to Device Code Logins not being allowed in the FDPO tenant.  
+
+>[!IMPORTANT]
+>The creation of a new Service Principal must be done from the Azure Cloud Shell in a browser.  It can NOT be done from within the GitHub Codespace! The generated SP credentials should then be used when running the deployment script in the Codespace.
+
+These details are called out in the student guide, but Coaches should be prepared to explain this to any Microsoft FTE students participating in this hack.
+
 #### Azure AI Capacity Issues
 
 At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
