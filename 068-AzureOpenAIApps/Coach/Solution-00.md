@@ -28,7 +28,7 @@ To debug on a local workstation, students will also need `gdb` (`sudo apt instal
 
 Students may wish to use Visual Studio Code on their local workstation with Codespaces since it is a bit nicer than working in the browser. They can click the Codespaces area in the lower left corner of the Codespace browswer tab and select `Open in VS Code Desktop` as shown in screenshot below:
 
-![screenshot of how to open Codespace in VS Code](../images/open-codepsace-in-vscode.png)
+![screenshot of how to open Codespace in VS Code](../images/open-codespace-in-vscode.png)
 
 Alternatively, they can install the Codespaces App in the browser which will give them a focused window as well as other features.
 
