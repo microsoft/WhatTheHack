@@ -1,4 +1,4 @@
-# Challenge 06 - <Title of Challenge>
+# Challenge 06 - AzureML
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
