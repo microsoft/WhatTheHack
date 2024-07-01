@@ -4,15 +4,36 @@
 
 ## Notes & Guidance
 
-Students may wish to use Visual Studio Code on their local workstation with Codespaces since it is a bit nicer than working in the browser. They can click the Codespaces area in the local left corner and select Open in VS Code Desktop to do that. Alternatively, they can install the Codespaces App in the browser which will give them a focused window as well as other features.
+### Codespaces vs Local Workstation
+
+We **strongly** recommend students use GitHub Codespaces as their development environment over a local workstation.
 
 Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. However, the only way to get debugging working in Python in the Azure Functions Runtime is to do it locally. We don't expect most students to need debugging but some more advanced students may want it to see how the code is working. 
 
-Unfortunately, debugging will not work in Codespaces because Codespaces runs as a container and the ability to attach to another Python process requires a special kernel flag to be set in Linux and this can only be done on the host:
+#### Debugging Python on Local Workstation
+
+Debugging Python on a local workstation requires the ability to attach to another Python process which requires a special kernel flag to be set in Linux environment and this can only be done on the host:
 `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
 
-Warning: Changing this setting makes the local workstation less secure and should not be changed permanently. 
+>[!WARNING]
+>Changing the above setting makes the local workstation less secure and should not be changed permanently. 
 
-More information on setting up local debugging for Python is available here: https://code.visualstudio.com/docs/python/debugging
+Debugging is not required to complete the challenges, but students may attempt to configure and run a debugger while troubleshooting. Coaches should be aware of this issue and point students to the following guide on setting up local debugging for Python: [Python Debugging in VS Code](https://code.visualstudio.com/docs/python/debugging)
 
-They will also need gdb (`sudo apt install gdb`) which is not mentioned in the above article. 
+To debug on a local workstation, students will also need `gdb` (`sudo apt install gdb`) which is not mentioned in the above article. 
+
+### GitHub Codespaces Tips
+
+#### Run Codespace in VS Code on Local Workstation
+
+Students may wish to use Visual Studio Code on their local workstation with Codespaces since it is a bit nicer than working in the browser. They can click the Codespaces area in the lower left corner of the Codespace browswer tab and select `Open in VS Code Desktop` as shown in screenshot below:
+
+
+
+Alternatively, they can install the Codespaces App in the browser which will give them a focused window as well as other features.
+
+#### Python Debugging Not Available in Codespaces
+
+Unfortunately, debugging will not work in Codespaces because Codespaces runs as a container and the ability to attach to another Python process requires a special kernel flag to be set in Linux and this can only be done on the local OS.
+
+Debugging is not required to complete the challenges, but students may attempt to run a debugger while troubleshooting. You should be aware of this issue as a Coach so students don't spend time trying to figure this out in Codespaces.
