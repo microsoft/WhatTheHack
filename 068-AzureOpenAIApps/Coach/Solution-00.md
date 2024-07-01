@@ -6,10 +6,10 @@
 
 Table of contents for this Coach Guide:
 - [Deploying Azure Resources](#deploying-azure-resources)
- - [Microsoft FTEs and the FDPO Tenant](#microsoft-ftes-and-the-fdpo-tenant)
- - [Azure AI Capacity Issues](#azure-ai-capacity-issues)
-- [Codespaces vs Local Workstation](#codespaces-vs-local-workstations)
- - [Debugging Python on Local Workstation](#debugging-python-on-local-workstation)
+  - [Microsoft FTEs and the FDPO Tenant](#microsoft-ftes-and-the-fdpo-tenant)
+  - [Azure AI Capacity Issues](#azure-ai-capacity-issues)
+- [Codespaces vs Local Workstation](#codespaces-vs-local-workstation)
+  - [Debugging Python on Local Workstation](#debugging-python-on-local-workstation)
 - [GitHub Codespaces Tips](#github-codespaces-tips)
   - [Working with Multiple Terminal Sessions in VS Code](#working-with-multiple-terminal-sessions-in-vs-code)
   - [Run Codespace in VS Code on Local Workstation](#run-codespace-in-vs-code-on-local-workstation)
