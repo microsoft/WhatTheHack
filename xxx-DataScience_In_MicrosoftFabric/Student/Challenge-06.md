@@ -1,4 +1,4 @@
-# Challenge 06 - Deploy the model on an AzureML real-time endpoint
+# Challenge 06 - Deploy the model to an AzureML real-time endpoint
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
