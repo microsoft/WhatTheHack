@@ -30,6 +30,8 @@ During this hack, students will need to have multiple Terminal sessions open to 
 
 Students can create additional Terminal sessions by clicking the `+` icon in the lower right side of the VS Code window. They can then switch between Terminal sessions by clicking the session name in the session list below the `+` icon as per the screenshot below.
 
+Terminal sessions can be renamed by right-clicking on the session. Students may wish to rename the Frontend and Backend sessions so they can keep track of where they started the application components.
+
 ![Manage Multiple Terminals in VS Code](../images/manage-multiple-terminals-vscode.png)
 
 #### Run Codespace in VS Code on Local Workstation
