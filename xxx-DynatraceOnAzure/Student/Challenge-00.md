@@ -22,7 +22,7 @@
 
 ## Common Prerequisites
 
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
+We have compiled a list of common tools and software that will help you complete most What The Hack Azure-based hacks!
 
 You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
 
