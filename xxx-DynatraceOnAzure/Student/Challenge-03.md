@@ -5,11 +5,11 @@
 
 ## Introduction
 
-Often the monitoring tools organizations use simply don’t work in the complex ecosystem of microservices and for technologies like Kubernetes.
+Organizations often face challenges with their monitoring tools when working with complex ecosystems of microservices and technologies like Kubernetes.
 
-Finding the root cause of problems is harder than ever before and the effort required goes beyond what is humanly possible when the application spans to the cloud providers and data centers and the explosion of interconnected services. There are more possibilities for failures and more hiding spots for problems to sneak into the environment when software driving more than just the application.
+Identifying the root cause of problems has become more difficult. The task now requires more effort than ever before due to applications spanning across cloud providers, data centers, and an increasing number of interconnected services. With software driving more than just the application, there are now more opportunities for failures and more places for problems to emerge in the environment.
 
-In this lab, we will trigger a few problem patterns and see how troubleshooting time is significantly reduced by letting AI automatically detect problems and pinpoints the root cause, explaining business impact with no manual configurations.
+In this lab, we will simulate several problem scenarios and demonstrate how AI can significantly reduce troubleshooting time by automatically detecting issues and identifying the root cause, while explaining the business impact without the need for manual configurations.
 
 ## Description
 
@@ -60,14 +60,6 @@ In this lab, we will trigger a few problem patterns and see how troubleshooting 
 - [Dynatrace how problems are detected & analyzed](https://www.dynatrace.com/support/help/how-to-use-dynatrace/problem-detection-and-analysis/basic-concepts/how-problems-are-detected-and-analyzed)
 - [Problem Card Overview](https://www.dynatrace.com/support/help/how-to-use-dynatrace/problem-detection-and-analysis/basic-concepts/problem-overview-page)
 
-## Tips
-- In this challenge we leveraged Dynatrace events API to add additional context for Davis AI engine to correlate a deployment event with the problem.
-- You can feed in information events to Dynatrace via CI/CD tools such as Azure Devops to provide additional context.  Below is an example of deployment and performance testing event sent to Dynatrace.
-
-    ![](images/cicd.png)
-
-    >👍 How this helps    
-    > Having information events speeds up triage by adding context to what's happening with the application. Just imagine getting alerted about an issue and immediately seeing a load test or deployment took place, and in one click of the event, review the system, job, and team responsible!
 
 ## Advanced Challenges 
 - Analyze the failure rate degradation in the order service problem card to identify the exception details in the code stack trace 

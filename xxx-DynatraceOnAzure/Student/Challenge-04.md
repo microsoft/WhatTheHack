@@ -7,9 +7,7 @@
 
 In addition to monitoring your Azure workloads using OneAgent, Dynatrace provides integration with Azure Monitor which adds infrastructure monitoring to gain insight even into serverless application scenarios.
 
-Dynatrace brings value by enriching the data from Azure Monitor by extending observability into the platform with additional metrics for cloud infrastructure, load balancers, API Management Services, and more.
-
-These metrics are managed by Dynatrace's AI engine automatically and this extended observability improves operations, reduces MTTR and increases innovation.
+Dynatrace enhances the data from Azure Monitor by adding additional metrics for cloud infrastructure, load balancers, and API Management Services, among others. These metrics are automatically managed by Dynatrace's AI engine, improving operations, reducing MTTR, and fostering innovation.
 
 Here is an example from another environment on Azure Monitor screen looks like:
 

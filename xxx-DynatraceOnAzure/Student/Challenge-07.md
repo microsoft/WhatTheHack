@@ -1,6 +1,6 @@
-# Challenge 08 - Cleanup
+# Challenge 07 - Cleanup
 
-[< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)**
 
  
 
@@ -10,7 +10,7 @@ None
 ## Introduction
 If you plan to keep things running so you can examine the workshop a bit more please remember to do cleanup when you are done. 
 
-You have a fully feature enabled 15 day Dynatrace trial, so keep using it to monitor and manage your infrastructure and applications!!
+You have a fully feature enabled 30 day Dynatrace trial, so keep using it to monitor and manage your infrastructure and applications!!
 
 ## Description
 

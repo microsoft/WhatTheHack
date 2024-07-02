@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
- 
+ - Make sure you've meet all the success criteria for Challenge 0
 
 ## Pre-requisites (Optional)
 None
@@ -63,7 +63,7 @@ Another powerful way you can visualize your observability data is via [Notebooks
 ## Learning Resources
 - Want to know more about the Dynatrace Query Language? 🎓 [Learn DQL](https://dt-url.net/learndql) at the Dynatrace playground. 🎓
 
-- 📓If you want to go further and learn more about using DQL to refine queries in Notebooks, visit [Dynatrace Query Language](https://www.dynatrace.com/support/help/observe-and-explore/query-data/dynatrace-query-language).
+- If you want to go further and learn more about using DQL to refine queries in Notebooks, visit [Dynatrace Query Language](https://www.dynatrace.com/support/help/observe-and-explore/query-data/dynatrace-query-language).
 
 
 ## Tips

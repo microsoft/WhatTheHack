@@ -8,14 +8,15 @@
 
 ## Introduction
 
-Re-hosting (also referred to as lift and shift) is a common migration use case. Re-architecture and Re-platform are steps that break the traditional architectures and replace individual components with cloud services and microservices.
+Re-hosting, also known as lift and shift, is a typical migration approach. Re-architecture and Re-platform involve breaking traditional architectures and replacing individual components with cloud services and microservices.
 
-We just learned how we can get great information on services, processes and user requests using Dynatrace and OneAgent. This helps us now decide what individual features or complete applications based on business benefits we need to migrate and modernize. The idea here is to focus on feature-based business benefit with functional migration.
+We have just learned how to use Dynatrace and OneAgent to gather valuable information on services, processes, and user requests. This information will help us determine which individual services or entire applications to migrate and modernize based on their business benefits. The focus here is on migrating based on feature-oriented business benefits.
 
-### Modernize the Sample App
-As we saw earlier, the sample application is a three-tiered application --> frontend, backend, database.
+### Modernizing the Sample app
 
-For our hack, another version of the application exists that breaks out each of these backend services into separate services. By putting these services into container images, we gain the ability to deploy the service into modern platforms like Azure Kubernetes such as the one shown below.
+As discussed earlier, the sample application is a three-tiered application comprising a frontend, backend, and database.
+
+For our project, an alternative version of the application separates each of the backend services into individual services. By encapsulating these services into container images, we can deploy them on modern platforms such as Azure Kubernetes, as illustrated below.
 
 ![](images/challenge2-app-architecture.png )
 
@@ -28,13 +29,15 @@ For our hack, another version of the application exists that breaks out each of 
 -  Examine the transformed application using service flows and back traces
 
 ### Tasks
-1. Run the following command to fetch the AKS credentials for your cluster.
+1. In Azure CLI, run the following command to fetch the AKS credentials for your cluster.
     ```shell
     az aks get-credentials --name "<aks-cluster-name>" --resource-group "<resource-group-name>"
     ```
     >💡**Hint:**  Refer back to Azure Portal under `<lastname>-dynatrace-azure-modernize-wth` resource group for aks cluster name
-1. Deploy the Dynatrace Kubernetes Operator
+1. Deploy the Dynatrace Kubernetes Operator onto your AKS cluster
     - Deploy Dynatrace Operator on the AKS cluster [via cluster extensions](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions) blade. 
+
+    >💡**Hint:**  To complete the above step, you will need the token and API URL you save from Challenge 0.
 
 <!-- 
 1. Deploy Kubernetes Dynatrace Operator
@@ -42,7 +45,6 @@ For our hack, another version of the application exists that breaks out each of 
         >💡**Hint:** On Step 6, when you download the **dynakube.yaml**, you can use Upload/Download feature within Azure cloudshell to upload the file
             ![](images/challenge2-azure-cloudshell-upload.png)
 -->
-
 1. Deploy sample application
     ```bash
     cd ~/azure-modernization-dt-orders-setup/app-scripts
@@ -81,10 +83,10 @@ For our hack, another version of the application exists that breaks out each of 
 1. You can access the sample application in your browser.
 1. You are able to  identify the following data in the Kubernetes screens
     1) Identify total number of CPU cores for your cluster
-    2) Identify total number of workloads running on your cluster
-    3) Identify average response time for  `frontend` workload over the last 30 minutes
-    4) Identify hostname where the workload pod is running
-    5) Identify labels are associated with this frontend service under Properties and Tags section
+    1) Identify total number of workloads running on your cluster
+    1) Identify average response time for  `frontend` workload over the last 30 minutes
+    1) Identify hostname where the workload pod is running
+    1) Identify labels are associated with this frontend service under Properties and Tags section
 1. You have successfully identified the the service that calls the order service?
 1. You have successfully identified three downstream services the `frontend` service relies on, response time for `customer` database service and throughput value for `catalog` service.
 
@@ -97,7 +99,6 @@ For our hack, another version of the application exists that breaks out each of 
 -[Kubernetes Workloads dashboard](https://www.dynatrace.com/support/help/how-to-use-dynatrace/infrastructure-monitoring/container-platform-monitoring/kubernetes-monitoring/monitor-workloads-kubernetes)
 - [Kubernetes Service Metrics](https://www.dynatrace.com/support/help/how-to-use-dynatrace/infrastructure-monitoring/container-platform-monitoring/kubernetes-monitoring/monitor-services-kubernetes)
 - [Kubernetes Cluster overview Dashboard](https://www.dynatrace.com/support/help/how-to-use-dynatrace/infrastructure-monitoring/container-platform-monitoring/kubernetes-monitoring/monitor-metrics-kubernetes)
-## Tips
 
 
 ## Advanced Challenges (Optional)

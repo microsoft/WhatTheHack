@@ -8,11 +8,11 @@
 ## Introduction
 
 
-While choosing the right migration strategies, such as re-hosting or re-architecting, one must assess the different risks, costs, and benefits. However, often the details of what is where and what is dependent on what within the technical stack is missing or poorly documented. All that may exist is out of date diagrams and a mix of monitoring tool metrics that must be "stitched" together.
+When considering migration strategies like re-hosting or re-architecting, evaluating the risks, costs, and benefits is essential. Unfortunately, the specifics of the technical stack, including what is located where and what depends on what, are often not well-documented. This lack of information may be limited to outdated diagrams and a mix of monitoring tool metrics that someone must piece together.
 
-Not having enough details about the current environment is hindering organizations ability to make the right decisions when planning what to migrate and when.
+The lack of detailed information about the current environment makes it challenging for organizations to decide what and when to migrate.
 
-To address this problem, Dynatrace’s OneAgent can automatically discover the application, services, processes and to build a complete dependency mapping for the entire application environment. So, let’s begin!
+To solve this problem, Dynatrace OneAgent can automatically identify applications, services, and processes and create a comprehensive map of dependencies for the entire application environment. Let's get started!
 
 ### Challenge Setup Diagram
 Referring to the picture below, here are the components for this challenge
@@ -60,11 +60,9 @@ Navigate through various screens of Dynatrace to understand the details of your 
     - Identify how many and names of containers that are running on this host
     - Identify the Azure tags applied to this host.
 1. Navigate the new Infrastructure & Operations App
-    -
-    -
-    
-
-1. Navigate to Smartscape topology screen for this; while in host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
+    - Review the DataCenters and Hosts view screens in the app.
+    - Review the Host details screen for ``dt-orders-monolith`` VM such as Overview, Technologies, Process, Problems, Vulnerabilities, etc.
+1. Navigate to Smartscape topology screen for this; while in classic host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
     - Identify which 2 downstream services are used by the frontend service to  communicates with
     - Identify which Azure region (data center) your host is running in
 

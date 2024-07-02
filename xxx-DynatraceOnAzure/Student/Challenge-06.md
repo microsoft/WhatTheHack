@@ -1,8 +1,8 @@
 # Challenge 05 - Azure Grail - Dashboards & Notebooks
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
- 
+ - Make sure you've meet all the success criteria for Challenge 0 
 
 ## Pre-requisites (Optional)
 None
