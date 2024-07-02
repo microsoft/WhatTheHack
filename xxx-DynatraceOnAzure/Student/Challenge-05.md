@@ -65,5 +65,3 @@ Another powerful way you can visualize your observability data is via [Notebooks
 
 - If you want to go further and learn more about using DQL to refine queries in Notebooks, visit [Dynatrace Query Language](https://www.dynatrace.com/support/help/observe-and-explore/query-data/dynatrace-query-language).
 
-
-## Tips
