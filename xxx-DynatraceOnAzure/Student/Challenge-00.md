@@ -109,7 +109,7 @@ Please install these additional tools needed for this hack:
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
     ./provision.sh wth
     ```
-- Validate that the provisioning completed sucessfully with this message
+- Validate that the provisioning completed successfully with this message
     ``` ...
     ...
     =============================================
