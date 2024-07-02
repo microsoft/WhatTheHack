@@ -8,11 +8,11 @@
 ## Introduction
 
 
-While choosing the right migration strategies, such as re-hosting or re-architecting, one must assess the different risks, costs, and benefits. However, often the details of what is where and what is dependent on what within the technical stack is missing or poorly documented. All that may exist is out of date diagrams and a mix of monitoring tool metrics that must be "stitched" together.
+When considering migration strategies like re-hosting or re-architecting, evaluating the risks, costs, and benefits is essential. Unfortunately, the specifics of the technical stack, including what is located where and what depends on what, are often not well-documented. This lack of information may be limited to outdated diagrams and a mix of monitoring tool metrics that someone must piece together.
 
-Not having enough details about the current environment is hindering organizations ability to make the right decisions when planning what to migrate and when.
+The lack of detailed information about the current environment makes it challenging for organizations to decide what and when to migrate.
 
-To address this problem, Dynatrace’s OneAgent can automatically discover the application, services, processes and to build a complete dependency mapping for the entire application environment. So, let’s begin!
+To solve this problem, Dynatrace OneAgent can automatically identify applications, services, and processes and create a comprehensive map of dependencies for the entire application environment. Let's get started!
 
 ### Challenge Setup Diagram
 Referring to the picture below, here are the components for this challenge
