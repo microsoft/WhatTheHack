@@ -41,7 +41,7 @@ You might not need all of them for the hack you are participating in. However, i
 
 - Coach must validate if the [Dynatrace Azure Workshop Github repo](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/) is accessible. 
 
-- In this hack we'll use [Azure Native Dynatrace Service](https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/), a seamless way to provision and manage Dynatrace in the Azure Portal.  We will begin free trial through the Azure Marketplace.  Please familiarize your self with the docs below
+- In this hack we'll use [Azure Native Dynatrace Service](https://www.dynatrace.com/news/blog/using-dynatrace-on-microsoft-azure/), a seamless way to provision and manage Dynatrace in the Azure Portal.  We will begin a free trial through the Azure Marketplace.  Please familiarize your self with the docs below
     - [Dynatrace Docs](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration)
     - [Microsoft Docs](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-overview)
 
@@ -62,30 +62,29 @@ _Optionally, you may provide resource files such as a sample application, code s
 _Sample challenge zero text for the IoT Hack Of The Century:_
 -->
 
-Now that you have the common pre-requisites installed, there are prerequisites specific to this hack.
+Now that you've reviewed the common pre-requisites for this hack, let's jump in get started!
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+Your coach will also provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please install these additional tools:
+Please install these additional tools needed for this hack:
 
 1) Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
         <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
-   -  Refer to the guide [to create new Dynatrace Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
+   -  Refer to the guide on [to create new Dynatrace Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
-1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy our Azure resources
+1) Familiarize yourself with [Azure CLI](https://learn.microsoft.com/en-us/azure/cloud-shell/overview).  We'll be using the BASH shell to deploy many of the Azure resources needed for this hack.
 
 ### Dynatrace Prep
 
- For this challenge, you will deploy the DTOrders application and its underlying Azure VM resources to Azure using a set of pre-developed scripts. Once the application and its infrastructure are deployed, you will complete the hack's jumping in and fully analyze the application within Dynatrace.
+ For this challenge, you will deploy an application called ``DTOrders`` and its underlying Azure VM resources to Azure using a set of pre-developed scripts. Once the application and its infrastructure are deployed, you will complete the hack by jumping in to fully analyze the application within Dynatrace.
 
 
-- If not already done so, go to the [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) and request a free trial tenant
-- Login to the Dynatrace tenant and create a Dynatrace API Access token with the following scopes, after reviewing [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create it
-    - Write API Token 
-
-- In a separate notepad, please write down the following things needed in a future step below  
-  1) Keep the API token safe somewhere to be used in future step below, it will be following format: **dt0c01.ABC12345DEFGHI**
+- Access your [Azure Native Dynatrace Service](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-platform/azure-native-integration#access-your-dynatrace-environment) resource in Azure Portal.  Access the Dynatrace environment from the Azure Portal
+- Review [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create API Access token inside of Dynatrace. 
+- Login to the Dynatrace tenant and create a Dynatrace API Access token with the scope ```Write API Token``
+- In a separate notepad, please copy/paste the following things needed in a future step below  
+  1) Jot down the API token, it will be following format: **dt0c01.ABC12345DEFGHI**
   2) Dynatrace tenant url, it should be in format link this: ``https://ABC.apps.dynatrace.com``
 - 
 ### Azure Portal Prep
@@ -102,12 +101,15 @@ Please install these additional tools:
     ./input-credentials.sh
     ```
   > ***🛈 Note:*** When you run input-credentials.sh, it will prompt you to input Azure subscription id, Dynatrace Environment Url, Dynatrace API token and your last name.
+
+  > ***🛈 Note:*** After input-credentials.sh has successfully run, it output your Dynatrace Operator & Data Ingest Token and your API URL.  Please jot those two values in a notepad. Those will be used in Challenge 2.
+
 - Run the script to provision the workshop Azure resources
      ```bash
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
     ./provision.sh wth
     ```
-- Validate provisioning completed
+- Validate that the provisioning completed sucessfully with this message
     ``` ...
     ...
     =============================================
@@ -122,11 +124,10 @@ Please install these additional tools:
 
 To complete this challenge successfully, you should be able to:
 
-- Once provisioning script has completed you will see a total of 12 resources within the resource group `<lastname>-dynatrace-azure-modernize-wth`.
-- Validate the Sample Application DT Orders is accessible
-    - Once the deployment has completed, navigate to the Public IP Address resource, dt-orders-monolithPublicIP , in the Azure Portal.
-    - In the Overview blade, copy the IP address to your clipboard.
-    - Open a web browser, paste your IP address in the address bar and press ENTER. Your browser should render the DT Orders site. ![](images/dtorders-sample-app.png)
+- Once provisioning script has completed, ensure you have  a total of 12 azure resources within the resource group `<lastname>-dynatrace-azure-modernize-wth`.
+- Validate the Sample Application DT Orders is accessible on Azure VM
+    >💡**Hint:** Once the deployment has completed, navigate to the Public IP Address resource of the Azure VM, in the Azure Portal.
+    
 
 
 ## Learning Resources
