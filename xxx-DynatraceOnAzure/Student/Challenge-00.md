@@ -14,9 +14,11 @@
 
 ## Introduction
 
- You are new engineer that is hired to modernize a e-commerce website for company called ``DTOrders``.  Your predecessor wrote this application use Node.js and has it running stably on Azure virtual machines.  But now your boss wants to containerize this application to run on Kubernetes.  Your job will first be deploy the application to Azure VM to understand the basic of the application and use Dynatrace to understand the dependencies.  Then devise a strategy to migrate it to run on AKS Cluster.  Along the way, you'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
+ As a new engineer, you have been tasked with modernizing an e-commerce website for a company named "DT Hackers." The existing application was developed using Node.js and runs on Azure virtual machines. However, the goal now is to containerize the application for deployment on Kubernetes. Your initial task is to deploy the application to an Azure VM to gain a comprehensive understanding of the application and use Dynatrace to analyze its downstream dependencies.
 
- Upon successful migration, you'll present the deployed solution to your company's leadership to seek approval on how quickly and easily you achieve full stack observability in minutes, everything in context including metrics, logs, and trace for all your Azure workloads with Dynatrace.  While at at same time you'll achieve a fully automated, AI-assisted observability across Azure environments.
+ Subsequently, you need to devise a strategy for migrating the application to run on an [Azure Kubernetes Services](https://azure.microsoft.com/en-us/products/kubernetes-service) cluster.  Throughout this process, you'll utilize Dynatrace to monitor the application on Azure VM. After migrating to AKS, you'll compare the product functionality and assess the ease of monitoring and managing the application with Dynatrace. This comparison will help you streamline the migration and modernization of the application.
+
+ You will present the deployed solution to the company's leadership upon successful migration for approval. The aim is to showcase how quickly and easily full stack observability can be achieved in minutes, with all metrics, logs, and traces for all Azure workloads being monitored in context using Dynatrace. The goal is to achieve fully automated, AI-assisted observability across the Azure environment.
 
 ## Common Prerequisites
 
