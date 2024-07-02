@@ -1,41 +1,69 @@
-# Challenge 05 - Cleanup
+# Challenge 05 - Azure Grail - Dashboards & Notebooks
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
- 
+ - Make sure you've meet all the success criteria for Challenge 0
 
 ## Pre-requisites (Optional)
 None
 
 ## Introduction
-If you plan to keep things running so you can examine the workshop a bit more please remember to do cleanup when you are done. 
+Dynatrace offers multiple ways to visualize your Observability data.  One of those ways is [Dashboards](https://www.dynatrace.com/hub/detail/dashboards/).  With Dashboards you can:
 
-You have a fully feature enabled 15 day Dynatrace trial, so keep using it to monitor and manage your infrastructure and applications!!
+- Query, visualize, and observe all your data stored in Grail.
+- Write custom JavaScript with ad-hoc functions to fetch external data.
+- Annotate all your visualizations with markdown to enrich them with context.
+- Add variables to filter your results and make your dashboard dynamic.
+- Several data and code snippets are available out of the box. Use them to get started.
+
+Another powerful way you can visualize your observability data is via [Notebooks](https://www.dynatrace.com/hub/detail/notebooks/).  Notebooks  allows you to create powerful, data-driven documents for custom analytics. Here are some thing that Notebooks enables you to do:
+
+- Query, analyze, and visualize all your security, observability, and business data such as logs, metrics, and events powered by  Grail.
+
+- Predict future trends with embedded Davis forecast capabilities.
+
+- Create and collaborate on interactive, data-driven, and persistent documents.
+
+- Fetch and incorporate external data by running  [Dynatrace Functions](https://dt-url.net/functions-help).
+
+- Interact with data; start drill-downs by sorting, filtering, and aggregation, or even trigger workflows.
+
+- Annotate and add context with markdown.
 
 ## Description
 
-- Run the cleanup script 
+### Objectives of this Challenge
+
+- Use Notebooks to analyze observability data
+- Build a sample dashboard from Grail data
+
+### Tasks
+
+1. Create a dashboard and with an element to Query Grail. 
+1. Add the following grail
     ```bash
-    cd ~/azure-modernization-dt-orders-setup/provision-scripts
-    ./cleanup-workshop.sh
+    fetch logs
+    | filter cloud.provider == "azure"
+    | summarize count(), by:{azure.resource.type}
+    | sort `count()`, direction:"descending"
+
     ```
+1. [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Logs.json) a sample Notebook to analyze log data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
+1. Follow the instructions in the notebook on how to analyze log data.
+1. [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Metrics.json) a sample Notebook to analyze metric data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
+1. Follow the instructions in the notebook on how to analyze metric data.
+
+
+
 
 ## Success Criteria
-- All 12 Azure resources are removed from Azure
-
+- Created a dashboard with DQL element to query log data
+- Used the sample notebook to analyze azure log data
+- Used the sample notebook to analyze azure metric data
 ## Learning Resources
+- Want to know more about the Dynatrace Query Language? 🎓 [Learn DQL](https://dt-url.net/learndql) at the Dynatrace playground. 🎓
 
-- [Partner Cafe Quick Azure Overview](https://www.youtube.com/watch?v=VCdEHAoEePw)
-- [Dynatrace YouTube Videos](https://www.youtube.com/channel/UCcYJ-5q_AfmjQ4XTjTS0o3g)
-- [More Support resources](https://www.dynatrace.com/services-support/#support-resources-section)
-- Customer Stories:​
-    - [Barbari](https://www.dynatrace.com/news/customer-stories/barbri/)
-    - [Kroger](https://www.dynatrace.com/news/customer-stories/kroger/)
-    - [Mitchells & Butlers](https://www.dynatrace.com/news/customer-stories/mitchells-and-butlers/)
+- If you want to go further and learn more about using DQL to refine queries in Notebooks, visit [Dynatrace Query Language](https://www.dynatrace.com/support/help/observe-and-explore/query-data/dynatrace-query-language).
 
 
 ## Tips
-
-
-## Advanced Challenges (Optional)
-
