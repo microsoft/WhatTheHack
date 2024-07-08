@@ -18,7 +18,8 @@ To complete this challenge, verify that:
 
 ## Learning Resources
 
-- https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/14-create-a-star-schema-model.html
+- [How to create  semantic model in Fabric] (https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/14-create-a-star-schema-model.html)
+- [How to create reports in Fabric] (https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-lakehouse-build-report)
 
 ## Tips
 
