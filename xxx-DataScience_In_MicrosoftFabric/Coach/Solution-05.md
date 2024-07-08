@@ -5,4 +5,5 @@
 ## Notes & Guidance
 
 1.Create Semantic model
+
 2. Create PBI report
