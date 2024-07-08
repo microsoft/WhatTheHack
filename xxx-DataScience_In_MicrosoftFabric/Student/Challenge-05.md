@@ -8,7 +8,7 @@
 
 ## Description
 
-*You've been tasked with creating some reporting using Power BI based on the data whihc got batch predicated in the last challenge. In this challenge, you must create asemanticn model and add measures if required and create the visualization based on it.
+- You've been tasked with creating some reporting using Power BI based on the data whihc got batch predicated in the last challenge. In this challenge, you must create asemanticn model and add measures if required and create the visualization based on it.
 
 ## Success Criteria
 
