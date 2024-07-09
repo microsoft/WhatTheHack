@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-A GitHub account, GitHub Copilot, and VSCode is all that is needed for this hack.  All are free and GitHub Copilot if needed has a free 30 day trial.
+A GitHub account, GitHub Copilot, and VS Code is all that is needed for this hack.  All are free and GitHub Copilot if needed has a free 30 day trial.
 
 - [Create GitHub Account](https://github.com/join)
 - [Install Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
