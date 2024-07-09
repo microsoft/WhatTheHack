@@ -10,4 +10,4 @@
   - SQL Queries
 - To generate a commit message, they can go to VSCode, and in the source control section there will be these stars/diamonds next to the commit message box.  Selecting that will allow you to leverage Copilot to generate a commit message.  They can generate this after creating the pipeline to have something to checkin to.
 - This could also be a great time to talk about some of GitHub Copilot Enterprises other features such as PR message creation which is along the same concept. However this is a separate license and not part of the hack.
-[Sample Pipeline Solution ](./Solutions/Solution-03.yaml)
+[Sample Pipeline Solution](./Solutions/Solution-03.yaml)
