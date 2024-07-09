@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-- Students can grab a file of their choice from the juice-shop repo.  For example you can choose the order.ts file located under routes folder.
+- Students can grab a file of their choice from the [OWASP Juice Shop Repo](https://github.com/juice-shop/juice-shop).  For example you can choose the order.ts file located under routes folder [here](https://github.com/juice-shop/juice-shop/blob/master/routes/order.ts).
 - Students should be able to use Copilot chat to ask what the whole file does or highlight and interact with Copilot to explain a snippet of code.
 - Asking Copilot Chat should also give them the ability to request for a code snippet to resolve the vulnerability as well.
 - Please remind students that while Copilot can find vulnerabilities as we will see here, we should not assume it catches everything.  This is not a replacement for other security tools such as static code analysis tools (CodeQL).
