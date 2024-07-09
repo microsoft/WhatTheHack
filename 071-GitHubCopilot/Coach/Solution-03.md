@@ -13,5 +13,5 @@
   - Copilot Individual ($10/Month) - This is for individual developers.
   - Copilot Business ($19/Month) -  This is meant for organizations and allows capabilities to manage licenses and features within Copilot.
   - Copilot Enterprise ($39/Month) - This requires the codebase to be in GitHub but allows for organizations to infuse AI across the developer workflow.
-  - Full Feature Comparision: https://github.com/features/copilot#pricing
+  - Full Feature Comparison: https://github.com/features/copilot#pricing
 [Sample Pipeline Solution](./Solutions/Solution-03.yaml)
