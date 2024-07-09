@@ -1,4 +1,4 @@
-# What The Hack - Azure OpenAI Fundamentals
+# What The Hack - Azure OpenAI Fundamentals - V2.1
 
 ## Introduction
 
