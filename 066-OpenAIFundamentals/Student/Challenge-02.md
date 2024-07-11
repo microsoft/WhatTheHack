@@ -56,20 +56,22 @@ Scenario: You are part of a research team working on classifying biotech news ar
 ### Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
+Navigate to the AI Studio and click on your project. You should be able to see Prompt flow under Tools in the navigation bar. Use the provided resources to solve the tasks below leveraging Prompt Flow to compare the responses from different models.
+
   #### Student Task 1.3: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
-  - "A customer is unhappy with their recent purchase due to a missing feature. Outline a step-by-step resolution process that addresses their concern and offers a satisfactory solution."
-  - "Develop a multi-step troubleshooting guide for customers experiencing issues with their smart home devices, integrating potential scenarios and solutions."
+  - Prompt: "A customer is unhappy with their recent purchase due to a missing feature. Outline a step-by-step resolution process that addresses their concern and offers a satisfactory solution."
+  - Prompt: "Develop a multi-step troubleshooting guide for customers experiencing issues with their smart home devices, integrating potential scenarios and solutions."
 
   #### Student Task 1.4: Creative and Technical Writing
   Assess the models' capabilities in technical writing, such as creating detailed product manuals or help articles.
-  - "Write a product description for a new smartphone that highlights its innovative features in a creative and engaging manner."
-  - "Create a comprehensive FAQ section for a complex software application, ensuring clarity and technical accuracy."
+  - Prompt: "Write a product description for a new smartphone that highlights its innovative features in a creative and engaging manner."
+  - Prompt: "Create a comprehensive FAQ section for a complex software application, ensuring clarity and technical accuracy."
 
   #### Student Task 1.5: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
-  - "Analyze a detailed product review and extract actionable insights that can inform future product development."
-  - Product Review: You can find this in the data folder labelled "ch2_1.5_product_review.txt"
+  - Prompt: "Analyze a detailed product review and extract actionable insights that can inform future product development."
+  - Prompt: Product Review: You can find this in the data folder labelled "ch2_1.5_product_review.txt"
 
 ## Success Criteria
 
@@ -81,6 +83,7 @@ To complete this challenge successfully, you should be able to:
 ## Additional Resources
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
+- [Prompt Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/prompt-flow)
 - [Azure OpenAI Pricing Page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 - [Request for Quota Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
 - [Customize Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)
