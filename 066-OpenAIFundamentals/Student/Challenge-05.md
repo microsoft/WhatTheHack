@@ -15,7 +15,7 @@ As LLMs grow in popularity and use around the world, the need to manage and moni
 
 ### Responsible AI on Azure 
 
-More companies offer social features for user interaction in industries like gaming, social media, ecommerce and advertising, to build brand connection, promote trust and to drive digital engagement. However, this trend is accompanied by the growing concern of complex and inappropriate content online. These challenges have led to increasing regulatory pressures on enterprises worldwide for digital content safety and greater transparency in content moderation.
+More companies offer social features for user interaction in industries like gaming, social media, e-commerce and advertising, to build brand connection, promote trust and to drive digital engagement. However, this trend is accompanied by the growing concern of complex and inappropriate content online. These challenges have led to increasing regulatory pressures on enterprises worldwide for digital content safety and greater transparency in content moderation.
 
 Azure AI Content Safety, a new Azure AI service and proof point in our Responsible AI journey will help businesses create safer online environments and communities. In Content Safety, models are designed to detect hate, violent, sexual and self-harm content across languages in images and text. The models assign a severity score to flagged content, indicating to human moderators what content requires urgent attention. 
 
