@@ -71,7 +71,7 @@ Navigate to the AI Studio and click on your project. You should be able to see P
   #### Student Task 1.5: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
   - Prompt: "Analyze a detailed product review and extract actionable insights that can inform future product development."
-  - Prompt: Product Review: You can find this in the data folder labelled "ch2_1.5_product_review.txt"
+  - Prompt: Product Review: You can find this in the data folder labelled `ch2_1.5_product_review.txt`
 
 ## Success Criteria
 
