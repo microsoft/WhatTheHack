@@ -16,21 +16,27 @@ The story goes that, you are new engineer that was hired to modernize a ecommerc
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Prepare your environment to work with Azure and Dynatrace.
 - Challenge 01: **[OneAgent Observability on Azure VM](./Solution-01.md)**
-	 - Description of challenge
+	 - Review the power on OneAgent.
 - Challenge 02: **[Dynatrace Observability on AKS](./Solution-02.md)**
-	 - Description of challenge
+	 - Deploy Dynatrace Operator on AKS cluster with a sample application and review AKS observability with Dynatrace.
 - Challenge 03: **[Automated Root Cause Analysis with Davis](./Solution-03.md)**
-	 - Description of challenge
+	 - Enable a problem in your sample application and walk through what Davis found.
 - Challenge 04: **[Azure Monitor Metrics & Custom Dashboard](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Cleanup](./Solution-05.md)**
+  - In this challenge, you will create a custom dashboard to track Service Level Objects (SLO's)
+- Challenge 05: **[Challenge 05 - Grail - Dashboards & Notebooks](./Solution-05.md)**
+	 - In this challenge, you will query, visualize, and observe all your data stored in Grail via Dashboards and Notebooks.
+- Challenge 06: **[Challenge 06 - Grail - SRE Guardian & Workflows](Solution-06.md)**
+	* In this challenge you'll learn the benefits of Site  Reliability Guardian (SRG) and experience the power of Automation in dynatrace by creating workflows to automatically execute an SRG.
+- Challenge 07: **[Cleanup](./Solution-05.md)**
 	 - Description of challenge
 
 ## Coach Prerequisites
 
-This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
+This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. 
+
+Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
@@ -76,12 +82,14 @@ This hack requires students to have access to an Azure subscription where they c
 
 ## Suggested Hack Agenda (Optional)
 
-- Sample Day  (~3.5 hours)
+- Sample Hack Day  (~4 hours)
   - Challenge 0 (45 min)
   - Challenge 1 (1 hr)
   - Challenge 2 (45 mins)
   - Challenge 3 (30 mins)
   - Challenge 4 (30 mins)
+  - Challenge 5 (15 mins)
+  - Challenge 6 (15 mins)
 
 
 ## Repository Contents

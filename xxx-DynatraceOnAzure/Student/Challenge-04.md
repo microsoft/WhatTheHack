@@ -24,10 +24,10 @@ Here is an example from another environment on Azure Monitor screen looks like:
 
 ### Tasks
 
-1. From the left side menu in Dynatrace, click the Azure menu item. Scroll down, and in the Environment dynamics action click on the region to open the virtual machine regional page
+* From the left side menu in Dynatrace, click the Azure menu item. Scroll down, and in the Environment dynamics action click on the region to open the virtual machine regional page
     - How many Virtual Machine's exist in your region?
     - How many VM Scale sets exist in this subscription?
-1. Create an SLO Dashboard and call it "Cloud Migration Success"
+* Create an SLO Dashboard and call it "Cloud Migration Success"
     - From the left side menu in Dynatrace, pick the dashboard menu.
     - On the dashboard page, click the new dashboard button. Give the dashboard a name of "Cloud Migration Success"
     - On the blank dashboard page, click the settings. Then click the advanced settings link to open then settings page
@@ -35,7 +35,7 @@ Here is an example from another environment on Azure Monitor screen looks like:
     - Copy and paste the following Json content from this file into your dashboard JSON, replacing the existing JSON in the process: [Dashboard JSON file link](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/master/learner-scripts/cloud-modernization-dashboard.json)
         - **Note:** You MUST replace the owner field to be the email that you logged into Dynatrace with or you will not be able to view it.
     - After you edit the email, then click the Revert Dashboard ID button. After you click the Revert Dashboard ID button, click the Save changes button.
-1. Edit the dashboard and adjust the tiles with the SLOs and databases in your environment. Repeat the same steps above for the Cloud services tile, but pick the staging- frontend in the Service properties window
+* Edit the dashboard and adjust the tiles with the SLOs and databases in your environment. Repeat the same steps above for the Cloud services tile, but pick the staging- frontend in the Service properties window
     ![](images/challenge4-slo-dashboard-init.png)
     
 

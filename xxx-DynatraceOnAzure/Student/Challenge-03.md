@@ -17,31 +17,31 @@ In this lab, we will simulate several problem scenarios and demonstrate how AI c
 -  Enable a problem pattern in the application and walk through what [Dynatrace Davis](https://www.dynatrace.com/platform/artificial-intelligence/) found as a root cause.
 
 ### Tasks
-1. Enable Backend Service Problem
+* Enable Backend Service Problem
     ```bash
         cd ~/azure-modernization-dt-orders-setup/learner-scripts
         ./set-version.sh backend 2
     ```
-1. Wait for ~5-10 minutes.  Then, Go to Dynatrace menu -> Problems and check if a problem card is generated for response time degradation
+* Wait for ~5-10 minutes.  Then, Go to Dynatrace menu -> Problems and check if a problem card is generated for response time degradation
     - How many observed users by this problem?
     - What was identified as the root cause of this problem?
 
-1. Disable the problem pattern on Backend Service
+* Disable the problem pattern on Backend Service
     ```bash
         cd ~/azure-modernization-dt-orders-setup/learner-scripts
         ./set-version.sh backend 1
     ```
 
-1. Enable the problem pattern on Order Service on AKS and analyze the problem in Dynatrace
+* Enable the problem pattern on Order Service on AKS and analyze the problem in Dynatrace
     ```bash
         cd ~/azure-modernization-dt-orders-setup/learner-scripts
         ./set-version.sh k8-order 3
     ```
-1. Wait for ~5-10 minutes.  Then, Go to Dynatrace menu -> Problems and check if a problem card is generated for failure rate increase
+* Wait for ~5-10 minutes.  Then, Go to Dynatrace menu -> Problems and check if a problem card is generated for failure rate increase
     - How many affected service calls were impacted by this problem?
     - What were identified as the root cause of this problem?
         - Was it related to deployment?
-1. Disable the problem pattern on Order service 
+* Disable the problem pattern on Order service 
     ```bash
         cd ~/azure-modernization-dt-orders-setup/learner-scripts
         ./set-version.sh k8-order 1

@@ -1,4 +1,4 @@
-# Challenge 05 - Azure Grail - Dashboards & Notebooks
+# Challenge 05 - Grail - Dashboards & Notebooks
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
@@ -39,8 +39,8 @@ Another powerful way you can visualize your observability data is via [Notebooks
 
 ### Tasks
 
-1. Create a dashboard and with an element to Query Grail. 
-1. Add the following grail
+* Create a dashboard and with an element to Query Grail. 
+* Add the following grail
     ```bash
     fetch logs
     | filter cloud.provider == "azure"
@@ -48,10 +48,10 @@ Another powerful way you can visualize your observability data is via [Notebooks
     | sort `count()`, direction:"descending"
 
     ```
-1. [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Logs.json) a sample Notebook to analyze log data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
-1. Follow the instructions in the notebook on how to analyze log data.
-1. [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Metrics.json) a sample Notebook to analyze metric data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
-1. Follow the instructions in the notebook on how to analyze metric data.
+* [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Logs.json) a sample Notebook to analyze log data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
+* Follow the instructions in the notebook on how to analyze log data.
+* [Download](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Metrics.json) a sample Notebook to analyze metric data.  Upload that sample notebook to Notebooks app in your Dynatrace tenant.
+* Follow the instructions in the notebook on how to analyze metric data.
 
 
 

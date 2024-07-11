@@ -64,7 +64,7 @@ _Sample challenge zero text for the IoT Hack Of The Century:_
 
 Now that you've reviewed the common pre-requisites for this hack, let's jump in get started!
 
-Your coach will also provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+<!-- Your coach will also provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there. -->
 
 Please install these additional tools needed for this hack:
 

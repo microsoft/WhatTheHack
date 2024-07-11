@@ -1,61 +1,51 @@
-# Challenge 05 - Cleanup - Coach's Guide 
+# Challenge 05 - Grail - Dashboards & Notebooks  - Coach's Guide 
 
-[< Previous Solution](./Solution-04.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-## Workshop Environment Reminder
+## Detailed Steps
 
-If you plan to keep the workshop resources running in Azure for a few more days to come back and review the labs, please keep in mind the following things:
+### Dashboards
+* Open the Dashboards app from the Left Menu
+* Select + Dashboard
+* Select + to add dashboard element
+* Select Query Grail
 
-* Your Dynatrace Trial Environment will disabled after 14 calendar days.
+![image](Solutions/img/challenge5-01.png)
 
-## Workshop Cleanup
-
-When you are ready to cleanup the workshop resource, run this command to remove the Azure resources and Dynatrace configuration:
-
+* In the tile editor for Query, enter the following DQL
+```bash
+    fetch logs
+    | filter cloud.provider == "azure"
+    | summarize count(), by:{azure.resource.type}
+    | sort `count()`, direction:"descending"
 ```
-cd ~/azure-modernization-dt-orders-setup/provision-scripts
-./cleanup-workshop.sh
-```
+* Select Run Query. For logs, your results will be generated in a table by default.
+* Select Select visualization tab to display the results differently. image
+![image](Solutions/img/challenge5-02.gif)
 
-The start of the script output will look like this:
+### Notebooks to analyze log data
 
-```
-===================================================================
-About to Delete Workshop resources
-===================================================================
-Proceed? (y/n) : y
+* Download this sample notebook we will use to analyze logs
+    - Right click in browser, click Save As
+    - Click on [this link](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Logs.json) to download the file.
+        ![image](Solutions/img/challenge5-03.png)
+* Go into Dynatrace UI, open the notebooks app from your left menu
+    ![image](Solutions/img/challenge5-04.png)
+* Expand the Notebooks menu
+    ![image](Solutions/img/challenge5-05.png)
+* Click on upload and browse to the notebook JSON file where you saved.
+* Follow the instructions in the notebook to analyze log data from a Hipster shop sample app.
 
-==========================================
-Deleting workshop resources
-Starting: Fri 07 May 2021 04:35:46 AM UTC
-==========================================
-...
-...
-```
-
-Eventually when it completes - plan for 5-10 minutes - it will look like this:
-
-```
-=============================================
-Deleting workshop resources COMPLETE
-End: Fri 07 May 2021 04:40:40 AM UTC
-=============================================
-```
-
-## Other Resources
-
-### Free Dynatrace SaaS tenant 
-To signup for a free fully featured enabled Dynatrace SaaS Tenant for 15 days [click here](https://www.dynatrace.com/trial/) 
-
-### Resources
-Addition Azure & Dynatrace related resources to get your started with:
-
-* [Partner Cafe Quick Azure Overview](https://www.youtube.com/watch?v=VCdEHAoEePw)
-* [Dynatrace YouTube Videos](https://www.youtube.com/channel/UCcYJ-5q_AfmjQ4XTjTS0o3g)
-* [More Support resources](https://www.dynatrace.com/services-support/#support-resources-section)
-* Customer Stories:​
-    - [Barbari](https://www.dynatrace.com/news/customer-stories/barbri/)
-    - [Kroger](https://www.dynatrace.com/news/customer-stories/kroger/)
-    - [Mitchells & Butlers](https://www.dynatrace.com/news/customer-stories/mitchells-and-butlers/)
+### Notebooks to analyze metric data
+* Download this sample notebook we will use to analyze logs
+    - Right click in browser, click Save As
+    - Click on [this link](https://raw.githubusercontent.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/grail/learner-scripts/AzureGrailWorkshop-Metrics.json) to download the file.
+        ![image](Solutions/img/challenge5-03.png)
+* Go into Dynatrace UI, open the notebooks app from your left menu
+    ![image](Solutions/img/challenge5-04.png)
+* Expand the Notebooks menu
+    ![image](Solutions/img/challenge5-05.png)
+* Click on upload and browse to the notebook JSON file for Metrics where you saved.
+* Follow the instructions in the notebook to analyze Azure  metrics for your hosts.

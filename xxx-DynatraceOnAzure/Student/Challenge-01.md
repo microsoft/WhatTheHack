@@ -15,8 +15,9 @@ The lack of detailed information about the current environment makes it challeng
 To solve this problem, Dynatrace OneAgent can automatically identify applications, services, and processes and create a comprehensive map of dependencies for the entire application environment. Let's get started!
 
 ### Challenge Setup Diagram
-Referring to the picture below, here are the components for this challenge
-
+Referring to the picture below:
+    ![](images/challenge1-sampleapp-setup.png )
+Here are the components for this challenge
 #1 . Sample Application
 
 Sample app representing a simple architecture of a frontend and backend implemented as Docker containers that we will review in this challenge.
@@ -28,7 +29,7 @@ The Dynatrace OneAgent has been installed by this challenge via provisioning scr
 #3 . Load generator process
 
 A docker processes that sends simulated user traffic to the sample app using Jmeter run within a Docker container. You will not need to interact with this container; it just runs in the background.
-![](images/challenge1-sampleapp-setup.png )
+
 
 
 
@@ -45,68 +46,68 @@ Navigate through various screens of Dynatrace to understand the details of your 
 
 ## Tasks to complete this challenge
 
-1. Navigate to the sample app running on VM
+* Navigate to the sample app running on VM
     - Get the Public IP for `dt-orders-monolith` VM from Azure Portal
     - Open up browser on your workstation and paste the IP address to navigate to the sample app
     >**Note:** Feel free to navigate around the app by using the menu on homepage to navigate around the application to pull up customer list, catalog list or order list.
 
 
-1. Navigate to OneAgent Deployment Status screen; from the navigation menu on the left, go to **Manage** and select **Deployment status**.  
+* Navigate to OneAgent Deployment Status screen; from the navigation menu on the left, go to **Manage** and select **Deployment status**.  
     - Search for recently connected `dt-orders-monolith` VM to ensure its reporting in to Dynatrace UI.   
 
-1. Navigate to host monitoring screen; from the navigation menu, go to **Infrastructure** and select **Hosts** and click on `dt-orders-monolith` host.  
+*  Navigate to host monitoring screen; from the navigation menu, go to **Infrastructure** and select **Hosts** and click on `dt-orders-monolith` host.  
     - Find host performance metrics charts for CPU, memory and network metrics for this host
     - Check to see which if you can find node.js and ApacheJmeter processes running on this host
     - Identify how many and names of containers that are running on this host
     - Identify the Azure tags applied to this host.
-1. Navigate the new Infrastructure & Operations App
+*  Navigate the new Infrastructure & Operations App
     - Review the DataCenters and Hosts view screens in the app.
     - Review the Host details screen for ``dt-orders-monolith`` VM such as Overview, Technologies, Process, Problems, Vulnerabilities, etc.
-1. Navigate to Smartscape topology screen for this; while in classic host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
+* Navigate to Smartscape topology screen for this; while in classic host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
     - Identify which 2 downstream services are used by the frontend service to  communicates with
     - Identify which Azure region (data center) your host is running in
 
-1.  Navigate to Services monitoring screen; from the navigation menu, go to **Application & Microservices** and select **Services** and click on `frontend` service
+*  Navigate to Services monitoring screen; from the navigation menu, go to **Application & Microservices** and select **Services** and click on `frontend` service
     - Identify what process technology the frontend services run in under properties & tags
     - View dynamic web requests for this service and identify top 5 requests
     - Create Multi-dimensional analysis and filter requests by any exception
 
-1. Navigate to the `frontend` service screen and click on `View Service flow`
+* Navigate to the `frontend` service screen and click on `View Service flow`
     - Identify the two downstream services the frontend relies on?
     - Identify  the response time for `embedded database` service
     - Identify the throughput value for `backend` service 
 
-1. Navigate to the `backend` service screen and click on `Analyze backtrace`
+* Navigate to the `backend` service screen and click on `Analyze backtrace`
     - Identify the service that calls the `backend` service?    
 
-1. Navigate to Databases monitoring screen; from the navigation menu, go to **Application & Microservices** and select **Databases**
+* Navigate to Databases monitoring screen; from the navigation menu, go to **Application & Microservices** and select **Databases**
     - Identify the database name and database vendor
     - Identify which specific SQL statements show up in `Current hotspots` view
 
-1. Navigate to Technologies overview screen; from the navigation menu, go to **Infrastructure** and select **Technologies and processes** screen
+* Navigate to Technologies overview screen; from the navigation menu, go to **Infrastructure** and select **Technologies and processes** screen
     - Identify  top 5 technologies that are running across all monitored applications on your Dynatrace tenant
     - Identify which 2 technologies are running on `dt-orders-monolith` host filtering on tag with `stage:production`
 
 ## Success Criteria
 
-1. `dt-orders-monolith` VM is visible under Manage -> Deployment Status -> OneAgents screen
+*  `dt-orders-monolith` VM is visible under Manage -> Deployment Status -> OneAgents screen
 
-1. You are can identify:  
-    1) Performance metrics charts for CPU, memory and network utilization for the host 
-    2) node.js and ApacheJmeter processes running on this host 
-    3) how many and names of containers that are running on this host 
-    4) Azure tags applied to this host
-1. You have successfully identified downstream services used by frontend and Azure region of the host.
+* You are can identify:  
+    - Performance metrics charts for CPU, memory and network utilization for the host 
+    -  node.js and ApacheJmeter processes running on this host 
+    -  how many and names of containers that are running on this host 
+    -  Azure tags applied to this host
+* You have successfully identified downstream services used by frontend and Azure region of the host.
 
-1. You have successfully identified what the process technology for frontend service, identified top 5 requests web requests and created a multi-dimensional analysis view.
+* You have successfully identified what the process technology for frontend service, identified top 5 requests web requests and created a multi-dimensional analysis view.
 
-1. You have successfully identified two downstream services the frontend service relies on, response time for embedded database service and throughput value for backend service.
+* You have successfully identified two downstream services the frontend service relies on, response time for embedded database service and throughput value for backend service.
 
-1. You have successfully identified the the service that calls the backend service?
+* You have successfully identified the the service that calls the backend service?
 
-1. You have successfully identified the database name and database vendor and SQL statements from the hotspots view.
+* You have successfully identified the database name and database vendor and SQL statements from the hotspots view.
 
-1. You have successfully identified top 5 technologies that are running your Dynatrace tenant and 2 technologies are running on dt-orders-monolith 
+* You have successfully identified top 5 technologies that are running your Dynatrace tenant and 2 technologies are running on dt-orders-monolith 
 
 ## Learning Resources
 

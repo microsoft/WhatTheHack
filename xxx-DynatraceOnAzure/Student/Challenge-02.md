@@ -29,34 +29,34 @@ For our project, an alternative version of the application separates each of the
 -  Examine the transformed application using service flows and back traces
 
 ### Tasks
-1. In Azure CLI, run the following command to fetch the AKS credentials for your cluster.
+* In Azure CLI, run the following command to fetch the AKS credentials for your cluster.
     ```shell
     az aks get-credentials --name "<aks-cluster-name>" --resource-group "<resource-group-name>"
     ```
     >💡**Hint:**  Refer back to Azure Portal under `<lastname>-dynatrace-azure-modernize-wth` resource group for aks cluster name
-1. Deploy the Dynatrace Kubernetes Operator onto your AKS cluster
+* Deploy the Dynatrace Kubernetes Operator onto your AKS cluster
     - Deploy Dynatrace Operator on the AKS cluster [via cluster extensions](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions) blade. 
 
     >💡**Hint:**  To complete the above step, you will need the token and API URL you save from Challenge 0.
 
 <!-- 
-1. Deploy Kubernetes Dynatrace Operator
+* Deploy Kubernetes Dynatrace Operator
     - Deploy Dynatrace Operator on the AKS Cluster using 7 steps of the Automated mode 
         >💡**Hint:** On Step 6, when you download the **dynakube.yaml**, you can use Upload/Download feature within Azure cloudshell to upload the file
             ![](images/challenge2-azure-cloudshell-upload.png)
 -->
-1. Deploy sample application
+* Deploy sample application
     ```bash
     cd ~/azure-modernization-dt-orders-setup/app-scripts
     ./start-k8.sh
 
-1. Access the sample application running on Kubernetes in you browser
+* Access the sample application running on Kubernetes in you browser
     >💡**Hint:** To get the external IP for application type the following command
 
         kubectl -n staging get svc        
 
 
-1. Review Dynatrace data for Kubernetes
+* Review Dynatrace data for Kubernetes
     - Navigate to Kubernetes cluster utilization screen; from the navigation menu, go to **Infrastructure** and select **Kubernetes** and click on `dynatrace-azure-wth-cluster` cluster.  
         - What are the total number of CPU cores for your cluster?
         - What are the total number of workloads running on your cluster?
@@ -67,28 +67,28 @@ For our project, an alternative version of the application separates each of the
         - What is the hostname where this workload's pod is running?
         - What labels are associated with this service under Properties and Tags section?          
 
-1. Navigate to the `order` service screen and click on `Analyze backtrace`
+* Navigate to the `order` service screen and click on `Analyze backtrace`
     - Identify the service that calls the `order` service?   
 
-1. Navigate to the `frontend` service screen running on Kubernetes and click on `View Service flow`
+* Navigate to the `frontend` service screen running on Kubernetes and click on `View Service flow`
     - Identify three downstream services the frontend relies on?
     - Identify  the response time for `customer` service
     - Identify the throughput value for `catalog` service 
 
 ## Success Criteria
 
-1. You have successfully fetched the AKS credentials against the cluster
-2. You have a successfully installed the Dynatrace Operator on the AKS cluster and able to see metrics in Dynatrace UI.
-3. You have successfully deployed the sample app to the AKS cluster.
-1. You can access the sample application in your browser.
-1. You are able to  identify the following data in the Kubernetes screens
-    1) Identify total number of CPU cores for your cluster
-    1) Identify total number of workloads running on your cluster
-    1) Identify average response time for  `frontend` workload over the last 30 minutes
-    1) Identify hostname where the workload pod is running
-    1) Identify labels are associated with this frontend service under Properties and Tags section
-1. You have successfully identified the the service that calls the order service?
-1. You have successfully identified three downstream services the `frontend` service relies on, response time for `customer` database service and throughput value for `catalog` service.
+* You have successfully fetched the AKS credentials against the cluster
+* You have a successfully installed the Dynatrace Operator on the AKS cluster and able to see metrics in Dynatrace UI.
+* You have successfully deployed the sample app to the AKS cluster.
+* You can access the sample application in your browser.
+* You are able to  identify the following data in the Kubernetes screens
+    -  Identify total number of CPU cores for your cluster
+    - Identify total number of workloads running on your cluster
+    -  Identify average response time for  `frontend` workload over the last 30 minutes
+    -  Identify hostname where the workload pod is running
+    -  Identify labels are associated with this frontend service under Properties and Tags section
+* You have successfully identified the the service that calls the order service?
+* You have successfully identified three downstream services the `frontend` service relies on, response time for `customer` database service and throughput value for `catalog` service.
 
 ## Learning Resources
 

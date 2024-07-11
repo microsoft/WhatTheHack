@@ -1,4 +1,4 @@
-# Challenge 05 - Azure Grail - Dashboards & Notebooks
+# Challenge 06 - Grail - SRE Guardian & Workflows
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
@@ -36,7 +36,7 @@ Workflows let you:
 
 ### Tasks
 
-1. Create a Guardian.
+* Create a Guardian.
     - Add an error rate objective to the Guardian.  Use the following DQL to calculate the error rate
     ```bash
     fetch logs
@@ -47,7 +47,7 @@ Workflows let you:
         - `Select Lower than the these numbers is good`
         - Failure: 1
         - Warning: 0.4
-1. Create a workflow to run every 10 minutes to trigger the SRG.
+* Create a workflow to run every 10 minutes to trigger the SRG.
 
 
 ## Success Criteria
