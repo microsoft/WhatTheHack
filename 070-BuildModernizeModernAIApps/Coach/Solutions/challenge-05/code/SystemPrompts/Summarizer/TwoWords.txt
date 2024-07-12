@@ -1,0 +1,10 @@
+BEGIN CONTENT TO SUMMARIZE:
+{{$INPUT}}
+
+END CONTENT TO SUMMARIZE.
+
+Summarize the conversation in 'CONTENT TO SUMMARIZE', identifying main points of discussion and any conclusions that were reached.
+Do not incorporate other general knowledge.
+Summary is in plain text, in exactly two words to use as a label in a button on a web page, with no markup or tags. Output words only.
+
+BEGIN SUMMARY:
