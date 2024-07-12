@@ -20,7 +20,7 @@ Via the Azure Portal, add the application settings in the **first** Azure Functi
 
 | **Application Key** | **Value** |
 | --- | --- |
-| `computerVisionApiUrl` | Computer Vision API endpoint you copied earlier. Append **vision/v2.0/ocr** to the end. Example: [https://westus.api.cognitive.microsoft.com/vision/v2.0/ocr](https://westus.api.cognitive.microsoft.com/vision/v2.0/ocr) |
+| `computerVisionApiUrl` | Computer Vision API endpoint you copied earlier. Append **vision/v3.2/ocr** to the end. Example: `https://westus.api.cognitive.microsoft.com/vision/v3.2/ocr` |
 | `computerVisionApiKey` | `computerVisionApiKey` pointer to the Key Vault secret |
 | `eventGridTopicEndpoint` | Event Grid Topic endpoint |
 | `eventGridTopicKey` | `eventGridTopicKey` pointer to the Key Vault secret |
