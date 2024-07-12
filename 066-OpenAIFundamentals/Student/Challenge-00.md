@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Setup Azure OpenAI](#setup-azure-openai)
+- [Setup Azure AI Studio Project and Hub](#setup-azure-ai-studio-project-and-hub)
 
 ### Access Azure OpenAI 
 
@@ -131,15 +131,19 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 <br/>
 
 ### Setup Azure AI Studio Project and Hub
+
 Once you have set up a Jupyter notebook environment, navigate to the [AI Studio](ai.azure.com) to create your Azure AI project and the needed resources.
 
 - Click on the **+ New Project** button.
-- Give your project a name and hit **Create a new hub**. Fill out a name for your hub, choose your subscription, resource group, location, hit **Create new AI Services**, and **Create new AI Search**. Then, you can **Create a project**.
+- Give your project a name and hit **Create a new hub**.
+  - Fill out a name for your hub, choose your subscription, resource group, location
+  - Hit **Create new AI Services**, and **Create new AI Search**.
+  - Then, you can **Create a project**.
 - The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. 
 
-### Setup Azure OpenAI
+#### Deploy Azure OpenAI Models
 
-Now we will deploy the needed large language models. 
+Now we will deploy the needed large language models from Azure OpenAI. 
 
 - Navigate to the [AI Studio](ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
 - On the left navigation bar, click on Deployments. 
