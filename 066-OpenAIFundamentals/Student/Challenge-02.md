@@ -11,21 +11,13 @@ There are a lot of different models available in the Azure AI Model Catalog. The
 In a world where the availability and development of models are always changing, the model we compare may change over time. But we encourage you to understand the general concepts and material in this Challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large Language Models. For more information on legacy models and additional models, reference the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and [Azure model catalog](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2) for more details.
 
 ## Description
-Model deployment for the challenge:
-- Deploy the following models in your Azure OpenAI resource using these names: 
-  - `gpt-4`
-  - `gpt-35-turbo`
- **If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.**
-
-- Add required credentials of Azure resources in the `.env` file
-
 Questions you should be able to answer by the end of this challenge:
 - What are the capacities of each Azure OpenAI model?
 - How to select the right model for your application?
 - What model would you select to perform complex problem solving？
 - What model would you select to generate new names?
 
-You will work in the Azure AI Studio for this challenge. Return here to the student guide after completing all student tasks in the Azure AI Studio to validate you have met the [success criteria](#success-criteria) below for this challenge.
+You will work in the Azure AI Studio for this challenge. We recommend keeping the student guide and the Azure AI Studio in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 Sections in this Challenge:
 1. Overview on finding the right model
@@ -41,22 +33,22 @@ Sections in this Challenge:
 ### Model Discovery
 Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to identify the most suitable models for accurate text classification.
 
-  #### Student Task 1.1
-      - Go into the [Azure AI Studio](ai.azure.com) and create a project.
+#### Student Task 1.1
+      - Go into the [Azure AI Studio](ai.azure.com).
       - Navigate to the Model Catalog and explore different models using the correct filters. 
       - Identify which models can potentially improve the accuracy of the task at hand.
-      - Evaluate the models based on their capabilities, limitations, and fit for the use case from the model card.
+      - Hint: Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification?
 
 ### Model Benchmarking 
   #### Student Task 1.2
-      - Use the benchmarking tool in the Studio to compare the performance of all the selected models on industry standard datasets. 
+      - Use the benchmarking tool in the Studio to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
       - Leverage the metrics such as accuracy, coherence, and more.
       - Recommend the best-performing model for biotech news classification.
 
 ### Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
-Navigate to the AI Studio and click on your project. You should be able to see Prompt flow under Tools in the navigation bar. Use the provided resources to solve the tasks below leveraging Prompt Flow to compare the responses from different models.
+Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
   #### Student Task 1.3: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
@@ -71,7 +63,7 @@ Navigate to the AI Studio and click on your project. You should be able to see P
   #### Student Task 1.5: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
   - Prompt: "Analyze a detailed product review and extract actionable insights that can inform future product development."
-  - Prompt: Product Review: You can find this in the data folder labelled `ch2_1.5_product_review.txt`
+  - Prompt: Product Review: You can find this in the data folder labelled `ch2_1.5_product_review.txt`. Copy paste the content from this file into your prompt.
 
 ## Success Criteria
 
