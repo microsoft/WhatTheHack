@@ -55,17 +55,17 @@ Now that we've experimented with detecting harmful content in any given input, l
 You can configure a content filtering system both for user input (prompts) and LLM output (completions). 
 
 #### Student Task #2: Create a custom content filter
-Configure a content filter following these [instructions](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/content-filtering#create-a-content-filter). Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
+* Configure a content filter following these [instructions](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/content-filtering#create-a-content-filter). Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
 
-In the "Input Filter" step, configure the four content categories. Keep "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" toggled to "Off" (default) for now.
+* In the "Input Filter" step, configure the four content categories. Keep "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" toggled to "Off" (default) for now.
 
-In the "Output Filter" step, configure the four content categories. Keep "Protected material for text" and "Protected material for code" toggled to "Off" (default) for now.
+* In the "Output Filter" step, configure the four content categories. Keep "Protected material for text" and "Protected material for code" toggled to "Off" (default) for now.
 
-Create a blocklist that will detect words with exact matching. 
+* Create a blocklist that will detect words with exact matching. 
 
-Apply the content filter to one of your deployed models.
+* Apply the content filter to one of your deployed models.
 
-Test out the effectiveness of the content filter in the "Chat" with your model that has the new content filter.
+* Test out the effectiveness of the content filter in the "Chat" with your model that has the new content filter.
 
 ##### Knowledge Check #2:
 To assess your understanding of the concept of content filtering, answer the following questions based on the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new):
@@ -101,15 +101,15 @@ Attacks, as well as implementing them on Azure, on the [Microsoft Technical blog
 Attacks can occur through user prompts as well as documents that contain hidden embedded instructions to gain unauthorized control over the LLM session. Read more about [subtypes of user prompt attacks](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection). These are considered "input attacks."
 
 #### Student Task #4: Update your custom content filter
-Revisit the custom content filter you created earlier in the Azure AI Studio.
+* Revisit the custom content filter you created earlier in the Azure AI Studio.
 
-In the "Input filter," toggle the setting for "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" to either "Annotate only" or "Annotate and block." Keep in mind, for future implementations, that "Annotate and block" can reduce token usage compared to "Annotate only," which will still return the completed output.
+* In the "Input filter," toggle the setting for "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" to either "Annotate only" or "Annotate and block." Keep in mind, for future implementations, that "Annotate and block" can reduce token usage compared to "Annotate only," which will still return the completed output.
 
-Apply the updated filter to one of your deployed models.
+* Apply the updated filter to one of your deployed models.
 
-In the "Chat" tab of the Playground in the Azure AI Studio, experiment with your updated content filter.
+* In the "Chat" tab of the Playground in the Azure AI Studio, experiment with your updated content filter.
 
-Here are some example jailbreak attacks to prompt your protected model:
+* Here are some example jailbreak attacks to prompt your protected model:
 
 ## Success Criteria
 
