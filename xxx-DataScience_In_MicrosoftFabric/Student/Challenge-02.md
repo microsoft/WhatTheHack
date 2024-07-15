@@ -4,96 +4,59 @@
 
 ***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
 
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
-
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
-
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+Welcome to Challenge 2! In this exercise, you will learn how to use Data Wrangler to prepare a heart dataset for model training. In the previous challenge, you mapped the data within One Lake. You will now focus on transforming and preparing your data for the next challenges. You have the flexibility to either write code in a notebook or leverage Data Wrangler’s intuitive interface to streamline the preprocessing tasks.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+The main tasks in this challenge consist in a different preprocessing steps that are important for developing robust, efficient and reliable machine learning models, like for example:
+1. Removing unnecessary columns from a dataset. It is the best practice that enhances model performance, improves interpretability & reduces complexity.
+2. Dropping rows with missing values ensure compatibility with a wide range of algorithms without needing additional imputation strategies.
+3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.
+4. Adjusting data types. Machine learning algorithms operate on numerical data (integers, floats, etc.). If you feed them non-numeric data (e.g., strings), they won’t work. 
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+To load the data to the lakehouse, you will be using a spark notebook. Open Notebook 1, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+For most of these tasks you can use *Data Wrangler* to accelerate the data preparation process.  *Data Wrangler* is a tool used in notebooks. It offers an easy-to-use interface for exploring data. This tool shows data in a grid format, offers automatic summary statistics, built-in visualizations, and a library of common data-cleaning operations. Each operation can be done in just a few clicks. It shows the changes to the data right away and creates code in pandas or PySpark that can be saved back to the notebook for future use.
+Another important step before the training model is the feature engineering. In the feature engineering process, especially when dealing with categorical data, encoding is a crucial step. One of the simplest methods for converting categorical values into numerical values is using the *LabelEncoder*.  In the challenge you will need to figure out how to handle categorical values in the dataset. 
+For the challenge development, Open Notebook 2, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to get started with Data Wrangler in Microsoft Fabric. 
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+Notebook sections:
+1. Read the .csv file into a pandas dataframe in the notebook.
+2. Launch the Data Wrangler and interact with the data cleaning operations
+3. Apply the operations using python codes
+4. Develop feature engineering using spark.
+5. Write the dataframe to the lakehouse as a delta table. 
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+By the end of this challenge, you should be able to understand and know how to use:
+- Fabric Data Wrangler, how do they work, why are they beneficial and what is required to use them
+- Fabric Notebooks, their role, how to create a new one and execute spark applications
+- Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+- The heart dataset totally shaped, cleaned and prepared for the model training. 
+- No data duplicated or exceeded columns.
+- No missing values. 
+- No categorical values. 
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+[Data Science in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-science/data-science-overview)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+[Accelerate Data prep with Data Wrangler](https://learn.microsoft.com/en-us/fabric/data-science/data-wrangler)
 
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+[Preprocess data with Data Wrangler in Microsoft Fabric](https://learn.microsoft.com/en-us/training/modules/preprocess-data-with-data-wrangler-microsoft-fabric/)
 
 ## Tips
 
-*This section is optional and may be omitted.*
+- You will need to access your Microsoft Fabric subscription or sign up for a free trial.
+- Sign in to Microsoft Fabric and switch to the Synapse Data Science experience.
+- You can launch Data Wrangler directly from a Fabric notebook to explore and transform pandas or Spark DataFrames.
+- Use the Data Wrangler dropdown prompt under the notebook ribbon’s “Data” tab to browse active DataFrames available for editing.
+- Note that Data Wrangler cannot be opened while the notebook kernel is busy; an executing cell must finish its execution first.
+- When Data Wrangler loads, it displays a descriptive overview of the chosen DataFrame in the Summary panel. This overview includes information about the DataFrame’s dimensions, missing values, and more.
+- Use Data Wrangler’s grid-like interface to apply various data-cleaning operations. The generated code can be saved back to the notebook as a reusable function.
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
