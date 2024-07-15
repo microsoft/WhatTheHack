@@ -62,7 +62,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
+You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure AI Studio Project and Hub](#Setup-Azure-AI-Studio-Project-and-Hub)
 
 #### Use Local Workstation
 
