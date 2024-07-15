@@ -15,7 +15,7 @@ In this challenge, participants must use the cleaned-up data from Challenge 2 to
 
 ### Overview of student directions:
 - This is a notebook based challenge. All the instructions and links required for participants to successfully complete this challenge can be found on Notebook 3 in the `student/resources.zip/notebooks` folder.
-- To run the notebook, go to your Fabric workspace and select Notebook 3. Ensure that it is correctly attached to the lakehouse.
+- To run the notebook, go to your Fabric workspace and select Notebook 3. **Before running any cell, ensure that it is correctly attached to the lakehouse.**
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
 ### Coaches' guidance:
