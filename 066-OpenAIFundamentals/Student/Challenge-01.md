@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-* Deploy your own AOAI models in the [AOAI portal](https://oai.azure.com/portal/)
+* Ensure you have the needed AOAI models from the previous challenge in the [AOAI Studio](https://ai.azure.com/)
 * Update the `.env.sample` file (and save as `.env`) according to your model names if you haven't already
 
 ## Introduction
