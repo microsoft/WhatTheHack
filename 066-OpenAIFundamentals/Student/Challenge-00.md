@@ -163,7 +163,7 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 - Rename the file from `.env.sample` to `.env`.
 - Add required credentials of Azure resources in the `.env` file.  
 
-  **HINT:** You can get these credentials through the Azure Portal within your AOAI resource. Click on `Keys and Endpoint` from the dropdown menu on the left side.
+  **HINT:** You can get these credentials through the Azure AI Studio. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. 
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
   
