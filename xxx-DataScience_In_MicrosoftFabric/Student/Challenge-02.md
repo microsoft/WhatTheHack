@@ -1,4 +1,4 @@
-# Challenge 02 - <Data preparation with Data Wrangler>
+# Challenge 02 - Data preparation with Data Wrangler
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
