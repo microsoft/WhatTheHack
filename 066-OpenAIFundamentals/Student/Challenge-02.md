@@ -34,10 +34,11 @@ Sections in this Challenge:
 Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to identify the most suitable models for accurate text classification.
 
 #### Student Task 1.1
-      - Go into the [Azure AI Studio](ai.azure.com).
-      - Navigate to the Model Catalog and explore different models using the correct filters. 
-      - Identify which models can potentially improve the accuracy of the task at hand.
-      - Hint: Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification?
+- Go into the [Azure AI Studio](ai.azure.com).
+- Navigate to the Model Catalog and explore different models using the correct filters. 
+- Identify which models can potentially improve the accuracy of the task at hand.
+
+**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification?
 
 ### Model Benchmarking 
   #### Student Task 1.2
