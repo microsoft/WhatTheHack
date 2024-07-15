@@ -32,7 +32,7 @@ In this challenge, hack participants must create a shortcut to the folder deploy
 
 ### Overview of student directions (running Notebook 1)
 - This section of the challenge is notebook based. All the instructions and links required for participants to successfully complete this section can be found on Notebook 1 in the `student/resources.zip/notebooks` folder.
-- To run the notebook, go to your Fabric workspace and select Notebook 1. Ensure that it is correctly attached to the lakehouse.
+- To run the notebook, go to your Fabric workspace and select Notebook 1. Ensure that it is correctly attached to the lakehouse. You might need to connect to the lakehouse you previously created on the left-hand side file explorer menu.
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
 ### Coaches' guidance
