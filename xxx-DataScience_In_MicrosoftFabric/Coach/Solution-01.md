@@ -17,7 +17,7 @@ In this challenge, hack participants must create a shortcut to the folder deploy
 - Creating a Lakehouse:
   -  Participants must create a lakehouse on the Fabric workspace they previously set up. In Fabric, navigate to the workspace.
   -  On the top left of the screen, select new and more options.
-  -  On the data engineering section, select Lakehouse. Give the lakehouse a name and click on create.
+  -  On the data engineering section, select Lakehouse. Give the lakehouse a unique name and click on create.
     
 - Creating a Shortcut:
   - On the Lakehouse navigator, use the left hand-side menu and click on the 3 dots (...) next to files. Click on "New shortcut"
