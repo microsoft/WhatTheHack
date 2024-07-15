@@ -2,8 +2,6 @@
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
 ## Introduction
 
 Welcome to Challenge 2! In this exercise, you will learn how to use Data Wrangler to prepare a heart dataset for model training. In the previous challenge, you mapped the data within One Lake. You will now focus on transforming and preparing your data for the next challenges. You have the flexibility to either write code in a notebook or leverage Data Wrangler’s intuitive interface to streamline the preprocessing tasks.
