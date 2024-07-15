@@ -22,16 +22,16 @@ In this challenge, hack participants must create a shortcut to the folder deploy
 - Creating a Shortcut:
   - On the Lakehouse navigator, use the left hand-side menu and click on the 3 dots (...) next to files. Click on "New shortcut"
   - On the shortcut wizard, click on "Azure Data Lake Storage Gen2"
-  - The URL can be found on the Settings>Endpoint side menu of the Storage Account. Find and copy the data lake storage URL from the list. Enter it into the wizard in Fabric.
+  - Go to your Azure portal. The URL can be found on the **Settings>Endpoint** side menu of the Storage Account. In this menu, you will see a variety of endpoint Resource IDs and URLs. Find and copy the **data lake storage URL** from the list. Enter it into the wizard in Fabric.
   - Create a new connection, give it a name and select "Account Key" as the authentication kind.
-  - The Account Key can be found on in the Security + Networking>Access keys side menu of the Storage Account. Copy one of the keys. Enter it into the wizard in Fabric.
-  - Click on next to access the file explorer.
+  - Go back to your Azure portal. The Account Key can be found on in the **Security + Networking>Access keys** side menu of the Storage Account. Show and copy one of the keys. Enter it into the wizard in Fabric.
+  - Click on next to access the file explorer. Wait for the screen to load.
   - On the side menu, expand the file-system folder. Select the checkmark next to the "files" folder.
   - Click next to move to the next screen, then click on create to create the shortcut.
-  - Verify that your shortcut is showing under the Files folder of the lakehouse navigator. You might need to click on the 3 dots and on refresh if your shortcut is not present initially.
+  - Verify that your shortcut is showing under the **Files** folder of the lakehouse navigator. You might need to click on the 3 dots and on refresh if your shortcut is not present initially.
 
 ### Overview of student directions (running Notebook 1)
-- This section of the challenge is notebook based. All the instructions and links required for participants to successfully complete this section can be found on Notebook 3 in the `student/resources.zip/notebooks` folder.
+- This section of the challenge is notebook based. All the instructions and links required for participants to successfully complete this section can be found on Notebook 1 in the `student/resources.zip/notebooks` folder.
 - To run the notebook, go to your Fabric workspace and select Notebook 1. Ensure that it is correctly attached to the lakehouse.
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
