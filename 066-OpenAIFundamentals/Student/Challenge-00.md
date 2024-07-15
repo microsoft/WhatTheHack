@@ -161,7 +161,7 @@ The code in the Jupyter notebooks retrieve their configuration values from envir
 You will find the `.env.sample` file in the root of the codespace. If you are working on your local workstation, you will find the `.env.sample` file in the root of the folder where you have unpacked the student `Resources.zip` file.
 
 - Rename the file from `.env.sample` to `.env`.
-- Add required credentials of Azure resources in the `.env` file.  
+- Add Azure OpenAI credentials and model deployment names in the `.env` file.  
 
   **HINT:** You can get these credentials through the Azure AI Studio. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. 
    
