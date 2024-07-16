@@ -36,7 +36,7 @@ Here are detailed instructions on [getting started](https://learn.microsoft.com/
 
 #### Student Task #1: Moderate image and text content
 
-1. [understand harm categories](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning) defined by Microsoft. 
+1. [Understand harm categories](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning) defined by Microsoft. 
 
 2. Try out the following features in the Studio using provided sample text and data, or come up with your own examples. Analyze the moderation results. Try viewing the code!
 
