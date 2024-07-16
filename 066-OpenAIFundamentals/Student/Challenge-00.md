@@ -161,13 +161,15 @@ The code in the Jupyter notebooks retrieve their configuration values from envir
 You will find the `.env.sample` file in the root of the codespace. If you are working on your local workstation, you will find the `.env.sample` file in the root of the folder where you have unpacked the student `Resources.zip` file.
 
 - Rename the file from `.env.sample` to `.env`.
-- Add Azure OpenAI credentials and model deployment names in the `.env` file.  
-
-  **HINT:** You can get these credentials through the Azure AI Studio. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. 
+- Add all the required Azure resource credentials in the `.env` file.
+    - Includes: **Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob**
+    - For **Azure OpenAI, Model Deployments, AI Search**
+  **HINT:** You can get these credentials through the Azure AI Studio and clicking on your hub. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. Do the same for your AI Search resource. Model deployment names should be the same as the ones populated in the `.env.sample` file.
+    - For **Document Intelligence**, you will need to go to the [Azure Portal](portal.azure.com]. Now, locate the resource group you made when creating your hub within the AI Studio. Click on your **Azure AI Services** resource and scroll down. You should be able to click on the three dots and select **Document Intelligence**. From here, pick up the key and endpoint. (If you cannot find the resource group name, click into your hub in the AI Studio and you should see the resource group name within the **Hub properties**.)
+    - For **Azure Blob**, you will need to go to the [Azure Portal](portal.azure.com]. Now, locate the resource group you made when creating your hub within the AI Studio. Click on your **Storage account** resource and click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
+    - 
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
-  
-**NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. You can add these values to the `.env` file later as you progress through the challenges.
 
 **NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
 
@@ -185,7 +187,8 @@ If using GitHub Codespaces:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+- Verify that you have created the Project and Hub in your AI Studio.
+    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 If working on a local workstation: 
 
@@ -197,7 +200,8 @@ If working on a local workstation:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+- Verify that you have created the Project and Hub in your AI Studio.
+    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 ## Learning Resources
 
