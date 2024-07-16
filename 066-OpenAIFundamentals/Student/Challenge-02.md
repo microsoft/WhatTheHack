@@ -42,16 +42,16 @@ Scenario: You are part of a research team working on classifying biotech news ar
 
 ### Model Benchmarking 
 #### Student Task 1.2
-      - Use the benchmarking tool in the Studio to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
-      - Leverage the metrics such as accuracy, coherence, and more.
-      - Recommend the best-performing model for biotech news classification.
+- Use the benchmarking tool in the Studio to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
+- Leverage the metrics such as accuracy, coherence, and more.
+- Recommend the best-performing model for biotech news classification.
 
 ### Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
 Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
-Hint: Click on the **Prompt Flow** and **Create a Flow** under the [Additional Resources](#Additional-Resources) for a good overview on Prompt Flow.
+**HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#Learning-Resources) for a good overview on Prompt Flow.
 
 #### Student Task 1.3: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
@@ -75,7 +75,7 @@ To complete this challenge successfully, you should be able to:
 - Show an understanding of differences between models
 - Select the most suitable model to apply under different scenarios
 
-## Additional Resources
+## Learning Resources
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
 - [Prompt Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/prompt-flow)
