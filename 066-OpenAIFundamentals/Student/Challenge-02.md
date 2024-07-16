@@ -66,7 +66,7 @@ Navigate to the AI Studio and click on your project. You should be able to see *
 #### Student Task 1.5: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
 
-  We have a `ch2_1.5_product_review.txt` file that contains a product review for you to use with the given prompt below. You will find the `ch2_1.5_product_review.txt` file in the data folder of the codespace. If you are working on your local workstation, you will find the `ch2_1.5_product_review.txt` file in the data folder of the `Resources.zip` file. Please copy past the contents of this within your prompt.
+  We have provided a `ch2_1.5_product_review.txt` file that contains a product review for you to use with the given prompt below. You will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the codespace. If you are working on your local workstation, you will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the `Resources.zip` file. Please copy & paste the contents of this file within your prompt.
   - Prompt: "Analyze a detailed product review and extract actionable insights that can inform future product development."
 ## Success Criteria
 
