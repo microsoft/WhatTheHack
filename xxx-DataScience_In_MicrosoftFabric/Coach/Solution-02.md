@@ -1,4 +1,4 @@
-# Challenge 02 - Data preparation with Data Wrangler and Notebooks - Coach's Guide - Coach's Guide 
+# Challenge 02 - Data preparation with Data Wrangler and Notebooks - Coach's Guide
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
