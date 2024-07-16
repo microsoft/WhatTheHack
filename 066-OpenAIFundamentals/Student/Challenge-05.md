@@ -28,7 +28,7 @@ There are several mitigation layers in an LLM application, as we have discussed 
 
 ### Harmful Content Detection (Azure Content Safety Studio)
 
-Create a Content Safety resource in the Azure Portal or create a new one by logging in to the [Content Safety Studio](https://contentsafety.cognitive.azure.com/). Refer to this [table for region availability](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview#region-availability) to determine which region has the pertinent features for this activity.
+Your Azure AI Services includes Content Safety. Head over to the AI Studio and click on AI Services. From here, you should find the Content Safety box. Refer to this [table for region availability](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview#region-availability) to determine which region has the pertinent features for this activity. If you need to create a Content Safety resource in another region, use the Azure Portal or create a new one by logging in to the [Content Safety Studio](https://contentsafety.cognitive.azure.com/).
 
 In the Azure AI Content Safety Studio, you can customize settings for text and image moderation, assign severity scores, and test different scenarios. You can try out sample content or upload your own.
 
