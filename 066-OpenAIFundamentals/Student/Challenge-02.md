@@ -31,14 +31,14 @@ Sections in this Challenge:
 ## Overview on finding the right model 
 
 ### Model Discovery
-Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to identify the most suitable models for accurate text classification.
+Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate text classification. There is no right or wrong answer here.
 
 #### Student Task 1.1
 - Go into the [Azure AI Studio](ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which models can potentially improve the accuracy of the task at hand.
 
-**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification?
+**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification? 
 
 ### Model Benchmarking 
   #### Student Task 1.2
@@ -50,6 +50,8 @@ Scenario: You are part of a research team working on classifying biotech news ar
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
 Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
+
+Hint: Click on the **Prompt Flow** and **Create a Flow** under the [Additional Resources](#Additional-Resources) for a good overview on Prompt Flow.
 
 #### Student Task 1.3: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
@@ -77,6 +79,7 @@ To complete this challenge successfully, you should be able to:
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
 - [Prompt Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/prompt-flow)
+- [Create a Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-develop)
 - [Azure OpenAI Pricing Page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 - [Request for Quota Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
 - [Customize Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)
