@@ -40,5 +40,9 @@
   ![picture alt](./Photos/Screenshot_26-6-2024_03016_ml.azure.com.jpeg)
 - Once the interactive test succeeds, it's time to move on to consume the model from outside the Azure ML environment.
 - The consume tab in the endpoint menu shows the endpoint url, keys and headers (in the code example) to make an API call. You can find the Body in the code example, or you can copy it from the test tab. Use POST as your method to get the prediction.
--  Use postman to send data to deployed model endpoints to test the model.
+-  Use postman to send data to deployed model endpoints to test the model. Follow the 3 following screenshots to configure your postman call.
+ ![picture alt](./Photos/postman-token.png)
+ ![picture alt](./Photos/postman-header.png)
+ ![picture alt](./Photos/postman-body.png)
+  
 
