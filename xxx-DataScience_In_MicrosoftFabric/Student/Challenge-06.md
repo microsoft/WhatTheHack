@@ -14,11 +14,11 @@ You have been tasked to deploy the machine learning model which you have trained
 
 To complete this challenge, please verify that :
   - ML model is ready and downloaded from Microsoft Fabric.
-  - Deployed Successfully on Azure ML real endpoints.
-  - Deployed model is predicting the heart failure prediction. 
+  - Deployed Successfully on Azure ML real-time endpoints.
+  - Deployed model is predicting the heart failure prediction. Test the API call with Postman.
 
 
 ## Learning Resources
   - [Difference between Data science in Fabric and Azure Machine Learning](https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg)
-  - [How to deploy Autom ML model to Azure Machine learning](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-automl-endpoint?view=azureml-api-2&tabs=Studio)
+  - [How to deploy MLFlow model to Azure Machine learning](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?view=azureml-api-2&tabs=studio)
     
