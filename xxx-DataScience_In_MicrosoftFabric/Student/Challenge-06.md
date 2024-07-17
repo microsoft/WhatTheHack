@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 - Azure ML Learning Resource Deployed.
 - ML model is ready on Microsoft Fabric.
 
