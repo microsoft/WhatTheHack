@@ -7,10 +7,10 @@ This WhatTheHack challenges you to leverage the combined strengths of Dynatrace'
 Here's what you can expect:
 
 * **Full-Stack Monitoring on Azure:** Achieve end-to-end observability for your Azure infrastructure, applications, and services, including Azure VMs, Azure Kubernetes Service (AKS), Azure App Services, and more.
-* **AI-Powered Insights:** Leverage Dynatrace’s AI engine, Davis, to automatically detect anomalies, pinpoint root causes, and provide predictive analytics specifically tailored for Azure environments.
-* **Automated Operations:** Streamline your DevOps practices on Azure with automated deployment, continuous delivery, and auto-remediation workflows using Azure DevOps and other Azure services.
-* **Real-Time Analytics:** Utilize real-time data to make informed decisions and optimize performance on Azure, ensuring seamless user experiences across your cloud-native and hybrid applications.
-* **Enhanced Security:** Integrate security monitoring to detect vulnerabilities within your Azure workloads and mitigate risks proactively.
+* **AI-Powered Insights:** Leverage Dynatrace’s AI engine, [Davis](https://www.dynatrace.com/platform/artificial-intelligence/), to automatically detect anomalies, pinpoint root causes, and provide predictive analytics specifically tailored for Azure environments.
+* **Automated Operations:** Leverage our easy-to-use visual workflow creator or automation-as-code workflow capabilities to automatically act on the data gathered and answers provided by Dynatrace..
+* **Real-Time Analytics:** With [Grail](https://www.dynatrace.com/platform/grail/), you can utilize real-time data to make informed decisions and optimize performance on Azure, ensuring seamless user experiences across your cloud-native and hybrid applications.
+* **Enhanced Security:** Integrate [security monitoring](https://www.dynatrace.com/platform/security-protection/) to detect vulnerabilities within your Azure workloads and mitigate risks proactively.
 
 This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.  However, anyone with passion around Observability is welcome!
 
@@ -55,9 +55,9 @@ This hack will :
 
 ## Prerequisites
 
-- Your own Azure subscription with Owner access
-- Azure CLI
-- Dynatrace Trial environment
+- Your own Azure subscription with ``Owner`` privileges
+- Knowledge of [Azure Cloudshell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+- [Dynatrace Trial environment via Azure Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)
 
 
 ## Contributors
