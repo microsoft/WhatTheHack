@@ -51,7 +51,7 @@ Scenario: You are a product manager at a multinational tech company, and your te
 
 Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
-**HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#Learning-Resources) for a good overview on Prompt Flow.
+**HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#learning-resources) for a good overview on Prompt Flow.
 
 #### Student Task 1.3: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
