@@ -15,7 +15,7 @@ You have been tasked to deploy the machine learning model which you have trained
 To complete this challenge, please verify that :
   - ML model is ready and downloaded from Microsoft Fabric.
   - Deployed Successfully on Azure ML real-time endpoints.
-  - Deployed model is predicting the heart failure prediction. Test the API call with Postman.
+  - Deployed model is predicting the heart failure prediction. Test the API call both within the AzureML studio and with Postman.
 
 
 ## Learning Resources
