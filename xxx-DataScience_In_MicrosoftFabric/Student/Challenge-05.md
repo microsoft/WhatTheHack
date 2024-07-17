@@ -14,7 +14,7 @@
 
 To complete this challenge, verify that:
 
-- You have a PowerBI report displaying the data from the batch predicted table.
+- You have a PowerBI report displaying the data from the batch predicted table. Your report must, at a minimum, be able to identify which patients are at risk of heart failure. You must use the id field for this purpose.
 
 ## Learning Resources
 
