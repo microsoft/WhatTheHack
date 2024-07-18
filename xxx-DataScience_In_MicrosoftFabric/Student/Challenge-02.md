@@ -8,17 +8,18 @@ Welcome to Challenge 2! In this exercise, you will learn how to use Data Wrangle
 
 ## Description
 
-The main tasks in this challenge consist in a different preprocessing steps that are important for developing robust, efficient and reliable machine learning models, like for example:
+The main tasks in this challenge consist in different preprocessing steps that are important for developing robust, efficient and reliable machine learning models, like for example:
 1. Removing unnecessary columns from a dataset. It is the best practice that enhances model performance, improves interpretability & reduces complexity.
 2. Dropping rows with missing values ensure compatibility with a wide range of algorithms without needing additional imputation strategies.
 3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.
 4. Adjusting data types. Machine learning algorithms operate on numerical data (integers, floats, etc.). If you feed them non-numeric data (e.g., strings), they won’t work. 
 
+For the challenge development, Open Notebook 2, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to get started with Data Wrangler in Microsoft Fabric. 
+
 For most of these tasks you can use *Data Wrangler* to accelerate the data preparation process.  *Data Wrangler* is a tool used in notebooks. It offers an easy-to-use interface for exploring data. This tool shows data in a grid format, offers automatic summary statistics, built-in visualizations, and a library of common data-cleaning operations. Each operation can be done in just a few clicks. It shows the changes to the data right away and creates code in pandas or PySpark that can be saved back to the notebook for future use.
 
 Another important step before the training model is the feature engineering. In the feature engineering process, especially when dealing with categorical data, encoding is a crucial step. One of the simplest methods for converting categorical values into numerical values is using the *LabelEncoder*.  In this challenge you will need to figure out how to handle categorical values in the dataset. 
 
-For the challenge development, Open Notebook 2, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to get started with Data Wrangler in Microsoft Fabric. 
 
 Notebook sections:
 1. Read the .csv file into a pandas dataframe in the notebook.
