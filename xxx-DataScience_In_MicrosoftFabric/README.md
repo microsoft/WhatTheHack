@@ -28,18 +28,14 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 - Challenge 04: **[Generate batch predictions](Student/Challenge-04.md)**
 	 - Score a static dataset with the model
 - Challenge 05: **[Create a PowerBI report with your predictions](Student/Challenge-05.md)**
-	 - Score data with the model as it is streamed into Fabric
-- Challenge 06: **[ROADMAP: Generate real-time predictions on Fabric](Student/Challenge-06.md)**
 	 - Build a PowerBI report with the scored data
-- Challenge 07: **[ROADMAP: Deploy an inferencing endpoint](Student/Challenge-07.md)**
-	 - Deploy and connect to an inferencing endpoint to be able to score data from outside Fabric
-
+- Challenge 06: **[(Optional) Deploy the model to an AzureML real-time endpoint](Student/Challenge-06.md)**
+	 - Deploy the model you trained to AzureML and generate predictions via the API
 ## Prerequisites
 
 - Microsoft Fabric account with trial or capacity
 - PowerBI pro or premium per user subscription (unless using Fabric trial or capacity sized F64 or larger)
-- Azure subscription with a storage account
-- A Fabric Capacity sized F64 or larger is required to use Fabric Copilot, which is optional for this hack
+- Azure subscription to deploy a storage account and AzureML workspace (alternatively you can use the dataset directly on Fabric and skip Challenge 6 if you want to complete this WTH with just a Fabric account)
 
 ## Contributors
 
