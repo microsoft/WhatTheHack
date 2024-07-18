@@ -14,7 +14,7 @@ The main tasks in this challenge consist in different preprocessing steps that a
 3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.
 4. Adjusting data types. Machine learning algorithms operate on numerical data (integers, floats, etc.). If you feed them non-numeric data (e.g., strings), they won’t work. 
 
-This is a notebook-based challenge. You will find all instructions as well as more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to get started with Data Wrangler in Microsoft Fabric. 
+This is a notebook-based challenge. You will find all instructions as well as more guidance and helpful links in Notebook 2. Additionally, visit the end of this challenge for documentation links on how to get started with Data Wrangler in Microsoft Fabric. 
 
 For most of these tasks you can use *Data Wrangler* to accelerate the data preparation process.  *Data Wrangler* is a tool used in notebooks. It offers an easy-to-use interface for exploring data. This tool shows data in a grid format, offers automatic summary statistics, built-in visualizations, and a library of common data-cleaning operations. Each operation can be done in just a few clicks. It shows the changes to the data right away and creates code in pandas or PySpark that can be saved back to the notebook for future use.
 
