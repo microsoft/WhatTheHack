@@ -163,7 +163,7 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 - Rename the file from `.env.sample` to `.env`.
 - Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
     - **HINT:** For **Azure OpenAI, Model Deployments, AI Search, Document Intelligence**
-You can get these credentials through the Azure AI Studio and clicking on your hub. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. Do the same for your AI Search resource. Model deployment names should be the same as the ones populated in the `.env.sample` file.
+You can get these credentials through the Azure AI Studio and clicking on your hub. Click on the **Connections** tab on the left navigation bar. Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint. Do the same for your AI Search and Document Intelligence resource. Model deployment names should be the same as the ones populated in the `.env.sample` file.
     - **HINT:** Document Intelligence is part of AI Services. 
     - **HINT:** For **Azure Blob**, you will need to go to the [Azure Portal](portal.azure.com). Now, locate the resource group you made when creating your hub within the AI Studio. Click on your **Storage account** resource and click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
       
