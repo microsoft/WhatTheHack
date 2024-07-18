@@ -14,7 +14,7 @@ The main tasks in this challenge consist in a different preprocessing steps that
 3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.
 4. Adjusting data types. Machine learning algorithms operate on numerical data (integers, floats, etc.). If you feed them non-numeric data (e.g., strings), they won’t work. 
 
-To load the data to the lakehouse, you will be using a spark notebook. Open Notebook 1, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
+To perform your data preparation steps, you will be using a spark notebook. Open Notebook 2 that you uploaded to your Fabric workspace in Challenge 0.
 
 For most of these tasks you can use *Data Wrangler* to accelerate the data preparation process.  *Data Wrangler* is a tool used in notebooks. It offers an easy-to-use interface for exploring data. This tool shows data in a grid format, offers automatic summary statistics, built-in visualizations, and a library of common data-cleaning operations. Each operation can be done in just a few clicks. It shows the changes to the data right away and creates code in pandas or PySpark that can be saved back to the notebook for future use.
 
