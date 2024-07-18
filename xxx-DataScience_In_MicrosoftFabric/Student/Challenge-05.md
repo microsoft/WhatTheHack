@@ -25,6 +25,12 @@ To complete this challenge, verify that:
 - [How to create  semantic model in Fabric](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/14-create-a-star-schema-model.html)
 - [How to create reports in Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-lakehouse-build-report)
 
+## Tips
+
+- PowerBI auto-aggregates data fields. Sometimes, you want different aggregations than the default or no aggregations at all.
+- The way you organize data fields when building a PowerBI visualization affects the end result. Use the Data field to shape your visualization.
+- If your table is not loading as a semantic model, delete the delta table and re-run Notebook 3. Unfortunately, this is a [known issue](https://learn.microsoft.com/en-us/fabric/get-started/known-issues/known-issue-643-tables-not-available-semantic-model)
+
 ## Advanced Challenges (Optional)
 
 Get creative with the Power BI report! What kind of visuals can you create?
