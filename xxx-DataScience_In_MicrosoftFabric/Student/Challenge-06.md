@@ -5,9 +5,13 @@
 ## Introduction
 In Challenge 5 you created a PowerBI report showing which patients are at risk. However, part of the requirements of this solution is for an app to be able to obtain real-time predictions based on some input data. To do so, you will export and host in AzureML your previously trained ML Model so that you can serve it through an API endpoint. 
 
+**NOTE**: you will make use of an AzureML workspace for this challenge. You must deploy a workspace if you didn't previously do so with the hack deployment script.
+
 ## Description
 
-You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurpose themodel trained in Fabric for use by applications via scalable Azure compute clusters. The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities!
+You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurpose themodel trained in Fabric for use by applications via scalable Azure compute clusters. The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities! This challenge does **not** require the use of a notebook. 
+
+
 
 ## Success Criteria
 
