@@ -2,13 +2,12 @@
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-## Pre-requisites
-- Azure ML Learning Resource Deployed.
-- ML model is ready on Microsoft Fabric.
+## Introduction
+In Challenge 5 you created a PowerBI report showing which patients are at risk. However, part of the requirements of this solution is for an app to be able to obtain real-time predictions based on some input data. To do so, you will export and host in AzureML your previously trained MLModel so that you can serve it through an API endpoint. 
 
 ## Description
 
-You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference endpoint.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurposed a model trained in Fabric for use by applications via scalable Azure compute clusters.  The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities!
+You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurpose themodel trained in Fabric for use by applications via scalable Azure compute clusters. The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities!
 
 ## Success Criteria
 
