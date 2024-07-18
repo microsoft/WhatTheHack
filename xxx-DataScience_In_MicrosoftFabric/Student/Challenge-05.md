@@ -8,7 +8,11 @@ During Challenge 4, you generated batch predictions over simulated patient data.
 
 ## Description
 
-You've been tasked with creating some reporting using Power BI based on the data which got batch predicted in the last challenge. In this challenge, you must create a semantic model and add measures if required and create the visualization based on it.
+You've been tasked with creating some reporting using Power BI based on the data which got batch predicted and saved to a delta table in the last challenge. In this challenge, you must create a semantic model and the report and visualizations based on it. You will need to explore working on PowerBI to build the most helpful report you can based on the available data. This challenge does **not** require the use of a notebook. 
+
+By the end of this challenge, you should be able to understand and know how to use:
+- Fabric Semantic Models, how do you create one from existing data and what you can use it for.
+- PowerBI basic reporting, how do you build a report from a semantic model and how different PowerBI visualizations can convey insights.
 
 ## Success Criteria
 
@@ -24,3 +28,5 @@ To complete this challenge, verify that:
 ## Advanced Challenges (Optional)
 
 Get creative with the Power BI report! What kind of visuals can you create?
+
+There is a variety of data within the table that you saved in the previous challenge and PowerBI offers you many ways to show it. Explore the different options, including the [AI Visuals (link redirects to decomposition tree, but feel free to explore the whole learn page)](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-decomposition-tree) and try to build a report that conveys improved insights. 
