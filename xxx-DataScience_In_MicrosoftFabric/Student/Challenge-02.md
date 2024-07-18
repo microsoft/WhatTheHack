@@ -14,8 +14,6 @@ The main tasks in this challenge consist in a different preprocessing steps that
 3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.
 4. Adjusting data types. Machine learning algorithms operate on numerical data (integers, floats, etc.). If you feed them non-numeric data (e.g., strings), they won’t work. 
 
-To perform your data preparation steps, you will be using a spark notebook. Open Notebook 2 that you uploaded to your Fabric workspace in Challenge 0.
-
 For most of these tasks you can use *Data Wrangler* to accelerate the data preparation process.  *Data Wrangler* is a tool used in notebooks. It offers an easy-to-use interface for exploring data. This tool shows data in a grid format, offers automatic summary statistics, built-in visualizations, and a library of common data-cleaning operations. Each operation can be done in just a few clicks. It shows the changes to the data right away and creates code in pandas or PySpark that can be saved back to the notebook for future use.
 
 Another important step before the training model is the feature engineering. In the feature engineering process, especially when dealing with categorical data, encoding is a crucial step. One of the simplest methods for converting categorical values into numerical values is using the *LabelEncoder*.  In this challenge you will need to figure out how to handle categorical values in the dataset. 
@@ -30,8 +28,8 @@ Notebook sections:
 5. Write the dataframe to the lakehouse as a delta table. 
 
 By the end of this challenge, you should be able to understand and know how to use:
-- Fabric Data Wrangler, how do they work, why are they beneficial and what is required to use them
-- Fabric Notebooks, their role, how to create a new one and execute spark applications
+- Fabric Data Wrangler, how it works and how it can help you in your data preparation process.
+- Fabric Notebooks, their role, how to create a new one and execute spark applications.
 - Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
 
 ## Success Criteria
