@@ -12,8 +12,8 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 
 1. Use shortcuts and the OneLake
 2. Work with data using Fabric Notebooks
-3. Leverage tools such as Data Wrangler and Copilot to simplify your tasks
-4. Understand the different options to enrich data with a trained model within Fabric
+3. Leverage tools such as Data Wrangler to simplify your tasks
+4. Understand the different options to apply a trained ML model in Fabric and how to export it
 
 ## Challenges
 
