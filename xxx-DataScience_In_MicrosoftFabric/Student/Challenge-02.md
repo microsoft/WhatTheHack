@@ -30,14 +30,14 @@ Notebook sections:
 By the end of this challenge, you should be able to understand and know how to use:
 - Fabric Data Wrangler, how it works and how it can help you in your data preparation process.
 - Fabric Notebooks, their role, how to create a new one and execute spark applications.
-- Delta, the concept of the delta lake, the delta parquet format and how to read/write to tables using spark
 
 ## Success Criteria
 
 - The heart dataset totally shaped, cleaned and prepared for the model training. 
 - No data duplicated or exceeded columns.
 - No missing values. 
-- No categorical values. 
+- No categorical values.
+- The processed data saved to the Fabric Lakehouse as a Delta table.
 
 ## Learning Resources
 
