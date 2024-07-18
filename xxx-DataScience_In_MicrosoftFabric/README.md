@@ -25,7 +25,7 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 - Challenge 02: **[Prepare your data for ML](Student/Challenge-02.md)**
 	 - Clean and transform the data into a useful format while leveraging Data Wrangler
 - Challenge 03: **[Train and register the model](Student/Challenge-03.md)**
-	 - Train a machine learning model with ML Flow with the help of Copilot (optional)
+	 - Train a machine learning model with ML Flow 
 - Challenge 04: **[Generate batch predictions](Student/Challenge-04.md)**
 	 - Score a static dataset with the model
 - Challenge 05: **[Create a PowerBI report with your predictions](Student/Challenge-05.md)**
