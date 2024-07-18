@@ -36,7 +36,7 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 
 - Microsoft Fabric account with trial or capacity
 - PowerBI pro or premium per user subscription (unless using Fabric trial or capacity sized F64 or larger)
-- Azure subscription to deploy a storage account and AzureML workspace (alternatively you can use the dataset directly on Fabric and skip Challenge 6 if you want to complete this WTH with just a Fabric account)
+- Azure subscription to deploy a storage account and AzureML workspace (alternatively you can upload the dataset directly on Fabric and skip Challenge 6 if you want to complete this WTH with just a Fabric account)
 
 ## Contributors
 
