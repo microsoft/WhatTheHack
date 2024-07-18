@@ -29,4 +29,4 @@ To complete this challenge, verify that:
 
 Get creative with the Power BI report! What kind of visuals can you create?
 
-There is a variety of data within the table that you saved in the previous challenge and PowerBI offers you many ways to show it. Explore the different options, including the [AI Visuals (link redirects to decomposition tree, but feel free to explore the whole learn page)](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-decomposition-tree) and try to build a report that conveys improved insights. 
+There is a variety of data within the table that you saved in the previous challenge and PowerBI offers you many ways to show it. Explore the different options, including the [AI Visuals](https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-decomposition-tree)(link redirects to decomposition tree, but feel free to explore the whole learn page) and try to build a report that conveys improved insights. 
