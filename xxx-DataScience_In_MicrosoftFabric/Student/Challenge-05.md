@@ -27,10 +27,10 @@ To complete this challenge, verify that:
 
 ## Tips
 
+- If your table is not loading as a semantic model, delete the delta table and re-run Notebook 3. Unfortunately, this is a [known issue](https://learn.microsoft.com/en-us/fabric/get-started/known-issues/known-issue-643-tables-not-available-semantic-model)
 - PowerBI auto-aggregates data fields. Sometimes, you want different aggregations than the default or no aggregations at all.
 - The way you organize data fields when building a PowerBI visualization affects the end result. Use the Data field to shape your visualization.
 - PowerBI visualizations have extensive formatting options. Even the more traditional options can be enhanced with features such as conditional color.
-- If your table is not loading as a semantic model, delete the delta table and re-run Notebook 3. Unfortunately, this is a [known issue](https://learn.microsoft.com/en-us/fabric/get-started/known-issues/known-issue-643-tables-not-available-semantic-model)
 
 ## Advanced Challenges (Optional)
 
