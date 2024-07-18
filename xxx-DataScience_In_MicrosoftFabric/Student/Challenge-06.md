@@ -3,7 +3,7 @@
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
 ## Introduction
-In Challenge 5 you created a PowerBI report showing which patients are at risk. However, part of the requirements of this solution is for an app to be able to obtain real-time predictions based on some input data. To do so, you will export and host in AzureML your previously trained MLModel so that you can serve it through an API endpoint. 
+In Challenge 5 you created a PowerBI report showing which patients are at risk. However, part of the requirements of this solution is for an app to be able to obtain real-time predictions based on some input data. To do so, you will export and host in AzureML your previously trained ML Model so that you can serve it through an API endpoint. 
 
 ## Description
 
