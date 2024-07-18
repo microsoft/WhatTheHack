@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-## Pre-requisites 
+## Introduction
 
 - Batch predicated data is stored in lakehouse from previous challenge.
 
