@@ -4,11 +4,11 @@
 
 ## Introduction
 
-- Batch predicated data is stored in lakehouse from previous challenge.
+During Challenge 4, you generated batch predictions over simulated patient data. This reflects the scenario of receiving new data of patients that are currently being monitored. You must now display the predictions in an insightful way that can show doctors which patients are at risk. To do so, you will be building a PowerBI report using the newly created predictions.
 
 ## Description
 
-- You've been tasked with creating some reporting using Power BI based on the data which got batch predicted in the last challenge. In this challenge, you must create a semantic model and add measures if required and create the visualization based on it.
+You've been tasked with creating some reporting using Power BI based on the data which got batch predicted in the last challenge. In this challenge, you must create a semantic model and add measures if required and create the visualization based on it.
 
 ## Success Criteria
 
