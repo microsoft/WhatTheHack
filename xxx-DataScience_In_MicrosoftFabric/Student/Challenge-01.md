@@ -14,6 +14,8 @@ Your task in this challenge is to make your data available as a delta table in t
 
 To load the data to the lakehouse, you will be using a spark notebook. Open Notebook 1, that you uploaded to your Fabric workspace in Challenge 0. You will find more guidance and helpful links there. Additionally, visit the end of this challenge for documentation links on how to create a shortcut in Fabric.
 
+**NOTE**: If you skipped the Azure setup and are completing this challenge by only using Fabric, you will not need to create a shortcut. Instead, upload the csv file to your lakehouse and follow the instructions in Notebook 1.
+
 Notebook sections:
 1. Read the .csv file into a dataframe in the notebook
 2. Write the dataframe to the lakehouse as a delta table
