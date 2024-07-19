@@ -169,9 +169,9 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
       - Model deployment names should be the same as the ones populated in the `.env.sample` file.
       - **HINT:** Document Intelligence is part of AI Services. 
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
-    -  In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Studio.
-    -  Click on your **Storage account** resource
-    -  Click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
+      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Studio.
+      - Click on your **Storage account** resource
+      - Click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
 
