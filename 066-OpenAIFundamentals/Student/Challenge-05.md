@@ -6,28 +6,29 @@
 
 As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to evaluate the outputs of LLMs and how to identify and mitigate potential biases in the model.
 
-## Description
-
-This challenge is divided into the following sections:
-- [5.1 Responsible AI on Azure](#51-responsible-ai-on-azure)
-- [5.2 Harmful Content Detection](#52-harmful-content-detection)
-- [5.3 Content Filtering](#53-content-filtering)
-- [5.4 Personally Identifiable Information (PII) Detection and Redaction](#54-personally-identifiable-information-pii-detection-and-redaction)
-- [5.5 Prompt Shields and Protected Material Detection](#55-prompt-shields-and-protected-material-detection)
-
-### 5.1 Responsible AI on Azure 
+### Responsible AI on Azure 
 
 More companies offer social features for user interaction in industries like gaming, social media, e-commerce and advertising, to build brand reputations, promote trust and to drive digital engagement. However, this trend is accompanied by the growing concern of complex and inappropriate content online. These challenges have led to increasing regulatory pressures on enterprises worldwide for digital content safety and greater transparency in content moderation.
 
-Azure AI Content Safety, a new Azure AI service and proof point in our Responsible AI journey will help businesses create safer online environments and communities. In Content Safety, models are designed to detect hate, violent, sexual and self-harm content across languages in images and text. The models assign a severity score to flagged content, indicating to human moderators what content requires urgent attention.
+Azure AI Content Safety, a new Azure AI service and proof point in our Responsible AI journey, will help businesses create safer online environments and communities. In Content Safety, models are designed to detect hate, violent, sexual and self-harm content across languages in images and text. The models assign a severity score to flagged content, indicating to human moderators what content requires urgent attention.
 
 Microsoft has established seven Responsible AI principles, as well as many practical tools to implement them into your Generative AI application. Before experimenting with these tools, understand the fundamentals of Responsible Generative AI to apply to any LLM scenario on Azure [10-minute video](https://learn.microsoft.com/en-us/training/modules/responsible-generative-ai/?WT.mc_id=academic-105485-koreyst) and a [downloadable eBook on Content Safety](https://aka.ms/contentsafetyebook).
 
 There are several mitigation layers in an LLM application, as we have discussed in the lecture. The services and tools included in this Challenge offer additional layers of safety and reliability. However, many common challenges with Responsible AI can also be addressed with metaprompting. Check out some [best practices of writing system messages](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/system-message) to use when prompt engineering that can ground your model and produce consistent, reliable results.
 
-For this Challenge, you will be working entirely in Azure AI Studio.
+## Description
 
-### 5.2 Harmful Content Detection
+This challenge is divided into the following sections:
+- [5.1 Harmful Content Detection](#51-harmful-content-detection)
+- [5.2 Content Filtering](#52-content-filtering)
+- [5.3 Personally Identifiable Information (PII) Detection and Redaction](#53-personally-identifiable-information-pii-detection-and-redaction)
+- [5.4 Prompt Shields and Protected Material Detection](#54-prompt-shields-and-protected-material-detection)
+
+For each section of this Challenge, you will be working in [Azure AI Studio](https://ai.azure.com).
+
+**NOTE:** Previously, each of these Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
+
+### 5.1 Harmful Content Detection
 
 Your Azure AI Services resource includes Content Safety. You may refer to this [table for region availability](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview#region-availability) to confirm your region has the pertinent features for the tasks in this Challenge.
 
@@ -56,7 +57,7 @@ Check your understanding of the AI Content Safety Service by answering the follo
 * True or False: The AI Content Safety Service has a feature to monitor activity statistics of your application.
 * True or False: The Azure AI Content Safety Studio and the API have different risk scores (severity levels) across the categories of harm.
 
-### 5.3 Content Filtering
+### 5.2 Content Filtering
 Now that we've experimented with detecting harmful content in any given input, let's apply these principles to an LLM application using existing model deployments.
 
 Let's configure a content filtering system both for user input (prompts) and LLM output (completions). 
@@ -84,7 +85,7 @@ To assess your understanding of the concept of content filtering, answer the fol
 * True or False: If the content filtering system is down, you will not be able to receive results about your request.
 
 
-### 5.4 Personally Identifiable Information (PII) Detection and Redaction
+### 5.3 Personally Identifiable Information (PII) Detection and Redaction
 
 The importance of Personally Identifiable Information (PII) Detection in Generative AI applications is paramount, especially when handling one's own data. As these applications have the potential to process and generate vast amounts of text, the inadvertent inclusion of sensitive information can lead to significant privacy breaches. PII Detection systems ensure that any data that could potentially identify an individual is recognized and redacted before being shared or utilized, thereby upholding privacy standards and complying with data protection regulations. This is crucial in maintaining user trust and the integrity of AI-driven platforms.
 
@@ -103,7 +104,7 @@ The importance of Personally Identifiable Information (PII) Detection in Generat
   
 * True or False: PII detection is available only asynchronously.
 
-### 5.5 Prompt Shields and Protected Material Detection
+### 5.4 Prompt Shields and Protected Material Detection
 
 #### Groundedness (Private Preview - Coming Soon)
 
