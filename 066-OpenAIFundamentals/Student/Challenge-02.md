@@ -21,9 +21,9 @@ You will work in the Azure AI Studio for this challenge. We recommend keeping th
 
 This challenge is divided into the following sections:
 
-- [2.1 Model Discovery](#11-model-discovery)
-- [2.2 Model Benchmarking](#12-model-benchmarking)
-- [2.3 Prompt Flow](#13-prompt-flow)
+- [2.1 Model Discovery](#21-model-discovery)
+- [2.2 Model Benchmarking](#22-model-benchmarking)
+- [2.3 Prompt Flow](#23-prompt-flow)
     - 2.3.1 Complex Problem Solving
     - 2.3.2 Creative and Technical Writing
     - 2.3.3 Long Form Content Understanding
