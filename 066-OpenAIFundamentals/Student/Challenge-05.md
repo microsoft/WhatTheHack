@@ -9,10 +9,10 @@ As LLMs grow in popularity and use around the world, the need to manage and moni
 ## Description
 
 This challenge is divided into the following sections:
-- [5.1 Responsible AI on Azure](#5.1-responsible-ai-on-azure)
-- 5.2 Harmful Content Detection
-- 5.3 Content Filtering
-- 5.4 Personally Identifiable Information (PII) Detection and Redaction
+- [5.1 Responsible AI on Azure](#51-responsible-ai-on-azure)
+- [5.2 Harmful Content Detection](#52-harmful-content-detection)
+- [5.3 Content Filtering](#53-content-filtering)
+- [5.4 Personally Identifiable Information (PII) Detection and Redaction](#54-personally-identifiable-information-pii-detectioni-and-redaction)
 - [5.5 Prompt Shields and Protected Material Detection](#55-prompt-shields-and-protected-material-detection)
 
 ### 5.1 Responsible AI on Azure 
@@ -27,7 +27,7 @@ There are several mitigation layers in an LLM application, as we have discussed 
 
 For this Challenge, you will be working entirely in Azure AI Studio.
 
-### Harmful Content Detection
+### 5.2 Harmful Content Detection
 
 Your Azure AI Services resource includes Content Safety. You may refer to this [table for region availability](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview#region-availability) to confirm your region has the pertinent features for the tasks in this Challenge.
 
@@ -56,7 +56,7 @@ Check your understanding of the AI Content Safety Service by answering the follo
 * True or False: The AI Content Safety Service has a feature to monitor activity statistics of your application.
 * True or False: The Azure AI Content Safety Studio and the API have different risk scores (severity levels) across the categories of harm.
 
-### Content Filtering
+### 5.3 Content Filtering
 Now that we've experimented with detecting harmful content in any given input, let's apply these principles to an LLM application using existing model deployments.
 
 Let's configure a content filtering system both for user input (prompts) and LLM output (completions). 
@@ -84,7 +84,7 @@ To assess your understanding of the concept of content filtering, answer the fol
 * True or False: If the content filtering system is down, you will not be able to receive results about your request.
 
 
-### Personally Identifiable Information (PII) Detection and Redaction
+### 5.4 Personally Identifiable Information (PII) Detection and Redaction
 
 The importance of Personally Identifiable Information (PII) Detection in Generative AI applications is paramount, especially when handling one's own data. As these applications have the potential to process and generate vast amounts of text, the inadvertent inclusion of sensitive information can lead to significant privacy breaches. PII Detection systems ensure that any data that could potentially identify an individual is recognized and redacted before being shared or utilized, thereby upholding privacy standards and complying with data protection regulations. This is crucial in maintaining user trust and the integrity of AI-driven platforms.
 
@@ -167,7 +167,7 @@ Throughout this Challenge, you have explored the importance of detecting and man
 As you move forward, remember the significance of grounding responses in accurate data to prevent the propagation of misinformation and safeguard against input attacks. There are many ways to mitigate harms, and securing your application responsibly is an ongoing endeavor. We encourage you to continuously strive to enhance the safety and reliability of your AI systems, keeping in mind the evolving landscape of digital content safety.
 
 
-## Additional Resources
+## Learning Resources
 
 - [Overview of Responsible AI practices for Azure OpenAI models](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/overview)
 - [Azure Cognitive Services - What is Content Filtering](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter)
