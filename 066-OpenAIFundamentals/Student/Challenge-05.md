@@ -12,7 +12,7 @@ This challenge is divided into the following sections:
 - [5.1 Responsible AI on Azure](#51-responsible-ai-on-azure)
 - [5.2 Harmful Content Detection](#52-harmful-content-detection)
 - [5.3 Content Filtering](#53-content-filtering)
-- [5.4 Personally Identifiable Information (PII) Detection and Redaction](#54-personally-identifiable-information-pii-detectioni-and-redaction)
+- [5.4 Personally Identifiable Information (PII) Detection and Redaction](#54-personally-identifiable-information-pii-detection-and-redaction)
 - [5.5 Prompt Shields and Protected Material Detection](#55-prompt-shields-and-protected-material-detection)
 
 ### 5.1 Responsible AI on Azure 
