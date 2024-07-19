@@ -29,20 +29,20 @@ This challenge is divided into the following sections:
     - 2.3.3 Long Form Content Understanding
 
 ### 2.1 Model Discovery
-Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate text classification. There is no right or wrong answer here.
+Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
 
 #### Student Task 2.1
 - Go into the [Azure AI Studio](ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which models can potentially improve the accuracy of the task at hand.
 
-**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification? 
+**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for question answering? 
 
 ### 2.2 Model Benchmarking 
 #### Student Task 2.2
 - Use the benchmarking tool in the Studio to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
 - Leverage the metrics such as accuracy, coherence, and more.
-- Recommend the best-performing model for biotech news classification.
+- Recommend the best-performing model for biotech news Q&A.
 
 ### 2.3 Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
