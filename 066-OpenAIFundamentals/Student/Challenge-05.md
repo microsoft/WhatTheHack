@@ -24,9 +24,9 @@ This challenge is divided into the following sections:
 - [5.3 Personally Identifiable Information (PII) Detection and Redaction](#53-personally-identifiable-information-pii-detection-and-redaction)
 - [5.4 Prompt Shields and Protected Material Detection](#54-prompt-shields-and-protected-material-detection)
 
-For each section of this Challenge, you will be working in [Azure AI Studio](https://ai.azure.com).
+For each section of this Challenge, you will work in [Azure AI Studio](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Studio in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
-**NOTE:** Previously, each of these Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
+**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
 
 ### 5.1 Harmful Content Detection
 
