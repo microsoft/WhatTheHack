@@ -69,8 +69,7 @@ This hack requires students to have access to an Azure subscription where they c
 - Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order setup Azure Monitor metrics integration. 
 
 - Each student will spin up the following resources in Azure:
-    - 2 x 2 vCPUs VMs for the AKS cluster + 1 Public IPs
-    - 1 x 1 vCPU VM for Dynatrace Active Gate
+    - 4 x 2 vCPUs VMs for the AKS cluster + 1 Public IPs    
     - 1 x 2 vCPUs VMs for sample monolith application    
     - 1 PIP for the Dynatrace Orders website on Monolith
     - 1 PIP for Dynatrace Orders website on AKS    
