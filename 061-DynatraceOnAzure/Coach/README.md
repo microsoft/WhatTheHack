@@ -64,7 +64,11 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. 
+
+In addition to that, if this hack is run within the same Company/Orgnization, each hack attendee will need their own Azure/Entra AD tenant.  The free trial tenant for Dynatrace via Marketplace, [Azure Native Dynatrace Service](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview), limits customers to be able to  create 1 trial tenant for their Organization. Therefore, each attendee will need an [Azure Pass codes](https://www.microsoftazurepass.com/) to successfully run this hack.  With Azure Pass codes, each attendee will get their own Azure AD/Entra tenant.  
+
+These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 - Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order setup Azure Monitor metrics integration. 
 
