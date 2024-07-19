@@ -19,51 +19,49 @@ Questions you should be able to answer by the end of this challenge:
 
 You will work in the Azure AI Studio for this challenge. We recommend keeping the student guide and the Azure AI Studio in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
-Sections in this Challenge:
-1. Overview on finding the right model
-- 1.1 Model Discovery
-- 1.2 Model Benchmarking
-- 1.3 Prompt Flow
-    - 1.3.1 Complex Problem Solving
-    - Creative and Technical Writing
-    - Long Form Content Understanding
- 
-## Overview on finding the right model 
+This challenge is divided into the following sections:
 
-### Model Discovery
+- [2.1 Model Discovery](#11-model-discovery)
+- [2.2 Model Benchmarking](#12-model-benchmarking)
+- [2.3 Prompt Flow](#13-prompt-flow)
+    - 2.3.1 Complex Problem Solving
+    - 2.3.2 Creative and Technical Writing
+    - 2.3.3 Long Form Content Understanding
+
+### 2.1 Model Discovery
 Scenario: You are part of a research team working on classifying biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate text classification. There is no right or wrong answer here.
 
-#### Student Task 1.1
+#### Student Task 2.1
 - Go into the [Azure AI Studio](ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which models can potentially improve the accuracy of the task at hand.
 
 **HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for text classification? 
 
-### Model Benchmarking 
-#### Student Task 1.2
+### 2.2 Model Benchmarking 
+#### Student Task 2.2
 - Use the benchmarking tool in the Studio to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
 - Leverage the metrics such as accuracy, coherence, and more.
 - Recommend the best-performing model for biotech news classification.
 
-### Prompt Flow
+### 2.3 Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
 Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
 **HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#learning-resources) for a good overview on Prompt Flow.
 
-#### Student Task 1.3: Complex Problem Solving
+#### Student Task 2.3.1: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
   - Prompt: "A customer is unhappy with their recent purchase due to a missing feature. Outline a step-by-step resolution process that addresses their concern and offers a satisfactory solution."
   - Prompt: "Develop a multi-step troubleshooting guide for customers experiencing issues with their smart home devices, integrating potential scenarios and solutions."
 
-#### Student Task 1.4: Creative and Technical Writing
+#### Student Task 2.3.2: Creative and Technical Writing
   Assess the models' capabilities in technical writing, such as creating detailed product manuals or help articles.
   - Prompt: "Write a product description for a new smartphone that highlights its innovative features in a creative and engaging manner."
   - Prompt: "Create a comprehensive FAQ section for a complex software application, ensuring clarity and technical accuracy."
 
-#### Student Task 1.5: Long Form Content Understanding
+#### Student Task 2.3.3: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
 
   We have provided a `ch2_1.5_product_review.txt` file that contains a product review for you to use with the given prompt below. You will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the codespace. If you are working on your local workstation, you will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the `Resources.zip` file. Please copy & paste the contents of this file within your prompt.
