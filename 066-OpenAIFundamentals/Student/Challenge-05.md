@@ -6,16 +6,16 @@
 
 As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to evaluate the outputs of LLMs and how to identify and mitigate potential biases in the model.
 
-## Sections in this Challenge:
-1. Responsible AI on Azure
-2. Harmful Content Detection
-3. Content Filtering
-4. Personally Identifiable Information (PII) Detection and Redaction
-5. Prompt Shields and Protected Material Detection
-
 ## Description
 
-### Responsible AI on Azure 
+This challenge is divided into the following sections:
+- [5.1 Responsible AI on Azure](#5.1-responsible-ai-on-azure)
+- 5.2 Harmful Content Detection
+- 5.3 Content Filtering
+- 5.4 Personally Identifiable Information (PII) Detection and Redaction
+- 5.5 Prompt Shields and Protected Material Detection
+
+### 5.1 Responsible AI on Azure 
 
 More companies offer social features for user interaction in industries like gaming, social media, e-commerce and advertising, to build brand reputations, promote trust and to drive digital engagement. However, this trend is accompanied by the growing concern of complex and inappropriate content online. These challenges have led to increasing regulatory pressures on enterprises worldwide for digital content safety and greater transparency in content moderation.
 
