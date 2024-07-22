@@ -26,4 +26,8 @@ To complete this challenge, please verify that :
 ## Learning Resources
   - [Difference between Data science in Fabric and Azure Machine Learning](https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg)
   - [How to deploy MLFlow model to Azure Machine learning](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?view=azureml-api-2&tabs=studio)
+
+## Learning Resources
+
+-
     
