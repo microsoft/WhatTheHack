@@ -29,5 +29,7 @@ To complete this challenge, please verify that :
 
 ## Learning Resources
 
--
+- Fabric stores everything you create as items in the workspace.
+- Make sure you unzip the folder you will download from Fabric
+- Once the AzureML endpoint is deployed, explore the example code snippets to understand what you need to send an inference API call
     
