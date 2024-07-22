@@ -55,7 +55,7 @@ Check your understanding of the AI Content Safety Service by answering the follo
 
 * True or False: The Text Moderation API is designed to support over 100 languages as input.
 * True or False: The AI Content Safety Service has a feature to monitor activity statistics of your application.
-* True or False: The Azure AI Content Safety Studio and the API have different risk scores (severity levels) across the categories of harm.
+* True or False: Azure AI Content Safety has four severity levels, with the API returning a score ranging from 0 to 6.
 
 ### 5.2 Content Filtering
 Now that we've experimented with detecting harmful content in any given input, let's apply these principles to an LLM application using existing model deployments.
