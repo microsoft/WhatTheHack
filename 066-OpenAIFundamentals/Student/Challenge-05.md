@@ -43,7 +43,6 @@ Your Azure AI Services resource includes Content Safety. You may refer to this [
 * "Moderate text content"
 * "Moderate image content"
 * Try out each features with sample bulk data
-* Create a [blocklist](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/how-to/use-blocklist?tabs=windows%2Crest)
 * Optional: in [Azure Content Safety Studio](https://contentsafety.cognitive.azure.com/), you can explore the "Monitor online activity" feature, which can be found on the homepage of the Content Safety Studio. How could this data be utilized in an existing application in your workflow, if at all?
   
 What happens as you configure the threshold levels in the moderation features?
@@ -70,7 +69,7 @@ Let's configure a content filtering system both for user input (prompts) and LLM
 
 3. In the "Output Filter" step, configure the four content categories. Keep "Protected material for text" and "Protected material for code" toggled to "Off" (default) for now.
 
-4. Create a blocklist that will detect words with exact matching. 
+4. Create a [blocklist](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/how-to/use-blocklist?tabs=windows%2Crest) that will detect words with exact matching. 
 
 5. Apply the content filter to one of your deployed models.
 
