@@ -2,12 +2,15 @@
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
-## Setup Steps
-- Download the ml model from Fabric workspace
-- Upload the model on azure machine learning studio
-- Using postman, send the testing data to it to test it out.
-
 ## Notes & Guidance
+
+### Sections
+- Download the ml model from the Fabric workspace
+- Upload the model to a real-time inference endpoint on azure machine learning studio
+- Using postman, send sample data to it to test it out.
+
+### Student step-by-step instructions
+
 - Go to your data science worksapce where all the notebooks are stored.
 - That worksapce will have the ml model which you created in previous challenege
 - Exporting a model from Fabric is easy--just tap the Download ML model version button in the UI.
@@ -44,5 +47,16 @@
  ![picture alt](./Photos/postman-token.png)
  ![picture alt](./Photos/postman-header.png)
  ![picture alt](./Photos/postman-body.png)
-  
+
+### Coache's guidance
+
+- **This challenge should be treated as optional**. This challenge goes beyond the scope of Microsoft Fabric to illustrate the next step to operationalizing an ML model trained in Fabric beyond analytics/reporting.
+- This is an elaborate challenge that requires switching from Fabric to Azure. Documentation has been provided to students so that they can reference some of the actions needed.
+- The goal is for students to understand the difference between Fabric Data Science and Azure ML studio. As a secondary objective, students should familiarize themselves with real-time endpoints in Azure ML and on how to send API requests.
+- Coaches can provide guidance if students can't figure out the next step, but they should help students understand the process, not only getting to the end.
+- When deploying the endpoint, there is no specific requirements for what type of compute to use. It is recommended to use the cheapest available and to ensure that students delete it after completing the hack to avoid incurring additional costs.
+
+## Success criteria
+
+- The real-time endpoint has been deployed on Azure ML and students are able to submit API calls to it.
 
