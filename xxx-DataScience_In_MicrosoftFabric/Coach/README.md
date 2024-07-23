@@ -20,10 +20,10 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Train a machine learning model with ML Flow with the help of Copilot
 - Challenge 04: **[Generate batch predictions](./Solution-04.md)**
 	 - Score a static dataset with the model
-- Challenge 05: **[Visualize predictions with a Power BI report ](./Solution-05.md)**
-	 - Score data with the model as it is streamed into Fabric
+- Challenge 05: **[Visualize predictions with a PowerBI report ](./Solution-05.md)**
+	 - Visualize generated predictions by using a PowerBI report
 - Challenge 06: **[Deploy the model to an AzureML real-time endpoint](./Solution-06.md)**
-	 - Build a PowerBI report with the scored data
+	 - Deploy the trained model to an AzureML inferencing endpoint
 
 ## Coach Prerequisites
 
