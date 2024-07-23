@@ -34,9 +34,11 @@ This challenge completes the hack by setting up a PowerBI report that shows the 
     - Set the format style to **Rules**. Create 2 rules: if value equals to "0", show background color blue and if value equals to "1" show background color red. Click on **Ok** to close the window.
   - This is the most basic visualization that student should create to identify patients at risk of heart failure. Students are encouraged in the challenge to create a variety of visualizations to explore other insights, such as how Age or Sex influence the chance of being at risk or how many total patients are at risk.
 
-### Coache's guidance
+### Coaches' guidance
 - The purpose of this challenge is for students to understand how semantic models can be created from delta tables in Fabric, and how to build PowerBI reports from these.
 - Students should focus on learning how to configure the semantic model and launch the PowerBI report. They should navigate the Fabric/PowerBI UI on their own. Coaches may help with any issues, such as the delta table not appearing in the modeling view, or giving ideas for what visuals to include in the report.
 - The resulting final PowerBI report can take many different shapes, however, students should showcase how you can use the report to identify specific patients at risk.
 - While the focus of working with PowerBI in this challenge is to get acquainted with the basic features, students can explore creative options to bring their data to life.
 
+## Success criteria
+- The PowerBI report with the table identifying each patient predicted to be at risk
