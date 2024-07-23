@@ -11,6 +11,12 @@
 ## Notes and Guidance
 This challenge completes the hack by setting up a PowerBI report that shows the batch preditiction data predicted by the trained model.
 
+### Sections
+- Creating a Semantic model
+- Creating a PowerBI report
+
+### Student step-by-step instructions
+
 - Creating the Semantic model: The easiest way to do so is from the Batch Prediction table stored in Lakehouse in Challenege 4:
 
   - Navigate to the batch prediction table made in the previous challenge by going to the lakehouse where it got stored.
