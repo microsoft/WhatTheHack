@@ -64,7 +64,7 @@ Let's configure a content filtering system both for user input (prompts) and LLM
 
 #### Student Task 5.2: Create a Custom Content Filter
 
-1. Configure a content filter following these [instructions](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/content-filtering#create-a-content-filter). Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
+1. Configure a content filter following these [instructions for the Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/content-filtering#create-a-content-filter). Select the AI project in your AI Hub that contains any model deployments you made in the previous Challenges. Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
 
 2. In the "Input Filter" step, configure the four content categories. Keep "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" toggled to "Off" (default) for now.
 
@@ -90,6 +90,8 @@ To assess your understanding of the concept of content filtering, answer the fol
 
 The importance of Personally Identifiable Information (PII) Detection in Generative AI applications is paramount, especially when handling one's own data. As these applications have the potential to process and generate vast amounts of text, the inadvertent inclusion of sensitive information can lead to significant privacy breaches. PII Detection systems ensure that any data that could potentially identify an individual is recognized and redacted before being shared or utilized, thereby upholding privacy standards and complying with data protection regulations. This is crucial in maintaining user trust and the integrity of AI-driven platforms.
 
+Learn more about PII in the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/overview) and [how to consume the service](https://learn.microsoft.com/en-us/azure/ai-services/language-service/personally-identifiable-information/how-to-call).
+
 #### Student Task 5.3: PII Detection, Redaction, and Extraction
 
 1. In the [AI Studio](https://ai.azure.com/), navigate to your Hub and "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
@@ -99,6 +101,7 @@ The importance of Personally Identifiable Information (PII) Detection in Generat
 * How would you integrate this into an existing application? What would a conceptual architecture look like?
   
 ##### Knowledge Check 5.3 - PII: 
+Based on the Student Task and your understanding of the documentation, determine whether the following statements are true or false.
 
 * True or False: The PII detection API will always return all PII entities.
   
