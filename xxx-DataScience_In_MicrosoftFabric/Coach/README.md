@@ -31,7 +31,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to download the "StudentResources.zip" file. The coach should then provide a copy of the file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
@@ -45,7 +45,6 @@ This hack requires students to have access to an Azure subscription where they c
 Required resources during this hack:
 - Azure storage account to upload training data
 - Fabric capacity if not using the trial
-- A Fabric Capacity sized F64 or larger is required to use Fabric Copilot, which is optional for this hack
 
 Each student will need a PowerBI Pro or Premium per user license for Challenge 06, build a PowerBI Report, unless they are using the Fabric Trial or a capacity sized larger than F64. 
 
@@ -55,21 +54,24 @@ You may schedule this hack in any format, as long as the challenges are complete
 
 Time estimate for each challenge:
 - Challenge 00: 15 minutes
-- Challenge 01: 15 minutes
+- Challenge 01: 30 minutes
 - Challenge 02: 30 minutes
-- Challenge 03: 1 hour
+- Challenge 03: 45 minutes
 - Challenge 04: 30 minutes
-- Challenge 05: 45 minutes
+- Challenge 05: 30 minutes
 - Challenge 06: 45 minutes
-- Challenge 07 (Roadmap): 45 minutes
 
 ## Repository Contents
 
 - `./Coach`
   - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
+- `./Coach/Notebooks`
+  - Solution files with completed example answers to challenges
+- `./Coach/CoachResources.zip`
+  - Coach resources ready to be downloaded as a zip file
 - `./Student`
   - Student's Challenge Guide
+- `./Student/StudentResources.zip`
+  - Student resources ready to be downloaded as a zip file
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Unpackaged version of StudentResources.zip
