@@ -29,7 +29,7 @@ jobs:
           # By default the github-action-markdown-link-check action checks for all markdown files in your repository. 
           # Use the 'folder-path' option to limit checks to only specific folders. 
           # Use comma separated values for checking multiple folders.
-          folder-path: 001-IntroToKubernetes
+          folder-path: 066-OpenAIFundamentals
           # The config-file will need to be modified as additional challenges are added
           config-file: .github/workflows/checklinks_config.json
 
