@@ -5,7 +5,8 @@ on:
   push:
     paths:
       - '.github/workflows/checklinks.yml'
-      - '001-IntroToKubernetes/**'
+      # - '001-IntroToKubernetes/**'
+      - '066-OpenAIFundamentals/**'
   
 jobs:
 
