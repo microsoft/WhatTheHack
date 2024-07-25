@@ -32,7 +32,7 @@ This challenge is divided into the following sections:
 Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
 
 #### Student Task 2.1
-- Go into the [Azure AI Studio](ai.azure.com).
+- Go into the [Azure AI Studio](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which models can potentially improve the accuracy of the task at hand.
 
