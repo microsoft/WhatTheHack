@@ -30,22 +30,9 @@ For each section of this Challenge, you will work in [Azure AI Studio](https://a
 
 ### Deploy Content Safety Service - TEMPORARY STEP
 
-Azure AI Services are constantly changing. As of July 2024, the Content Safety service needs to be deployed manually.  We are adding these detailed deployment steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Content Safety is fully integrated into Azure AI Studio.
+Azure AI Services are constantly changing. As of July 2024, the Azure AI Studio does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Azure AI Studio should handle this automatically.
 
-To deploy the Content Safety service, follow these steps:
-
-- Navigate to the [Azure Portal](https://portal.azure.com)
-- Navigate to the resource group where your AI resources were created back in Challenge 0.
-- Click the **+ CREATE** button.
-- Search for **"Azure AI Content Safety"** in the Marketplace's search box. It should appear as the top result.
-- Click the **CREATE** button on the **Azure AI Content Safety** box in the Marketplace
-- Complete the Create Content Safety wizard to deploy the Content Safety service:
-  - Ensure the **Resource Group** selected is the same where your other AI resources are deployed.
-  - Give the service a unique name
-  - Choose the **Free F0** tier
-  - Accept all of the defaults for the remaining items
-
-After the **Content Saftey** service has been deployed, follow these steps to grant your **AI Services** access to the Content Safety service:
+Follow these steps to grant your user account access to the Content Safety service:
 
 - In the [Azure Portal](https://portal.azure.com), navigate to the resource group where your AI resources are deployed 
 - Navigate to the **Azure AI services** resource
@@ -58,6 +45,10 @@ After the **Content Saftey** service has been deployed, follow these steps to gr
 - In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **`ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com`**)
 - Click the **SELECT** button
 - Click the **Review & Assign** button to complete the role assignment
+
+After the role assignment completes in the Azure Portal, you will need to wait 1-3 minutes and then follow one additional step:
+
+- Log out of [Azure AI Studio](https://ai.azure.com), and then log back in. This will ensure your login token is refreshed with the new permissions for Content Safety.
 
 You should now be prepared to complete the rest of this challenge!
 
