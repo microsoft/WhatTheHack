@@ -46,7 +46,7 @@ To complete this challenge successfully, you should be able to:
 - Demonstrate various chunking techniques
 - Demonstrate how to create embeddings 
 
-## Additional Resources 
+## Learning Resources 
 
 * [Grounding LLMs](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857)
 * [Embeddings example](https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_Wikipedia_articles_for_search.ipynb)
