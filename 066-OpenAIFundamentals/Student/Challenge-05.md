@@ -28,6 +28,39 @@ For each section of this Challenge, you will work in [Azure AI Studio](https://a
 
 **NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
 
+### Deploy Content Safety Service - TEMPORARY STEP
+
+Azure AI Services are constantly changing. As of July 2024, the Content Safety service needs to be deployed manually.  We are adding these detailed deployment steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Content Safety is fully integrated into Azure AI Studio.
+
+To deploy the Content Safety service, follow these steps:
+
+- Navigate to the [Azure Portal](https://portal.azure.com)
+- Navigate to the resource group where your AI resources were created back in Challenge 0.
+- Click the **+ CREATE** button.
+- Search for **"Azure AI Content Safety"** in the Marketplace's search box. It should appear as the top result.
+- Click the **CREATE** button on the **Azure AI Content Safety** box in the Marketplace
+- Complete the Create Content Safety wizard to deploy the Content Safety service:
+  - Ensure the **Resource Group** selected is the same where your other AI resources are deployed.
+  - Give the service a unique name
+  - Choose the **Free F0** tier
+  - Accept all of the defaults for the remaining items
+
+After the **Content Saftey** service has been deployed, follow these steps to grant your **AI Services** access to the Content Safety service:
+
+- In the [Azure Portal](https://portal.azure.com), navigate to the resource group where your AI resources are deployed 
+- Navigate to the **Azure AI services** resource
+- Click **Access control (IAM)** from the left menu
+- Click the **+ ADD** button, then select **Add role assignment**
+- On the **Add role assignment** screen, type "Cognitive Services User" in the search box
+- In the list of roles, click/highlight the **Cognitive Services User** row
+- Click the **NEXT** button at the bottom of the screen
+- Click **+ Select Members**
+- In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **"ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com"**)
+- Click the **SELECT** button
+- Click the **Review & Assign** button to complete the role assignment
+
+You should now be prepared to complete the rest of this challenge!
+
 ### 5.1 Harmful Content Detection
 
 Your Azure AI Services resource includes Content Safety. You may refer to this [table for region availability](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview#region-availability) to confirm your region has the pertinent features for the tasks in this Challenge.
