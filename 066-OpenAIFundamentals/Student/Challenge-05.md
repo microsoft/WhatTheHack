@@ -55,7 +55,7 @@ After the **Content Saftey** service has been deployed, follow these steps to gr
 - In the list of roles, click/highlight the **Cognitive Services User** row
 - Click the **NEXT** button at the bottom of the screen
 - Click **+ Select Members**
-- In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **"ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com"**)
+- In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **`ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com`**)
 - Click the **SELECT** button
 - Click the **Review & Assign** button to complete the role assignment
 
