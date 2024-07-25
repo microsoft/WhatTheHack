@@ -214,7 +214,7 @@ As you move forward, remember the significance of grounding responses in accurat
 - [Azure Content Safety Annotations feature](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter#annotations-preview)
 - [OpenAI PII Detection Plugin](https://github.com/openai/chatgpt-retrieval-plugin/tree/main#plugins)
 - [Hugging Face Evaluate Library](https://huggingface.co/docs/evaluate/index)
-- [Question Answering Evaluation using LangChain](https://python.langchain.com/en/latest/use_cases/evaluation/qa_generation.html)
+- [Question Answering Evaluation using LangChain](https://python.langchain.com/v0.1/docs/use_cases/question_answering/)
 - [OpenAI Technical Whitepaper on evaluating models (see Section 3.1)](https://cdn.openai.com/papers/gpt-4-system-card.pdf)
 - [Using GenAI Responsibly](https://learn.microsoft.com/en-us/shows/generative-ai-for-beginners/using-generative-ai-responsibly-generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst)
 - [Fundamentals of Responsible GenAI](https://learn.microsoft.com/en-us/training/modules/responsible-generative-ai/?WT.mc_id=academic-105485-koreyst)
