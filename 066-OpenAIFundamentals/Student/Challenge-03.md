@@ -50,5 +50,5 @@ To complete this challenge successfully, you should be able to:
 
 * [Grounding LLMs](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857)
 * [Embeddings example](https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_Wikipedia_articles_for_search.ipynb)
-* [Langchain Chunking](https://js.langchain.com/docs/modules/indexes/text_splitters/examples/recursive_character)
+* [Langchain Chunking](https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/)
   
