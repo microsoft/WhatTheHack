@@ -132,7 +132,7 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 ### Setup Azure AI Studio Project and Hub
 
-Once you have set up a Jupyter notebook environment, navigate to the [AI Studio](ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
+Once you have set up a Jupyter notebook environment, navigate to the [AI Studio](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
 
 - Click on the **+ New Project** button.
 - Give your project a name and hit **Create a new hub**.
@@ -145,7 +145,7 @@ Once you have set up a Jupyter notebook environment, navigate to the [AI Studio]
 
 Now we will deploy the needed large language models from Azure OpenAI. 
 
-- Navigate to the [AI Studio](ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
+- Navigate to the [AI Studio](https://ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
 - On the left navigation bar, click on Deployments. 
 - Deploy the following models in your Azure OpenAI resource.
   - `gpt-4`
