@@ -28,7 +28,7 @@ For each section of this Challenge, you will work in [Azure AI Studio](https://a
 
 **NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
 
-### Deploy Content Safety Service - TEMPORARY STEP
+### Access Content Safety Service - TEMPORARY STEP
 
 Azure AI Services are constantly changing. As of July 2024, the Azure AI Studio does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Azure AI Studio should handle this automatically.
 
