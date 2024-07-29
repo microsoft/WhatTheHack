@@ -27,7 +27,10 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-There is a Resources.zip file in this repo that contains the resources you will need to complete the hack. Please download and unzip the folder.
+In Challenge 0 on the student guide, students are instructed to download the Resources folder [here](https://aka.ms/FabricdsWTHResources). This folder contains the notebooks students will be working with, as well as a shell script that they will use to deploy some needed Azure resources. 
+
+The [coach solution notebooks](./Solutions/) are the completed versions of the student notebooks. The solutions can be used as a guide or uploaded to Fabric to complete each Challenge.
+
 
 **NOTE:** The resources.zip folder also includes the heart.csv file. You can upload this data directly to the Fabric Lakehouse if you decide you want to go through this hack without needing an Azure subscription. However, this will skip half of Challenge 1 and the important concept of using shortcuts in Fabric. If you are going to be setting up the Azure resources and using the shortcut, ignore the heart.csv file.
 
