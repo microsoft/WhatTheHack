@@ -27,9 +27,9 @@ You might not need all of them for the hack you are participating in. However, i
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
-To get started, download and unxip the StudentResources.zip file. This folder contains the notebooks you will be working with, as well as a shell script that you will use to deploy some needed Azure resources.
+To get started, download and unzip the Resources folder [here](https://aka.ms/FabricdsWTHResources). This folder contains the notebooks you will be working with, as well as a shell script that you will use to deploy some needed Azure resources.
 
-**NOTE:** The resources.zip folder also includes the heart.csv file. You can upload this data directly to the Fabric Lakehouse if you decide you want to go through this hack without needing an Azure subscription. However, this will skip half of Challenge 1 and the important concept of using shortcuts in Fabric, as well as all of Challenge 6. If you are going to be setting up the Azure resources and using the shortcut, ignore the heart.csv file.
+**NOTE:** The Resources folder also includes the heart.csv file. You can upload this data directly to the Fabric Lakehouse if you decide you want to go through this hack without needing an Azure subscription. However, this will skip half of Challenge 1 and the important concept of using shortcuts in Fabric, as well as all of Challenge 6. If you are going to be setting up the Azure resources and using the shortcut, ignore the heart.csv file.
 
 First, head to [Microsoft Fabric](https://fabric.microsoft.com/). 
  - Create a new workspace by clicking on 'Workspaces' in the vertical menu on the left side of the screen. Use the 'New Workspace' button at the bottom of the list.
