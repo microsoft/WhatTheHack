@@ -34,9 +34,11 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 	 - Deploy the model you trained to AzureML and generate predictions via the API
 ## Prerequisites
 
-- Microsoft Fabric account with trial or capacity
-- PowerBI pro or premium per user subscription (unless using Fabric trial or capacity sized F64 or larger)
-- Azure subscription to deploy a storage account and AzureML workspace (alternatively you can upload the dataset directly to Fabric and skip Challenge 6 if you want to complete this WTH with just a Fabric account)
+- Microsoft Fabric capacity/trial capacity
+- PowerBI Pro or Premium per user subscription/trial (unless using Fabric trial capacity)
+- Access to an Azure subscription to:
+  -  Deploy a storage account to store the dataset (alternatively you can upload the dataset directly to Fabric)
+  - Deploy an AzureML workspace to host a real-time inference endpoint for Challenge 6 (optional)
 
 ## Contributors
 

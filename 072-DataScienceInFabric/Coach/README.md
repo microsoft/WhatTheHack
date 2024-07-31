@@ -31,22 +31,34 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download the "StudentResources.zip" file. The coach should then provide a copy of the file to all students at the start of the hack.
-
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
 
-## Azure and M365 Requirements
+## Azure and Fabric Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+This hack requires students to have access to Azure and Fabric. These requirements should be shared with a stakeholder in the organization that will be providing the licenses that will be used by the students.
 
-Required resources during this hack:
-- Azure storage account to upload training data
-- Fabric capacity if not using the trial
+### Fabric and PowerBI licensing requirements:
 
-Each student will need a PowerBI Pro or Premium per user license for Challenge 06, build a PowerBI Report, unless they are using the Fabric Trial or a capacity sized larger than F64. 
+Each student will need access to Microsoft Fabric and be licensed to create PowerBI reports for this hack. The following are the options to complete these licensing requirements:
+
+1. **Recommended if available**: Individual [Fabric free trials](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial#start-the-fabric-capacity-trial). This will grant users access to creating the required Fabric items as well as the PowerBI report. **If previously used, the Fabric free trial may be unavailable**
+2. Fabric Capacity and PowerBI Pro/Premium per user license. Each user would need their own PowerBI license but capacities could be shared and scaled up according to the needs. **Alternatively, users can activate a [PowerBI Free Trial](https://learn.microsoft.com/en-us/power-bi/fundamentals/service-self-service-signup-for-power-bi) if available.** The PowerBI trial could be available even if the Fabric one is not.
+
+
+### Azure licensing requirements
+
+There are 2 challenges that require access to Azure:
+
+- Challenge 1: Students are required to navigate an Azure ADLS Gen 2 account through the Azure Portal to learn how to set up a Fabric shortcut to an existing file. This challenge requires each student to have contributor permissions to the resource, but 1 single storage account/directory/file could be shared among all students, given that they will not modify it but rather just access and connect to it.
+
+- Challenge 6: Students are required to have Azure AI Developer access to an Azure Machine Learning resource. Each student will need to register their own model and create their own real-time endpoint, which is why it is **recommended to individually deploy an Azure ML workspace per student**.
+
+Given these requirements, each student could have their own Azure subscription or they could share access to a single subscription.
+
+These Azure resources can be deployed on an individual per-student basis using the `deployhack.sh` script included in the student resources folder.
 
 ## Suggested Hack Agenda 
 
@@ -65,13 +77,9 @@ Time estimate for each challenge:
 
 - `./Coach`
   - Coach's Guide and related files
-- `./Coach/Notebooks`
+- `./Coach/Solutions`
   - Solution files with completed example answers to challenges
-- `./Coach/CoachResources.zip`
-  - Coach resources ready to be downloaded as a zip file
 - `./Student`
   - Student's Challenge Guide
-- `./Student/StudentResources.zip`
-  - Student resources ready to be downloaded as a zip file
 - `./Student/Resources`
-  - Unpackaged version of StudentResources.zip
+  - Student resource files, also available as a download link on Student Challenge 0

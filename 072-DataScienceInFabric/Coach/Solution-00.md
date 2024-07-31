@@ -15,14 +15,17 @@ You might not need all of them for the hack you are participating in. However, i
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
 - [Azure Subscription](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Postman](https://www.postman.com/downloads/)
 - [Managing Cloud Resources](../Student/000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+- [Azure Portal](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+    - [Azure Cloud Shell](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+  - [Azure CLI (optional)](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
     - [Note for Windows Users](../Student/000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
     - [Azure PowerShell CmdLets](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Azure Storage Explorer](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
+- [Azure Storage Explorer (optional)](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+
+Additionally please refer to the [Coach Hack introduction](./README.md) for more information about licensing requirements and options
 ## Description
 
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
