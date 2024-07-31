@@ -14,6 +14,7 @@ Table of contents for this Coach Guide:
   - [Working with Multiple Terminal Sessions in VS Code](#working-with-multiple-terminal-sessions-in-vs-code)
   - [Run Codespace in VS Code on Local Workstation](#run-codespace-in-vs-code-on-local-workstation)
   - [Python Debugging Not Available in Codespaces](#python-debugging-not-available-in-codespaces)
+- [Azure Resources Overview](#azure-resources-overview)
 
 ### Deploying Azure Resources
 
@@ -48,6 +49,9 @@ If you have any errors with capacity or quota issues, you may need to re-deploy 
 - `DocumentIntelligenceLocation`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
 
 **NOTE:** The hack requires the Azure OpenAI Assistant API feature which is currently in preview and NOT available in ALL regions *where Azure OpenAI is available*!
+
+The students may also need to check on capacity for the models and delete/purge models to get capacity.
+ ![Azure -> Azure AI Services -> Azure AI Services](..\images\purge-deleted-ai-services.png)
  
 As of June 2024, Azure OpenAI with the Assistant API preview feature is available in the following regions: `eastus2`, `australiaeast`, 
 `francecentral`, `norwayeast`, `swedencentral`, `uksouth`, `westus`, `westus3`
@@ -110,3 +114,13 @@ Alternatively, they can install the Codespaces App in the browser which will giv
 Unfortunately, debugging will not work in Codespaces because Codespaces runs as a container and the ability to attach to another Python process requires a special kernel flag to be set in Linux and this can only be done on the local OS.
 
 Debugging is not required to complete the challenges, but students may attempt to run a debugger while troubleshooting. You should be aware of this issue as a Coach so students don't spend time trying to figure this out in Codespaces.
+
+### Azure Resources Overview
+
+AI Design Wins are an important concept for us and this is an example of a solution that spans the layers.
+
+![](..\images\ai-design-wins.png)
+
+Specific resources in this What The Hack:
+![](..\images\deployed-resources.png)
+
