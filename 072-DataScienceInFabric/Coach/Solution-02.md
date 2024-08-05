@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, hack participants must use Data Wrangler to prepare the heart dataset for model training. The purpose is to focus on transforming and preparing the data for the next challenges. They will have the flexibility to either write code in a notebook or leverage Data Wrangler’s intuitive interface to streamline the preprocessing tasks.
+In this challenge, hack participants must use Data Wrangler to prepare the heart dataset for model training. The purpose is to focus on transforming and preparing the data for the next challenges. They will have the flexibility to either write code in a notebook or leverage Data Wrangler’s intuitive interface to streamline the pre-processing tasks.
 
 ### Sections
 
@@ -18,18 +18,18 @@ In this challenge, hack participants must use Data Wrangler to prepare the heart
 - Launching Data Wrangler:
   -  Participants must create a pandas dataframe the fabric notebook. It’s necessary to complete the first cell in the notebook 2.
   -  Once executed, under the notebook ribbon Home tab, select Launch Data Wrangler. You'll see a list of activated pandas DataFrames available for editing.
-  -  Select the DataFrame you just created in last cell and open in Data Wrangler. From the Pandas dataframe list, select df.
+  -  Select the DataFrame you just created in last cell and open in Data Wrangler. From the Pandas dataframe list, select `df`.
 
     
 - Data Cleaning Operations – (Data Wrangler)
   - *Removing Unnecessary Columns*
      - On the *Operations* panel, expand *Schema* and select *Drop columns*.
-     - Select **RowNumber**. This column will appear in red in the preview, to show they're changed by the code (in this case, dropped.)
+     - Select `RowNumber`. This column will appear in red in the preview, to show they're changed by the code (in this case, dropped.)
      - Select **Apply**, a new step is created in the **Cleaning steps panel** on the bottom left.
       
   - *Dropping Missing Values*
     - On the **Operations** panel, select **Find and replace**, and then select **Drop missing values**.
-    - Select the **RestingBP**, **Cholesterol** and **FastingBS** columns. On the right left those are the ones that are pointed as missing values.
+    - Select the `RestingBP`, `Cholesterol` and `FastingBS` columns. On the right left those are the ones that are pointed as missing values.
     - Select **Apply**, a new step is created in the **Cleaning steps panel** on the bottom left.
    
   - *Dropping Duplicate Rows*

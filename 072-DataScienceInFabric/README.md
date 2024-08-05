@@ -4,7 +4,7 @@
 
 This Fabric Data Science guides you through the process of building an end-to-end ML deployment on Fabric.
 
-Contoso hospital has historical, anonymized heart condition data already present in their ADLS Gen 2 as part of their record-keeping solution. They want to leverage this data to create a new app that can help clinicians assess the heart failure risk of their patients, depending on a variety of factors. As an analyst at Contoso, you have been asked to use Microsoft Fabric to train a prediction model and deploy it on Realtime endpoints so that they can build an app on it which will be used by the doctors to predict the patient heart health.
+Contoso hospital has historical, anonymous heart condition data already present in their ADLS Gen 2 as part of their record-keeping solution. They want to leverage this data to create a new app that can help clinicians assess the heart failure risk of their patients, depending on a variety of factors. As an analyst at Contoso, you have been asked to use Microsoft Fabric to train a prediction model and deploy it on Realtime endpoints so that they can build an app on it which will be used by the doctors to predict the patient heart health.
 
 ## Learning Objectives
 

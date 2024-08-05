@@ -9,7 +9,7 @@ In Challenge 5 you created a PowerBI report showing which patients are at risk. 
 
 ## Description
 
-You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurpose themodel trained in Fabric for use by applications via scalable Azure compute clusters. The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities! This challenge does **not** require the use of a notebook. 
+You have been tasked to deploy the machine learning model which you have trained in Microsoft Fabric to Azure ML learning for real time inference.  In this challenge, you will deploy a Fabric model to Azure Machine Learning, and repurpose the model trained in Fabric for use by applications via scalable Azure compute clusters. The ability to export and repurpose models trained with MLFlow in Fabric opens endless opportunities! This challenge does **not** require the use of a notebook. 
 
 By the end of this challenge, you should be able to understand and know how to use:
 - MLFlow exported models, what the different files represent and how you can import them to a new location.

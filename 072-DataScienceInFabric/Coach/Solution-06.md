@@ -11,13 +11,13 @@
 
 ### Student step-by-step instructions
 
-- Go to your data science worksapce where all the notebooks are stored.
-- That worksapce will have the ml model which you created in previous challenege
+- Go to your data science workspace where all the notebooks are stored.
+- That workspace will have the ml model which you created in previous challenge
 - Exporting a model from Fabric is easy--just tap the Download ML model version button in the UI.
 
 ![picture alt](../Images/image-10.png)
 
-- Fabric will combine the ML Model along with a Python Object Serialization file (a/k/a pickle file) having a .pkl extension, and YAML files (.yml) that describe to other platforms the structure and interface provided by the model. All these files are packaged into a .zip file, which will be placed in your Downloads folder.
+- Fabric will combine the ML Model along with a Python Object Serialization file (a/k/a pickle file) having a `.pkl` extension, and YAML files (.yml) that describe to other platforms the structure and interface provided by the model. All these files are packaged into a .zip file, which will be placed in your Downloads folder.
 - If you open the .zip file, you can review the model and metadata files before deploying them to other systems. Make sure you extract the folder before continuing, as you will not be able to upload a .zip file.
   ![picture alt](../Images/image-11.png)
 
@@ -48,9 +48,9 @@
  ![picture alt](../Images/postman-header.png)
  ![picture alt](../Images/postman-body.png)
 
-### Coache's guidance
+### Coaches' guidance
 
-- **This challenge should be treated as optional**. This challenge goes beyond the scope of Microsoft Fabric to illustrate the next step to operationalizing an ML model trained in Fabric beyond analytics/reporting.
+- **This challenge should be treated as optional**. This challenge goes beyond the scope of Microsoft Fabric to illustrate the next step to rendering an ML model trained in Fabric operational beyond analytics/reporting.
 - This is an elaborate challenge that requires switching from Fabric to Azure. Documentation has been provided to students so that they can reference some of the actions needed.
 - The goal is for students to understand the difference between Fabric Data Science and Azure ML studio. As a secondary objective, students should familiarize themselves with real-time endpoints in Azure ML and on how to send API requests.
 - Coaches can provide guidance if students can't figure out the next step, but they should help students understand the process, not only getting to the end.

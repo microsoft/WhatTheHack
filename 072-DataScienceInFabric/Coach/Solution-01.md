@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will alow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on Notebook 2.
+In this challenge, hack participants must create a shortcut to the folder deployed in their Azure subscription on Challenge 0. This will allow them to use the data in Fabric without the need for replication. Once the shortcut is completed, participants will open Notebook 1 to load the csv file into a delta table for further modification on Notebook 2.
 
 ### Sections
 
@@ -26,7 +26,7 @@ In this challenge, hack participants must create a shortcut to the folder deploy
   - Create a new connection, give it a name and select "Account Key" as the authentication kind.
   - Go back to your Azure portal. The Account Key can be found on in the **Security + Networking>Access keys** side menu of the Storage Account. Show and copy one of the keys. Enter it into the wizard in Fabric.
   - Click on next to access the file explorer. Wait for the screen to load.
-  - On the side menu, expand the file-system folder. Select the checkmark next to the "files" folder.
+  - On the side menu, expand the file-system folder. Select the check mark next to the "files" folder.
   - Click next to move to the next screen, then click on create to create the shortcut.
   - Verify that your shortcut is showing under the **Files** folder of the lakehouse navigator. You might need to click on the 3 dots and on refresh if your shortcut is not present initially.
 

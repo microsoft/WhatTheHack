@@ -4,7 +4,7 @@
 
 ## Introduction
 
-As you observed at the end of setup in Challenge 0, you have been provided with some anonimized historical data of patients who have suffered heart attacks. The csv file contains a set of conditions (or features) that these patients have had and an indication of whether they had a heart attack or not. The first step to working with this data is to bring it to Fabric's OneLake, from where you will be able to use it for your analysis and to train a machine learning model.
+As you observed at the end of setup in Challenge 0, you have been provided with some anonymous historical data of patients who have suffered heart attacks. The csv file contains a set of conditions (or features) that these patients have had and an indication of whether they had a heart attack or not. The first step to working with this data is to bring it to Fabric's OneLake, from where you will be able to use it for your analysis and to train a machine learning model.
 
 ## Description
 

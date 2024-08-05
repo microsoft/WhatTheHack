@@ -29,7 +29,7 @@ Additionally, please refer to the [Hack Introduction](../README.md) for more inf
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 To get started, download and unzip the Resources folder [here](https://aka.ms/FabricdsWTHResources). This folder contains the notebooks you will be working with, as well as a shell script that you will use to deploy some needed Azure resources.
 
@@ -41,7 +41,7 @@ First, head to [Microsoft Fabric](https://fabric.microsoft.com/).
  - At the top of the Data Science experience menu, check that you are still in the new workspace and select 'Import Notebook' from the top row of options.
  - Follow the prompts to upload the 4 notebook (.ipynb) files contained within the resources folder.
 
-(**Skip if working only on Fabric**) To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the **deployhack.sh** file in the resources folder you downloaded. 
+(**Skip if working only on Fabric**) To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the `deployhack.sh` file in the resources folder you downloaded. 
  - Go to the Azure portal and click on the cloud shell button on the top navigation bar, to the right of the Copilot button.
  - Once the cloud shell connects, make sure you are using a Bash shell. If you are not, click on the button on the top-left corner of the cloud shell to switch to bash.
  - Click on the **Manage Files** button on the shell's navigation bar and select upload. Select the deployhack.sh file from your computer.

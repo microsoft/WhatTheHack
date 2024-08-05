@@ -15,8 +15,8 @@ Notebook sections:
 3. Format predictions and save them to a delta table
 
 By the end of this challenge, you should be able to understand and know how to use:
-- The PREDICT function, how to use the MLFlowTransfomer object, how to create predictions
-- (Additional learnings, not core to the hack) The Python Faker library, how to use it to create simulated data to be used for model inferencing
+- The PREDICT function, how to use the `MLFlowTransfomer` object, how to create predictions
+- (Additional learnings, not core to the hack) The Python Faker library, how to use it to create simulated data to be used for model inference
 
 
 ## Success Criteria

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-During Challenge 2, you cleaned up the data you will be working with. You explored the structure and statistics of the data and uncovered various incosistencies, which you resolved. You must now use this data to train and register an ML model. To keep track of the model iterations, you will leverage Fabric's direct integration with MLFlow. Once you have a trained model you will save it for further prediction.
+During Challenge 2, you cleaned up the data you will be working with. You explored the structure and statistics of the data and uncovered various inconsistencies, which you resolved. You must now use this data to train and register an ML model. To keep track of the model iterations, you will leverage Fabric's direct integration with MLFlow. Once you have a trained model you will save it for further prediction.
 
 ## Description
 Your task in this challenge is to train and register an ML model with MLFlow. This is a notebook-based challenge, you will find all instructions within Notebook 3.

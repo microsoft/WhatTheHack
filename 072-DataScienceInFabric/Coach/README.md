@@ -21,7 +21,7 @@ Welcome to the coach's guide for the Data Science In Microsoft Fabric What The H
 - Challenge 05: **[Visualize predictions with a PowerBI report ](./Solution-05.md)**
 	 - Visualize generated predictions by using a PowerBI report
 - Challenge 06: **[Deploy the model to an AzureML real-time endpoint](./Solution-06.md)**
-	 - Deploy the trained model to an AzureML inferencing endpoint
+	 - Deploy the trained model to an AzureML endpoint for inference
 
 ## Coach Prerequisites
 
