@@ -5,7 +5,7 @@
 
 ## Pre-requisites
 
-* Azure Cognitive Search resource for indexing and retrieving relevant information
+* Azure AI Search resource for indexing and retrieving relevant information
 * Azure OpenAI service for Generative AI Models and Embedding Models
 * Add required credentials of above resources in `.env` file
 * Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ``` if you have not already.
@@ -46,9 +46,9 @@ To complete this challenge successfully, you should be able to:
 - Demonstrate various chunking techniques
 - Demonstrate how to create embeddings 
 
-## Additional Resources 
+## Learning Resources 
 
 * [Grounding LLMs](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857)
 * [Embeddings example](https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_Wikipedia_articles_for_search.ipynb)
-* [Langchain Chunking](https://js.langchain.com/docs/modules/indexes/text_splitters/examples/recursive_character)
+* [Langchain Chunking](https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/)
   
