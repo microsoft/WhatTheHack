@@ -2,14 +2,16 @@ Dynatrace
 Dynatrace's
 Gurbani
 OneAgent
+OneAgents
 SRE
 SRG
 SLOs
 SLO
-Smartspace
+Smartscape
 JVM
 FullStack
 ActiveGate
+ActiveGates
 SLIs
 SLI
 Apdex
@@ -18,4 +20,5 @@ Barbari
 Mitchells
 ApacheJmeter
 MTTR
-
+timeframe
+backtrace
