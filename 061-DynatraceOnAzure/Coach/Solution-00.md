@@ -24,7 +24,7 @@ For this challenge, we have set-up a free Dynatrace environment with an evaluati
 
 ### Tasks to complete this step
 
-1) Login to your DT Environment
+1) Login to your Dynatrace Environment
     - Click on the link within the email you've received to login to your Dynatrace trial environment.
     
 
@@ -110,7 +110,7 @@ Provisioning workshop resources COMPLETE
 2. Search for `Resource Groups` from the search bar at the top
 ![image](Solutions/img/pre-requisites-azure-portal-resources.png)
 3. Click on `Resource Groups`.  From the list of resource group select `<lastname>-dynatrace-azure-modernize-wth`.
-4. Once you within the resource group, you will see all of the different types of resources we've automatically provisionined for this workshop
+4. Once you within the resource group, you will see all of the different types of resources we've automatically provisioned for this workshop
 ![image](Solutions/img/pre-requisites-azure-portal-resources-resourcelist.png)
 
 ### Verify AKS Cluster is provisioned

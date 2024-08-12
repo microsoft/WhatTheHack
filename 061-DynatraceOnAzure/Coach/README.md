@@ -1,4 +1,4 @@
-# What The Hack - DynatraceOnAzure - Coach Guide
+# What The Hack - Dynatrace On Azure - Coach Guide
 
 ## Introduction
 
@@ -8,7 +8,7 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 This WhatTheHack provide you hands on experience on how to Monitor Azure workloads using Dynatrace.   It will show you how Dynatrace's AI-engine, Davis, performs automatic and intelligent root-cause analysis in hybrid cloud Azure environments. This hack was designed specifically for Cloud Ops Engineers, DevOps engineers, Developers, and Architects who want to expand their knowledge on Dynatrace & Azure.
 
-The story goes that, you are new engineer that was hired to modernize a ecommerce website for company called "DTOrders".  "DTOrders" currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  The engineer's job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, they'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
+The story goes that, you are new engineer that was hired to modernize a eCommerce website for company called `DTOrders`.  `DTOrders` currently has this website deployed to Azure virtual machines but  wants to containerize this application to run on Kubernetes.  The engineer's job will first be deploy the application to Azure VM and then migrate it run on AKS Cluster.  Along the way, they'll use Dynatrace to  monitor the application on Azure VM and once migrated to AKS, compare the product functionality and how easy it is to monitor and manage your application with Dynatrace.
 
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
@@ -24,7 +24,7 @@ The story goes that, you are new engineer that was hired to modernize a ecommerc
 - Challenge 03: **[Automated Root Cause Analysis with Davis](./Solution-03.md)**
 	 - Enable a problem in your sample application and walk through what Davis found.
 - Challenge 04: **[Azure Monitor Metrics & Custom Dashboard](./Solution-04.md)**
-  - In this challenge, you will create a custom dashboard to track Service Level Objects (SLO's)
+  - In this challenge, you will create a custom dashboard to track Service Level Objects (SLOs)
 - Challenge 05: **[Challenge 05 - Grail - Dashboards & Notebooks](./Solution-05.md)**
 	 - In this challenge, you will query, visualize, and observe all your data stored in Grail via Dashboards and Notebooks.
 - Challenge 06: **[Challenge 06 - Grail - SRE Guardian & Workflows](Solution-06.md)**
@@ -45,7 +45,7 @@ The folders are self contained challenges for the hack. You do not need to go to
 The original code base of the Challenges automation scripts & sample app are located below
 
 - [Dynatrace Azure Workshop Scripts](https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup/)
-- [Sample App Codebase](https://github.com/dt-orders)
+- [Sample App Code Repository](https://github.com/dt-orders)
 - [Docker Images](https://hub.docker.com/search?q=dtdemos)
 
 ### Student Resources
@@ -66,7 +66,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. 
 
-In addition to that, if this hack is run within the same Company/Orgnization, each hack attendee will need their own Azure/Entra AD tenant.  The free trial tenant for Dynatrace via Marketplace, [Azure Native Dynatrace Service](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview), limits customers to be able to  create 1 trial tenant for their Organization. Therefore, each attendee will need an [Azure Pass codes](https://www.microsoftazurepass.com/) to successfully run this hack.  With Azure Pass codes, each attendee will get their own Azure AD/Entra tenant.  
+In addition to that, if this hack is run within the same Company/Organization, each hack attendee will need their own Azure/Entra AD tenant.  The free trial tenant for Dynatrace via Marketplace, [Azure Native Dynatrace Service](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview), limits customers to be able to  create 1 trial tenant for their Organization. Therefore, each attendee will need an [Azure Pass codes](https://www.microsoftazurepass.com/) to successfully run this hack.  With Azure Pass codes, each attendee will get their own Azure AD/Entra tenant.  
 
 These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 

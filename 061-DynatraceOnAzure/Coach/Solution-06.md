@@ -24,7 +24,7 @@
                | summarize errorRate = sum(errors)/count() *100 
             ```
             ![image](Solutions/img/challenge6-01.png)
-        * Click on run query, select the last 1 hour to previw results of your current error rate.
+        * Click on run query, select the last 1 hour to preview results of your current error rate.
     * Set thresholds for this objective:
         * Select Lower than the these numbers is good
         * Failure: 1

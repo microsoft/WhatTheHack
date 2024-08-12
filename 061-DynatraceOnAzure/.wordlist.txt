@@ -22,3 +22,10 @@ ApacheJmeter
 MTTR
 timeframe
 backtrace
+subcommands
+infographic
+serviceflow
+transactional
+hotspots
+balancers
+SREs

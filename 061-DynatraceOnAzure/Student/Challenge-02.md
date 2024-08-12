@@ -49,6 +49,7 @@ For our project, an alternative version of the application separates each of the
     ```bash
     cd ~/azure-modernization-dt-orders-setup/app-scripts
     ./start-k8.sh
+    ```
 
 * Access the sample application running on Kubernetes in you browser
     >💡**Hint:** To get the external IP for application type the following command

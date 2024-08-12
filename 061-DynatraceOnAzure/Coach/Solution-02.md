@@ -76,7 +76,7 @@ Organizations will often customize the Dynatrace Operator installation and you c
          ```
          cd ~/azure-modernization-dt-orders-setup/gen
          ```
-      1.8. Next, copy the commands from the `Monitor Kubernetes / Openshift`  configuration page of Dynatrace UI or from below to continue with the Kuberentes Operator Install steps.
+      1.8. Next, copy the commands from the `Monitor Kubernetes / Openshift`  configuration page of Dynatrace UI or from below to continue with the Kubernetes Operator Install steps.
 
          ```
          kubectl create namespace dynatrace
@@ -118,7 +118,7 @@ Organizations will often customize the Dynatrace Operator installation and you c
 
 In this step we'll walk through deploying the sample app that is now "modernized" into a microservices based app to the Azure Kubernetes cluster.  
 
-We'll use a shell script to deploy the sample application.  Below you'll learn some details around what that shell script is doing and YAML file parmeters that Dynatrace uses to define and configure your application in Kubernetes.
+We'll use a shell script to deploy the sample application.  Below you'll learn some details around what that shell script is doing and YAML file parameters that Dynatrace uses to define and configure your application in Kubernetes.
 
  **📓`Shell Script to deploy sample app to Kubernetes`**
 
@@ -154,7 +154,7 @@ metadata:
         chat-channel: dev-team-frontend 
 ```
 
-Notice the defined container and version.  These containers are stored in <a href="https://hub.docker.com/u/dtdemos" target="_blank"> DockerHub </a>.
+Notice the defined container and version.  These containers are stored in <a href="https://hub.docker.com/u/dtdemos" target="_blank"> Docker Hub </a>.
 
 ```
 spec:
@@ -272,12 +272,12 @@ The frontend service is exposed as a public IP and is accessible in a browser.
 In this step we will walk through the different Dynatrace dashboards that are available out of the box for monitoring Kubernetes.
 
 ### Tasks to complete this step
-1. Validate AKS ActivateGate visible in Dynatrace UI</summary>
+1. Validate AKS ActiveGate visible in Dynatrace UI</summary>
    1.1. Go to the Dynatrace UI.
    1.2. From the Dynatrace Menu, click `Manage --> Deployment status` to review OneAgent Deployment status
    1.3. Within the `Deployment status` page, next click on the `ActiveGate` option to review the Active Gate. <br>      
 
-      📓 From Dynatrace menu on the left, go to Manage -> Deployment Status -> ActiveGates, you will notice there is a `dynatrace-workshop-cluster-activegate-0` connected to your Dynatrace environment now.  This actigate gate routes all the agent traffic from apps that are running on that AKS cluster.**
+      📓 From Dynatrace menu on the left, go to Manage -> Deployment Status -> ActiveGates, you will notice there is a `dynatrace-workshop-cluster-activegate-0` connected to your Dynatrace environment now.  This ActiveGate routes all the agent traffic from apps that are running on that AKS cluster.**
 
 
 2. Review Kubernetes Dashboards are accessible from the left-side menu in Dynatrace choose `Kubernetes` and navigate to the Kubernetes cluster page as shown below: <br>
@@ -336,7 +336,7 @@ Dynatrace also gives you insight into what Kubernetes cluster, node, workload, a
 
 **👍 How this helps**
 
-The service flow and service backtrace give you a complete picture of interdependency to the rest of the environment architecture at host, processes, services, and application perspectives.
+The service flow and service backtrace give you a complete picture of inter-dependency to the rest of the environment architecture at host, processes, services, and application perspectives.
 
 
 ### Tasks to complete this step

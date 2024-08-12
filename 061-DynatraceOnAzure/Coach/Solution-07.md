@@ -47,7 +47,7 @@ End: Fri 07 May 2021 04:40:40 AM UTC
 ## Other Resources
 
 ### Free Dynatrace SaaS tenant 
-To signup for a free fully featured enabled Dynatrace SaaS Tenant for 15 days [click here](https://www.dynatrace.com/trial/) 
+To sign-up for a free fully featured enabled Dynatrace SaaS Tenant for 15 days [click here](https://www.dynatrace.com/trial/) 
 
 ### Resources
 Addition Azure & Dynatrace related resources to get your started with:

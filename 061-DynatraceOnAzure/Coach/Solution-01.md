@@ -224,7 +224,7 @@ We just saw one way to review process and service communication, but let’s loo
     - Refer to the numbers in the picture above:
         1. The timeframe defaults to 10 minutes but can be adjusted
         1. Change to the **Throughput** perspective by clicking on the box
-        1. Click on the boxes to expand the metrics to see the number of requests and average response times going to the backend sevice
+        1. Click on the boxes to expand the metrics to see the number of requests and average response times going to the backend service
         1.  We can see the number of requests to `backend` database
 
 ###  Analyze service backtrace
@@ -328,7 +328,7 @@ By just installing the OneAgent, we have now gained a detailed topological view 
 
 * **Right Priority** - We now understand the complexity and interdependency of services and components to the rest of the environment architecture
 * **Right-Sizing the environment** - We now understanding which resources are required to move along with their required resource consumption patterns
-* **Best Migration Strategy** - We now understand the current end-to-end transactions through architecture and can choose the best migration strategy (rehost, refactor, rearchitect, rebuild)
+* **Best Migration Strategy** - We now understand the current end-to-end transactions through architecture and can choose the best migration strategy (rehost, refactor, re-architect, rebuild)
 
 ### Checklist
 

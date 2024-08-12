@@ -11,7 +11,7 @@ None
 Dynatrace offers multiple ways to visualize your Observability data.  One of those ways is [Dashboards](https://www.dynatrace.com/hub/detail/dashboards/).  With Dashboards you can:
 
 - Query, visualize, and observe all your data stored in Grail.
-- Write custom JavaScript with ad-hoc functions to fetch external data.
+- Write custom JavaScript with adhoc functions to fetch external data.
 - Annotate all your visualizations with markdown to enrich them with context.
 - Add variables to filter your results and make your dashboard dynamic.
 - Several data and code snippets are available out of the box. Use them to get started.

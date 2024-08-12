@@ -181,7 +181,7 @@ In this step we are going to "simulate" a deployment of new version of the `back
     {"storedEventIds":[8663164135574257870,-5988376401319068441],"storedIds":["8663164135574257870_1628095127627","-5988376401319068441_1628095127627"],"storedCorrelationIds":[]}
     ```
 
-  * By ensuring there are numberical values t the end, it validates the command ran sucessfully.
+  * By ensuring there are numerical values t the end, it validates the command ran successfully.
 
 
 **📓 Why does the problem card say 'Custom Threshold'?**

@@ -209,7 +209,7 @@ Here is an example custom dashboard with SLO dashboard tiles.
 
 
 ### Tasks to complete this step
-1. Review SLO's are deployed
+1. Review SLOs are deployed
 
     * From the left menu in Dynatrace, click the `Service Level Objective` option to review the two SLOs that are already setup.  Edit one of them to review the configuration.
 
@@ -227,7 +227,7 @@ Here is an example custom dashboard with SLO dashboard tiles.
 ## Create SLO Dashboard
 
 
-In this step we'll create a very basic SLO dashboard to compare the before and after migration SLO's we've defined for our Monolith and Kubernetes service.
+In this step we'll create a very basic SLO dashboard to compare the before and after migration SLOs we've defined for our Monolith and Kubernetes service.
 
 ### Tasks to complete this step
 1.  Create Dashboard

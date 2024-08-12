@@ -61,8 +61,8 @@ Navigate through various screens of Dynatrace to understand the details of your 
     - Identify how many and names of containers that are running on this host
     - Identify the Azure tags applied to this host.
 *  Navigate the new Infrastructure & Operations App
-    - Review the DataCenters and Hosts view screens in the app.
-    - Review the Host details screen for ``dt-orders-monolith`` VM such as Overview, Technologies, Process, Problems, Vulnerabilities, etc.
+    - Review the Data Centers and Hosts view screens in the app.
+    - Review the Host details screen for `dt-orders-monolith` VM such as Overview, Technologies, Process, Problems, Vulnerabilities, etc.
 * Navigate to Smartscape topology screen for this; while in classic host monitoring screen click on `...` box on upper right hand corner of the host and click on `Smartscape view`.
     - Identify which 2 downstream services are used by the frontend service to  communicates with
     - Identify which Azure region (data center) your host is running in
@@ -107,7 +107,7 @@ Navigate through various screens of Dynatrace to understand the details of your 
 
 * You have successfully identified the database name and database vendor and SQL statements from the hotspots view.
 
-* You have successfully identified top 5 technologies that are running your Dynatrace tenant and 2 technologies are running on dt-orders-monolith 
+* You have successfully identified top 5 technologies that are running your Dynatrace tenant and 2 technologies are running on `dt-orders-monolith` 
 
 ## Learning Resources
 
@@ -141,19 +141,19 @@ Navigate through various screens of Dynatrace to understand the details of your 
  - Web and mobile applications are built upon services that process requests like web requests, web service calls, and messaging.
  - Dynatrace automatically detects and names server-side services of your applications based on basic properties of your application deployment and configuration. For example, in Java monitoring, Dynatrace sees your host, JVM, and processes as a whole.
     > 👍 ``How this helps`` 
-    > - As you plan your migration, it is important to gain a complete picture of interdependency to the rest of the environment architecture at host, processes, services, application perspectives. 
+    > - As you plan your migration, it is important to gain a complete picture of inter-dependency to the rest of the environment architecture at host, processes, services, application perspectives. 
     > - Since time is always scarce, being able to do this in a single place can shorten assessment timelines.
 
 ### Service flow diagram
 - Service flow diagram illustrates the sequence of service calls that are triggered by each service request in your environment.
     > 👍 ``How this helps`` 
-    > - As you plan your migration, it is important to gain a complete picture of interdependency to the rest of the environment architecture at host, processes, services, and application perspectives. 
+    > - As you plan your migration, it is important to gain a complete picture of inter-dependency to the rest of the environment architecture at host, processes, services, and application perspectives. 
     > - Knowing the type of access, executed statements, and amount of data transferred during regular hours of operation allows for better planning and prioritization. 
 
 ### Service Backtrace view
 - The backtrace tree view represents the sequence of services that led to this service call, beginning with the page load or user action in the browser.
     > 👍 How this helps
-    > - Using the service flow and service backtrace, these two tools give you a complete picture of interdependency to the rest of the environment architecture at host, processes, services, application perspectives.
+    > - Using the service flow and service backtrace, these two tools give you a complete picture of inter-dependency to the rest of the environment architecture at host, processes, services, application perspectives.
 ### Databases view
 - Dynatrace provides you with a number of ways to monitor your database performance.
     > 👍 How this helps

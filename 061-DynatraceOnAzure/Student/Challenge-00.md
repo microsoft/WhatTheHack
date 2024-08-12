@@ -14,7 +14,7 @@
 
 ## Introduction
 
- As a new engineer, you have been tasked with modernizing an e-commerce website for a company named "DT Hackers." The existing application was developed using Node.js and runs on Azure virtual machines. However, the goal now is to containerize the application for deployment on Kubernetes. Your initial task is to deploy the application to an Azure VM to gain a comprehensive understanding of the application and use Dynatrace to analyze its downstream dependencies.
+ As a new engineer, you have been tasked with modernizing an e-commerce website for a company named `DT Hackers`. The existing application was developed using Node.js and runs on Azure virtual machines. However, the goal now is to containerize the application for deployment on Kubernetes. Your initial task is to deploy the application to an Azure VM to gain a comprehensive understanding of the application and use Dynatrace to analyze its downstream dependencies.
 
  Subsequently, you need to devise a strategy for migrating the application to run on an [Azure Kubernetes Services](https://azure.microsoft.com/en-us/products/kubernetes-service) cluster.  Throughout this process, you'll utilize Dynatrace to monitor the application on Azure VM. After migrating to AKS, you'll compare the product functionality and assess the ease of monitoring and managing the application with Dynatrace. This comparison will help you streamline the migration and modernization of your application.
 
@@ -68,7 +68,7 @@ Now that you've reviewed the common pre-requisites for this hack, let's jump in 
 
 * Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
-        <img src="images/dynatrace-plans-free-trial.png" alt="dt-freeplan" width="500"/>
+        <img src="images/dynatrace-plans-free-trial.png"  width="500"/>
    -  Refer to the guide on [to create new Dynatrace Azure resource](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create#create-a-dynatrace-resource-in-azure) once you choose the free trial public plan.
 
  ### Dynatrace Prep
@@ -80,7 +80,7 @@ Now that you've reviewed the common pre-requisites for this hack, let's jump in 
 - Review [docs](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#create-token) on how to create API Access token in Dynatrace. 
 - Login to the Dynatrace tenant and create a Dynatrace API Access token with the  ``Write API Token`` scope.
 - In a separate notepad, please copy/paste the following things needed in a future step below  
-  - Jot down the API token, it will be following format: **dt0c01.ABC12345DEFGHI**
+  - Jot down the API token, it will be following format: ``dt0c01.ABC12345DEFGHI``
   - Dynatrace tenant url, it should be in format link this: ``https://ABC.apps.dynatrace.com``
 
 ### Azure Portal Prep
@@ -93,7 +93,7 @@ Now that you've reviewed the common pre-requisites for this hack, let's jump in 
     ```bash    
     git clone https://github.com/dt-alliances-workshops/azure-modernization-dt-orders-setup.git
     ```
-- Within Azure Cloud Shell window, change directory to  "azure-modernization-dt-orders-setup/provision-scripts" folder and run input-credentials.sh
+- Within Azure Cloud Shell window, change directory to  ``azure-modernization-dt-orders-setup/provision-scripts`` folder and run input-credentials.sh
     ```bash
     cd ~/azure-modernization-dt-orders-setup/provision-scripts
     ./wthinputs.sh
@@ -123,7 +123,7 @@ Now that you've reviewed the common pre-requisites for this hack, let's jump in 
 To complete this challenge successfully, you should be able to:
 
 - Once provisioning script has completed, ensure you have  a total of 8 azure resources within the resource group `<lastname>-dynatrace-azure-grail-modernize-wth`.
-- Validate the Sample Application DT Orders is accessible on Azure VM
+- Validate the Sample Application ``DT Orders`` is accessible on Azure VM
     >💡**Hint:** Once the deployment has completed, navigate to the Public IP Address resource of the Azure VM, in the Azure Portal.
     
 
