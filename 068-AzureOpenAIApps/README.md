@@ -79,3 +79,4 @@ We thank them for sharing their experience and creativity to design the scenario
 - [Peter Laudati](https://github.com/jrzyshr)
 - [Sowmyan Soman Chullikkattil](https://github.com/sowsan)
 - [Thomas Mathew](https://github.com/tmathew1000)
+- [Wayne Smith](https://github.com/waynehsmith)
