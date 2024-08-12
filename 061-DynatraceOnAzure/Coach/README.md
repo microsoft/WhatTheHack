@@ -51,7 +51,7 @@ The original code base for the automation scripts and sample app that are used w
 
 ### Dynatrace Environment Setup
 
-To successfully run this Hack, each WhatTheHack attendee will need their own Azure AD Tenant deployed.
+To successfully run this Hack, each WhatTheHack attendee will need their own Azure AD Tenant setup.
 
 >**Note:** If you run this Hack where attendees share the same Azure AD Tenant, only the first attendee will be able to deploy the Dynatrace Trial environment via the Marketplace in Challenge0.  The rest of the attendees will get an error.
 

@@ -64,7 +64,7 @@ Now that you've reviewed the common pre-requisites for this hack, let's jump in 
 
 <!-- Your coach will also provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there. -->
 
-### Dynatrace Trial Tenant Setup
+### Dynatrace Trial Environment Setup
 
 * Sign-up for free trail of [Azure Native Dynatrace Service via Marketplace](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) with full feature set of our all-in-one performance monitoring platform to monitor Azure.
    - Create the Free Trial using the `Dynatrace for Azure Trial` plan
