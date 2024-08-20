@@ -70,7 +70,7 @@ Your developer environment is ready, hooray! Skip to section: [Deploy Azure Reso
 
 #### Use Local Workstation
 
-**NOTE:** You can skip this section if are using GitHub Codespaces!
+**NOTE:** You can skip this section and continue on to "Setup Sample Application" if are using GitHub Codespaces!
 
 If you want to setup your environment on your local workstation, expand the section below and follow the requirements listed. 
 
