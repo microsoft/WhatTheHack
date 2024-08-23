@@ -49,6 +49,8 @@ Scenario: You are a product manager at a multinational tech company, and your te
 
 Navigate to the AI Studio and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
+**NOTE:** If you get this **User Error: This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.** when you create a new **standard** flow using the default name, then please append some random characters to the name or create a unique name for your flow.
+
 **HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#learning-resources) for a good overview on Prompt Flow.
 
 #### Student Task 2.3.1: Complex Problem Solving
