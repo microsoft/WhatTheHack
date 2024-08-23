@@ -143,8 +143,8 @@ Now we will deploy the needed large language models from Azure OpenAI.
 
 - Navigate to the [AI Studio](https://ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
 - On the left navigation bar, click on Deployments. 
-- Deploy the following models in your Azure OpenAI resource.
-  - `gpt-4`
+- Deploy the following models in your Azure OpenAI resource. 
+  - `gpt-4` or `gpt-4o`
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
 
@@ -162,7 +162,7 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
       - Click on the **Connections** tab on the left navigation bar.
       - Click on your AOAI resource and you should see the **API Key** as well as the **Target**, which is your endpoint.
       - Do the same for your AI Search and Document Intelligence resource.
-      - Model deployment names should be the same as the ones populated in the `.env.sample` file.
+      - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
       - **HINT:** Document Intelligence is part of AI Services. 
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
       - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Studio.
