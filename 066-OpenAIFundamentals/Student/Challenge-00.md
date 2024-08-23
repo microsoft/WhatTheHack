@@ -8,20 +8,16 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
-- [Access Azure OpenAI](#access-azure-openai)
+- [Azure Subscription](#azure-subscription)
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
 - [Setup Azure AI Studio Project and Hub](#setup-azure-ai-studio-project-and-hub)
 
-### Access Azure OpenAI 
+### Azure Subscription
 
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
-
-Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
-
-An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
 ### Setup Jupyter Notebook Environment
 
