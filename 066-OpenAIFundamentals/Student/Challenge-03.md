@@ -14,8 +14,10 @@
 
 When working with large language models, it is important to understand how to ground them with the right data. In addition, you will take a look at how to deal with token limits when you have a lot of data. Finally, you will experiment with embeddings. This challenge will teach you all the fundamental concepts - Grounding, Chunking, Embedding - before you see them in play in Challenge 4. Below are brief introductions to the concepts you will learn.
 
-Grounding is a technique used when you want the model to return reliable answers to a given question.
+Grounding is a technique used when you want the model to return reliable answers to a given question. We can ground our models through the system prompt or through the knowledge base. Within the prompt, you can provide specific instructions that help guide the model's responses. When using the Chat Completions API, the prompt is made up of a messages from different roles. These roles are the `system message` which sets the behavior, tone, and context. The  `user message` which is the input from the user. And finally, the `assistant messages` which are the responses from the assistant. All three of these, system message + user message + assistant message make up the prompt. 
+
 Chunking is the process of breaking down a large document. It helps limit the amount of information we pass into the model.
+
 An embedding is an information dense representation of the semantic meaning of a piece of text.
 
 ## Description
