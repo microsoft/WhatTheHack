@@ -104,7 +104,7 @@ The first 3 extractor models a straightforward. However in the 4th document type
   }
 ]
 ````
-
+After training your models, you can test the form processing pipeline by uploading the files located locally in `ContosoAIAppsBackend/challenge-artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
 
 Your solution should:
 
