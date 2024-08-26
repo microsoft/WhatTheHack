@@ -67,11 +67,6 @@ az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 # navigate to document directory
 cd ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
 
-# create a container
-az storage container create --account-name {mystorageaccountname} --name {containerName} 
-
-# This is just an example using contosoizzy1storage as the storage account. Plug in your own storage account name here
-az storage container create --account-name contosoizzy1storage --name government
 ````
 
 Use these commands to upload the file to Azure blob storage individually.
