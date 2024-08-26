@@ -52,10 +52,10 @@ When creating your model identifiers please ensure that you use these names as t
 Use these directions for [Building a Custom Extractor Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0&tabs=studio) to build and train each of the extractor models for the 4 document types. You will need 4 projects (1 for each category of documents that references each Azure Blob storage container listed above). 
 
 Make sure that the **extractor_model_name** field in your application config **document-intelligence-dictionary.json** matches what you have in Document Intelligence Studio
-- f01-extractor-model
-- f02-extractor-model
-- f03-extractor-model
-- f04-extractor-model
+- f01-extractor
+- f02-extractor
+- f03-extractor
+- f04-extractor
 
 Also ensure that the field names such as **q1** and **q5** matches exactly what you have in Document Intelligence Studio.
 
