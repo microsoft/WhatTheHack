@@ -93,7 +93,14 @@ To work on your local workstation, please ensure you have the following tools an
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
 - Install the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools#installing) V4 Globally Using NPM
 - Install [Python 3.11](https://www.python.org/downloads/)
-- Install [Python Package Install PIP](https://pypi.org/project/pip/) 
+- Install [Python Package Install PIP](https://pypi.org/project/pip/)
+- Create a Python virtual environment for Python 3.11 <br>
+  ```bash
+  python3.11 -m venv .venv
+  source .venv/bin/activate
+  python3.11 -m pip install --upgrade pip
+  ```
+  
 
 #### Student Resources
 
