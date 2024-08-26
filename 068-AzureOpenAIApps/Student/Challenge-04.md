@@ -20,7 +20,7 @@ If this quota is reached, the service bus queue will need to be suspended for a 
 
 ## Description
 
-In this challenge, we will do the following:
+In this challenge, we will modify the application configuration file (`local.settings.json`) in the following ways:
 
 - modify the application configuration to enable quota enforcement. This is done by changing the LLM_QUOTA_ENFORCEMENT to 1
 - modify the application configuration to specify the llm transaction aggregate window: This is done by changing the LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS to 120
