@@ -45,7 +45,9 @@ Use these directions for [Buidling a Custom Classifier Model](https://learn.micr
 - f03-geography-politics
 - f04-activity-preferences
 
-When creating your model identifiers please ensure that you use these names as the model ids. If you use a different value for each document type, please update your **document-intelligence-dictionary.json** configuration file for your application accordingly. Ensure that the **classifier_document_type** in your dictionary configuration matches what you have in your Document Intelligence Studio.
+Rename your `document-intelligence-dictionary.json.example` to `document-intelligence-dictionary.json`. 
+
+When creating your extraction models in document intelligence studio after labelling, please ensure that you use the names in the JSON as the model ids. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary but if you name your extraction models differently than what is specified in the JSON you should update the corresponding variables accordingly. Ensure that the **classifier_document_type** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
 
 ## Create a Custom Neural Extraction Model in the Document Intelligence Studio
 
