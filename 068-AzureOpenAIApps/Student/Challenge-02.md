@@ -30,7 +30,7 @@ This assistant should be able to answer any question about the country of Contos
 - Population, Tourism details, Languages Spoken and the Economy of Contoso Islands
 - Government and Cabinet Members of Contoso Islands
 
-#### Contoso Yachts Assistant (Esther)
+#### Contoso Yachts Assistant (Miriam)
 
 Reservations can only be made up to 3 days from the current date.
 Reservations must be within the passenger capacity of the yacht.
@@ -43,7 +43,7 @@ This virtual assistant should be able to do the following:
 - Update the travel party size (number of passengers) for a particular reservation
 - Get details about the Yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
 
-#### Bank Account Management Assistant (Miriam)
+#### Bank Account Management Assistant (Esther)
 This assistants allows customers to manage bank accounts.
 - It can help the guest to create a new bank account with their email address and full name.
 - It can also check account balances
