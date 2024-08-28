@@ -66,6 +66,7 @@ In this challenge, you will be asked to configure the system message and tools u
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
 #### Mapping Python Data Types to JSON Schema Types
+
 | Python Data Type    | JSON Schema Reference |
 | -------- | ------- |
 | [str](https://docs.python.org/3/library/string.html)  |  [string](https://json-schema.org/understanding-json-schema/reference/string)   |
