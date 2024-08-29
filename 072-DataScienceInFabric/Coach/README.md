@@ -45,7 +45,7 @@ This hack requires students to have access to Azure and Fabric. These requiremen
 Each student will need access to Microsoft Fabric and be licensed to create PowerBI reports for this hack. The following are the options to complete these licensing requirements:
 
 1. **Recommended if available**: Individual [Fabric free trials](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial#start-the-fabric-capacity-trial). This will grant users access to creating the required Fabric items as well as the PowerBI report. **If previously used, the Fabric free trial may be unavailable**
-2. Fabric Capacity and PowerBI Pro/Premium per user license. Each user would need their own PowerBI license but capacities could be shared and scaled up according to the needs. **Alternatively, users can activate a [PowerBI Free Trial](https://learn.microsoft.com/en-us/power-bi/fundamentals/service-self-service-signup-for-power-bi) if available.** The PowerBI trial could be available even if the Fabric one is not.
+2. Fabric Capacity and PowerBI Pro/Premium per user license. Each user would need their own PowerBI license but capacities could be shared and scaled up according to the needs. If running the hack on an individual basis, an F4 capacity would be adequate, and an F8 capacity would have generous compute power margin.  **Alternatively, users can activate a [PowerBI Free Trial](https://learn.microsoft.com/en-us/power-bi/fundamentals/service-self-service-signup-for-power-bi) if available.** The PowerBI trial could be available even if the Fabric one is not.
 
 
 ### Azure licensing requirements

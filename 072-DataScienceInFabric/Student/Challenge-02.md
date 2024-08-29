@@ -8,7 +8,7 @@ Welcome to Challenge 2! In this exercise, you will learn how to use Data Wrangle
 
 ## Description
 
-The main tasks in this challenge consist in different pre-processing steps that are important for developing robust, efficient and reliable machine learning models, like for example:
+The main tasks in this challenge consist in different pre-processing steps that are important for developing robust, efficient and reliable machine learning models. You must ensure that you accomplish the following tasks during this challenge:
 1. Removing unnecessary columns from a dataset. It is the best practice that enhances model performance, improves interpretability & reduces complexity.
 2. Dropping rows with missing values ensure compatibility with a wide range of algorithms without needing additional imputation strategies.
 3. Handling duplicate rows is an essential step in data preparation because it ensures data quality.

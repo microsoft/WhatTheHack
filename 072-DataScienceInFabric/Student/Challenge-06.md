@@ -15,6 +15,8 @@ By the end of this challenge, you should be able to understand and know how to u
 - MLFlow exported models, what the different files represent and how you can import them to a new location.
 - AzureML real-time endpoints, how to create one with a custom model and how to use it via an API call.
 
+**NOTE**: due to some compatibility issues with MLFlow and Azure Machine Learning, you will need to modify some files locally before uploading your model to Azure Machine Learning. Once you have downloaded your model from Fabric, unzip the folder and open both the `conda.yaml` and `requirements.txt` files. Change the MLFlow version on both files to `2.7.0`. Save and close both files.
+
 ## Success Criteria
 
 To complete this challenge, please verify that :
@@ -27,7 +29,7 @@ To complete this challenge, please verify that :
   - [Difference between Data science in Fabric and Azure Machine Learning](https://www.linkedin.com/pulse/comparing-microsoft-fabric-azure-machine-learning-which-kim-berg)
   - [How to deploy MLFlow model to Azure Machine learning](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-deploy-mlflow-models-online-endpoints?view=azureml-api-2&tabs=studio)
 
-## Learning Resources
+## Tips
 
 - Fabric stores everything you create as items in the workspace.
 - Make sure you unzip the folder you will download from Fabric

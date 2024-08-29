@@ -40,6 +40,7 @@ The [coach solution notebooks](./Solutions/) are the completed versions of the s
 To begin setting up your Azure subscription for this hack, you will run a bash script that will deploy and configure a list of resources. You can find this script as the `HackSetup.sh` file in the resources folder. 
  - Download the setup file to your computer
  - Go to the Azure portal and click on the cloud shell button on the top navigation bar, to the right of the Copilot button.
+  - **NOTE**: This script has been designed for the Azure CLI. It might fail to deploy if you attempt to run it from a local terminal.
  - Once the cloud shell connects, make sure you are using a Bash shell. If you are not, click on the button on the top-right corner of the cloud shell to switch to bash.
  - Click on the Manage Files button on the shell's navigation bar and select upload. Select the setup file from your computer.
  - Run the `sh HackSetup.sh` command in your cloud shell.
