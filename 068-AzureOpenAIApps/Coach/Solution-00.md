@@ -83,7 +83,7 @@ One way to do Python debugging on a local workstation is to attach to another Py
 >[!WARNING]
 >Changing the above setting makes the local workstation less secure and should not be changed permanently. 
 
-Debugging is not required to complete the challenges, but students may attempt to configure and run a debugger while troubleshooting. When the codespace first appears in VS Code
+Debugging is not required to complete the challenges, but students may attempt to configure and run a debugger while troubleshooting. 
 
 Coaches should be aware of this issue and point students to the following guide on setting up local debugging for Python: [Python Debugging in VS Code](https://code.visualstudio.com/docs/python/debugging)
 
