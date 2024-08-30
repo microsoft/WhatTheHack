@@ -73,17 +73,19 @@ We **strongly** recommend students use GitHub Codespaces as their development en
 >[!NOTE]
 >As of July 2024, the Challenge 0 instructions for how to set up a local workstation have NOT been tested!
 
-Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. However, the only way to get debugging working in Python in the Azure Functions Runtime is to do it locally. We don't expect most students to need debugging but some more advanced students may want it to see how the code is working. 
+Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. 
 
 #### Debugging Python on Local Workstation
 
-Debugging Python on a local workstation requires the ability to attach to another Python process which requires a special kernel flag to be set in Linux environment and this can only be done on the host:
+One way to do Python debugging on a local workstation is to attach to another Python process which requires a special kernel flag to be set in Linux environment and this can done with this command:
 `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`
 
 >[!WARNING]
 >Changing the above setting makes the local workstation less secure and should not be changed permanently. 
 
-Debugging is not required to complete the challenges, but students may attempt to configure and run a debugger while troubleshooting. Coaches should be aware of this issue and point students to the following guide on setting up local debugging for Python: [Python Debugging in VS Code](https://code.visualstudio.com/docs/python/debugging)
+Debugging is not required to complete the challenges, but students may attempt to configure and run a debugger while troubleshooting. When the codespace first appears in VS Code
+
+Coaches should be aware of this issue and point students to the following guide on setting up local debugging for Python: [Python Debugging in VS Code](https://code.visualstudio.com/docs/python/debugging)
 
 To debug on a local workstation, students will also need `gdb` (`sudo apt install gdb`) which is not mentioned in the above article. 
 
@@ -109,11 +111,9 @@ To do this, students can click the Codespaces area in the lower left corner of t
 
 Alternatively, they can install the Codespaces App in the browser which will give them a focused window as well as other features.
 
-#### Python Debugging Not Available in Codespaces
+#### Python Debugging in Codespaces
 
-Unfortunately, debugging will not work in Codespaces because Codespaces runs as a container and the ability to attach to another Python process requires a special kernel flag to be set in Linux and this can only be done on the local OS.
-
-Debugging is not required to complete the challenges, but students may attempt to run a debugger while troubleshooting. You should be aware of this issue as a Coach so students don't spend time trying to figure this out in Codespaces.
+Debugging is not required to complete the challenges, but students may attempt to run a debugger while troubleshooting. When the CodeSpace first appears, VS Code will show a message that it has detected an Azure Functions Project in folder "wth-aiapps-codespace" that may have been created outside of VS Code and ask to Intialize for optimal use with VS Code. If the student clicks Yes, then it will configure extensions.json, launch.json, settings.json and tasks.json in the .vscode folder and create a Python Virtual Environment automatically. If they miss this message, then they can go to the Command Palette and select "Azure Functions: Initalize project for use with VS Code". 
 
 ### Azure Resources Overview
 
