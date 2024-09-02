@@ -4,17 +4,4 @@
 
 ## Notes & Guidance
 
-This is the only section you need to include.
-
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+Challenge-00 is all about helping the student set up the prerequisites for this hack. This includes necessary installations, environment options, and other libraries needed.

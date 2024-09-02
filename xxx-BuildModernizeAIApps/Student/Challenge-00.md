@@ -12,7 +12,7 @@
 
 ## Introduction
 
-Thank you for participating in the BuildModernizeAIApps What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Build Modern AI Apps What The Hack. Over the next series of challenges you'll provision Azure resources, populate your Azure Cosmos DB database with initial data, create a vector index for the data, use Azure OpenAI models to ask questions about the data, and write some code. But before we get started, let's make sure we've got everything setup.
 
 ## Common Prerequisites
 
@@ -54,18 +54,18 @@ Now that you have the common pre-requisites installed on your workstation, there
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please install these additional tools:
+Please enable Azure OpenAI for your Azure subscription and install these additional tools:
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+- Enable subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://aka.ms/oaiapply)
+- .NET 7 SDK
+- Docker Desktop
+- Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
+- Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
+- [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
+- Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
-
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
-```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
-```
+> [!NOTE]
+> Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services.  See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 ## Success Criteria
 
@@ -80,21 +80,3 @@ _Sample success criteria for the IoT prerequisites challenge:_
 To complete this challenge successfully, you should be able to:
 
 - Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
-
-## Learning Resources
-
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)

@@ -1,99 +1,113 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - The Landing Before the Launch
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+CosmicWorks has big plans for their retail site, but they need to start somewhere; they need a landing zone in Azure for all of their services. It will take a while to prepare their e-Commerce site to migrate to Azure, but they're eager to launch a POC of a simple chat interface where users can interact with a virtual agent to find product and account information.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+They've created a simple Blazor web application for the UI elements and have asked you to to incorporate the backend plumbing to do the following:
 
-*For example:*
+- Store the chat history in an Azure Cosmos DB database
+  - They expect the following types of messages: Session (for the chat session), Message (the user and assistant message).
+  - A message should have a sender (Assistant or User), tokens (that indicates how many tokens were used), text (the text from the assistant or the user), rating (thumbs up or down) and vector (the vector embedding of the user's text).
+- Source the customer and product data from the Azure Cosmos DB database.
+- Use Azure OpenAI service to create vector embeddings and chat completions.
+- Use a Azure Cognitive Search to search for relevant product and account information by the vector embeddings.
+- Encapsulate the orchestration of interactions with OpenAI behind a back-end web service.
+- Create a storage account to externalize prompts that will be used by your assistant.
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+For this challenge, you will deploy the services into the landing zone in preparation for the launch of the POC.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites that are specific to this hack.
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+You have two deployment options: AKS and Azure Container Apps. You can choose either one, but you should have the tools installed for both. Which one you choose will depend on your familiarity with the tools and your team's preference.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+> [!IMPORTANT]
+> **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 120K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 131 and 142 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 141 and 152 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into your choice of Azure Kubeternetes Service or Azure Container Apps, and import data into Azure Cosmos DB.
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+### Deploy with Azure Kubernetes Service
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+This script will deploy all services including a new Azure OpenAI account and AKS
 
-*Sample challenge text for the IoT Hack Of The Century:*
+```pwsh
+cd ./infra/aks
+azd up
+```
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+You will be prompted for the target subscription, location, and desired environment name.  The target resource group will be `rg-` followed by the environment name (i.e. `rg-my-aks-deploy`)
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+To validate the deployment using AKS run the following script. When the script it complete it will also output this value. You can simply click on it to launch the app.
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+> ```pwsh
+>  az aks show -n <aks-name> -g <resource-group-name> -o tsv --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName
+>  ```
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+After running `azd up` and the deployment finishes, you will see the output of the script which will include the URL of the web application. You can click on this URL to open the web application in your browser. The URL is beneath the "Done: Deploying service web" message, and is the second endpoint (the Ingress endpoint of type `LoadBalancer`).
+
+![The terminal output after azd up completes shows the endpoint links.](../media/azd-aks-complete-output.png)
+
+If you closed the window and need to find the external IP address of the service, you can open the Azure portal, navigate to the resource group you deployed the solution to, and open the AKS service. In the AKS service, navigate to the `Services and Ingress` blade, and you will see the external IP address of the LoadBalancer service, named `nginx`:
+
+![The external IP address of the LoadBalancer service is shown in the Services and Ingress blade of the AKS service.](../media/aks-external-ip.png)
+
+### Deploy with Azure Container Apps
+
+This script will deploy all services including a new Azure OpenAI account using Azure Container Apps. (This can be a good option for users not familiar with AKS)
+
+```pwsh
+cd ./infra/aca
+azd up
+```
+
+You will be prompted for the target subscription, location, and desired environment name. The target resource group will be `rg-` followed by the environment name (i.e. `rg-my-aca-deploy`)
+
+To validate the deployment to ACA run the following script:
+
+> ```pwsh
+>  az containerapp show -n <aca-name> -g <resource-group-name>
+>  ```
+
+After running `azd up` on the **ACA** deployment and the deployment finishes, you can locate the URL of the web application by navigating to the deployed resource group in the Azure portal. Click on the link to the new resource group in the output of the script to open the Azure portal.
+
+![The terminal output aafter azd up completes shows the resource group link.](../media/azd-aca-complete-output.png)
+
+In the resource group, you will see the `ca-search-xxxx` Azure Container Apps service.
+
+![The Search Azure Container App is highlighted in the resource group.](../media/search-container-app-resource-group.png)
+
+Select the service to open it, then select the `Application Url` to open the web application in your browser.
+
+![The Application Url is highlighted in the Search Azure Container App overview blade.](../media/search-container-app-url.png)
+
+> [!IMPORTANT]
+> If you encounter any errors during the deployment, rerun `azd up` to continue the deployment from where it left off. This will not create duplicate resources, and tends to resolve most issues.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+- Verify that you have a new Azure Cosmos DB workspace with the NoSQL API. It should have a database named `database` and containers named `completions` with a partition key of `/sessionId`, `customer` with a partition key of `/customerId`, `embedding` with a partition key of `/id`, `product` with a partition key of `/categoryId`, and `leases` with a partition key of `/id`.
+- Verify that you have Azure OpenAI with the following deployments:
+  - `completions` with the `gpt-35-turbo` model
+  - `embeddings` with the `text-embedding-ada-002` model
+- Verify that you have Azure Cognitive Search in the basic tier.
+- Verify that the solution contains Azure Container Apps, an Azure Container Registry, and an Azure Storage Account.
+- Verify that the `product` and `customer` containers contain data.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+- [Azure Cosmos DB](https://learn.microsoft.com/azure/cosmos-db/)
+- [Azure OpenAI service](https://learn.microsoft.com/azure/cognitive-services/openai/overview)
+- [Azure Cognitive Search](https://learn.microsoft.com/azure/search/)
+- [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/start)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
+### Explore Further
 
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- [Understanding embeddings](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/understand-embeddings)

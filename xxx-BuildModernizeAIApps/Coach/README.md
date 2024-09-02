@@ -1,10 +1,8 @@
-# What The Hack - BuildModernizeAIApps - Coach Guide
+# What The Hack - Build & Modernize AI Applications - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the BuildModernizeAIApps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
-
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+Welcome to the coach's guide for the Build & Modernize AI Applications What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -12,18 +10,18 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
+- Challenge 01: **[The Landing Before the Launch](./Solution-01.md)**
+	 - Deploy the solution cloud services in preparation for the launch of the POC.
+- Challenge 02: **[Now We're Flying](./Solution-02.md)**
+	 - Experiment with system prompts.
+- Challenge 03: **[What's Your Vector, Victor?](./Solution-03.md)**
+	 - Load new data and observe automatic vectorization.
+- Challenge 04: **[It's All About the Payload, The Sequel](./Solution-04.md)**
+	 - Extend the solution to handle any type of JSON data.
+- Challenge 05: **[The Colonel Needs a Promotion](./Solution-05.md)**
+	 - Add new capability by creating Semantic Kernel plugins.
+- Challenge 06: **[Getting Into the Flow](./Solution-06.md)**
+	 - Use ML Prompt Flow to replace portions of the chat service.
 
 ## Coach Prerequisites
 
@@ -39,37 +37,17 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
-
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+- Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate, create and configure the resource group and necessary resources including:
+    - Azure Cosmos DB with NoSQL API
+    - Azure Container App with supporting services _or_ Azure Kubernetes Service (AKS)
+	- Azure OpenAI
+	- Azure AI Search
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
@@ -77,5 +55,5 @@ _The default files & folders are listed below. You may add to this if you want t
   - Solution files with completed example answers to a challenge
 - `./Student`
   - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - `./Student/Resources`
+    - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)

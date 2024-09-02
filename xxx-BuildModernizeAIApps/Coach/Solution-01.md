@@ -1,20 +1,10 @@
-# Challenge 01 - <Title of Challenge> - Coach's Guide 
+# Challenge 01 - The Landing Before the Launch - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+Challenge-01 is all about helping the student deploy resources to Azure in preparation for the launch of the POC. The student will deploy services into the landing zone in preparation for the launch of the POC.
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
+> [!TIP]
+> If the student does not see data in the `product` and `customer` containers in Azure Cosmos DB, they should try re-running the `postdeployment` azd hook. To do this, they can execute the following command in the terminal: `azd hooks run postdeploy`.
