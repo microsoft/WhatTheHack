@@ -4,15 +4,15 @@
 
 ## Introduction
 
-In this challenge, you create a new Logic App for your data export workflow. This Logic App will execute periodically and call your ExportLicensePlates function, then conditionally send an email if there were no records to export.
+In this challenge, you create a new Logic App for your data export workflow. This Logic App will execute periodically and call your `ExportLicensePlates` function, then conditionally send an email if there were no records to export.
 
 ## Description
 
 1. Create a logic app
-    * Name : Similar to TollboothLogic
+    * Name : Similar to `TollBoothLogic`
     * Make sure Log Analytics is Off
     * Trigger should be Recurrence, 15 minutes
-2. Add an action to call your &quot;App&quot; function app function name ExportLicensePlates
+2. Add an action to call your &quot;App&quot; function app function name `ExportLicensePlates`
 3. Add a condition control
     * Value : Status Code parameter
     * Operator : is equal to
@@ -35,7 +35,7 @@ In this challenge, you create a new Logic App for your data export workflow. Thi
 
 ```csharp
     // TODO 7: Asyncronously upload the blob from the memory stream.
-    await blob.UploadFromStreamAsync(stream);
+    await blob.UploadAsync(stream, true);
  ```
  8. Publish to Azure
  9. In your App Azure Function, add `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true` in the application settings.

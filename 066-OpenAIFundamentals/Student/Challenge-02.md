@@ -1,33 +1,23 @@
-# Challenge 02 - OpenAI Models & Capabilities - OPTIONAL
+# Challenge 02 - OpenAI Models & Capabilities
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-**NOTE:** This challenge is OPTIONAL due to the retirement of several Azure OpenAI models. You can read more about this decision on the Microsoft blog [here](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/announcing-updates-to-azure-openai-service-models/ba-p/3866757). 
-
-If you already have _existing_ deployments of the models outlined below, you should be able to complete this hack before July 5, 2024, when existing deployments will become unavailable. However, these models are unavailable for _new_ deployments beginning July 6, 2023. In that case, you may revise the environment file and the models you deploy accordingly. Please refer to the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and below for more details.
-
-However, in a world where the availability and development of models are always changing, **we highly encourage** you to understand the general concepts and material in this Challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large Language Models (LLMs).  It is straightforward to utilize alternative models in place of the ones included here, since additional models have become available in the [Azure model catalog](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2) since the time of publishing.
-
 ## Introduction
 
-As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to evaluate the Azure OpenAI models and how to apply them in different scenarios.
+In this challenge, you will learn about the different capabilities of OpenAI models and learn how to choose the best model for your use case.
+
+You are going to compare gpt3.5 to gpt4 model in this challenge. If you do not have gpt-4 access, you can compare the legacy models if they are deployed, or go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.
+
+In a world where the availability and development of models are always changing, the model we compare may change over time. But we encourage you to understand the general concepts and material in this Challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large Language Models. For more information on legacy models and additional models, reference the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and [Azure model catalog](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-use-foundation-models?view=azureml-api-2) for more details.
 
 ## Description
 Model deployment for the challenge:
-- Deploy the following models in your Azure OpenAI resource. 
+- Deploy the following models in your Azure OpenAI resource using these names: 
+  - `gpt-4`
   - `gpt-35-turbo`
-  - `text-ada-001`
-  - `text-babbage-001`
-  - `text-curie-001`
-  - `text-davinci-003`
-  - `text-embedding-ada-002`
-    
-Note: Model families currently available as of _Aug 4, 2023_ in Azure OpenAI includes GPT-3, Codex and Embeddings, GPT-4 is available for application. Please reference this link for more information: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models.
-Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: `https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models`
+ **If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.**
 
-**If you have deployed some of these models from before, you will still be able to use them until the dates listed above. However if you had not deployed those models, but have gpt-4 access, you can compare gpt3.5 to gpt4 in this challenge. If you do not have gpt-4 access, you can still go through this challenge conceptually to understand how to best pick a model from the ones you have deployed as well as the ones in the model catalog.**
-  
-- Add required credentials of Azure resources in the ``.env`` file
+- Add required credentials of Azure resources in the `.env` file
 
 Questions you should be able to answer by the end of this challenge:
 - What are the capacities of each Azure OpenAI model?
@@ -36,19 +26,23 @@ Questions you should be able to answer by the end of this challenge:
 - What model would you select to generate new names?
 - How to retrieve embeddings?
 
-You will run the following Jupyter notebook for this challenge. You can find it in the `/Notebooks` folder of `Resources.zip` file.
+You will run the following Jupyter notebook for this challenge:
 
 - `CH-02-ModelComparison.ipynb`
+
+The file can be found in your Codespace under the `/notebooks` folder. 
+If you are working locally or in the Cloud, you can find it in the `/notebooks` folder of `Resources.zip` file. 
+
+To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 Sections in this Challenge:
 1. Overview on finding the right model
 - 1.1 Model Families
 - 1.2 Model Capacities
-- 1.3 Model Taxonomy
-- 1.4 Pricing Details
-- 1.5 Quotas and Limits
-- 1.6 Model Best Use Cases
-- 1.7 Model Selection Best Practices
+- 1.3 Pricing Details
+- 1.4 Quotas and Limits
+- 1.5 Model Best Use Cases
+- 1.6 Model Selection Best Practices
 2. Implementation
 
 - 2.0 Helper Functions

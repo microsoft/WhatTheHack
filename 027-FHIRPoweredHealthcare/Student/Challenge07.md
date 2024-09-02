@@ -1,10 +1,10 @@
 # Challenge 7: Load DICOM Imaging Data
 
-[< Previous Challenge](./Challenge06.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge06.md) - **[Home](../README.md)** - [Next Challenge>](./Challenge08.md)
 
 ## Introduction
 
-In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (STOW-RS), Search (QIDO-RS), and Retrieve (WADO-RS).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliance boundary in the Azure Health Data Services workspace.
+In this challenge, you will deploy, configure and use **[DICOM service](https://docs.microsoft.com/azure/healthcare-apis/dicom/)** in **[Azure Health Data Services](https://docs.microsoft.com/azure/healthcare-apis/healthcare-apis-overview)** to work with medical images.  DICOM service facilitates transmission of imaging data with any DICOMweb™ enabled system or application through standard transactions including Store (`STOW-RS`), Search (`QIDO-RS`), and Retrieve (`WADO-RS`).  It persists imaging data in a *DICOMweb™-compliant server, and injects DICOM metadata into a FHIR server to create a holistic view of patient data.  You can upload PHI (Protected Health Information) data to the HIPAA/HITRUST compliant DICOM service, and the data will remain safely segregated within the compliance boundary in the Azure Health Data Services workspace.
 
 Below is the overview of the **[DICOMcast synchronization pipeline](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-cast-overview)**:
 <center><img src="../images/challenge07-architecture.png" width="550"></center>
@@ -27,23 +27,23 @@ You will deploy an instance of DICOM service in your Azure Health Data Service w
     Hint:
 
     From your existing fhir-service Postman environment:
-    - tenantId - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
-    - clientId - Application (client) ID for Postman service client app.
-    - clientSecret - Client secret for your Postman app.
+    - `tenantId` - AAD tenant ID (you also can find it in AAD -> Overview -> Tenant ID).
+    - `clientId` - Application (client) ID for Postman service client app.
+    - `clientSecret` - Client secret for your Postman app.
 
     New values you need to input:
-    - resource - https://dicom.healthcareapis.azure.com
-    - baseUrl - Service URL appended with /v1. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add /v1 on the end: https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1
+    - `resource` - `https://dicom.healthcareapis.azure.com`
+    - `baseUrl` - Service URL appended with `/v1`. Go to Portal -> Resource Group -> DICOM service -> Service URL. Copy and add `/v1` on the end: `https://<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com/v1`
 
 - **Use DICOM service to load imaging files**
   - Obtain access token to connect with your DICOM service
   - Store DICOM instances with sample DICOM files
 
     Hint:
-    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `WTH FHIR-Conformance-as-Postman` collection for each sample DICOM files (red-triangle.dcm, green-square.dcm and blue-circle.dcm)
+    - Select corresponding POST `Store-single-instance (xxx.dcm)` in `WTH FHIR-Conformance-as-Postman` collection for each sample DICOM files (`red-triangle.dcm`,`green-square.dcm` and `blue-circle.dcm`)
     - You can find the sample DICOM files (`red-triangle.dcm`, `green-square.dcm` and `blue-circle.dcm`) in the `/DICOM-service/dcms` folder of the Resources.zip file provided by your coach.
-    - Select the appropriate .dcm file (downloaded previously) for each API call in the `Body` tab.
-    - For each sample .dcm file, send appropriate `POST Store-single-instance...` API call to populate your DICOM service with the three .dcm single instance files.
+    - Select the appropriate `.dcm` file (downloaded previously) for each API call in the `Body` tab.
+    - For each sample `.dcm` file, send appropriate `POST Store-single-instance...` API call to populate your DICOM service with the three `.dcm` single instance files.
 
   - Use DICOM service API calls to Search for DICOM instance(s)
   - Use DICOM service API calls to Retrieve DICOM instance(s)

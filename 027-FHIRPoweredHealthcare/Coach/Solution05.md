@@ -1,10 +1,10 @@
-# Coach's Guide: Challenge 5 - : Export and Anonymize FHIR EHR Data
+# Coach's Guide: Challenge 5 - Export and Anonymize FHIR EHR Data
 
-[< Previous Challenge](./Solution04.md) - **[Home](../README.md)** - [Next Challenge>](./Solution06.md)
+[< Previous Challenge](./Solution04.md) - **[Home](./README.md)** - [Next Challenge>](./Solution06.md)
 
 ## Notes & Guidance
 
-In this challenge, you will use Azure Health Data Services platform to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challege is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
+In this challenge, you will use Azure Health Data Services platform to export and de-identify FHIR data according to a set of data redaction/transformation rules specified in a **[configuration file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format)**. The goal of the of this challenge is to apply the **[HIPAA Safe Harbor Method](https://www.hhs.gov/hipaa/for-professionals/privacy/special-topics/de-identification/index.html#safeharborguidance)** de-id requirements against FHIR data to create a research datasets.
 
 **[FHIR Tool for Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization)** provides tooling to anonymize healthcare FHIR data, on-premises or cloud, for secondary usage such as research, public health, etc. in the following methods:
 - Command line tool, 
@@ -51,7 +51,7 @@ In this challenge, you will use Azure Health Data Services platform to export an
             ```powershell
             .\DeployAzureDataFactoryPipeline.ps1 -SubscriptionId $SubscriptionId -BatchAccountName $BatchAccountName -BatchAccountPoolName $BatchAccountPoolName -BatchComputeNodeSize $BatchComputeNodeSize -ResourceGroupName $ResourceGroupName   ```
 - **Upload test FHIR patient data for anonymization**
-    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the builk FHIR export using the $export operation in the FHIR service via Postman.
+    - **[Configure](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/configure-export-data)** and **[perform](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data)** the bulk FHIR export using the $export operation in the FHIR service via Postman.
     - Or you can simply upload Synthea generated FHIR patient data to the source container configured in the linked service of ADF pipeline for testing the Anonymization pipeline.
 - **Trigger and monitor pipeline run to anonymize the uploaded test FHIR patient data**
     - Run in PowerShell:

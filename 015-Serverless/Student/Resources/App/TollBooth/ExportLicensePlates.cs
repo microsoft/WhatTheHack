@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,15 +10,15 @@ namespace TollBooth
 {
     public class ExportLicensePlates
     {
-        private readonly ILogger _logger;
+        private readonly ILogger log;
 
         public ExportLicensePlates(ILogger<ExportLicensePlates> logger)
         {
-            _logger = logger;
+            log = logger;
         }
 
         [Function("ExportLicensePlates")]
-        public static async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestData  req, ILogger log)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestData req)
         {
             int exportedCount = 0;
             log.LogInformation("Finding license plate data to export");
