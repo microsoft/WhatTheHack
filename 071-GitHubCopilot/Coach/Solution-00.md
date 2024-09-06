@@ -8,5 +8,5 @@ A GitHub account, GitHub Copilot, and VS Code is all that is needed for this hac
 
 - [Create GitHub Account](https://github.com/join)
 - [Install Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-- [Install GitHub Copilot in VS Code](https://docs.github.com/en/copilot)
+- [Install GitHub Copilot in VS Code](https://docs.github.com/en/copilot/quickstart?tool=vscode)
   
