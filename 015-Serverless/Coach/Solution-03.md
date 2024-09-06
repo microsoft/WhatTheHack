@@ -36,7 +36,13 @@ Whether you provide the automation script to the students or a lab provider, you
 
 While the script is running, you can monitor its progress in the Azure Portal by navigating to the Resource Group `wth-serverless-rg` and checking the `Deployments` pane.
 
+For education purposes, there's also a script `after-accelerator-ch04-06.sh` with the CLI instructions to complete challenges 4 to 6 after running the 03-Accelerator
+
 **NOTE:** If you plan to deploy these resources to different resource groups in a shared subscription, you must modify the `RGName` value in the `deployAzureResources.sh` script for each deployment so you don't collide on the same Resource Group.
+
+## May 2024 Serverless Lab at MS Build
+
+For MS Build conference on May 2024 we created a shorter version of this WTH, automating most of challenge 01 to 07, removing challenge 08 altogether, so it can be completed in a couple hours (starting from a codespace with the TODO code already replaced and all Azure resources pre-created). Note that the lab have different numbered activities (lab 1 to 5). Coaches can look at the instructions and the Bicep code in the Coach/Solutions/may2024-lab-msbuild folder, as it has less things to configure, so it can be used for training the Coaches or to prepare a custom version of this WTH. Note that this folder won't be updated by WTH maintainers going forward (so expect the code to become outdated in the future)
 
 ## Step by Step Instructions
 
