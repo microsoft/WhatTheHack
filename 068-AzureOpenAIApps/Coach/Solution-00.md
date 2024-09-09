@@ -66,6 +66,9 @@ This information is subject to change over time, for the most up to date list of
 
 </details>
 
+### Deployment
+Make sure the student uses the terminal window in GitHub Codespaces or the local workstation and not Azure Cloud Shell to do the deployment. If they somehow do that by cloning the repo and then running deploy, their local.settings.json will be in the wrong place and they will either have to redeploy or copy the local.settings.json for the ContosoAIBackend to their Codespace or local workstation manually. 
+
 ### Codespaces vs Local Workstation
 
 We **strongly** recommend students use GitHub Codespaces as their development environment over a local workstation.
@@ -74,6 +77,7 @@ We **strongly** recommend students use GitHub Codespaces as their development en
 >As of July 2024, the Challenge 0 instructions for how to set up a local workstation have NOT been tested!
 
 Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. 
+
 
 #### Debugging Python on Local Workstation
 
