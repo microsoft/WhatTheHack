@@ -166,7 +166,7 @@ Run the following command to create a service principal with the Contributor rol
 
 ##### Provisioning Azure Resources
 
-In the codespace, the terminal will default to be visible so you can execute the following comamnds:
+Execute the following commands in your Codespace or local workstation terminal window. **Do not run these steps in Azure CloudShell**:
 
 ```bash
 cd infra
