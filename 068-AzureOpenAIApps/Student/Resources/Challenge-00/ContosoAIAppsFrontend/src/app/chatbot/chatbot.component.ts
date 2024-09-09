@@ -18,7 +18,7 @@ export class ChatbotComponent {
   public sendMessage() {
     const userMessage = this.userMessage;
     this.chatMessages.push({ role: 'user', content: userMessage });
-    this.openAiApiService.askElizabeth<SimpleChatResponse>(this.userMessage)
+    this.openAiApiService.askDonald<SimpleChatResponse>(this.userMessage)
       .subscribe(response => {
         this.assistantReply = response.reply;
         this.chatMessages.push({ role: 'assistant', content: this.assistantReply });

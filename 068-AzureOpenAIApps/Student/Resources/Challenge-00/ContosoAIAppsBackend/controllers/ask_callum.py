@@ -7,18 +7,18 @@ from azure.functions import AuthLevel
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
 from shared.assistant_tools import get_current_unix_timestamp
 from shared.assistant_tools_common import v_check_if_customer_account_exists, v_get_customer_account_details
-from shared.assistant_tools_esther import v_create_customer_account, v_get_customer_account_balance, \
+from shared.assistant_tools_callum import v_create_customer_account, v_get_customer_account_balance, \
     v_make_bank_account_deposit, v_make_bank_account_withdrawal
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
 
-ask_esther_controller = func.Blueprint()
+ask_callum_controller = func.Blueprint()
 
 
-@ask_esther_controller.function_name("ask_esther_assistant")
-@ask_esther_controller.route(route="assistants-ask-esther", methods=["POST"],
+@ask_callum_controller.function_name("ask_callum_assistant")
+@ask_callum_controller.route(route="assistants-ask-callum", methods=["POST"],
                              auth_level=AuthLevel.ANONYMOUS)
-def ask_esther(req: func.HttpRequest) -> func.HttpResponse:
+def ask_callum(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     headers = req.headers

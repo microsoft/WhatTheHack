@@ -3,11 +3,11 @@ from azure.monitor.opentelemetry import configure_azure_monitor
 
 from controllers.app_llm_quota_enforcement_manger import quota_controller
 from controllers.application_initializer import app_initializer_controller
-from controllers.ask_elizabeth import ask_elizabeth_controller
-from controllers.ask_esther import ask_esther_controller
-from controllers.ask_miriam import ask_miriam_controller
+from controllers.ask_donald import ask_donald_controller
+from controllers.ask_callum import ask_callum_controller
+from controllers.ask_veta import ask_veta_controller
 from controllers.ask_priscilla import ask_priscilla_controller
-from controllers.ask_sarah import ask_sarah_controller
+from controllers.ask_murphy import ask_murphy_controller
 from controllers.azure_blob_contoso_documents import azure_blob_controller
 from controllers.azure_document_intelligence import azure_document_intelligence_controller
 from controllers.azure_service_bus_grapefruit import service_bus_controller_grapefruit
@@ -24,11 +24,11 @@ configure_azure_monitor()
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-app.register_functions(ask_elizabeth_controller)
-app.register_functions(ask_esther_controller)
-app.register_functions(ask_miriam_controller)
+app.register_functions(ask_donald_controller)
+app.register_functions(ask_callum_controller)
+app.register_functions(ask_veta_controller)
 app.register_functions(ask_priscilla_controller)
-app.register_functions(ask_sarah_controller)
+app.register_functions(ask_murphy_controller)
 
 app.register_functions(yachts_crud_controller)
 app.register_functions(students_crud_controller)

@@ -131,7 +131,7 @@ Once you have verify that these documents have been parsed and the data has been
 
 You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
 
-- Sarah: answers questions about exams, grades and exam submissions from students.
+- Murphy: answers questions about exams, grades and exam submissions from students.
 - Priscilla: answers questions about things to do on Contoso Islands as well as make recommendations to guests based on their activity preferences.
 
 ## Success Criteria

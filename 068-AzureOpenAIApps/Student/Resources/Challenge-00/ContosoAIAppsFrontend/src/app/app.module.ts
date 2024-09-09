@@ -7,11 +7,11 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { ListAssistantsComponent } from './list-assistants/list-assistants.component';
-import { AskElizabethComponent } from './ask-elizabeth/ask-elizabeth.component';
-import { AskEstherComponent } from './ask-esther/ask-esther.component';
-import { AskMiriamComponent } from './ask-miriam/ask-miriam.component';
+import { AskDonaldComponent } from './ask-donald/ask-donald.component';
+import { AskCallumComponent } from './ask-callum/ask-callum.component';
+import { AskVetaComponent } from './ask-veta/ask-veta.component';
 import { AskPriscillaComponent } from './ask-priscilla/ask-priscilla.component';
-import { AskSarahComponent } from './ask-sarah/ask-sarah.component';
+import { AskMurphyComponent } from './ask-murphy/ask-murphy.component';
 import {NgOptimizedImage} from "@angular/common";
 
 
@@ -20,11 +20,11 @@ import {NgOptimizedImage} from "@angular/common";
     AppComponent,
     ChatbotComponent,
     ListAssistantsComponent,
-    AskElizabethComponent,
-    AskEstherComponent,
-    AskMiriamComponent,
+    AskDonaldComponent,
+    AskCallumComponent,
+    AskVetaComponent,
     AskPriscillaComponent,
-    AskSarahComponent
+    AskMurphyComponent
   ],
     imports: [
         BrowserModule,

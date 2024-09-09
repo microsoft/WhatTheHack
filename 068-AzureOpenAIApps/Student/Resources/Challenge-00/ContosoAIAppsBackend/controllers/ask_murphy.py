@@ -8,19 +8,19 @@ from application_settings import ApplicationSettings, AssistantConfig, Assistant
 from shared.assistant_tools import get_current_unix_timestamp
 from shared.assistant_tools_priscilla import v_list_available_activities, v_guest_has_activity_preferences_and_requests, \
     v_retrieve_guest_activity_preferences_and_requests
-from shared.assistant_tools_sarah import v_is_registered_student, v_get_student_submissions, \
+from shared.assistant_tools_murphy import v_is_registered_student, v_get_student_submissions, \
     v_get_student_submissions_by_date, v_get_student_submissions_by_exam_id, v_get_student_grades, \
     v_get_submission_details, v_get_submission_grade_details, v_student_has_exam_submissions, v_student_has_exam_grades
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
 
-ask_sarah_controller = func.Blueprint()
+ask_murphy_controller = func.Blueprint()
 
 
-@ask_sarah_controller.function_name("ask_sarah_assistant")
-@ask_sarah_controller.route(route="assistants-ask-sarah", methods=["POST"],
+@ask_murphy_controller.function_name("ask_murphy_assistant")
+@ask_murphy_controller.route(route="assistants-ask-murphy", methods=["POST"],
                             auth_level=AuthLevel.ANONYMOUS)
-def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
+def ask_donald(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     headers = req.headers

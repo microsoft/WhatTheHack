@@ -6,9 +6,9 @@
 
 This challenge is about interacting with virtual assistants that will provide the following functionality:
 
-- Answer Questions about the Contoso Islands (Assistant Elizabeth)
-- Create Accounts, Manage Customer Bank Account Balances (Deposits, Withdrawals) - Assistant Esther
-- Make or Cancel Yacht Reservations for Contoso Island Tourists - Assistan Miriam
+- Answer Questions about the Contoso Islands (Assistant Donald)
+- Create Accounts, Manage Customer Bank Account Balances (Deposits, Withdrawals) - Assistant Callum
+- Make or Cancel Yacht Reservations for Contoso Island Tourists - Assistan Veta
 
 
 We have the following AI Assistants
@@ -21,7 +21,7 @@ The front end application simply needs to modify the environment.ts file to poin
 ### System Message
 
 ````shell
-You are a helpful assistant. Your name is Elizabeth Contoso.
+You are a helpful assistant. Your name is Donald Contoso.
 
 Always ask the customer how you can help them.
 

@@ -6,7 +6,7 @@ import json
 
 from application_settings import ApplicationSettings, AssistantConfig, AssistantName
 from shared.assistant_tools_common import v_check_if_customer_account_exists
-from shared.assistant_tools_miriam import v_get_yacht_details, v_bank_account_balance_is_sufficient, \
+from shared.assistant_tools_veta import v_get_yacht_details, v_bank_account_balance_is_sufficient, \
     v_calculate_reservation_grand_total_amount, v_get_bank_account_balance, \
     v_yacht_travel_party_size_within_capacity, v_get_valid_reservation_search_dates, v_yacht_is_available_for_date, \
     v_is_valid_search_date, v_get_yacht_availability_by_id, v_get_yacht_availability_by_date, \
@@ -17,13 +17,13 @@ from shared.tool_utils import ToolUtils
 from shared.assistant_tools import get_contoso_document_vector_store, contoso_document_retrieval_hybrid, \
     get_contoso_information, get_current_unix_timestamp
 
-ask_miriam_controller = func.Blueprint()
+ask_veta_controller = func.Blueprint()
 
 
-@ask_miriam_controller.function_name("ask_miriam_assistant")
-@ask_miriam_controller.route(route="assistants-ask-miriam", methods=["POST"],
+@ask_veta_controller.function_name("ask_veta_assistant")
+@ask_veta_controller.route(route="assistants-ask-veta", methods=["POST"],
                              auth_level=AuthLevel.ANONYMOUS)
-def ask_miriam(req: func.HttpRequest) -> func.HttpResponse:
+def ask_veta(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     headers = req.headers

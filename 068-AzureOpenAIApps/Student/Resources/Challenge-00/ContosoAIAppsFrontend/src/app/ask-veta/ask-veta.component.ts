@@ -3,11 +3,11 @@ import {OpenAiApiServiceService} from "../service/open-ai-api.service.service";
 import {SimpleChatResponse} from "../models/chat-models";
 
 @Component({
-  selector: 'app-ask-esther',
-  templateUrl: './ask-esther.component.html',
-  styleUrls: ['./ask-esther.component.css']
+  selector: 'app-ask-veta',
+  templateUrl: './ask-veta.component.html',
+  styleUrls: ['./ask-veta.component.css']
 })
-export class AskEstherComponent {
+export class AskVetaComponent {
 
   userMessage!: string;
   assistantReply!: string;
@@ -18,7 +18,7 @@ export class AskEstherComponent {
   public sendMessage() {
     const userMessage = this.userMessage;
     this.chatMessages.push({ role: 'user', content: userMessage });
-    this.openAiApiService.askEsther<SimpleChatResponse>(this.userMessage)
+    this.openAiApiService.askVeta<SimpleChatResponse>(this.userMessage)
         .subscribe(response => {
           this.assistantReply = response.reply;
           this.chatMessages.push({ role: 'assistant', content: this.assistantReply });

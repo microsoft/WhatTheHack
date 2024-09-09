@@ -23,14 +23,14 @@ In this challenge, you will configure 3 virtual assistants:
 - A Contoso Yachts Assistant
 - A Bank Account Management Assistant
 
-#### Contoso Islands Travel Assistant (Elizabeth)
+#### Contoso Islands Travel Assistant (Donald)
 This assistant should be able to answer any question about the country of Contoso Island from any of the following categories:
 - Climate of Contoso Islands
 - Location and Geography of Contoso Islands
 - Population, Tourism details, Languages Spoken and the Economy of Contoso Islands
 - Government and Cabinet Members of Contoso Islands
 
-#### Contoso Yachts Assistant (Miriam)
+#### Contoso Yachts Assistant (Veta)
 
 Reservations can only be made up to 3 days from the current date.
 Reservations must be within the passenger capacity of the yacht.
@@ -43,7 +43,7 @@ This virtual assistant should be able to do the following:
 - Update the travel party size (number of passengers) for a particular reservation
 - Get details about the Yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
 
-#### Bank Account Management Assistant (Esther)
+#### Bank Account Management Assistant (Callum)
 This assistants allows customers to manage bank accounts.
 - It can help the guest to create a new bank account with their email address and full name.
 - It can also check account balances
@@ -79,19 +79,19 @@ In this challenge, you will be asked to configure the system message and tools u
 
 This is where the tools are registered in the application.
 
-- controllers/ask_elizabeth.py
-- controllers/ask_esther.py
-- controllers/ask_miriam.py
+- controllers/ask_donald.py
+- controllers/ask_callum.py
+- controllers/ask_veta.py
 
 #### The python function definition for each assistant are in the following files:
 
 This is where the functions used in the tools are defined in python code
 
-- shared/assistant_tools_elizabeth.py
-- shared/assistant_tools_esther.py
-- shared/assistant_tools_miriam.py
+- shared/assistant_tools_donald.py
+- shared/assistant_tools_callum.py
+- shared/assistant_tools_veta.py
 
-You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (priscilla and sarah) to see how it is configured to figure out the function description and parameter data types.
+You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (priscilla and murphy) to see how it is configured to figure out the function description and parameter data types.
 
 Make sure that the value of the first parameter to ToolUtils.register_tool_mapping() matches the name of the function in the JSON function definition for the assistant configuration.
 
@@ -163,9 +163,9 @@ The format for the parameter description and typing follows the JSON schema spec
 
  ````
 
- You can use the rest-api-ask-assistants.http REST Client to interact with the first assistant (Elizabeth) to make sure it is all working properly. The question you have for the AI assistant needs to be in the "message" field for the JSON object for the body of the HTTP request.
+ You can use the rest-api-ask-assistants.http REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the "message" field for the JSON object for the body of the HTTP request.
 
- Once this is up and running for the backend, you can navigate to the page for Elizabeth to send you questions to her.
+ Once this is up and running for the backend, you can navigate to the page for Donald to send you questions to her.
 
 ## Success Criteria for Each Assistant
 

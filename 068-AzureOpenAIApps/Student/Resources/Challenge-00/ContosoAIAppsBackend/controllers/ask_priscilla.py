@@ -17,7 +17,7 @@ ask_priscilla_controller = func.Blueprint()
 @ask_priscilla_controller.function_name("ask_priscilla_assistant")
 @ask_priscilla_controller.route(route="assistants-ask-priscilla", methods=["POST"],
                                 auth_level=AuthLevel.ANONYMOUS)
-def ask_elizabeth(req: func.HttpRequest) -> func.HttpResponse:
+def ask_donald(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     headers = req.headers

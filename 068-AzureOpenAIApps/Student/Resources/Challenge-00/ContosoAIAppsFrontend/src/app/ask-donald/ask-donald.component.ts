@@ -3,11 +3,11 @@ import {OpenAiApiServiceService} from "../service/open-ai-api.service.service";
 import {SimpleChatResponse} from "../models/chat-models";
 
 @Component({
-  selector: 'app-ask-elizabeth',
-  templateUrl: './ask-elizabeth.component.html',
-  styleUrls: ['./ask-elizabeth.component.css']
+  selector: 'app-ask-donald',
+  templateUrl: './ask-donald.component.html',
+  styleUrls: ['./ask-donald.component.css']
 })
-export class AskElizabethComponent {
+export class AskDonaldComponent {
 
   userMessage!: string;
   assistantReply!: string;
@@ -18,7 +18,7 @@ export class AskElizabethComponent {
   public sendMessage() {
     const userMessage = this.userMessage;
     this.chatMessages.push({ role: 'user', content: userMessage });
-    this.openAiApiService.askElizabeth<SimpleChatResponse>(this.userMessage)
+    this.openAiApiService.askDonald<SimpleChatResponse>(this.userMessage)
         .subscribe(response => {
           this.assistantReply = response.reply;
           this.chatMessages.push({ role: 'assistant', content: this.assistantReply });

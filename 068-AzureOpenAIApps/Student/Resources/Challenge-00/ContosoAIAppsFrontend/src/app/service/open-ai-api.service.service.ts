@@ -15,23 +15,23 @@ export class OpenAiApiServiceService {
 
   constructor(private http: HttpClient, private localService: LocalStorageService) { }
 
-  public askElizabeth<T>(message: string) {
+  public askDonald<T>(message: string) {
 
-    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-elizabeth`;
-
-    return this.askAssistant<T>(apiEndpoint, message)
-  }
-
-  public askEsther<T>(message: string) {
-
-    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-esther`;
+    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-donald`;
 
     return this.askAssistant<T>(apiEndpoint, message)
   }
 
-  public askMiriam<T>(message: string) {
+  public askCallum<T>(message: string) {
 
-    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-miriam`;
+    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-callum`;
+
+    return this.askAssistant<T>(apiEndpoint, message)
+  }
+
+  public askVeta<T>(message: string) {
+
+    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-veta`;
 
     return this.askAssistant<T>(apiEndpoint, message)
   }
@@ -43,9 +43,9 @@ export class OpenAiApiServiceService {
     return this.askAssistant<T>(apiEndpoint, message)
   }
 
-  public askSarah<T>(message: string) {
+  public askMurphy<T>(message: string) {
 
-    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-sarah`;
+    const apiEndpoint: string = `${this.apiUrl}/api/assistants-ask-murphy`;
 
     return this.askAssistant<T>(apiEndpoint, message)
   }
