@@ -1,0 +1,32 @@
+name: Check Template Format
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '**'
+      - '!README.md'
+      - '!assets/**'
+      - '!.github/**'
+      - '.github/workflows/checkTemplate.yml'
+  push:
+    paths:
+      - '**'
+      - '!README.md'
+      - '!assets/**'
+      - '!.github/**'
+      - '.github/workflows/checkTemplate.yml'
+  
+jobs:
+  checklinks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Template Format Check
+        uses: jordanbean-msft/github-action-wth-template-check@v0.4.0
+        with:
+          path: ${{ github.workspace }}
+          shouldScanSubdirectories: true
+          pathToIgnoreFile: ${{ github.workspace }}/.github/workflows/.checkTemplateIgnore
