@@ -8,7 +8,7 @@ Table of contents for this Coach Guide:
 - [Deploying Azure Resources](#deploying-azure-resources)
   - [Microsoft FTEs and the FDPO Tenant](#microsoft-ftes-and-the-fdpo-tenant)
   - [Azure AI Capacity Issues](#azure-ai-capacity-issues)
-- [Codespaces vs Local Workstation](#codespaces-vs-local-workstation)
+  - [CORS Error When Running the Front End App](#cors-error-when-running-the-front-end-app) [Codespaces vs Local Workstation](#codespaces-vs-local-workstation)
   - [Debugging Python on Local Workstation](#debugging-python-on-local-workstation)
 - [GitHub Codespaces Tips](#github-codespaces-tips)
   - [Working with Multiple Terminal Sessions in VS Code](#working-with-multiple-terminal-sessions-in-vs-code)
@@ -77,6 +77,12 @@ We **strongly** recommend students use GitHub Codespaces as their development en
 >As of July 2024, the Challenge 0 instructions for how to set up a local workstation have NOT been tested!
 
 Students should avoid doing the local workstation setup because there is the potential to adversely affect their local workstation (especially if they accidentally change the default Python version on Linux/Mac/WSL). There can be a lot of variations in terms of the student's OS version, already installed software packages like Python, Node, etc. that may cause them to lose time trying to get their environment working. 
+
+#### CORS Error When Running the Front End App
+
+If a CORS error occurs when a student is running the front end, change the visibility of the backend port to public.
+
+![screenshot of how the backend port should be configures](../images/CORS-issue-fix.png)
 
 
 #### Debugging Python on Local Workstation
