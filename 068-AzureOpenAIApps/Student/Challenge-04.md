@@ -30,7 +30,7 @@ In this challenge, we will modify the application configuration file (`local.set
 
 | Configuration Name | Examples| Description|
 |--------------|-----------|------------|
-| LLM_QUOTA_ENFORCEMENT | 0     | Whether or not Quota enforcement is enabled for the app        |
+| LLM_QUOTA_ENFORCEMENT | 1     | Whether or not Quota enforcement is enabled for the app        |
 | LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS      | 120  | The number of seconds that define the transaction aggregation window for quota enforcement       |
 | LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS      | 5  | The number of transactions allowed per school district within the transaction window       |
 | LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS      | 300  | The number of seconds the district needs to wait before processing can resume. Should be greater than the transaction window       |
