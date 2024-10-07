@@ -23,9 +23,9 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the **ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands** folder in your Resources) that needs to be uploaded to the **government** container in the Azure Blob Storage account.
+There are documents (from the **artifacts/documents/contoso-islands** folder in your Resources) that needs to be uploaded to the **government** container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the **ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts** that needs to be uploaded to the corresponding Azure **yachts** Cosmos DB containers respectively.
+There are also some JSON documents (from the **artifacts/cosmos-db/contoso-yachts** that needs to be uploaded to the corresponding Azure **yachts** Cosmos DB containers respectively.
 
 You can use the **az storage blob upload** command examples below to upload the document to Azure Blob Storage.
 
@@ -65,7 +65,7 @@ az login --use-device-code
 az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 
 # navigate to document directory
-cd ContosoAIAppsBackend/challenge-artifacts/documents/contoso-islands
+cd artifacts/documents/contoso-islands
 
 ````
 
@@ -95,7 +95,7 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 ### Uploading Documents to Azure Cosmos DB
 
-The contents of the Yacht details are stored in the directory **Challenge-00/ContosoAIAppsBackend/challenge-artifacts/cosmos-db/contoso-yachts**
+The contents of the Yacht details are stored in the directory **artifacts/cosmos-db/contoso-yachts**
 
 Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in **rest-api-yachts-management.http** to send each document via the REST API to Cosmos DB. There are five JSON files. 
 

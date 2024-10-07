@@ -18,7 +18,7 @@ Your goal is to design and create a pipeline that can process all the historical
 
 You can use any programming language and Azure services of your choice to implement the solution. Remember to follow best practices for coding and architecture design.
 
-There are 20 sample documents in the  **Student/Resources/Challenge-00/ContosoAIAppsBackend/challenge-artifacts/contoso-education** folder:
+There are 20 sample documents in the  **artifacts/contoso-education** folder:
 
 - F01-Civics-Geography and Climate
 - F02-Civics-Tourism and Economy
@@ -104,7 +104,7 @@ The first 3 extractor models a straightforward. However in the 4th document type
   }
 ]
 ````
-After training your models, you can test the form processing pipeline by uploading the files located locally in `ContosoAIAppsBackend/challenge-artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
+After training your models, you can test the form processing pipeline by uploading the files located locally in `artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
 
 Your solution should:
 
