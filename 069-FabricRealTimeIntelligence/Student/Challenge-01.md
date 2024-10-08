@@ -20,8 +20,11 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [Realtime Analytics in Fabric Tutorial](https://learn.microsoft.com/en-us/fabric/real-time-analytics/tutorial-introduction)
+- [Creating an Eventhouse](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/create-eventhouse)
 - [Creating a KQL Database](https://learn.microsoft.com/en-us/fabric/real-time-analytics/create-database)
 - [Get Data from Event Hubs into KQL](https://learn.microsoft.com/en-us/fabric/real-time-analytics/get-data-event-hub)
+- [Creating an Eventstream](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=standard-capabilities)
+- [Get Data from Eventstream into KQL](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/get-data-eventstream)
 
 
 ## Tips

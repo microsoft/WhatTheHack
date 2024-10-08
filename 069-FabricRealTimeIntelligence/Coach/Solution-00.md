@@ -1,10 +1,10 @@
-# Challenge 00 - Prerequisites - Ready, Set, GO! - Coach's Guide 
+# Solution 00 - Prerequisites - Ready, Set, GO! - Coach's Guide 
 
 **[Home](./README.md)** - [Next Solution >](./Solution-01.md)
 
 ## Introduction
 
-Thank you for participating in the Fabric real time analytics WTH. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Fabric real time intelligence WTH. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 

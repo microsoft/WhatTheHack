@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Thank you for participating in the Fabric Real-time Analytics What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Fabric Real-time Intelligence What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 
@@ -56,4 +56,4 @@ To complete this challenge successfully, you should be able to:
   - Event Hub Namespace
   - Event Hub (verify it is ingesting data from the container)
   - Azure Container Instance (verify that it is running the Docker container and data is streaming out, go to logs to verify this)
-- Fabric instance created and running
+- Fabric instance created and running (F4)

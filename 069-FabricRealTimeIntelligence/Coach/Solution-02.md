@@ -1,21 +1,12 @@
-# Challenge 02 - Transforming the Data - Coach's Guide 
+# Solution 02 - Transforming the Data - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Setup Steps
 
-Steps for MAA Fabric Real-time analytics setup:
+Steps for MAA Fabric Real-time intelligence setup:
 
-1. Get data from event hub
-	- Create new table name
-	- Create connection:
-		- Event hub namespace
-		- Event hub
-		- Sas key name
-		- Sas key
-	- Event retrieval start date (under more parameters)
-	- Schema should be JSON with no nested values
-7. Create kql queryset
+1. Create kql queryset (one is made by default in the KQL DB)
 
 ## Notes & Guidance
 
