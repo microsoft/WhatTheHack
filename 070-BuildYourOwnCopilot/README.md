@@ -1,4 +1,4 @@
-# What The Hack - Build & Modernize AI Applications
+# What The Hack - Build Your Own Copilot
 
 ## Introduction
 
