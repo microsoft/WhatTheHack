@@ -12,7 +12,7 @@
 # each team will deploy resources into their own resource group.
 #
 # The script will create the resource groups, users, service principals and GitHub repos for each team. It will also create a 
-# internal repo on the org that the attendeed will be able to view and coaches can use to share the credentials for the 
+# internal repo on the org that the attended will be able to view and coaches can use to share the credentials for the
 # service/user principals. The service principal can be used in the workflows to deploy resources into Azure by copying and 
 # pasting the JSON into repo secrets. Teams can access the portal via a user credential. Coaches have credentials too under
 # the wth-coach-teamX@<domain> user.
@@ -60,15 +60,15 @@ for i in $(seq $GROUP_COUNT); do
     TEAM_UPN=wth-team$i@$DOMAIN
 
     echo "Creating team user $TEAM_UPN"
-    az ad user create --display-name wth-team$i-user  --password $PASSWORD --user-principal-name $TEAM_UPN
+    az ad user create --display-name wth-team"$i"-user  --password $PASSWORD --user-principal-name "$TEAM_UPN"
 
     echo "Creating role assignment $TEAM_UPN"
-    az role assignment create --assignee $TEAM_UPN  --role contributor --resource-group wth-team$i-rg
+    az role assignment create --assignee "$TEAM_UPN"  --role contributor --resource-group wth-team$i-rg --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team"$i"-rg
 
     echo "Creating service principal into ./AzureCredentials/principal-team$i.json"
     az ad sp create-for-rbac --name "wth-team$i" --role contributor \
-                        --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team$i-rg \
-                        --sdk-auth > ./AzureCredentials/principal-team$i.json
+                        --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team"$i"-rg \
+                        --sdk-auth > ./AzureCredentials/principal-team"$i".json
 done
 
 
