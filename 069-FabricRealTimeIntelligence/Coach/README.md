@@ -1,4 +1,4 @@
-# What The Hack - Fabric Real-time Analytics - Coach Guide
+# What The Hack - Fabric Real-time Intelligence - Coach Guide
 
 ## Introduction
 
@@ -40,14 +40,14 @@ This hack requires students to have access to an Azure subscription where they c
 - Sample Day 1
   - Challenge 0 (1 hour)
   - Challenge 1 (2 hours)
-  - Challenge 2 (2  hours)
+  - Challenge 2 (2 hours)
   - Challenge 3 (2 hours)
 
 ## Architecture Diagrams
 
 ![Architecture 1](Images/ArchitectureSlide1.PNG)
 
-![Architecture 2](Images/ArchitectureSlide2.PNG)
+![Architecture 2](Images/FabricLineageViewOfArchitecture.PNG)
 
 ## Repository Contents
 

@@ -1,8 +1,8 @@
-# What The Hack - Fabric Real-time Analytics
+# What The Hack - Fabric Real-time Intelligence
 
 ## Introduction
 
-The AbboCost Financial group monitors several crazy stocks! Because of the volatile nature of these stocks, they need Up to the Second real-time reporting on what the stocks are doing, as well as historical data on all previous stock prices. Luckily, you have just the solution for them: Fabric!
+The AbboCost Financial group monitors several crazy stocks! Because of the volatile nature of these stocks, they need up to the second real-time reporting on what the stocks are doing, as well as historical data on all previous stock prices. Luckily, you have just the solution for them: Fabric!
 
 ## Learning Objectives
 
