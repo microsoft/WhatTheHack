@@ -165,7 +165,11 @@ The format for the parameter description and typing follows the JSON schema spec
 
  You can use the rest-api-ask-assistants.http REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the "message" field for the JSON object for the body of the HTTP request.
 
- Once this is up and running for the backend, you can navigate to the page for Donald to send you questions to her.
+ Once this is up and running for the backend, you can navigate to the page for Donald to send you questions to him.
+
+#### Sequence Diagram for How the Assistants Function
+![screenshot of Priscilla Sequence Diagram](../images/PriscillaAssistant.jpg)
+
 
 ## Success Criteria for Each Assistant
 
