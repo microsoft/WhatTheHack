@@ -1,14 +1,23 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Work with assistants - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
+
+## Assistant Name Changes
+
+Names of assistants in the source code have been changed but in the case that a reference to an older name is encountered, use the following map:
+
+- Elizabeth was changed to Donald
+- Esther was changed to Callum
+- Miriam was changed to Veta
+- Sarah was changed to Murphy
 
 ## Notes & Guidance
 
 This challenge is about interacting with virtual assistants that will provide the following functionality:
 
-- Answer Questions about the Contoso Islands (Assistant Donald)
+- Answer Questions about the Contoso Islands - Assistant Donald
 - Create Accounts, Manage Customer Bank Account Balances (Deposits, Withdrawals) - Assistant Callum
-- Make or Cancel Yacht Reservations for Contoso Island Tourists - Assistan Veta
+- Make or Cancel Yacht Reservations for Contoso Island Tourists - Assistant Veta
 
 
 We have the following AI Assistants

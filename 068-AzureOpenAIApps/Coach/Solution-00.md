@@ -134,3 +134,15 @@ AI Design Wins are an important concept for us and this is an example of a solut
 Specific resources in this What The Hack:
 ![](..\images\deployed-resources.png)
 
+## Assistant Name Changes
+
+Names of assistants in the source code have been changed but in the case that a reference to an older name is encountered, use the following map:
+
+- Elizabeth was changed to Donald
+- Esther was changed to Callum
+- Miriam was changed to Veta
+- Sarah was changed to Murphy
+
+## Additional notes
+
+The assistants that should be functional at the end of this challenge are Priscilla and Murphy.  All other assistants should be available after Challenge 02.
