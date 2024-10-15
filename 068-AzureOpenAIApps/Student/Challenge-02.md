@@ -101,7 +101,7 @@ You will be using this information in these python files to configure your assis
 
 ````python
 
-    util = ToolUtils(AssistantName.MIRIAM, system_message1, tools_config1, conversation_id)
+    util = ToolUtils(AssistantName.VETA, system_message1, tools_config1, conversation_id)
 
     util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
     util.register_tool_mapping("get_yacht_details", v_get_yacht_details)
