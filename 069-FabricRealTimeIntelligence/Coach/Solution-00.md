@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the Fabric real time analytics WTH. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Fabric real time intelligence WTH. Before you can hack, you will need to set up some prerequisites.
 
 ## Common Prerequisites
 

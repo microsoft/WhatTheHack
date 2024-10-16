@@ -1,4 +1,4 @@
-# What The Hack - Fabric Real-time Analytics - Coach Guide
+# What The Hack - Fabric Real-time Intelligence - Coach Guide
 
 ## Introduction
 
@@ -8,13 +8,13 @@ Welcome to the coach's guide for the Fabric Real-time Analytics What The Hack. H
 
 ## Coach's Guides
 
-0. Challenge 00: **[Prerequisites](Solution-00.md)**
+- Challenge 00: **[Prerequisites](Solution-00.md)**
    - Getting the environment setup for the rest of the challenges
-1. Challenge 01: **[Ingesting the Data and Creating the Database](Solution-01.md)**
+- Challenge 01: **[Ingesting the Data and Creating the Database](Solution-01.md)**
    - Creating a database to store the real-time data
-1. Challenge 02: **[Transforming the Data](Solution-02.md)**
+- Challenge 02: **[Transforming the Data](Solution-02.md)**
     - Transforming the data using KQL Querysets
-1. Challenge 03: **[Create the Realtime Reporting](Solution-03.md)**
+- Challenge 03: **[Create the Realtime Reporting](Solution-03.md)**
     - Creating the Power BI reports, with real-time data
 
 ## Coach Prerequisites
@@ -40,14 +40,14 @@ This hack requires students to have access to an Azure subscription where they c
 - Sample Day 1
   - Challenge 0 (1 hour)
   - Challenge 1 (2 hours)
-  - Challenge 2 (2  hours)
+  - Challenge 2 (2 hours)
   - Challenge 3 (2 hours)
 
 ## Architecture Diagrams
 
-![Architecture 1](Images/ArchitectureSlide1.PNG)
+![Architecture 1](Images/ArchitectureSlide1.png)
 
-![Architecture 2](Images/ArchitectureSlide2.PNG)
+![Architecture 2](Images/FabricLineageViewOfArchitecture.png)
 
 ## Repository Contents
 
