@@ -1,4 +1,4 @@
-# Solution 03 - Create the Realtime Reporting - Coach's Guide 
+# Challenge 03 - Create the Realtime Reporting - Coach's Guide 
 
 [< Previous Solution](./Solution-02.md) - **[Home](./README.md)**
 
