@@ -1,4 +1,4 @@
-# Solution 01 - Ingesting and Creating the Database - Coach's Guide 
+# Challenge 01 - Ingesting and Creating the Database - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
