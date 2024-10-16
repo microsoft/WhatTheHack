@@ -45,9 +45,9 @@ This hack requires students to have access to an Azure subscription where they c
 
 ## Architecture Diagrams
 
-![Architecture 1](Images/ArchitectureSlide1.PNG)
+![Architecture 1](Images/ArchitectureSlide1.png)
 
-![Architecture 2](Images/FabricLineageViewOfArchitecture.PNG)
+![Architecture 2](Images/FabricLineageViewOfArchitecture.png)
 
 ## Repository Contents
 
