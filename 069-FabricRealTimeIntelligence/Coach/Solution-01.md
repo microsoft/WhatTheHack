@@ -12,7 +12,7 @@ Steps for MAA Fabric Real-time intelligence:
     - PBI Workloads
 2. Open PBI in the browser
 3. Create a workspace and assign it to the Fabric capacity
-4. New resource, create an Evenhthouse
+4. New resource, create an Eventhouse
     - This by default creates a KQL DB with the same name as the Eventhouse
 5. Turn on Onelake folder
 6. Create an Eventstream that brings in data from the Eventhub and outputs it to the KQL DB table
