@@ -51,7 +51,7 @@ function wait_until_finished () {
      resource_name=$(echo "$resource_id" | cut -d/ -f 9)
      echo "Waiting for resource $resource_name to finish provisioning..."
      start_time=$(date +%s)
-     state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv 2>/dev/null)
+     state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv)
      until [[ "$state" == "Succeeded" ]] || [[ "$state" == "Failed" ]] || [[ -z "$state" ]]
      do
         sleep $wait_interval
@@ -121,15 +121,15 @@ function fix_nsg () {
     echo "Adding RFC1918 prefixes to NSG ${nsg_name}..."
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n Allow_Inbound_RFC1918 --priority 2000 \
         --access Allow --protocol '*' --source-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --direction Inbound \
-        --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' >/dev/null
+        --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' -o none
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n Allow_Outbound_RFC1918 --priority 2000 \
         --access Allow --protocol '*' --source-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --direction Outbound \
-        --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' >/dev/null
+        --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' -o none
 }
 
 # Add RFC1918 to all nsgs in the RG
 function fix_all_nsgs () {
-    nsg_list=$(az network nsg list -g "$rg" --query '[].name' -o tsv 2>/dev/null)
+    nsg_list=$(az network nsg list -g "$rg" --query '[].name' -o tsv)
     echo "$nsg_list" | while read nsg
     do
         fix_nsg "$nsg"
@@ -156,28 +156,28 @@ function create_vng () {
     type=$(get_router_type_from_id "$id")
     # Create vnet
     echo "Creating vnet $vnet_name..."
-    az network vnet create -g "$rg" -n "$vnet_name" --address-prefix "$vnet_prefix" --subnet-name GatewaySubnet --subnet-prefix "$subnet_prefix" >/dev/null
+    az network vnet create -g "$rg" -n "$vnet_name" --address-prefix "$vnet_prefix" --subnet-name GatewaySubnet --subnet-prefix "$subnet_prefix" -o none
     # Create test VM (to be able to see effective routes)
     # Not possible to create a test VM while a gateway is Updating, therefore starting the VM creation before the gateway
-    test_vm_id=$(az vm show -n "$test_vm_name" -g "$rg" --query id -o tsv 2>/dev/null)
+    test_vm_id=$(az vm show -n "$test_vm_name" -g "$rg" --query id -o tsv)
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating test virtual machine $test_vm_name in vnet $vnet_name in new subnet $test_vm_subnet_prefix..."
-        az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" >/dev/null
+        az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" -o none
         # Not using $psk as password because it might not fulfill the password requirements for Azure VMs
         az vm create -n "$test_vm_name" -g "$rg" -l "$location" --image UbuntuLTS --size "$test_vm_size" \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
             --public-ip-address "${test_vm_name}-pip" --public-ip-address-allocation static \
-            --vnet-name "$vnet_name" --subnet testvm --no-wait 2>/dev/null
+            --vnet-name "$vnet_name" --subnet testvm --no-wait -o none
     else
         echo "Virtual machine $test_vm_name already exists"
     fi
     # Create PIPs for gateway (this gives time as well for the test VM NICs to be created and attached to the subnet)
     echo "Creating public IP addresses for gateway vng${id}..."
-    az network public-ip create -g "$rg" -n "vng${id}a" >/dev/null
-    az network public-ip create -g "$rg" -n "vng${id}b" >/dev/null
+    az network public-ip create -g "$rg" -n "vng${id}a" -o none
+    az network public-ip create -g "$rg" -n "vng${id}b" -o none
     # Create VNG
-    vng_id=$(az network vnet-gateway show -n "vng${id}" -g "$rg" --query id -o tsv 2>/dev/null)
+    vng_id=$(az network vnet-gateway show -n "vng${id}" -g "$rg" --query id -o tsv)
     if [[ -z "${vng_id}" ]]
     then
         if [[ "$type" ==  "vng" ]] || [[ "$type" ==  "vng2" ]]
@@ -215,7 +215,7 @@ function connect_gws () {
     # Using local gws
     # Create Local Gateways for vpngw1
     vpngw1_name=vng${gw1_id}
-    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings' -o json 2>/dev/null)
+    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings' -o json)
     vpngw1_asn=$(echo "$vpngw1_bgp_json" | jq -r '.asn')
     vpngw1_gw0_pip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw1_gw0_bgp_ip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -232,22 +232,22 @@ function connect_gws () {
     fi
 
     echo "Creating local network gateways for vng${gw1_id}..."
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}a" --query id -o tsv 2>/dev/null)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}a" --query id -o tsv)
     if [[ -z "$local_gw_id" ]]
     then
         az network local-gateway create -g "$rg" -n "${vpngw1_name}a" --gateway-ip-address "$vpngw1_gw0_pip" \
-            --local-address-prefixes "${vpngw1_gw0_bgp_ip}/32" --asn "$vpngw1_asn" --bgp-peering-address "$vpngw1_gw0_bgp_ip" --peer-weight 0 >/dev/null 2>&1
+            --local-address-prefixes "${vpngw1_gw0_bgp_ip}/32" --asn "$vpngw1_asn" --bgp-peering-address "$vpngw1_gw0_bgp_ip" --peer-weight 0 -o none
     else
         echo "Local gateway ${vpngw1_name}a already exists"
     fi
     # Create second local gateway only if the type is "vng" (default) or "vng2"
     if [[ ${gw1_type} == "vng" ]] || [[ ${gw1_type} == "vng2" ]]
     then
-        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}b" --query id -o tsv 2>/dev/null)
+        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}b" --query id -o tsv)
         if [[ -z "$local_gw_id" ]]
         then
             az network local-gateway create -g "$rg" -n "${vpngw1_name}b" --gateway-ip-address "$vpngw1_gw1_pip" \
-                --local-address-prefixes "${vpngw1_gw1_bgp_ip}/32" --asn "$vpngw1_asn" --bgp-peering-address "$vpngw1_gw1_bgp_ip" --peer-weight 0 >/dev/null 2>&1
+                --local-address-prefixes "${vpngw1_gw1_bgp_ip}/32" --asn "$vpngw1_asn" --bgp-peering-address "$vpngw1_gw1_bgp_ip" --peer-weight 0 -o none
         else
             echo "Local gateway ${vpngw1_name}b already exists"
         fi
@@ -259,7 +259,7 @@ function connect_gws () {
     vpngw2_gw0_pip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw2_gw0_bgp_ip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
     echo "Creating local network gateways for vng${gw2_id}..."
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}a" --query id -o tsv 2>/dev/null)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}a" --query id -o tsv)
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
         vpngw2_gw1_pip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[1].tunnelIpAddresses[0]')
@@ -274,18 +274,18 @@ function connect_gws () {
     if [[ -z "$local_gw_id" ]]
     then
         az network local-gateway create -g "$rg" -n "${vpngw2_name}a" --gateway-ip-address "$vpngw2_gw0_pip" \
-            --local-address-prefixes "${vpngw2_gw0_bgp_ip}/32" --asn "$vpngw2_asn" --bgp-peering-address "$vpngw2_gw0_bgp_ip" --peer-weight 0 >/dev/null 2>&1
+            --local-address-prefixes "${vpngw2_gw0_bgp_ip}/32" --asn "$vpngw2_asn" --bgp-peering-address "$vpngw2_gw0_bgp_ip" --peer-weight 0 -o none
     else
         echo "Local gateway ${vpngw2_name}a already exists"
     fi
     # Create second local gateway only if the type is "vng" (default) or "vng2"
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
-        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}b" --query id -o tsv 2>/dev/null)
+        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}b" --query id -o tsv)
         if [[ -z "$local_gw_id" ]]
         then
             az network local-gateway create -g "$rg" -n "${vpngw2_name}b" --gateway-ip-address "$vpngw2_gw1_pip" \
-                --local-address-prefixes "${vpngw2_gw1_bgp_ip}/32" --asn "$vpngw2_asn" --bgp-peering-address "$vpngw2_gw1_bgp_ip" --peer-weight 0 >/dev/null 2>&1
+                --local-address-prefixes "${vpngw2_gw1_bgp_ip}/32" --asn "$vpngw2_asn" --bgp-peering-address "$vpngw2_gw1_bgp_ip" --peer-weight 0 -o none
         else
             echo "Local gateway ${vpngw2_name}b already exists"
         fi
@@ -300,22 +300,22 @@ function connect_gws () {
     fi
     # 1->2A
     az network vpn-connection create -n "vng${gw1_id}tovng${gw2_id}a" -g "$rg" --vnet-gateway1 "vng${gw1_id}" \
-        --shared-key "$psk" --local-gateway2 "${vpngw2_name}a" $bgp_option >/dev/null
+        --shared-key "$psk" --local-gateway2 "${vpngw2_name}a" $bgp_option -o none
     # 1->2B
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
         az network vpn-connection create -n "vng${gw1_id}tovng${gw2_id}b" -g "$rg" --vnet-gateway1 "vng${gw1_id}" \
-            --shared-key "$psk" --local-gateway2 "${vpngw2_name}b" $bgp_option >/dev/null
+            --shared-key "$psk" --local-gateway2 "${vpngw2_name}b" $bgp_option -o none
     fi
     echo "Connecting vng${gw2_id} to local gateways for vng${gw1_id}..."
     # 2->1A
     az network vpn-connection create -n "vng${gw2_id}tovng${gw1_id}a" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
-        --shared-key "$psk" --local-gateway2 "${vpngw1_name}a" $bgp_option >/dev/null
+        --shared-key "$psk" --local-gateway2 "${vpngw1_name}a" $bgp_option -o none
     # 2->1B
     if [[ ${gw1_type} == "vng" ]] || [[ ${gw1_type} == "vng2" ]]
     then
         az network vpn-connection create -n "vng${gw2_id}tovng${gw1_id}b" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
-            --shared-key "$psk" --local-gateway2 "${vpngw1_name}b" $bgp_option >/dev/null
+            --shared-key "$psk" --local-gateway2 "${vpngw1_name}b" $bgp_option -o none
     fi
 }
 
@@ -333,25 +333,25 @@ function create_vm_in_csr_vnet () {
     vm_size=Standard_B1s
     rt_name="${vm_name}-rt"
     # Create VM
-    test_vm_id=$(az vm show -n "$vm_name" -g "$rg" --query id -o tsv 2>/dev/null)
+    test_vm_id=$(az vm show -n "$vm_name" -g "$rg" --query id -o tsv)
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating VM $vm_name in vnet $vnet_name..."
         az vm create -n "$vm_name" -g "$rg" -l "$location" --image ubuntuLTS --size $vm_size \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
             --public-ip-address "${vm_name}-pip" --vnet-name "$vnet_name" --public-ip-address-allocation static \
-            --subnet "$vm_subnet_name" --subnet-address-prefix "$vm_subnet_prefix" --no-wait 2>/dev/null
-        az network route-table create -n "$rt_name" -g "$rg" -l "$location" >/dev/null
+            --subnet "$vm_subnet_name" --subnet-address-prefix "$vm_subnet_prefix" --no-wait -o none
+        az network route-table create -n "$rt_name" -g "$rg" -l "$location" -o none
         az network route-table route create -n localrange -g "$rg" --route-table-name "$rt_name" \
-            --address-prefix "10.0.0.0/8" --next-hop-type VirtualAppliance --next-hop-ip-address "$csr_bgp_ip" >/dev/null
-        az network vnet subnet update -n "$vm_subnet_name" --vnet-name "$vnet_name" -g "$rg" --route-table "$rt_name" >/dev/null
+            --address-prefix "10.0.0.0/8" --next-hop-type VirtualAppliance --next-hop-ip-address "$csr_bgp_ip" -o none
+        az network vnet subnet update -n "$vm_subnet_name" --vnet-name "$vnet_name" -g "$rg" --route-table "$rt_name" -o none
     else
         echo "Virtual machine $vm_name already exists"
     fi
     # Setting IP Forwarding for CSR
     echo "Enabling IP forwarding for $csr_name..."
     csr_nic_id=$(az vm show -n "$csr_name-nva" -g "$rg" --query 'networkProfile.networkInterfaces[0].id' -o tsv)
-    az network nic update --ids $csr_nic_id --ip-forwarding >/dev/null
+    az network nic update --ids $csr_nic_id --ip-forwarding -o none
 }
 
 function accept_csr_terms () {
@@ -362,16 +362,19 @@ function accept_csr_terms () {
     #sku=16_12-byol
     # Newest version available 
     #sku=17_15_01a-byol 
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
+    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
+    if [[ -z "$version" ]]; then
+        echo "Could not locate an image version for ${publisher}:${offer}:${sku}, double-check Publisher, offer, and SKU"
+        exit 1
     # Accept terms
     echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
-    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" >/dev/null
+    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" -o none
     # Verify
-    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv 2>/dev/null)
+    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv)
     if [[ "$status" != "true" ]]
     then
         echo "Marketplace image terms for ${publisher}:${offer}:${sku}:${version} could not be accepted, do you have access at the subscription level?"
-        exit
+        exit 1
     fi
 }
 
@@ -391,17 +394,17 @@ function create_csr () {
     # Newest version available 
     #sku=17_15_01a-byol 
 
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
+    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
     nva_size=Standard_B2ms
     # Create CSR
     echo "Creating VM csr${csr_id}-nva in Vnet $csr_vnet_prefix..."
-    vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv 2>/dev/null)
+    vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv)
     if [[ -z "$vm_id" ]]
     then
         az vm create -n "csr${csr_id}-nva" -g "$rg" -l "$location" --image "${publisher}:${offer}:${sku}:${version}" --size "$nva_size" \
             --generate-ssh-keys --public-ip-address "csr${csr_id}-pip" --public-ip-address-allocation static \
             --vnet-name "$csr_name" --vnet-address-prefix "$csr_vnet_prefix" --subnet nva --subnet-address-prefix "$csr_subnet_prefix" \
-            --private-ip-address "$csr_bgp_ip" --no-wait 2>/dev/null
+            --private-ip-address "$csr_bgp_ip" --no-wait -o none
         sleep 30 # Wait 30 seconds for the creation of the PIP
     else
         echo "VM csr${csr_id}-nva already exists"
@@ -410,17 +413,17 @@ function create_csr () {
     nsg_name=csr${csr_id}-nvaNSG
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ike --priority 1010 \
       --source-address-prefixes Internet --destination-port-ranges 500 4500 --access Allow --protocol Udp \
-      --description "UDP ports for IKE"  >/dev/null
+      --description "UDP ports for IKE"  -o none
     # Get public IP
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" --query ipAddress -o tsv)
     # Create Local Network Gateway
     echo "CSR created with IP address $csr_ip. Creating Local Network Gateway now..."
     asn=$(get_router_asn_from_id "$csr_id")
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${csr_name}" --query id -o tsv 2>/dev/null)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${csr_name}" --query id -o tsv)
     if [[ -z "$local_gw_id" ]]
     then
         az network local-gateway create -g "$rg" -n "$csr_name" --gateway-ip-address "$csr_ip" \
-            --local-address-prefixes "${csr_bgp_ip}/32" --asn "$asn" --bgp-peering-address "$csr_bgp_ip" --peer-weight 0 >/dev/null 2>&1
+            --local-address-prefixes "${csr_bgp_ip}/32" --asn "$asn" --bgp-peering-address "$csr_bgp_ip" --peer-weight 0 -o none
     else
         echo "Local gateway ${csr_name} already exists"
     fi
@@ -435,7 +438,7 @@ function connect_csr () {
     # csr_asn=$(get_router_asn_from_id $csr_id)  # Not used
 
     vpngw_name=vng${gw_id}
-    vpngw_bgp_json=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query 'bgpSettings' -o json 2>/dev/null)
+    vpngw_bgp_json=$(az network vnet-gateway show -n "$vpngw_name" -g "$rg" --query 'bgpSettings' -o json)
     vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn')
     vpngw_gw0_pip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -468,32 +471,32 @@ function connect_csr () {
         bgp_option="--enablebgp"
     fi
     az network vpn-connection create -n "vng${gw_id}tocsr${csr_id}" -g "$rg" --vnet-gateway1 "vng${gw_id}" \
-        --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option >/dev/null 2>&1
+        --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option -o none
     if [[ -n "$gw2_id" ]]
     then
         az network vpn-connection create -n "vng${gw2_id}tocsr${csr_id}" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
-            --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option >/dev/null 2>&1
+            --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option -o none
     fi
 }
 
 # Run "show interface ip brief" on CSR
 function sh_csr_int () {
     csr_id=$1
-    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
+    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     ssh -n -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "sh ip int b" 2>/dev/null
 }
 
 # Open an interactive SSH session to a CSR
 function ssh_csr () {
     csr_id=$1
-    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
+    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     ssh "$csr_ip"
 }
 
 # Deploy baseline VPN and BGP config to a Cisco CSR
 function config_csr_base () {
     csr_id=$1
-    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress 2>/dev/null)
+    csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     asn=$(get_router_asn_from_id "$csr_id")
     myip=$(curl -s4 ifconfig.co)
     # Check we have a valid IP
@@ -680,12 +683,12 @@ function connect_csrs () {
 
 # Configure logging
 function init_log () {
-    logws_name=$(az monitor log-analytics workspace list -g "$rg" --query '[0].name' -o tsv 2>/dev/null)
+    logws_name=$(az monitor log-analytics workspace list -g "$rg" --query '[0].name' -o tsv)
     if [[ -z "$logws_name" ]]
     then
         logws_name=log$RANDOM
         echo "Creating LA workspace $logws_name..."
-        az monitor log-analytics workspace create -n $logws_name -g "$rg" >/dev/null 2>/dev/null
+        az monitor log-analytics workspace create -n $logws_name -g "$rg" -o none
     else
         echo "Found log analytics workspace $logws_name"
     fi
@@ -703,7 +706,7 @@ function log_gw () {
       --logs '[{"category": "GatewayDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}, 
               {"category": "TunnelDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}},
               {"category": "RouteDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}},
-              {"category": "IKEDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}]' >/dev/null
+              {"category": "IKEDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}]' -o none
 }
 
 # Gets IKE logs from Log Analytics
@@ -824,7 +827,7 @@ function show_bgp_neighbors () {
         echo "BGP neighbors for csr${id}-nva (${ip}):"
         clean_string "$neighbors"
     else
-        neighbors=$(az network vnet-gateway list-bgp-peer-status -n "vng${id}" -g "$rg" -o table 2>/dev/null)
+        neighbors=$(az network vnet-gateway list-bgp-peer-status -n "vng${id}" -g "$rg" -o table)
         echo "BGP neighbors for vng${id}:"
         echo "$neighbors"
     fi
@@ -906,7 +909,7 @@ function wait_for_gws_finished () {
         if [[ "$type" == "vng" ]] || [[ "$type" == "vng1" ]] || [[ "$type" == "vng2" ]]
         then
             vng_name=vng${id}
-            vpngw_id=$(az network vnet-gateway show -n "$vng_name" -g "$rg" --query id -o tsv 2>/dev/null)
+            vpngw_id=$(az network vnet-gateway show -n "$vng_name" -g "$rg" --query id -o tsv)
             wait_until_finished "$vpngw_id"
         fi
     done
@@ -1007,7 +1010,7 @@ function perform_system_checks () {
     echo "All dependencies checked successfully"
 
     # Verify az is logged in
-    subscription_name=$(az account show --query name -o tsv 2>/dev/null)
+    subscription_name=$(az account show --query name -o tsv)
     if [[ -z "$subscription_name" ]]
     then
         echo "It seems you are not logged into Azure with the Azure CLI. Please use \"az login\" before trying this script again"
@@ -1017,7 +1020,7 @@ function perform_system_checks () {
     # Verify required az extensions installed
     for extension_name in "log-analytics"
     do
-        extension_version=$(az extension show -n $extension_name --query version -o tsv 2>/dev/null)
+        extension_version=$(az extension show -n $extension_name --query version -o tsv)
         if [[ -z "$extension_version" ]]
         then
             echo "It seems that the Azure CLI extension \"$extension_name\" is not installed. Please install it with \"az extension add -n $extension_name\" before trying this script again"
@@ -1097,7 +1100,7 @@ accept_csr_terms
 
 # Create resource group
 echo "Creating resource group \"$rg\" in subscription \"$subscription_name\"..."
-az group create -n "$rg" -l "$location" >/dev/null
+az group create -n "$rg" -l "$location" -o none
 
 # Deploy CSRs and VNGs
 # echo "Routers array: $routers"
