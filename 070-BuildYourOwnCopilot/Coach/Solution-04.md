@@ -4,41 +4,50 @@
 
 ## Notes & Guidance
 
-[Watch the Train the Trainer video for Challenge 4](https://aka.ms/vsaia.hack.ttt.05)
+[Watch the Train the Trainer video for Challenge 5](https://aka.ms/vsaia.hack.ttt.06)
 
-1. Create the `campaign` container in Cosmos DB. Use default settings for the container and a partition key of `/campaignId`.
-2. Add the `Campaign` class to the `VectorSearchAiAssistant.Service` project under `Models/Search`.
-3. Add the new entity to the model registry in `ModelRegistry.cs` in the `VectorSearchAiAssistant.Service` project, under the `Models` folder. For more details, see [Solution notes](../../solution-notes.md).
-4. Create two new campaign documents in Cosmos DB:
+1. Create a dedicated Semantic Kernel for policies memories. Make sure the description of the policy is clear and concise, to enable the planner to pick it up. For details, see the `PolicyPlugin` class under `VectorSearchAiAssistant\Plugins\Fun` in the challenge solution code.
+2. Filter out the short term memories that are loaded, so you can construct the dedicated policy memory. See line 121 in `SemanticKernelRAGService.cs` in the challenge solution code:
 
-```json
+```csharp
+foreach (var memorySource in _memorySources)
 {
-    "campaignId": "campaign-1",
-    "campaignName": "Three for two",
-    "campaignDescription": "Buy any three products and get the cheapest one for free"
+    if (memorySource is BlobStorageMemorySource)
+        shortTermMemories.AddRange(await memorySource.GetMemories());
 }
 ```
 
-```json
-{
-    "campaignId": "campaign-2",
-    "campaignName": "Buy one get one free",
-    "campaignDescription": "Buy any product and get the cheapest one for free"
-}
+3. Create a Semantic Kernel plugin for transforming text into Shakespearean poems. For details, see the `ShakespearePlugin` class under `VectorSearchAiAssistant\Plugins\Fun` in the challenge solution code.
+4. Replace the body of the `GetResponse` method in the `SemanticKernelRAGService` class with the following code:
+
+```csharp
+await EnsureShortTermMemory();
+
+var policyPlugin = new PolicyPlugin(
+    _shortTermMemory,
+    _logger);
+
+_semanticKernel.ImportFunctions(policyPlugin);
+var shakespearePlugin = new ShakespearePlugin(_semanticKernel);
+
+var planner = new SequentialPlanner(_semanticKernel);
+var plan = await planner.CreatePlanAsync(userPrompt);
+var planResult = await _semanticKernel.RunAsync(plan);
+
+return new(planResult.GetValue<string>(), userPrompt, 0, 0, null);
+```
+5. Start the solution and test it with the following user prompts:
+
+```text
+Tell me about your return policy. Present it as a poem written by Shakespeare.
 ```
 
-5. Add the new container to the Cosmos DB configuration in `appsettings.json` in the `VectorSearchAiAssistant.Service` project. The configuration should look like this:
-
-```json
-   "CosmosDB": {
-      "Containers": "completions, customer, product, campaign",
-      "MonitoredContainers": "customer, product, campaign",
+```text
+Tell me about your shipping policy. Present it as a poem written by Shakespeare.
 ```
 
-6. Run the `ChatWebServiceApi` project in debug and validate that the Cognitive Search index was expanded with the new entities (both the definition and the content).
+6. Run the solution in debug mode, and set a breakpoint in the `GetResponse` method of the `SemanticKernelRAGService` class. Inspect the `plan` variable to see the plan that was created by the planner.
 
-Hint: Set one breakpoint at line 126 in `AzureCognitiveSearchService.cs` and another one at line 149 in `CosmosDbService.cs` to see the data flow.
-
-7. Ask questions about the newly vectorized campaigns, for example:
-
-`Are you currently running any three for two campaigns?`
+>**NOTE**
+>
+> Notice how the `GetResponse` method is now much simpler, because the planner is doing all the heavy lifting. At the same time, the actual token consumption values are not retrieved. For teams that are advancing quicly through the challenge, you might consider extending the challenge with a requirement to retrieve the token consumption values from the plan result.

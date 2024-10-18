@@ -4,38 +4,49 @@
 
 ## Notes & Guidance
 
-[Watch the Train the Trainer video for Challenge 2](https://aka.ms/vsaia.hack.ttt.03)
-[Deck for the Challenge](Challenge%202.pptx)
+[Watch the Train the Trainer video for Challenge 3](https://aka.ms/vsaia.hack.ttt.04)
 
-1. `ChatBuilder.cs`
+### Create and load new data
 
-The `WithMemories` method populates the `_memories` private property in `ChatBuilder`. It uses `EmbeddingUtility.Transform` to get the text representation of the entities in the memories. The `Transform` method uses the `ModelRegistry` to determine the type of the entity and the `EmbeddingField` attribute to determine the prefix used when serializing the property value to text. The `ModelRegistry` is also used to determine the name of the entity, using the `NamingProperties` attribute.
+1. Download the original data files from either `https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/product.json` or `https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/customer.json` to your local machine.
+2. Create several new JSON objects based on the ones from the original data files.
+3. Upload the new JSON objects to the Cosmos DB container using the Azure portal. Alternatively, you can use the [Cosmos DB Data Migration  Tool](https://github.com/AzureCosmosDB/data-migration-desktop-tool) to upload the data. For an example of how to use the tool, see the `Import-Data.ps1` in the repository (located in the `Scripts` folder).
+4. Run the `VectorSearchAiAssistant.Service` project to vectorize and add the new items to the index. Running this project will initialize the Cosmos DB change feed handlers and start the vectorization process. The vectorization process will take a few minutes to complete.
+5. Check the Cognitive Search index to validate the new items were added.
+6. Ask questions about the new items that have been added.
 
-`memoriesPrompt` will be a simple concatenation of the JSON representations of the objects from `_memories`.
+### Experiment using prompts
 
-The `AddSystemMessage` method adds a system message to the chat. The message to be added is the system prompt stored in `_systemPrompt` when `WithSystemPrompt` is called.
+1. Respond with a single number or with one or two words
 
-The `AddMesage` method adds the user message to the chat. The messages are stored in `_messages` when `WithMessageHistory` is called. The `AuthorRole` property on each message is defined by Semantic Kernel and can be one of `system`, `assistant`, or `user`.
+`How many racking socks products do you have?`
 
-2. `ChatService.cs`
+`How many racing socks do you have? Respond with a single number.`
 
-The prompt message shoud contain the sender name (`user`), the number of user prompt tokens (`result.UserPromptTokens`), the user prompt and the embedding of the user prompt.
+`How many racing socks do you have? Respond with a single number and nothing else.`
 
-The completion message should contain the sender name (`assistant`), the number of response tokens (`result.ResponseTokens`), and the text of completion.
+2. Respond with a bulleted lists or formatted a certain way
 
-3. `SemanticKernelRAGService.cs`
+`Which products are for racing? Format the response as a JSON file.`
 
-The `WithSystemPrompt` method sets the `_systemPrompt` private property in `ChatBuilder`.
+3. Respond using simpler syntax (e.g. explain it like I'm five)
 
-The `WithMemories` method sets the `_memories` private property in `ChatBuilder`.
+`Describe the products you are selling`
 
-The `WithMessageHistory` method sets the `_messages` private property in `ChatBuilder`.
+`Describe the products you are selling like I am a five year old`
 
-A chat completion Semantic Kernel flow returns one or more completions. For the purpose of this exercise we are only interested in the first completion, returned by `completionResults[0]`.
+4. Challenge the model with prompts that require reasoning or chain of thought. For example, ask it to calculate aggregates on the data or go further and give some word problems like those you had in school.
 
-When returning results:
+`Which are the products categories that are available?`
 
-- The completion is available in `reply.Content`.
-- The user prompt is the first message in the chat history.
-- The tokens consumptions are available in `rawResult.Usage`.
-- The user prompt embedding is available in `userPromptEmbedding` (retrieved earlier as the last embedding returned by the `TextEmbeddingObjectMemorySkill`).
+`Which are the products categories that are available? Which category has the least products?`
+
+`What is the average number of products per category of products?`
+
+5. Challenge the model to explain its reasoning
+
+`Which are the products categories that are available? Which category has the least products? Explain how you reached the conclusion.`
+
+6. Request that the model list its sources
+
+`Which are the product categories? Provide details on the sources of data you are using to answer.`

@@ -4,49 +4,41 @@
 
 ## Notes & Guidance
 
-[Watch the Train the Trainer video for Challenge 3](https://aka.ms/vsaia.hack.ttt.04)
+[Watch the Train the Trainer video for Challenge 4](https://aka.ms/vsaia.hack.ttt.05)
 
-### Create and load new data
+1. Create the `campaign` container in Cosmos DB. Use default settings for the container and a partition key of `/campaignId`.
+2. Add the `Campaign` class to the `VectorSearchAiAssistant.Service` project under `Models/Search`.
+3. Add the new entity to the model registry in `ModelRegistry.cs` in the `VectorSearchAiAssistant.Service` project, under the `Models` folder. For more details, see [Solution notes](../../solution-notes.md).
+4. Create two new campaign documents in Cosmos DB:
 
-1. Download the original data files from either `https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/product.json` or `https://cosmosdbcosmicworks.blob.core.windows.net/cosmic-works-small/customer.json` to your local machine.
-2. Create several new JSON objects based on the ones from the original data files.
-3. Upload the new JSON objects to the Cosmos DB container using the Azure portal. Alternatively, you can use the [Cosmos DB Data Migration  Tool](https://github.com/AzureCosmosDB/data-migration-desktop-tool) to upload the data. For an example of how to use the tool, see the `Import-Data.ps1` in the repository (located in the `Scripts` folder).
-4. Run the `VectorSearchAiAssistant.Service` project to vectorize and add the new items to the index. Running this project will initialize the Cosmos DB change feed handlers and start the vectorization process. The vectorization process will take a few minutes to complete.
-5. Check the Cognitive Search index to validate the new items were added.
-6. Ask questions about the new items that have been added.
+```json
+{
+    "campaignId": "campaign-1",
+    "campaignName": "Three for two",
+    "campaignDescription": "Buy any three products and get the cheapest one for free"
+}
+```
 
-### Experiment using prompts
+```json
+{
+    "campaignId": "campaign-2",
+    "campaignName": "Buy one get one free",
+    "campaignDescription": "Buy any product and get the cheapest one for free"
+}
+```
 
-1. Respond with a single number or with one or two words
+5. Add the new container to the Cosmos DB configuration in `appsettings.json` in the `VectorSearchAiAssistant.Service` project. The configuration should look like this:
 
-`How many racking socks products do you have?`
+```json
+   "CosmosDB": {
+      "Containers": "completions, customer, product, campaign",
+      "MonitoredContainers": "customer, product, campaign",
+```
 
-`How many racing socks do you have? Respond with a single number.`
+6. Run the `ChatWebServiceApi` project in debug and validate that the Cognitive Search index was expanded with the new entities (both the definition and the content).
 
-`How many racing socks do you have? Respond with a single number and nothing else.`
+Hint: Set one breakpoint at line 126 in `AzureCognitiveSearchService.cs` and another one at line 149 in `CosmosDbService.cs` to see the data flow.
 
-2. Respond with a bulleted lists or formatted a certain way
+7. Ask questions about the newly vectorized campaigns, for example:
 
-`Which products are for racing? Format the response as a JSON file.`
-
-3. Respond using simpler syntax (e.g. explain it like I'm five)
-
-`Describe the products you are selling`
-
-`Describe the products you are selling like I am a five year old`
-
-4. Challenge the model with prompts that require reasoning or chain of thought. For example, ask it to calculate aggregates on the data or go further and give some word problems like those you had in school.
-
-`Which are the products categories that are available?`
-
-`Which are the products categories that are available? Which category has the least products?`
-
-`What is the average number of products per category of products?`
-
-5. Challenge the model to explain its reasoning
-
-`Which are the products categories that are available? Which category has the least products? Explain how you reached the conclusion.`
-
-6. Request that the model list its sources
-
-`Which are the product categories? Provide details on the sources of data you are using to answer.`
+`Are you currently running any three for two campaigns?`
