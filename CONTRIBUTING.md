@@ -200,10 +200,12 @@ If the spell checker detects spelling errors, you have 3 options for resolving t
 
 - Fix the misspelled word!
 - Wrap it in a code block with backticks (\`\`).
-  - If the word is a programatic term, object or variable name, form field, etc. (i.e. `databaseName` or `ColumnName`), you should wrap the word in backticks (\`\`) which will make it a code block.  This will make your content more readable by making these terms stand out on the page.
-- Add it to a whitelist for your hack.
-  - If you have unique or technical words that are not already in the global `.wordlist` file, you can add these words to your own whitelist. Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
-  - Adding words to the whitelist should be reserved for proper names like a product name (i.e. "Kubernetes"), or a term that is part of the vocabulary for a given technology (i.e. "kubectl") 
+  - If the word is a programatic term, object or variable name, form field, etc. (i.e. `databaseName` or `ColumnName`), you should wrap the word in backticks (\`\`) which will make it a code block.
+  - This will make your content more readable by making these terms stand out on the page.
+- Add the word to the whitelist for your hack.
+  - Adding words to the whitelist should be reserved for proper names like a product name (i.e. "Kubernetes"), or a term that is part of the vocabulary for a given technology (i.e. "kubectl")
+  - Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore.
+  - There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
 
 ### Use Draft Pull Requests for Early Feedback
 
