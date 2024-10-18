@@ -1,0 +1,12 @@
+[
+    {"studentId": 6123456, "schoolDistrict": "Tangerine", "fullName": "David Lime", "schoolName": "Virgo High School"},
+    {"studentId": 6123457, "schoolDistrict": "Tangerine", "fullName": "Devanshi Mandarin", "schoolName": "Taurus High School"},
+    {"studentId": 6123458, "schoolDistrict": "Tangerine", "fullName": "Israel Citron", "schoolName": "Capricorn High School"},
+    {"studentId": 6123459, "schoolDistrict": "Tangerine", "fullName": "Amanda Tangelo", "schoolName": "Aries High School"},
+    {"studentId": 6123460, "schoolDistrict": "Tangerine", "fullName": "Charlotte Lemon", "schoolName": "Sagittarius High School"},
+    {"studentId": 6123461, "schoolDistrict": "Tangerine", "fullName": "Pete Pomelo", "schoolName": "Virgo High School"},
+    {"studentId": 6123462, "schoolDistrict": "Tangerine", "fullName": "Kevin Tangerine", "schoolName": "Taurus High School"},
+    {"studentId": 6123463, "schoolDistrict": "Tangerine", "fullName": "Nikki Satsuma", "schoolName": "Capricorn High School"},
+    {"studentId": 6123464, "schoolDistrict": "Tangerine", "fullName": "George Grapefruit", "schoolName": "Aries High School"},
+    {"studentId": 6123465, "schoolDistrict": "Tangerine", "fullName": "Peter Lemon", "schoolName": "Sagittarius High School"}
+  ]

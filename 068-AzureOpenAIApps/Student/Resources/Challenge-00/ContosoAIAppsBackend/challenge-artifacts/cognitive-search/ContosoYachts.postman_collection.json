@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "12bd9746-c262-47db-a132-ab7ceeaf3c98",
+		"name": "ContosoYachts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24687710"
+	},
+	"item": [
+		{
+			"name": "List Indices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{adminKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?$select=*&api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "*"
+						},
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Yacht Index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{adminKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"{{indexName}}\",\n  \"fields\": [\n    {\n      \"name\": \"yachtId\",\n      \"type\": \"Edm.String\",\n      \"key\": true,\n      \"searchable\": false\n    },\n    {\n      \"name\": \"name\",\n      \"type\": \"Edm.String\"\n    },\n    {\n      \"name\": \"price\",\n      \"type\": \"Edm.Double\"\n    },\n    {\n      \"name\": \"maxCapacity\",\n      \"type\": \"Edm.Int32\"\n    },\n    {\n      \"name\": \"description\",\n      \"type\": \"Edm.String\",\n      \"filterable\": false,\n      \"sortable\": false,\n      \"facetable\": false\n    },\n    {\n      \"name\": \"descriptionEmbedding\",\n      \"type\": \"Collection(Edm.Single)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": [],\n      \"dimensions\": 1536,\n      \"vectorSearchProfile\": \"izzyProfile\"\n    }\n  ],\n  \"vectorSearch\": {\n    \"algorithms\": [\n      {\n        \"name\": \"my-hnsw-config-1\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 4,\n          \"efConstruction\": 400,\n          \"efSearch\": 500,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-hnsw-config-2\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 8,\n          \"efConstruction\": 800,\n          \"efSearch\": 800,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-eknn-config\",\n        \"kind\": \"exhaustiveKnn\",\n        \"exhaustiveKnnParameters\": {\n          \"metric\": \"cosine\"\n        }\n      }\n    ],\n    \"profiles\": [\n      {\n        \"name\": \"izzyProfile\",\n        \"algorithm\": \"my-hnsw-config-2\"\n      }\n    ]\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes('{{indexName}}')?api-version={{apiVersion}}&allowIndexDowntime=False",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes('{{indexName}}')"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}?allowIndexDowntime=False"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Contoso Islands Index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{adminKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"{{indexName}}\",\n  \"fields\": [\n    {\n      \"name\": \"yachtId\",\n      \"type\": \"Edm.String\",\n      \"key\": true,\n      \"searchable\": false\n    },\n    {\n      \"name\": \"name\",\n      \"type\": \"Edm.String\"\n    },\n    {\n      \"name\": \"price\",\n      \"type\": \"Edm.Double\"\n    },\n    {\n      \"name\": \"maxCapacity\",\n      \"type\": \"Edm.Int32\"\n    },\n    {\n      \"name\": \"description\",\n      \"type\": \"Edm.String\",\n      \"filterable\": false,\n      \"sortable\": false,\n      \"facetable\": false\n    },\n    {\n      \"name\": \"descriptionEmbedding\",\n      \"type\": \"Collection(Edm.Single)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": [],\n      \"dimensions\": 1536,\n      \"vectorSearchProfile\": \"izzyProfile\"\n    }\n  ],\n  \"vectorSearch\": {\n    \"algorithms\": [\n      {\n        \"name\": \"my-hnsw-config-1\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 4,\n          \"efConstruction\": 400,\n          \"efSearch\": 500,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-hnsw-config-2\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 8,\n          \"efConstruction\": 800,\n          \"efSearch\": 800,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-eknn-config\",\n        \"kind\": \"exhaustiveKnn\",\n        \"exhaustiveKnnParameters\": {\n          \"metric\": \"cosine\"\n        }\n      }\n    ],\n    \"profiles\": [\n      {\n        \"name\": \"izzyProfile\",\n        \"algorithm\": \"my-hnsw-config-2\"\n      }\n    ]\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes('{{indexName}}')?api-version={{apiVersion}}&allowIndexDowntime=False",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes('{{indexName}}')"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}?allowIndexDowntime=False"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Yacht Index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{adminKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"{{indexName}}\",\n  \"fields\": [\n    {\n      \"name\": \"yachtId\",\n      \"type\": \"Edm.String\",\n      \"key\": true,\n      \"searchable\": false\n    },\n    {\n      \"name\": \"name\",\n      \"type\": \"Edm.String\"\n    },\n    {\n      \"name\": \"price\",\n      \"type\": \"Edm.Double\"\n    },\n    {\n      \"name\": \"maxCapacity\",\n      \"type\": \"Edm.Int32\"\n    },\n    {\n      \"name\": \"description\",\n      \"type\": \"Edm.String\",\n      \"filterable\": false,\n      \"sortable\": false,\n      \"facetable\": false\n    },\n    {\n      \"name\": \"descriptionEmbedding\",\n      \"type\": \"Collection(Edm.Single)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": [],\n      \"dimensions\": 1536,\n      \"vectorSearchProfile\": \"izzyProfile\"\n    }\n  ],\n  \"vectorSearch\": {\n    \"algorithms\": [\n      {\n        \"name\": \"my-hnsw-config-1\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 4,\n          \"efConstruction\": 400,\n          \"efSearch\": 500,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-hnsw-config-2\",\n        \"kind\": \"hnsw\",\n        \"hnswParameters\": {\n          \"m\": 8,\n          \"efConstruction\": 800,\n          \"efSearch\": 800,\n          \"metric\": \"cosine\"\n        }\n      },\n      {\n        \"name\": \"my-eknn-config\",\n        \"kind\": \"exhaustiveKnn\",\n        \"exhaustiveKnnParameters\": {\n          \"metric\": \"cosine\"\n        }\n      }\n    ],\n    \"profiles\": [\n      {\n        \"name\": \"izzyProfile\",\n        \"algorithm\": \"my-hnsw-config-2\"\n      }\n    ]\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes('{{indexName}}')?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes('{{indexName}}')"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateYachtEmbedding",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"yachtId\": \"400\",\n  \"price\": 250.00,\n  \"name\": \"Artificial Idiot\",\n  \"maxCapacity\": 99,\n  \"description\": \"The Artificial Idiot aka A.I. is a 99-person capacity yacht operated by Contoso Travels. It costs approximately $25 million US dollars. It was entered into service on September 1 2023. It has a maximum speed of 35 mph.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7075/api/contoso-travel-update-yacht",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7075",
+					"path": [
+						"api",
+						"contoso-travel-update-yacht"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchYatch",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hybridSearch\": false,\n    \"query\": \"Can you describe Artificial Idiot?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7075/api/contoso-travel-search-yachts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7075",
+					"path": [
+						"api",
+						"contoso-travel-search-yachts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "serviceName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "indexName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminKey",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "apiVersion",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

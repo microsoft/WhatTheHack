@@ -1,0 +1,126 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "check_if_customer_account_exists",
+            "description": "Checks if the customer has a bank account",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email_address": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer used to look if the account exists"
+                    }
+                },
+                "required": ["customer_email_address"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_customer_account_details",
+            "description": "Retrieves the customer profile details such as the first name and last name of the customer",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email_address": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer used to look if the account exists"
+                    }
+                },
+                "required": ["customer_email_address"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_customer_account",
+            "description": "Creates a new customer account using the customer's email, first name and last name of the customer",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "description": "The first name of the customer"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "The last name of the customer"
+                    }
+                },
+                "required": ["customer_email", "first_name", "last_name"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_customer_account_balance",
+            "description": "Returns the available balance in the customer's bank account in US dollars",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "make_bank_account_deposit",
+            "description": "Makes a deposit into the customer's bank account",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "deposit_amount": {
+                        "type": "number",
+                        "description": "The amount of money to deposit in the customer's bank account in US dollars."
+                    }
+                },
+                "required": ["customer_email", "deposit_amount"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "make_bank_account_withdrawal",
+            "description": "Makes a withdrawal from the customer's bank account",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "withdrawal_amount": {
+                        "type": "number",
+                        "description": "The amount of money to withdraw from the customer's bank account in US dollars."
+                    }
+                },
+                "required": ["customer_email", "withdrawal_amount"]
+            }
+        }
+    }
+]

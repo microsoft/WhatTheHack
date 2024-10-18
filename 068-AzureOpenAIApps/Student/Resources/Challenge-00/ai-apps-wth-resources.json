@@ -1,0 +1,593 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "The storage account name for storing the documents, text files and PDFs"
+      }
+    },
+    "functionWebJobsStorageAccount": {
+      "type": "string",
+      "metadata": {
+        "description": "The storage account for the azure function instance"
+      }
+    },
+    "cosmosDBAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "The service name for cosmos db service"
+      }
+    },
+    "cosmosDBDatabaseName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the database"
+      }
+    },
+    "cosmosDBContainer1": {
+      "type": "string",
+      "metadata": {
+        "description": "The container for yachts"
+      }
+    },
+    "cosmosContainerPartitionKey1": {
+      "type": "string",
+      "defaultValue": "/yachtId",
+      "metadata": {
+        "description": "The name of the partition key for this container"
+      }
+    },
+    "cosmosDBContainer2": {
+      "type": "string",
+      "metadata": {
+        "description": "The container for customers"
+      }
+    },
+    "cosmosContainerPartitionKey2": {
+      "type": "string",
+      "defaultValue": "/email",
+      "metadata": {
+        "description": "The name of the partition key for this container"
+      }
+    },
+    "cosmosDBContainer3": {
+      "type": "string",
+      "metadata": {
+        "description": "The container for reservations"
+      }
+    },
+    "cosmosContainerPartitionKey3": {
+      "type": "string",
+      "defaultValue": "/id",
+      "metadata": {
+        "description": "The name of the partition key for this container"
+      }
+    },
+    "cosmosDBContainer4": {
+      "type": "string",
+      "metadata": {
+        "description": "The container for student exam submissions"
+      }
+    },
+    "cosmosContainerPartitionKey4": {
+      "type": "string",
+      "defaultValue": "/id",
+      "metadata": {
+        "description": "The name of the partition key for this container"
+      }
+    },
+    "redisCache": {
+      "type": "string",
+      "metadata": {
+        "description": "Redis cache service instance name"
+      }
+    },
+    "documentIntelligenceService": {
+      "type": "string",
+      "metadata": {
+        "description": "The Azure Document Intelligence name"
+      }
+    },
+    "serviceBusInstance": {
+      "type": "string",
+      "metadata": {
+        "description": "The service bus namespace name"
+      }
+    },
+    "serviceBusQueue1": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the 1st service bus queue"
+      }
+    },
+    "serviceBusQueue2": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the 2nd service bus queue"
+      }
+    },
+    "serviceBusQueue3": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the 3rd service bus queue"
+      }
+    },
+    "serviceBusQueue4": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the 4th service bus queue"
+      }
+    },
+    "cognitiveSearchName": {
+      "type": "string",
+      "metadata": {
+        "description": "The Azure Congitive Search service name"
+      }
+    },
+    "openAIServiceName": {
+      "type": "string",
+      "metadata": {
+        "description": "The Open AI Service instance name"
+      }
+    },
+    "gptModelDeploymentId": {
+      "type": "string",
+      "metadata": {
+        "description": "The GPT-3.5 LLM model deployment identifier"
+      }
+    },
+    "gptEmbeddingId": {
+      "type": "string",
+      "metadata": {
+        "description": "The ada embedding model identifier"
+      }
+    }
+  },
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "name": "[parameters('storageAccountName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "tags": {
+        "displayName": "[parameters('storageAccountName')]"
+      },
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      }
+    },
+    {
+      "name": "[parameters('functionWebJobsStorageAccount')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "tags": {
+        "displayName": "[parameters('functionWebJobsStorageAccount')]"
+      },
+      "location": "[resourceGroup().location]",
+      "kind": "StorageV2",
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      }
+    },
+    {
+      "name": "[parameters('cosmosDBAccountName')]",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2023-04-15",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "kind": "GlobalDocumentDB",
+      "properties": {
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Strong",
+          "maxStalenessPrefix": 1,
+          "maxIntervalInSeconds": 5
+        },
+        "locations": [
+          {
+            "locationName": "[resourceGroup().location]",
+            "failoverPriority": 0
+          }
+        ],
+        "databaseAccountOfferType": "Standard",
+        "enableAutomaticFailover": true,
+        "capabilities": []
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases",
+      "name": "[concat(parameters('cosmosDBAccountName'), '/sql/', parameters('cosmosDBDatabaseName'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/', parameters('cosmosDBAccountName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDBDatabaseName')]"
+        },
+        "options": {
+          "throughput": "400"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers",
+      "name": "[concat(parameters('cosmosDBAccountName'), '/sql/', parameters('cosmosDBDatabaseName'), '/', parameters('cosmosDBContainer1'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/apis/databases', parameters('cosmosDBAccountName'), 'sql', parameters('cosmosDBDatabaseName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDBContainer1')]",
+          "partitionKey": {
+            "paths": ["[parameters('cosmosContainerPartitionKey1')]"],
+            "kind": "hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*",
+                "indexes": [
+                  {
+                    "kind": "Hash",
+                    "dataType": "String",
+                    "precision": -1
+                  }
+                ]
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/\"_etag\"/?"
+              }
+            ]
+          }
+        },
+        "options": {}
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers",
+      "name": "[concat(parameters('cosmosDBAccountName'), '/sql/', parameters('cosmosDBDatabaseName'), '/', parameters('cosmosDBContainer2'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/apis/databases', parameters('cosmosDBAccountName'), 'sql', parameters('cosmosDBDatabaseName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDBContainer2')]",
+          "partitionKey": {
+            "paths": ["[parameters('cosmosContainerPartitionKey2')]"],
+            "kind": "hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*",
+                "indexes": [
+                  {
+                    "kind": "Hash",
+                    "dataType": "String",
+                    "precision": -1
+                  }
+                ]
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/\"_etag\"/?"
+              }
+            ]
+          }
+        },
+        "options": {}
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers",
+      "name": "[concat(parameters('cosmosDBAccountName'), '/sql/', parameters('cosmosDBDatabaseName'), '/', parameters('cosmosDBContainer3'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/apis/databases', parameters('cosmosDBAccountName'), 'sql', parameters('cosmosDBDatabaseName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDBContainer3')]",
+          "partitionKey": {
+            "paths": ["[parameters('cosmosContainerPartitionKey3')]"],
+            "kind": "hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*",
+                "indexes": [
+                  {
+                    "kind": "Hash",
+                    "dataType": "String",
+                    "precision": -1
+                  }
+                ]
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/\"_etag\"/?"
+              }
+            ]
+          }
+        },
+        "options": {}
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers",
+      "name": "[concat(parameters('cosmosDBAccountName'), '/sql/', parameters('cosmosDBDatabaseName'), '/', parameters('cosmosDBContainer4'))]",
+      "apiVersion": "2016-03-31",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/apis/databases', parameters('cosmosDBAccountName'), 'sql', parameters('cosmosDBDatabaseName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('cosmosDBContainer4')]",
+          "partitionKey": {
+            "paths": ["[parameters('cosmosContainerPartitionKey4')]"],
+            "kind": "hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "consistent",
+            "includedPaths": [
+              {
+                "path": "/*",
+                "indexes": [
+                  {
+                    "kind": "Hash",
+                    "dataType": "String",
+                    "precision": -1
+                  }
+                ]
+              }
+            ],
+            "excludedPaths": [
+              {
+                "path": "/\"_etag\"/?"
+              }
+            ]
+          }
+        },
+        "options": {}
+      }
+    },
+    {
+      "type": "Microsoft.Cache/Redis",
+      "apiVersion": "2023-04-01",
+      "name": "[parameters('redisCache')]",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "[parameters('redisCache')]"
+      },
+      "properties": {
+        "sku": {
+          "name": "Basic",
+          "family": "C",
+          "capacity": 0
+        }
+      }
+    },
+    {
+      "name": "[parameters('serviceBusInstance')]",
+      "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2021-11-01",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Standard"
+      },
+      "properties": {}
+    },
+    {
+      "name": "[concat(parameters('serviceBusInstance'), '/', parameters('serviceBusQueue1'))]",
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2021-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusInstance'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "name": "[concat(parameters('serviceBusInstance'), '/', parameters('serviceBusQueue2'))]",
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2021-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusInstance'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "name": "[concat(parameters('serviceBusInstance'), '/', parameters('serviceBusQueue3'))]",
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2021-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusInstance'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "name": "[concat(parameters('serviceBusInstance'), '/', parameters('serviceBusQueue4'))]",
+      "type": "Microsoft.ServiceBus/namespaces/queues",
+      "apiVersion": "2021-11-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusInstance'))]"
+      ],
+      "properties": {
+        "lockDuration": "PT5M",
+        "maxSizeInMegabytes": 1024,
+        "requiresDuplicateDetection": false,
+        "requiresSession": false,
+        "defaultMessageTimeToLive": "P14D",
+        "deadLetteringOnMessageExpiration": false,
+        "duplicateDetectionHistoryTimeWindow": "PT10M",
+        "maxDeliveryCount": 10,
+        "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "enablePartitioning": false,
+        "enableExpress": false
+      }
+    },
+    {
+      "type": "Microsoft.Search/searchServices",
+      "apiVersion": "2022-09-01",
+      "name": "[parameters('cognitiveSearchName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "basic"
+      },
+      "properties": {
+        "replicaCount": 1,
+        "partitionCount": 1,
+        "hostingMode": "Default",
+        "publicNetworkAccess": "Enabled",
+        "networkRuleSet": {
+          "ipRules": []
+        },
+        "encryptionWithCmk": {
+          "enforcement": "Unspecified"
+        },
+        "disableLocalAuth": false,
+        "authOptions": {
+          "apiKeyOnly": {}
+        }
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[parameters('documentIntelligenceService')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "FormRecognizer",
+      "identity": {
+        "type": "None"
+      },
+      "properties": {
+        "customSubDomainName": "[parameters('documentIntelligenceService')]",
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "virtualNetworkRules": [],
+          "ipRules": []
+        },
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "kind": "OpenAI",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[parameters('openAIServiceName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "S0"
+      },
+      "properties": {
+        "customSubDomainName": "[parameters('openAIServiceName')]",
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "virtualNetworkRules": [],
+          "ipRules": []
+        },
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[concat(parameters('openAIServiceName'), '/', parameters('gptModelDeploymentId'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', parameters('openAIServiceName'))]"
+      ],
+      "sku": {
+        "name": "Standard",
+        "capacity": 50
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "gpt-4",
+          "version": "1106-Preview"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts/deployments",
+      "apiVersion": "2023-10-01-preview",
+      "name": "[concat(parameters('openAIServiceName'), '/', parameters('gptEmbeddingId'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.CognitiveServices/accounts', parameters('openAIServiceName'))]"
+      ],
+      "sku": {
+        "name": "Standard",
+        "capacity": 50
+      },
+      "properties": {
+        "model": {
+          "format": "OpenAI",
+          "name": "text-embedding-3-small",
+          "version": "1"
+        },
+        "versionUpgradeOption": "OnceNewDefaultVersionAvailable",
+        "raiPolicyName": "Microsoft.Default"
+      }
+    }
+  ],
+  "outputs": {}
+}

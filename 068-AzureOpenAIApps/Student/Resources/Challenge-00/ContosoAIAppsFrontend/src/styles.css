@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+img.assistant-image
+{
+    width: 250px;
+    height: auto;
+}
+
+img.assistant-thumbnail
+{
+    width: 25px;
+    height: auto;
+    vert-align: middle;
+    padding-right: 20px;
+}
