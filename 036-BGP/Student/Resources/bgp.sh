@@ -35,6 +35,14 @@
 # Jose Moreno, August 2020
 ############################################################
 
+## Define "Global" script variables used in functions
+publisher=cisco
+#offer=cisco-csr-1000v
+offer=cisco-c8000v-byol
+#sku=16_12-byol
+# Newest version available 
+sku=17_15_01a-byol 
+
 # Waits until a resource finishes provisioning
 # Example: wait_until_finished <resource_id> 
 function wait_until_finished () {
@@ -347,25 +355,23 @@ function create_vm_in_csr_vnet () {
 }
 
 function accept_csr_terms () {
-    publisher=cisco
+    #USE GLOBALS
+    #publisher=cisco
     #offer=cisco-csr-1000v
-    offer=cisco-c8000v-byol
+    #offer=cisco-c8000v-byol
     #sku=16_12-byol
     # Newest version available 
-    sku=17_15_01a-byol 
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
-    if [[ -z "$version" ]]; then
-        echo "Could not locate an image version for ${publisher}:${offer}:${sku}, double-check Publisher, offer, and SKU"
-        exit 1
+    #sku=17_15_01a-byol 
+    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     # Accept terms
     echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
-    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" -o none
+    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" >/dev/null
     # Verify
-    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv)
+    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv 2>/dev/null)
     if [[ "$status" != "true" ]]
     then
         echo "Marketplace image terms for ${publisher}:${offer}:${sku}:${version} could not be accepted, do you have access at the subscription level?"
-        exit 1
+        exit
     fi
 }
 
@@ -377,10 +383,14 @@ function create_csr () {
     csr_vnet_prefix="10.${csr_id}.0.0/16"
     csr_subnet_prefix="10.${csr_id}.0.0/24"
     csr_bgp_ip="10.${csr_id}.0.10"
-    publisher=cisco
-    offer=cisco-csr-1000v
-    sku=16_12-byol
-    # sku=17_3_4a-byol  # Newest version available
+    # USE GLOBALS
+    #publisher=cisco
+    #offer=cisco-csr-1000v
+    #offer=cisco-c8000v-byol
+    #sku=16_12-byol
+    # Newest version available 
+    #sku=17_15_01a-byol 
+
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
     nva_size=Standard_B2ms
     # Create CSR
