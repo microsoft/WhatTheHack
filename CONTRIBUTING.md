@@ -184,15 +184,27 @@ When you feel your hack is finished and ready for release, this is the process w
 
 ### Spell Check
 
-A spell checker will run on each new pull request submitted and again each time additional commits are made against that pull request. It will use common English words as well as technical terms from the `.github/workflows/spell-check/.wordlist.txt` file.
+A spell checker will run on each new pull request submitted and again each time additional commits are made against that pull request. It will use common English words as well as technical terms from the `.github/workflows/spell-check/.wordlist.txt` file.  The spell checker ignores content within code blocks.
 
 This will run on each pull request that is submitted to the `master` branch.
 
+If the spell check fails (as in the image below), click the `Details` link as highlighted, to reveal the spelling errors that were detected.
+
 ![Spell Check Fail](000-HowToHack/images/spell-check-fail.png?raw=true "Spell Check Fail")
+
+The spelling issues will be listed along side of each page that they occurred on as in the image below:
 
 ![Spell Check Misspelled Words](000-HowToHack/images/spell-check-misspelled-words.png?raw=true "Spell Check Misspelled Words")
 
-If you have unique or technical words that are not already in the global `.wordlist` file, you can add your own list. Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
+If the spell checker detects spelling errors, you have 3 options for resolving them:
+
+1. Fix the misspelled word!
+1. Wrap it in a code block with backticks (\`\`).
+  - If the word is a programatic term, object or variable name, form field, etc. (i.e. `databaseName` or `ColumnName`), you should wrap the word in backticks (\`\`) which will make it a code block.  This will make your content more readable by making these terms stand out on the page.
+1. Add it to a whitelist for your hack.
+  - If you have unique or technical words that are not already in the global `.wordlist` file, you can add these words to your own whitelist. Add a file called `.wordlist.txt` to your new WTH sub-directory and include all the words you want the spell checker to ignore. There should be 1 word on each line (similar to how the `.github/workflows/spell-check/.wordlist.txt` file is formatted).
+
+**NOTE:** Adding words to the whitelist should be reserved for proper names like a product name (i.e. "Kubernetes"), or a term that is part of the vocabulary for a given technology (i.e. "kubectl") 
 
 ### Use Draft Pull Requests for Early Feedback
 
