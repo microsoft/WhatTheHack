@@ -186,7 +186,7 @@ To complete the challenge successfully, the solution should demonstrate the foll
 Here are a list of resources that should assist you with completing this challenge: 
 
 *Sample resources:*
-- [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter)
+- [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter) - This is a free online JSON to JSON Schema Converter. It will take a sample JSON document and then infer JSON schema from it. 
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
 
 ## Tips
