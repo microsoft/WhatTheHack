@@ -348,19 +348,24 @@ function create_vm_in_csr_vnet () {
 
 function accept_csr_terms () {
     publisher=cisco
-    offer=cisco-csr-1000v
-    sku=16_12-byol
-    # sku=17_3_4a-byol  # Newest version available
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv 2>/dev/null)
+    #offer=cisco-csr-1000v
+    offer=cisco-c8000v-byol
+    #sku=16_12-byol
+    # Newest version available 
+    sku=17_15_01a-byol 
+    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
+    if [[ -z "$version" ]]; then
+        echo "Could not locate an image version for ${publisher}:${offer}:${sku}, double-check Publisher, offer, and SKU"
+        exit 1
     # Accept terms
     echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
-    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" >/dev/null
+    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" -o none
     # Verify
-    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv 2>/dev/null)
+    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv)
     if [[ "$status" != "true" ]]
     then
         echo "Marketplace image terms for ${publisher}:${offer}:${sku}:${version} could not be accepted, do you have access at the subscription level?"
-        exit
+        exit 1
     fi
 }
 
