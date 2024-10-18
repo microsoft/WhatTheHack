@@ -200,7 +200,7 @@ If the spell checker detects spelling errors, you have 3 options for resolving t
 
 - Fix the misspelled word!
 - Wrap the word in a code block with backticks (\`\`).
-  - If the word is a programatic term, object or variable name, form field, etc. (i.e. `databaseName` or `ColumnName`), you should wrap the word in backticks (\`\`) which will make it a code block.
+  - If the word is a programmatic term, object or variable name, form field, etc. (i.e. `databaseName` or `ColumnName`), you should wrap the word in backticks (\`\`) which will make it a code block.
   - This will make your content more readable by making these terms stand out on the page.
   - The majority of words flagged by the spell checker usually fall into this category.
 - Add the word to the whitelist for your hack.
