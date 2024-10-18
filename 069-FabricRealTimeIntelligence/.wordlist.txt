@@ -24,3 +24,5 @@ percentpricedifference
 pricedifference
 KQLDB
 popout
+eventstream
+eventhouse
