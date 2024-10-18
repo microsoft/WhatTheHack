@@ -76,7 +76,7 @@ To validate the deployment to ACA run the following script:
 
 After running `azd up` on the **ACA** deployment and the deployment finishes, you can locate the URL of the web application by navigating to the deployed resource group in the Azure portal. Click on the link to the new resource group in the output of the script to open the Azure portal.
 
-![The terminal output aafter azd up completes shows the resource group link.](../media/azd-aca-complete-output.png)
+![The terminal output after `azd up` completes shows the resource group link.](../media/azd-aca-complete-output.png)
 
 In the resource group, you will see the `ca-search-xxxx` Azure Container Apps service.
 

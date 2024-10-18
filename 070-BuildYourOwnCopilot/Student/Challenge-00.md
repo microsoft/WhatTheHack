@@ -2,17 +2,24 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
-
 ## Introduction
 
 Thank you for participating in the Build Modern AI Apps What The Hack. Over the next series of challenges you'll provision Azure resources, populate your Azure Cosmos DB database with initial data, create a vector index for the data, use Azure OpenAI models to ask questions about the data, and write some code. But before we get started, let's make sure we've got everything setup.
+
+CosmicWorks has big plans for their retail site, but they need to start somewhere; they need a landing zone in Azure for all of their services. It will take a while to prepare their e-Commerce site to migrate to Azure, but they're eager to launch a POC of a simple chat interface where users can interact with a virtual agent to find product and account information.
+
+They've created a simple Blazor web application for the UI elements and have asked you to to incorporate the backend plumbing to do the following:
+
+- Store the chat history in an Azure Cosmos DB database
+  - They expect the following types of messages: Session (for the chat session), Message (the user and assistant message).
+  - A message should have a sender (Assistant or User), tokens (that indicates how many tokens were used), text (the text from the assistant or the user), rating (thumbs up or down) and vector (the vector embedding of the user's text).
+- Source the customer and product data from the Azure Cosmos DB database.
+- Use Azure OpenAI service to create vector embeddings and chat completions.
+- Use a Azure Cognitive Search to search for relevant product and account information by the vector embeddings.
+- Encapsulate the orchestration of interactions with OpenAI behind a back-end web service.
+- Create a storage account to externalize prompts that will be used by your assistant.
+
+For this challenge, you will deploy the services into the landing zone in preparation for the launch of the POC.
 
 ## Common Prerequisites
 
@@ -36,20 +43,6 @@ You might not need all of them for the hack you are participating in. However, i
 
 ## Description
 
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
-
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
-
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
-
-_Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
-
-**\*NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.\*
-
-**\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
-
-_Sample challenge zero text for the IoT Hack Of The Century:_
-
 Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
@@ -57,26 +50,99 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 Please enable Azure OpenAI for your Azure subscription and install these additional tools:
 
 - Enable subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://aka.ms/oaiapply)
-- .NET 7 SDK
+- .NET 8 SDK
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
-- Visual Studio 2022 (only needed if you plan to run/debug the solution locally)
+- Visual Studio 2022
 
 > [!NOTE]
-> Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services.  See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+>  Free Azure Trial does not have sufficient quota for Azure OpenAI to run this hackathon successfully and cannot be used.
+
+> [!NOTE]
+> Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
+
+> [!NOTE]
+> This hackathon requires quota for Azure OpenAI models. To avoid capacity or quota issues, it is recommended before arriving for the hackathon, you deploy both `GPT-4o` and `text-embedding-3-large` models with **at least 100K token capacity** into the subscription you will use for this hackathon. You may delete these models after creating them. This step is to ensure your subscription has sufficient capacity. If it does not, see [How to increase Azure OpenAI quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
+
+## Deployment steps
+
+Follow the steps below to deploy the solution to your Azure subscription.
+
+1. Ensure all the prerequisites are installed.  Check to make sure you have the `Owner` role for the subscription assigned to your account.
+
+2. Clone the repository:
+
+    ```cmd
+    git clone https://github.com/Azure/BuildYourOwnCopilot.git
+    ```
+
+3. Switch to the `main` branch:
+
+    ```cmd
+    cd BuildYourOwnCopilot
+    git checkout main
+    ```
+
+    > [!IMPORTANT]
+    > **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 120K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 131 and 142 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 141 and 152 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
+
+4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Container Apps and import data into Azure Cosmos DB.
+
+    This script will deploy all services including a new Azure OpenAI account using Azure Container Apps. (This can be a good option for users not familiar with AKS)
+
+    ```pwsh
+    cd ./infra/aca
+    azd up
+    ```
+
+    You will be prompted for the target subscription, location, and desired environment name. The target resource group will be `rg-` followed by the environment name (i.e. `rg-my-aca-deploy`)
+
+    To validate the deployment to ACA run the following script:
+
+    > ```pwsh
+    >  az containerapp show -n <aca-name> -g <resource-group-name>
+    >  ```
+
+    After running `azd up` on the **ACA** deployment and the deployment finishes, you can locate the URL of the web application by navigating to the deployed resource group in the Azure portal. Click on the link to the new resource group in the output of the script to open the Azure portal.
+    
+    ![The terminal output aafter azd up completes shows the resource group link.](media/azd-aca-complete-output.png)
+    
+    In the resource group, you will see the `ca-search-xxxx` Azure Container Apps service.
+    
+    ![The Search Azure Container App is highlighted in the resource group.](media/search-container-app-resource-group.png)
+    
+    Select the service to open it, then select the `Application Url` to open the web application in your browser.
+    
+    ![The Application Url is highlighted in the Search Azure Container App overview blade.](media/search-container-app-url.png)
+
+> [!IMPORTANT]
+> If you encounter any errors during the deployment, rerun `azd up` to continue the deployment from where it left off. This will not create duplicate resources, and tends to resolve most issues.
+
+## Deployment validation
+
+Use the steps below to validate that the solution was deployed successfully.
+
+Once the deployment script completes, the Application Insights `traces` query should display the following sequence of events:
+
+![API initialization sequence of events](media/initialization-trace.png)
+
+Next, you should be able to see multiple entries referring to the vectorization of the data that was imported into Cosmos DB:
+
+![API vectorization sequence of events](media/initialization-embedding.png)
+
+Finally, you should be able to see the Azure Cosmos DB vector store collection being populated with the vectorized data:
+
+![Cosmos DB vector store collection populated with vectorized data](media/initialization-vector-index.png)
+
+> **NOTE**:
+>
+> It takes several minutes until all imported data is vectorized and indexed.
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
+- Verify that all services have been deployed successfully.
+- Verify that you have a new Azure Cosmos DB workspace with the NoSQL API. It should have a database named `database` and containers named `completions` with a partition key of `/sessionId`, `customer` with a partition key of `/customerId`, `embedding` with a partition key of `/id`, `product` with a partition key of `/categoryId`, and `leases` with a partition key of `/id`.
