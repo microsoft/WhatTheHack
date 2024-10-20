@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Env.SERVICE_WEB_IMAGE_NAME }}"
+          imagePullPolicy: Always
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: MSCosmosDBOpenAI__ChatManager__APIRoutePrefix
+              value: /api
+            - name: MSCosmosDBOpenAI__ChatManager__APIUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: cfg-web
+                  key: MSCosmosDBOpenAI__ChatManager__APIUrl
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources: {}
+      nodeSelector: {}
+      affinity: {}
+      tolerations: []
+
+
