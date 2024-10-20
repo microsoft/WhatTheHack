@@ -6,9 +6,10 @@
 
 View the completed code in the `solutions/challenge-1/code` folder.
 
-### [Challenge 2][Exercise 2.1.1]
+### [Challenge 1][Exercise 1.1.1]
 
 Exercise:
+
 ```csharp
         //--------------------------------------------------------------------------------------------------------
         // TODO: [Challenge 1][Exercise 1.1.1]
@@ -18,13 +19,17 @@ Exercise:
         //--------------------------------------------------------------------------------------------------------
         _semanticKernel = builder.Build();
 ```
+
 ---
+
 Solution:
+
 ```csharp
         _semanticKernel = builder.Build();
 ```
 
 Trainer notes:
+
 - The Kernel is the core component of the Semantic Kernel library. It is responsible for managing the context and plugins, and for providing the completion services.
 - The Kernel builder is used to configure the Kernel and its dependencies.
 - The Kernel builder supports dependency injection.
@@ -33,10 +38,11 @@ Trainer notes:
 - Encourage the participants to identify the Azure OpenAI account they deployed, its endpoint, completion model deployment and API key.
 
 Suggested reading:
+
 - [Understanding the kernel](https://learn.microsoft.com/en-us/semantic-kernel/concepts/kernel?pivots=programming-language-csharp)
 
 
-### [Challenge 2][Exercise 2.2.1]
+### [Challenge 1][Exercise 1.2.1]
 
 Exercise:
 
@@ -68,10 +74,11 @@ Trainer notes:
 - Note that vector memory stores are the focus of one of the following exercises.
 
 Suggested reading:
+
 - [What is a Plugin?](https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/?pivots=programming-language-csharp)
 - [How to use function calling with Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
 
-### [Challenge 2][Exercise 2.3.1]
+### [Challenge 1][Exercise 1.3.1]
 
 Exercise:
 
@@ -83,22 +90,27 @@ Exercise:
             //--------------------------------------------------------------------------------------------------------
             _semanticKernel.ImportPluginFromObject(_listPlugin);
 ```
+
 ---
+
 Solution:
+
 ```csharp
             _semanticKernel.ImportPluginFromObject(_listPlugin);
 ```
 
 Trainer notes:
+
 - One of the immediate questions raised by the previous exercise is how are the context plugins selected and used by the LLM. The `ContextPluginsListPlugin` plugin is responsible for managing the list of context plugins that are used by the LLM.
 - Encourage the attendees to explore the implementation of the `ContextPluginsListPlugin` plugin.
 - Note how the main role of the `ContextPluginsListPlugin` plugin is to create a list of plugin names and descriptions which are later used by the LLM to decide which plugins to use.
 - Note the capability of an LLM to correlate the user question with the descriptions of plugins.
 
 Suggested reading:
+
 - [What is a Planner?](https://learn.microsoft.com/en-us/semantic-kernel/concepts/planning?pivots=programming-language-csharp)
 
-### [Challenge 2][Exercise 2.4.1]
+### [Challenge 1][Exercise 1.4.1]
 
 Exercise:
 
@@ -126,7 +138,7 @@ Trainer notes:
 - The `VectorMemoryStore` class is a wrapper around the `IMemoryStore` interface that provides the fundamental operations for a memory store: add memory, remove memory, and get all the memories that are closes to a give chunk of text or a vector.
 - Encourage the attendees to explore the implementation of the `VectorMemoryStore` class.
 
-### [Challenge 2][Exercise 2.5.1]
+### [Challenge 1][Exercise 1.5.1]
 
 Exercise:
 
@@ -156,7 +168,7 @@ Trainer notes:
 - Encourage the attendees to take a close look at the `CreateCollectionAsync` method that is used to create a vector store collection in the Cosmos DB database. Note the indexing policy and the vector embedding policy used to create the collection.
 - Encourage the attendees to explore the Azure Cosmos DB account they deployed, the database, and the vector store collections created by the solution accelerator.
 
-### [Challenge 2][Exercise 2.6.1]
+### [Challenge 1][Exercise 1.6.1]
 
 Exercise:
 
@@ -188,10 +200,11 @@ Trainer notes:
 - Encourage attendees to read again the [KeyConcepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of embeddings in the solution accelerator.
 
 Suggested reading:
+
 - [Embeddings](https://platform.openai.com/docs/guides/embeddings/use-cases)
 - [Build Your Own Copilot with Azure Cosmos DB - Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-### [Challenge 2][Exercise 2.7.1]
+### [Challenge 1][Exercise 1.7.1]
 
 Exercise:
 

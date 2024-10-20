@@ -6,7 +6,7 @@
 
 View the completed code in the `solutions/challenge-5/code` folder.
 
-### [Challenge 6][Exercise 6.1.1]
+### [Challenge 5][Exercise 5.1.1]
 
 Exercise:
 
@@ -38,7 +38,7 @@ Suggested reading:
 
 - [Build Your Own Copilot with Azure Cosmos DB - Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-### [Challenge 6][Exercise 6.2.1]
+### [Challenge 5][Exercise 5.2.1]
 
 Exercise:
 
@@ -63,7 +63,7 @@ Trainer notes:
 
 - The `Reset` method is responsible for resetting the semantic cache.
 
-### [Challenge 6][Exercise 6.3.1]
+### [Challenge 5][Exercise 5.3.1]
 
 Exercise:
 
@@ -100,7 +100,7 @@ Trainer notes:
 - The `SetMinRelevanceOverride` method is responsible for setting the minimum relevance override in the semantic cache.
 - Handling this system command is more difficult than the previous one because the actual value of the similarity score must be retrieved from the user message. Suggest attendees to use the `GetSemanticCacheSimilarityScore` method to parse the similarity score from the user prompt. Note that the full implementation of the method is the subject of the next exercise.
 
-### [Challenge 6][Exercise 6.3.2]
+### [Challenge 5][Exercise 5.3.2]
 
 Exercise:
 

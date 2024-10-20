@@ -6,7 +6,7 @@
 
 View the completed code in the `solutions/challenge-2/code` folder.
 
-### [Challenge 3][Exercise 3.1.1]
+### [Challenge 2][Exercise 2.1.1]
 
 Exercise:
 
@@ -37,7 +37,7 @@ Suggested reading:
 
 - [Using Filters in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/filters-in-semantic-kernel/)
 
-### [Challenge 3][Exercise 3.1.2]
+### [Challenge 2][Exercise 2.1.2]
 
 Exercise:
 
@@ -58,7 +58,7 @@ Trainer notes:
 - Once the prompt filter is attached to the Semantic Kernel, attendees can access the rendered prompt by exposing a property in the filter class.
 - Note that at this point, the property is not yet available as it will be implemented in the next exercises. Once the exercises are complete, they can come back to this point and replace the `string.Empty` with the actual value.
 
-### [Challenge 3][Exercise 3.2.1]
+### [Challenge 2][Exercise 2.2.1]
 
 Exercise:
 
@@ -88,7 +88,7 @@ Trainer notes:
 
 - Suggest attendees to define three public properties: one for the plugin name, one for the function name, and one for the rendered prompt.
 
-### [Challenge 3][Exercise 3.2.2]
+### [Challenge 2][Exercise 2.2.2]
 
 Exercise:
 
@@ -118,7 +118,7 @@ Trainer notes:
 - The properties are available in the `PromptRenderContext` class.
 - The handler should call the `next` delegate to continue the pipeline execution (to allow other filters to execute as well).
 
-### [Challenge 3][Exercise 3.3.1]
+### [Challenge 2][Exercise 2.3.1]
 
 Exercise:
 

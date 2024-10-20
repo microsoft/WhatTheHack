@@ -6,7 +6,7 @@
 
 View the completed code in the `solutions/challenge-3/code` folder.
 
-### [Challenge 4][Exercise 4.1.1]
+### [Challenge 3][Exercise 3.1.1]
 
 Exercise:
 
@@ -41,7 +41,7 @@ Optional exercise:
 
 - Challenge the attendees implement an `ISystemPromptService` class that retrieves the system prompt from a different source (e.g., Azure Cosmos DB, GitHub, etc.). This should be addressed at the end of the hackathon by attendees who finish the main exercises early.
 
-### [Challenge 4][Exercise 4.2.1]
+### [Challenge 3][Exercise 3.2.1]
 
 Exercise:
 
@@ -70,7 +70,7 @@ Trainer notes:
 - Encourage the attendees to identify the blob storage file containing the system prompt.
 - Encourage the attendees to read through the prompt definition, understand its structure, and experiment with 2-3 changes to the prompt to observe the implications in the chat completion process.
 
-### [Challenge 4][Exercise 4.3.1]
+### [Challenge 3][Exercise 3.3.1]
 
 Exercise:
 

@@ -6,7 +6,7 @@
 
 View the completed code in the `solutions/challenge-4/code` folder.
 
-### [Challenge 5][Exercise 5.1.1]
+### [Challenge 4][Exercise 4.1.1]
 
 Exercise:
 
@@ -42,7 +42,7 @@ Suggested reading:
 
 - [Build Your Own Copilot with Azure Cosmos DB - Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-## [Challenge 5][Exercise 5.2.1]
+## [Challenge 4][Exercise 4.2.1]
 
 Exercise:
 
@@ -86,7 +86,7 @@ Trainer notes:
 - If the cache item being retrieved contains a non-empty completion, a `CompletionResult` object should be returned with the cache item's information.
 - Encourage attendees to analyze the definition of the `CompletionResult` class to understand the information that should be returned.
 
-## [Challenge 5][Exercise 5.3.1]
+## [Challenge 4][Exercise 4.3.1]
 
 Exercise:
 
@@ -107,7 +107,7 @@ Trainer notes:
 - The `UserPromptTokens` property should be set to the value of the `UserPromptTokens` property of the cache item.
 - Encourage attendees to understand how is the `UserPromptTokens` property being populated in the `SemanticCacheService` class.
 
-## [Challenge 5][Exercise 5.3.2]
+## [Challenge 4][Exercise 4.3.2]
 
 Exercise:
 
@@ -128,7 +128,7 @@ Trainer notes:
 - The `UserPromptEmbedding` property should be set to the value of the `UserPromptEmbedding` property of the cache item.
 - Encourage attendees to understand how is the `UserPromptEmbedding` property being populated in the `SemanticCacheService` class.
 
-## [Challenge 5][Exercise 5.4.1]
+## [Challenge 4][Exercise 4.4.1]
 
 Exercise:
 
@@ -155,7 +155,7 @@ Trainer notes:
 - The `cacheItem` object should have the `Completion` and `CompletionTokens` properties set to the completion and the completion tokens count, respectively.
 - The `SetCacheItem` method should be used to add the cache item to the semantic cache.
 
-## [Challenge 5][Exercise 5.5.1]
+## [Challenge 4][Exercise 4.5.1]
 
 Exercise:
 
