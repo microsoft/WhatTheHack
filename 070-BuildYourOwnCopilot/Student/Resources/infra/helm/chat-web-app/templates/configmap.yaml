@@ -1,0 +1,14 @@
+{{- $name := include "chat-web-app.fullname" . -}}
+{{- $apihost := include  "chat-web-app.apihost" . -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "cfg-{{ $name }}"
+  labels:
+    app: {{ template "chat-web-app.name" . }}
+    chart: {{ template "chat-web-app.chart" .}}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  MSCosmosDBOpenAI__ChatManager__APIUrl: {{ .Values.apiUrl }}
