@@ -1,4 +1,4 @@
-# Challenge 00 - Prerequisites - Ready, Set, GO!
+# Challenge 00 - Prerequisites - The Landing Before the Launch
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 

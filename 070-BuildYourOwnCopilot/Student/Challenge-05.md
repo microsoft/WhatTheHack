@@ -1,42 +1,53 @@
-# Challenge 05 - The Colonel Needs a Promotion
+# Challenge 05 - Do as the Colonel commands
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
-In this challenge, you and your team will add a new capability by creating a couple of new plugins for Semantic Kernel.
-
-You have lately become a big fan of Shakespeare's sonnets. You love how they convey details and information, and you want your copilot to provide details about your company's policies in the poetic form of Shakespearean language.
-
-Your challenge is correctly handling requests about your company's policies (return or shipping), including when users ask to get them as poems written in Shakespearean style.
+In this challenge, you will extend the capabilities of Semantic Kernel by integrating and managing system commands. These commands enable specialized actions, such as resetting the cache or modifying the relevance score. You'll work with plugins, invoke prompts, and extract numerical values from user input to update system settings dynamically.
 
 ## Description
 
 Your team must:
 
-1. Create a new Semantic Kernel plugin that will retrieve only memories related to company policies.
-2. Create a new Semantic Kernel plugin that will present any information as a poem written in Shakespearean language.
-3. Register the plugins with Semantic Kernel.
-4. Create a plan to respond to requests.
-5. Replace the logic in the `SemanticKernelRAGService.cs` `GetResponse` method with one that will first make a plan to decide if your functions should be used or not, and then execute the completion request accordingly.
+1. Add system command plugins
+    - Integrate the system command plugins from the configuration settings into the list of context builder plugins.
+    - Analyze the `SystemCommandPlugin` class to understand how it manages system commands.
+2. Reset the semantic cache
+    - Implement functionality to reset the semantic cache and notify the user when the reset is complete.
+3. Set a minimum relevance override
+    - Retrieve a numerical value from the user prompt and use it to set a new minimum relevance override.
+    - Use the `GetSemanticCacheSimilarityScore` method to parse the similarity score from the prompt.
+4. Parse similarity score with the plugin prompt
+    - Invoke a plugin prompt and parse the response to extract the similarity score.
+    - Analyze the `ParsedSimilarityScore` model to understand how the response structure aligns with the prompt output.
+
+You may now go to the starter solution in Visual Studio and complete Challenge 5. Locate the exercises by searching for `// TODO: [Challenge 5]`
+
+Open-ended exercise (recommended to be completed at the end of the hackathon):
+
+- Create a new system command and plug it into the system. Test the command to ensure it works as expected.
 
 ### Hints
 
-- You might want to try building this first in a simple console project.
-- You should use the SequentialPlanner from Semantic Kernel to create and execute a plan around the prompt, so that it can choose when to invoke your plugins.
-- You will have to update how you handle the completion response from the SequentialPlanner.
+- **System commands**: Review the key concepts document to understand how system commands are integrated into the solution accelerator.
+- **Cache reset**: Make sure the user is notified after resetting the cache.
+- **Similarity score parsing**: Use the `GetSemanticCacheSimilarityScore` method to accurately extract numerical values from the user prompt.
 
 ## Success Criteria
 
 To complete this challenge successfully, you must:
 
-- Show your coach an example chat where your new plugins where selected by the plan and executed to produce the completion.
+- Demonstrate that the system command plugins are integrated correctly from the configuration settings.
+- Show that the semantic cache can be reset and the user is notified.
+- Implement the logic to set the minimum relevance override and notify the user about the change.
+- Invoke a plugin prompt to parse the similarity score and validate the extracted value.
 
 ## Learning Resources
 
-- [Semantic Kernel auto create plans with planner](https://learn.microsoft.com/semantic-kernel/ai-orchestration/planner?tabs=Csharp)
-- [Semantic Kernel creating native functions](https://learn.microsoft.com/semantic-kernel/ai-orchestration/native-functions?tabs=Csharp)
+- [Build your own copilot with Azure Cosmos DB - Key concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
 ## Explore Further
 
-- [Microsoft Semantic Kernel on Github](https://github.com/microsoft/semantic-kernel)
+- Experiment with changing the similarity score parsing logic to see how it impacts the behavior.
+- Try adding more system command plugins to explore other useful commands.

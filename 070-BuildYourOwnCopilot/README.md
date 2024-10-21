@@ -10,31 +10,22 @@ The scenario centers around a consumer retail "Intelligent Agent" that allows us
 
 ## Learning Objectives
 
-This hackathon will challenge you and your team to launch a POC of a chat interface where users can interact with a virtual agent to find product and account information. Through the course of the hackathon, you will modify an existing application to do the following:
-
-- Store the chat messages in an Azure Cosmos DB database, grouped by chat sessions
-- Use Azure OpenAI Service to create vector embeddings and chat completions
-- Use Azure Cognitive Search as a vector database to search for product and account information by the vector embeddings
-- Load up existing product and account information into Azure Cosmos DB and the Azure Cognitive Search vector index
-- Create a process that manages the conversation flow, vectorization, search, data handling, and response generation
-- Externally manage system prompts
+This hackathon helps you expand your knowledge about the Generative AI patterns used in the [Build Your Own Copilot with Azure Cosmos DB solution accelerator](https://github.com/Azure/BuildYourOwnCopilot). The solution accelerator demonstrates how to design and implement a Generative AI solution that incorporates Azure Cosmos DB with Azure OpenAI Service along with other key Azure services, to build an AI assistant user interface.
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[The Landing Before the Launch](Student/Challenge-01.md)**
-	 - Deploy the solution cloud services in preparation for the launch of the POC.
-- Challenge 02: **[Now We're Flying](Student/Challenge-02.md)**
-	 - Experiment with system prompts.
-- Challenge 03: **[What's Your Vector, Victor?](Student/Challenge-03.md)**
-	 - Load new data and observe automatic vectorization.
-- Challenge 04: **[It's All About the Payload, The Sequel](Student/Challenge-04.md)**
-	 - Extend the solution to handle any type of JSON data.
-- Challenge 05: **[The Colonel Needs a Promotion](Student/Challenge-05.md)**
-	 - Add new capability by creating Semantic Kernel plugins.
-- Challenge 06: **[Getting Into the Flow](Student/Challenge-06.md)**
-	 - Use ML Prompt Flow to replace portions of the chat service.
+- Challenge 00: **[Prerequisites - The landing before the launch](Student/Challenge-00.md)**
+	 - Prepare your workstation to work with Azure and deploy the required services.
+- Challenge 01: **[Finding the kernel of truth](Student/Challenge-01.md)**
+	 - Learn about the basics of Semantic Kernel, a Large Language Model (LLM) orchestrator that powers the solution accelerator.
+- Challenge 02: **[It has no filter](Student/Challenge-02.md)**
+	 - Learn about intercepting and using key assets from Semantic Kernel's inner workings - prompt and function calling data.
+- Challenge 03: **[Always prompt, never tardy](Student/Challenge-03.md)**
+	 - Learn how prompts are used in the solution accelerator and experiment with changes to the prompts.
+- Challenge 04: **[Cache it away for a rainy day](Student/Challenge-04.md)**
+	 - Learn about the inner workings and applications of semantic caching in the solution accelerator.
+- Challenge 05: **[Do as the Colonel commands](Student/Challenge-05.md)**
+	 - Learn about implementing system commands based on user input in the solution accelerator.
 
 ## Prerequisites
 
