@@ -36,7 +36,7 @@ For each challenge the recommended order of operations is the following:
 2. Attempt to tackle the exercises in the order they are presented. For each exercise, check the list of suggested readings to help you understand the concepts you need to apply (those lists are provided below for each challenge).
 3. Take a note of any open-ended exercises and try to complete them at the end of the hackathon.
 
-You may now go to the starter solution in Visual Studio and complete Challege 1. Locate the exercises by searching for `// TODO: [Challenge 1]` as shown in the screenshot above. Then complete each exercise.
+You may now go to the starter solution in Visual Studio and complete Challenge 1. Locate the exercises by searching for `// TODO: [Challenge 1]` as shown in the screenshot above. Then complete each exercise.
 
 This challenge does not have open-ended exercises.
 

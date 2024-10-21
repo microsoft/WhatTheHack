@@ -66,7 +66,7 @@ Solution:
 Trainer notes:
 
 - Plugins are a key component of Semantic Kernel. If you have already used plugins from ChatGPT or Copilot extensions in Microsoft 365, you’re already familiar with them. With plugins, you can encapsulate your existing APIs into a collection that can be used by an AI. This allows you to give your AI the ability to perform actions that it wouldn’t be able to do otherwise.
-- Behind the scenes, Semantic Kernel leverages function calling, a native feature of most of the latest LLMs to allow LLMs, to perform planning and to invoke your APIs. With function calling, LLMs can request (i.e., call) a particular function. Semantic Kernel then marshals the request to the appropriate function in your codebase and returns the results back to the LLM so the LLM can generate a final response.
+- Behind the scenes, Semantic Kernel leverages function calling, a native feature of most of the latest LLMs to allow LLMs, to perform planning and to invoke your APIs. With function calling, LLMs can request (i.e., call) a particular function. Semantic Kernel then marshals the request to the appropriate function in your code base and returns the results back to the LLM so the LLM can generate a final response.
 - The RAG context is built dynamically using the plugins that are imported into the kernel. The plugins are used to provide the context for the LLM to generate responses.
 - The main plugin used to generate the context is `KnowledgeManagementContextPlugin`. It uses a list of more atomic plugins, the `MemoryStoreContextPlugin` plugins which retrieve data from a vector memory store.
 - Encourage the participants to explore the implementation of the `KnowledgeManagementContextPlugin` and `MemoryStoreContextPlugin` plugins.
@@ -134,7 +134,7 @@ Solution:
 
 Trainer notes:
 
-- The `VectorMemoryStore` is a key abstration of the solution accelerator that allows the LLM to interact with multiple memory stores implemented by Semantic Kernel.\
+- The `VectorMemoryStore` is a key abstraction of the solution accelerator that allows the LLM to interact with multiple memory stores implemented by Semantic Kernel.
 - The `VectorMemoryStore` class is a wrapper around the `IMemoryStore` interface that provides the fundamental operations for a memory store: add memory, remove memory, and get all the memories that are closes to a give chunk of text or a vector.
 - Encourage the attendees to explore the implementation of the `VectorMemoryStore` class.
 
@@ -197,7 +197,7 @@ Trainer notes:
 - Encourage attendees to explore how items added to Cosmos DB are embedded using the Azure OpenAI text embedding service.
 - Explain how the Cosmos DB change feed capability is used to update the embeddings of the memories in the memory store.
 - Encourage attendees to explore the `CosmosDBService.StartChangeFeedProcessors` and `CosmosDBService.GenericChangeFeedHandler` methods.
-- Encourage attendees to read again the [KeyConcepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of embeddings in the solution accelerator.
+- Encourage attendees to read again the [Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of embeddings in the solution accelerator.
 
 Suggested reading:
 

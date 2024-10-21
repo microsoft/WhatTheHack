@@ -34,7 +34,7 @@ Solution:
 
 Trainer notes:
 
-- Encourage attendees to read again the [KeyConcepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of the semantic cache in the solution accelerator.
+- Encourage attendees to read again the [Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of the semantic cache in the solution accelerator.
 - The `SemanticCacheService` class is responsible for managing the semantic cache. Encourage attendees to analyze the class to understand how the cache is being managed.
 - Note how the cache relies on the `AzureCosmosDBNoSQLMemoryStore` and `AzureOpenAITextEmbeddingGenerationService` services to store, vectorize, and retrieve cache items.
 

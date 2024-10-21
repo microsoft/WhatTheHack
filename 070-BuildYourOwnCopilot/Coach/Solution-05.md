@@ -30,7 +30,7 @@ Solution:
 
 Trainer notes:
 
-- Encourage attendees to read again the [KeyConcepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of the system commands in the solution accelerator.
+- Encourage attendees to read again the [Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of the system commands in the solution accelerator.
 - The `SystemCommandPlugin` class is responsible for managing the system commands. Encourage attendees to analyze the class to understand how the system commands are being managed.
 - The `SystemCommandPlugins` property in the `appsettings.json` configuration file contains the list of system command plugins that are available in the solution accelerator. Encourage attendees to analyze the `appsettings.json` configuration file in the `ChatAPI` project to understand how the system command plugins are being configured.
 
