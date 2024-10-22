@@ -4,18 +4,17 @@
 
 ## Introduction
 
-Thank you for participating in the Build Modern AI Apps What The Hack. Over the next series of challenges you'll provision Azure resources, populate your Azure Cosmos DB database with initial data, create a vector index for the data, use Azure OpenAI models to ask questions about the data, and write some code. But before we get started, let's make sure we've got everything setup.
+Thank you for participating in the Build Your Own Copilot What The Hack. Over the next series of challenges you'll provision Azure resources, populate your Azure Cosmos DB database with initial data, create a vector index for the data, use Azure OpenAI models to ask questions about the data, and write some code. But before we get started, let's make sure we've got everything setup.
 
 CosmicWorks has big plans for their retail site, but they need to start somewhere; they need a landing zone in Azure for all of their services. It will take a while to prepare their e-Commerce site to migrate to Azure, but they're eager to launch a POC of a simple chat interface where users can interact with a virtual agent to find product and account information.
 
-They've created a simple Blazor web application for the UI elements and have asked you to to incorporate the backend plumbing to do the following:
+They've created a simple ASP.NET Blazor web application for the UI elements and have asked you to to incorporate the backend plumbing to do the following:
 
 - Store the chat history in an Azure Cosmos DB database
   - They expect the following types of messages: Session (for the chat session), Message (the user and assistant message).
   - A message should have a sender (Assistant or User), tokens (that indicates how many tokens were used), text (the text from the assistant or the user), rating (thumbs up or down) and vector (the vector embedding of the user's text).
 - Source the customer and product data from the Azure Cosmos DB database.
 - Use Azure OpenAI service to create vector embeddings and chat completions.
-- Use a Azure Cognitive Search to search for relevant product and account information by the vector embeddings.
 - Encapsulate the orchestration of interactions with OpenAI behind a back-end web service.
 - Create a storage account to externalize prompts that will be used by your assistant.
 
@@ -53,9 +52,10 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 - .NET 8 SDK
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
-- Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
+- Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/powershell/scripting/install/installing-powershell))
 - [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
-- Visual Studio 2022
+- Visual Studio 2022 or VS Code
+- [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
 
 > [!NOTE]
 >  Free Azure Trial does not have sufficient quota for Azure OpenAI to run this hackathon successfully and cannot be used.
@@ -64,7 +64,7 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 > Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
 
 > [!NOTE]
-> This hackathon requires quota for Azure OpenAI models. To avoid capacity or quota issues, it is recommended before arriving for the hackathon, you deploy both `GPT-4o` and `text-embedding-3-large` models with **at least 100K token capacity** into the subscription you will use for this hackathon. You may delete these models after creating them. This step is to ensure your subscription has sufficient capacity. If it does not, see [How to increase Azure OpenAI quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
+> This hackathon requires quota for Azure OpenAI models. To avoid capacity or quota issues, it is recommended before arriving for the hackathon, you deploy both `GPT-4o` and `text-embedding-3-large` models with **at least 10K token capacity** into the subscription you will use for this hackathon. You may delete these models after creating them. This step is to ensure your subscription has sufficient capacity. If it does not, see [How to increase Azure OpenAI quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
 
 ## Deployment steps
 
@@ -86,7 +86,7 @@ Follow the steps below to deploy the solution to your Azure subscription.
     ```
 
     > [!IMPORTANT]
-    > **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 120K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 131 and 142 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 141 and 152 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
+    > **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 10K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 161 and 172 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 150 and 161 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
 
 4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Container Apps and import data into Azure Cosmos DB.
 
@@ -145,4 +145,4 @@ Finally, you should be able to see the Azure Cosmos DB vector store collection b
 To complete this challenge successfully, you should be able to:
 
 - Verify that all services have been deployed successfully.
-- Verify that you have a new Azure Cosmos DB workspace with the NoSQL API. It should have a database named `database` and containers named `completions` with a partition key of `/sessionId`, `customer` with a partition key of `/customerId`, `embedding` with a partition key of `/id`, `product` with a partition key of `/categoryId`, and `leases` with a partition key of `/id`.
+- Verify that you have a new Azure Cosmos DB workspace with the NoSQL API. It should have a database named `vsai-database` and containers named `completions` with a partition key of `/sessionId`, `customer` with a partition key of `/customerId`, `embedding` with a partition key of `/id`, `product` with a partition key of `/categoryId`, and `leases` with a partition key of `/id`.

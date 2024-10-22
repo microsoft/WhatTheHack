@@ -1,8 +1,8 @@
-# What The Hack - Build & Modernize AI Applications - Coach Guide
+# What The Hack - Build Your Own copilot - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the Build & Modernize AI Applications What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Build Your Own copilot What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
@@ -42,10 +42,10 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
 - Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate, create and configure the resource group and necessary resources including:
-    - Azure Cosmos DB with NoSQL API
+    - Azure Cosmos DB for NoSQL API (with RBAC policies)
     - Azure Container App with supporting services _or_ Azure Kubernetes Service (AKS)
 	- Azure OpenAI
-	- Azure AI Search
+	- Azure Managed Identity
 
 ## Repository Contents
 
