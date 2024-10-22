@@ -36,7 +36,7 @@ This hackathon helps you expand your knowledge about the Generative AI patterns 
   - Azure Managed Identity
   - Azure Key Vault
   - Visual Studio Code or Visual Studio 2022 (if running on local machine)
-  - Azure Developer CLI (azd)
+  - Azure Developer CLI (`azd`)
 
 ## Contributors
 
