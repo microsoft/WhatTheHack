@@ -1,4 +1,4 @@
-# What The Hack - Build Your Own Copilot
+# What The Hack - Build Your Own copilot
 
 ## Introduction
 
@@ -30,12 +30,13 @@ This hackathon helps you expand your knowledge about the Generative AI patterns 
 ## Prerequisites
 
 - Attendees should have the “Azure account administrator” (or "Owner") role on the Azure subscription in order to authenticate, create and configure the resource group and necessary resources including:
-  - Azure Cosmos DB with NoSQL API
+  - Azure Cosmos DB for NoSQL
   - Azure Container App with supporting services _or_ Azure Kubernetes Service (AKS)
   - Azure OpenAI
-  - Azure AI Search
-- Visual Studio Code
-- Azure CLI
+  - Azure Managed Identity
+  - Azure Key Vault
+  - Visual Studio Code or Visual Studio 2022 (if running on local machine)
+  - Azure Developer CLI (azd)
 
 ## Contributors
 

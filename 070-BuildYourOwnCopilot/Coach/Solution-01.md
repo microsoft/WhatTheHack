@@ -39,7 +39,7 @@ Trainer notes:
 
 Suggested reading:
 
-- [Understanding the kernel](https://learn.microsoft.com/en-us/semantic-kernel/concepts/kernel?pivots=programming-language-csharp)
+- [Understanding the kernel](https://learn.microsoft.com/semantic-kernel/concepts/kernel?pivots=programming-language-csharp)
 
 
 ### [Challenge 1][Exercise 1.2.1]
@@ -75,8 +75,8 @@ Trainer notes:
 
 Suggested reading:
 
-- [What is a Plugin?](https://learn.microsoft.com/en-us/semantic-kernel/concepts/plugins/?pivots=programming-language-csharp)
-- [How to use function calling with Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
+- [What is a Plugin?](https://learn.microsoft.com/semantic-kernel/concepts/plugins/?pivots=programming-language-csharp)
+- [How to use function calling with Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/how-to/function-calling)
 
 ### [Challenge 1][Exercise 1.3.1]
 
@@ -108,7 +108,7 @@ Trainer notes:
 
 Suggested reading:
 
-- [What is a Planner?](https://learn.microsoft.com/en-us/semantic-kernel/concepts/planning?pivots=programming-language-csharp)
+- [What is a Planner?](https://learn.microsoft.com/semantic-kernel/concepts/planning?pivots=programming-language-csharp)
 
 ### [Challenge 1][Exercise 1.4.1]
 
