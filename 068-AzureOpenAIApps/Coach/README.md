@@ -1,8 +1,8 @@
-# What The Hack - OpenAIOnAzure - Coach Guide
+# What The Hack - Building AI Apps with OpenAI and the Azure Ecosystem - Coach's Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the OpenAIOnAzure What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Building AI Apps with OpenAI and the Azure Ecosystem What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -10,28 +10,20 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
-- Challenge 10: **[Title of Challenge](./Solution-10.md)**
-	 - Description of challenge
+- Challenge 00: **[Pre-requisites - Ready, Set, GO!](Solution-00.md)**
+	 - Prepare your workstation and environment to work with Azure. Deploy the dependencies to Azure.
+- Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Solution-01.md)**
+	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary). 
+    - The pipeline also stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search.
+- Challenge 02: **[Contoso Travel Assistant](Solution-02.md)**
+	 - Design and implement a virtual assistant that responds to frequently asked questions about the economy, climate and government based on static data from the Contoso Islands documents stored in blob storage.
+	 - Design and implement a virtual assistant that provides near real-time answers to Contoso Islands tourists that are looking to make a reservation for a Yacht tour for a specific date.
+- Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Solution-03.md)**
+	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
+- Challenge 04: **[Quota Monitoring and Enforcement](Solution-04.md)**
+	 - Design and implement a solution to monitor the usage of OpenAI resources as well as the enforcement of quotas allocated to multiple users within an organization.
+- Challenge 05: **[Performance and Cost and Optimizations](Solution-05.md)**
+     - Design and implement a solution that optimizes the application performance and minimizes the operational costs of the OpenAI solutions.
 
 ## Coach Prerequisites
 
@@ -39,41 +31,23 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
+Because of capacity issues, a coach should run a deployment themselves BEFORE the start of the hack to make sure that the deployment in Challenge 0 will work. 
+
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+The coach should provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- [Azure subscription](https://azure.microsoft.com/en-us/free/)
 
-_For example:_
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+Students that choose to use Github Codespaces should not require any other additional software on their computer other than a standard web browser like Edge or Chrome. 
 
 ## Repository Contents
 
@@ -86,4 +60,4 @@ _The default files & folders are listed below. You may add to this if you want t
 - `./Student`
   - Student's Challenge Guide
 - `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be provided to students at start of event although it will be included with the GitHub Codespace by default)
