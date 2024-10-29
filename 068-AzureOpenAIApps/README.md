@@ -2,13 +2,9 @@
 
 ## Introduction
 
-This hands-on set of challenges will provide participants with experience on how to integrate the Azure Open AI offering with Microsoft Azure platform services.
+This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI offering with Microsoft Azure platform services.
 
-## Learning Objectives
-
-The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
-
-Building AI applications on Microsoft Azure involves a lot of things. For example, the AI engineer or architect needs to know the following:
+Building AI applications on Microsoft Azure involves needing to know the following:
 
 The language models that power the AI application needs the data it is using to make decisions to be in the right format so as to enable it respond appropriately to queries and requests from its users. Which LLM or SLM SKUs and versions do you need to use and why? What are the data pipelines necessary to automate this is crucial for the success of any AI application powered by small or large language models? How do you configure the LLM to respond correctly to user queries or requests? How do we get the data necessary to anwer these questions? A lot of times the data is not readily consumable by the app and it needs to be digested, parsed and simplified to extract the data in the format that can be readily leveraged by the language model and this requires using resources such as Azure Document Intelligence, Azure AI Vision, Azure Custom Vision, Azure Video Indexer to mention just a few. In this hack, we focus on just one of these parsers - Azure Document Intelligence used to parse records uploaded to Azure Blob Store and Cosmos DB.
 
@@ -20,7 +16,10 @@ When it comes to the user experience, configuring the assistants with the approp
 
 The goal of this hack is to get engineers and architects ready for building effective, scalable apps that will perform well in production scenarios.
 
-### Exit Competencies: 
+## Learning Objectives
+
+The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
+
 The participants will learn how to:
 - Select different architectures to implement Open AI solutions on Azure based on the scenarios.
 - Understand when to use Open AI products and when to leverage Cognitive Services or other solutions
