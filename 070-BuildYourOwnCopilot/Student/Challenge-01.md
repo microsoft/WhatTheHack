@@ -225,15 +225,11 @@ This solution can be run locally or in GitHub Codespaces after the Azure deploym
 > [!NOTE]
 > The `BlobStorageConnection` and `ConfigBlobStorageConnection` values can be found in the Azure Portal by navigating to the Storage Account created by the deployment (the one that has a container named `system-prompt`) and selecting the `Access keys` blade. The value is the `Connection string` for the `key1` key.
 
-##### Using Visual Studio Code
+##### Running in Visual Studio Code
 
 To run the solution using Visual Studio Code, perform the following steps:
 
-Before you can start debugging, you need to set the startup projects. To do this, right-click on the solution in the Solution Explorer and select `Configure Startup Projects...`. In the dialog that opens, select `Multiple startup projects` and set the `Action` for the `ChatAPI` and `UserPortal` projects to `Start`.
-
-Also, make sure the newly created `appsettings.Development.json` file is copied to the output directory. To do this, right-click on the file in the Solution Explorer and select `Properties`. In the properties window, set the `Copy to Output Directory` property to `Copy always`.
-
-You are now ready to start debugging the solution locally. To do this, press `F5` or select `Debug > Start Debugging` from the menu.
+Select the **Run and Debug** icon in the Activity Bar on the left-hand side of the window. This will open the Run and Debug view. Within the Run and Debug view, you will see a message similar to "To customize Run and Debug create a `launch.json` file." Select the link to create a `launch.json` file, which will open the `launch.json` file in the editor. When prompted to select a debugger, select the **`C#`** option. Replace the content of the file with the following configuration:
 
 ```json
 {
@@ -265,11 +261,29 @@ You are now ready to start debugging the solution locally. To do this, press `F5
 }
 ```
 
-If you receive an untrusted certificate error, such as "System.Security.Authentication.AuthenticationException: The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot", you can resolve this by running the following command in the VS Code terminal:
+Save the `launch.json` configuration file.
+
+You are now ready to start debugging the solution locally. To do this, select the **API / Portal** configuration from the dropdown list in the Run and Debug view, then press the green play button to start debugging. This will launch both the `ChatAPI` and `UserPortal` projects.
+
+If you receive an untrusted certificate error, such as `System.Security.Authentication.AuthenticationException: The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot`, you can resolve this by running the following command in the VS Code terminal:
 
 ```bash
 dotnet dev-certs https --trust
 ```
+
+If you want to run the solution in Visual Studio 2022+ instead, expand the section below and follow the debug instructions.
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Visual Studio 2022 debug instructions</strong></summary>
+
+Before you can start debugging, you need to set the startup projects. To do this, right-click on the solution in the Solution Explorer and select `Configure Startup Projects...`. In the dialog that opens, select `Multiple startup projects` and set the `Action` for the `ChatAPI` and `UserPortal` projects to `Start`.
+
+Also, make sure the newly created `appsettings.Development.json` file is copied to the output directory. To do this, right-click on the file in the Solution Explorer and select `Properties`. In the properties window, set the `Copy to Output Directory` property to `Copy always`.
+
+You are now ready to start debugging the solution locally. To do this, press `F5` or select `Debug > Start Debugging` from the menu.
+
+</details>
+<br />
 
 ## Learning Resources
 
