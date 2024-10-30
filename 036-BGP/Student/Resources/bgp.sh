@@ -363,9 +363,11 @@ function accept_csr_terms () {
     # Newest version available 
     #sku=17_15_01a-byol 
     version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
-    if [[ -z "$version" ]]; then
+    if [[ -z "$version" ]]
+    then
         echo "Could not locate an image version for ${publisher}:${offer}:${sku}, double-check Publisher, offer, and SKU"
         exit 1
+    fi
     # Accept terms
     echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
     az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" -o none
