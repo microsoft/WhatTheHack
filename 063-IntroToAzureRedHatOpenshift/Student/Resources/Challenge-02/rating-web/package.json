@@ -30,7 +30,7 @@
     "vue": "^2.3.4",
     "vue-loader": "^13.0.0",
     "vue-style-loader": "^3.0.1",
-    "webpack": "^3.12.0",
+    "webpack": "^5.94.0",
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "vue-loader": "^13.0.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^3.12.0",
+    "webpack": "^5.94.0",
     "webpack-dev-server": "^4.15.1"
   },
   "license": "MIT"
