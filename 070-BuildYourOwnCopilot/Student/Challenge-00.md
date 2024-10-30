@@ -53,12 +53,11 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/powershell/scripting/install/installing-powershell))
-- [Helm 3.11.1 or greater](https://helm.sh/docs/intro/install/) (for AKS deployment)
 - Visual Studio 2022 or VS Code
 - [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
 
 > [!NOTE]
->  Free Azure Trial does not have sufficient quota for Azure OpenAI to run this hackathon successfully and cannot be used.
+> Free Azure Trial does not have sufficient quota for Azure OpenAI to run this hackathon successfully and cannot be used.
 
 > [!NOTE]
 > Installation requires the choice of an Azure Region. Make sure to set region you select which is used in the `<location>` value below supports Azure OpenAI services. See [Azure OpenAI service regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services&regions=all) for more information.
@@ -70,25 +69,12 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 
 Follow the steps below to deploy the solution to your Azure subscription.
 
-1. Ensure all the prerequisites are installed.  Check to make sure you have the `Owner` role for the subscription assigned to your account.
-
-2. Clone the repository:
-
-    ```cmd
-    git clone https://github.com/Azure/BuildYourOwnCopilot.git
-    ```
-
-3. Switch to the `main` branch:
-
-    ```cmd
-    cd BuildYourOwnCopilot
-    git checkout main
-    ```
+1. Ensure all the prerequisites are installed. Check to make sure you have the `Owner` role for the subscription assigned to your account.
 
     > [!IMPORTANT]
     > **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 10K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 161 and 172 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 150 and 161 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
 
-4. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Container Apps and import data into Azure Cosmos DB.
+2. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Container Apps and import data into Azure Cosmos DB.
 
     This script will deploy all services including a new Azure OpenAI account using Azure Container Apps. (This can be a good option for users not familiar with AKS)
 
@@ -119,6 +105,16 @@ Follow the steps below to deploy the solution to your Azure subscription.
 
 > [!IMPORTANT]
 > If you encounter any errors during the deployment, rerun `azd up` to continue the deployment from where it left off. This will not create duplicate resources, and tends to resolve most issues.
+
+### Setup RBAC permissions when running locally
+
+When you run the solution locally, you will need to set role-based access control (RBAC) permissions on the Azure Cosmos DB account. You can do this by running the following command in the Azure Cloud Shell or Azure CLI:
+
+Assign yourself to the "Cosmos DB Built-in Data Contributor" role:
+
+```bash
+az cosmosdb sql role assignment create --account-name YOUR_COSMOS_DB_ACCOUNT_NAME --resource-group YOUR_RESOURCE_GROUP_NAME --scope "/" --principal-id YOUR_AZURE_AD_PRINCIPAL_ID --role-definition-id 00000000-0000-0000-0000-000000000002
+```
 
 ## Deployment validation
 
