@@ -53,11 +53,11 @@ function wait_until_finished () {
      resource_name=$(echo "$resource_id" | cut -d/ -f 9)
      echo "Waiting for resource $resource_name to finish provisioning..."
      start_time=$(date +%s)
-     state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv)
+     state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv 2>/dev/null)
      until [[ "$state" == "Succeeded" ]] || [[ "$state" == "Failed" ]] || [[ -z "$state" ]]
      do
         sleep $wait_interval
-        state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv)
+        state=$(az resource show --id "$resource_id" --query properties.provisioningState -o tsv 2>/dev/null)
      done
      if [[ -z "$state" ]]
      then
@@ -161,7 +161,7 @@ function create_vng () {
     az network vnet create -g "$rg" -n "$vnet_name" --address-prefix "$vnet_prefix" --subnet-name GatewaySubnet --subnet-prefix "$subnet_prefix" -o none
     # Create test VM (to be able to see effective routes)
     # Not possible to create a test VM while a gateway is Updating, therefore starting the VM creation before the gateway
-    test_vm_id=$(az vm show -n "$test_vm_name" -g "$rg" --query id -o tsv)
+    test_vm_id=$(az vm show -n "$test_vm_name" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating test virtual machine $test_vm_name in vnet $vnet_name in new subnet $test_vm_subnet_prefix..."
@@ -179,7 +179,7 @@ function create_vng () {
     az network public-ip create -g "$rg" -n "vng${id}a" -o none
     az network public-ip create -g "$rg" -n "vng${id}b" -o none
     # Create VNG
-    vng_id=$(az network vnet-gateway show -n "vng${id}" -g "$rg" --query id -o tsv)
+    vng_id=$(az network vnet-gateway show -n "vng${id}" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "${vng_id}" ]]
     then
         if [[ "$type" ==  "vng" ]] || [[ "$type" ==  "vng2" ]]
@@ -217,7 +217,7 @@ function connect_gws () {
     # Using local gws
     # Create Local Gateways for vpngw1
     vpngw1_name=vng${gw1_id}
-    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings' -o json)
+    vpngw1_bgp_json=$(az network vnet-gateway show -n "$vpngw1_name" -g "$rg" --query 'bgpSettings' -o json )
     vpngw1_asn=$(echo "$vpngw1_bgp_json" | jq -r '.asn')
     vpngw1_gw0_pip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw1_gw0_bgp_ip=$(echo "$vpngw1_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
@@ -234,7 +234,7 @@ function connect_gws () {
     fi
 
     echo "Creating local network gateways for vng${gw1_id}..."
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}a" --query id -o tsv)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}a" --query id -o tsv 2>/dev/null)
     if [[ -z "$local_gw_id" ]]
     then
         az network local-gateway create -g "$rg" -n "${vpngw1_name}a" --gateway-ip-address "$vpngw1_gw0_pip" \
@@ -245,7 +245,7 @@ function connect_gws () {
     # Create second local gateway only if the type is "vng" (default) or "vng2"
     if [[ ${gw1_type} == "vng" ]] || [[ ${gw1_type} == "vng2" ]]
     then
-        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}b" --query id -o tsv)
+        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw1_name}b" --query id -o tsv 2>/dev/null)
         if [[ -z "$local_gw_id" ]]
         then
             az network local-gateway create -g "$rg" -n "${vpngw1_name}b" --gateway-ip-address "$vpngw1_gw1_pip" \
@@ -261,7 +261,7 @@ function connect_gws () {
     vpngw2_gw0_pip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].tunnelIpAddresses[0]')
     vpngw2_gw0_bgp_ip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]')
     echo "Creating local network gateways for vng${gw2_id}..."
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}a" --query id -o tsv)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}a" --query id -o tsv 2>/dev/null)
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
         vpngw2_gw1_pip=$(echo "$vpngw2_bgp_json" | jq -r '.bgpPeeringAddresses[1].tunnelIpAddresses[0]')
@@ -283,7 +283,7 @@ function connect_gws () {
     # Create second local gateway only if the type is "vng" (default) or "vng2"
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
-        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}b" --query id -o tsv)
+        local_gw_id=$(az network local-gateway show -g "$rg" -n "${vpngw2_name}b" --query id -o tsv 2>/dev/null)
         if [[ -z "$local_gw_id" ]]
         then
             az network local-gateway create -g "$rg" -n "${vpngw2_name}b" --gateway-ip-address "$vpngw2_gw1_pip" \
@@ -335,7 +335,7 @@ function create_vm_in_csr_vnet () {
     vm_size=Standard_B1s
     rt_name="${vm_name}-rt"
     # Create VM
-    test_vm_id=$(az vm show -n "$vm_name" -g "$rg" --query id -o tsv)
+    test_vm_id=$(az vm show -n "$vm_name" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating VM $vm_name in vnet $vnet_name..."
@@ -402,7 +402,7 @@ function create_csr () {
     nva_size=Standard_B2ms
     # Create CSR
     echo "Creating VM csr${csr_id}-nva in Vnet $csr_vnet_prefix..."
-    vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv)
+    vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "$vm_id" ]]
     then
         az vm create -n "csr${csr_id}-nva" -g "$rg" -l "$location" --image "${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}" --size "$nva_size" \
@@ -423,7 +423,7 @@ function create_csr () {
     # Create Local Network Gateway
     echo "CSR created with IP address $csr_ip. Creating Local Network Gateway now..."
     asn=$(get_router_asn_from_id "$csr_id")
-    local_gw_id=$(az network local-gateway show -g "$rg" -n "${csr_name}" --query id -o tsv)
+    local_gw_id=$(az network local-gateway show -g "$rg" -n "${csr_name}" --query id -o tsv 2>/dev/null)
     if [[ -z "$local_gw_id" ]]
     then
         az network local-gateway create -g "$rg" -n "$csr_name" --gateway-ip-address "$csr_ip" \
