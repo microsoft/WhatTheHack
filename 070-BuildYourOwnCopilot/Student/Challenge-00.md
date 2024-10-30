@@ -29,20 +29,47 @@ You might not need all of them for the hack you are participating in. However, i
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+- Windows, MacOS, or Linux development machine on which you have **administrator rights**.
+OR
+- A GitHub account with access to [GitHub Codespaces](https://github.com/features/codespaces)
 
 ## Description
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
+To complete this hack, you can set up the pre-requisite developer tools on your local workstation, or you can use GitHub Codespaces.
+
+A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools are pre-installed and available in the codespace.
+
+- [Setup GitHub Codespace](#setup-github-codespace)
+- [Setup Local Workstation](#setup-local-workstation)
+
+### Setup GitHub Codespace
+
+You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup)!
+
+GitHub Codespaces is available for developers in every organization. All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
+
+You can see your balance of available codespace hours on the [GitHub billing page](https://github.com/settings/billing/summary).
+
+- Your coach will provide you with a link to the Github Repo for this hack. Please open this link and sign in with your personal Github account.
+
+**NOTE:** Make sure you do not sign in with your enterprise managed Github account.
+
+- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
+
+Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
+
+- When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files for the deploying the hackathon environment (within the `infra` folder) and the starter code (within the `src` folder).
+
+**NOTE:** It is recommended to enable the suggested C# development extensions when prompted by VSCode after the environment fully loads.
+
+### Setup Local Workstation
+
+**NOTE:** If you are planning to use GitHub Codespaces, skip this section as all pre-reqs will be setup in the Codespace environment.
+
+If you want to set up the developer environment on your local workstation, expand the section below and follow the requirements listed.
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
@@ -64,6 +91,9 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 
 > [!NOTE]
 > This hackathon requires quota for Azure OpenAI models. To avoid capacity or quota issues, it is recommended before arriving for the hackathon, you deploy both `GPT-4o` and `text-embedding-3-large` models with **at least 10K token capacity** into the subscription you will use for this hackathon. You may delete these models after creating them. This step is to ensure your subscription has sufficient capacity. If it does not, see [How to increase Azure OpenAI quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
+
+</details>
+<br/>
 
 ## Deployment steps
 

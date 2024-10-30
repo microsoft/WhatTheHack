@@ -265,6 +265,11 @@ You are now ready to start debugging the solution locally. To do this, press `F5
 }
 ```
 
+If you receive an untrusted certificate error, such as "System.Security.Authentication.AuthenticationException: The remote certificate is invalid because of errors in the certificate chain: UntrustedRoot", you can resolve this by running the following command in the VS Code terminal:
+
+```bash
+dotnet dev-certs https --trust
+```
 
 ## Learning Resources
 
