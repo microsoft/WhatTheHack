@@ -36,12 +36,12 @@
 ############################################################
 
 ## Define "Global" script variables used in functions
-publisher=cisco
+nva_publisher=cisco
 #offer=cisco-csr-1000v
-offer=cisco-c8000v-byol
+nva_offer=cisco-c8000v-byol
 #sku=16_12-byol
 # Newest version available 
-sku=17_15_01a-byol 
+nva_sku=17_15_01a-byol 
 
 # Waits until a resource finishes provisioning
 # Example: wait_until_finished <resource_id> 
@@ -362,20 +362,20 @@ function accept_csr_terms () {
     #sku=16_12-byol
     # Newest version available 
     #sku=17_15_01a-byol 
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
-    if [[ -z "$version" ]]
+    nva_version=$(az vm image list -p $nva_publisher -f $nva_offer -s $nva_sku --all --query '[0].version' -o tsv)
+    if [[ -z "$nva_version" ]]
     then
-        echo "Could not locate an image version for ${publisher}:${offer}:${sku}, double-check Publisher, offer, and SKU"
+        echo "Could not locate an image version for ${nva_publisher}:${nva_offer}:${nva_sku}, double-check Publisher, offer, and SKU"
         exit 1
     fi
     # Accept terms
-    echo "Accepting image terms for ${publisher}:${offer}:${sku}:${version}..."
-    az vm image terms accept --urn "${publisher}:${offer}:${sku}:${version}" -o none
+    echo "Accepting image terms for ${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}..."
+    az vm image terms accept --urn "${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}" -o none
     # Verify
-    status=$(az vm image terms show --urn "${publisher}:${offer}:${sku}:${version}" --query accepted -o tsv)
+    status=$(az vm image terms show --urn "${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}" --query accepted -o tsv)
     if [[ "$status" != "true" ]]
     then
-        echo "Marketplace image terms for ${publisher}:${offer}:${sku}:${version} could not be accepted, do you have access at the subscription level?"
+        echo "Marketplace image terms for ${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version} could not be accepted, do you have access at the subscription level?"
         exit 1
     fi
 }
@@ -396,14 +396,14 @@ function create_csr () {
     # Newest version available 
     #sku=17_15_01a-byol 
 
-    version=$(az vm image list -p $publisher -f $offer -s $sku --all --query '[0].version' -o tsv)
+    nva_version=$(az vm image list -p $nva_publisher -f $nva_offer -s $nva_sku --all --query '[0].version' -o tsv)
     nva_size=Standard_B2ms
     # Create CSR
     echo "Creating VM csr${csr_id}-nva in Vnet $csr_vnet_prefix..."
     vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv)
     if [[ -z "$vm_id" ]]
     then
-        az vm create -n "csr${csr_id}-nva" -g "$rg" -l "$location" --image "${publisher}:${offer}:${sku}:${version}" --size "$nva_size" \
+        az vm create -n "csr${csr_id}-nva" -g "$rg" -l "$location" --image "${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}" --size "$nva_size" \
             --generate-ssh-keys --public-ip-address "csr${csr_id}-pip" --public-ip-address-allocation static \
             --vnet-name "$csr_name" --vnet-address-prefix "$csr_vnet_prefix" --subnet nva --subnet-address-prefix "$csr_subnet_prefix" \
             --private-ip-address "$csr_bgp_ip" --no-wait -o none
