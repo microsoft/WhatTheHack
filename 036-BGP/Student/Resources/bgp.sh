@@ -185,12 +185,12 @@ function create_vng () {
         if [[ "$type" ==  "vng" ]] || [[ "$type" ==  "vng2" ]]
         then
             echo "Creating VNG vng${id} in active/active mode..."
-            az network vnet-gateway create -g "$rg" --sku VpnGw1 --gateway-type Vpn --vpn-type RouteBased \
+            az network vnet-gateway create -g "$rg" --sku VpnGw2 --vpn-gateway-generation Generation2 --gateway-type Vpn --vpn-type RouteBased \
             --vnet "$vnet_name" -n "vng${id}" --asn "$asn" --public-ip-address "vng${id}a" "vng${id}b" --no-wait
         elif [[ "$type" ==  "vng1" ]]
         then
             echo "Creating VNG vng${id} in active/passive mode..."
-            az network vnet-gateway create -g "$rg" --sku VpnGw1 --gateway-type Vpn --vpn-type RouteBased \
+            az network vnet-gateway create -g "$rg" --sku VpnGw2 --vpn-gateway-generation Generation2 --gateway-type Vpn --vpn-type RouteBased \
             --vnet "$vnet_name" -n "vng${id}" --asn "$asn" --public-ip-address "vng${id}a" --no-wait
         else
             echo "Sorry, I do not understand the VNG type $type"
