@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Environment-specific app settings
-appsettings.development.json
+appsettings.[Dd]evelopment.json
 
 
 # User-specific files
