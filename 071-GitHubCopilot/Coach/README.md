@@ -50,5 +50,7 @@ This hack is intended to be completed in 1 day in 3 hours.
 
 - `./Coach`
   - Coach's Guide and related files
+- `./Coach/Solutions`
+  - Solution files with completed example answers to a challenge
 - `./Student`
   - Student's Challenge Guide
