@@ -25,6 +25,7 @@ You should be able to complete most of the challenges of this hack using the Azu
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Optional)
+- [Podman](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md) (Optional, alternative to Docker Desktop![Alt text](aci_web.png))
 
 ### Student Resources
 
@@ -46,3 +47,4 @@ To complete this challenge successfully, you should be able to:
 
 - [10 Tips for Never Forgetting Azure CLI Commands](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - [Kubernetes & Azure: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+
