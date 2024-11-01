@@ -263,7 +263,7 @@ npm start
 
 **NOTE:** The Frontend application is configured to connect to the Backend function's URL via a setting in the `/ContosoAIAppsFrontend/src/environments/environment.ts` file. If your Backend function app is running on a different port or machine, please update the `environment.ts` config file accordingly
 
-Open another terminal session in VSCode so that you can continue the rest of the challenges. The terminal sessions you opened to run the Fronend and Backend should remain running in the background. 
+Open another terminal session in VSCode so that you can continue the rest of the challenges. The terminal sessions you opened to run the Frontend and Backend should remain running in the background. 
 
 ## Success Criteria
 
