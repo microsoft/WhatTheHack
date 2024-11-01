@@ -23,15 +23,15 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the **`/artifacts/documents/contoso-islands`** folder in your Resources) that needs to be uploaded to the `government` container in the Azure Blob Storage account.
+There are documents (from the **`/artifacts/documents/contoso-islands`** folder in your Resources) that needs to be uploaded to the **`government`** container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the `/artifacts/cosmos-db/contoso-yachts` that needs to be uploaded to the corresponding Azure `yachts` Cosmos DB containers respectively.
+There are also some JSON documents (from the **`/artifacts/cosmos-db/contoso-yachts`** that needs to be uploaded to the corresponding Azure **`yachts`** Cosmos DB containers respectively.
 
-You can use the `**az storage blob upload**` command examples below to upload the document to Azure Blob Storage.
+You can use the **`az storage blob upload`** command examples below to upload the document to Azure Blob Storage.
 
-For Cosmos DB, you can upload the JSON documents using the REST API client file `**rest-api-yachts-management.http**`. 
+For Cosmos DB, you can upload the JSON documents using the REST API client file **`rest-api-yachts-management.http`**. 
 
-**NOTE:** This file uses the `humao.rest-client` VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
+**NOTE:** This file uses the **`humao.rest-client`** VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
@@ -48,9 +48,9 @@ This will make sure that any change that takes place in the Blob Store or Cosmos
 
 The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure AI Search is recommended but feel free to use any other vector database of your preference.
 
-If everything works properly then the text files newly uploaded to modified in  the `**government**` container in Blob store should show up in the contoso documents AI Search index configured and defined in the `**AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME**` application setting.
+If everything works properly then the text files newly uploaded to modified in  the **`government`** container in Blob store should show up in the contoso documents AI Search index configured and defined in the **`AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME`** application setting.
 
-Likewise, updates to the `**yachts**` JSON records in Cosmos DB should automatically show up in the AI Search index defined in the `**AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME**` setting in your application settings.
+Likewise, updates to the **`yachts`** JSON records in Cosmos DB should automatically show up in the AI Search index defined in the **`AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME`** setting in your application settings.
 
 We need to upload documents to Azure Blob Store and Cosmos DB.
 
@@ -97,11 +97,11 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 ### Uploading Documents to Azure Cosmos DB
 
-The contents of the Yacht details are stored in the directory `**/artifacts/cosmos-db/contoso-yachts**`
+The contents of the Yacht details are stored in the directory **`/artifacts/cosmos-db/contoso-yachts`**
 
-Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in `**rest-api-yachts-management.http**` to send each document via the REST API to Cosmos DB. There are five JSON files. 
+Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in **`rest-api-yachts-management.http`** to send each document via the REST API to Cosmos DB. There are five JSON files. 
 
-To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the `**rest-api-yachts-management.http**` script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
+To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **`rest-api-yachts-management.http`** script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
 
 Simply Click on "`Send Request`" for each command to execute and upload each Yacht individually to the database.
 
