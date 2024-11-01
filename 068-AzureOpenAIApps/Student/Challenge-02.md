@@ -57,11 +57,11 @@ In this challenge, you will be asked to configure the system message and tools u
 
 #### Configuring Your Virtual Assistants
 
- In your ContosoAIAppsBackend folder there is an assistant_configurations folder that contains two files: one json and one text file
+ In your `/ContosoAIAppsBackend` folder there is an `/assistant_configurations` folder that contains two files: one json and one text file
 
- The text file (.txt) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
+ The text file (`.txt`) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
 
- The JSON file (.json) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
+ The JSON file (`.json`) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
 
  For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
 
@@ -69,33 +69,33 @@ In this challenge, you will be asked to configure the system message and tools u
 
 | Python Data Type    | JSON Schema Reference |
 | -------- | ------- |
-| [str](https://docs.python.org/3/library/string.html)  |  [string](https://json-schema.org/understanding-json-schema/reference/string)   |
-| [bool]()| [boolean](https://json-schema.org/understanding-json-schema/reference/boolean)|
-| [int](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [integer](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
-| [float](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [number](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
-| [list or tuple](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [array](https://json-schema.org/understanding-json-schema/reference/array) |
+| [`str`](https://docs.python.org/3/library/string.html)  |  [`string`](https://json-schema.org/understanding-json-schema/reference/string)   |
+| [`bool`](https://docs.python.org/3/library/stdtypes.html#boolean-type-bool)| [`boolean`](https://json-schema.org/understanding-json-schema/reference/boolean)|
+| [`int`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`integer`](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
+| [`float`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`number`](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
+| [`list` or `tuple`](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [`array`](https://json-schema.org/understanding-json-schema/reference/array) |
 
 #### The python function registration for each assistant are in the following files
 
 This is where the tools are registered in the application.
 
-- controllers/ask_donald.py
-- controllers/ask_callum.py
-- controllers/ask_veta.py
+- `/controllers/ask_donald.py`
+- `/controllers/ask_callum.py`
+- `/controllers/ask_veta.py`
 
 #### The python function definition for each assistant are in the following files:
 
 This is where the functions used in the tools are defined in python code
 
-- shared/assistant_tools_donald.py
-- shared/assistant_tools_callum.py
-- shared/assistant_tools_veta.py
+- `/shared/assistant_tools_donald.py`
+- `/shared/assistant_tools_callum.py`
+- `/shared/assistant_tools_veta.py`
 
-You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (priscilla and murphy) to see how it is configured to figure out the function description and parameter data types.
+You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (Priscilla and Murphy) to see how it is configured to figure out the function description and parameter data types.
 
-Make sure that the value of the first parameter to ToolUtils.register_tool_mapping() matches the name of the function in the JSON function definition for the assistant configuration.
+Make sure that the value of the first parameter to `ToolUtils.register_tool_mapping()` matches the name of the function in the JSON function definition for the assistant configuration.
 
-The second parameter to ToolUtils.register_tool_mapping() is the actual python function definition.
+The second parameter to `ToolUtils.register_tool_mapping()` is the actual python function definition.
 
 You will be using this information in these python files to configure your assistants tools and system messages.
 
@@ -163,7 +163,7 @@ The format for the parameter description and typing follows the JSON schema spec
 
  ````
 
- You can use the rest-api-ask-assistants.http REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the "message" field for the JSON object for the body of the HTTP request.
+ You can use the `rest-api-ask-assistants.http` REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
 
  Once this is up and running for the backend, you can navigate to the page for Donald to send you questions to him.
 
@@ -185,12 +185,9 @@ To complete the challenge successfully, the solution should demonstrate the foll
 
 Here are a list of resources that should assist you with completing this challenge: 
 
-*Sample resources:*
 - [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter) - This is a free online JSON to JSON Schema Converter. It will take a sample JSON document and then infer JSON schema from it. 
 - [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
 
 ## Tips
-
-*Sample tips:*
 
 - The sample app in the Function apps contains examples of function calling and prompt templates
