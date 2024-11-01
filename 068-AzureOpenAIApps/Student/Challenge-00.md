@@ -74,8 +74,8 @@ Your developer environment is ready, hooray! Skip to section: [Deploy Azure Reso
 
 If you want to setup your environment on your local workstation, expand the section below and follow the requirements listed. 
 
-<details>
-<summary>Click to expand/collapse Local Workstation Requirements</summary>
+<details markdown=1>
+<summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
 To work on your local workstation, please ensure you have the following tools and resources before hacking:
 - [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
@@ -144,7 +144,7 @@ The deployment script uses the Azure PowerShell Commandlets to log into your Azu
 
 If your Azure subscription does not allow authentication with a Device Login Code, expand the hidden section below to learn how to create an Azure Service Principal.
 
-**NOTE:** Microsoft FTE's with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI.
+**NOTE:** Microsoft FTEs with an Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI.
 
 <details markdown="1">
 <summary markdown="span">Click to expand/collapse Setup Service Principal Requirements </summary>
@@ -166,7 +166,7 @@ Run the following command to create a service principal with the Contributor rol
 
 ##### Provisioning Azure Resources
 
-Execute the following commands in your Codespace or local workstation terminal window. **Do not run these steps in Azure CloudShell**:
+Execute the following commands in your Codespace or local workstation terminal window. **Do not run these steps in Azure Cloud Shell**:
 
 ```bash
 cd infra
