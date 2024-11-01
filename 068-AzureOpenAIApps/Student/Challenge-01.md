@@ -23,9 +23,9 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the `**/artifacts/documents/contoso-islands**` folder in your Resources) that needs to be uploaded to the `**government**` container in the Azure Blob Storage account.
+There are documents (from the **`/artifacts/documents/contoso-islands`** folder in your Resources) that needs to be uploaded to the `government` container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the `**/artifacts/cosmos-db/contoso-yachts**` that needs to be uploaded to the corresponding Azure `**yachts**` Cosmos DB containers respectively.
+There are also some JSON documents (from the `/artifacts/cosmos-db/contoso-yachts` that needs to be uploaded to the corresponding Azure `yachts` Cosmos DB containers respectively.
 
 You can use the `**az storage blob upload**` command examples below to upload the document to Azure Blob Storage.
 
