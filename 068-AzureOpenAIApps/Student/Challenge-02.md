@@ -122,7 +122,7 @@ You will be using this information in these python files to configure your assis
 
 The format for the parameter description and typing follows the JSON schema specification so you can use [this tool](https://www.liquid-technologies.com/online-json-to-schema-converter) to figure out the data types for the parameters.
 
-````json 
+```json 
 [
     {
         "type": "function",
@@ -161,7 +161,7 @@ The format for the parameter description and typing follows the JSON schema spec
   },
 ]
 
- ````
+ ```
 
  You can use the `rest-api-ask-assistants.http` REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
 
