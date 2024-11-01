@@ -18,52 +18,52 @@ Your goal is to design and create a pipeline that can process all the historical
 
 You can use any programming language and Azure services of your choice to implement the solution. Remember to follow best practices for coding and architecture design.
 
-There are 20 sample documents in the  **`/artifacts/contoso-education`** folder:
+There are 20 sample documents in the sub-folders under the **`/artifacts/contoso-education`** folder:
 
-- F01-Civics-Geography and Climate
-- F02-Civics-Tourism and Economy
-- F03-Civics-Government and Politics
-- F04-Activity-Preferences
+- `/F01-Civics-Geography and Climate`
+- `/F02-Civics-Tourism and Economy`
+- `/F03-Civics-Government and Politics`
+- `/F04-Activity-Preferences`
 
 Each folder containers 5 samples you will use for training the custom classifier and extractor.
 
-You will need to create a container in Azure Blob Store called **classifications** and then upload 5 document samples each from the following folders into the **classifications** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **classifications** container in Blob Store.
+You will need to create a container in Azure Blob Store called **`classifications`** and then upload 5 document samples each from the following folders into the **`classifications`** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **`classifications`** container in Blob Store.
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
 ## Creating a Custom Classifier Model in Document Intelligence Studio
 
-You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID** setting in your applications settings config file **local.settings.json**. <BR>
+You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **`DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID`** setting in your applications settings config file **`local.settings.json`**.
 
-Note: You may need to use the Settings icon in the Azure Portal to switch directories if your Entra ID belongs to more than one Azure tenant.
+**NOTE:** You may need to use the `Settings` icon in the Azure Portal to switch directories if your Entra ID belongs to more than one Azure tenant.
 
 The custom classifier helps you to automate the recognition of the different document types or classes in your knowledge store
 
 Use these directions for [Building a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
-- f01-geography-climate 
-- f02-tourism-economy
-- f03-geography-politics
-- f04-activity-preferences
+- `f01-geography-climate`
+- `f02-tourism-economy`
+- `f03-geography-politics`
+- `f04-activity-preferences`
 
 Rename your `document-intelligence-dictionary.json.example` to `document-intelligence-dictionary.json`. 
 
-When creating your extraction models in document intelligence studio after labelling, please ensure that you use the names in the JSON as the model ids. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary but if you name your extraction models differently than what is specified in the JSON you should update the corresponding variables accordingly. Ensure that the **classifier_document_type** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
+When creating your extraction models in document intelligence studio after labelling, please ensure that you use the names in the JSON as the model IDs. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary but if you name your extraction models differently than what is specified in the JSON you should update the corresponding variables accordingly. Ensure that the **`classifier_document_type`** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
 
 ## Create a Custom Neural Extraction Model in the Document Intelligence Studio
 
 Use these directions for [Building a Custom Extractor Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0&tabs=studio) to build and train each of the extractor models for the 4 document types. You will need 4 projects (1 for each category of documents that references each Azure Blob storage container listed above). 
 
-Make sure that the **extractor_model_name** field in your application config **document-intelligence-dictionary.json** matches what you have in Document Intelligence Studio
-- f01-extractor
-- f02-extractor
-- f03-extractor
-- f04-extractor
+Make sure that the **`extractor_model_name`** field in your application config **`document-intelligence-dictionary.json`** matches what you have in Document Intelligence Studio
+- `f01-extractor`
+- `f02-extractor`
+- `f03-extractor`
+- `f04-extractor`
 
-Also ensure that the field names such as **q1** and **q5** matches exactly what you have in Document Intelligence Studio.
+Also ensure that the field names such as **`q1`** and **`q5`** matches exactly what you have in Document Intelligence Studio.
 
 The first 3 extractor models a straightforward. However in the 4th document type, we have tables, signatures and checkboxes.
 
-#### **document-intelligence-dictionary.json** 
+#### **`document-intelligence-dictionary.json`** 
 ````json
 [
 {
@@ -104,7 +104,7 @@ The first 3 extractor models a straightforward. However in the 4th document type
   }
 ]
 ````
-After training your models, you can test the form processing pipeline by uploading the files located locally in `artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
+After training your models, you can test the form processing pipeline by uploading the files located locally in `/artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
 
 Your solution should:
 
