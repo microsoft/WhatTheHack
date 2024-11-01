@@ -14,8 +14,8 @@ This should successfully conclude the challenge.
 
 The architecture diagram below illustrates how the data is expected to flow from the blob store to the Azure AI Search indices for the following AI Search indices
 
-- contoso_yachts
-- contoso_documents 
+- `contoso_yachts`
+- `contoso_documents` 
 
 The student should also verify that subsequent modifications of the yacht records in Cosmos DB or uploads of additional documents or modification of existing documents by the student will trigger updates to the AI Search indices
 
