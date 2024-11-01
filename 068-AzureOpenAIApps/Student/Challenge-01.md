@@ -23,21 +23,23 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the **artifacts/documents/contoso-islands** folder in your Resources) that needs to be uploaded to the **government** container in the Azure Blob Storage account.
+There are documents (from the `**/artifacts/documents/contoso-islands**` folder in your Resources) that needs to be uploaded to the `**government**` container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the **artifacts/cosmos-db/contoso-yachts** that needs to be uploaded to the corresponding Azure **yachts** Cosmos DB containers respectively.
+There are also some JSON documents (from the `**/artifacts/cosmos-db/contoso-yachts**` that needs to be uploaded to the corresponding Azure `**yachts**` Cosmos DB containers respectively.
 
-You can use the **az storage blob upload** command examples below to upload the document to Azure Blob Storage.
+You can use the `**az storage blob upload**` command examples below to upload the document to Azure Blob Storage.
 
-For Cosmos DB, you can upload the JSON documents using the REST API client file **rest-api-yachts-management.http**. Note: this file uses the `humao.rest-client` VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
+For Cosmos DB, you can upload the JSON documents using the REST API client file `**rest-api-yachts-management.http**`. 
+
+**NOTE:** This file uses the `humao.rest-client` VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
 In the diagram above, the following sequence of activities are taking place:
-- step 1: the newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
-- step 2 and 3: the azure function is determining if it needs to compute the embeddings for the new/modified record from the data sources
-- steps 4 and 5: if necessary, the embeddings are computed by communicating with the embedding API for the correct embeddings for each document chunk
-- step 6: the vectors are now sent to the vector database (AI Search)
+- Step 1: The newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
+- Steps 2 and 3: The azure function is determining if it needs to compute the embeddings for the new/modified record from the data sources
+- Steps 4 and 5: If necessary, the embeddings are computed by communicating with the embedding API for the correct embeddings for each document chunk
+- Step 6: The vectors are now sent to the vector database (AI Search)
 
 
 Your task is to configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
@@ -46,14 +48,14 @@ This will make sure that any change that takes place in the Blob Store or Cosmos
 
 The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure AI Search is recommended but feel free to use any other vector database of your preference.
 
-If everything works properly then the text files newly uploaded to modified in  the **government** container in Blob store should show up in the contoso documents AI Search index configured and defined in the **AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME** application setting.
+If everything works properly then the text files newly uploaded to modified in  the `**government**` container in Blob store should show up in the contoso documents AI Search index configured and defined in the `**AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME**` application setting.
 
-Likewise, updates to the **yachts** JSON records in Cosmos DB should automatically show up in the AI Search index defined in the **AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME** setting in your application settings.
+Likewise, updates to the `**yachts**` JSON records in Cosmos DB should automatically show up in the AI Search index defined in the `**AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME**` setting in your application settings.
 
 We need to upload documents to Azure Blob Store and Cosmos DB.
 
 ### Uploading Documents to Azure Blob Store
-To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk. Here is some sample code to help you. 
+To successfully upload the documents to blob store, you can navigate to the following folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk. Here is some sample code to help you:
 
 ````bash
 # Use this command to login if you have a regular subscription
@@ -69,7 +71,7 @@ cd artifacts/documents/contoso-islands
 
 ````
 
-Use these commands to upload the file to Azure blob storage individually.
+Use these commands to upload the file to Azure blob storage individually:
 
 ````bash
 # upload single documents one at a time
@@ -79,7 +81,7 @@ az storage blob upload --account-name contosoizzy1storage  -f climate.txt -c gov
 
 ````
 
-Use these commands to upload multiple files simultaneously
+Use these commands to upload multiple files simultaneously:
 
 ````bash
 
@@ -95,33 +97,33 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 ### Uploading Documents to Azure Cosmos DB
 
-The contents of the Yacht details are stored in the directory **artifacts/cosmos-db/contoso-yachts**
+The contents of the Yacht details are stored in the directory `**/artifacts/cosmos-db/contoso-yachts**`
 
-Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in **rest-api-yachts-management.http** to send each document via the REST API to Cosmos DB. There are five JSON files. 
+Make sure you manually copy and paste the JSON contents of each JSON file in this location and use the REST client in `**rest-api-yachts-management.http**` to send each document via the REST API to Cosmos DB. There are five JSON files. 
 
-To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the **rest-api-yachts-management.http** script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
+To successfully upload the documents to Cosmos DB, please use the REST Client in VSCode and execute the appropriate commands from the `**rest-api-yachts-management.http**` script in your Backend folder. This commands allows you to upload each yacht record individually to the database.
 
-Simply Click on "Send Request" for each command to execute and upload each Yacht individually to the database.
+Simply Click on "`Send Request`" for each command to execute and upload each Yacht individually to the database.
 
 Each request should return a 200 HTTP status code.
 
-This shows how to create or update existing yacht records in the database via the REST API
+This shows how to create or update existing yacht records in the database via the REST API:
 
 ![How to Create Yacht records](../images/humao-rest-client-create-yachts.png)
 
-This shows how to retrieve existing yacht records from the database via the REST API
+This shows how to retrieve existing yacht records from the database via the REST API:
 
 ![How to Retrieve Yacht records](../images/humao-rest-client-retrieve-yachts.png)
 
-This shows how to remove existing yacht records from the database via the REST API
+This shows how to remove existing yacht records from the database via the REST API:
 
 ![How to delete/remove yacht records](../images/humao-rest-client-delete-yachts.png)
 
-There are in-file variables that you may have to edit to control the destination and contents of the HTTP requests you are making to the back end service
+There are in-file variables that you may have to edit to control the destination and contents of the HTTP requests you are making to the back end service:
 
 ![HTTP Request Variables](../images/humao-rest-client-in-file-variables.png)
 
-The api_endpoint controls the destination of the http request, the conversation_id variable is used to keep track of different requests to the back end and the yacht_id specifies the specific yacht record we are targeting
+The `api_endpoint` controls the destination of the http request, the `conversation_id` variable is used to keep track of different requests to the back end and the `yacht_id` specifies the specific yacht record we are targeting
 
 ````bash
 @api_endpoint = http://localhost:7072
@@ -150,8 +152,6 @@ To complete the challenge successfully, the solution should demonstrate the foll
 
 Here is a list of resources that should assist you with completing this challenge:
 
-*Sample resources:*
-
 - [Vector Search with Azure AI Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
 - [Vector Similarity Search with Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 - [Azure Function Triggers for Cosmos DB](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger)
@@ -159,8 +159,6 @@ Here is a list of resources that should assist you with completing this challeng
 
 ## Tips
 
-*Sample tips:*
-
-- Start up the function app first before loading the documents.
+- Start up the Backend function app first before loading the documents.
 - Log changes to the console so that you can see if your changes are working.
 - There are some example codes in the app for you to use to get started.
