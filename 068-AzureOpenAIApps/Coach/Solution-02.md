@@ -21,9 +21,9 @@ This challenge is about interacting with virtual assistants that will provide th
 
 
 We have the following AI Assistants
-For this challenge, the student participant needs to modify the following files in the assistant_configurations folder of the app
-- assistant_name.json: this contains a description of all the tools this assistant needs to perform its tasks
-- assistant_name.txt: this is the system message that controls the behavior of the AI assistant
+For this challenge, the student participant needs to modify the following files in the `/assistant_configurations` folder of the app
+- `assistant_name.json`: this contains a description of all the tools this assistant needs to perform its tasks
+- `assistant_name.txt`: this is the system message that controls the behavior of the AI assistant
 
 The front end application simply needs to modify the environment.ts file to point to the specific endpoint where the API service is running to enable the AI Assistant interaction with the user.
 
