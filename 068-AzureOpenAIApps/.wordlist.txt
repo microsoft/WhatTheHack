@@ -10,3 +10,10 @@ Vectorization
 vectorization
 Checkboxes
 checkboxes
+SLM
+parsers
+performant
+BMP
+PyCharm
+WebStorm
+Luiz
