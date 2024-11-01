@@ -6,3 +6,5 @@ Bittencourt
 Ekpo
 Callum
 Veta
+Vectorization
+vectorization
