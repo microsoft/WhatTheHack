@@ -14,11 +14,11 @@ Contoso Education has an Azure storage account with a Blob Store containing a la
 
 The goal of this challenge is to extract the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also need to parse the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
-Your goal is to design and create a pipeline that can process all the historical PDFs and PNG files for these exam submissions and activity preferences stored in the blob storage.
+Your goal is to design and create a pipeline that can process all the historical PDF and PNG files for these exam submissions and activity preferences stored in the blob storage.
 
 You can use any programming language and Azure services of your choice to implement the solution. Remember to follow best practices for coding and architecture design.
 
-There are 20 sample documents in the  **artifacts/contoso-education** folder:
+There are 20 sample documents in the  **`/artifacts/contoso-education`** folder:
 
 - F01-Civics-Geography and Climate
 - F02-Civics-Tourism and Economy
@@ -39,7 +39,7 @@ Note: You may need to use the Settings icon in the Azure Portal to switch direct
 
 The custom classifier helps you to automate the recognition of the different document types or classes in your knowledge store
 
-Use these directions for [Buidling a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
+Use these directions for [Building a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
 - f01-geography-climate 
 - f02-tourism-economy
 - f03-geography-politics
@@ -110,21 +110,21 @@ Your solution should:
 
 - Use Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in the blob storage.
 - For the exam submissions, extract the full name and profile details and answers to each exam question and store the extract fields in Cosmos DB.
-- The the tourists' travel and acvity preferences, extract the profile data and activity preferences of the guest and store the extracted data in Cosmos DB
+- The the tourists' travel and activity preferences, extract the profile data and activity preferences of the guest and store the extracted data in Cosmos DB
 - Use Azure Service Bus to throttle high traffic scenarios.
 - Pick up the extracted JSON documents from Azure Service Bus and grade the exams for correctness for each answer provided using the LLMs.
-- Store the procesed grade in JSON format in Cosmos DB for each student submission. The grade should be a score between 0 and 100. All questions carry equal weight.
+- Store the processed grade in JSON format in Cosmos DB for each student submission. The grade should be a score between 0 and 100. All questions carry equal weight.
 - Add error handling and logging to your solution.
 
-You can go to the data explorer for the Cosmos DB to verify that the exam submissions have loaded successfully into the **examsubmissions** collection.
+You can go to the data explorer for the Cosmos DB to verify that the exam submissions have loaded successfully into the **`examsubmissions`** collection.
 
 The graded exams corresponding to each submission ends up in the **grades** collection in Cosmos DB
 
-For the activity preferences for each customer uploaded, these are parsed and they end up in the **activitypreferences** Cosmos DB container.
+For the activity preferences for each customer uploaded, these are parsed and they end up in the **`activitypreferences`** Cosmos DB container.
 
 ### Student Records
 
-Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Comsos DB database.
+Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
 ### AI Assistants
 Once you have verify that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the following AI Assistants to query the database to get the answers from these data stores.
