@@ -121,7 +121,7 @@ There are in-file variables that you may have to edit to control the destination
 
 ![HTTP Request Variables](../images/humao-rest-client-in-file-variables.png)
 
-The api_endpoint controls the destination of the http request, the conversation_id variable is used to keep track of different requests to the back end and the yacht_id specifies the specific yacht record we are targetting
+The api_endpoint controls the destination of the http request, the conversation_id variable is used to keep track of different requests to the back end and the yacht_id specifies the specific yacht record we are targeting
 
 ````bash
 @api_endpoint = http://localhost:7072
