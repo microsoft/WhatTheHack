@@ -8,3 +8,5 @@ Callum
 Veta
 Vectorization
 vectorization
+Checkboxes
+checkboxes
