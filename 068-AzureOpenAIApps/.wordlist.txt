@@ -18,3 +18,4 @@ PyCharm
 WebStorm
 Luiz
 vectorized
+uploader
