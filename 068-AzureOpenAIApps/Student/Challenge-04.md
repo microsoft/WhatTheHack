@@ -52,13 +52,10 @@ A successfully completed solution should accomplish the following goals:
 
 ## Learning Resources
 
-https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?
-
-https://learn.microsoft.com/en-us/azure/service-bus-messaging/entity-suspend#suspension-states
-
-https://redis.io/docs/data-types/strings/
-
-https://redis.io/docs/data-types/lists/
+- [Timer trigger for Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer)
+- [Suspend and reactivate messaging entities (disable)](https://learn.microsoft.com/en-us/azure/service-bus-messaging/entity-suspend#suspension-states)
+- [Redis Strings](https://redis.io/docs/data-types/strings/)
+- [Redis lists](https://redis.io/docs/data-types/lists/)
 
 ## Tips
 - Suspend the service bus queue and keep track of this in Redis Cache
