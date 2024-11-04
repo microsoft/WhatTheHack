@@ -99,8 +99,8 @@ A successfully completed solution should accomplish the following goals:
 
 ## Learning Resources
 
-https://redis.io/docs/data-types/strings/
-https://redis.io/docs/data-types/lists/
+- [Redis Strings](https://redis.io/docs/data-types/strings/)
+- [Redis lists](https://redis.io/docs/data-types/lists/)
 
 ## Tips
 - Compute the MD5 or SHA1 hash of the document description
