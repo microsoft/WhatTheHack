@@ -67,7 +67,7 @@ In app insights, you should see the following events registered for each documen
 This means that the embedding was only computed if the yacht description or text content of the documents were modified.
 
 Using the HTTP client, make changes to each yacht description fields and save the changes.
-Using the file uploader, re-upload all the files to the government blob container with minor punctuation (commas, paragraphs, periods) and save the changes and reupload.
+Using the file uploader, re-upload all the files to the government blob container with minor punctuation (commas, paragraphs, periods) and save the changes and re-upload.
 
 In App Insights, you should see the following events registered for each document and yacht you have modified respectively:
 - **`PROCESS_DOCUMENT_EMBEDDING_COMPUTE`**
