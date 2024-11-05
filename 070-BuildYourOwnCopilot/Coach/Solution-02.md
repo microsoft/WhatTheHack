@@ -28,7 +28,7 @@ Solution:
         _semanticKernel.PromptRenderFilters.Add(promptFilter);
 ```
 
-Trainer notes:
+Coach notes:
 
 - Encourage attendees to read first about [Using Filters in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/filters-in-semantic-kernel/) to understand the concept of filters in the Semantic Kernel.
 - Let attendees know that the `DefaultPromptFilter` class is already created in the project and they can use it as a starting point to implement their own prompt filter (which they will do in the following exercises).
@@ -53,7 +53,7 @@ Solution:
                 RenderedPrompt = promptFilter.RenderedPrompt,
 ```
 
-Trainer notes:
+Coach notes:
 
 - Once the prompt filter is attached to the Semantic Kernel, attendees can access the rendered prompt by exposing a property in the filter class.
 - Note that at this point, the property is not yet available as it will be implemented in the next exercises. Once the exercises are complete, they can come back to this point and replace the `string.Empty` with the actual value.
