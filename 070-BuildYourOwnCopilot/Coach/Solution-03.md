@@ -39,7 +39,7 @@ Trainer notes:
 
 Optional exercise:
 
-- Challenge the attendees implement an `ISystemPromptService` class that retrieves the system prompt from a different source (e.g., Azure Cosmos DB, GitHub, etc.). This should be addressed at the end of the hackathon by attendees who finish the main exercises early.
+- Challenge the attendees to implement an `ISystemPromptService` class that retrieves the system prompt from a different source (e.g., Azure Cosmos DB, GitHub, etc.). This should be addressed at the end of the hackathon by attendees who finish the main exercises early.
 
 ### [Challenge 3][Exercise 3.2.1]
 
@@ -65,7 +65,7 @@ Solution:
             _contextSelectorPrompt = await _systemPromptService.GetPrompt(_settings.OpenAI.ContextSelectorPromptName);
 ```
 
-Trainer notes:
+Coach notes:
 
 - Encourage the attendees to identify the blob storage file containing the system prompt.
 - Encourage the attendees to read through the prompt definition, understand its structure, and experiment with 2-3 changes to the prompt to observe the implications in the chat completion process.
@@ -93,7 +93,7 @@ Solution:
             _logger.LogInformation("Semantic Kernel RAG service initialized.");
 ```
 
-Trainer notes:
+Coach notes:
 
 - This is an open-ended exercise that encourages attendees to experiment with the system prompt and context selector prompt.
 - Encourage attendees to read through the [Prompt injection article from the Open Worldwide Application Security Project (OWASP)](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) to understand the core principles of prompt injection vulnerabilities.
