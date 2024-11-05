@@ -32,7 +32,7 @@ Solution:
             loggerFactory);
 ```
 
-Trainer notes:
+Coach notes:
 
 - Encourage attendees to read again the [Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md) document from the solution accelerator repository to understand the role of the semantic cache in the solution accelerator.
 - The `SemanticCacheService` class is responsible for managing the semantic cache. Encourage attendees to analyze the class to understand how the cache is being managed.
@@ -79,7 +79,7 @@ Solution:
             };
 ```
 
-Trainer notes:
+Coach notes:
 
 - The `GetCacheItem` method is responsible for retrieving a cache item from the semantic cache.
 - This method should be used to attempt to retrieve a completion from the semantic cache to avoid going through the full pipeline.
@@ -102,7 +102,7 @@ Solution:
                 UserPromptTokens = cacheItem.UserPromptTokens,
 ```
 
-Trainer notes:
+Coach notes:
 
 - The `UserPromptTokens` property should be set to the value of the `UserPromptTokens` property of the cache item.
 - Encourage attendees to understand how is the `UserPromptTokens` property being populated in the `SemanticCacheService` class.
@@ -123,7 +123,7 @@ Solution:
                 UserPromptEmbedding = cacheItem.UserPromptEmbedding.ToArray(),
 ```
 
-Trainer notes:
+Coach notes:
 
 - The `UserPromptEmbedding` property should be set to the value of the `UserPromptEmbedding` property of the cache item.
 - Encourage attendees to understand how is the `UserPromptEmbedding` property being populated in the `SemanticCacheService` class.
@@ -149,7 +149,7 @@ Solution:
         await _semanticCache.SetCacheItem(cacheItem);
 ```
 
-Trainer notes:
+Coach notes:
 
 - At this point, the completion is a new item that should be added to the semantic cache.
 - The `cacheItem` object should have the `Completion` and `CompletionTokens` properties set to the completion and the completion tokens count, respectively.
