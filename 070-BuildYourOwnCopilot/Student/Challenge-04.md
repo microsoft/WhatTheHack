@@ -47,7 +47,7 @@ To complete this challenge successfully, you must:
 
 ## Learning Resources
 
-- [Build your own copilot with Azure Cosmos DB - Key concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
+- [Build your own Copilot with Azure Cosmos DB - Key concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
 ## Explore Further
 
