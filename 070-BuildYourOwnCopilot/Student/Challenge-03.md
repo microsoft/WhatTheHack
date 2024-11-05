@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this challenge, you will explore the implementation and behavior of system prompts used in Semantic Kernel. System prompts play a key role in guiding how the ai interprets user input and selects plugins for context building. You’ll modify existing prompts to understand their impact on chat completion and learn how to avoid prompt injection vulnerabilities.
+In this challenge, you will explore the implementation and behavior of system prompts used in Semantic Kernel. System prompts play a key role in guiding how the AI interprets user input and selects plugins for context building. You’ll modify existing prompts to understand their impact on chat completion and learn how to avoid prompt injection vulnerabilities.
 
 ## Description
 
