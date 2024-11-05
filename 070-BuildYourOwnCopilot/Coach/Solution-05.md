@@ -98,7 +98,7 @@ Solution:
 Trainer notes:
 
 - The `SetMinRelevanceOverride` method is responsible for setting the minimum relevance override in the semantic cache.
-- Handling this system command is more difficult than the previous one because the actual value of the similarity score must be retrieved from the user message. Suggest attendees to use the `GetSemanticCacheSimilarityScore` method to parse the similarity score from the user prompt. Note that the full implementation of the method is the subject of the next exercise.
+- Handling this system command is more difficult than the previous one because the actual value of the similarity score must be retrieved from the user message. Suggest attendees use the `GetSemanticCacheSimilarityScore` method to parse the similarity score from the user prompt. Note that the full implementation of the method is the subject of the next exercise.
 
 ### [Challenge 5][Exercise 5.3.2]
 
