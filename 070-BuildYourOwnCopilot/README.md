@@ -4,13 +4,13 @@
 
 CosmicWorks has big plans for their retail site. They're eager to launch a POC of a simple chat interface where users can interact with a virtual agent to find product and account information.
 
-The scenario centers around a consumer retail "Intelligent Agent" that allows users to ask questions on vectorized product, customer and sales order data stored in a database. The data in this solution is the Cosmic Works sample for Azure Cosmos DB. This data is an adapted subset of the Adventure Works 2017 dataset for a retail Bike Shop that sells bicycles, biking accessories, components and clothing.
+The scenario centers around a consumer retail "Intelligent Agent" that allows users to ask questions on vectorized product, customer and sales order data stored in a database. The data in this solution is the CosmicWorks sample for Azure Cosmos DB. This data is an adapted subset of the Adventure Works 2017 dataset for a retail Bike Shop that sells bicycles, biking accessories, components and clothing.
 
 > BUT you can bring your own data instead.
 
 ## Learning Objectives
 
-This hackathon helps you expand your knowledge about the Generative AI patterns used in the [Build Your Own Copilot with Azure Cosmos DB solution accelerator](https://github.com/Azure/BuildYourOwnCopilot). The solution accelerator demonstrates how to design and implement a Generative AI solution that incorporates Azure Cosmos DB with Azure OpenAI Service along with other key Azure services, to build an AI assistant user interface.
+This hackathon helps you expand your knowledge about the Generative AI patterns used in the [Build Your Own Copilot with Azure Cosmos DB solution accelerator](https://github.com/Azure/BuildYourOwnCopilot). The solution accelerator demonstrates how to design and implement a Generative AI solution that incorporates Azure Cosmos DB with the Azure OpenAI Service along with other key Azure services, to build an AI assistant user interface.
 
 ## Challenges
 
