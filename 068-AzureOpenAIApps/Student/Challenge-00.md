@@ -58,7 +58,10 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click the three dots in the "Codespaces" section and select "New with Options...". We recommend selecting 4-cores for "Machine Type, if possible. Finally, click "Create Codespace".
+- Once you are signed in, click on the green "Code" button.
+- Then click the three dots in the "Codespaces" section and select "New with Options...".
+  - We recommend selecting 4-cores for "Machine Type, if possible.
+- Finally, click "Create Codespace".
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
@@ -66,7 +69,9 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 Your developer environment is ready, hooray! Skip to section: [Deploy Azure Resources](#deploy-azure-resources)
 
-**NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
+**NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
+
+**NOTE:** Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
 
 #### Use Local Workstation
 
@@ -128,6 +133,7 @@ There are three major steps to setup the Sample Application:
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
 - `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence.
 - `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
+- `/artifacts` - Contains various artifacts and data sources that will be used by the sample application
 - `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the sample application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
@@ -149,7 +155,7 @@ If your Azure subscription does not allow authentication with a Device Login Cod
 <details markdown="1">
 <summary markdown="span">Click to expand/collapse Setup Service Principal Requirements </summary>
 
-To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script.
+To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script from your GitHub Codespace or local workstation.
 
 Run the following command to create a service principal with the Contributor role on the subscription. Replace the `<NAME>` with a meaningful name.  Replace the subscription ID (`00000000-0000-0000-0000-000000000000`) with your Azure subscription ID.
 
@@ -166,7 +172,7 @@ Run the following command to create a service principal with the Contributor rol
 
 ##### Provisioning Azure Resources
 
-Execute the following commands in your Codespace or local workstation terminal window. **Do not run these steps in Azure Cloud Shell**:
+Execute the following commands in your GitHub Codespace or local workstation terminal window:
 
 ```bash
 cd infra
@@ -180,6 +186,8 @@ pwsh deploy.ps1 -SubscriptionId "" -ResourceGroupName ""
 
 <details markdown="1">
 <summary markdown="span">Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
+
+**NOTE:** Do not run these steps in Azure Cloud Shell. Use the terminal in your GitHub Codespace or local workstation!
 
 ```bash
 cd infra
