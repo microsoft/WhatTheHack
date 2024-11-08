@@ -12,11 +12,9 @@ Contoso Education has an Azure storage account with a Blob Store containing a la
 
 ## Description
 
-The goal of this challenge is to extract the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also need to parse the activity preferences and advance requests from the tourists visiting Contoso Islands.
+The goal of this challenge is to observe the extraction of the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
-Your goal is to design and create a pipeline that can process all the historical PDF and PNG files for these exam submissions and activity preferences stored in the blob storage.
-
-You can use any programming language and Azure services of your choice to implement the solution. Remember to follow best practices for coding and architecture design.
+The Contoso education application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in  blob storage.
 
 There are 20 sample documents in the sub-folders under the **`/artifacts/contoso-education`** folder:
 
@@ -27,7 +25,7 @@ There are 20 sample documents in the sub-folders under the **`/artifacts/contoso
 
 Each folder containers 5 samples you will use for training the custom classifier and extractor.
 
-You will need to create a container in Azure Blob Store called **`classifications`** and then upload 5 document samples each from the following folders into the **`classifications`** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **`classifications`** container in Blob Store.
+In Azure Blob Store you should see a container called **`classifications`** and then upload 5 document samples each from the following folders into the **`classifications`** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **`classifications`** container in Blob Store.
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
