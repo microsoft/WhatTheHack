@@ -10,7 +10,7 @@ Thank you for participating in the Azure Open AI Apps What The Hack. Before you 
 
 In this challenge, you will setup the necessary pre-requisites and environment to complete the rest of the hack, including:
 
-- [Access Azure OpenAI](#access-azure-openai)
+- [Access Azure Subscription](#access-azure-subscription)
 - [Setup Development Environment](#setup-development-environment)
   - [Use GitHub Codespaces](#use-github-codespaces)
   - [Use Local Workstation](#use-local-workstation)
@@ -20,14 +20,10 @@ In this challenge, you will setup the necessary pre-requisites and environment t
     - [Setup App Backend](#setup-app-backend)
     - [Setup App Frontend](#setup-app-frontend)
 
-### Access Azure OpenAI 
+### Access Azure Subscription 
 
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
-
-Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
-
-An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
 ### Setup Development Environment 
 
@@ -93,6 +89,9 @@ To work on your local workstation, please ensure you have the following tools an
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
   - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
 - [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+
+**NOTE:** For Windows users, we recommend that the following tools be installed in your WSL environment, and NOT in Windows.
+
 - [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
 - Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
 - Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
