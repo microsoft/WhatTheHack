@@ -36,10 +36,10 @@ For Cosmos DB, you can upload the JSON documents using the REST API client file 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
 In the diagram above, the following sequence of activities are taking place:
-- Step 1: The newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure functions
-- Steps 2 and 3: The azure function is determining if it needs to compute the embeddings for the new/modified record from the data sources
+- Step 1: The newly inserted or modified documents in Azure Blob Store and Cosmos DB are triggering Azure Functions
+- Steps 2 and 3: The Azure Function is determining if it needs to compute the embeddings for the new/modified record from the data sources
 - Steps 4 and 5: If necessary, the embeddings are computed by communicating with the embedding API for the correct embeddings for each document chunk
-- Step 6: The vectors are now sent to the vector database (AI Search)
+- Step 6: The vectors are now sent to the vector database (Azure AI Search)
 
 
 Your task is to configure the Backend application Azure Function triggers to keep track of new documents and modification to existing documents from Azure Blob Store and Cosmos DB to ensure that the vector store and database used to power the language models is kept fresh and up-to-date so that the LLM can provide accurate answers to queries.
