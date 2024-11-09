@@ -71,7 +71,7 @@ In this challenge, you will be asked to configure the system message and tools u
 | [`float`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`number`](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
 | [`list` or `tuple`](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [`array`](https://json-schema.org/understanding-json-schema/reference/array) |
 
-#### The python function registration for each assistant are in the following files
+#### The Python function registration for each assistant are in the following files
 
 This is where the tools are registered in the application.
 
@@ -79,9 +79,9 @@ This is where the tools are registered in the application.
 - `/controllers/ask_callum.py`
 - `/controllers/ask_veta.py`
 
-#### The python function definition for each assistant are in the following files:
+#### The Python function definition for each assistant are in the following files:
 
-This is where the functions used in the tools are defined in python code
+This is where the functions used in the tools are defined in Python code
 
 - `/shared/assistant_tools_donald.py`
 - `/shared/assistant_tools_callum.py`
@@ -91,9 +91,9 @@ You will have to look at the code samples to figure out how to describe the func
 
 Make sure that the value of the first parameter to `ToolUtils.register_tool_mapping()` matches the name of the function in the JSON function definition for the assistant configuration.
 
-The second parameter to `ToolUtils.register_tool_mapping()` is the actual python function definition.
+The second parameter to `ToolUtils.register_tool_mapping()` is the actual Python function definition.
 
-You will be using this information in these python files to configure your assistants tools and system messages.
+You will be using this information in these Python files to configure your assistants tools and system messages.
 
 ````python
 
