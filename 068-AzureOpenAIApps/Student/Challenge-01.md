@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 This challenge assumes that all the dependencies in the Challenge 0 were deployed successfully.
 
@@ -23,15 +23,15 @@ This approach enhances the efficiency and effectiveness of various applications,
 
 Contoso Yachts is a 40-person organization that specializes in booking tours in Contoso Islands.
 
-There are documents (from the **`/artifacts/documents/contoso-islands`** folder in your Resources) that needs to be uploaded to the **`government`** container in the Azure Blob Storage account.
+There are documents (from the **`/artifacts/documents/contoso-islands`** folder in your Codespace or student Resource package) that need to be uploaded to the **`government`** container in the Azure Blob Storage account.
 
-There are also some JSON documents (from the **`/artifacts/cosmos-db/contoso-yachts`** that needs to be uploaded to the corresponding Azure **`yachts`** Cosmos DB containers respectively.
+There are also some JSON documents (from the **`/artifacts/cosmos-db/contoso-yachts`** folder) that need to be uploaded to the corresponding Azure **`yachts`** Cosmos DB containers respectively.
 
 You can use the **`az storage blob upload`** command examples below to upload the document to Azure Blob Storage.
 
-For Cosmos DB, you can upload the JSON documents using the REST API client file **`rest-api-yachts-management.http`**. 
+For Cosmos DB, you can upload the JSON documents using the REST API client file **`rest-api-yachts-management.http`** located in the `/ContosoAIAppsBackend` folder of your Codespace or student Resource package. 
 
-**NOTE:** This file uses the **`humao.rest-client`** VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode. 
+**NOTE:** This file uses the **[`humao.rest-client`](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)** VSCode extension which should already be installed if you are using GitHub Codespaces for this hack. If you are running the hack with a local setup, you will need to add the extension to VSCode.
 
 ![Auto Vectorization](../images/auto-vectorization-1.drawio.svg)
 
