@@ -74,9 +74,10 @@ cd artifacts/documents/contoso-islands
 Use these commands to upload the file to Azure blob storage individually:
 
 ````bash
-# upload single documents one at a time
+# Syntax to upload single documents one at a time
 az storage blob upload --account-name {mystorageaccountname}  -f {filenameToUpload} -c {destinationContainer} --overwrite
 
+# Sample usage of this command:
 az storage blob upload --account-name contosoizzy1storage  -f climate.txt -c government --overwrite
 
 ````
@@ -85,15 +86,13 @@ Use these commands to upload multiple files simultaneously:
 
 ````bash
 
-# upload all files simultaneously from the current directory
+# Syntax to upload all files simultaneously from the current directory
 az storage blob upload-batch --account-name {myStorageAccountName} -d {myStorageContainer} -s {sourceDirectory}
 
+# Sample usage of this command:
 az storage blob upload-batch --account-name contosopeterod1storage -d government -s .
 
 ````
-
-
-
 
 ### Uploading Documents to Azure Cosmos DB
 
