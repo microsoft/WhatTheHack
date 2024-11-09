@@ -159,9 +159,13 @@ The format for the parameter description and typing follows the JSON schema spec
 
 ```
 
-You can use the `rest-api-ask-assistants.http` REST Client to interact with the first assistant (Donald) to make sure it is all working properly. The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
+#### Testing and Debugging the Assistants
 
-Once this is up and running for the backend, you can navigate to the page for Donald to send you questions to him.
+You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshooot any error messages you receive.
+
+The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
+
+Once you have proved the backend is responding properly using the REST Client, you can navigate to the Frontend webpage for the assistants to send your questions to each one.
 
 #### Sequence Diagram for How the Assistants Function
 ![screenshot of Priscilla Sequence Diagram](../images/PriscillaAssistant.jpg)
