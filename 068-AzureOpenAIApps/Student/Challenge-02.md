@@ -8,7 +8,7 @@ Virtual assistants augment customer service and can be leveraged to interact wit
 
 Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistants to the customers.
 
-In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company (Contoso Yachts). The virtual assistants will also allow guest to create accounts, manage bank account balances and make/cancel Yacht reservations with Contoso Yachts.
+In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company (Contoso Yachts). The virtual assistants will also allow guest to create accounts, manage bank account balances and make/cancel yacht reservations with Contoso Yachts.
 
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
@@ -33,11 +33,11 @@ Reservations must be within the passenger capacity of the yacht.
 Reservations should contain the full name, email address and customer identifier in the database.
 
 This virtual assistant should be able to do the following:
-- Check if an existing customer has a Yacht reservation in the database or not.
+- Check if an existing customer has a yacht reservation in the database or not.
 - Create a new reservation for a specific date and yacht name
 - Cancel existing reservation for a specific yacht and date. Updates the status to cancelled.
 - Update the travel party size (number of passengers) for a particular reservation
-- Get details about the Yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
+- Get details about the yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
 
 #### Bank Account Management Assistant (Callum)
 This assistants allows customers to manage bank accounts.
