@@ -87,10 +87,8 @@ To work on your local workstation, please ensure you have the following tools an
     - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
-**NOTE:** For Windows users, we recommend that the following tools be installed in your WSL environment, and NOT in Windows.
+**NOTE:** For Windows users, we recommend that the following tools be installed in your WSL environment, and NOT on Windows itself. (This includes the Azure CLI itself, which is listed above.) 
 
 - [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
 - Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
