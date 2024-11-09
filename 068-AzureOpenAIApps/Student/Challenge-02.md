@@ -161,7 +161,7 @@ The format for the parameter description and typing follows the JSON schema spec
 
 #### Testing and Debugging the Assistants
 
-You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshooot any error messages you receive.
+You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
 
 The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
 
