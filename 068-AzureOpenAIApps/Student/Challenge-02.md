@@ -8,7 +8,7 @@ Virtual assistants augment customer service and can be leveraged to interact wit
 
 Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistants to the customers.
 
-In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company (Contoso Yachts). The virtual assistants will also allow guest to create accounts, manage bank account balances and make/cancel yacht reservations with Contoso Yachts.
+In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company, Contoso Yachts. The virtual assistants will also allow guest to create accounts, manage bank account balances and make or cancel yacht reservations with Contoso Yachts.
 
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
