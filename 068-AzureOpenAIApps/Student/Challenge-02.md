@@ -2,10 +2,6 @@
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-## Pre-requisites (Optional)
-
-This challenge assumes that Challenge 01 has been completed successfully.
-
 ## Introduction
 
 Virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
