@@ -48,7 +48,7 @@ This will make sure that any change that takes place in the Blob Store or Cosmos
 
 The goal is to ensure that these documents are vectorized and stored in the appropriate vector store. Azure AI Search is recommended but feel free to use any other vector database of your preference.
 
-If everything works properly then the text files newly uploaded to modified in  the **`government`** container in Blob store should show up in the contoso documents AI Search index configured and defined in the **`AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME`** application setting.
+If everything works properly then the text files newly uploaded to modified in  the **`government`** container in Blob store should show up in the Contoso documents AI Search index configured and defined in the **`AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME`** application setting.
 
 Likewise, updates to the **`yachts`** JSON records in Cosmos DB should automatically show up in the AI Search index defined in the **`AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME`** setting in your application settings.
 
@@ -63,7 +63,7 @@ az login --use-device-code
 
 # OR 
 
-# Use this command to login if you are on an FPDO susbcription
+# Use this command to login if you are using a service principal (i.e. you are on an Microsoft employee FDPO susbcription)
 az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 
 # navigate to document directory
