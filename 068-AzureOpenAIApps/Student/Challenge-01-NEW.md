@@ -14,11 +14,11 @@ The Citrus Bus application uses the RAG (Retrieval Augmented Generation) archite
 
 ### Retrieval Augmented Generation
 
-In an app using the RAG architecture pattern, the application ***retrieves*** information from a retrieval system that queries the organization's data. The application then provides that data to ***augment*** a LLM's knowledge so that the LLM can ***generate*** content that powers the virtual assistants.
+In an app using the RAG architecture pattern, the application ***retrieves*** information from a retrieval system that queries the organization's data. The application then provides that data to ***augment*** and ground a LLM with knowledge so that the LLM can ***generate*** content that powers the virtual assistants.
 
 //INSERT RAG PATTERN IMAGE HERE
 
-The retrieval system is implemented by indexing structured and unstructured data, from the data's source locations, into a vectorized data store which can be queried by the application. Thus, the vector data store used by the retrieval system is not the original source of truth.
+The retrieval system is implemented by indexing structured and unstructured data, from the its source locations, into a vectorized data store which can be queried by the application. Thus, the vector data store used by the retrieval system is not the original source of truth.
 
 ### Document Embeddings
 
@@ -58,7 +58,7 @@ In the diagram above, the following sequence of activities are taking place:
 Your challenge is to run water through the pipes as described above. The Azure resources in the diagram above should have been deployed to your Azure environment in Challenge 0, but the source data is in your GitHub Codespace or local workstation (in the student Resources package).
 
 - [Upload Contoso Islands data to Azure Blob Storage](#upload-documents-to-azure-blob-storage)
-- [Upload Consoso Yachts' yachts data to Azure Cosmos DB](#upload-documents-to-azure-cosmos-db)
+- [Upload Contoso Yachts' yachts data to Azure Cosmos DB](#upload-documents-to-azure-cosmos-db)
 - [Observe indexed data appears in Azure AI Search](#observe-azure-ai-search)
 - [Modify data and observe Azure AI Search picks up the changes](#modify-data-and-observe-azure-ai-search)
 
