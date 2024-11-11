@@ -4,11 +4,11 @@
 
 ## Pre-requisites (Optional)
 
-This challenge assumes that all requirements for Challenges 01, 02, 03 and 04 were successfully completed.
+This challenge assumes that all requirements for Challenge 01 were successfully completed.
 
 ## Introduction
 
-Calculating embeddings costs money and we do not have to pay for the embedding computation if nothing has changed in the documents. Depending on the embedding service and the amount of documents as well as the frequency of the event triggers there have been customers/partners that have spent hundreds of thousands of dollars recomputing embeddings for documents that did not change.
+Calculating embeddings costs money and we do not want to pay for the embedding computation if nothing has changed in the documents. Depending on the embedding service and the amount of documents as well as the frequency of the event triggers there have been customers/partners that have spent hundreds of thousands of dollars recomputing embeddings for documents that did not change.
 
 The goal of this challenge is to ensure that expensive calls such as computing the embedding vectors for the documents are only performed if necessary.
 
@@ -21,7 +21,7 @@ To simplify the tracking of these events we have set up the following 4 events i
 - **`PROCESS_DOCUMENT_EMBEDDING_COMPUTE`** - the embedding was computed for the document upload to Blob Store
 - **`PROCESS_YACHT_EMBEDDING_COMPUTE`** - the embedding was computed for the yacht upload to Cosmos DB
 - **`SKIP_DOCUMENT_EMBEDDING_COMPUTE`** - the embedding was NOT computed for the document upload to Blob Store
-- **`SKIP_YACHT_EMBEDDING_COMPUTE`** - this means the the embedding was NOT computed for the yacht upload to Cosmos DB
+- **`SKIP_YACHT_EMBEDDING_COMPUTE`** - this means the embedding was NOT computed for the yacht upload to Cosmos DB
 
 When the **`COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY`** setting in the application config is set to **`0`** all embeddings are processed regardless of whether there are any changes in the text field of the record.
 
@@ -31,8 +31,8 @@ When the **`COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY`** setting in the application c
 
 In this challenge, we will do the following:
 
-- When the application needs to enforce cost management, we ensure that documents are only processed for embeddings if their textual contents have been updated.
-- Ensure that we are not processing the embeddings for the Yachts if the description of the Yacht has not been modified
+- When the application needs to enforce cost management, we ensure that documents are only processed for embeddings if the text contents have been updated.
+- Ensure that we are not processing the embeddings for the yachts if the description of the yacht has not been modified
 
 
 ## Challenge Verification
@@ -42,7 +42,7 @@ To kick things off, ensure that the **`COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY`** a
 When this value is set to `0`, embeddings are computed regardless of whether the text contents have been modified.
 When it is set to `1`, embeddings are only calculated if the text contents have been updated.
 
-The application solves this by maintaining a copy of the document or description contents' SHA1 HASH in memory via Azure Redis Cache and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
+The application solves this by maintaining a copy of the document or description contents' SHA1 hash in memory via Azure Redis Cache and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
 
 Using the HTTP client, make changes to each yacht `price` and `maxCapacity` fields and save the changes.
 Using the file uploader, re-upload all the files to the government blob container AS IS without making any changes.
@@ -91,9 +91,9 @@ GET document_embeddings_cache_government/definition.txt
 
 ## Success Criteria
 
-A successfully completed solution should accomplish the following goals:
+A successfully completed challenge should accomplish the following goals:
 
-- Ensure that for the updates to the Yachts, if only the pricing or capacity details are updated no embedding should be processed.
+- Ensure that for the updates to the yachts, if only the pricing or capacity details are updated that no embeddings are recomputed.
 - Ensure that for documents, the embeddings are only computed if the text contents were modified.
 
 
@@ -102,6 +102,4 @@ A successfully completed solution should accomplish the following goals:
 - [Redis Strings](https://redis.io/docs/data-types/strings/)
 - [Redis lists](https://redis.io/docs/data-types/lists/)
 
-## Tips
-- Compute the MD5 or SHA1 hash of the document description
-- Store the hash in Redis
+
