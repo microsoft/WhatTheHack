@@ -14,7 +14,7 @@ Contoso Education has an Azure storage account with a Blob Store containing a la
 
 The goal of this challenge is to observe the extraction of the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
-The Contoso education application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in  blob storage.
+The Contoso education application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in blob storage.
 
 There are 20 sample documents in the sub-folders under the **`/artifacts/contoso-education`** folder:
 
@@ -25,7 +25,7 @@ There are 20 sample documents in the sub-folders under the **`/artifacts/contoso
 
 Each folder containers 5 samples you will use for training the custom classifier and extractor.
 
-In Azure Blob Store you should see a container called **`classifications`** and then upload 5 document samples each from the following folders into the **`classifications`** container in Blob Store. There should be a total of 20 samples from the 4 classes or categories inside the **`classifications`** container in Blob Store.
+In Azure Blob Store you should see a container called **`classifications`** with 5 document samples. There should be a total of 20 samples from the 4 classes or categories inside the **`classifications`** container in Blob Store.
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
@@ -37,7 +37,7 @@ You will need to create one Classifier Project which will give you one Classific
 
 The custom classifier helps you to automate the recognition of the different document types or classes in your knowledge store
 
-Use these directions for [Building a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) to train the custom classifier in Azure Document Intelligence on how to recognize the following 4 categories of documents:
+Use these directions [Building a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) for how to train the custom classifier in Azure Document Intelligence to recognize the following 4 categories of documents:
 - `f01-geography-climate`
 - `f02-tourism-economy`
 - `f03-geography-politics`
@@ -102,30 +102,29 @@ The first 3 extractor models a straightforward. However in the 4th document type
   }
 ]
 ````
-After training your models, you can test the form processing pipeline by uploading the files located locally in `/artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in CosmosDB. 
+After training your models, you can test the form processing pipeline by uploading the files located locally in `/artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in Cosmos DB. 
 
-Your solution should:
+You will be able to observe that the solution should:
 
-- Use Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in the blob storage.
-- For the exam submissions, extract the full name and profile details and answers to each exam question and store the extract fields in Cosmos DB.
-- The the tourists' travel and activity preferences, extract the profile data and activity preferences of the guest and store the extracted data in Cosmos DB
-- Use Azure Service Bus to throttle high traffic scenarios.
+- Use Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in Azure blob storage.
+- Extract the full name and profile details and answers to each exam question for each exam submission and store the extracted fields in Cosmos DB.
+- For the tourists' travel and activity preferences, extract the profile data and activity preferences of the guest and store the extracted data in Cosmos DB
+- Use Azure Service Bus to throttle during high traffic scenarios.
 - Pick up the extracted JSON documents from Azure Service Bus and grade the exams for correctness for each answer provided using the LLMs.
 - Store the processed grade in JSON format in Cosmos DB for each student submission. The grade should be a score between 0 and 100. All questions carry equal weight.
-- Add error handling and logging to your solution.
 
 You can go to the data explorer for the Cosmos DB to verify that the exam submissions have loaded successfully into the **`examsubmissions`** collection.
 
-The graded exams corresponding to each submission ends up in the **grades** collection in Cosmos DB
+The graded exams corresponding to each submission will reside in the **grades** collection in Cosmos DB
 
-For the activity preferences for each customer uploaded, these are parsed and they end up in the **`activitypreferences`** Cosmos DB container.
+For the activity preferences for each customer uploaded, these are parsed and reside in the **`activitypreferences`** Cosmos DB container.
 
 ### Student Records
 
 Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
 ### AI Assistants
-Once you have verify that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the following AI Assistants to query the database to get the answers from these data stores.
+Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Pricilla AI Assistants to query the database to get the answers from these data stores.
 
 You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
 
@@ -134,17 +133,16 @@ You will need to configure the assistant tools for each AI assistant to ensure t
 
 ## Success Criteria
 
-A successfully completed solution should accomplish the following goals:
+During this challenge you will:
 
-- Some files may contain multiple document types in the same file.
-- The application should be able to properly classify documents and use the appropriate model to extract the submissions contained in the file
-- Should be able to process all documents
-- Should be able to extract all form fields from the documents
-- Should be able to grade the questions for correctness.
-- Should be able to store the student submission alongside the grade in JSON format in Cosmos DB
-- Should be able to store the guest activity preferences in the Cosmos DB database.
+- Observe the application properly classifying documents and using the appropriate model to extract the submissions contained in the file
+- Observe the processing of all documents
+- Extract all form fields from the documents
+- Observe that the application grades the questions for correctness.
+- Observe that the application stores the student submission alongside the grade in JSON format in Cosmos DB
+- Observe that the guest activity preferences in the Cosmos DB database
 - You should be able to configure the descriptions for each tool and tool parameter to enable to assistants perform their tasks correctly.
-- The AI assistant should be able to parse the students responses on exam questions and grade them correctly based on the information in the knowledge (AI Search) extracted from the uploaded documents to Azure Blob Store.
+- Observe that the AI assistant should be able to parse the students responses on exam questions and grade them correctly based on the information in the knowledge (AI Search) extracted from the sample documents to Azure Blob Store.
 
 ## Learning Resources
 
@@ -158,6 +156,5 @@ A successfully completed solution should accomplish the following goals:
 
 
 ## Tips
-- Use Azure Cognitive Services Form Recognizer to extract the text from the PDF, PNG, TIFF and JPEG files stored in the blob storage.
-- Use Azure Functions to orchestrate the pipeline and store the extracted information in an Azure Cosmos DB database.
+
 - Configure the AI Assistants to answer questions from user queries
