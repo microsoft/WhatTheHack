@@ -2,7 +2,7 @@
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
 This challenge assumes that all requirements for Challenge 01 were successfully completed.
 
