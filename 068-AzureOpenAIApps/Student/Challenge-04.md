@@ -4,7 +4,7 @@
 
 ## Pre-requisites (Optional)
 
-This challenge assumes that all requirements for Challenges 01, 02 and 03 were successfully completed.
+This challenge assumes that all requirements for Challenge 01 were successfully completed.
 
 ## Introduction
 
@@ -57,6 +57,4 @@ A successfully completed solution should accomplish the following goals:
 - [Redis Strings](https://redis.io/docs/data-types/strings/)
 - [Redis lists](https://redis.io/docs/data-types/lists/)
 
-## Tips
-- Suspend the service bus queue and keep track of this in Redis Cache
-- Use Timers to check if the Service Bus Queue suspension can be lifted.
+
