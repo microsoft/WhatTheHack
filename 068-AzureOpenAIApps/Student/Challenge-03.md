@@ -124,7 +124,7 @@ For the activity preferences for each customer uploaded, these are parsed and re
 Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
 ### AI Assistants
-Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Pricilla AI Assistants to query the database to get the answers from these data stores.
+Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Priscilla AI Assistants to query the database to get the answers from these data stores.
 
 You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
 
