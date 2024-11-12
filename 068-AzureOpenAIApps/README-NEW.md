@@ -1,12 +1,12 @@
-# What The Hack - Building AI Apps with OpenAI and the Azure Ecosystem
+# What The Hack - Building AI Apps with Azure OpenAI and the Azure Ecosystem
 
 ## Introduction
 
-This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI offering with Microsoft Azure platform services.
+This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI service with Microsoft Azure platform services.
 
 Building AI applications on Microsoft Azure involves needing to know the following:
 
-The language models that power the AI application need the data it is using to make decisions to be in the right format so as to enable it respond appropriately to queries and requests from its users. 
+- The language models that power the AI application need the data it is using to make decisions to be in the right format so as to enable it respond appropriately to queries and requests from its users. 
 - Which LLM or SLM SKUs and versions do you need to use and why? 
 - What are the data pipelines necessary to automate this is crucial for the success of any AI application powered by small or large language models? 
 - How do you configure the LLM to respond correctly to user queries or requests? 
