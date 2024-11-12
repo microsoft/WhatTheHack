@@ -143,7 +143,7 @@ You should then make a small change to one of the JSON files by changing some te
 ## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- The Triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records in your VSCode.
+- The triggers for the Blob Store and Cosmos DB Container changes are detecting changes to new or modified records in your VSCode.
 - Any new document or change to an existing document in Cosmos DB must be reflected in the vector store index
 - Any new document uploaded into the Azure Blob Store container must be reflected in the vector store index.
 
