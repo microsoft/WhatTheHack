@@ -34,9 +34,6 @@ In this challenge, we will do the following:
 - When the application needs to enforce cost management, we ensure that documents are only processed for embeddings if the text contents have been updated.
 - Ensure that we are not processing the embeddings for the yachts if the description of the yacht has not been modified
 
-
-## Challenge Verification
-
 To kick things off, ensure that the **`COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY`** application setting in your `local.settings.json` file is set to `0`
 
 When this value is set to `0`, embeddings are computed regardless of whether the text contents have been modified.
