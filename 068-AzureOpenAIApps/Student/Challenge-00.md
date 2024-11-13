@@ -14,7 +14,7 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 - [Setup Development Environment](#setup-development-environment)
   - [Use GitHub Codespaces](#use-github-codespaces)
   - [Use Local Workstation](#use-local-workstation)
-- [Setup Sample Application](#setup-sample-application)
+- [Setup Citrus Bus Application](#setup-citrus-bus-application)
   - [Deploy Azure Resources](#deploy-azure-resources)
   - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
     - [Setup App Backend](#setup-app-backend)
@@ -114,13 +114,11 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 </details>
 
-### Setup Sample Application
+### Setup Citrus Bus Application
 
-**TODO:** Add overview of the sample application here and the Azure architecture that will support it in the cloud.
+Contoso Yachts, Inc has developed the Citrus Bus application in-house. The Citrus Bus application supports the company's travel agents with virtual assistants that answer questions about the Contoso Islands and can book yacht reservations. The application also supports Contoso Island educators with advanced AI services that help them grade student tests.
 
-The sample application for this hack was developed using Python and Typescript/Javascript. 
-
-Azure OpenAI and its suite of sister Cognitive Services as well as frameworks such as Langchain have support for both Typescript and Python.
+The Citrus Bus application was developed using Python and Typescript/Javascript, and implements a RAG architecture with Azure OpenAI, Azure AI Search, and other Azure AI platform services. These services, as well as frameworks such as Langchain, have support for both Typescript and Python.
 
 There are three major steps to setup the Sample Application:
 - [Deploy Azure Resources](#deploy-azure-resources)
@@ -128,10 +126,10 @@ There are three major steps to setup the Sample Application:
 - [Setup App Frontend](#setup-app-frontend)
 
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
-- `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Cognitive Services like OpenAI and Azure Document Intelligence.
+- `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Azure AI  Services like Azure OpenAI and Azure Document Intelligence.
 - `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
-- `/artifacts` - Contains various artifacts and data sources that will be used by the sample application
-- `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the sample application in Azure.
+- `/artifacts` - Contains various artifacts and data sources that will be used by the Citrus Bus application
+- `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the Citrus Bus application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
 
