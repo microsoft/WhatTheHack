@@ -706,7 +706,7 @@ function log_gw () {
   vpngw_id=$(az network vnet-gateway show -n "vng${gw_id}" -g "$rg" --query id -o tsv)
   echo "Configuring diagnostic settings for gateway vng${gw_id}"
   az monitor diagnostic-settings create -n mydiag --resource "$vpngw_id" --workspace "$logws_id" \
-      --metrics '[{"category": "AllMetrics", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false }, "timeGrain": null}]' \
+      --metrics '[{"category": "AllMetrics", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false }}]' \
       --logs '[{"category": "GatewayDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}}, 
               {"category": "TunnelDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}},
               {"category": "RouteDiagnosticLog", "enabled": true, "retentionPolicy": {"days": 0, "enabled": false}},
