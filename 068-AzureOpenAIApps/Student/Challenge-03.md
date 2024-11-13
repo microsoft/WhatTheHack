@@ -35,7 +35,7 @@ In Azure Blob Store you should see a container called **`classifications`** with
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
-## Creating a Custom Classifier Model in Document Intelligence Studio
+## Create a Custom Classifier Model in Document Intelligence Studio
 
 You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **`DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID`** setting in your applications settings config file **`local.settings.json`**.
 
