@@ -22,7 +22,7 @@ In an app using the RAG architecture pattern, the application ***retrieves*** in
 Building AI applications on Microsoft Azure involves the following concerns:
 
 - Which LLM or SLM SKUs and versions do you need to use and why?
-- Automating data pipelines to ensure the organization's changing data is available to the LLM over time.
+- Automating data pipelines to ensure the organization's changing source data is available to application's retrieval system over time.
 - Data hygiene and ensuring that the organization's data is in the right format and optimized so that the LLM can respond properly to user queries.
 - Understanding how to configure and use a vector database, such as Azure AI Search, to power the retrieval system. 
 - Optimizing costs by minimizing the amount of retrieved data sent to the LLM to answer user queries properly.
