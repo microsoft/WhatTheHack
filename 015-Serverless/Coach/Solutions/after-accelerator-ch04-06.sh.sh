@@ -28,7 +28,7 @@ functionTollBoothEvents=$(az functionapp list -g $RGName --query [].name -o tsv 
 echo $functionTollBoothEvents
 
 #be careful, if running in WSL, it may pick up your windows AZ CLI instance and then append \r characters in the variable substitution. Ensure WSL has the interop setting to appendWindowsPath = false. It can also show up in the KV secrets, making .NET to complain "New-line characters are not allowed in header values."
-az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "computerVisionApiUrl="$cognitiveEndpoint"vision/v2.0/ocr"
+az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "computerVisionApiUrl="$cognitiveEndpoint"vision/v3.2/ocr"
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "computerVisionApiKey=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/computerVisionApiKey/)"
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings eventGridTopicEndpoint=$eventgridEndpoint
 az functionapp config appsettings set -g $RGName -n $functionTollBoothApp --settings "eventGridTopicKey=@Microsoft.KeyVault(SecretUri="$kvuri"secrets/eventGridTopicKey/)"
