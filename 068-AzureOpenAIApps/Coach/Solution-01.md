@@ -22,3 +22,5 @@ The student should also verify that subsequent modifications of the yacht record
 If the student gets a `429 Too Many Requests error` in the terminal window where they ran `func start`, they may need to increase the quota for their subscription for the model (e.g. `text-embedding-ada-002`). They may also need to upload the documents again to trigger the indexing. 
 
 The number of indexed documents in the Azure AI Search Service may not always reflect recent changes to the index. If you do a search, you can manually scroll to see if the embeddings have been calculated. 
+
+**NOTE:** There is a known issue where when modifications to any document are indexed by Azure AI Search, the previous embeddings are not removed from the index.  Students may see the modified and original embeddings be returned when querying Azure AI Search.
