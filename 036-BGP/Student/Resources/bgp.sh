@@ -35,14 +35,17 @@
 # Jose Moreno, August 2020
 ############################################################
 
-## Define "Global" script variables used in functions
+## Define "Global" script variables
+# Hide az CLI warnings
+declare -x AZURE_CORE_ONLY_SHOW_ERRORS=1
+
+# Define CSR image version for NVA deployment
 nva_publisher=cisco
-#offer=cisco-csr-1000v
 nva_offer=cisco-c8000v-byol
-#sku=16_12-byol
-# Newest version available 
+# Newest version available as of 2024/11/15
 nva_sku=17_15_01a-byol 
 
+# Define Test VM linux image
 test_vm_image_urn=Ubuntu2404
 
 # Waits until a resource finishes provisioning
@@ -303,21 +306,37 @@ function connect_gws () {
     # 1->2A
     az network vpn-connection create -n "vng${gw1_id}tovng${gw2_id}a" -g "$rg" --vnet-gateway1 "vng${gw1_id}" \
         --shared-key "$psk" --local-gateway2 "${vpngw2_name}a" $bgp_option -o none
+    az network vpn-connection ipsec-policy add --connection-name "vng${gw1_id}tovng${gw2_id}a" -g "$rg" \
+        --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+        --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+        --sa-lifetime 102400 --sa-max-size 27000 --output none
     # 1->2B
     if [[ ${gw2_type} == "vng" ]] || [[ ${gw2_type} == "vng2" ]]
     then
         az network vpn-connection create -n "vng${gw1_id}tovng${gw2_id}b" -g "$rg" --vnet-gateway1 "vng${gw1_id}" \
             --shared-key "$psk" --local-gateway2 "${vpngw2_name}b" $bgp_option -o none
+        az network vpn-connection ipsec-policy add --connection-name "vng${gw1_id}tovng${gw2_id}b" -g "$rg" \
+            --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+            --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+            --sa-lifetime 102400 --sa-max-size 27000 --output none
     fi
     echo "Connecting vng${gw2_id} to local gateways for vng${gw1_id}..."
     # 2->1A
     az network vpn-connection create -n "vng${gw2_id}tovng${gw1_id}a" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
         --shared-key "$psk" --local-gateway2 "${vpngw1_name}a" $bgp_option -o none
+    az network vpn-connection ipsec-policy add --connection-name "vng${gw2_id}tovng${gw1_id}a" -g "$rg" \
+        --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+        --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+        --sa-lifetime 102400 --sa-max-size 27000 --output none
     # 2->1B
     if [[ ${gw1_type} == "vng" ]] || [[ ${gw1_type} == "vng2" ]]
     then
         az network vpn-connection create -n "vng${gw2_id}tovng${gw1_id}b" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
             --shared-key "$psk" --local-gateway2 "${vpngw1_name}b" $bgp_option -o none
+        az network vpn-connection ipsec-policy add --connection-name "vng${gw2_id}tovng${gw1_id}b" -g "$rg" \
+            --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+            --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+            --sa-lifetime 102400 --sa-max-size 27000 --output none
     fi
 }
 
@@ -357,13 +376,7 @@ function create_vm_in_csr_vnet () {
 }
 
 function accept_csr_terms () {
-    #USE GLOBALS
-    #publisher=cisco
-    #offer=cisco-csr-1000v
-    #offer=cisco-c8000v-byol
-    #sku=16_12-byol
-    # Newest version available 
-    #sku=17_15_01a-byol 
+    #USES NVA GLOBALS
     nva_version=$(az vm image list -p $nva_publisher -f $nva_offer -s $nva_sku --all --query '[0].version' -o tsv)
     if [[ -z "$nva_version" ]]
     then
@@ -385,19 +398,13 @@ function accept_csr_terms () {
 # Creates a CSR NVA
 # Example: create_csr 1
 function create_csr () {
+    # USES NVA GLOBALS
     csr_id=$1
     csr_name=csr${csr_id}
     csr_vnet_prefix="10.${csr_id}.0.0/16"
     csr_subnet_prefix="10.${csr_id}.0.0/24"
     csr_bgp_ip="10.${csr_id}.0.10"
-    # USE GLOBALS
-    #publisher=cisco
-    #offer=cisco-csr-1000v
-    #offer=cisco-c8000v-byol
-    #sku=16_12-byol
-    # Newest version available 
-    #sku=17_15_01a-byol 
-
+    
     nva_version=$(az vm image list -p $nva_publisher -f $nva_offer -s $nva_sku --all --query '[0].version' -o tsv)
     nva_size=Standard_B2ms
     # Create CSR
@@ -476,10 +483,18 @@ function connect_csr () {
     fi
     az network vpn-connection create -n "vng${gw_id}tocsr${csr_id}" -g "$rg" --vnet-gateway1 "vng${gw_id}" \
         --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option -o none
+    az network vpn-connection ipsec-policy add --connection-name "vng${gw_id}tocsr${csr_id}" -g "$rg" \
+        --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+        --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+        --sa-lifetime 102400 --sa-max-size 27000 --output none
     if [[ -n "$gw2_id" ]]
     then
         az network vpn-connection create -n "vng${gw2_id}tocsr${csr_id}" -g "$rg" --vnet-gateway1 "vng${gw2_id}" \
             --shared-key "$psk" --local-gateway2 "csr${csr_id}" $bgp_option -o none
+        az network vpn-connection ipsec-policy add --connection-name "vng${gw2_id}tocsr${csr_id}" -g "$rg" \
+            --ike-encryption GCMAES256 --ike-integrity GCMAES256 --dh-group DHGroup14 \
+            --ipsec-encryption GCMAES256 --ipsec-integrity GCMAES256 --pfs-group None \
+            --sa-lifetime 102400 --sa-max-size 27000 --output none
     fi
 }
 
@@ -497,7 +512,7 @@ function ssh_csr () {
     ssh "$csr_ip"
 }
 
-# Deploy baseline VPN and BGP config to a Cisco CSR
+# Deploy baseline, VPN, and BGP config to a Cisco CSR
 function config_csr_base () {
     csr_id=$1
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
@@ -511,22 +526,36 @@ function config_csr_base () {
     done
     echo "Our IP seems to be $myip"
     default_gateway="10.${csr_id}.0.1"
-    echo "Configuring CSR ${csr_ip} for VPN and BGP..."
+
+    echo "Configuring CSR${csr_id} at ${csr_ip} for necessary licensing features to use VPN and rebooting..."
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    config t
+        license boot level network-advantage addon dna-advantage
+        do wr mem
+        event manager applet reboot-now
+        event timer watchdog time 5
+        action 1.0 reload
+        end
+EOF
+
+    sleep 60 # Avoid availability checks too early
+    wait_until_csr_available "${csr_id}"
+
+    echo "Configuring CSR${csr_id} at ${csr_ip} for VPN and BGP..."
     username=$(whoami)
     password=$psk
-    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       username ${username} password 0 ${password}
       username ${username} privilege 15
       username ${default_username} password 0 ${password}
       username ${default_username} privilege 15
       no ip domain lookup
-      no ip ssh timeout
       crypto ikev2 keyring azure-keyring
       crypto ikev2 proposal azure-proposal
-        encryption aes-cbc-256 aes-cbc-128 3des
-        integrity sha1
-        group 2
+        encryption aes-gcm-256
+        prf sha256
+        group 14
       crypto ikev2 policy azure-policy
         proposal azure-proposal
       crypto ikev2 profile azure-profile
@@ -534,7 +563,7 @@ function config_csr_base () {
         authentication remote pre-share
         authentication local pre-share
         keyring local azure-keyring
-      crypto ipsec transform-set azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
+      crypto ipsec transform-set azure-ipsec-proposal-set esp-gcm 256
         mode tunnel
       crypto ipsec profile azure-vti
         set security-association lifetime kilobytes 102400000
@@ -555,7 +584,7 @@ function config_csr_base () {
         maximum-paths eibgp 4
       ip route ${myip} 255.255.255.255 ${default_gateway}
       ip route 10.${csr_id}.0.0 255.255.0.0 ${default_gateway}
-      line vty 0 15
+      line vty 0 20
         exec-timeout 0 0
     end
     wr mem
@@ -586,8 +615,8 @@ function config_csr_tunnel () {
     asn=$(get_router_asn_from_id "${csr_id}")
     default_gateway="10.${csr_id}.0.1"
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
-    echo "Configuring tunnel ${tunnel_id} in CSR ${csr_ip}..."
-    ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    echo "Configuring tunnel ${tunnel_id} in CSR${csr_id} at ${csr_ip}..."
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       crypto ikev2 keyring azure-keyring
         peer ${public_ip}
@@ -611,7 +640,7 @@ EOF
     if [[ -z "$cx_type" ]] || [[ "$cx_type" == "bgp" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring BGP on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router bgp ${asn}
             neighbor ${private_ip} remote-as ${remote_asn}
@@ -622,7 +651,7 @@ EOF
       if [[ "$asn" == "$remote_asn" ]]
       then
         # iBGP
-        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} next-hop-self
@@ -631,7 +660,7 @@ EOF
 EOF
       else
         # eBGP
-        ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} ebgp-multihop 5
@@ -642,7 +671,7 @@ EOF
     elif [[ "$cx_type" == "ospf" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router ospf 100
             no passive-interface Tunnel${tunnel_id}
@@ -655,7 +684,7 @@ EOF
       echo "Configuring static routes for tunnel ${tunnel_id} in CSR ${csr_ip}..."
       remote_id=$(echo "$tunnel_id" | head -c 2 | tail -c 1) # This only works with a max of 9 routers
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
-      ssh -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           ip route 10.${remote_id}.0.0 255.255.0.0 Tunnel${tunnel_id}
         end
