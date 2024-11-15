@@ -1,0 +1,49 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "retrieve_guest_activity_preferences_and_requests",
+            "description": "Retrieves the activities the guest is interested in as well as the list of activities the guest would like to make a reservation",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                  "customer_email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "The email address of the customer"
+                  }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "guest_has_activity_preferences_and_requests",
+            "description": "Returns True if the customer has a profile registration for activities and reservation requests and False otherwise",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+          "type": "function",
+          "function": {
+              "name": "list_available_activities",
+              "description": "Returns a list of activities and their descriptions for activities tourists can do during their visit to Contoso Islands",
+              "parameters": {
+                  "type": "object",
+                  "properties": {}
+              }
+          }
+    }
+]

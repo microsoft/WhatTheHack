@@ -1,0 +1,310 @@
+[
+  {
+      "type": "function",
+      "function": {
+          "name": "get_yacht_details",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  }
+              },
+              "required": ["yacht_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "check_if_customer_account_exists",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "customer_email": {
+                      "type": "data type goes here",
+                      "format": "email",
+                      "description": "The email address of the customer"
+                  }
+              },
+              "required": ["customer_email"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "calculate_reservation_grand_total_amount",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  },
+                "number_of_passengers": {
+                      "type": "integer",
+                      "description": "The number of passengers for the yacht reservation"
+                  }
+              },
+              "required": ["yacht_id", "number_of_passengers"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "yacht_travel_party_size_within_capacity",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  },
+                "number_of_passengers": {
+                      "type": "integer",
+                      "description": "The number of passengers for the yacht reservation"
+                  }
+              },
+              "required": ["yacht_id", "number_of_passengers"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_bank_account_balance",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "customer_email": {
+                      "type": "data type goes here",
+                      "format": "email",
+                      "description": "The email address of the customer"
+                  }
+              },
+              "required": ["customer_email"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "bank_account_balance_is_sufficient",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "bank_account_balance": {
+                      "type": "data type goes here",
+                      "description": "The account balance of the customer in US dollars"
+                  },
+                "reservation_total": {
+                      "type": "data type goes here",
+                      "description": "The total cost of the yacht reservation in US dollars"
+                  }
+              },
+              "required": ["bank_account_balance", "reservation_total"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_valid_reservation_search_dates",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {}
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "yacht_is_available_for_date",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  },
+                "search_date": {
+                      "type": "data type goes here",
+                      "format": "date",
+                      "description": "The date the customer is looking to make a yacht reservation in YYYY-MM-DD format"
+                  }
+              },
+              "required": ["yacht_id", "search_date"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "is_valid_search_date",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "search_date": {
+                      "type": "data type goes here",
+                      "format": "date",
+                      "description": "The date the customer is looking to make a yacht reservation in YYYY-MM-DD format"
+                  }
+              },
+              "required": ["search_date"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_yacht_availability_by_id",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                  "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  }
+              },
+              "required": ["yacht_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_yacht_availability_by_date",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "search_date": {
+                      "type": "data type goes here",
+                      "format": "date",
+                      "description": "The date the customer is looking to make a yacht reservation in YYYY-MM-DD format"
+                  }
+              },
+              "required": ["search_date"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "yacht_reservation_exists",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "reservation_id": {
+                      "type": "data type goes here",
+                      "description": "The reservation id for the yacht reservation"
+                  }
+              },
+              "required": ["reservation_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_reservation_details",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "reservation_id": {
+                      "type": "data type goes here",
+                      "description": "The reservation id for the yacht reservation"
+                  }
+              },
+              "required": ["reservation_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "cancel_yacht_reservation",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "reservation_id": {
+                      "type": "data type goes here",
+                      "description": "The reservation id for the yacht reservation"
+                  }
+              },
+              "required": ["reservation_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "get_customer_yacht_reservations",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "customer_email": {
+                      "type": "data type goes here",
+                      "format": "email",
+                      "description": "The email address of the customer"
+                  }
+              },
+              "required": ["customer_email"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "create_yacht_reservation",
+          "description": "This is where the function description should be specified. Be very specific",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "yacht_id": {
+                    "type": "data type goes here",
+                    "enum": ["100", "200","300","400","500"],
+                    "description": "The yacht id for the yacht"
+                  },
+                "reservation_date": {
+                      "type": "data type goes here",
+                      "format": "date",
+                      "description": "The date the customer is looking to make a yacht reservation in YYYY-MM-DD format"
+                  },
+                "customer_email": {
+                      "type": "data type goes here",
+                      "format": "email",
+                      "description": "The email address of the customer"
+                  },
+                "passenger_count": {
+                      "type": "data type goes here",
+                      "description": "The number of passengers for the yacht reservation"
+                  }
+              },
+              "required": ["yacht_id", "reservation_date", "customer_email", "passenger_count"]
+          }
+      }
+  }
+]

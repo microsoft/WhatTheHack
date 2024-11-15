@@ -1,0 +1,70 @@
+[
+  {
+    "classifier_document_type": "f01-geography-climate",
+    "extractor_model_name": "f01-extractor",
+    "model_description": "This is used to extract the contents of Form 01 using Azure Doc Intelligence",
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4"
+    }
+  },
+  {
+    "classifier_document_type": "f02-tourism-economy",
+    "extractor_model_name": "f02-extractor",
+    "model_description": "This is used to extract the contents of Form 02 using Azure Doc Intelligence",
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4"
+    }
+  },
+  {
+    "classifier_document_type": "f03-geography-politics",
+    "extractor_model_name": "f03-extractor",
+    "model_description": "This is used to extract the contents of Form 03 using Azure Doc Intelligence",
+    "fields": {
+      "student_id": "student_id",
+      "student_name": "student_name",
+      "school_district": "school_district",
+      "school_name": "school_name",
+      "exam_date": "exam_date",
+      "question_1": "q1",
+      "question_2": "q2",
+      "question_3": "q3",
+      "question_4": "q4",
+      "question_5": "q5"
+    }
+  },
+  {
+    "classifier_document_type": "f04-activity-preferences",
+    "extractor_model_name": "f04-extractor",
+    "model_description": "This is used to extract the contents of Form 04 (Activity Preferences) using Azure Doc Intelligence",
+    "fields": {
+      "guest_full_name": "guest_full_name",
+      "guest_email_address": "email_address",
+      "checkbox_contoso_floating_museums": "contoso_floating_museums",
+      "checkbox_contoso_solar_yachts": "contoso_solar_yachts",
+      "checkbox_contoso_beachfront_spa": "contoso_beachfront_spa",
+      "checkbox_contoso_dolphin_turtle_tour": "contoso_dolphin_turtle_tour",
+      "table_name": "activity_requests",
+      "table_column_header_experience_name": "experience_name",
+      "table_column_header_preferred_time": "preferred_time",
+      "table_column_header_party_size": "party_size",
+      "signature_field_name": "guest_signature",
+      "signature_date_field_name": "signature_date"
+    }
+  }
+]
