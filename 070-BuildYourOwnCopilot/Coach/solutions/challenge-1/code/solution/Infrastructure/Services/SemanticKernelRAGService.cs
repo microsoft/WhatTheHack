@@ -81,6 +81,12 @@ public class SemanticKernelRAGService : IRAGService
             _settings.OpenAI.Endpoint,
             _settings.OpenAI.Key);
 
+        //--------------------------------------------------------------------------------------------------------
+        // TODO: [Challenge 1][Exercise 1.1.1]
+        // Explore setting up a Semantic Kernel kernel.
+        // Explore the use of completion services in the kernel (see the lines above).
+        // Explore the setup for the Azure OpenAI-based chat completion service.
+        //--------------------------------------------------------------------------------------------------------
         _semanticKernel = builder.Build();
 
         CreateMemoryStoresAndPlugins();
@@ -117,6 +123,11 @@ public class SemanticKernelRAGService : IRAGService
                 _prompt,
                 _settings.OpenAI,
                 _loggerFactory.CreateLogger<KnowledgeManagementContextPlugin>());
+            //--------------------------------------------------------------------------------------------------------
+            // TODO: [Challenge 1][Exercise 1.2.1]
+            // Explore importing plugins into a Semantic Kernel kernel.
+            // Explore the implementation of the KnowledgeManagementContextPlugin plugin.
+            //--------------------------------------------------------------------------------------------------------
             _semanticKernel.ImportPluginFromObject(_kmContextPlugin);
 
             _contextSelectorPrompt = await _systemPromptService.GetPrompt(_settings.OpenAI.ContextSelectorPromptName);
@@ -130,6 +141,11 @@ public class SemanticKernelRAGService : IRAGService
             
             _listPlugin = new ContextPluginsListPlugin(
                 _contextPlugins);
+            //--------------------------------------------------------------------------------------------------------
+            // TODO: [Challenge 1][Exercise 1.3.1]
+            // Explore importing plugins into a Semantic Kernel kernel.
+            // Explore the implementation of the ContextPluginsListPlugin plugin.
+            //--------------------------------------------------------------------------------------------------------
             _semanticKernel.ImportPluginFromObject(_listPlugin);
 
             _serviceInitialized = true;
@@ -154,13 +170,28 @@ public class SemanticKernelRAGService : IRAGService
 
         foreach (var item in _settings.ModelRegistryKnowledgeIndexing.Values)
         {
+            //--------------------------------------------------------------------------------------------------------
+            // TODO: [Challenge 1][Exercise 1.4.1]
+            // Explore using vector stores with a Semantic Kernel kernel.
+            // Explore the implementation of the VectorMemoryStore class which enables us to use multiple memory store
+            // implementations provided by Semantic Kernel.
+            //--------------------------------------------------------------------------------------------------------
             var memoryStore = new VectorMemoryStore(
                 item.IndexName,
+                //--------------------------------------------------------------------------------------------------------
+                // TODO: [Challenge 1][Exercise 1.5.1]
+                // Explore the CosmosDB memory store implementation from Semantic Kernel.
+                //--------------------------------------------------------------------------------------------------------
                 new AzureCosmosDBNoSQLMemoryStore(
                     _cosmosDBClientFactory.Client,
                     _cosmosDBClientFactory.DatabaseName,
                     item.VectorEmbeddingPolicy,
                     item.IndexingPolicy),
+                //--------------------------------------------------------------------------------------------------------
+                // TODO: [Challenge 1][Exercise 1.6.1]
+                // Explore the use of text embedding services in the kernel.
+                // Explore the setup for the Azure OpenAI-based text embedding service.
+                //--------------------------------------------------------------------------------------------------------
                 new AzureOpenAITextEmbeddingGenerationService(
                     _settings.OpenAI.EmbeddingsDeployment,
                     _settings.OpenAI.Endpoint,
@@ -170,6 +201,12 @@ public class SemanticKernelRAGService : IRAGService
             );
 
             _longTermMemoryStores.Add(memoryStore.CollectionName, memoryStore);
+            
+            //--------------------------------------------------------------------------------------------------------
+            // TODO: [Challenge 1][Exercise 1.7.1]
+            // Explore importing plugins into a Semantic Kernel kernel.
+            // Explore the implementation of the MemoryStoreContextPlugin plugin.
+            //--------------------------------------------------------------------------------------------------------
             _contextPlugins.Add(new MemoryStoreContextPlugin(
                 memoryStore,
                 item,
