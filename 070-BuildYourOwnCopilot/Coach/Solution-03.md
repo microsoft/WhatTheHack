@@ -54,6 +54,9 @@ Exercise:
             // Change the system prompt to experiment the implications in the chat completion process.
             //--------------------------------------------------------------------------------------------------------
             
+            _listPlugin = new ContextPluginsListPlugin(
+                _contextPlugins);
+            
 ```
 
 ---
@@ -61,8 +64,14 @@ Exercise:
 Solution:
 
 ```csharp
-            _listPlugin = new ContextPluginsListPlugin(
+            // The line the students are looking for is the one above the _listPlugin initialization, as shown below.
+            // View the _systemPromptService.GetPrompt method to understand how the context selector prompt is
+            // retrieved. The _settings.OpenAI.ContextSelectorPromptName property contains the name of the context
+            // selector prompt.
             _contextSelectorPrompt = await _systemPromptService.GetPrompt(_settings.OpenAI.ContextSelectorPromptName);
+            
+            _listPlugin = new ContextPluginsListPlugin(
+                _contextPlugins);
 ```
 
 Coach notes:

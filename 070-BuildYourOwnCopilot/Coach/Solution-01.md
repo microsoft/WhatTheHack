@@ -22,12 +22,6 @@ Exercise:
 
 ---
 
-Solution:
-
-```csharp
-        _semanticKernel = builder.Build();
-```
-
 Trainer notes:
 
 - The Kernel is the core component of the Semantic Kernel library. It is responsible for managing the context and plugins, and for providing the completion services.
@@ -40,7 +34,6 @@ Trainer notes:
 Suggested reading:
 
 - [Understanding the kernel](https://learn.microsoft.com/semantic-kernel/concepts/kernel?pivots=programming-language-csharp)
-
 
 ### [Challenge 1][Exercise 1.2.1]
 
@@ -56,12 +49,6 @@ Exercise:
 ```
 
 ---
-
-Solution:
-
-```csharp
-            _semanticKernel.ImportPluginFromObject(_kmContextPlugin);
-```
 
 Trainer notes:
 
@@ -93,12 +80,6 @@ Exercise:
 
 ---
 
-Solution:
-
-```csharp
-            _semanticKernel.ImportPluginFromObject(_listPlugin);
-```
-
 Trainer notes:
 
 - One of the immediate questions raised by the previous exercise is how are the context plugins selected and used by the LLM. The `ContextPluginsListPlugin` plugin is responsible for managing the list of context plugins that are used by the LLM.
@@ -122,15 +103,31 @@ Exercise:
             // implementations provided by Semantic Kernel.
             //--------------------------------------------------------------------------------------------------------
             var memoryStore = new VectorMemoryStore(
+                item.IndexName,
+                
+                new AzureCosmosDBNoSQLMemoryStore(
+                    _cosmosDBClientFactory.Client,
+                    _cosmosDBClientFactory.DatabaseName,
+                    item.VectorEmbeddingPolicy,
+                    item.IndexingPolicy),
+                
+                new AzureOpenAITextEmbeddingGenerationService(
+                    _settings.OpenAI.EmbeddingsDeployment,
+                    _settings.OpenAI.Endpoint,
+                    _settings.OpenAI.Key,
+                    dimensions: (int)item.Dimensions),
+                _loggerFactory.CreateLogger<VectorMemoryStore>()
+            );
+
+            _longTermMemoryStores.Add(memoryStore.CollectionName, memoryStore);
+            
+            _contextPlugins.Add(new MemoryStoreContextPlugin(
+                memoryStore,
+                item,
+                _loggerFactory.CreateLogger<MemoryStoreContextPlugin>()));
 ```
 
 ---
-
-Solution:
-
-```csharp
-            var memoryStore = new VectorMemoryStore(
-```
 
 Trainer notes:
 
@@ -148,14 +145,10 @@ Exercise:
                 // Explore the CosmosDB memory store implementation from Semantic Kernel.
                 //--------------------------------------------------------------------------------------------------------
                 new AzureCosmosDBNoSQLMemoryStore(
-```
-
----
-
-Solution:
-
-```csharp
-                new AzureCosmosDBNoSQLMemoryStore(
+                    _cosmosDBClientFactory.Client,
+                    _cosmosDBClientFactory.DatabaseName,
+                    item.VectorEmbeddingPolicy,
+                    item.IndexingPolicy),
 ```
 
 Trainer notes:
@@ -179,15 +172,17 @@ Exercise:
                 // Explore the setup for the Azure OpenAI-based text embedding service.
                 //--------------------------------------------------------------------------------------------------------
                 new AzureOpenAITextEmbeddingGenerationService(
+                    _settings.OpenAI.EmbeddingsDeployment,
+                    _settings.OpenAI.Endpoint,
+                    _settings.OpenAI.Key,
+                    dimensions: (int)item.Dimensions),
+                _loggerFactory.CreateLogger<VectorMemoryStore>()
+            );
+
+            _longTermMemoryStores.Add(memoryStore.CollectionName, memoryStore);
 ```
 
 ---
-
-Solution:
-
-```csharp
-                new AzureOpenAITextEmbeddingGenerationService(
-```
 
 Trainer notes:
 
@@ -216,15 +211,12 @@ Exercise:
             // Explore the implementation of the MemoryStoreContextPlugin plugin.
             //--------------------------------------------------------------------------------------------------------
             _contextPlugins.Add(new MemoryStoreContextPlugin(
+                memoryStore,
+                item,
+                _loggerFactory.CreateLogger<MemoryStoreContextPlugin>()));
 ```
 
 ---
-
-Solution:
-
-```csharp
-            _contextPlugins.Add(new MemoryStoreContextPlugin(
-```
 
 Trainer notes:
 
