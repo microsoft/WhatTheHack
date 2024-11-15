@@ -45,13 +45,13 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
+Students need to have "contributor" access to an Azure subscription.
+
 - [Azure subscription](https://azure.microsoft.com/en-us/free/)
 
 Students that choose to use Github Codespaces should not require any other additional software on their computer other than a standard web browser like Edge or Chrome. 
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files
