@@ -7,7 +7,7 @@
 In this challenge, participants must use the cleaned-up data from Challenge 2 to train, test and validate a machine learning model using MLFlow. The challenge concludes with saving the trained model, which will allow participants to load the model on Challenge 4 and generate predictions.
 
 ### Sections
-1. Creating an MLFlow experiment
+1. Creating a MLFlow experiment
 2. Reading the delta table with Spark
 3. Performing a random split of the data
 4. Creating a run within the experiment to fit the model
