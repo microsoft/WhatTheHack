@@ -14,7 +14,7 @@ Deploy this configuration to CSR3 and CSR4:
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
 config t
     route-map fromvngs permit 5
       match ip address prefix-list Vnet1
@@ -30,7 +30,7 @@ end
 wr mem
 EOF
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<'EOF'
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<'EOF'
 conf t
     route-map fromvngs permit 5
       match ip address prefix-list Vnet1
@@ -59,7 +59,7 @@ We can see whether CSR5 could leverage this information to configure its routing
 
 <pre>
 ❯ csr5=$(az network public-ip show -n csr5-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$csr5" "sh ip bgp 10.1.0.0/16"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr5" "sh ip bgp 10.1.0.0/16"
 
 BGP routing table entry for 10.1.0.0/16, version 76
 Paths: (2 available, best #2, table default)

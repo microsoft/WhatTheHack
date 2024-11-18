@@ -22,7 +22,7 @@ In order to fix this we can configure CSR3 and CSR4 to advertise a worse metric 
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map tovngs out
@@ -42,7 +42,7 @@ And this on CSR4:
 
 ```bash
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map tovngs out

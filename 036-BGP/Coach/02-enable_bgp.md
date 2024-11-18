@@ -35,7 +35,7 @@ csr3=$(az network public-ip show -n csr3-pip -g $rg --query ipAddress -o tsv) &&
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -196,7 +196,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -297,7 +297,7 @@ We can test VM connectivity now. VNet1 should have access to VNets 3 and 5, and 
 
 ```
 ❯ testvm1=$(az network public-ip show -n testvm1-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm1" "ping 10.3.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm1" "ping 10.3.1.4 -c 3"
 Warning: Permanently added '94.245.106.184' (ECDSA) to the list of known hosts.
 PING 10.3.1.4 (10.3.1.4) 56(84) bytes of data.
 64 bytes from 10.3.1.4: icmp_seq=1 ttl=63 time=8.63 ms
@@ -320,7 +320,7 @@ rtt min/avg/max/mdev = 8.557/9.304/10.338/0.762 ms
 
 ```
 ❯ testvm2=$(az network public-ip show -n testvm2-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.4.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.4.1.4 -c 3"
 Warning: Permanently added '137.135.128.45' (ECDSA) to the list of known hosts.
 PING 10.4.1.4 (10.4.1.4) 56(84) bytes of data.
 64 bytes from 10.4.1.4: icmp_seq=1 ttl=63 time=6.13 ms
@@ -330,7 +330,7 @@ PING 10.4.1.4 (10.4.1.4) 56(84) bytes of data.
 --- 10.4.1.4 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 4.232/5.046/6.137/0.805 ms
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.5.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.5.1.4 -c 3"
 PING 10.5.1.4 (10.5.1.4) 56(84) bytes of data.
 64 bytes from 10.5.1.4: icmp_seq=1 ttl=62 time=10.2 ms
 64 bytes from 10.5.1.4: icmp_seq=2 ttl=62 time=12.1 ms
@@ -364,7 +364,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -381,7 +381,7 @@ EOF
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
