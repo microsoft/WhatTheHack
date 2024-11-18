@@ -61,8 +61,8 @@ EOF
 You might need to restart your BGP adjacencies to make the change take effect quicker:
 
 ```bash
-ssh -n $csr3 "clear ip bgp *"
-ssh -n $csr4 "clear ip bgp *"
+ssh -o ServerAliveInterval=60 -n $csr3 "clear ip bgp *"
+ssh -o ServerAliveInterval=60 -n $csr4 "clear ip bgp *"
 ```
 
 Now let's look again at how VNG1 learns 10.3.0.0/16:
