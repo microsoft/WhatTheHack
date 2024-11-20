@@ -1,0 +1,48 @@
+﻿<div class="modal fade show d-block bg-dark bg-opacity-75" id="myModal" aria-modal="true" role="dialog">
+    <div class="modal-dialog bg-dark">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Caption</h4>
+                <button type="button" class="btn-close" aria-label="Close" @onclick="@Cancel"></button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control bg-light text-dark" type="text" @onkeydown="@Enter" @bind="@Value" @oninput="@((e) => { ReturnValue=e.Value?.ToString();})" />
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary"
+                @onclick=@Ok>
+                    Save
+                </button>
+                <button type="button" class="btn btn-secondary"
+                @onclick="@Cancel">
+                    Don't Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter] public string? Caption { get; set; }
+    [Parameter] public string? Value { get; set; }
+    [Parameter] public EventCallback<string> OnClose { get; set; }
+
+    public string? ReturnValue { get; set; }
+
+    private Task Cancel()
+    {
+        return OnClose.InvokeAsync("");
+    }
+    private Task Ok()
+    {
+        return OnClose.InvokeAsync(ReturnValue);
+    }
+
+    public Task Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            return OnClose.InvokeAsync(ReturnValue);
+        }
+        return Task.CompletedTask;
+    }
+}

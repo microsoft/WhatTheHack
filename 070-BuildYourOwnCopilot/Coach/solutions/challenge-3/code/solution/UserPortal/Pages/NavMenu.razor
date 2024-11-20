@@ -1,0 +1,340 @@
+﻿@using BuildYourOwnCopilot.Constants
+@using BuildYourOwnCopilot.Infrastructure.Interfaces
+@inject IChatManager chatManager
+
+
+<div class="h-100 d-flex flex-column" style="min-width: 275px;">
+
+    <div class="flex-column navbar navbar-dark bg-primary">
+        <div class="container-fluid justify-content-between">
+            <div class="flex-fill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" height="30" fill="currentColor" class="text-light">
+                    <path d="M422 250a169 169 0 0 1-50 121c-11 11-22 20-35 27-13 8-27 14-41 18a169 169 0 0 1-152-31 303 303 0 0 1-89 15 63 63 0 0 1-37-12c-5-5-10-9-13-15s-5-12-5-19c0-11 3-21 8-32s12-21 20-31l26-29 25-23a168 168 0 0 1 53-114 166 166 0 0 1 118-47c25 0 50 5 73 16a721 721 0 0 1 85-24l29-2 22 2c8 2 14 4 21 8 6 3 11 8 14 14 4 6 6 13 6 22 0 11-3 21-8 32s-13 22-21 32a294 294 0 0 1-50 52v10l1 10zm-65-134a172 172 0 0 1 55 78l16-15a274 274 0 0 0 34-44c5-7 7-14 7-20 0-4-1-7-4-9l-8-4-11-2h-9c-14 0-27 1-41 4l-39 12zM62 369c9 0 19-1 28-3l28-6a163 163 0 0 1-37-80 284 284 0 0 0-44 54c-4 7-6 14-6 19 0 4 1 7 3 9l9 4 10 2 9 1zm89-19a789 789 0 0 0 236-133 134 134 0 0 0-50-77c-12-9-26-17-40-23s-31-8-47-8a137 137 0 0 0-99 42 137 137 0 0 0-41 99 139 139 0 0 0 41 100zm239-96c-64 49-133 89-208 118a131 131 0 0 0 68 19 137 137 0 0 0 97-40 145 145 0 0 0 43-97zM0 63c0-4 1-7 3-9s5-3 9-3a39 39 0 0 0 21-7l9-7c3-3 5-6 6-10l1-5 1-7 1-5 1-3c1-3 2-4 4-5 2-2 4-2 7-2 4 0 7 1 8 4s3 5 3 9l2 11 5 10 8 8c2 3 6 5 9 6l6 1 6 1a70 70 0 0 1 8 2l5 4 2 6c0 4-1 7-4 9-2 2-5 3-9 3a36 36 0 0 0-21 6l-8 8c-2 3-5 6-6 10l-2 10-2 10-4 5-7 2c-3 0-6-2-8-4s-3-4-3-8a40 40 0 0 0-7-21l-7-9c-3-3-6-5-10-6-3-2-7-2-11-3l-9-1c-3-1-4-3-5-5l-2-5zm500 375c0 3-1 5-3 7l-7 3-9 2a30 30 0 0 0-14 6l-7 4a43 43 0 0 0-11 28v3l-1 2-4 5-6 2c-4 0-7-1-9-3s-3-5-3-9l-3-15-8-12a38 38 0 0 0-29-12c-3 0-5-1-7-3-3-3-4-5-4-9 0-3 1-6 3-7l7-4 9-1 8-2 6-4 6-5c5-3 7-8 9-13l3-15c0-3 1-6 4-8 2-2 4-3 8-3 3 0 6 1 7 3l3 7 2 8 2 8 4 7c1 3 3 5 5 6 4 4 8 7 12 8l13 4 10 3c3 1 4 4 4 9z" />
+                </svg>
+                <i class="bi bi-plus text-light"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" height="30" fill="currentColor" class="text-light">
+                    <path d="M415.98 265.82v-.27a17.24 17.24 0 1 0 .01.27ZM224.4 321.87a17.24 17.24 0 1 0 34.48 0 17.24 17.24 0 0 0-34.48 0Z" />
+                    <path d="M397.92 209.51C395.91 95.77 266.41 51.59 182.48 96.66l-.12 145.45a5.39 5.39 0 0 0 5.39 5.39h41.76a18.85 18.85 0 0 1 18.86 18.86v25.6a29.36 29.36 0 1 1-36.1 28.56 29.1 29.1 0 0 1 22.9-28.56v-26.94a5.65 5.65 0 0 0-5.66-5.66h-41.76a18.59 18.59 0 0 1-18.59-18.59v-135.9c-21.08 14.76-38.2 36.03-47.96 64.23-163.09 22.89-139.5 256.6 22.91 252.74h14.81V305.98a5.39 5.39 0 0 0-5.39-5.39h-23.71a29.36 29.36 0 1 1 0-13.2h23.71a18.59 18.59 0 0 1 18.59 18.59v115.86h148.46V210.59a5.39 5.39 0 0 0-5.39-5.39h-28.83a29.36 29.36 0 1 1-28.56-36.1 29.1 29.1 0 0 1 28.56 22.9h27.75a18.59 18.59 0 0 1 18.59 18.59v94.84h53.89a5.66 5.66 0 0 0 5.66-5.66v-5.39a29.38 29.38 0 0 1 6.73-57.94l1.1-.02a29.37 29.37 0 0 1 29.35 29.39 29.36 29.36 0 0 1-22.9 28.56v5.39a18.85 18.85 0 0 1-18.86 18.86h-53.89v103.2h43.38c61.49 2.64 114.03-46.08 115.32-107.78-1.2-53.49-41.47-98-94.58-104.54Z" />
+                    <circle cx="101" cy="293.85" r="17.24" />
+                    <circle cx="257.81" cy="198.46" r="17.24" />
+                    <path d="m182.49 96.66-.07.05.07-.04Z" />
+                </svg>
+            </div>
+            <button class="navbar-toggler border-0" @onclick="ToggleNavMenu">
+                <i class="bi bi-arrow-right-square-fill"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="flex-grow-1 flex-column justify-content-center overflow-y-auto overflow-x-hidden">
+        @if (_loadingComplete == true)
+        {
+            <div>
+                <nav class="flex-column">
+                    <div class="nav-item py-2 d-grid">
+                        <NavLink style="cursor:pointer" class="btn btn-sm mx-1 btn-secondary d-flex flex-row align-items start" Match="NavLinkMatch.All" @onclick="@(e => NewChat())">
+                            <i class="bi bi-plus"></i>
+                            <span class="flex-fill">
+                                Create New Chat
+                            </span>
+                        </NavLink>
+                    </div>
+                    <div class="row row-cols-1 g-2 px-2 d-flex flex-column align-items-start">
+                        @foreach (var session in ChatSessions)
+                        {
+                            <div class="col">
+                                <div class="card @(IsActiveSession(session.SessionId) ? "bg-primary text-light" : "bg-primary opacity-50 text-light")" @onclick="@(e => LoadChat(session.SessionId,session.Name, session.TokensUsed))">
+                                    <div class="card-body">
+                                        <a class="card-title text-decoration-none h6" @onclick="@(e => LoadChat(session.SessionId,session.Name, session.TokensUsed))">
+                                            @if (IsActiveSession(session.SessionId))
+                                            {
+                                                <i class="bi bi-chat-right-dots-fill me-2"></i>
+                                            }
+                                            <span title="@session.Name" class="ms-1">
+                                                @SafeSubstring(session.Name,20)
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-between">
+                                        <span class="flex-grow-1"></span>
+                                        <div class="align-items-between">
+                                            <span class="me-2 badge rounded-pill bg-light">
+                                                Tokens Used: @session.TokensUsed
+                                            </span>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-sm btn-link text-light" @onclick="@(e => OpenInput(session.SessionId,session.Name))">
+                                                <i class="bi bi-pencil-fill me-1"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-link text-light" @onclick="@(e => OpenConfirmation(session.SessionId,session.Name))">
+                                                <i class="bi bi-trash-fill ms-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </nav>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@if (_deletePopUpOpen)
+{
+    <Confirmation Caption="Delete a Chat"
+              Message="@_popUpText"
+              OnClose="@OnConfirmationClose"
+              Type="Confirmation.Category.DeleteNot">
+    </Confirmation>
+}
+
+
+@if (_renamePopUpOpen)
+{
+    <Input Caption="Rename a Chat"
+       Value="@_popUpText"
+       OnClose="@OnInputClose">
+        </Input>
+}
+
+
+@code {
+
+    [Parameter]
+    public EventCallback<Session> OnChatClicked { get; set; } = default!;
+
+    [Parameter]
+    public static List<Session> ChatSessions { get; set; } = new();
+
+    [Parameter]
+    public EventCallback OnNavBarVisibilityUpdated { get; set; }
+
+    [Parameter]
+    public EventCallback OnThemeUpdated { get; set; }
+
+    private string? _sessionId;
+    private string? _popUpText;
+    private bool _deletePopUpOpen = false;
+    private bool _loadingComplete;
+    private bool _renamePopUpOpen = false;
+
+    public Session? CurrentSession;
+
+    private static event EventHandler<string>? OnNavMenuChanged;
+
+    async private Task ToggleNavMenu()
+    {
+        await OnNavBarVisibilityUpdated.InvokeAsync();
+    }
+
+    async private Task ChangeTheme()
+    {
+        await OnThemeUpdated.InvokeAsync();
+    }
+
+    protected override void OnInitialized()
+    {
+        OnNavMenuChanged += async (o, e) =>
+        {
+            await this.InvokeAsync(async () =>
+            {
+                this.StateHasChanged();
+                await LoadCurrentChatAsync();
+            });
+        };
+    }
+
+    private void OpenConfirmation(string id, string title)
+    {
+        _deletePopUpOpen = true;
+        _sessionId = id;
+        _popUpText = $"Do you want to delete the chat \"{title}\"?";
+    }
+
+    public void UpdateNavMenuDisplay(string reason = "")
+    {
+        if (OnNavMenuChanged is not null)
+        {
+            OnNavMenuChanged.Invoke(null, reason);
+        }
+    }
+
+    private async Task OnConfirmationClose(bool isOk)
+    {
+        bool updateCurrentChat = false;
+
+        if (CurrentSession is not null & _sessionId == CurrentSession?.SessionId)
+            updateCurrentChat = true;
+
+        if (isOk)
+        {
+            _deletePopUpOpen = false;
+            await chatManager.DeleteChatSessionAsync(_sessionId);
+
+            _deletePopUpOpen = false;
+
+            UpdateNavMenuDisplay("Delete");
+
+            if (!updateCurrentChat)
+                return;
+
+            CurrentSession = new Session();
+            CurrentSession.SessionId = Interface.EMPTY_SESSION;
+            CurrentSession.Name = string.Empty;
+
+            if (ChatSessions is not null & ChatSessions?.Count > 0)
+            {
+                var match = ChatSessions?.FirstOrDefault();
+                if (match is not null)
+                {
+                    CurrentSession.SessionId = match.SessionId;
+                    CurrentSession.Name = match.Name;
+                    CurrentSession.TokensUsed = match.TokensUsed;
+                }
+            }
+
+            await LoadCurrentChatAsync();
+        }
+
+        _deletePopUpOpen = false;
+    }
+
+    private void OpenInput(string id, string title)
+    {
+        _renamePopUpOpen = true;
+        _sessionId = id;
+        _popUpText = title;
+    }
+
+    private async Task OnInputClose(string newName)
+    {
+        if (newName != "")
+        {
+            bool updateCurrentChat = false;
+
+            if (_sessionId == CurrentSession?.SessionId)
+            {
+                updateCurrentChat = true;
+            }
+
+            await chatManager.RenameChatSessionAsync(_sessionId, newName);
+
+            _renamePopUpOpen = false;
+
+            UpdateNavMenuDisplay("Rename");
+
+            if (!updateCurrentChat)
+            {
+                return;
+            }
+
+            if (CurrentSession is not null)
+            {
+                CurrentSession.Name = newName;
+            }
+            await LoadCurrentChatAsync();
+        }
+
+        _renamePopUpOpen = false;
+    }
+
+    private async Task NewChat()
+    {
+        await chatManager.CreateNewChatSessionAsync();
+
+        if (ChatSessions.Count == 1)
+        {
+            CurrentSession = ChatSessions[0] with { };
+            await LoadCurrentChatAsync();
+        }
+
+        UpdateNavMenuDisplay("Add");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_loadingComplete == true)
+            return;
+
+        _loadingComplete = false;
+
+        ChatSessions = await chatManager.GetAllChatSessionsAsync();
+        if (CurrentSession is not null && ChatSessions is not null & ChatSessions?.Count > 0)
+        {
+            var match = ChatSessions?.FirstOrDefault();
+            if (match is not null)
+            {
+                CurrentSession.SessionId = match.SessionId;
+                CurrentSession.Name = match.Name;
+                CurrentSession.TokensUsed = match.TokensUsed;
+            }
+        }
+
+        _loadingComplete = true;
+        await LoadCurrentChatAsync();
+
+    }
+
+    private async Task<int> LoadCurrentChatAsync()
+    {
+        int index = 0;
+        if (CurrentSession is not null & ChatSessions is not null & ChatSessions?.Count > 0)
+        {
+            index = ChatSessions?.FindIndex(s => s.SessionId == CurrentSession?.SessionId) ?? 0;
+        }
+        if (CurrentSession is null || index < 0)
+        {
+            CurrentSession = new Session();
+            CurrentSession.SessionId = Interface.EMPTY_SESSION;
+            CurrentSession.Name = string.Empty;
+
+            if (ChatSessions is not null & ChatSessions?.Count > 0)
+            {
+                var match = ChatSessions?.FirstOrDefault();
+                if (match is not null)
+                {
+                    CurrentSession.SessionId = match.SessionId;
+                    CurrentSession.Name = match.Name;
+                    CurrentSession.TokensUsed = match.TokensUsed;
+                }
+            }
+        }
+
+        await OnChatClicked.InvokeAsync(CurrentSession);
+
+        return 0;
+    }
+
+    async private Task<int> LoadChat(string _sessionId, string sessionName, int? tokensUsed)
+    {
+        if (ChatSessions is null) return 0;
+
+        if (CurrentSession is null)
+            CurrentSession = new Session();
+
+        CurrentSession.SessionId = _sessionId;
+        CurrentSession.Name = sessionName;
+        CurrentSession.TokensUsed = tokensUsed;
+
+        await LoadCurrentChatAsync();
+
+        return 0;
+    }
+
+    private bool IsActiveSession(string _sessionId) => CurrentSession switch
+    {
+        null => true,
+        (Session s) when s.SessionId == _sessionId => true,
+        _ => false
+    };
+
+    public string SafeSubstring(string text, int maxLength) => text switch
+    {
+        null => string.Empty,
+        _ => text.Length > maxLength ? text.Substring(0, maxLength) + "..." : text
+    };
+}
