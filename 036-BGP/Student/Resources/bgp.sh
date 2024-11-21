@@ -98,13 +98,13 @@ function wait_until_csr_available () {
     until [[ -n "$ssh_output" ]]
     do
         sleep $wait_interval
+        fix_all_nsgs
         ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
     done
     run_time=$(("$(date +%s)" - "$start_time"))
     ((minutes=run_time/60))
     ((seconds=run_time%60))
-    echo "IP address $csr_ip is available (wait time $minutes minutes and $seconds seconds). Answer to SSH command \"$ssh_command\":"
-    clean_string "$ssh_output"
+    echo "IP address $csr_ip is available (wait time $minutes minutes and $seconds seconds). Answer to SSH command \"$ssh_command\": $(clean_string "$ssh_output")"
 }
 
 # Wait until all VNGs in the router list finish provisioning
@@ -123,6 +123,20 @@ function wait_for_csrs_finished () {
 # Add required rules to an NSG to allow traffic between the vnets (RFC1918)
 function fix_nsg () {
     nsg_name=$1
+    
+    # Grab client IP for SSH admin rule
+    myip=$(curl -s4 ifconfig.co)
+    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+    do
+        sleep 5
+        myip=$(curl -s4 ifconfig.co)
+    done
+
+    echo "Adding SSH permit for ${myip} to NSG ${nsg_name}..."    
+    az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ssh-inbound-allow --priority 1000 \
+        --source-address-prefixes "$myip" --destination-port-ranges 22 --access Allow --protocol Tcp \
+        --description "Allow ssh inbound"  -o none
+
     echo "Adding RFC1918 prefixes to NSG ${nsg_name}..."
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n Allow_Inbound_RFC1918 --priority 2000 \
         --access Allow --protocol '*' --source-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --direction Inbound \
@@ -132,7 +146,7 @@ function fix_nsg () {
         --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' -o none
 }
 
-# Add RFC1918 to all nsgs in the RG
+# Add permit rules to all nsgs in the RG
 function fix_all_nsgs () {
     nsg_list=$(az network nsg list -g "$rg" --query '[].name' -o tsv)
     echo "$nsg_list" | while read nsg
@@ -156,6 +170,9 @@ function create_vng () {
     vnet_prefix=10.${id}.0.0/16
     subnet_prefix=10.${id}.0.0/24
     test_vm_name=testvm${id}
+    test_vm_nsg_name="${test_vm_name}-NSG"
+    test_vm_nic_name="${test_vm_name}-nic"
+    test_vm_pip_name="${test_vm_name}-pip"
     test_vm_size=Standard_B1s
     test_vm_subnet_prefix=10.${id}.1.0/24
     type=$(get_router_type_from_id "$id")
@@ -168,19 +185,27 @@ function create_vng () {
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating test virtual machine $test_vm_name in vnet $vnet_name in new subnet $test_vm_subnet_prefix..."
-        az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" -o none
+        az network nsg create -n "$test_vm_nsg_name" -g "$rg" -l "$location" -o none
+
+        az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" \
+            --nsg "$test_vm_nsg_name" -o none
+
+        az network public-ip create -n "$test_vm_pip_name" -g "$rg" -l "$location" --sku standard -o none
+
+        az network nic create -n "$test_vm_nic_name" -g "$rg" -l "$location" --vnet-name "$vnet_name" --subnet testvm \
+            --private-ip-address "10.${id}.1.4" --public-ip-address "$test_vm_pip_name" -o none
+
         # Not using $psk as password because it might not fulfill the password requirements for Azure VMs
-        az vm create -n "$test_vm_name" -g "$rg" -l "$location" --image $test_vm_image_urn --size "$test_vm_size" \
+        az vm create -n "$test_vm_name" -g "$rg" -l "$location" --image "$test_vm_image_urn" --size "$test_vm_size" \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
-            --public-ip-address "${test_vm_name}-pip" --public-ip-address-allocation static \
-            --vnet-name "$vnet_name" --subnet testvm --no-wait -o none
+            --nics "$test_vm_nic_name" --no-wait -o none
     else
         echo "Virtual machine $test_vm_name already exists"
     fi
     # Create PIPs for gateway (this gives time as well for the test VM NICs to be created and attached to the subnet)
     echo "Creating public IP addresses for gateway vng${id}..."
-    az network public-ip create -g "$rg" -n "vng${id}a" -o none
-    az network public-ip create -g "$rg" -n "vng${id}b" -o none
+    az network public-ip create -g "$rg" -n "vng${id}a" --sku standard -o none
+    az network public-ip create -g "$rg" -n "vng${id}b" --sku standard -o none
     # Create VNG
     vng_id=$(az network vnet-gateway show -n "vng${id}" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "${vng_id}" ]]
@@ -351,6 +376,9 @@ function create_vm_in_csr_vnet () {
     vm_subnet_prefix="10.${csr_id}.1.0/24"
     vm_subnet_name=testvm
     vm_name=testvm${csr_id}
+    vm_nsg_name="${vm_name}-NSG"
+    vm_nic_name="${vm_name}-nic"
+    vm_pip_name="${vm_name}-pip"
     vm_size=Standard_B1s
     rt_name="${vm_name}-rt"
     # Create VM
@@ -358,10 +386,19 @@ function create_vm_in_csr_vnet () {
     if [[ -z "$test_vm_id" ]]
     then
         echo "Creating VM $vm_name in vnet $vnet_name..."
-        az vm create -n "$vm_name" -g "$rg" -l "$location" --image $test_vm_image_urn --size $vm_size \
+        az network nsg create -n "$vm_nsg_name" -g "$rg" -l "$location" -o none
+
+        az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$vm_subnet_prefix" \
+            --nsg "$vm_nsg_name" -o none
+
+        az network public-ip create -n "$vm_pip_name" -g "$rg" -l "$location" --sku standard -o none
+
+        az network nic create -n "$vm_nic_name" -g "$rg" -l "$location" --vnet-name "$vnet_name" --subnet $vm_subnet_name \
+            --private-ip-address "10.${id}.1.4" --public-ip-address "$vm_pip_name" -o none
+        
+        az vm create -n "$vm_name" -g "$rg" -l "$location" --image "$test_vm_image_urn" --size "$vm_size" \
             --generate-ssh-keys --authentication-type all --admin-username "$default_username" --admin-password "$psk" \
-            --public-ip-address "${vm_name}-pip" --vnet-name "$vnet_name" --public-ip-address-allocation static \
-            --subnet "$vm_subnet_name" --subnet-address-prefix "$vm_subnet_prefix" --no-wait -o none
+            --nics "$vm_nic_name" --no-wait -o none
         az network route-table create -n "$rt_name" -g "$rg" -l "$location" -o none
         az network route-table route create -n localrange -g "$rg" --route-table-name "$rt_name" \
             --address-prefix "10.0.0.0/8" --next-hop-type VirtualAppliance --next-hop-ip-address "$csr_bgp_ip" -o none
@@ -369,10 +406,6 @@ function create_vm_in_csr_vnet () {
     else
         echo "Virtual machine $vm_name already exists"
     fi
-    # Setting IP Forwarding for CSR
-    echo "Enabling IP forwarding for $csr_name..."
-    csr_nic_id=$(az vm show -n "$csr_name-nva" -g "$rg" --query 'networkProfile.networkInterfaces[0].id' -o tsv)
-    az network nic update --ids $csr_nic_id --ip-forwarding -o none
 }
 
 function accept_csr_terms () {
@@ -401,6 +434,9 @@ function create_csr () {
     # USES NVA GLOBALS
     csr_id=$1
     csr_name=csr${csr_id}
+    csr_nsg_name="${csr_name}-NSG"
+    csr_nic_name="${csr_name}-nic"
+    csr_pip_name="${csr_name}-pip"
     csr_vnet_prefix="10.${csr_id}.0.0/16"
     csr_subnet_prefix="10.${csr_id}.0.0/24"
     csr_bgp_ip="10.${csr_id}.0.10"
@@ -412,19 +448,22 @@ function create_csr () {
     vm_id=$(az vm show -n "csr${csr_id}-nva" -g "$rg" --query id -o tsv 2>/dev/null)
     if [[ -z "$vm_id" ]]
     then
+        az network nsg create -n "$csr_nsg_name" -g "$rg" -l "$location" -o none
+
+        az network vnet create -n "$csr_name" -g "$rg" -l "$location" --address-prefix "$csr_vnet_prefix" --subnet-name nva \
+            --subnet-prefixes "$csr_subnet_prefix" --nsg "$csr_nsg_name" -o none
+
+        az network public-ip create -n "$csr_pip_name" -g "$rg" -l "$location" --sku standard -o none
+
+        az network nic create -n "$csr_nic_name" -g "$rg" -l "$location" --vnet-name "$csr_name" --subnet nva \
+            --private-ip-address "$csr_bgp_ip" --public-ip-address "$csr_pip_name" --ip-forwarding true -o none
+
         az vm create -n "csr${csr_id}-nva" -g "$rg" -l "$location" --image "${nva_publisher}:${nva_offer}:${nva_sku}:${nva_version}" --size "$nva_size" \
-            --generate-ssh-keys --public-ip-address "csr${csr_id}-pip" --public-ip-address-allocation static \
-            --vnet-name "$csr_name" --vnet-address-prefix "$csr_vnet_prefix" --subnet nva --subnet-address-prefix "$csr_subnet_prefix" \
-            --private-ip-address "$csr_bgp_ip" --no-wait -o none
-        sleep 30 # Wait 30 seconds for the creation of the PIP
+            --generate-ssh-keys --nics "$csr_nic_name" --no-wait -o none
     else
         echo "VM csr${csr_id}-nva already exists"
     fi
-    # Adding UDP ports 500 and 4500 to NSG
-    nsg_name=csr${csr_id}-nvaNSG
-    az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ike --priority 1010 \
-      --source-address-prefixes Internet --destination-port-ranges 500 4500 --access Allow --protocol Udp \
-      --description "UDP ports for IKE"  -o none
+
     # Get public IP
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" --query ipAddress -o tsv)
     # Create Local Network Gateway
@@ -517,17 +556,18 @@ function config_csr_base () {
     csr_id=$1
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     asn=$(get_router_asn_from_id "$csr_id")
-    myip=$(curl -s4 ifconfig.co)
-    # Check we have a valid IP
-    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
-    do
-        sleep 5
+    # Grab client IP for static route
         myip=$(curl -s4 ifconfig.co)
+        until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+        do
+            sleep 5
+            myip=$(curl -s4 ifconfig.co)
     done
-    echo "Our IP seems to be $myip"
+    
     default_gateway="10.${csr_id}.0.1"
 
     echo "Configuring CSR${csr_id} at ${csr_ip} for necessary licensing features to use VPN and rebooting..."
+    wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
     ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
         license boot level network-advantage addon dna-advantage
@@ -538,12 +578,13 @@ function config_csr_base () {
         end
 EOF
 
-    sleep 60 # Avoid availability checks too early
+    sleep 60 # Avoid re-checking availability too early
     wait_until_csr_available "${csr_id}"
 
     echo "Configuring CSR${csr_id} at ${csr_ip} for VPN and BGP..."
     username=$(whoami)
     password=$psk
+    wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
     ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       username ${username} password 0 ${password}
@@ -616,6 +657,7 @@ function config_csr_tunnel () {
     default_gateway="10.${csr_id}.0.1"
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     echo "Configuring tunnel ${tunnel_id} in CSR${csr_id} at ${csr_ip}..."
+    wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
     ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       crypto ikev2 keyring azure-keyring
@@ -640,6 +682,7 @@ EOF
     if [[ -z "$cx_type" ]] || [[ "$cx_type" == "bgp" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring BGP on tunnel ${tunnel_id} in CSR ${csr_ip}..."
+      wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
       ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router bgp ${asn}
@@ -651,6 +694,7 @@ EOF
       if [[ "$asn" == "$remote_asn" ]]
       then
         # iBGP
+        wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
         ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
@@ -660,6 +704,7 @@ EOF
 EOF
       else
         # eBGP
+        wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
         ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
@@ -671,6 +716,7 @@ EOF
     elif [[ "$cx_type" == "ospf" ]] || [[ "$cx_type" == "bgpospf" ]]
     then
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
+      wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
       ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router ospf 100
@@ -684,6 +730,7 @@ EOF
       echo "Configuring static routes for tunnel ${tunnel_id} in CSR ${csr_ip}..."
       remote_id=$(echo "$tunnel_id" | head -c 2 | tail -c 1) # This only works with a max of 9 routers
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
+      wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
       ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           ip route 10.${remote_id}.0.0 255.255.0.0 Tunnel${tunnel_id}
