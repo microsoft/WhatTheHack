@@ -1100,6 +1100,7 @@ function perform_system_checks () {
     # Verify required az extensions installed
     for extension_name in "log-analytics"
     do
+        az extension add --upgrade --yes --name $extension_name -o none
         extension_version=$(az extension show -n $extension_name --query version -o tsv)
         if [[ -z "$extension_version" ]]
         then
