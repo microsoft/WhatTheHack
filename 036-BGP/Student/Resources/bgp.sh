@@ -94,12 +94,13 @@ function wait_until_csr_available () {
     echo "Waiting for CSR${csr_id} with IP address $csr_ip to answer over SSH..."
     start_time=$(date +%s)
     ssh_command="show version | include uptime"  # 'show version' contains VM name and uptime
-    ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
+    fix_all_nsgs
+    ssh_output=$(ssh -n -o ConnectTimeout=60 -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" "$ssh_command" 2>/dev/null)
     until [[ -n "$ssh_output" ]]
     do
         sleep $wait_interval
         fix_all_nsgs
-        ssh_output=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "$ssh_command" 2>/dev/null)
+        ssh_output=$(ssh -n -o ConnectTimeout=60 -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" "$ssh_command" 2>/dev/null)
     done
     run_time=$(("$(date +%s)" - "$start_time"))
     ((minutes=run_time/60))
@@ -123,21 +124,14 @@ function wait_for_csrs_finished () {
 # Add required rules to an NSG to allow traffic between the vnets (RFC1918)
 function fix_nsg () {
     nsg_name=$1
-    
-    # Grab client IP for SSH admin rule
-    myip=$(curl -s4 ifconfig.co)
-    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
-    do
-        sleep 5
-        myip=$(curl -s4 ifconfig.co)
-    done
+    myip=$2
 
-    echo "Adding SSH permit for ${myip} to NSG ${nsg_name}..."    
+    #echo "Adding SSH permit for ${myip} to NSG ${nsg_name}..."    
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ssh-inbound-allow --priority 1000 \
         --source-address-prefixes "$myip" --destination-port-ranges 22 --access Allow --protocol Tcp \
         --description "Allow ssh inbound"  -o none
 
-    echo "Adding RFC1918 prefixes to NSG ${nsg_name}..."
+    #echo "Adding RFC1918 prefixes to NSG ${nsg_name}..."
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n Allow_Inbound_RFC1918 --priority 2000 \
         --access Allow --protocol '*' --source-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --direction Inbound \
         --destination-address-prefixes '10.0.0.0/8' '172.16.0.0/12' '192.168.0.0/16' --destination-port-ranges '*' -o none
@@ -149,9 +143,19 @@ function fix_nsg () {
 # Add permit rules to all nsgs in the RG
 function fix_all_nsgs () {
     nsg_list=$(az network nsg list -g "$rg" --query '[].name' -o tsv)
+
+    # Grab client IP for SSH admin rule
+    #echo "Finding my public IP for SSH NSG rules"
+    myip=$(curl -s4 "https://api.ipify.org/")
+    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+    do
+        sleep 5
+        myip=$(curl -s4 "https://api.ipify.org/")
+    done
+
     echo "$nsg_list" | while read nsg
     do
-        fix_nsg "$nsg"
+        fix_nsg "$nsg" "$myip"
     done
 }
 
@@ -541,7 +545,7 @@ function connect_csr () {
 function sh_csr_int () {
     csr_id=$1
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
-    ssh -n -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" "sh ip int b" 2>/dev/null
+    ssh -n -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" "sh ip int b" 2>/dev/null
 }
 
 # Open an interactive SSH session to a CSR
@@ -557,18 +561,18 @@ function config_csr_base () {
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     asn=$(get_router_asn_from_id "$csr_id")
     # Grab client IP for static route
-        myip=$(curl -s4 ifconfig.co)
+        myip=$(curl -s4 "https://api.ipify.org/")
         until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
         do
             sleep 5
-            myip=$(curl -s4 ifconfig.co)
+            myip=$(curl -s4 "https://api.ipify.org/")
     done
     
     default_gateway="10.${csr_id}.0.1"
 
     echo "Configuring CSR${csr_id} at ${csr_ip} for necessary licensing features to use VPN and rebooting..."
     wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
         license boot level network-advantage addon dna-advantage
         do wr mem
@@ -585,7 +589,7 @@ EOF
     username=$(whoami)
     password=$psk
     wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       username ${username} password 0 ${password}
       username ${username} privilege 15
@@ -658,7 +662,7 @@ function config_csr_tunnel () {
     csr_ip=$(az network public-ip show -n "csr${csr_id}-pip" -g "$rg" -o tsv --query ipAddress)
     echo "Configuring tunnel ${tunnel_id} in CSR${csr_id} at ${csr_ip}..."
     wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+    ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
     config t
       crypto ikev2 keyring azure-keyring
         peer ${public_ip}
@@ -683,7 +687,7 @@ EOF
     then
       echo "Configuring BGP on tunnel ${tunnel_id} in CSR ${csr_ip}..."
       wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router bgp ${asn}
             neighbor ${private_ip} remote-as ${remote_asn}
@@ -695,7 +699,7 @@ EOF
       then
         # iBGP
         wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} next-hop-self
@@ -705,7 +709,7 @@ EOF
       else
         # eBGP
         wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+        ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
             config t
               router bgp ${asn}
                 neighbor ${private_ip} ebgp-multihop 5
@@ -717,7 +721,7 @@ EOF
     then
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
       wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           router ospf 100
             no passive-interface Tunnel${tunnel_id}
@@ -731,7 +735,7 @@ EOF
       remote_id=$(echo "$tunnel_id" | head -c 2 | tail -c 1) # This only works with a max of 9 routers
       echo "Configuring OSPF on tunnel ${tunnel_id} in CSR ${csr_ip}..."
       wait_until_csr_available "${csr_id}" # Make sure I can still talk to the CSR
-      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$csr_ip" >/dev/null 2>&1 <<EOF
+      ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" >/dev/null 2>&1 <<EOF
         config t
           ip route 10.${remote_id}.0.0 255.255.0.0 Tunnel${tunnel_id}
         end
@@ -903,7 +907,7 @@ function show_bgp_neighbors () {
     if [[ "$type" == "csr" ]]
     then
         ip=$(az network public-ip show -n "csr${id}-pip" -g "$rg" --query ipAddress -o tsv)
-        neighbors=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa "$ip" "show ip bgp summary | begin Neighbor" 2>/dev/null)
+        neighbors=$(ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$ip" "show ip bgp summary | begin Neighbor" 2>/dev/null)
         echo "BGP neighbors for csr${id}-nva (${ip}):"
         clean_string "$neighbors"
     else
