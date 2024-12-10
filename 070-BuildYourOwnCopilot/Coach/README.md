@@ -8,20 +8,18 @@ Welcome to the coach's guide for the Build Your Own Copilot What The Hack. Here 
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[The Landing Before the Launch](./Solution-01.md)**
-	 - Deploy the solution cloud services in preparation for the launch of the POC.
-- Challenge 02: **[Now We're Flying](./Solution-02.md)**
-	 - Experiment with system prompts.
-- Challenge 03: **[What's Your Vector, Victor?](./Solution-03.md)**
-	 - Load new data and observe automatic vectorization.
-- Challenge 04: **[It's All About the Payload, The Sequel](./Solution-04.md)**
-	 - Extend the solution to handle any type of JSON data.
-- Challenge 05: **[The Colonel Needs a Promotion](./Solution-05.md)**
-	 - Add new capability by creating Semantic Kernel plugins.
-- Challenge 06: **[Getting Into the Flow](./Solution-06.md)**
-	 - Use ML Prompt Flow to replace portions of the chat service.
+- Challenge 00: **[Prerequisites - The landing before the launch](./Solution-00.md)**
+	 - Prepare your workstation to work with Azure and deploy the required services.
+- Challenge 01: **[Finding the kernel of truth](./Solution-01.md)**
+	 - Learn about the basics of Semantic Kernel, a Large Language Model (LLM) orchestrator that powers the solution accelerator.
+- Challenge 02: **[It has no filter](./Solution-02.md)**
+	 - Learn about intercepting and using key assets from Semantic Kernel's inner workings - prompt and function calling data.
+- Challenge 03: **[Always prompt, never tardy](./Solution-03.md)**
+	 - Learn how prompts are used in the solution accelerator and experiment with changes to the prompts.
+- Challenge 04: **[Cache it away for a rainy day](./Solution-04.md)**
+	 - Learn about the inner workings and applications of semantic caching in the solution accelerator.
+- Challenge 05: **[Do as the Colonel commands](./Solution-05.md)**
+	 - Learn about implementing system commands based on user input in the solution accelerator.
 
 ## Coach Prerequisites
 
