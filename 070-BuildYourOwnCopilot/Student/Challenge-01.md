@@ -50,7 +50,7 @@ To successfully complete this challenge, you must:
 - Confirm that the text embeddings are correctly generated and aligned with the memory store.
 - Test the assistant by interacting with it through the chat interface and verifying that it responds accurately using relevant knowledge.
 
-### Hints
+## Tips
 
 - Pay attention to the plugins in your solution—these are critical for the assistant's ability to retrieve and use knowledge.
 - Review the Cosmos DB change feed setup to understand how changes are tracked and applied to the memory store.
@@ -296,7 +296,9 @@ You are now ready to start debugging the solution locally. To do this, press `F5
 - [Embeddings](https://platform.openai.com/docs/guides/embeddings/use-cases)
 - [Build Your Own Copilot with Azure Cosmos DB - Key Concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-### Explore Further
+## Advanced Challenges (Optional)
+
+If you want to explore further, consider the following additional challenges:
 
 - Explore the use of planners in Semantic Kernel and how they impact plugin selection and execution.
 - Experiment with different text embeddings and observe their effect on the assistant's performance.
