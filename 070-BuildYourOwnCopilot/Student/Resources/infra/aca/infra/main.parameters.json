@@ -1,0 +1,159 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "environmentName": {
+        "value": "${AZURE_ENV_NAME}"
+      },
+      "location": {
+        "value": "${AZURE_LOCATION}"
+      },
+      "existingOpenAiInstance": {
+        "value": {
+          "name": "${OPENAI_NAME}",
+          "resourceGroup": "${OPENAI_RESOURCE_GROUP}",
+          "subscriptionId": "${OPENAI_SUBSCRIPTION_ID}"
+        }
+      },
+      "chatAPIExists": {
+        "value": "${SERVICE_CHATAPI_RESOURCE_EXISTS=false}"
+      },
+      "chatAPIDefinition": {
+        "value": {
+          "settings": [
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__CompletionsDeployment",
+              "value": "completions",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__CompletionsDeploymentMaxTokens",
+              "value": "8096",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__EmbeddingsDeployment",
+              "value": "embeddings",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__EmbeddingsDeploymentMaxTokens",
+              "value": "8191",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__ChatCompletionPromptName",
+              "value": "RetailAssistant.Default",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__ShortSummaryPromptName",
+              "value": "Summarizer.TwoWords",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMinTokens",
+              "value": "50",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMaxTokens",
+              "value": "300",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__SystemMaxTokens",
+              "value": "1500",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMinTokens",
+              "value": "1500",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMaxTokens",
+              "value": "7000",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMinTokens",
+              "value": "100",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMaxTokens",
+              "value": "200",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__CosmosDB__Containers",
+              "value": "completions, customer, product",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__CosmosDB__MonitoredContainers",
+              "value": "customer, product",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__CosmosDB__Database",
+              "value": "vsai-database",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__CosmosDB__ChangeFeedLeaseContainer",
+              "value": "leases",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageContainer",
+              "value": "system-prompt",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigBlobStorageContainer",
+              "value": "memory-source",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            },
+            {
+              "name": "MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigFilePath",
+              "value": "BlobMemorySourceConfig.json",
+              "_comment_name": "The name of the environment variable when running in Azure. If empty, ignored.",
+              "_comment_value": "The value to provide. This can be a fixed literal, or an expression like ${VAR} to use the value of 'VAR' from the current environment."
+            }
+          ]
+        }
+      },
+      "searchExists": {
+        "value": "${SERVICE_SEARCH_RESOURCE_EXISTS=false}"
+      },
+      "searchDefinition": {
+        "value": {
+          "settings": []
+        }
+      },
+      "principalId": {
+        "value": "${AZURE_PRINCIPAL_ID}"
+      }
+    }
+}

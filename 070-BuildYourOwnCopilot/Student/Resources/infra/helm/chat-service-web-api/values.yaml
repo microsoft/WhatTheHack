@@ -1,0 +1,69 @@
+# Default values for chat-service-web-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: bhm7vnpxv6irqcr.azurecr.io/chatAPI
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+ingress:
+  enabled: true
+  protocol: #http | https (set by script)
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  tls:
+  - secretName: tls-prod
+
+env:
+  configmap:
+    - name: MSCosmosDBOpenAI__OpenAI__CompletionsDeployment
+    - name: MSCosmosDBOpenAI__OpenAI__CompletionsDeploymentMaxTokens
+    - name: MSCosmosDBOpenAI__OpenAI__EmbeddingsDeployment
+    - name: MSCosmosDBOpenAI__OpenAI__EmbeddingsDeploymentMaxTokens
+    - name: MSCosmosDBOpenAI__OpenAI__ChatCompletionPromptName
+    - name: MSCosmosDBOpenAI__OpenAI__ShortSummaryPromptName
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMinTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMaxTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__SystemMaxTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMinTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMaxTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMinTokens
+    - name: MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMaxTokens
+    - name: MSCosmosDBOpenAI__CosmosDB__Containers
+    - name: MSCosmosDBOpenAI__CosmosDB__MonitoredContainers
+    - name: MSCosmosDBOpenAI__CosmosDB__Database
+    - name: MSCosmosDBOpenAI__CosmosDB__ChangeFeedLeaseContainer
+    - name: MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageContainer
+    - name: MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigBlobStorageContainer
+    - name: MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigFilePath
+  secret:
+    - name: MSCosmosDBOpenAI__OpenAI__Endpoint
+    - name: MSCosmosDBOpenAI__OpenAI__Key
+    - name: MSCosmosDBOpenAI__CosmosDB__Endpoint
+    - name: MSCosmosDBOpenAI__CosmosDB__Key
+    - name: MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageConnection
+    - name: MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigBlobStorageConnection
+    - name: ApplicationInsights__ConnectionString
+  values:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: Production
