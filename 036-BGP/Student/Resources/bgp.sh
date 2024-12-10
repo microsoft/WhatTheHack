@@ -20,15 +20,15 @@
 # Examples:
 #
 # Basic example with 1 VNG connected to one CSR:
-#     bgp.sh "1:vng:65501,2:csr:65502" "1:2" mylab northeurope mypresharedkey
+#     bgp.sh "1:vng:65501,2:csr:65502" "1:2" mylab northeurope 'MyPresharedKey!123'
 # 4 CSRs connected in full mesh:
-#     bgp.sh "1:csr:65501,2:csr:65502,3:csr:65503,4:csr:65504" "1:2,1:3,2:4,3:4,1:4,2:3" mylab northeurope mypresharedkey
+#     bgp.sh "1:csr:65501,2:csr:65502,3:csr:65503,4:csr:65504" "1:2,1:3,2:4,3:4,1:4,2:3" mylab northeurope 'MyPresharedKey!123'
 # 2 VNGs and 2 CSRs connected in full mesh:
-#     bgp.sh "1:vng:65001,2:vng:65002,3:csr:65100,4:csr:65100" "1:2,1:3,1:4,2:4,2:3,3:4" mylab northeurope mypresharedkey
+#     bgp.sh "1:vng:65001,2:vng:65002,3:csr:65100,4:csr:65100" "1:2,1:3,1:4,2:4,2:3,3:4" mylab northeurope 'MyPresharedKey!123'
 # 2 VNGs and 2 CSRs connected in full mesh, with a 5th router connected via OSPF to CSR3 and CSR4 in triangle:
-#     bgp.sh "1:vng1:65001,2:vng:65002,3:csr:65100,4:csr:65100,5:csr:65100" "1:2,1:3,1:4,2:4,2:3,3:4:bgpospf,3:5:ospf,4:5:ospf" mylab northeurope mypresharedkey
+#     bgp.sh "1:vng1:65001,2:vng:65002,3:csr:65100,4:csr:65100,5:csr:65100" "1:2,1:3,1:4,2:4,2:3,3:4:bgpospf,3:5:ospf,4:5:ospf" mylab northeurope 'MyPresharedKey!123'
 # Environment simulating 2 ExpressRoute locations (note you cannot use the 12076 ASN in Local Gateways):
-#     bgp.sh "1:vng:65515,2:vng:65515,3:csr:22076,4:csr:22076,5:csr:65001,6:csr:65002" "1:3,1:4,2:3,2:4,3:5,4:6,5:6" mylab northeurope mypresharedkey
+#     bgp.sh "1:vng:65515,2:vng:65515,3:csr:22076,4:csr:22076,5:csr:65001,6:csr:65002" "1:3,1:4,2:3,2:4,3:5,4:6,5:6" mylab northeurope 'MyPresharedKey!123'
 #
 # bash and zsh tested
 #
@@ -1168,7 +1168,14 @@ then
     psk=$5
     if [[ -n "$(check_password $psk)" ]]
     then
-        echo "$(check_password $psk)"
+        echo "FAILURE: Your preshared key must satisfy the following criteria:"
+        echo " * Must be at least 12 characters long"
+        echo " * Must contain at least one of each of the following character types:"
+        echo "   * Uppercase letters"
+        echo "   * Lowercase letters"
+        echo "   * Digits 0-9"
+        echo "   * Punctuation characters such as .,!(){}[]_"
+        echo "Failure reason: $(check_password $psk) -- there may be others, check against criteria above."
         exit 1
     fi
 else
