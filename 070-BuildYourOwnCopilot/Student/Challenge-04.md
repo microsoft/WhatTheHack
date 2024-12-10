@@ -10,18 +10,18 @@ In this challenge, you will explore the semantic cache service, which optimizes 
 
 Your team must:
 
-1. Initialize the semantic cache service
+- Initialize the semantic cache service
     - Configure the `SemanticCacheService` class to manage the semantic cache.
     - Analyze how the semantic cache interacts with services like `AzureCosmosDBNoSQLMemoryStore` and `AzureOpenAITextEmbeddingGenerationService`.
-2. Retrieve responses from the semantic cache
+- Retrieve responses from the semantic cache
     - Attempt to retrieve cached completions for user prompts.
     - Return a `CompletionResult` object when the cache contains a valid response.
-3. Set properties from the cache item
+- Set properties from the cache item
     - Set the `UserPromptTokens` and `UserPromptEmbedding` properties from the retrieved cache item.
-4. Add new completions to the cache
+- Add new completions to the cache
     - Set the `Completion` and `CompletionTokens` properties for new cache items.
     - Use the `SetCacheItem` method to add new responses to the semantic cache.
-5. Handle repeated prompts
+- Handle repeated prompts
     - Calculate the similarity between user prompt embeddings and previous messages using cosine distance.
     - If the similarity is above a threshold, reuse the cached response to save processing time.
 
@@ -29,7 +29,7 @@ You may now go to the starter solution in Visual Studio and complete Challenge 4
 
 This challenge does not have open-ended exercises.
 
-### Hints
+## Tips
 
 - **Analyze the semantic cache**: Read through the key concepts document to understand the role of the semantic cache.
 - **Improve efficiency**: Caching responses helps reduce redundant processing by reusing previously generated completions.
@@ -49,7 +49,9 @@ To complete this challenge successfully, you must:
 
 - [Build your own Copilot with Azure Cosmos DB - Key concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-## Explore Further
+## Advanced Challenges (Optional)
+
+If you want to explore further, try these additional challenges:
 
 - Try adjusting the similarity threshold to see how it impacts the reuse of cached responses.
 - Experiment with different configurations for the semantic cache to optimize performance.
