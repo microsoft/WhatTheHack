@@ -1,6 +1,6 @@
 # Challenge 05 - Do as the Colonel commands
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
 
 ## Introduction
 
@@ -10,15 +10,15 @@ In this challenge, you will extend the capabilities of Semantic Kernel by integr
 
 Your team must:
 
-1. Add system command plugins
+- Add system command plugins
     - Integrate the system command plugins from the configuration settings into the list of context builder plugins.
     - Analyze the `SystemCommandPlugin` class to understand how it manages system commands.
-2. Reset the semantic cache
+- Reset the semantic cache
     - Implement functionality to reset the semantic cache and notify the user when the reset is complete.
-3. Set a minimum relevance override
+- Set a minimum relevance override
     - Retrieve a numerical value from the user prompt and use it to set a new minimum relevance override.
     - Use the `GetSemanticCacheSimilarityScore` method to parse the similarity score from the prompt.
-4. Parse similarity score with the plugin prompt
+- Parse similarity score with the plugin prompt
     - Invoke a plugin prompt and parse the response to extract the similarity score.
     - Analyze the `ParsedSimilarityScore` model to understand how the response structure aligns with the prompt output.
 
@@ -28,7 +28,7 @@ Open-ended exercise (recommended to be completed at the end of the hackathon):
 
 - Create a new system command and plug it into the system. Test the command to ensure it works as expected.
 
-### Hints
+## Tips
 
 - **System commands**: Review the key concepts document to understand how system commands are integrated into the solution accelerator.
 - **Cache reset**: Make sure the user is notified after resetting the cache.
@@ -47,7 +47,9 @@ To complete this challenge successfully, you must:
 
 - [Build your own Copilot with Azure Cosmos DB - Key concepts](https://github.com/Azure/BuildYourOwnCopilot/blob/main/docs/concepts.md)
 
-## Explore Further
+## Advanced Challenges (Optional)
+
+If you want to explore further, try these additional challenges:
 
 - Experiment with changing the similarity score parsing logic to see how it impacts the behavior.
 - Try adding more system command plugins to explore other useful commands.
