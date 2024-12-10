@@ -1,0 +1,356 @@
+﻿@using Humanizer
+@using BuildYourOwnCopilot.Constants
+@using BuildYourOwnCopilot.Common.Models.Chat
+@using BuildYourOwnCopilot.Infrastructure.Constants
+@using BuildYourOwnCopilot.Infrastructure.Interfaces
+@inject IChatManager chatManager
+@inject IJSRuntime JSRuntime
+
+<div class="h-100 mh-100 d-flex flex-column overflow-hidden justify-content-start">
+    @if (ShowHeader)
+    {
+        <div class="navbar navbar-dark bg-primary">
+            <div class="w-100 navbar navbar-dark bg-primary d-flex flex-row px-4 justify-content-between flex-nowrap">
+                <div class="d-flex flex-row justify-content-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" height="30" fill="currentColor" class="text-light">
+                        <path d="M422 250a169 169 0 0 1-50 121c-11 11-22 20-35 27-13 8-27 14-41 18a169 169 0 0 1-152-31 303 303 0 0 1-89 15 63 63 0 0 1-37-12c-5-5-10-9-13-15s-5-12-5-19c0-11 3-21 8-32s12-21 20-31l26-29 25-23a168 168 0 0 1 53-114 166 166 0 0 1 118-47c25 0 50 5 73 16a721 721 0 0 1 85-24l29-2 22 2c8 2 14 4 21 8 6 3 11 8 14 14 4 6 6 13 6 22 0 11-3 21-8 32s-13 22-21 32a294 294 0 0 1-50 52v10l1 10zm-65-134a172 172 0 0 1 55 78l16-15a274 274 0 0 0 34-44c5-7 7-14 7-20 0-4-1-7-4-9l-8-4-11-2h-9c-14 0-27 1-41 4l-39 12zM62 369c9 0 19-1 28-3l28-6a163 163 0 0 1-37-80 284 284 0 0 0-44 54c-4 7-6 14-6 19 0 4 1 7 3 9l9 4 10 2 9 1zm89-19a789 789 0 0 0 236-133 134 134 0 0 0-50-77c-12-9-26-17-40-23s-31-8-47-8a137 137 0 0 0-99 42 137 137 0 0 0-41 99 139 139 0 0 0 41 100zm239-96c-64 49-133 89-208 118a131 131 0 0 0 68 19 137 137 0 0 0 97-40 145 145 0 0 0 43-97zM0 63c0-4 1-7 3-9s5-3 9-3a39 39 0 0 0 21-7l9-7c3-3 5-6 6-10l1-5 1-7 1-5 1-3c1-3 2-4 4-5 2-2 4-2 7-2 4 0 7 1 8 4s3 5 3 9l2 11 5 10 8 8c2 3 6 5 9 6l6 1 6 1a70 70 0 0 1 8 2l5 4 2 6c0 4-1 7-4 9-2 2-5 3-9 3a36 36 0 0 0-21 6l-8 8c-2 3-5 6-6 10l-2 10-2 10-4 5-7 2c-3 0-6-2-8-4s-3-4-3-8a40 40 0 0 0-7-21l-7-9c-3-3-6-5-10-6-3-2-7-2-11-3l-9-1c-3-1-4-3-5-5l-2-5zm500 375c0 3-1 5-3 7l-7 3-9 2a30 30 0 0 0-14 6l-7 4a43 43 0 0 0-11 28v3l-1 2-4 5-6 2c-4 0-7-1-9-3s-3-5-3-9l-3-15-8-12a38 38 0 0 0-29-12c-3 0-5-1-7-3-3-3-4-5-4-9 0-3 1-6 3-7l7-4 9-1 8-2 6-4 6-5c5-3 7-8 9-13l3-15c0-3 1-6 4-8 2-2 4-3 8-3 3 0 6 1 7 3l3 7 2 8 2 8 4 7c1 3 3 5 5 6 4 4 8 7 12 8l13 4 10 3c3 1 4 4 4 9z" />
+                    </svg>
+                    <span class="navbar-brand mb-0 ms-1 h1">Azure Cosmos DB</span>
+                    <i class="bi bi-plus mx-3 text-light"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" height="30" fill="currentColor" class="text-light">
+                        <path d="M415.98 265.82v-.27a17.24 17.24 0 1 0 .01.27ZM224.4 321.87a17.24 17.24 0 1 0 34.48 0 17.24 17.24 0 0 0-34.48 0Z" />
+                        <path d="M397.92 209.51C395.91 95.77 266.41 51.59 182.48 96.66l-.12 145.45a5.39 5.39 0 0 0 5.39 5.39h41.76a18.85 18.85 0 0 1 18.86 18.86v25.6a29.36 29.36 0 1 1-36.1 28.56 29.1 29.1 0 0 1 22.9-28.56v-26.94a5.65 5.65 0 0 0-5.66-5.66h-41.76a18.59 18.59 0 0 1-18.59-18.59v-135.9c-21.08 14.76-38.2 36.03-47.96 64.23-163.09 22.89-139.5 256.6 22.91 252.74h14.81V305.98a5.39 5.39 0 0 0-5.39-5.39h-23.71a29.36 29.36 0 1 1 0-13.2h23.71a18.59 18.59 0 0 1 18.59 18.59v115.86h148.46V210.59a5.39 5.39 0 0 0-5.39-5.39h-28.83a29.36 29.36 0 1 1-28.56-36.1 29.1 29.1 0 0 1 28.56 22.9h27.75a18.59 18.59 0 0 1 18.59 18.59v94.84h53.89a5.66 5.66 0 0 0 5.66-5.66v-5.39a29.38 29.38 0 0 1 6.73-57.94l1.1-.02a29.37 29.37 0 0 1 29.35 29.39 29.36 29.36 0 0 1-22.9 28.56v5.39a18.85 18.85 0 0 1-18.86 18.86h-53.89v103.2h43.38c61.49 2.64 114.03-46.08 115.32-107.78-1.2-53.49-41.47-98-94.58-104.54Z" />
+                        <circle cx="101" cy="293.85" r="17.24" />
+                        <circle cx="257.81" cy="198.46" r="17.24" />
+                        <path d="m182.49 96.66-.07.05.07-.04Z" />
+                    </svg>
+                    <span class="navbar-brand mb-0 ms-1 h1">Azure OpenAI</span>
+                </div>
+                <button class="navbar-toggler border-0" @onclick="ToggleNavMenu">
+                    <i class="bi bi-arrow-left-square-fill"></i>
+                </button>
+            </div>
+        </div>
+    }
+    <h6 class="px-4 display-6 text-secondary p-2">@GetChatSessionName()</h6>
+    <div class="px-4 pb-4 pt-2 flex-grow-1 overflow-y-auto overflow-x-hidden align-items-stretch" id="MessagesInChatdiv">
+        @if (CurrentSession is null)
+        {
+            <div class="alert alert-primary">
+                <div class="alert-heading">
+                    <div class="spinner-border text-primary me-1" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    Loading...
+                </div>
+                <p class="text-nowrap mb-0 fst-italic">
+                    Please wait while your session loads.
+                </p>
+            </div>
+        }
+        else if (CurrentSession.SessionId == Interface.EMPTY_SESSION)
+        {
+            <div class="alert alert-warning">
+                <h4 class="alert-heading">
+                    <i class="bi bi-exclamation-triangle-fill me-1" aria-hidden="true"></i>
+                    No Cosmic Works AI Retail Assistant Chats Available
+                </h4>
+                <p class="text-nowrap mb-0 fst-italic">
+                    Use the New Chat option to talk to the Cosmic Works AI Retail Assistant.
+                </p>
+            </div>
+        }
+        else
+        {
+            if (_messagesInChat is null || _loadingComplete == false)
+            {
+                <div class="alert alert-primary">
+                    <div class="alert-heading">
+                        <div class="spinner-border text-primary me-1" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        Loading...
+                    </div>
+                    <p class="text-nowrap mb-0 fst-italic">
+                        Please wait while your session loads.
+                    </p>
+                </div>
+            }
+            else
+            {
+                if (_messagesInChat.Count == 0)
+                {
+                    <div class="alert alert-info">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-lightbulb-fill me-1" aria-hidden="true"></i>
+                            Get Started
+                        </h4>
+                        <p class="text-nowrap mb-0 fst-italic">
+                            The Cosmic Works AI Retail Assistant is here to answer your product, customer and sales order questions.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="toast-container position-static w-100 d-flex flex-column align-items-stretch">
+                        @foreach (var msg in _messagesInChat)
+                        {
+                            <div class="toast fade show w-75 rounded-3 @(msg.Sender == nameof(Participants.Assistant) ? "align-self-end" : "align-self-start")">
+                                <div class="toast-header @(msg.Sender == nameof(Participants.Assistant) ? "bg-success text-dark" : "bg-primary text-light")">
+                                    <i class="bi @(msg.Sender == nameof(Participants.Assistant) ? "bi-robot" : "bi-person") me-1" aria-hidden="true"></i>
+                                    <strong class="me-auto text-capitalize">
+                                        @msg.Sender
+                                    </strong>
+                                    @if (msg.TokensUsed is not null)
+                                    {
+                                        <span class="me-2 badge rounded-pill bg-light">
+                                            Tokens: @msg.TokensUsed
+                                        </span>
+                                    }
+                                    <small>
+                                        @msg.TimeStamp.Humanize()
+                                    </small>
+                                </div>
+                                <div class="toast-body">
+                                    <i class="bi bi-grip-vertical mr-2 text-black-50"></i>
+                                    @{
+                                        MarkupString html = new MarkupString(msg.Text.Replace("\n", "<br />"));
+                                    }
+                                    @html
+                                </div>
+                                @if (msg.Sender == nameof(Participants.Assistant))
+                                {
+                                    <div class="rating-buttons mt-2">
+                                        @if (msg.Rating is null)
+                                        {
+                                            <button class="btn btn-link text-success" @onclick="() => RateMessage(msg.Id, true)">
+                                                <i class="bi bi-hand-thumbs-up"></i> Like
+                                            </button>
+                                            <button class="btn btn-link text-danger" @onclick="() => RateMessage(msg.Id, false)">
+                                                <i class="bi bi-hand-thumbs-down"></i> Dislike
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <div class="undo-container">
+                                                <span class="badge rounded-pill @(msg.Rating.Value ? "bg-success" : "bg-danger")">
+                                                    @(msg.Rating.Value ? "Liked" : "Disliked")
+                                                </span>
+                                                <button class="btn btn-link text-secondary" @onclick="() => UndoRating(msg.Id)" data-bs-toggle="tooltip" data-bs-placement="top" title="Undo Rating">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </div>
+                                        }
+                                        @if (msg.CompletionPromptId is not null)
+                                        {
+                                            <button class="btn btn-link text-success" @onclick="() => DisplayCompletionPrompt(msg.Id)">
+                                                <i class="bi bi-chat-square-text"></i> View Prompt
+                                            </button>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div class="bg-primary text-light px-4 py-2 rounded-top-5 text-dark d-flex flex-column justify-content-center">
+        @if (CurrentSession?.SessionId != Interface.EMPTY_SESSION)
+        {
+            <form @onsubmit="SubmitPromptAsync" @onsubmit:preventDefault>
+                <div class="input-group">
+                    <i class="bi bi-body-text input-group-text" aria-hidden="true"></i>
+                    <input class="form-control form-control-sm" type="text" @bind="@UserPromptSet" @oninput="@((e) => { UserPrompt=e.Value?.ToString();})" rows="1" placeholder="<Your Message>" />
+                    <button type="button" class="btn btn-outline-secondary" @onclick="SubmitPromptAsync">
+                        <i class="bi bi-send-fill" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@if (_completionPromptPopUpOpen)
+{
+    <Confirmation Caption="Completion Prompt"
+                  Message="@_completionPromptContent"
+                  OnClose="@OnConfirmationClose"
+                  Type="Confirmation.Category.Okay">
+    </Confirmation>
+}
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> OnChatUpdated { get; set; }
+
+    [Parameter]
+    public Session? CurrentSession { get; set; }
+
+    [Parameter]
+    public bool ShowHeader { get; set; }
+
+    [Parameter]
+    public EventCallback OnNavBarVisibilityUpdated { get; set; }
+
+    private string? UserPrompt { get; set; }
+
+    private string? UserPromptSet { get; set; }
+
+    private List<Message>? _messagesInChat;
+    private static event EventHandler<Session>? _onMessagePosted;
+    private bool _loadingComplete;
+
+    private bool _completionPromptPopUpOpen = false;
+    private string _completionPromptContent = string.Empty;
+
+    private async Task OnConfirmationClose(bool isOk)
+    {
+        _completionPromptPopUpOpen = false;
+        _completionPromptContent = string.Empty;
+    }
+
+    private async Task ToggleNavMenu()
+    {
+        await OnNavBarVisibilityUpdated.InvokeAsync();
+    }
+
+    public async Task ReloadChatMessagesAsync()
+    {
+        if (CurrentSession is not null)
+        {
+            _messagesInChat = await chatManager.GetChatSessionMessagesAsync(CurrentSession.SessionId);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _onMessagePosted += async (o, e) =>
+        {
+            await this.InvokeAsync(async () =>
+            {
+                if (e.SessionId == CurrentSession?.SessionId)
+                {
+                    await this.ReloadChatMessagesAsync();
+                    this.StateHasChanged();
+                }
+            });
+        };
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (CurrentSession is null)
+        {
+            return;
+        }
+
+        if (CurrentSession.SessionId != Interface.EMPTY_SESSION & CurrentSession.SessionId is not null)
+        {
+            _messagesInChat = await chatManager.GetChatSessionMessagesAsync(CurrentSession?.SessionId);
+        }
+
+        _loadingComplete = true;
+    }
+
+    private async Task RateMessage(string messageId, bool rating)
+    {
+        var message = _messagesInChat?.FirstOrDefault(m => m.Id == messageId);
+        if (message != null)
+        {
+            await chatManager.RateMessageAsync(message.Id, message.SessionId, rating);
+            message.Rating = rating;
+        }
+    }
+
+    private async Task UndoRating(string messageId)
+    {
+        var message = _messagesInChat?.FirstOrDefault(m => m.Id == messageId);
+        if (message != null)
+        {
+            await chatManager.RateMessageAsync(message.Id, message.SessionId, null);
+            message.Rating = null;
+        }
+    }
+
+    private async Task DisplayCompletionPrompt(string messageId)
+    {
+        var message = _messagesInChat?.FirstOrDefault(m => m.Id == messageId);
+        if (message != null)
+        {
+            var completionPrompt = await chatManager.GetCompletionPrompt(message.SessionId, message.CompletionPromptId);
+            _completionPromptContent = completionPrompt.Prompt;
+            _completionPromptPopUpOpen = true;
+        }
+    }
+
+    public void ChangeCurrentChatSession(Session session)
+    {
+        CurrentSession = session;
+    }
+
+    public async Task Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await SubmitPromptAsync();
+        }
+    }
+
+    private async Task SubmitPromptAsync()
+    {
+        if (CurrentSession?.SessionId == Interface.EMPTY_SESSION || String.IsNullOrWhiteSpace(UserPrompt))
+        {
+            return;
+        }
+
+        if (UserPrompt != string.Empty)
+        {
+            UserPromptSet = string.Empty;
+        }
+
+        await chatManager.GetChatCompletionAsync(CurrentSession?.SessionId, UserPrompt);
+        UserPrompt = string.Empty;
+
+        if (_messagesInChat?.Count == 2)
+        {
+            string newSessionName;
+            newSessionName = await chatManager.SummarizeChatSessionNameAsync(CurrentSession?.SessionId, string.Join(Environment.NewLine, _messagesInChat.Select(m => m.Text)));
+
+            if (CurrentSession is not null)
+            {
+                CurrentSession.Name = newSessionName;
+            }
+        }
+        await OnChatUpdated.InvokeAsync();
+
+        if (_onMessagePosted is not null && CurrentSession is not null)
+        {
+            _onMessagePosted.Invoke(null, CurrentSession);
+        }
+
+        await ScrollLastChatToView();
+    }
+
+    private string GetChatSessionName() => CurrentSession switch
+    {
+        null => string.Empty,
+        (Session s) when s.SessionId == Interface.EMPTY_SESSION => string.Empty,
+        _ => CurrentSession.Name
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await ScrollLastChatToView();
+    }
+
+    /// <remarks>
+    /// This is a hack to get the scroll to work.  Need to find a better way to do this.
+    /// </remarks>
+    private async Task ScrollLastChatToView()
+    {
+        await JSRuntime.InvokeAsync<bool>("scrollToLastMessage");
+    }
+}

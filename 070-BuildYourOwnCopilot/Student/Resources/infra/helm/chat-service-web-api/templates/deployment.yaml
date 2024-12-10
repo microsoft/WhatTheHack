@@ -1,0 +1,83 @@
+{{- $name := include "chat-service-web-api.fullname" . -}}
+{{- $cfgname := printf "%s-%s" "cfg" $name -}}
+{{- $secretName := printf "%s-%s" "secret" $name -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "chat-service-web-api.fullname" . }}
+  labels:
+    app: {{ template "chat-service-web-api.name" . }}
+    chart: {{ template "chat-service-web-api.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "chat-service-web-api.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+      labels:
+        app: {{ template "chat-service-web-api.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      {{ if .Values.serviceaccount -}}
+      serviceAccountName: {{ .Values.serviceaccount }}
+      {{ if .Values.imagePullSecrets -}}
+      imagePullSecrets:
+      {{ range .Values.imagePullSecrets -}}
+        - name: {{ .name }}
+      {{- end -}}
+      {{- end }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          {{- if .Values.env.values -}}
+          {{- range .Values.env.values }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+          {{- end -}}
+          {{- end -}}
+          {{- if .Values.env.configmap -}}
+          {{- range .Values.env.configmap }}
+            - name: {{ .name }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $cfgname }}
+                  key: {{ .name }}
+          {{- end -}}
+          {{- end }}
+          {{- if .Values.env.secret -}}
+          {{- range .Values.env.secret }}
+            - name: {{ .name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $secretName }}
+                  key: {{ .name }}
+          {{- end -}}
+          {{- end }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+

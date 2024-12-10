@@ -1,0 +1,32 @@
+{{- $name := include "chat-service-web-api.fullname" . -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "cfg-{{ $name }}"
+  labels:
+    app: {{ template "chat-service-web-api.name" . }}
+    chart: {{ template "chat-service-web-api.chart" .}}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  MSCosmosDBOpenAI__OpenAI__CompletionsDeployment: {{ .Values.openAi.completionsDeployment }}
+  MSCosmosDBOpenAI__OpenAI__CompletionsDeploymentMaxTokens: {{ .Values.openAi.completionsDeploymentMaxTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__EmbeddingsDeployment: {{ .Values.openAi.embeddingsDeployment }}
+  MSCosmosDBOpenAI__OpenAI__EmbeddingsDeploymentMaxTokens: {{ .Values.openAi.embeddingsDeploymentMaxTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__ChatCompletionPromptName: {{ .Values.openAi.chatCompletionPromptName }}
+  MSCosmosDBOpenAI__OpenAI__ShortSummaryPromptName: {{ .Values.openAi.shortSummaryPromptName }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMinTokens: {{ .Values.openAi.promptOptimization.completionsMinTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__CompletionsMaxTokens: {{ .Values.openAi.promptOptimization.completionsMaxTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__SystemMaxTokens: {{ .Values.openAi.promptOptimization.systemMaxTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMinTokens: {{ .Values.openAi.promptOptimization.memoryMinTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__MemoryMaxTokens: {{ .Values.openAi.promptOptimization.memoryMaxTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMinTokens: {{ .Values.openAi.promptOptimization.messagesMinTokens | quote }}
+  MSCosmosDBOpenAI__OpenAI__PromptOptimization__MessagesMaxTokens: {{ .Values.openAi.promptOptimization.messagesMaxTokens | quote }}
+  MSCosmosDBOpenAI__CosmosDB__Containers: {{ .Values.cosmosDb.containers }}
+  MSCosmosDBOpenAI__CosmosDB__MonitoredContainers: {{ .Values.cosmosDb.monitoredContainers }}
+  MSCosmosDBOpenAI__CosmosDB__Database: {{ .Values.cosmosDb.database }}
+  MSCosmosDBOpenAI__CosmosDB__ChangeFeedLeaseContainer: {{ .Values.cosmosDb.changeFeedLeaseContainer }}
+  MSCosmosDBOpenAI__DurableSystemPrompt__BlobStorageContainer: {{ .Values.durableSystemPrompt.blobStorageContainer }}
+  MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigBlobStorageContainer: {{ .Values.blobStorageMemorySource.configBlobStorageContainer }}
+  MSCosmosDBOpenAI__BlobStorageMemorySource__ConfigFilePath: {{ .Values.blobStorageMemorySource.configFilePath }}

@@ -1,0 +1,47 @@
+# Default values for chat-web-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: bhm7vnpxv6irqcr.azurecr.io/searchwebapp
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+ingress:
+  enabled: true
+  protocol: #http | https (set by script)
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  tls:
+  - secretName: tls-prod
+
+env:
+  configmap:
+    - name: MSCosmosDBOpenAI__ChatManager__APIUrl
+  secret:
+    - name: ApplicationInsights__ConnectionString    
+  values:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: Production
+    - name: MSCosmosDBOpenAI__ChatManager__APIRoutePrefix
+      value: /api
+
