@@ -159,7 +159,6 @@ Finally, you should be able to see the Azure Cosmos DB vector store collection b
 ![Cosmos DB vector store collection populated with vectorized data](media/initialization-vector-index.png)
 
 > **NOTE**:
->
 > It takes several minutes until all imported data is vectorized and indexed.
 
 ## Success Criteria
