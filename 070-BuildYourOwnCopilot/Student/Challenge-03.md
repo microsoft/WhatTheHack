@@ -10,14 +10,14 @@ In this challenge, you will explore the implementation and behavior of system pr
 
 Your team must:
 
-1. Analyze the system prompt implementation
+- Analyze the system prompt implementation
     - Inspect the `ISystemPromptService` interface and explore how it retrieves prompts for chat completions.
     - Locate the system prompt in blob storage and review its structure to understand its purpose and function.
     - Experiment with 2–3 changes to the system prompt and observe how they affect chat completions.
-2. Explore the context selector prompt
+- Explore the context selector prompt
     - Review the context selector prompt that determines which plugins are selected for building context.
     - Modify the context selector prompt to see how it impacts the plugins chosen and the final response generation.
-3. Prevent prompt leakage and prompt injection
+- Prevent prompt leakage and prompt injection
     - Test how the system responds to probing questions that might reveal instructions from the system prompt.
     - Refine the prompts with additional instructions to avoid exposing internal system details or instructions through prompt injection attacks.
 
@@ -27,7 +27,7 @@ Open-ended exercise (recommended to be completed at the end of the hackathon):
 
 - Implement an `ISystemPromptService` class that retrieves the system prompt from a different source (e.g., Azure Cosmos DB, GitHub, etc.) and use it in the solution.
 
-### Hints
+## Tips
 
 - **System prompts**: Think about how small changes to the prompt structure can impact the AI's behavior and response quality.
 - **Context selector prompts**: Experiment with how plugins are selected by changing the prompt to encourage or restrict certain plugin usage.
@@ -47,7 +47,9 @@ To complete this challenge successfully, you must:
 - [Using filters in Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/filters-in-semantic-kernel/)
 - [OWASP prompt injection attacks](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-## Explore Further
+## Advanced Challenges (Optional)
+
+If you want to explore further, try these additional challenges:
 
 - Try creating a new `ISystemPromptService` that retrieves prompts from a different source, such as Azure Cosmos DB or GitHub.
 - Refine the system prompts further to see how nuanced instructions change AI behavior.
