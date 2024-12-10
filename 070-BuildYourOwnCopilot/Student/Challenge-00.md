@@ -20,17 +20,13 @@ They've created a simple ASP.NET Blazor web application for the UI elements and 
 
 For this challenge, you will deploy the services into the landing zone in preparation for the launch of the POC.
 
-## Common Prerequisites
-
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
-
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
-
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
+## Prerequisites
 
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - Windows, MacOS, or Linux development machine on which you have **administrator rights**.
+
 OR
+
 - A GitHub account with access to [GitHub Codespaces](https://github.com/features/codespaces)
 
 ## Description
@@ -75,13 +71,20 @@ Your coach will provide you with a Resources.zip file that contains resources yo
 
 Please enable Azure OpenAI for your Azure subscription and install these additional tools:
 
-- Enable subscription access to Azure OpenAI service. Start here to [Request Access to Azure OpenAI Service](https://aka.ms/oaiapply)
 - .NET 8 SDK
 - Docker Desktop
 - Azure CLI ([v2.51.0 or greater](https://docs.microsoft.com/cli/azure/install-azure-cli))
 - Cross-platform (not Windows) PowerShell ([7.0 or greater](https://learn.microsoft.com/powershell/scripting/install/installing-powershell))
 - Visual Studio 2022 or VS Code
 - [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd)
+- [VS Code TODO Extension](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
+
+</details>
+<br/>
+
+### Deploy Azure Resources
+
+Follow the steps below to deploy the solution to your Azure subscription.
 
 > [!NOTE]
 > Free Azure Trial does not have sufficient quota for Azure OpenAI to run this hackathon successfully and cannot be used.
@@ -92,17 +95,10 @@ Please enable Azure OpenAI for your Azure subscription and install these additio
 > [!NOTE]
 > This hackathon requires quota for Azure OpenAI models. To avoid capacity or quota issues, it is recommended before arriving for the hackathon, you deploy both `GPT-4o` and `text-embedding-3-large` models with **at least 10K token capacity** into the subscription you will use for this hackathon. You may delete these models after creating them. This step is to ensure your subscription has sufficient capacity. If it does not, see [How to increase Azure OpenAI quotas and limits](https://learn.microsoft.com/azure/ai-services/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
 
-</details>
-<br/>
+1. Check to make sure you have the `Owner` role for the subscription assigned to your account.
 
-## Deployment steps
-
-Follow the steps below to deploy the solution to your Azure subscription.
-
-1. Ensure all the prerequisites are installed. Check to make sure you have the `Owner` role for the subscription assigned to your account.
-
-    > [!IMPORTANT]
-    > **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 10K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 161 and 172 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 150 and 161 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
+> [!IMPORTANT]
+> **Before continuing**, make sure have enough Tokens Per Minute (TPM) in thousands quota available in your subscription. By default, the script will attempt to set a value of 10K for each deployment. In case you need to change this value, you can edit the `params.deployments.sku.capacity` values (lines 161 and 172 in the `infra\aca\infra\main.bicep` file for **ACA** deployments, or lines 150 and 161 in the `infra\aks\infra\main.bicep` file for **AKS** deployments).
 
 2. Run the following script to provision the infrastructure and deploy the API and frontend. This will provision all of the required infrastructure, deploy the API and web app services into Azure Container Apps and import data into Azure Cosmos DB.
 
@@ -136,9 +132,9 @@ Follow the steps below to deploy the solution to your Azure subscription.
 > [!IMPORTANT]
 > If you encounter any errors during the deployment, rerun `azd up` to continue the deployment from where it left off. This will not create duplicate resources, and tends to resolve most issues.
 
-### Setup RBAC permissions when running locally
+### Setup RBAC Permissions When Running In Your Development Environment
 
-When you run the solution locally, you will need to set role-based access control (RBAC) permissions on the Azure Cosmos DB account. You can do this by running the following command in the Azure Cloud Shell or Azure CLI:
+When you run the solution in your development environment (GitHub Codespace or Local Workstation), you will need to set role-based access control (RBAC) permissions on the Azure Cosmos DB account. You can do this by running the following command in the Azure Cloud Shell or Azure CLI:
 
 Assign yourself to the "Cosmos DB Built-in Data Contributor" role:
 
@@ -146,7 +142,7 @@ Assign yourself to the "Cosmos DB Built-in Data Contributor" role:
 az cosmosdb sql role assignment create --account-name YOUR_COSMOS_DB_ACCOUNT_NAME --resource-group YOUR_RESOURCE_GROUP_NAME --scope "/" --principal-id YOUR_AZURE_AD_PRINCIPAL_ID --role-definition-id 00000000-0000-0000-0000-000000000002
 ```
 
-## Deployment validation
+### Deployment Validation
 
 Use the steps below to validate that the solution was deployed successfully.
 
