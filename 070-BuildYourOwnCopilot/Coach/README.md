@@ -27,9 +27,33 @@ This hack has pre-reqs that a coach is responsible for understanding and/or sett
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
 
-### Student Resources
+### Student Resources & GitHub Codespaces
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, it is the Coach's responsibility to provide the student resources in the `/Student/Resources` folder of this hack to the students.  There are two options for doing this:
+
+- Create a `Resources.zip` Package
+- Setup a GitHub Codespace
+
+#### Create a `Resources.zip` Package
+
+To run the hack from a local workstation, students must have the contents of the `/Student/Resources` folder available on that workstation. 
+
+Coach's should download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+
+#### Setup a GitHub Codespace
+
+In many organizations, students may not be allowed to install software on their local workstations. This hack was designed to support using GitHub Codespaces to provide students with a developer environment in the cloud.  A GitHub Codespace is a development environment that is hosted in a container in the cloud that you access via a browser. All of the pre-requisite developer tools are pre-installed and available in the codespace.
+
+It is the Coach's responsibility to create a GitHub repo to host the Codespace. To do this:
+- Download the contents of the `/Student/Resources` folder of this hack.
+- Create a new GitHub repo in your (the Coach's) GitHub account.  (We recommend naming it "<HackName>-Codespace".)
+- Commit the downloaded contents of the `/Student/Resources` to the root of the new repo.
+- Provide a link to the new repo to the students.
+
+> ![Note]
+> Challenge 0 of the student guide contains instructions for the students on how to use GitHub Codespaces when provided a link to the repo you (the Coach) create.
+
+### Use the What The Hack Website
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
