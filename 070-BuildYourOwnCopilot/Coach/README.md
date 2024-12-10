@@ -50,8 +50,11 @@ It is the Coach's responsibility to create a GitHub repo to host the Codespace. 
 - Commit the downloaded contents of the `/Student/Resources` to the root of the new repo.
 - Provide a link to the new repo to the students.
 
-> ![Note]
+> ![NOTE]
 > Challenge 0 of the student guide contains instructions for the students on how to use GitHub Codespaces when provided a link to the repo you (the Coach) create.
+
+> ![NOTE]
+> The `/.devcontainer` folder in the `/Student/Resources` folder MUST be at the root of the new repo you create for the Codespace to work.
 
 ### Use the What The Hack Website
 
