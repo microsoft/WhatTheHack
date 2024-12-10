@@ -1,4 +1,4 @@
-# What The Hack - Build Your Own copilot
+# What The Hack - Build Your Own Copilot
 
 ## Introduction
 
