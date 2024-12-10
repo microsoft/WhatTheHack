@@ -46,7 +46,7 @@ In many organizations, students may not be allowed to install software on their 
 
 It is the Coach's responsibility to create a GitHub repo to host the Codespace. To do this:
 - Download the contents of the `/Student/Resources` folder of this hack.
-- Create a new GitHub repo in your (the Coach's) GitHub account.  (We recommend naming it "\<HackName\>-Codespace".)
+- Create a new GitHub repo in your (the Coach's) GitHub account.  (We recommend naming it `<HackName>-Codespace`.)
 - Commit the downloaded contents of the `/Student/Resources` to the root of the new repo.
 - Provide a link to the new repo to the students.
 
