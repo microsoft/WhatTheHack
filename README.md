@@ -51,6 +51,12 @@ Read our [What The Hack Author's Guide](/000-HowToHack/WTH-HowToAuthorAHack.md) 
 
 Here is the current list of What The Hack hackathons available in this repository:
 
+## Azure AI
+- [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
+- [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
+- [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
+- [GitHub Copilot](/071-GitHubCopilot/README.md)
+
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
 - [Advanced Kubernetes](/023-AdvancedKubernetes/README.md)
@@ -106,7 +112,9 @@ Here is the current list of What The Hack hackathons available in this repositor
 
 ## Data & AI
 - [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
-- [Fabric Real-time Analytics](/069-FabricRealTimeAnalytics/README.md)
+- [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
+- [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
+- [Fabric Real-time Intelligence](/069-FabricRealTimeIntelligence/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
