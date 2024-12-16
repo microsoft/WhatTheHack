@@ -94,12 +94,11 @@ function wait_until_csr_available () {
     echo "Waiting for CSR${csr_id} with IP address $csr_ip to answer over SSH..."
     start_time=$(date +%s)
     ssh_command="show version | include uptime"  # 'show version' contains VM name and uptime
-    fix_all_nsgs
     ssh_output=$(ssh -n -o ConnectTimeout=60 -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" "$ssh_command" 2>/dev/null)
     until [[ -n "$ssh_output" ]]
     do
         sleep $wait_interval
-        fix_all_nsgs
+        fix_all_nsgs # possible my NSGs are broken?
         ssh_output=$(ssh -n -o ConnectTimeout=60 -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa -o MACs=+hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com "$csr_ip" "$ssh_command" 2>/dev/null)
     done
     run_time=$(("$(date +%s)" - "$start_time"))
@@ -124,7 +123,28 @@ function wait_for_csrs_finished () {
 # Add required rules to an NSG to allow traffic between the vnets (RFC1918)
 function fix_nsg () {
     nsg_name=$1
-    myip=$2
+    if [[ -z "$2" ]]
+    then
+        # Grab my client IP for SSH admin rule
+        myip=$(curl -s4 "https://api.ipify.org/")
+        declare -i i="0"
+        until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || [[ $i -gt 5 ]]
+        do
+            sleep 5
+            myip=$(curl -s4 "https://api.ipify.org/")
+            ((i++))
+        done
+
+        # I tried to get my IP many times. Maybe something bad happened?
+        if [[ $i -gt 5 ]]
+        then
+            echo "Something is wrong with retrieving my public IP from the remote API service at \"https://api.ipify.org/\". Response from service: $myip"
+            exit 1
+        fi
+    else
+        # Called by something else that already did the work for me
+        myip=$2
+    fi
 
     #echo "Adding SSH permit for ${myip} to NSG ${nsg_name}..."    
     az network nsg rule create --nsg-name "$nsg_name" -g "$rg" -n ssh-inbound-allow --priority 1000 \
@@ -144,14 +164,22 @@ function fix_nsg () {
 function fix_all_nsgs () {
     nsg_list=$(az network nsg list -g "$rg" --query '[].name' -o tsv)
 
-    # Grab client IP for SSH admin rule
-    #echo "Finding my public IP for SSH NSG rules"
+    # Grab my client IP for SSH admin rule
     myip=$(curl -s4 "https://api.ipify.org/")
-    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+    declare -i i="0"
+    until [[ $myip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || [[ $i -gt 5 ]]
     do
         sleep 5
         myip=$(curl -s4 "https://api.ipify.org/")
+        ((i++))
     done
+
+    # I tried to get my IP many times. Maybe something bad happened?
+    if [[ $i -gt 5 ]]
+    then
+        echo "Something is wrong with retrieving my public IP from the remote API service at \"https://api.ipify.org/\". Response from service: $myip"
+        exit 1
+    fi
 
     echo "$nsg_list" | while read nsg
     do
@@ -190,6 +218,7 @@ function create_vng () {
     then
         echo "Creating test virtual machine $test_vm_name in vnet $vnet_name in new subnet $test_vm_subnet_prefix..."
         az network nsg create -n "$test_vm_nsg_name" -g "$rg" -l "$location" -o none
+        fix_nsg "$test_vm_nsg_name"
 
         az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$test_vm_subnet_prefix" \
             --nsg "$test_vm_nsg_name" -o none
@@ -391,6 +420,7 @@ function create_vm_in_csr_vnet () {
     then
         echo "Creating VM $vm_name in vnet $vnet_name..."
         az network nsg create -n "$vm_nsg_name" -g "$rg" -l "$location" -o none
+        fix_nsg "$vm_nsg_name"
 
         az network vnet subnet create --vnet-name "$vnet_name" -g "$rg" -n testvm --address-prefixes "$vm_subnet_prefix" \
             --nsg "$vm_nsg_name" -o none
@@ -453,6 +483,10 @@ function create_csr () {
     if [[ -z "$vm_id" ]]
     then
         az network nsg create -n "$csr_nsg_name" -g "$rg" -l "$location" -o none
+        az network nsg rule create --nsg-name "$csr_nsg_name" -g "$rg" -n ike --priority 1100 \
+            --source-address-prefixes Internet --destination-port-ranges 500 4500 --access Allow --protocol Udp \
+            --description "UDP ports for IKE VPN" -o none
+        fix_nsg "$csr_nsg_name"
 
         az network vnet create -n "$csr_name" -g "$rg" -l "$location" --address-prefix "$csr_vnet_prefix" --subnet-name nva \
             --subnet-prefixes "$csr_subnet_prefix" --nsg "$csr_nsg_name" -o none
