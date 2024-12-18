@@ -82,7 +82,7 @@ The onprem routers know some routes, but not the Vnet prefixes. For example, CSR
 
 ```
 ❯ csr4=$(az network public-ip show -n csr4-pip -g $rg --query ipAddress -o tsv)
-❯ ssh $csr4 "sh ip route"
+❯ ssh labadmin@$csr4 "sh ip route"
 Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
        N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
@@ -127,7 +127,7 @@ You can verify connectivity between the VMs in the branches and the core MPLS ne
 
 ```
 ❯ testvm3=$(az network public-ip show -n testvm3-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm3" "ping 10.5.1.4 -c 5"
+❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$testvm3" "ping 10.5.1.4 -c 5"
 10.5.1.4 (10.5.1.4) 56(84) bytes of data.
 64 bytes from 10.5.1.4: icmp_seq=1 ttl=62 time=15.7 ms
 64 bytes from 10.5.1.4: icmp_seq=2 ttl=62 time=9.87 ms

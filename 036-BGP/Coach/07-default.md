@@ -31,11 +31,12 @@ We can configure one or both of the branch CSRs to propagate a default. In this 
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<'EOF'
 config t
-    ip prefix-list S2B permit 0.0.0.0/0
     router bgp 65100
-      default-information originate
+      neighbor 10.1.0.254 default-originate
+      neighbor 10.2.0.4 default-originate
+      neighbor 10.2.0.5 default-originate
 end
 clear ip bgp *
 wr mem
