@@ -12,7 +12,7 @@
 # each team will deploy resources into their own resource group.
 #
 # The script will create the resource groups, users, service principals and GitHub repos for each team. It will also create a 
-# internal repo on the org that the attendeed will be able to view and coaches can use to share the credentials for the 
+# internal repo on the org that the attended will be able to view and coaches can use to share the credentials for the
 # service/user principals. The service principal can be used in the workflows to deploy resources into Azure by copying and 
 # pasting the JSON into repo secrets. Teams can access the portal via a user credential. Coaches have credentials too under
 # the wth-coach-teamX@<domain> user.
@@ -60,15 +60,15 @@ for i in $(seq $GROUP_COUNT); do
     TEAM_UPN=wth-team$i@$DOMAIN
 
     echo "Creating team user $TEAM_UPN"
-    az ad user create --display-name wth-team$i-user  --password $PASSWORD --user-principal-name $TEAM_UPN
+    az ad user create --display-name wth-team"$i"-user  --password $PASSWORD --user-principal-name "$TEAM_UPN"
 
     echo "Creating role assignment $TEAM_UPN"
-    az role assignment create --assignee $TEAM_UPN  --role contributor --resource-group wth-team$i-rg
+    az role assignment create --assignee "$TEAM_UPN"  --role contributor --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team"$i"-rg
 
     echo "Creating service principal into ./AzureCredentials/principal-team$i.json"
     az ad sp create-for-rbac --name "wth-team$i" --role contributor \
-                        --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team$i-rg \
-                        --sdk-auth > ./AzureCredentials/principal-team$i.json
+                        --scopes /subscriptions/$SUBSCRIPTION_ID/resourceGroups/wth-team"$i"-rg \
+                        --sdk-auth > ./AzureCredentials/principal-team"$i".json
 done
 
 
@@ -92,20 +92,20 @@ git commit -m "Initial commit"
 for i in $(seq $GROUP_COUNT); do
     # Create a team repo
     echo "Creating team repo $ORGANISATION/wth-team$i"
-    gh repo create $ORGANISATION/wth-team$i --public --confirm
+    gh repo create $ORGANISATION/wth-team"$i" --public -y
 
     echo "Add the team$i repo as a remote and push the resources"
-    git remote add team$i https://github.com/$ORGANISATION/wth-team$i.git
-    git push team$i main
+    git remote add team"$i" https://github.com/$ORGANISATION/wth-team"$i".git
+    git push team"$i" main
 done
 cd ..
 
 # create the shared teams repo (for credential distribution in issues)
 echo "Creating team repo $ORGANISATION/wth-teams"
-gh repo create $ORGANISATION/wth-teams --private --confirm
+gh repo create $ORGANISATION/wth-teams --private -y
 for i in $(seq $GROUP_COUNT); do
     echo "Creating issues for team $i"
-    gh issue create -R $ORGANISATION/wth-teams -t "Azure Service Principal Credentials for Team $i" -F ./AzureCredentials/principal-team$i.json
+    gh issue create -R $ORGANISATION/wth-teams -t "Azure Service Principal Credentials for Team $i" -F ./AzureCredentials/principal-team"$i".json
     
     # emit file here as CLI doesnt allow newline chars in issue body
     echo "User: wth-team$i@$DOMAIN\nPassword: $PASSWORD" > body
@@ -117,13 +117,13 @@ done
 for i in $(seq $GROUP_COUNT); do
     echo "Creating Team for team $i"
     TEAMNAME=wth-team$i
-    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams -f name=$TEAMNAME -f description='Hack group team' -f permission='push' -f privacy='closed' --silent
+    gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams -f name="$TEAMNAME" -f description='Hack group team' -f permission='push' -f privacy='closed' --silent
 
     echo "Adding team $i to their team repo (push rights)"
-    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/$TEAMNAME/repos/$ORGANISATION/$TEAMNAME -f permission='push' --silent
+    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/"$TEAMNAME"/repos/$ORGANISATION/"$TEAMNAME" -f permission='push' --silent
 
     echo "Adding team $i to the teams repo (pull only)"
-    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/$TEAMNAME/repos/$ORGANISATION/wth-teams -f permission='pull' --silent
+    gh api --method PUT -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/$ORGANISATION/teams/"$TEAMNAME"/repos/$ORGANISATION/wth-teams -f permission='pull' --silent
 done
 
 echo "Done!"

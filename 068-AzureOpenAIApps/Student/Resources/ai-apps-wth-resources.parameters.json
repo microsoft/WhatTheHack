@@ -1,0 +1,75 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "value": "contosoizzy1storage"
+    },
+    "functionWebJobsStorageAccount": {
+      "value": "contosowebjobs2storage"
+    },
+    "cosmosDBAccountName": {
+      "value": "contosoizzydocs"
+    },
+    "cosmosDBDatabaseName": {
+      "value": "contosodb1"
+    },
+    "cosmosDBContainer1": {
+      "value": "yachts"
+    },
+    "cosmosContainerPartitionKey1": {
+      "value": "/yachtId"
+    },
+    "cosmosDBContainer2": {
+      "value": "customers"
+    },
+    "cosmosContainerPartitionKey2": {
+      "value": "/email"
+    },
+    "cosmosDBContainer3": {
+      "value": "reservations"
+    },
+    "cosmosContainerPartitionKey3": {
+      "value": "/id"
+    },
+    "cosmosDBContainer4": {
+      "value": "examsubmissions"
+    },
+    "cosmosContainerPartitionKey4": {
+      "value": "/id"
+    },
+    "redisCache": {
+      "value": "contosoizzycache"
+    },
+    "serviceBusInstance": {
+      "value": "contosoizzysb"
+    },
+    "serviceBusQueue1": {
+      "value": "orange"
+    },
+    "serviceBusQueue2": {
+      "value": "lemon"
+    },
+    "serviceBusQueue3": {
+      "value": "grapefruit"
+    },
+    "serviceBusQueue4": {
+      "value": "tangerine"
+    },
+    "cognitiveSearchName": {
+      "value": "contosoizzysearch1"
+    },
+    "documentIntelligenceService": {
+      "value": "contosoizzydocs1"
+    },
+    "openAIServiceName": {
+      "value": "contosoizzyai"
+    },
+    "gptModelDeploymentId": {
+      "value": "izzy-gpt-4"
+    },
+    "gptEmbeddingId": {
+      "value": "izzy-embedding-small"
+    }
+  }
+}

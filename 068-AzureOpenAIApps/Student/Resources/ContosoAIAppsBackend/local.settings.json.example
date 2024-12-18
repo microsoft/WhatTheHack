@@ -1,0 +1,39 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "AzureWebJobsStorage": "",
+    "COSMOS_CONNECTION": "",
+    "COSMOS_DATABASE_NAME" : "contosodb1",
+    "DOCUMENT_STORAGE": "",
+    "SERVICE_BUS_CONNECTION_STRING": "",
+    "REDIS_HOST": "contoso.redis.cache.windows.net",
+    "REDIS_PORT": "6380",
+    "REDIS_PASSWORD": "A1MYATjDOEQau7058TXtknWgYHh79vzkuAzCaNDixx0=",
+    "AZURE_OPENAI_API_KEY": "57eda0615a4a49bfb6e20ee292617168",
+    "AZURE_OPENAI_ENDPOINT": "https://izzyswedish.openai.azure.com/",
+    "AZURE_OPENAI_MODEL_DEPLOYMENT_NAME": "gpt-4",
+    "AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME": "text-embedding-ada-002",
+    "AZURE_OPENAI_VERSION_NUMBER": "2024-02-15-preview",
+    "AZURE_OPENAI_RUN_RETRIEVAL_DELAY_SECONDS": 5,
+    "AZURE_AI_SEARCH_ENDPOINT": "https://contosoizzysearch0.search.windows.net",
+    "AZURE_AI_SEARCH_ADMIN_KEY": "GnYavWsOAxTXZX3Smrsj0JH3mIEnshdKYqceGFqKX7AzSeD0UajC",
+    "AZURE_AI_SEARCH_CONTOSO_DOCUMENTS_INDEX_NAME": "contoso_documents",
+    "AZURE_AI_SEARCH_CONTOSO_YACHTS_INDEX_NAME": "contoso_yachts",
+    "DOCUMENT_INTELLIGENCE_ENDPOINT": "https://izzydocumentintelingencia.cognitiveservices.azure.com/",
+    "DOCUMENT_INTELLIGENCE_KEY": "788888c8c3544aa4aa684e092771ae16",
+    "DOCUMENT_INTELLIGENCE_API_VERSION": "2024-02-29-preview",
+    "DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID": "contoso-classifier-2024",
+    "COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY" : "0",
+    "LLM_QUOTA_ENFORCEMENT": "0",
+    "LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS": "60",
+    "LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS": "2",
+    "LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS": "180",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxx-xxxxxxx;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/;ApplicationId=xxxxx"  
+  },
+  "Host": {
+    "LocalHttpPort": 7072,
+    "CORS": "*"
+  }
+}
