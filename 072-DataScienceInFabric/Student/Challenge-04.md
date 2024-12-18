@@ -1,5 +1,4 @@
-# Challenge 04 - Load the ML Model from Microsoft Fabric to Azure ML
-
+# Challenge 04 - Generate batch predictions
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
@@ -21,7 +20,7 @@ By the end of this challenge, you should be able to understand and know how to u
 
 ## Success Criteria
 
-You have generated a set of predictions with the simulated data and have saved them as a delta table, making them available to create a PowerBI report
+Verify that you have generated a set of predictions with the simulated data and have saved them as a delta table, making them available to create a PowerBI report. Verify that you can load the table with the newly generated predictions into the notebook. 
 
 ## Learning Resources
 

@@ -24,7 +24,7 @@ By the end of this challenge, you should be able to understand and know how to u
 
 ## Success Criteria
 
-Your model has been trained and registered with MLFlow and you are able to load it and generate predictions with the validation data
+Verify that your model has been trained and registered with MLFlow and you are able to load it and generate predictions with the validation data.
 
 ## Learning Resources
 

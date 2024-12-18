@@ -22,13 +22,13 @@ In this hack you will be learning how to best leverage Fabric for Data Science. 
 	 - Configure your Fabric workspace and gather your data
 - Challenge 01: **[Bring your data to the OneLake](Student/Challenge-01.md)**
 	 - Creating a shortcut to the available data
-- Challenge 02: **[Prepare your data for ML](Student/Challenge-02.md)**
+- Challenge 02: **[Data preparation with Data Wrangler](Student/Challenge-02.md)**
 	 - Clean and transform the data into a useful format while leveraging Data Wrangler
 - Challenge 03: **[Train and register the model](Student/Challenge-03.md)**
 	 - Train a machine learning model with ML Flow 
 - Challenge 04: **[Generate batch predictions](Student/Challenge-04.md)**
 	 - Score a static dataset with the model
-- Challenge 05: **[Create a PowerBI report with your predictions](Student/Challenge-05.md)**
+- Challenge 05: **[Visualize predictions with a Power BI report](Student/Challenge-05.md)**
 	 - Build a PowerBI report with the scored data
 - Challenge 06: **[(Optional) Deploy the model to an AzureML real-time endpoint](Student/Challenge-06.md)**
 	 - Deploy the model you trained to AzureML and generate predictions via the API

@@ -29,7 +29,7 @@ In this challenge, hack participants must use Data Wrangler to prepare the heart
       
   - *Dropping Missing Values*
     - On the **Operations** panel, select **Find and replace**, and then select **Drop missing values**.
-    - Select the `RestingBP`, `Cholesterol` and `FastingBS` columns. On the right left those are the ones that are pointed as missing values.
+    - Select the `RestingBP`, `Cholesterol` and `FastingBS` columns. Those are the columns that are pointed as having missing values on the righ-hand side menu of the screen.
     - Select **Apply**, a new step is created in the **Cleaning steps panel** on the bottom left.
    
   - *Dropping Duplicate Rows*
@@ -48,7 +48,7 @@ In this challenge, hack participants must use Data Wrangler to prepare the heart
 ### Coaches' guidance
 
 -	This challenge has 3 main sections, Data Wrangler operations, feature engineering and saving processed data to a delta table. 
--	The full version of Notebook 2, with all code cells filled in, can be found for reference in the coach/solutions.zip folder of this GitHub.
+-	The full version of Notebook 2, with all code cells filled in, can be found for reference in the `coach/solutions` folder of this GitHub.
 -	The aim of this challenge, as noted in the student guide, is to understand data preparation using data wrangler and fabric notebooks.
 -	To assist students, coaches can clear up doubts regarding the Python syntax or how to get started with notebooks, but students should focus on learning how to operate data wrangler, navigate the Fabric UI, code in notebooks and read/write to the delta lake.
 

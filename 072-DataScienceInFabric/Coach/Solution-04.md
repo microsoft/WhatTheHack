@@ -17,7 +17,7 @@ In this challenge, participants must used the model trained in Challenge 3 to ge
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
 ### Coaches' guidance:
-- The full version of Notebook 4, with all code cells filled in, can be found for reference in the `coach/solutions.zip` folder of this GitHub.
+- The full version of Notebook 4, with all code cells filled in, can be found for reference in the `coach/solutions` folder of this GitHub.
 - The aim of this challenge, as noted in the student guide, is to learn how to use the PREDICT function from a Spark notebook with a pre-trained model. Simulating the data is a necessary previous step, but not the focus of this challenge.
 - To assist students, coaches can clear up doubts/give hints on how to create the simulated data, but students should focus on learning how to load the model and generate predictions.
 

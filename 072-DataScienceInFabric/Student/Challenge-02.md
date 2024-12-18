@@ -33,11 +33,11 @@ By the end of this challenge, you should be able to understand and know how to u
 
 ## Success Criteria
 
-- The heart dataset totally shaped, cleaned and prepared for the model training. 
-- No data duplicated or exceeded columns.
-- No missing values. 
-- No categorical values.
-- The processed data saved to the Fabric Lakehouse as a Delta table.
+Verify that the heart dataset is correctly shaped, cleaned and prepared for the model training by confirming the following:
+- There are no duplicates row in the dataset.
+- There are no missing values. 
+- There are no categorical values. Categorical values must be transformed to numerical values.
+- The processed data is saved to the Fabric Lakehouse as a Delta table. Verify that you can load the table back to the notebook.
 
 ## Learning Resources
 

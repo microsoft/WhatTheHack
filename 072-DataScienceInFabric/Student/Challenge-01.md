@@ -27,7 +27,7 @@ By the end of this challenge, you should be able to understand and know how to u
 
 ## Success Criteria
 
-The heart.csv data is now saved as a delta table on the lakehouse in the same workspace where the notebooks are stored.
+Verify that the heart.csv data is now saved as a delta table on the lakehouse in the same workspace where the notebooks are stored. Verify that you are able to load the table back to the notebook.
 
 ## Learning Resources
 

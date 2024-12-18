@@ -12,15 +12,15 @@ Welcome to the coach's guide for the Data Science In Microsoft Fabric What The H
 	 - Configure your Fabric workspace and gather your data
 - Challenge 01: **[Bring your data to the OneLake](./Solution-01.md)**
 	 - Creating a shortcut to the available data
-- Challenge 02: **[Prepare your data for ML](./Solution-02.md)**
+- Challenge 02: **[Data preparation with Data Wrangler](./Solution-02.md)**
 	 - Clean and transform the data into a useful format while leveraging Data Wrangler
 - Challenge 03: **[Train and register the model](./Solution-03.md)**
 	 - Train a machine learning model with ML Flow with the help of Copilot
 - Challenge 04: **[Generate batch predictions](./Solution-04.md)**
 	 - Score a static dataset with the model
-- Challenge 05: **[Visualize predictions with a PowerBI report ](./Solution-05.md)**
+- Challenge 05: **[Visualize predictions with a PowerBI report](./Solution-05.md)**
 	 - Visualize generated predictions by using a PowerBI report
-- Challenge 06: **[Deploy the model to an AzureML real-time endpoint](./Solution-06.md)**
+- Challenge 06: **[(Optional) Deploy the model to an AzureML real-time endpoint](./Solution-06.md)**
 	 - Deploy the trained model to an AzureML endpoint for inference
 
 ## Coach Prerequisites

@@ -19,7 +19,7 @@ In this challenge, participants must use the cleaned-up data from Challenge 2 to
 - The students must follow the instructions, leverage the documentation and complete the code cells sequentially.
 
 ### Coaches' guidance:
-- The full version of Notebook 3, with all code cells filled in, can be found for reference in the `coach/solutions.zip` folder of this GitHub.
+- The full version of Notebook 3, with all code cells filled in, can be found for reference in the `coach/solutions` folder of this GitHub.
 - There may be multiple ways to attain the same solution and multiple valid functions to use in each section, but not every combination of methods might yield the end result.
 - The aim of this challenge, as noted in the student guide, is to practice leveraging MLFlow within Fabric. This specific hack uses `sklearn` but other ML frameworks can be used in Fabric as well.
 - To assist students, coaches can clear up doubts/give hints on the specifics of splitting the data and fitting the model but students should focus on learning how to structure runs and experiments on MLFlow.
