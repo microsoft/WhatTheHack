@@ -16,7 +16,7 @@ In this challenge, hack participants must use Data Wrangler to prepare the heart
 
 ### Student step-by-step instructions
 - Launching Data Wrangler:
-  -  Participants must create a pandas dataframe the fabric notebook. It’s necessary to complete the first cell in the notebook 2.
+  -  Participants must create a pandas dataframe the fabric notebook. It’s necessary to complete the first cell in notebook 2.
   -  Once executed, under the notebook ribbon Home tab, select Launch Data Wrangler. You'll see a list of activated pandas DataFrames available for editing.
   -  Select the DataFrame you just created in last cell and open in Data Wrangler. From the Pandas dataframe list, select `df`.
 

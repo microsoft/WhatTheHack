@@ -45,7 +45,7 @@ This hack requires students to have access to Azure and Fabric. These requiremen
 Each student will need access to Microsoft Fabric and be licensed to create PowerBI reports for this hack. The following are the options to complete these licensing requirements:
 
 1. **Recommended if available**: Individual [Fabric free trials](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial#start-the-fabric-capacity-trial). This will grant users access to creating the required Fabric items as well as the PowerBI report. **If previously used, the Fabric free trial may be unavailable**
-2. Fabric Capacity and PowerBI Pro/Premium per user license. Each user would need their own PowerBI license but capacities could be shared and scaled up according to the needs. If running the hack on an individual basis, an F4 capacity would be adequate, and an F8 capacity would have generous compute power margin.  **Alternatively, users can activate a [PowerBI Free Trial](https://learn.microsoft.com/en-us/power-bi/fundamentals/service-self-service-signup-for-power-bi) if available.** The PowerBI trial could be available even if the Fabric one is not.
+2. Fabric Capacity and PowerBI Pro/Premium per user license. Each user would need their own PowerBI license but capacities could be shared and scaled up according to their needs. If running the hack on an individual basis, an F4 capacity would be adequate, and an F8 capacity would have generous compute power margin.  **Alternatively, users can activate a [PowerBI Free Trial](https://learn.microsoft.com/en-us/power-bi/fundamentals/service-self-service-signup-for-power-bi) if available.** The PowerBI trial could be available even if the Fabric one is not.
 
 
 ### Azure licensing requirements
@@ -56,7 +56,7 @@ There are 2 challenges that require access to Azure:
 
 - Challenge 6: Students are required to have Azure AI Developer access to an Azure Machine Learning resource. Each student will need to register their own model and create their own real-time endpoint, which is why it is **recommended to individually deploy an Azure ML workspace per student**.
 
-Given these requirements, each student could have their own Azure subscription or they could share access to a single subscription.
+Given these requirements, each student could have their own Azure subscription, or they could share access to a single subscription.
 
 These Azure resources can be deployed on an individual per-student basis using the `deployhack.sh` script included in the student resources folder.
 
@@ -64,7 +64,7 @@ These Azure resources can be deployed on an individual per-student basis using t
 
 You may schedule this hack in any format, as long as the challenges are completed sequentially.
 
-Time estimate for each challenge:
+Time estimates for each challenge:
 - Challenge 00: 15 minutes
 - Challenge 01: 30 minutes
 - Challenge 02: 30 minutes

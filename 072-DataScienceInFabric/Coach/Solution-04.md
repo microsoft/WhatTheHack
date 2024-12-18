@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, participants must used the model trained in Challenge 3 to generate predictions over a simulated set of data. Participants complete the challenge by making the new predictions available as a delta table in the lakehouse, which they will use on Challenge 6 to create a PowerBI report showing their findings.
+In this challenge, participants must use the model trained in Challenge 3 to generate predictions over a simulated set of data. Participants complete the challenge by making the new predictions available as a delta table in the lakehouse, which they will use on Challenge 6 to create a PowerBI report showing their findings.
 
 ### Sections
 1. Simulate input data to be used for predictions

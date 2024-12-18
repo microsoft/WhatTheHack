@@ -14,16 +14,16 @@ You might not need all of them for the hack you are participating in. However, i
 
 <!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
 
-- [Azure Subscription](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
 - [Postman](https://www.postman.com/downloads/)
-- [Managing Cloud Resources](../Student/000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-- [Azure Portal](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-    - [Azure Cloud Shell](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-  - [Azure CLI (optional)](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../Student/000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+- [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+    - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
+  - [Azure CLI (optional)](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
 
-- [Azure Storage Explorer (optional)](../Student/000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+- [Azure Storage Explorer (optional)](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 Additionally please refer to the [Coach Hack introduction](./README.md) for more information about licensing requirements and options
 ## Description

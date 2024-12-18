@@ -6,7 +6,7 @@
 During Challenge 3, you trained and registered a model. You validated it using a variety of metrics. You must now leverage this same model to generate predictions over new data. To do so, you will create a set of simulated input data to feed the model and receive a prediction. Once you have generated the predictions you will save them as a delta table for further use.
 
 ## Description
-Your task in this challenge is to obtain predictions from some simulated inputs This is a notebook-based challenge, you will find all instructions within Notebook 4.
+Your task in this challenge is to obtain predictions from some simulated inputs. This is a notebook-based challenge, you will find all instructions within Notebook 4.
 
 Notebook sections:
 1. Simulate input data to be used for predictions
