@@ -29,7 +29,7 @@ In this challenge, hack participants must use Data Wrangler to prepare the heart
       
   - *Dropping Missing Values*
     - On the **Operations** panel, select **Find and replace**, and then select **Drop missing values**.
-    - Select the `RestingBP`, `Cholesterol` and `FastingBS` columns. Those are the columns that are pointed as having missing values on the righ-hand side menu of the screen.
+    - Select the `RestingBP`, `Cholesterol` and `FastingBS` columns. Those are the columns that are pointed as having missing values on the right-hand side menu of the screen.
     - Select **Apply**, a new step is created in the **Cleaning steps panel** on the bottom left.
    
   - *Dropping Duplicate Rows*
