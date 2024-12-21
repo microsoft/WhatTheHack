@@ -204,7 +204,11 @@ You should also upload both the Event Kickoff presentation and any lecture prese
 
 ##### Student Resources export tool
 
-You can use the **Create a release for a WhatTheHack hackathon** GitHub Action to make it easier to export just the `Student/Resources` directory as a ZIP file. This will create a release in the repo with the ZIP file as an asset. You can then download the ZIP file and upload it to the General channel's Files tab.
+Many hacks will already have a GitHub Release ZIP file which includes the hack's `Student/Resources` directory. You can use this ZIP file directly if you don't need to make any changes to the hack (a GitHub Action will create this ZIP file on each push to the `master` branch, so the ZIP file should be up-to-date with the latest changes).
+
+![releases-resources-zip-file](images/releases-resources-zip-file.png)
+
+If the ZIP file doesn't exist or you need to make changes to the content in the repo, you can use the **Create a WTH Release - Manual** GitHub Action to make it easier to export just the `Student/Resources` directory as a ZIP file. This will create a release in the repo with the ZIP file as an asset. You can then download the ZIP file and upload it to the General channel's Files tab.
 
 Here are the steps to use the tool to export the Student Resources:
 
@@ -226,8 +230,6 @@ Here are the steps to use the tool to export the Student Resources:
 1. Click on the release that was created by the workflow.
 1. Expand the **Assets** section.
 1. Click on the **Resources.zip** file to download it.
-
-   ![releases-resources-zip-file](images/releases-resources-zip-file.png)
 
 #### Shared Tips/Wiki (Optional)
 
