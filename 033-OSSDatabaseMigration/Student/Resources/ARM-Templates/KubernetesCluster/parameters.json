@@ -40,7 +40,7 @@
       "value": "ossdbmigration-dns"
     },
     "kubernetesVersion": {
-      "value": "1.25.5"
+      "value": "1.31.2"
     },
     "networkPlugin": {
       "value": "azure"
