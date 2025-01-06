@@ -31,7 +31,7 @@ echo "Upgrading the Azure Storage Account to ADLS gen 2 to enable the creation o
 az storage account hns-migration start --request-type upgrade --name $RESOURCEPREFIX
 
 echo "Downloading the required data from the GitHub repo..."
-wget https://raw.githubusercontent.com/pradeepsingla87/WhatTheHack/xxx-DataScience_In_MicrosoftFabric/072-DataScienceInFabric/Student/Resources/heartdata.csv
+wget https://aka.ms/csvfabricwth
 
 echo "Creating a container to store the directory where the data will be uploaded..."
 fsresponse=$(az storage fs create -n file-system --account-name $RESOURCEPREFIX)
