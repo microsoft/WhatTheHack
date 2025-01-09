@@ -18,7 +18,7 @@ image:
   tag: "21.3.0-xe"
   
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 1521
   protocol: TCP
 

@@ -18,7 +18,7 @@ image:
   tag: "11.6"
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 5432
   protocol: TCP
 
