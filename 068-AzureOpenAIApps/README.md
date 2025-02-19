@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI service with Microsoft Azure platform services.
+This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI Service with Microsoft Azure platform services.
 
 This hack assumes you a have basic understanding of generative AI fundamentals such as:
 - Prompt Engineering
@@ -43,12 +43,12 @@ In this hack, you will explore the architecture and configuration of the Citrus 
 
 ## Learning Objectives
 
-The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
+The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure OpenAI Service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
 
 The participants will learn how to:
 - Select different architectures to implement Open AI solutions on Azure based on the scenarios.
 - Understand when to use Open AI products and when to leverage Azure AI Services or other solutions
-- Provision and configure Azure Open AI resources.
+- Provision and configure Azure OpenAI resources.
 - Understand the different libraries, frameworks, capabilities and tools available to implement intelligent AI apps.
 - Implement Q&A virtual assistants using RAG architectures powered by vector stores, full text search and hybrid search.
 - Understand techniques and options available on Azure for processing and storing data used for implementing RAG architectures.
