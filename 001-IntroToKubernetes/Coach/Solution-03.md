@@ -10,8 +10,9 @@
 	- The default Kubernetes version used by the az aks create command should be fine.  
 	- The CLI should be used to create the cluster to give the most realistic experience.  
 	- Cluster names should be unique within the subscription.  
-	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using basic networking, managed identity, 3 nodes in separate availability zones and an attached ACR and doesn't generate any ssh keys:
+	- Here’s an example command that creates a cluster named **wth-aks02-poc** in resource group **wth-rg02-poc:** using CNI networking (the default mode as of 1.30), managed identity, 3 nodes in separate availability zones and an attached ACR and doesn't generate any ssh keys:
 		- `az aks create --location eastus --name wth-aks02-poc --node-count 3  --no-ssh-key --resource-group wth-rg02-poc --zones 1 2 3 --enable-managed-identity --attach-acr <acrname>`
+	- Do mention that the network plugin can be changed using the `--network-plugin` argument, e.g., `--network-plugin azure` or `--network-plugin kubenet`. This is often encouraged to explicitly set this as opposed to using an implicit default.
   	- **NOTE:** Attaching an ACR requires the student to have Owner or Azure account administrator role on the Azure subscription. If this is not possible then someone who is an Owner can do the attach for the student after they create the cluster.
 		- See below for the `az aks update` command that is used to attach the ACR.
 	- Documentation on installing AKS can be found here:
