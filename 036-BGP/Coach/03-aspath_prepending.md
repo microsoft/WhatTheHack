@@ -22,7 +22,7 @@ In order to fix this we can configure CSR3 and CSR4 to advertise a worse metric 
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map tovngs out
@@ -42,7 +42,7 @@ And this on CSR4:
 
 ```bash
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr4" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map tovngs out
@@ -61,8 +61,8 @@ EOF
 You might need to restart your BGP adjacencies to make the change take effect quicker:
 
 ```bash
-ssh -n $csr3 "clear ip bgp *"
-ssh -n $csr4 "clear ip bgp *"
+ssh -o ServerAliveInterval=60 -n labadmin@$csr3 "clear ip bgp *"
+ssh -o ServerAliveInterval=60 -n labadmin@$csr4 "clear ip bgp *"
 ```
 
 Now let's look again at how VNG1 learns 10.3.0.0/16:
