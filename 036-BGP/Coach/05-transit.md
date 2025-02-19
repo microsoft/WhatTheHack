@@ -22,7 +22,7 @@ This means that if the routes from VNG2 disappeared, VNG1 would send traffic thr
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<'EOF'
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<'EOF'
 conf t
     ip as-path access-list 1 permit ^$
     route-map tovngs permit 20
@@ -32,7 +32,7 @@ end
 wr mem
 EOF
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<'EOF'
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr4" >/dev/null 2>&1 <<'EOF'
 conf t
     ip as-path access-list 1 permit ^$
     route-map tovngs permit 20
