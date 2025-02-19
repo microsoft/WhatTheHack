@@ -117,6 +117,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Fabric Real-time Intelligence](/069-FabricRealTimeIntelligence/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
+- [Data Science In Microsoft Fabric](/072-DataScienceInFabric/README.md)
 - [SQL Modernization and Migration](/043-SQLModernization/README.md)
 - [OSS Database Migration](/033-OSSDatabaseMigration/README.md)
 - [MLOps from Scratch](/032-MLOpsFromScratch/README.md)
