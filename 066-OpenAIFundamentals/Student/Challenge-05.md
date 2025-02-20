@@ -1,4 +1,4 @@
-# Challenge 05 - Responsible AI
+# Challenge 05 - Trustworthy AI
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
 
@@ -10,7 +10,7 @@ As LLMs grow in popularity and use around the world, the need to manage and moni
 
 More companies offer social features for user interaction in industries like gaming, social media, e-commerce and advertising, to build brand reputations, promote trust and to drive digital engagement. However, this trend is accompanied by the growing concern of complex and inappropriate content online. These challenges have led to increasing regulatory pressures on enterprises worldwide for digital content safety and greater transparency in content moderation.
 
-Azure AI Content Safety, a new Azure AI service and proof point in our Responsible AI journey, will help businesses create safer online environments and communities. In Content Safety, models are designed to detect hate, violent, sexual and self-harm content across languages in images and text. The models assign a severity score to flagged content, indicating to human moderators what content requires urgent attention.
+Azure AI Content Safety, an Azure AI service and proof point in our Responsible AI journey, will help businesses create safer online environments and communities. In Content Safety, models are designed to detect hate, violent, sexual and self-harm content across languages in images and text. The models assign a severity score to flagged content, indicating to human moderators what content requires urgent attention.
 
 Microsoft has established seven Responsible AI principles, as well as many practical tools to implement them into your Generative AI application. Before experimenting with these tools, understand the fundamentals of Responsible Generative AI to apply to any LLM scenario on Azure [10-minute video](https://learn.microsoft.com/en-us/training/modules/responsible-generative-ai/?WT.mc_id=academic-105485-koreyst) and a [downloadable eBook on Content Safety](https://aka.ms/contentsafetyebook).
 
@@ -24,9 +24,9 @@ This challenge is divided into the following sections:
 - [5.3 Personally Identifiable Information (PII) Detection and Redaction](#53-personally-identifiable-information-pii-detection-and-redaction)
 - [5.4 Prompt Shields and Protected Material Detection](#54-prompt-shields-and-protected-material-detection)
 
-For each section of this Challenge, you will work in [Azure AI Studio](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Studio in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
+For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
-**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Studio for this hack.
+**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Foundry for this hack.
 
 ### Access Content Safety Service - TEMPORARY STEP
 
@@ -48,7 +48,7 @@ Follow these steps to grant your user account access to the Content Safety servi
 
 After the role assignment completes in the Azure Portal, you will need to wait 1-3 minutes and then follow one additional step:
 
-- Log out of [Azure AI Studio](https://ai.azure.com), and then log back in. This will ensure your login token is refreshed with the new permissions for Content Safety.
+- Log out of [Azure AI Foundry](https://ai.azure.com), and then log back in. This will ensure your login token is refreshed with the new permissions for Content Safety.
 
 You should now be prepared to complete the rest of this challenge!
 
@@ -60,18 +60,18 @@ Your Azure AI Services resource includes Content Safety. You may refer to this [
 
 1. [Understand harm categories](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning) defined by Microsoft. 
 
-2. In the [AI Studio](https://ai.azure.com/), navigate to your Hub and "AI Services" in the navigation pane. From here, you should find the option to try out Content Safety capabilities. 
+2. In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
 
 3. Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the moderation results. Try viewing the code!
 
-* "Moderate text content"
-* "Moderate image content"
-* Try out each features with sample bulk data
-* Optional: in [Azure Content Safety Studio](https://contentsafety.cognitive.azure.com/), you can explore the "Monitor online activity" feature, which can be found on the homepage of the Content Safety Studio. How could this data be utilized in an existing application in your workflow, if at all?
-  
+* "Moderate text content" and "Moderate image content" and "Moderate multimodal content"
+* Try out each feature with sample bulk data
+
 What happens as you configure the threshold levels in the moderation features?
 
 Are there any applications for content moderation in your line of work? What could they be?
+
+**NOTE:** As of February 2025, some of the features covered in this section of the challenge are in preview and are not recommended for use in production scenarios.
 
 ##### Knowledge Check 5.1 - Content Safety Service:
 Check your understanding of the AI Content Safety Service by answering the following questions:
@@ -98,6 +98,7 @@ Let's configure a content filtering system both for user input (prompts) and LLM
 5. Apply the content filter to one of your deployed models.
 
 6. Test out the effectiveness of the content filter in the "Chat" with your model that has the new content filter.
+7. Test out **Custom categories** within your AI project -> **AI Services** pane -> **Content Safety**
 
 ##### Knowledge Check 5.2 - Content Filtering:
 To assess your understanding of the concept of content filtering, answer the following questions based on the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new):
@@ -117,7 +118,7 @@ Learn more about PII in the [documentation](https://learn.microsoft.com/en-us/az
 
 #### Student Task 5.3: PII Detection, Redaction, and Extraction
 
-1. In the [AI Studio](https://ai.azure.com/), navigate to your Hub and "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
+1. In the [AI Studio](https://ai.azure.com/), navigate to your Project and the "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
 
 * How do you enable redacting PII? How does the output hide those entities?
   
@@ -132,23 +133,34 @@ Based on the Student Task and your understanding of the documentation, determine
   
 * True or False: PII detection is available only asynchronously.
 
-### 5.4 Prompt Shields and Protected Material Detection
 
-**NOTE:** As of July 2024, these features covered in this section of the challenge are in preview and are not recommended for use in production scenarios.
-
-#### 5.4.1 Groundedness (Private Preview - Coming Soon)
+#### 5.4 Groundedness detection (Preview)
 
 Any application system that relies on data to provide answers should be mindful of hallucinations. Hallucinations indicate a lack of reasoning on provided data and may contain false or misleading information. A system that provides answers grounded in information can reinforce a reliable and responsible LLM system.
 
 Learn what Ungroundedness and Groundedness are, as well as how [Groundedness Detection](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/groundedness) on Azure works, via the [Microsoft Technical Blog](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/detect-and-mitigate-ungrounded-model-outputs/ba-p/4099261). 
 
-#### 5.4.2 Prompt Shields (Public Preview)
+#### Student Task 5.4.1
+In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+
+Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. Try viewing the code!
+
+* "Groundedness detection"
+
+#### 5.5 Prompt Shields 
 
 Protecting your LLM application from bad actors is equally important as moderating content. Doing so can secure your application to prevent data leakage. Read about the definitions of Jailbreak and Indirect Attacks, as well as implementing them on Azure, on the  [Microsoft Technical blog](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-announces-prompt-shields-for-jailbreak-and-indirect/ba-p/4099140).
 
 Attacks can occur through user prompts as well as documents that contain hidden embedded instructions to gain unauthorized control over the LLM session. Read more about [subtypes of user prompt attacks](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection). These are considered "input attacks."
 
-#### Student Task 5.4.2: Update and test your custom content filter using Prompt Shields
+#### Student Task 5.5.1
+In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+
+Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. What is the difference between a direct and indirect attack?
+
+* "Prompt Shields"
+
+#### Student Task 5.5.2: Update and test your custom content filter using Prompt Shields
 
 1. Revisit the custom content filter you created earlier in the Azure AI Studio.
 
@@ -170,13 +182,20 @@ Here are some example jailbreak attacks to prompt your protected model. Copy and
 
 * Are there any other prompts you can use to test the system?
 
-#### 5.4.3 Protected Material Detection (Preview)
+#### 5.6 Protected Material Detection (Preview)
 
-#### Student Task #5.4.3: Update and test your custom content filter using Protected Material Detection
-1. Revisit the custom content filter you created earlier in the Azure AI Studio.
+#### Student Task 5.6.1
+In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+
+Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. 
+
+* "Protected material detection fot text" or "Protected material detection for code"
+
+#### Student Task #5.6.2: Update and test your custom content filter using Protected Material Detection
+1. Revisit the custom content filter you created earlier in the Azure AI Foundry.
 2. In the "Output filter" tab, toggle the setting for "Protected material for text" to either "Annotate only" or "Annotate and block." Keep in mind, for future implementations, that "Annotate and block" can reduce token usage compared to "Annotate only," which will still return the completed output.
 3. Apply the updated filter to one of your deployed models.
-4. In the "Chat" tab of the Playground in the Azure AI Studio, experiment with your updated content filter. 
+4. In the "Chat" tab of the Playground in the Azure AI Foundry, experiment with your updated content filter. 
 Here is a sample prompt for testing purposes: 
 `to everyone, the best things in life are free. the stars belong to everyone, they gleam there for you and me. the flowers in spring, the robins that sing, the sunbeams that shine, they\'re yours, they\'re mine. and love can come to everyone, the best things in life are`
 
@@ -190,9 +209,9 @@ To complete this challenge successfully, you should be able to:
 - Identify tools available to identify and mitigate harms in LLMs
 
 ## Conclusion 
-In this Challenge, you explored principles and practical tools to implement Responsible AI with an LLM system through the Azure AI Studio. Understanding how to apply Responsible AI principles is essential for maintaining user trust and integrity within AI-driven platforms. 
+In this Challenge, you explored principles and practical tools to implement Responsible AI with an LLM system through the Azure AI Foundry. Understanding how to apply Responsible AI principles is essential for maintaining user trust and integrity within AI-driven platforms. 
 
-Throughout this Challenge, you have explored the importance of detecting and managing harmful content, as well as the necessity of personally identifiable information (PII) detection and redaction in generative AI applications. By engaging with Azure AI tools in the AI Studio, you have gained practical experience in moderating content, filtering out undesirable material, and protecting sensitive data. 
+Throughout this Challenge, you have explored the importance of detecting and managing harmful content, as well as the necessity of personally identifiable information (PII) detection and redaction in generative AI applications. By engaging with Azure AI tools in the AI Foundry, you have gained practical experience in moderating content, filtering out undesirable material, and protecting sensitive data. 
 
 As you move forward, remember the significance of grounding responses in accurate data to prevent the propagation of misinformation and safeguard against input attacks. There are many ways to mitigate harms, and securing your application responsibly is an ongoing endeavor. We encourage you to continuously strive to enhance the safety and reliability of your AI systems, keeping in mind the evolving landscape of digital content safety.
 
