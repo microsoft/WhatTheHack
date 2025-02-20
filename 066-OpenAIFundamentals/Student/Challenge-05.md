@@ -134,7 +134,7 @@ Based on the Student Task and your understanding of the documentation, determine
 * True or False: PII detection is available only asynchronously.
 
 
-#### 5.4 Groundedness detection (Preview)
+### 5.4 Groundedness detection (Preview)
 
 Any application system that relies on data to provide answers should be mindful of hallucinations. Hallucinations indicate a lack of reasoning on provided data and may contain false or misleading information. A system that provides answers grounded in information can reinforce a reliable and responsible LLM system.
 
@@ -147,7 +147,7 @@ Try out the following features in Content Safety using provided sample text and 
 
 * "Groundedness detection"
 
-#### 5.5 Prompt Shields 
+### 5.5 Prompt Shields 
 
 Protecting your LLM application from bad actors is equally important as moderating content. Doing so can secure your application to prevent data leakage. Read about the definitions of Jailbreak and Indirect Attacks, as well as implementing them on Azure, on the  [Microsoft Technical blog](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-announces-prompt-shields-for-jailbreak-and-indirect/ba-p/4099140).
 
@@ -182,7 +182,7 @@ Here are some example jailbreak attacks to prompt your protected model. Copy and
 
 * Are there any other prompts you can use to test the system?
 
-#### 5.6 Protected Material Detection (Preview)
+### 5.6 Protected Material Detection (Preview)
 
 #### Student Task 5.6.1
 In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
