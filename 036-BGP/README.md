@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this Hack exercise students will explore how to use BGP in a complex environment between an on-premises network and two Azure regions. Both active/passive and active/active Azure VPN Gateways will be used in Azure, and Cisco CSR 1000v will be used to simulate onprem devices.
+In this Hack exercise students will explore how to use BGP in a complex environment between an on-premises network and two Azure regions. Both active/passive and active/active Azure VPN Gateways will be used in Azure, and Cisco CSR 8000V will be used to simulate onprem devices.
 
 The challenges will show real-world scenarios that have been observed in customers deploying their applications to Azure
 

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: BuildYourOwnCopilot
+metadata:
+    template: azd-init@1.5.1
+hooks:
+    predeploy:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: ./azd-hooks/predeploy.ps1
+    postdeploy:
+      shell: pwsh
+      continueOnError: false
+      interactive: true
+      run: ./azd-hooks/postdeploy.ps1
+services:
+    ChatAPI:
+        project: ../../src/ChatAPI
+        host: containerapp
+        language: dotnet
+        docker:
+            context: ../
+            path: Dockerfile
+    UserPortal:
+        project: ../../src/UserPortal
+        host: containerapp
+        language: dotnet
+        docker:
+            context: ../
+            path: Dockerfile

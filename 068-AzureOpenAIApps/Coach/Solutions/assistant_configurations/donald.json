@@ -1,0 +1,19 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_information",
+            "description": "Retrieves answers to relevant questions about the country Contoso Islands",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The question about Contoso Islands"
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+    }
+]
