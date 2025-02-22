@@ -158,9 +158,10 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 
 - Rename the file from `.env.sample` to `.env`.
 - Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
-    - For **Azure OpenAI, Model Deployments, AI Search, Document Intelligence**, you can find these credentials in the Azure AI Foundry by navigating to the **Overview** tab within your project.
-      - Click on **Azure OpenAI Service** to grab the endpoint.
-      - Do the same for the Document Intelligence resource by clicking on **Azure AI Services** and grabbing the **Azure AI Services endpoint**.
+    - For **Azure OpenAI, Model Deployments, AI Search, Document Intelligence**, you can find these credentials in the [Azure Portal](portal.azure.com).
+      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
+      - Click on the **Azure AI Services** and find the **Keys and Endpoint** pane to grab the key and the endpoint under **Language APIs**.
+      - Do the same for the Document Intelligence resource by clicking on the three dots next to **Content Understanding**. You will be able to see all the Azure AI services including **Document Intelligence**. Grab the key and the endpoint. 
       - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
       - **HINT:** Document Intelligence is part of AI Services. 
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
