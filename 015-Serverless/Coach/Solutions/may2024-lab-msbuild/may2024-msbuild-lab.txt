@@ -1,0 +1,162 @@
+# **Serverless Azure Functions**
+
+# Overview
+
+This Lab will take you through architecting a serverless solution on Azure for the use case of a Tollbooth Application that needs to meet demand for event driven scale. 
+
+You will be guided through different tasks to deploy the "Tollbooth" app (written in C#) and its ProcessImage function by leveraging a serverless architecture within Azure using a combination of Azure Functions, Logic Apps, Event Grid, Cosmos DB, and Azure Storage. The focus is on removing server management from the equation, breaking down the solution into smaller components that are individually scalable, and allowing the customer to only pay for what they use.
+
+Using VS Code, you'll create two new Azure Functions written in Node.js These will be triggered by Event Grid and output to Azure Cosmos DB to save the results of license plate processing done by the ProcessImage function, in two different containers: one for properly scanned plates, and one for those that would require manual review. 
+
+Lastly, you'll test changing the Computer Vision API from the Free tier to the Standard one. The Free tier will limit the number of requests to the OCR service to 10 per minute. We'll use a CLI tool called UploadImages to upload 1,000 images. The resiliency policy programmed into the FindLicensePlateText.MakeOCRRequest method of the ProcessImage function will begin exponentially backing off requests to the Computer Vision API, allowing it to recover and lift the rate limit. This intentional delay will greatly increase the function's response time, thus causing the Consumption plan's dynamic scaling to kick in, allocating several more servers. All of this will allow you to watch in real time using the Live Metrics Stream view. License plate data will be saved to the Azure Cosmos DB Data Explorer in the portal. 
+
+!IMAGE[preferred-solution.png](instructions260502/preferred-solution.png "Image of Serverless Azure Functions topology that will be created")
+===  
+
+# Getting Started
+
+The exercises presented in this lab include:
+
+Lab 1 - Connect to Azure and review the provisioned resources
+
+Lab 2 - Add a Computer Vision service and configure App Service environment secrets
+
+Lab 3 - Deploy and configure the TollBooth app to receive events and perform OCR scans, then upload your first image
+
+Lab 4 - Deploy the Events functions and configure it to receive events and route the License Plate data to CosmosDB
+
+Lab 5 - Scan 1000 images and observe the behaviour at scale
+
+===  
+
+# Lab 1
+- Open your browser, connect to https://portal.azure.com. Review the Azure resources that have been created in advance for this lab
+- Open VSCode and connect it to Azure
+- Success criteria: all services are shown in the VS Code Azure Resource navigation panel
+- **Estimated completion time**: 5 min
+
+===  
+
+# Lab 2
+- Create a Computer Vision service via the Azure Portal, in the same resource group, **Free Tier**, and accept the Responsable AI terms & conditions
+- Once created, copy the Key and the Endpoint URL and paste them into the following box for later reference.
+
+    *Computer Vision Key*: @lab.TextBox(ComputerVisionKey)  Example: REDACTEDSECRET_XXXX
+
+    *Computer Vision URL*: @lab.TextBox(ComputerVisionURL) Example: https://ocrserverless123s.cognitiveservices.azure.com/
+
+- Go to KeyVault and add a Role Assignment to yourself as Keyvault Admin so you can read and write secrets
+- Add a new secret named **computerVisionApiKey** with the value of Computer Vision's key you copied earlier. Refresh the page if the permissions haven't applied yet.
+- Copy the KeyVault URI and paste it into the following box.
+    
+    *KeyVault URI*: @lab.TextBox(KeyVaultURI) Example: https://wth-kv-hcpz63upgj8qm.vault.azure.net/
+
+- Go to the Function App with "App" in the name, section *Settings - Environment Variables*, and add two new *Application Settings* (**ATTENTION**: do NOT add them as Connection Strings, check the other pre-created values as examples)
+    | Name | Value |
+    |:---------|:---------|
+    | computerVisionApiUrl   | @lab.Variable(ComputerVisionURL)vision/v3.2/ocr   |
+    |    |   *=> use the **Endpoint URL** you copied from your Computer Vision API*, adding "vision/v3.2/ocr" to the end   |
+    | computerVisionApiKey   | @Microsoft.KeyVault(SecretUri=@lab.Variable(KeyVaultURI)secrets/computerVisionApiKey/)   |
+    | |  *=> use **your Vault URI** you copied earlier, and ensure you follow exactly that syntax to refer to the computerVisionApiKey secret , check other pre-created values as examples *
+
+- Success criteria: the AppService shows a "green check" on the 4 environment settings, confirming it can read the 4 secrets. The Admin user (the human) can also read the KV secrets using the Portal.
+- **Estimated completion time**: 10 min
+
+===  
+
+# Lab 3
+- In VSCode, open the TollBooth folder C:\LabFiles\App or click the Desktop Shortcut to the App workspace
+!IMAGE[vscode-app-workspace.png](instructions260502/vscode-app-workspace.png)
+
+- Deploy the C# function application to the Function App with "App" in the name
+!IMAGE[deploy-function-app.png](instructions260502/deploy-function-app.png)
+!IMAGE[deploy-function-app-2.png](instructions260502/deploy-function-app-2.png)
+!IMAGE[deploy-function-app-3.png](instructions260502/deploy-function-app-3.png)
+
+- Go to the Storage Account, Events section, then subscribe the ProcessImage function to receive events when New blobs are created (you can use any name for the subscription and the system topic). This configures a subscription to a system topic in Event Grid
+!IMAGE[create-storage-events.png](instructions260502/create-storage-events.png)
+!IMAGE[blob-subscripton.png](instructions260502/blob-subscripton.png)
+
+- See the Log Stream from the Function App
+!IMAGE[stream-one.png](instructions260502/stream-one.png)
+
+- Upload an image to the storage account
+!IMAGE[upload-blob-once.png](instructions260502/upload-blob-once.png)
+
+- Validate from the Function logs and from the Storage Events page that the ProcessImage function works as expected
+!IMAGE[steam-logs-ok.png](instructions260502/steam-logs-ok.png)
+!IMAGE[blob-events.png](instructions260502/blob-events.png)
+
+- Success criteria:  the logs show the Function succesfully getting the OCR scan of the license plate text
+
+- **Estimated completion time**: 20 min
+
+===  
+
+# Lab 4
+- In VSCode, open the C:\LabFiles\Events folder or click the Desktop Shortcut to the Events workspace
+!IMAGE[events-workspace.png](instructions260502/events-workspace.png)
+
+
+- Deploy the two JavaScript functions application to Function App with Events in the name. Click on Deploy when prompted.
+!IMAGE[deploy-events.png](instructions260502/deploy-events.png)
+!IMAGE[select-events.png](instructions260502/select-events.png)
+
+- Review the Function App's Applications settings, notice there's a variable named cosmosDBConnectionString pointing to a pre-created KeyVault Secret. As Node.js driver for CosmosDB is different than C#, it uses a different connection string syntax than the C# code.
+!IMAGE[events-settings.png](instructions260502/events-settings.png)
+
+- Subscribe each function to the correct Custom EventGrid topic and filter, by going to the pre-created Event Grid system topic, then *Event Subscriptions*, where we create 2 new ones
+
+    | Name | Schema | Filter To Event Types  |  Endpoint Type | Endpoint | 
+    |:---------|:---------|:---------|:---------|:---------|
+    | save-subs | Event Grid Schema | savePlateData | Azure Function | savePlateData |
+    | queue-subs | Event Grid Schema  | queuePlateForManualCheckup | Azure Function | queuePlateForManualCheckup | 
+
+!IMAGE[select-topic.png](instructions260502/select-topic.png)
+!IMAGE[create-sub-event.png](instructions260502/create-sub-event.png)
+!IMAGE[create-sub-event-2.png](instructions260502/create-sub-event-2.png)
+
+- Monitor the Log Stream from the Function App as well as the Event Grid Topic metrics, while you upload another image to the storage account
+!IMAGE[events-logs.png](instructions260502/events-logs.png)
+!IMAGE[topic-chart.png](instructions260502/topic-chart.png)
+
+- Open CosmosDB explorer and find the result
+!IMAGE[cosmosdb-result.png](instructions260502/cosmosdb-result.png)
+
+- Success criteria:  a CosmosDB document is produced with the scans results, while the logs show the Functions succesfully executed
+- **Estimated completion time**: 15 min
+
+===  
+
+# Lab 5
+- In this last lab, we'll use a CLI tool that will upload 1000 images at once, and we'll observe how the system reacts and deals with throttling to ensure no LicensePlates are left unprocessed despite a spike in demand.
+
+- On a brower tab, open the LiveStream dashboard to monitor the whole system at once
+
+- On the Azure Portal, navigate to the Storage Account under *Security + Networking - Access Keys* section and copy here the first Connection String. The script needs the Blob Storage connection you copied earlier)
+    *Storage Connection String*: @lab.TextBox(StorageConnString) Example: DefaultEndpointsProtocol=https;AccountName=funcicpz1211pgj2qm;AccountKey=REDACTEDSECRET_XXXX==;EndpointSuffix=core.windows.net
+
+- In VSCode, open the TollBooth folder C:\LabFiles\App or click the Desktop Shortcut to the App workspace
+- Edit the file *C:\LabFiles\App\UploadImages\Program.cs* in lines 124 and 131, so it points to the right folder: 
+```Directory.GetFiles(@"C:/LabFiles/license plates/copyfrom/")```
+- Open the command line and change the folder with **cd UploadImages** .
+- Execute **dotnet build**
+- Execute **dotnet run "@lab.Variable(StorageConnString)"**
+- Type **2** then Enter (it will upload 1000 photos to test processing at scale)
+
+- Got to App Insights and then  Live Metrics to see the behavior of the platform at scale, even when downstream services like Computer vision are congested due to their Free tier throttling down beyond 20 request/minute
+!IMAGE[appinsights.png](instructions260502/appinsights.png)
+
+- Change the Computer Vision tier to **Standard**. Observe the change in behaviour, as it can now handle 10 request/second (notice the Request Failure rate going down while Requests keep coming and being processed)
+!IMAGE[servicetier.png](instructions260502/servicetier.png)
+!IMAGE[afterScale.png](instructions260502/afterScale.png)
+
+- Validate the License Plates are inserted to CosmosDB
+!IMAGE[cosmosdb.png](instructions260502/cosmosdb.png)
+
+- Validate all the Events originated by the Blob Storage Account have all been processed (+1000 images)
+!IMAGE[storageEvents.png](instructions260502/storageEvents.png)
+
+- Success criteria: observe the behavior of the platform at scale, even when downstream services are congested 
+- **Estimated completion time**: 10 min
+

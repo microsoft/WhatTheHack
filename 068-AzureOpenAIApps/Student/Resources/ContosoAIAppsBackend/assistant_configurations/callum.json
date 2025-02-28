@@ -1,0 +1,126 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "check_if_customer_account_exists",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer used to look if the account exists"
+                    }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_customer_account_details",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer used to look if the account exists"
+                    }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_customer_account",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "first_name": {
+                        "type": "data type goes here",
+                        "description": "The first name of the customer"
+                    },
+                    "last_name": {
+                        "type": "data type goes here",
+                        "description": "The last name of the customer"
+                    }
+                },
+                "required": ["customer_email", "first_name", "last_name"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_customer_account_balance",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    }
+                },
+                "required": ["customer_email"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "make_bank_account_deposit",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "deposit_amount": {
+                        "type": "data type goes here",
+                        "description": "The amount of money to deposit in the customer's bank account in US dollars."
+                    }
+                },
+                "required": ["customer_email", "deposit_amount"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "make_bank_account_withdrawal",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer_email": {
+                        "type": "data type goes here",
+                        "format": "email",
+                        "description": "The email address of the customer"
+                    },
+                    "withdrawal_amount": {
+                        "type": "data type goes here",
+                        "description": "The amount of money to withdraw from the customer's bank account in US dollars."
+                    }
+                },
+                "required": ["customer_email", "withdrawal_amount"]
+            }
+        }
+    }
+]

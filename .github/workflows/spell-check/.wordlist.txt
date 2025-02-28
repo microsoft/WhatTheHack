@@ -676,3 +676,5 @@ yaml
 yml
 yum
 zsh
+backticks
+backtick

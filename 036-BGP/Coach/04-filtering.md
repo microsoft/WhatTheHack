@@ -16,7 +16,7 @@ Since you cannot configure route filters on Azure VPN gateways (or ExpressRoute 
 As you can see, CSR3 and CSR4 get some /32 prefixes from BGP:
 
 ```
-ssh $csr3 "sh ip bgp | i /32"
+ssh -o ServerAliveInterval=60 labadmin@$csr3 "sh ip bgp | i /32"
  rmi  10.1.0.254/32    10.4.0.10                0    100      0 65002 i
  r i  10.2.0.4/32      10.1.0.254               0    100      0 65001 i
  r i  10.2.0.5/32      10.1.0.254               0    100      0 65001 i
@@ -28,7 +28,7 @@ The objective is not to accept /32 prefixes advertised by Azure neighbors. To th
 
 ```bash
 # CSR3
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map fromvngs in
@@ -41,7 +41,7 @@ conf t
 wr mem
 EOF
 # CSR4
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr4" >/dev/null 2>&1 <<EOF
 conf t
     router bgp 65100
       neighbor 10.1.0.254 route-map fromvngs in
@@ -60,14 +60,14 @@ The line `ip prefix-list max24 permit 0.0.0.0/0 le 24` matches any prefix with a
 Restart the BGP adjacencies (`clear ip bgp *`) to accelerate the convergence process. For example in CSR3:
 
 ```bash
-ssh -n $csr3 "clear ip bgp *"
-ssh -n $csr4 "clear ip bgp *"
+ssh -n labadmin@$csr3 "clear ip bgp *"
+ssh -n labadmin@$csr4 "clear ip bgp *"
 ```
 
 And now you can check that there are no /32 prefixes in the BGP table:
 
 ```
-ssh $csr3 "sh ip bgp"
+ssh labadmin@$csr3 "sh ip bgp"
 
 BGP table version is 20, local router ID is 10.3.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,

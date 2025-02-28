@@ -18,7 +18,7 @@ image:
   tag: "5.7.32"
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 3306
   protocol: TCP
 

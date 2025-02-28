@@ -1,0 +1,55 @@
+﻿@page "/"
+
+<PageTitle>Azure Cosmos DB & Azure OpenAI</PageTitle>
+<main class="h-100 d-flex flex-row justify-content-start">
+    @if (!IsNavMenuCollapsed)
+    {
+        <NavMenu @ref="@NavMenu" OnChatClicked="LoadChatEventHandlerAsync" OnNavBarVisibilityUpdated="UpdateNavBarVisibility" />
+    }
+    <section class="flex-grow-1">
+        <ChatPane @ref="@ChatPane" CurrentSession="@CurrentSession" OnChatUpdated="ForceRefreshAsync" OnNavBarVisibilityUpdated="UpdateNavBarVisibility" ShowHeader="@IsNavMenuCollapsed" />
+    </section>
+</main>
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> OnChatUpdated { get; set; } = default!;
+
+    private Session? CurrentSession;
+    private ChatPane? ChatPane = default;
+    private NavMenu? NavMenu = default;
+    private bool IsNavMenuCollapsed { get; set; }
+
+    private void UpdateNavBarVisibility()
+    {
+        IsNavMenuCollapsed = !IsNavMenuCollapsed;
+    }
+
+    protected override void OnInitialized()
+    {
+        NavMenu = new NavMenu();
+        ChatPane = new ChatPane();
+    }
+
+    public async void LoadChatEventHandlerAsync(Session session)
+    {
+        CurrentSession = session;
+
+        if (ChatPane is not null)
+        {
+            ChatPane.ChangeCurrentChatSession(session);
+        }
+
+        // Inform blazor the UI needs updating
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async void ForceRefreshAsync()
+    {
+        // Inform blazor the UI needs updating
+        await InvokeAsync(StateHasChanged);
+
+        NavMenu?.UpdateNavMenuDisplay("Rename by Open AI");
+    }
+}
