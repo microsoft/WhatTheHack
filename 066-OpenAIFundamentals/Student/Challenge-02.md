@@ -24,10 +24,9 @@ This challenge is divided into the following sections:
 - [2.1 Model Discovery](#21-model-discovery)
 - [2.2 Model Benchmarking](#22-model-benchmarking)
 - [2.3 Model Comparison](#23-model-comparison)
-- [2.4 Prompt Flow](#24-prompt-flow)
-    - 2.4.1 Complex Problem Solving
-    - 2.4.2 Creative and Technical Writing
-    - 2.4.3 Long Form Content Understanding
+    - 2.3.1 Complex Problem Solving
+    - 2.3.2 Creative and Technical Writing
+    - 2.3.3 Long Form Content Understanding
 
 ### 2.1 Model Discovery
 Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
@@ -48,32 +47,26 @@ Scenario: You are part of a research team working on getting information from bi
 ### 2.3 Model Comparison
 #### Student Task 2.3
 - Navigate to [Github's Model Marketplace](https://github.com/marketplace/models)
-- Choose two models to compare. What are your observations?
+- Choose two models to compare for the following scenario. What are your observations?
 
-### 2.4 Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
-Navigate to the AI Foudry and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
-
-**NOTE:** If you get this **User Error: This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.** when you create a new **standard** flow using the default name, then please append some random characters to the name or create a unique name for your flow.
-
-**HINT:** Click on the **Prompt Flow** and **Create a Flow** under the [Learning Resources](#learning-resources) for a good overview on Prompt Flow.
-
-#### Student Task 2.4.1: Complex Problem Solving
+#### Student Task 2.3.1: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
   - Prompt: "A customer is unhappy with their recent purchase due to a missing feature. Outline a step-by-step resolution process that addresses their concern and offers a satisfactory solution."
   - Prompt: "Develop a multi-step troubleshooting guide for customers experiencing issues with their smart home devices, integrating potential scenarios and solutions."
 
-#### Student Task 2.4.2: Creative and Technical Writing
+#### Student Task 2.3.2: Creative and Technical Writing
   Assess the models' capabilities in technical writing, such as creating detailed product manuals or help articles.
   - Prompt: "Write a product description for a new smartphone that highlights its innovative features in a creative and engaging manner."
   - Prompt: "Create a comprehensive FAQ section for a complex software application, ensuring clarity and technical accuracy."
 
-#### Student Task 2.4.3: Long Form Content Understanding
+#### Student Task 2.3.3: Long Form Content Understanding
   Provide both models with extensive customer feedback or product reviews and ask them to summarize the key points.
 
   We have provided a `ch2_1.5_product_review.txt` file that contains a product review for you to use with the given prompt below. You will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the codespace. If you are working on your local workstation, you will find the `ch2_1.5_product_review.txt` file in the `/data` folder of the `Resources.zip` file. Please copy & paste the contents of this file within your prompt.
   - Prompt: "Analyze a detailed product review and extract actionable insights that can inform future product development."
+    
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
@@ -84,9 +77,6 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
-- [Prompt Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/prompt-flow)
-- [Create a Flow](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-develop)
-- [Tune Variants](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-tune-prompts-using-variants)
 - [Azure OpenAI Pricing Page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 - [Request for Quota Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
 - [Customize Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)
