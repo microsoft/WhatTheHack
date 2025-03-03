@@ -23,10 +23,11 @@ This challenge is divided into the following sections:
 
 - [2.1 Model Discovery](#21-model-discovery)
 - [2.2 Model Benchmarking](#22-model-benchmarking)
-- [2.3 Prompt Flow](#23-prompt-flow)
-    - 2.3.1 Complex Problem Solving
-    - 2.3.2 Creative and Technical Writing
-    - 2.3.3 Long Form Content Understanding
+- [2.3 Model Comparison](#23-model-comparison)
+- [2.4 Prompt Flow](#24-prompt-flow)
+    - 2.4.1 Complex Problem Solving
+    - 2.4.2 Creative and Technical Writing
+    - 2.4.3 Long Form Content Understanding
 
 ### 2.1 Model Discovery
 Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
