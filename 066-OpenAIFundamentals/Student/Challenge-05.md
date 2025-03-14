@@ -30,7 +30,7 @@ For each section of this Challenge, you will work in [Azure AI Foundry](https://
 
 ### Access Content Safety Service - TEMPORARY STEP
 
-Azure AI Services are constantly changing. As of July 2024, the Azure AI Studio does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Azure AI Studio should handle this automatically.
+Azure AI Services are constantly changing. As of July 2024, the Azure AI Foundry does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Azure AI Foundry should handle this automatically.
 
 Follow these steps to grant your user account access to the Content Safety service:
 
