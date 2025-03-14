@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-* Ensure you have the needed resources from the previous challenge in the [AOAI Foundry](https://ai.azure.com/)
+* Ensure you have the needed resources from the previous challenge in [AI Foundry](https://ai.azure.com/)
 * Update the `.env.sample` file (and save as `.env`) with your respective resource credentials if you haven't already
 
 ## Introduction
