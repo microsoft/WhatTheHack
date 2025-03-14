@@ -7,13 +7,11 @@
 There are 3 sections to Challenge-02: 
 - Model Discovery
 - Model Benchmarking
-- Prompt Flow
+- Model Comparison
 
 For Model Discovery and Model Benchmarking, the students will be comparing different models from the Model Catalog. The goal is for them to explore the model catalog and the model benchmarking tool. There is no right or wrong answer. Coaches should ask students which models look like a good pick for the task and why.
 
-Known Bugs
-- **User Error:** `This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.` when creating a new **standard** flow using the default name. \
-  **Solution**: Append some random characters to the name or create a unique name for the flow.
+For Model Comparison, please navigate to [Github's Model Marketplace](https://github.com/marketplace/models). The students will be comparing different models through the Github Model Martketplace with various prompts. We are using Github models as it provides free access to AI LLM's for anyone with a Github account. This makes it very easy to get familar and see the differences between the models without creating any Azure resources. 
 
 <!--- 
 The students will go through each section of this notebook in the `/Student/Resources/Notebooks` folder:
