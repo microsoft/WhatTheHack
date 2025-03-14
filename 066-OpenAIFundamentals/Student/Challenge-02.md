@@ -46,7 +46,7 @@ Scenario: You are part of a research team working on getting information from bi
 
 ### 2.3 Model Comparison
 #### Student Task 2.3
-- Navigate to [Github's Model Marketplace](https://github.com/marketplace/models) and sign in with your Github credentials. Github Models provide free acess to a set of AI models for anyone with a Github account. 
+- Navigate to [Github's Model Marketplace](https://github.com/marketplace/models) and sign in with your Github credentials. Github Models provide free access to a set of AI models for anyone with a Github account. 
 - Choose two models to compare for the following scenario. What are your observations?
 
 **TIP** The scenario will go into the system prompt. Click on the button "Show parameters setting" next to the trash can once your model has been selected.
