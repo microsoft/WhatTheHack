@@ -27,7 +27,7 @@ Are you able to deploy one of the models listed in [Bing Knowledge Source](https
 
 To complete this challenge successfully, you should be able to:
 - Articulate what an agent is and why it can be used
-- Identify tools available to extend an agents capabilties
+- Identify tools available to extend an agents capabilities
 
 ## Conclusion 
 In this Challenge, you explored creating an AI Agent through the Azure AI Foundry portal. This developer friendly experience integrates with several tools, knowledge connections, and systems. As you start or continue to develop your AI applications, think about the coordination needed between different agents and their roles. What would be some important considerations with multi-agent systems when handling complex tasks?
