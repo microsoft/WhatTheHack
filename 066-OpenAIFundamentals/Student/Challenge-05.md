@@ -189,7 +189,7 @@ In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **A
 
 Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. 
 
-* "Protected material detection fot text" or "Protected material detection for code"
+* "Protected material detection for text" or "Protected material detection for code"
 
 #### Student Task #5.6.2: Update and test your custom content filter using Protected Material Detection
 1. Revisit the custom content filter you created earlier in the Azure AI Foundry.
