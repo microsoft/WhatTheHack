@@ -26,7 +26,7 @@ This challenge is divided into the following sections:
 
 For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
-**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Studio. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Foundry for this hack.
+**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Foundry. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Foundry for this hack.
 
 ### Access Content Safety Service - TEMPORARY STEP
 
