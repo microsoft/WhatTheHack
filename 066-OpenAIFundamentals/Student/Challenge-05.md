@@ -1,6 +1,6 @@
 # Challenge 05 - Trustworthy AI
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)**
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
 
