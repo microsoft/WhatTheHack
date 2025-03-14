@@ -21,7 +21,7 @@ These roles are:
 - The  `user message` which is the input from the user.
 - And finally, the `assistant messages` which are the responses from the assistant.
 
-All three of these, system message + user message + assistant message make up the prompt. 
+All three of these, `system message` + `user message` + `assistant message`, make up the prompt. 
 
 Chunking is the process of breaking down a large document. It helps limit the amount of information we pass into the model.
 
