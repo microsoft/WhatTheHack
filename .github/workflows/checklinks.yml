@@ -5,8 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/checklinks.yml'
-      # - '001-IntroToKubernetes/**'
-      - '066-OpenAIFundamentals/**'
+      - '001-IntroToKubernetes/**'
   
 jobs:
 
@@ -29,7 +28,7 @@ jobs:
           # By default the github-action-markdown-link-check action checks for all markdown files in your repository. 
           # Use the 'folder-path' option to limit checks to only specific folders. 
           # Use comma separated values for checking multiple folders.
-          folder-path: 066-OpenAIFundamentals
+          folder-path: 001-IntroToKubernetes
           # The config-file will need to be modified as additional challenges are added
           config-file: .github/workflows/checklinks_config.json
 
