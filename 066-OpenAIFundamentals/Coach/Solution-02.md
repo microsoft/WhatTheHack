@@ -12,7 +12,7 @@ There are 3 sections to Challenge-02:
 For Model Discovery and Model Benchmarking, the students will be comparing different models from the Model Catalog. The goal is for them to explore the model catalog and the model benchmarking tool. There is no right or wrong answer. Coaches should ask students which models look like a good pick for the task and why.
 
 Known Bugs
-- **User Error: This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.** when creating a new **standard** flow using the default name. \
+- **User Error:** `This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.` when creating a new **standard** flow using the default name. \
   **Solution**: Append some random characters to the name or create a unique name for the flow.
 
 <!--- 
