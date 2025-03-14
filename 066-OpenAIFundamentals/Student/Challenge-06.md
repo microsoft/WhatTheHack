@@ -8,17 +8,9 @@ Integrating agents into an application after implementing Retrieval-Augmented Ge
 
 ## Description
 
-This challenge is divided into the following sections:
-- [6.1 Building an AI Agent](#61-flight-agent)
+In this challenge, you will create a basic agent.
 
-For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
-
-
-### 6.1 Flight Agent 
-
-#### Student Task 6.1: Create a basic agent 
-
-1. Follow [AI Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
+1. Follow these steps [AI Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
 
 Are you able to deploy one of the models listed in [Bing Knowledge Source](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview#setup) to ground with Bing Search? How does this change your results?
 
