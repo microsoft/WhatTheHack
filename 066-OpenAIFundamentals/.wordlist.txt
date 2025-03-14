@@ -38,3 +38,5 @@ LLMOps
 metaprompting
 cyberattacks
 TPM
+multimodal
+Agentic
