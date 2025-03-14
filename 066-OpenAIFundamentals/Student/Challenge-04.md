@@ -46,7 +46,7 @@ To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Cod
 ### Exploring RAG in Azure AI Foundry 
 Try RAG in the Azure AI Foundry portal with unstructured data. 
 1. Navigate to the [Azure Portal](https://portal.azure.com/#home) and find your resource group. Then navigate to the right storage account. On the left navigation, click `Networking`. Under `Firewalls and virtual networks`, select `Enabled from all networks`.
-2. Navigate to [Azure AI Foundry](ai.azure.com) and `Playgrounds` in the left navigation. Find the `Chat Playground`.
+2. Navigate to [Azure AI Foundry](https://ai.azure.com/) and `Playgrounds` in the left navigation. Find the `Chat Playground`.
 3. Feel free to keep the default model instructions or modify them.
 4. Click on `Add your data` and then `+ Add a new data source`. Let's choose `Upload files` from the drop down of different data sources for this exercise. Grab the data provided in your Codespace under the `/data` folder in `ch2_1.5_product_review.txt`.
 5. Click next and select your search service and vector index.On the next page, click `Add vector search to this search resource` and choose your AOAI Service connection. Finally, select `Create vector index`.
