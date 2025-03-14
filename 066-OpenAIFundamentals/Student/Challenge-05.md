@@ -22,7 +22,9 @@ This challenge is divided into the following sections:
 - [5.1 Harmful Content Detection](#51-harmful-content-detection)
 - [5.2 Content Filtering](#52-content-filtering)
 - [5.3 Personally Identifiable Information (PII) Detection and Redaction](#53-personally-identifiable-information-pii-detection-and-redaction)
-- [5.4 Prompt Shields and Protected Material Detection](#54-prompt-shields-and-protected-material-detection)
+- [5.4 Groundedness Detection](#54-groundedness-detection-preview)
+- [5.5 Prompt Shields](#55-prompt-shields)
+- [5.6 Protected Material Detection](#56-protected-material-detection-preview)
 
 For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
@@ -134,7 +136,7 @@ Based on the Student Task and your understanding of the documentation, determine
 * True or False: PII detection is available only asynchronously.
 
 
-### 5.4 Groundedness detection (Preview)
+### 5.4 Groundedness detection Preview
 
 Any application system that relies on data to provide answers should be mindful of hallucinations. Hallucinations indicate a lack of reasoning on provided data and may contain false or misleading information. A system that provides answers grounded in information can reinforce a reliable and responsible LLM system.
 
@@ -182,7 +184,7 @@ Here are some example jailbreak attacks to prompt your protected model. Copy and
 
 * Are there any other prompts you can use to test the system?
 
-### 5.6 Protected Material Detection (Preview)
+### 5.6 Protected Material Detection Preview
 
 #### Student Task 5.6.1
 In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
