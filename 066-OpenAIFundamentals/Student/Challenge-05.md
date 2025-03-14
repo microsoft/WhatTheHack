@@ -87,7 +87,7 @@ Let's configure a content filtering system both for user input (prompts) and LLM
 
 #### Student Task 5.2: Create a Custom Content Filter
 
-1. Configure a content filter following these [instructions for the Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/content-filtering#create-a-content-filter). Select the AI project in your AI Hub that contains any model deployments you made in the previous Challenges. Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
+1. Configure a content filter following these [instructions for the Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/content-filtering#create-a-content-filter). Select the AI project in your AI Hub that contains any model deployments you made in the previous Challenges. Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
 
 2. In the "Input Filter" step, configure the four content categories. Keep "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" toggled to "Off" (default) for now.
 
@@ -118,7 +118,7 @@ Learn more about PII in the [documentation](https://learn.microsoft.com/en-us/az
 
 #### Student Task 5.3: PII Detection, Redaction, and Extraction
 
-1. In the [AI Studio](https://ai.azure.com/), navigate to your Project and the "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
+1. In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
 
 * How do you enable redacting PII? How does the output hide those entities?
   
@@ -162,13 +162,13 @@ Try out the following features in Content Safety using provided sample text and 
 
 #### Student Task 5.5.2: Update and test your custom content filter using Prompt Shields
 
-1. Revisit the custom content filter you created earlier in the Azure AI Studio.
+1. Revisit the custom content filter you created earlier in the Azure AI Foundry.
 
 2. In the **Input filter** tab, toggle the setting for **Prompt shields for jailbreak attacks** and **Prompt shields for indirect attacks** to either **Annotate only** or **Annotate and block**. Keep in mind, for future implementations, that **Annotate and block** can reduce token usage compared to **Annotate only**, which will still return the completed output.
 
 3. Apply the updated filter to one of your deployed models.
 
-4. In the "Chat" tab of the Playground in the Azure AI Studio, experiment with your updated content filter.
+4. In the "Chat" tab of the Playground in the Azure AI Foundry, experiment with your updated content filter.
 
 Here are some example jailbreak attacks to prompt your protected model. Copy and paste the following prompts to evaluate the LLM's filtered responses:
 
