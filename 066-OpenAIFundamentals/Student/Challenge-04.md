@@ -49,7 +49,7 @@ Optional: Try RAG in the Azure AI Foundry portal with unstructured data.
 4. Click on **Add your data** and then **+ Add a new data source**. Let's choose **Upload files** from the drop down of different data sources for this exercise. Grab the data provided in your Codespace under the `/data` folder in **`ch2_1.5_product_review.txt`**.
 5. Click next and select your search service and vector index.On the next page, click **Add vector search to this search resource** and choose your AOAI Service connection. Finally, select **Create vector index**.
 6. Once complete, you should be able to chat with the data we added earlier.
-7. Ask **What are some of the features and functionalities of the Galaxy Smartwatch?**
+7. Ask **What are some of the features and functionalities of the Gally Smartwatch?**
    
 ## Success Criteria
 
