@@ -32,6 +32,7 @@ Some Considerations:
 - **Evaluation challenges:** Evaluating the performance of RAG poses challenges, as traditional metrics may not fully capture the improvements achieved through retrieval. Developing task-specific evaluation metrics or conducting human evaluations can provide more accurate assessments of the quality and effectiveness of the approach.
 - **Ethical considerations:** While RAG provides powerful capabilities, it also introduces ethical considerations. The retrieval component should be carefully designed and evaluated to avoid biased or harmful information retrieval. Additionally, the generated content should be monitored and controlled to ensure it aligns with ethical guidelines and does not propagate misinformation or harmful biases.
 
+### Exploring RAG in Jupyter Environment 
 You will run the following two Jupyter notebooks for this challenge:
 
 - `CH-04-A-RAG_for_structured_data.ipynb` 
@@ -42,6 +43,16 @@ If you are working locally or in the Cloud, you can find them in the `/notebooks
 
 To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
+### Exploring RAG in Azure AI Foundry 
+Try RAG in the Azure AI Foundry portal with unstructured data. 
+1. This is the prerequisite to the following steps: Navigate to the [Azure Portal](https://portal.azure.com/#home) and find your resource group. Then navigate to the right storage account. On the left navigation, click `Networking`. Under `Firewalls and virtual networks`, select `Enabled from all networks`.
+2. Navigate to [Azure AI Foundry](https://ai.azure.com/) and `Playgrounds` in the left navigation. Find the `Chat Playground`.
+3. Feel free to keep the default model instructions or modify them.
+4. Click on `Add your data` and then `+ Add a new data source`. Let's choose `Upload files` from the drop down of different data sources for this exercise. Grab the data provided in your Codespace under the `/data` folder in `ch2_1.5_product_review.txt`.
+5. Click next and select your search service and vector index.On the next page, click `Add vector search to this search resource` and choose your AOAI Service connection. Finally, select `Create vector index`.
+6. Once complete, you should be able to chat with the data we added earlier.
+7. Ask **What are some of the features and functionalities of the Gally Smartwatch?**
+   
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:

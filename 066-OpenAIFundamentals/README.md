@@ -1,4 +1,4 @@
-# What The Hack - Azure OpenAI Fundamentals
+# What The Hack - Azure OpenAI Fundamentals - V2.1
 
 ## Introduction
 
@@ -41,6 +41,9 @@ Evaluate models for truthfulness and monitor for PII detection in model interact
 	 - What are services and tools to identify and evaluate harms and data leakage in LLMs?
 	 - What are ways to evaluate truthfulness and reduce hallucinations?
 What are methods to evaluate a model if you don't have a ground truth dataset for comparison?
+- Challenge 06: **[Agentic AI](Student/Challenge-06.md)**
+	- What is an agent? When should they be used?
+   	- What tools are available to extend an agents capabilities? 
 
 ## Prerequisites
 
