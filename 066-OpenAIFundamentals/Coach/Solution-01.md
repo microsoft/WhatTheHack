@@ -19,7 +19,8 @@ In the `/Solutions` folder, you will see the same notebook but with the solution
 The cells display example outputs of what the students should see. Use this as a reference for the answers, although some outputs may vary slightly on the students' side. 
 
 - There is not a specific correct answer to the student challenges, students should be able to identify the improved results after applying prompt engineering techniques.
-- Couches could help students with the code structure for response generation, including a for-loop, for example. So that students could focus more on experimenting with prompts.
+- Coaches could help students with the code structure for response generation, including a for-loop, for example. So that students could focus more on experimenting with prompts.
+- If the LLM is hallucinating on the response, ask the students what the reason might be, and how the prompt could be improved to help receive a more deterministic response.
 
 
 

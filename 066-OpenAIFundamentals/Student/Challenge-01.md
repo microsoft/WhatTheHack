@@ -4,24 +4,16 @@
 
 ## Prerequisites
 
-* Deploy your own AOAI models in the [AOAI portal](https://oai.azure.com/portal/)
-* Update the `.env.sample` file (and save as `.env`) according to your model names if you haven't already
+* Ensure you have the needed resources from the previous challenge in [AI Foundry](https://ai.azure.com/)
+* Update the `.env.sample` file (and save as `.env`) with your respective resource credentials if you haven't already
 
 ## Introduction
 
 As LLMs grow in popularity and use around the world, the need to manage and monitor their outputs becomes increasingly important. In this challenge, you will learn how to use prompt engineering techniques to generate desired results for LLMs.
 
 ## Description
-Model deployment for the challenge:
-- Deploy the following models in your Azure OpenAI resource. 
-  - `gpt-4`
-  - `gpt-35-turbo`
 
-    
 **NOTE:** For model families currently available, please reference this link for more information: [Azure OpenAI Service models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models).
-
-Some models are not available for new deployments beginning **July 6, 2023**. Deployments created prior to July 6, 2023 remain available to customers until **July 5, 2024**. You may revise the environment file and the model you deploy accordingly. Please refer to the following link for more details: [Azure OpenAI Service legacy models](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models)
-- Add required credentials of Azure resources in the ``.env`` file. Please feel free to make any modifications as needed and then rename the `.env-sample` file to `.env`.
   
 Questions you should be able to answer by the end of this challenge:
 - What is the iterative prompting principle?
