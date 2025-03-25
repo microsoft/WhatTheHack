@@ -12,3 +12,8 @@ Challenge-04 has no required tasks. There is not an accompanying Solution Notebo
 
 The Challenge-04 Notebook consists of code cells for students to run. The purpose is to expose students to developing best practices from observing existing tools and implementation, both 1st- and 3rd-party. The cells display example outputs of what the students should see. 
 
+Known Bugs
+- **CH4 EXTRACTING FILES: operation returned an invalid status `inefficient storage`** \
+  **Solution:** If some of the files are extracted, students can continue working with those and ignore the error message.
+- Rate Limits \
+  **Solution:** Have students go into their model deployments in the AI Studio and adjust the TPM allocation for that model to a higher value using the toggle.

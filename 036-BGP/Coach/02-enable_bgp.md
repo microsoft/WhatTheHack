@@ -35,7 +35,7 @@ csr3=$(az network public-ip show -n csr3-pip -g $rg --query ipAddress -o tsv) &&
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -102,7 +102,7 @@ Network       NextHop     Origin    AsPath    Weight
 Similarly, you can look at the different tables in CSR3. Let's start with the neighbor list. Notice that the number of prefixes received is the number of advertised routes that the `az network vnet-gateway list-advertised-routes` gave us earlier:
 
 <pre>
-ssh $csr3 "show ip bgp summary"
+ssh labadmin@$csr3 "show ip bgp summary"
 
 BGP router identifier 10.3.0.10, local AS number 65100
 BGP table version is 8, main routing table version 8
@@ -126,7 +126,7 @@ You can safely ignore the 10.5.0.10 for now, it was pre-created by the deploymen
 We can have a look at the BGP route table, which will show the prefixes learnt over BGP. Note that the prefixes generated in the local AS (65100) have a path of `?`. Not too important, but this typically signals that the prefixes were injected via redistribution and not with a `network` command:
 
 <pre>
-ssh $csr3 "show ip bgp"
+ssh labadmin@$csr3 "show ip bgp"
 
 BGP table version is 8, local router ID is 10.3.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,
@@ -148,7 +148,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 The `r` mark in the previous table means that a certain prefix learnt over BGP will not be converted into an actual route, because another route already exists. That being said, we can now see which routes appear in the route table coming from BGP, which should essentially be the prefix for Vnet1, plus 10.5.0.0/16 from the corporate network:
 
 <pre>
-ssh $csr3 "show ip route bgp"
+ssh labadmin@$csr3 "show ip route bgp"
 [...]
 B        10.1.0.0/16 [20/0] via 10.1.0.254, 00:17:17
 B        10.5.0.0/16 [200/0] via 10.5.0.10, 21:31:00
@@ -157,7 +157,7 @@ B        10.5.0.0/16 [200/0] via 10.5.0.10, 21:31:00
 You can try other commands to see the learned routes:
 
 <pre>
-ssh $csr3 "show ip bgp neighbor 10.1.0.254 routes"
+ssh labadmin@$csr3 "show ip bgp neighbor 10.1.0.254 routes"
 [...]
      Network          Next Hop            Metric LocPrf Weight Path
  *>   10.1.0.0/16      10.1.0.254                             0 65001 i
@@ -171,7 +171,7 @@ Total number of prefixes 4
 ...and the advertised routes:
 
 <pre>
-ssh $csr3 "show ip bgp neig 10.1.0.254 advertised-routes"
+ssh labadmin@$csr3 "show ip bgp neig 10.1.0.254 advertised-routes"
 [...]
      Network          Next Hop            Metric LocPrf Weight Path
  *>   10.3.0.0/16      10.3.0.1                 0         32768 ?
@@ -196,7 +196,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -297,7 +297,7 @@ We can test VM connectivity now. VNet1 should have access to VNets 3 and 5, and 
 
 ```
 ❯ testvm1=$(az network public-ip show -n testvm1-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm1" "ping 10.3.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$testvm1" "ping 10.3.1.4 -c 3"
 Warning: Permanently added '94.245.106.184' (ECDSA) to the list of known hosts.
 PING 10.3.1.4 (10.3.1.4) 56(84) bytes of data.
 64 bytes from 10.3.1.4: icmp_seq=1 ttl=63 time=8.63 ms
@@ -307,7 +307,7 @@ PING 10.3.1.4 (10.3.1.4) 56(84) bytes of data.
 --- 10.3.1.4 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 4.913/6.391/8.635/1.614 ms
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm1" "ping 10.5.1.4 -c 3"
+❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$testvm1" "ping 10.5.1.4 -c 3"
 PING 10.5.1.4 (10.5.1.4) 56(84) bytes of data.
 64 bytes from 10.5.1.4: icmp_seq=1 ttl=62 time=10.3 ms
 64 bytes from 10.5.1.4: icmp_seq=2 ttl=62 time=8.55 ms
@@ -320,7 +320,7 @@ rtt min/avg/max/mdev = 8.557/9.304/10.338/0.762 ms
 
 ```
 ❯ testvm2=$(az network public-ip show -n testvm2-pip -g $rg --query ipAddress -o tsv)
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.4.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "$labadmin@testvm2" "ping 10.4.1.4 -c 3"
 Warning: Permanently added '137.135.128.45' (ECDSA) to the list of known hosts.
 PING 10.4.1.4 (10.4.1.4) 56(84) bytes of data.
 64 bytes from 10.4.1.4: icmp_seq=1 ttl=63 time=6.13 ms
@@ -330,7 +330,7 @@ PING 10.4.1.4 (10.4.1.4) 56(84) bytes of data.
 --- 10.4.1.4 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2002ms
 rtt min/avg/max/mdev = 4.232/5.046/6.137/0.805 ms
-❯ ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no "$testvm2" "ping 10.5.1.4 -c 3"
+❯ ssh -n -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$testvm2" "ping 10.5.1.4 -c 3"
 PING 10.5.1.4 (10.5.1.4) 56(84) bytes of data.
 64 bytes from 10.5.1.4: icmp_seq=1 ttl=62 time=10.2 ms
 64 bytes from 10.5.1.4: icmp_seq=2 ttl=62 time=12.1 ms
@@ -364,7 +364,7 @@ vpngw_bgp_json=$(az network vnet-gateway show -n vng2 -g $rg --query 'bgpSetting
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
 vpngw_gw1_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[1].defaultBgpIpAddresses[0]') && echo $vpngw_gw1_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr3" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr3" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -381,7 +381,7 @@ EOF
 vpngw_bgp_json=$(az network vnet-gateway show -n vng1 -g $rg --query 'bgpSettings')
 vpngw_asn=$(echo "$vpngw_bgp_json" | jq -r '.asn') && echo $vpngw_asn
 vpngw_gw0_bgp_ip=$(echo "$vpngw_bgp_json" | jq -r '.bgpPeeringAddresses[0].defaultBgpIpAddresses[0]') && echo $vpngw_gw0_bgp_ip
-ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$csr4" >/dev/null 2>&1 <<EOF
+ssh -o ServerAliveInterval=60 -o BatchMode=yes -o StrictHostKeyChecking=no "labadmin@$csr4" >/dev/null 2>&1 <<EOF
         config t
           router bgp 65100
             neighbor ${vpngw_gw0_bgp_ip} remote-as ${vpngw_asn}
@@ -423,7 +423,7 @@ Neighbor    ASN    State      ConnectedDuration    RoutesReceived    MessagesSen
 </pre>
 
 <pre>
-ssh $csr3 "sh ip bgp summ"
+ssh labadmin@$csr3 "sh ip bgp summ"
 [...]
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
 10.1.0.254      4        65001      46      51       16    0    0 00:33:04        5
@@ -434,7 +434,7 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 </pre>
 
 <pre>
-ssh $csr4 "sh ip bgp summ"
+ssh labadmin@$csr4 "sh ip bgp summ"
 [...]
 Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
 10.1.0.254      4        65001      46      51       16    0    0 00:33:04        5
