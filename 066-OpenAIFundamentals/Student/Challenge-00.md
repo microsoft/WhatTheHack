@@ -132,9 +132,15 @@ Once you have set up a Jupyter notebook environment, navigate to [AI Foundry](ht
 
 - Click on the **+ Create Project** button.
 - Give your project a name and click **Create a new hub**.
-  - Fill out a name for your hub
-  - Click the **Create** button
-- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure  services you will use within the challenges.
+  - Fill out a name for your hub. 
+  - Click the **Next** button
+  - Click the **Customize** button
+  - Click **Create new AI Search**.
+  - Fill out a name for your Azure AI Search
+  - Click the **Next** button to finish setting up your Azure AI Search
+  - Click the **Next** button on the screen where it says **Create a hub for your projects**
+  - On the Review and Finish page, click the **Create** button
+- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure services you will use within the challenges.
 
 #### Deploy Azure OpenAI Models
 
@@ -157,9 +163,16 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 
 - Rename the file from `.env.sample` to `.env`.
 - Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
-    - For **Azure OpenAI and Model Deployments**, you can find these credentials in the [Azure Portal](portal.azure.com).
-      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Click on the **Azure AI Services** and find the **Keys and Endpoint** pane to grab the key and the endpoint under **Language APIs**. These will correspond to OPENAI_API_KEY and OPENAI_API_BASE in the .env file, respectively.
+    - For **Azure OpenAI and Model Deployments**, you can find these credentials in Azure AI Foundry:
+      - Navigate to the [AI Foundry](https://ai.azure.com)
+      - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
+      - Click on Connected resources under your project
+      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for OPENAI_API_BASE and OPEN_API_KEY, respectively into the .env file
+      - From the **Manage connect resources in this project** screen, click the Name with the type **AIServices**. Copy the Target URL and the API Key for AZURE_FORM_RECOGNIZER_ENDPOINT and AZURE_FORM_RECOGNIZER_KEY, respectively into the .env file
+      - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
+      - Locate your **AI Search** service that you created earlier
+      - From the **Overview**, copy the URL for AZURE_COGNITIVE_SEARCH_ENDPOINT in the .env file
+      - Under **Settings** go to Keys, copy the admin key into AZURE_COGNITIVE_SEARCH_KEY in the .env file      
       - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
       - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
