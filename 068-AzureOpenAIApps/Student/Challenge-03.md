@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-This challenge assumes that all requirements for Challenges 01 were successfully completed.
+This challenge assumes that all requirements for Challenge 01 & 02 were successfully completed.
 
 ## Introduction
 
