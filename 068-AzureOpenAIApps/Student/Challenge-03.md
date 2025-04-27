@@ -28,21 +28,29 @@ The storage account name with these files is prefixed with `storage` followed by
 
 **NOTE:** You will see a storage account name prefixed with `webjobs`. This is NOT the storage account to use for this challenge!
 
-There are 21 sample documents in the sub-folders under the **`/artifacts/contoso-education`** folder:
+In the Azure Blob Storage account, there are 21 sample documents in the following containers:
+
+- `f01-geo-climate`
+- `f02-tour-economy`
+- `f03-gov-politics`
+- `f04-activity-preferences`
+
+Each container contains 5 samples (except for `/f01-geo-climate` which has 6) for that category of document. 
+
+There is also a container called **`classifications`**. This container contains a copy of all 21 samples from the 4 classes or categories.
+
+You will use both copies of these sample documents for training the custom classifier and extractor in Azure Document Intelligence.
+
+# BURY THIS SECTION IN A NOTE:
+
+**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder:
 
 - `/F01-Civics-Geography and Climate`
 - `/F02-Civics-Tourism and Economy`
 - `/F03-Civics-Government and Politics`
 - `/F04-Activity-Preferences`
 
-Each folder contains 5 samples (except for `/F01-Civics-Geography and Climate` which has 6) that you will use for training the custom classifier and extractor.
-
-In Azure Blob Storage you should see a container called **`classifications`**. There should be a total of 21 samples from the 4 classes or categories inside the **`classifications`** container. They were also copied to these containers in Azure Blob Storage:
-
-- `f01-geo-climate`
-- `f02-tour-economy`
-- `f03-gov-politics`
-- `f04-activity-preferences`
+These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
