@@ -20,6 +20,8 @@ In this challenge, you will focus on just one of these parsers, Azure Document I
 
 The goal of this challenge is to observe the extraction of the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
+### Understanding the Citrus Bus Application Data Pipeline
+
 The Citrus Bus application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in blob storage.
 
 The storage account name with these files is prefixed with `storage` followed by set of unique characters. For example: `storagexxxxxxxxxxxxx`.
@@ -44,7 +46,14 @@ In Azure Blob Storage you should see a container called **`classifications`**. T
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
-## Create a Custom Classifier Model in Document Intelligence Studio
+In order to observe all of the things above, you will need to complete the following high-level tasks:
+- [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio
+- [Create a Custom Neural Extraction Model in the Document Intelligence Studio](#create-a-custom-neural-extraction-model-in-the-document-intelligence-studio)
+- [Submit Student Exams to be Processed](#submit-student-exams-to-be-processed)
+- [Upload Student Records to CosmosDB???](#student-records)
+- [Configure & Test AI Assistants](#ai-assistants)
+
+### Create a Custom Classifier Model in Document Intelligence Studio
 
 You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **`DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID`** setting in your applications settings config file **`local.settings.json`**.
 
@@ -62,7 +71,7 @@ Rename your `document-intelligence-dictionary.json.example` to `document-intelli
 
 When creating your extraction models in document intelligence studio after labelling, please ensure that you use the names in the JSON as the model IDs. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary but if you name your extraction models differently than what is specified in the JSON you should update the corresponding variables accordingly. Ensure that the **`classifier_document_type`** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
 
-## Create a Custom Neural Extraction Model in the Document Intelligence Studio
+### Create a Custom Neural Extraction Model in the Document Intelligence Studio
 
 Use these directions for [Building a Custom Extractor Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0&tabs=studio) to build and train each of the extractor models for the 4 document types. You will need 4 projects (1 for each category of documents that references each Azure Blob storage container listed above). 
 
@@ -117,6 +126,9 @@ The first 3 extractor models a straightforward. However in the 4th document type
   }
 ]
 ````
+
+### Submit Student Exams to be Processed
+
 After training your models, you can test the form processing pipeline by uploading the files located locally in `/artifacts/contoso-education/submissions` to the  `submissions` container in your storage account. Refer back to CH0 for uploading local files into your storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in Cosmos DB. 
 
 You will be able to observe that the solution should:
