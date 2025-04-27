@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-This challenge assumes that all requirements for Challenge 01 & 02 were successfully completed.
+This challenge assumes that all requirements for Challenges 01 & 02 were successfully completed.
 
 ## Introduction
 
@@ -22,6 +22,10 @@ The goal of this challenge is to observe the extraction of the school district, 
 
 The Citrus Bus application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in blob storage.
 
+The storage account name with these files is prefixed with `storage` followed by set of unique characters. For example: `storagexxxxxxxxxxxxx`.
+
+**NOTE:** You will see a storage account name prefixed with `webjobs`. This is NOT the storage account to use for this challenge!
+
 There are 21 sample documents in the sub-folders under the **`/artifacts/contoso-education`** folder:
 
 - `/F01-Civics-Geography and Climate`
@@ -37,7 +41,6 @@ In Azure Blob Storage you should see a container called **`classifications`**. T
 - `f02-tour-economy`
 - `f03-gov-politics`
 - `f04-activity-preferences`
-
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
