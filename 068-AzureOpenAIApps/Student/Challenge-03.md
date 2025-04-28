@@ -45,7 +45,7 @@ You will use the copies of these sample documents for training the custom classi
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
-In order to observe all of the things above, you will need to complete the following high-level tasks:
+In order to observe all of the things above in action, you will need to complete the following high-level tasks:
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
 - [Create a Custom Neural Extraction Model in the Document Intelligence Studio](#create-a-custom-neural-extraction-model-in-the-document-intelligence-studio)
 - [Submit Student Exams to be Processed](#submit-student-exams-to-be-processed)
