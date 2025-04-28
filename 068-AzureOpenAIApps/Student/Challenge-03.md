@@ -18,7 +18,7 @@ In this challenge, you will focus on just one of these parsers, Azure Document I
 
 ## Description
 
-The goal of this challenge is to observe the extraction of the school district, school name, student id, student name and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
+The goal of this challenge is to configure Azure Document Intelligence to classify documents and extract data from them.  You will then observe the extraction of the school district, school name, student ID, student name, and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
 ### Understanding the Citrus Bus Application Data Pipeline
 
