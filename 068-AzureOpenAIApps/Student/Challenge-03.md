@@ -68,7 +68,7 @@ Use these directions [Building a Custom Classifier Model](https://learn.microsof
 
 Rename your `document-intelligence-dictionary.json.example` to `document-intelligence-dictionary.json`. 
 
-When creating your extraction models in document intelligence studio after labelling, please ensure that you use the names in the JSON as the model IDs. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary but if you name your extraction models differently than what is specified in the JSON you should update the corresponding variables accordingly. Ensure that the **`classifier_document_type`** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
+When creating your extraction models in Document Intelligence Studio after labelling, please ensure that you use the names in the JSON as the model IDs. Changing the variables file for document intelligence (`document-intelligence-dictionary.json`) should not be necessary, but if you name your extraction models differently than what is specified in the JSON, you should update the corresponding variables accordingly. Ensure that the **`classifier_document_type`** in your dictionary configuration matches what you have in your Document Intelligence Studio. 
 
 ### Create a Custom Neural Extraction Model in the Document Intelligence Studio
 
