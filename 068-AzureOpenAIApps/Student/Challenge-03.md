@@ -82,7 +82,7 @@ Make sure that the **`extractor_model_name`** field in your application config *
 
 Also ensure that the field names such as **`q1`** and **`q5`** matches exactly what you have in Document Intelligence Studio.
 
-The first 3 extractor models a straightforward. However in the 4th document type, we have tables, signatures and checkboxes.
+The first 3 extractor models are straightforward. However, in the 4th document type, there are tables, signatures and checkboxes, which will require more attention.
 
 #### **`document-intelligence-dictionary.json`** 
 ````json
