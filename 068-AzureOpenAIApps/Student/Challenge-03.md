@@ -128,7 +128,9 @@ The first 3 extractor models are straightforward. However, in the 4th document t
 
 ### Submit Student Exams to be Processed
 
-In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After training your models, you can test the form processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. This will trigger Azure Functions, which have been created for you in the backend. Azure Functions will classify, extract, and store the results in Cosmos DB. 
+In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the form processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
+
+When files are uploaded to the **`submissions`** container, this will trigger the app's Azure Functions. The Azure Functions will invoke the Azure Document Intelligence service to classify the exams, extract the data, grade the exams, and then store the results in Cosmos DB. 
 
 **HINT:** Refer back to [Challenge 01](Challenge-01.md) for examples of how to upload local files into an Azure Blob Storage account.
 
