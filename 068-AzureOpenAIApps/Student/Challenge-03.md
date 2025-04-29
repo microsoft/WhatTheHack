@@ -43,11 +43,11 @@ You will use the copies of these sample documents for training the custom classi
 
    **NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
 
-![Image of where files are store in Azure Storage](../images/c3-train-classification-extraction-models)
+![Image of where files are store in Azure Storage](../images/c3-train-classification-extraction-models.png)
 
 At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
 
-![Document Intelligence Data Pipeline](c3-classification-extraction-data-flow)
+![Document Intelligence Data Pipeline](c3-classification-extraction-data-flow.png)
 
 In order to observe all of the things above in action, you will need to complete the following high-level tasks:
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
