@@ -144,7 +144,7 @@ Now we will deploy the needed large language models from Azure OpenAI.
 - Navigate to the [AI Foundry](https://ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
 - On the left navigation bar, click on Deployments. 
 - Deploy the following models in your Azure OpenAI resource. 
-  - `gpt-4` or `gpt-4o`
+  - `gpt-4o`
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
 
