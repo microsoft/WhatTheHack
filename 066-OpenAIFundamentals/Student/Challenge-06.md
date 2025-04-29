@@ -8,11 +8,27 @@ Integrating agents into an application after implementing Retrieval-Augmented Ge
 
 ## Description
 
-In this challenge, you will create a basic agent.
+In this challenge, you will create a basic agent. 
 
-1. Follow these steps [AI Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
+### Setup
 
-Are you able to deploy one of the models listed in [Bing Knowledge Source](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/bing-grounding?tabs=python&pivots=overview#setup) to ground with Bing Search? How does this change your results?
+1. Log into your [AI Foundry portal](ai.azure.com)
+2. In your project's left-hand pane, navigate to `My assets -> Models and endpoints`.
+3. On the Model deployments tab, click the `+ Deploy model` button and select `Deploy base model` from the drop down.
+4. Search for the gpt-4o-mini model, select it, and confirm the deployment.
+
+### Creating the Agent 
+1. In the left-hand pane, under `Build & Customize`, select `Agents`
+2. Select your Azure OpenAI resource and hit `Let's go`.
+3. Select your model deployment and hit `Next`.
+4. You should see an agent under the `Agents` tab at the top. If you select it, you can give it a new name. Enter "FlightAgent".
+5. You can add instructions as well. Within your codespace, you should see a data folder. That contains the text in the file `FlightAgent.md`. Copy the text from here and add it in instructions.
+6. Optional: You can also add a Knowledge Base and Actions to enhance the agent's capabilties.
+7. At the top of the agent's `Setup` pane, select `Try in playground`.
+8. Here you can interact with your agent in the `Playground` by entering queries in the chat window. For instance, ask the agent to `search for queries from Seattle to New York on the 28th`. Note: The agent may not provide completely accurate responses as it doesn't use real-time data in this example. The purpose is to test its ability to understand and respond to queries.
+
+### Clean-Up
+1. Remember to delete your resource group in the Azure portal once you have completed all of the challenges. 
 
 
 ## Success Criteria
@@ -27,5 +43,7 @@ In this Challenge, you explored creating an AI Agent through the Azure AI Foundr
 ## Learning Resources
 
 - [Overview of Azure AI Agents](https://learn.microsoft.com/en-us/azure/ai-services/agents/?view=azure-python-preview)
+- These steps are listed here along with many other prompts: [AI Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
+
 
   
