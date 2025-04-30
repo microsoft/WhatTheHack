@@ -14,31 +14,54 @@ For this challenge, our goal is to ensure that for the automated exam grading fo
 
 The are 4 school districts and they do not have equal number of schools or students so the goal is to ensure that the resource allocation is distributed fairly and equally to each school district.
 
-You will ensure that each school district does not process more than 5 submissions within a 2-minute period. 
+The four school districts are:
+- Grapefruit
+- Lemon
+- Orange
+- Tangerine
 
-If this quota is reached, the service bus queue will need to be suspended for a certain amount of time and then processing for that school district can resume again after the cool down period has elapsed.
+To ensure fair access to the LLMs, the Citrus Bus app has implemented a set of Azure Service Bus queues to handle all calls to the LLM from the school districts.  You can see how this system is set up in the diagram below:
+
+# INSERT DIAGRAM HERE!!!
+
+The application contains settings that an administrator can configure to manage LLM Quota Enforcement via the queues.  
 
 ## Description
 
-In this challenge, we will modify the application configuration file (`local.settings.json`) in the following ways:
+In this challenge, you will modify the Citrus Bus application's configuration to manage LLM Quota enforcement, and then re-submit the same exam files to Azure Blob Storage for processing as you did earlier in Challenge 3.
 
-- Modify the application configuration to enable quota enforcement. This is done by changing the `LLM_QUOTA_ENFORCEMENT` to 1
-- Modify the application configuration to specify the llm transaction aggregate window: This is done by changing the `LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS` to 120
-- Modify the application configuration to specify the number of transactions allowed for each school district within the window : This is done by changing the `LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS` to 5
-- Modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the `LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS` to 300
+### Configure LLM Quota Enforcement
 
+In the **`/ContosoAIAppsBackend/`** folder of your Codespace or Student resources package, you will find the configuration file (`local.settings.json`) has the following settings as documented below:
 
 | Configuration Name | Examples| Description|
 |--------------|-----------|------------|
-| `LLM_QUOTA_ENFORCEMENT` | 1     | Whether or not Quota enforcement is enabled for the app        |
+| `LLM_QUOTA_ENFORCEMENT` | 1     | Whether or not Quota enforcement is enabled for the app (1 for enabled, 0 for disabled)        |
 | `LLM_QUOTA_ENFORCEMENT_WINDOW_SECONDS`      | 120  | The number of seconds that define the transaction aggregation window for quota enforcement       |
 | `LLM_QUOTA_ENFORCEMENT_MAX_TRANSACTIONS`      | 5  | The number of transactions allowed per school district within the transaction window       |
 | `LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS`      | 300  | The number of seconds the district needs to wait before processing can resume. Should be greater than the transaction window       |
 
+As an administrator, you job is to ensure that:
+- Each school district does not process more than 5 submissions within a 2-minute period. 
+- If this quota is reached, the Azure Service Bus queue for that district will need to be suspended. Processing for that school district can resume again after the cool down period of 5 minutes has elapsed.
 
-For this challenge our goal is to make sure quotas are adhered to and no school district is able to process more than 5 submissions within a 2 minute period.
+Update these settings as per the requirements listed above.
 
-Any violation of this policy will result in a cool down period of 5 minutes.
+**NOTE:** Any changes to the configuration settings file require that the Azure Function app be stopped and restarted to pick up the new changes.
+
+### Re-Process Student Exams
+
+To verify the LLM Quota Enforcement is working, re-upload the student exam files from the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, to **`submissions`** container in Azure Blob Storage.
+
+These are the same files that you processed in Challenge 3.
+
+The automation pipeline will re-process them, but this time check to see if the rules are being enforced.
+
+**NOTE:** Each file's name contains the school district name for that exam. To better see that the proper quota enforcement rules are being enforced, you may wish to upload these files in batches by district.
+
+**TIP:** You can see quota enforcement errors appear highlighted in red text in the terminal window for the Azure Function app.
+
+**TIP:** You can monitor the status of the queues in the Azure Service Bus pane in the Azure Portal.
 
 ## Success Criteria
 
@@ -56,5 +79,3 @@ A successfully completed solution should accomplish the following goals:
 - [Suspend and reactivate messaging entities (disable)](https://learn.microsoft.com/en-us/azure/service-bus-messaging/entity-suspend#suspension-states)
 - [Redis Strings](https://redis.io/docs/data-types/strings/)
 - [Redis lists](https://redis.io/docs/data-types/lists/)
-
-
