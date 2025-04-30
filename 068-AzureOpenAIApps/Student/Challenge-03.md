@@ -59,8 +59,8 @@ In order to observe all of the things above in action, you will need to complete
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
 - [Create a Custom Neural Extraction Model in the Document Intelligence Studio](#create-a-custom-neural-extraction-model-in-the-document-intelligence-studio)
 - [Submit Student Exams to be Processed](#submit-student-exams-to-be-processed)
-- [Upload Student Records to CosmosDB???](#student-records)
-- [Configure & Test AI Assistants](#ai-assistants)
+- [Upload Student Registration Records](#upload-student-registration-records)
+- [Query the AI Assistants](#query-the-ai-assistants)
 
 ### Create a Custom Classifier Model in Document Intelligence Studio
 
@@ -146,32 +146,24 @@ When files are uploaded to the **`submissions`** container, this will trigger th
 
 **HINT:** Refer back to [Challenge 01](Challenge-01.md) for examples of how to upload local files into an Azure Blob Storage account.
 
-You should observe that the solution:
+You can go to the data explorer for the Cosmos DB to verify:
+- That the exam submissions have loaded successfully into the **`examsubmissions`** collection.
+- The graded exams corresponding to each submission will reside in the **`grades`** collection in Cosmos DB
+- The activity preferences for each customer uploaded are parsed and reside in the **`activitypreferences`** Cosmos DB container.
 
-- Uses Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in Azure blob storage.
-- Extracts the full name, profile details, and answers to each exam question for each exam submission and stores the extracted fields in Cosmos DB.
-- For the tourists' travel and activity preferences, extracts the profile data and activity preferences of the guest and stores the extracted data in Cosmos DB
-- Uses Azure Service Bus to throttle during high traffic scenarios.
-- Picks up the extracted JSON documents from Azure Service Bus and grades the exams for correctness for each answer provided using the LLMs.
-- Stores the processed grade in JSON format in Cosmos DB for each student submission. The grades should be a score between 0 and 100. 
+### Upload Student Registration Records
 
-You can go to the data explorer for the Cosmos DB to verify that the exam submissions have loaded successfully into the **`examsubmissions`** collection.
+There's just one more step to see the full solution in action!  The CosmosDB needs to be loaded with the registration records for each student, as the AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
-The graded exams corresponding to each submission will reside in the **grades** collection in Cosmos DB
+In the `/ContosoAIAppsBackend/` folder of your Codespace or Student resources package, you will find an HTTP client file for the Student Management API: `rest-api-students-management.http`.  This file contains a list of all students registered in the Contoso Islands school system.
 
-For the activity preferences for each customer uploaded, these are parsed and reside in the **`activitypreferences`** Cosmos DB container.
+Just like how you uploaded yacht records and modified the yacht records via the http client in Challenge 1, use the **`rest-api-students-management.http`** http client to upload student registration records to Cosmos DB. 
 
-### Student Records
-
-Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Cosmos DB database.
-
-### AI Assistants
+### Query the AI Assistants
 
 As seen in the previous challenges, the Citrus Bus AI Assistants can query CosmosDB to return the results to end users. 
 
 Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Priscilla AI Assistants to query the database to get the answers from these data stores.
-
-You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
 
 - Murphy: answers questions about exams, grades and exam submissions from students.
 - Priscilla: answers questions about things to do on Contoso Islands as well as make recommendations to guests based on their activity preferences.
@@ -198,8 +190,3 @@ During this challenge you will:
 - [Studio experience for Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-document-intelligence-studio?view=doc-intel-3.1.0)
 - [Document Intelligence - SDK target: REST API 2023-07-31 (GA)](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/sdk-overview-v3-1?view=doc-intel-3.1.0&tabs=csharp)
 - [Project sharing using Document Intelligence Studio](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/project-share-custom-models?view=doc-intel-4.0.0)
-
-
-## Tips
-
-- Configure the AI Assistants to answer questions from user queries
