@@ -12,7 +12,7 @@ As a major employer on the Contoso Islands, Contoso Yachts, Inc has also expande
 
 The Citrus Bus application has an Azure storage account with a Blob Store containing a large number of documents and images of handwritten essays from students in various file formats including but not limited to PDF, PNG, TIFF and JPEG.
 
-Often, an organization's data is not readily consumable by the app. It needs to be digested, parsed and simplified to extract the data in a format that can be readily leveraged by the language model.  The Azure AI platform has services that help with these tasks such as Azure Document Intelligence, Azure AI Vision, Azure Custom Vision, and Azure Video Indexer. 
+Often an organization's data is not readily consumable by the app. It needs to be digested, parsed and simplified to extract the data in a format that can be readily leveraged by the language model.  The Azure AI platform has services that help with these tasks such as Azure Document Intelligence, Azure AI Vision, Azure Custom Vision, and Azure Video Indexer. 
 
 In this challenge, you will focus on just one of these parsers, Azure Document Intelligence, to parse records uploaded to Azure Blob Storage and Azure Cosmos DB.
 
@@ -41,7 +41,7 @@ The storage account name with these files is prefixed with `storage` followed by
 In the Azure Blob Storage account, there are 21 sample documents in the following containers:
 
 - **`f01-geography-climate`**
-- **`f02-tour-economy`**
+- **`f02-tourism-economy`**
 - **`f03-government-politics`**
 - **`f04-activity-preferences`**
 
@@ -64,7 +64,7 @@ In order to observe all of the things above in action, you will need to complete
 
 ### Create a Custom Classifier Model in Document Intelligence Studio
 
-You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your Model, make sure the name matches the value of the **`DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID`** setting in your applications settings config file **`local.settings.json`**.
+You will need to create one Classifier Project which will give you one Classification Model to process the 4 different types of documents we have. When you create your model, make sure the name matches the value of the **`DOCUMENT_INTELLIGENCE_CLASSIFIER_MODEL_ID`** setting in your applications settings config file **`local.settings.json`**.
 
 **NOTE:** You may need to use the `Settings` icon in the Azure Portal to switch directories if your Entra ID belongs to more than one Azure tenant.
 
@@ -146,14 +146,14 @@ When files are uploaded to the **`submissions`** container, this will trigger th
 
 **HINT:** Refer back to [Challenge 01](Challenge-01.md) for examples of how to upload local files into an Azure Blob Storage account.
 
-You can go to the data explorer for the Cosmos DB to verify:
-- That the exam submissions have loaded successfully into the **`examsubmissions`** collection.
-- The graded exams corresponding to each submission will reside in the **`grades`** collection in Cosmos DB
-- The activity preferences for each customer uploaded are parsed and reside in the **`activitypreferences`** Cosmos DB container.
+You can go to the Data Explorer in Cosmos DB to verify:
+- That the exam submissions have loaded successfully into the **`examsubmissions`** container.
+- The graded exams corresponding to each submission will reside in the **`grades`** container 
+- The activity preferences for each customer uploaded are parsed and reside in the **`activitypreferences`** container.
 
 ### Upload Student Registration Records
 
-There's just one more step to see the full solution in action!  The CosmosDB needs to be loaded with the registration records for each student, as the AI assistant will only respond to queries from students registered in the Cosmos DB database.
+There's just one more step to see the full solution in action!  The Cosmos DB needs to be loaded with the registration records for each student, as the AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
 In the `/ContosoAIAppsBackend/` folder of your Codespace or Student resources package, you will find an HTTP client file for the Student Management API: `rest-api-students-management.http`.  This file contains a list of all students registered in the Contoso Islands school system.
 
@@ -161,7 +161,7 @@ Just like how you uploaded yacht records and modified the yacht records via the 
 
 ### Query the AI Assistants
 
-As seen in the previous challenges, the Citrus Bus AI Assistants can query CosmosDB to return the results to end users. 
+As seen in the previous challenges, the Citrus Bus AI Assistants can query Cosmos DB to return the results to end users. 
 
 Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Priscilla AI Assistants to query the database to get the answers from these data stores.
 
@@ -175,11 +175,11 @@ During this challenge you will:
 - Observe the application properly classifying documents and using the appropriate model to extract the submissions contained in the file
 - Observe the processing of all documents
 - Extract all form fields from the documents
-- Observe that the application grades the questions for correctness.
+- Observe that the application grades the questions for correctness
 - Observe that the application stores the student submission alongside the grade in JSON format in Cosmos DB
-- Observe that the guest activity preferences in the Cosmos DB database
-- You should be able to configure the descriptions for each tool and tool parameter to enable to assistants perform their tasks correctly.
-- Observe that the AI assistant should be able to parse the students responses on exam questions and grade them correctly based on the information in the knowledge (AI Search) extracted from the sample documents to Azure Blob Store.
+- Observe that the guest activity preferences are in the Cosmos DB database
+- You should be able to configure the descriptions for each tool and tool parameter to enable to assistants to perform their tasks correctly
+- Observe that the AI assistant should be able to parse the students responses on exam questions and grade them correctly based on the information in the knowledge (AI Search) extracted from the sample documents to Azure Blob Store
 
 ## Learning Resources
 
