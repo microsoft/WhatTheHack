@@ -20,9 +20,19 @@ In this challenge, you will focus on just one of these parsers, Azure Document I
 
 The goal of this challenge is to configure Azure Document Intelligence to classify documents and extract data from them.  You will then observe the extraction of the school district, school name, student ID, student name, and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
-### Understanding the Citrus Bus Application Data Pipeline
+### Understanding the Citrus Bus Classificaton & Extraction Data Flow
 
-The Citrus Bus application has a pipeline that can process all of the historical PDF and PNG files for these exam submissions and activity preferences stored in blob storage.
+The Citrus Bus application has a pipeline that can process PDF and PNG files for exam submissions and activity preferences which are submitted to an Azure Blob Storage account.  When exam or activity preference documents are posted to the **`submissions`** container of the storage account, the app will send them to the Azure Document Intelligence service for processing.
+
+First, the app will invoke a custom classifier model in Azure Document Intelligence to recognize which document type it has encountered. Next, the app will call a corresponding custom extractor model to parse the document and extract the relevant fields. Finally, the app will process the contents of the documents, including grading the exams, and storing the results in CosmosDB, where they can be accessed by the Citrus Bus AI Assistants. 
+
+The data flow for this automation can be seen in the following diagram:
+
+![Document Intelligence Data Pipeline](../images/c3-classification-extraction-data-flow.png)
+
+Azure Document Intelligence enables you to create and train custom models that can classify or extract data from documents. These models are trained on sample documents so that they can then do the classification or extraction on production documents.
+
+You will find sample documents in the Azure Blob Storage account of your Azure environment that were pre-deployed in Challenge 0.
 
 The storage account name with these files is prefixed with `storage` followed by set of unique characters. For example: `storagexxxxxxxxxxxxx`.
 
@@ -30,24 +40,20 @@ The storage account name with these files is prefixed with `storage` followed by
 
 In the Azure Blob Storage account, there are 21 sample documents in the following containers:
 
-- **`f01-geo-climate`**
+- **`f01-geography-climate`**
 - **`f02-tour-economy`**
-- **`f03-gov-politics`**
+- **`f03-government-politics`**
 - **`f04-activity-preferences`**
 
-Each container contains 5 samples for that category of document (except for `f01-geo-climate`, which has 6). 
+Each container contains 5 samples for that category of document (except for `f01-geography-climate`, which has 6). 
 
 There is also a container called **`classifications`**. This container contains a copy of the same 21 samples from the 4 category containers.
 
-You will use the copies of these sample documents for training the custom classifier and extractor in Azure Document Intelligence.
-
-   **NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
+You will use the copies of these sample documents for training the custom classifier and extractors in Azure Document Intelligence as shown in the diagram below:
 
 ![Image of where files are store in Azure Storage](../images/c3-train-classification-extraction-models.png)
 
-At runtime in the automated data pipeline, the app will invoke the custom classifier from Azure Document Intelligence to recognize which document type it has encountered and then it will call the corresponding custom extractor model to parse the document and extract the relevant fields.
-
-![Document Intelligence Data Pipeline](../images/c3-classification-extraction-data-flow.png)
+**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
 
 In order to observe all of the things above in action, you will need to complete the following high-level tasks:
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
@@ -67,7 +73,7 @@ The custom classifier helps you to automate the recognition of the different doc
 Use these directions [Building a Custom Classifier Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-classifier?view=doc-intel-4.0.0) for how to train the custom classifier in Azure Document Intelligence to recognize the following 4 categories of documents:
 - `f01-geography-climate`
 - `f02-tourism-economy`
-- `f03-geography-politics`
+- `f03-government-politics`
 - `f04-activity-preferences`
 
 Rename your `document-intelligence-dictionary.json.example` to `document-intelligence-dictionary.json`. 
@@ -85,6 +91,8 @@ Make sure that the **`extractor_model_name`** field in your application config *
 - `f04-extractor`
 
 Also ensure that the field names such as **`q1`** and **`q5`** matches exactly what you have in Document Intelligence Studio.
+
+In Document Intelligence Studio, when creating an extraction model, be sure to map the field names to the ***values*** in the sample documents.
 
 The first 3 extractor models are straightforward. However, in the 4th document type, there are tables, signatures and checkboxes, which will require more attention.
 
@@ -132,20 +140,20 @@ The first 3 extractor models are straightforward. However, in the 4th document t
 
 ### Submit Student Exams to be Processed
 
-In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the form processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
+In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the classfication and extraction processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
 
 When files are uploaded to the **`submissions`** container, this will trigger the app's Azure Functions. The Azure Functions will invoke the Azure Document Intelligence service to classify the exams, extract the data, grade the exams, and then store the results in Cosmos DB. 
 
 **HINT:** Refer back to [Challenge 01](Challenge-01.md) for examples of how to upload local files into an Azure Blob Storage account.
 
-You will be able to observe that the solution should:
+You should observe that the solution:
 
-- Use Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in Azure blob storage.
-- Extract the full name and profile details and answers to each exam question for each exam submission and store the extracted fields in Cosmos DB.
-- For the tourists' travel and activity preferences, extract the profile data and activity preferences of the guest and store the extracted data in Cosmos DB
-- Use Azure Service Bus to throttle during high traffic scenarios.
-- Pick up the extracted JSON documents from Azure Service Bus and grade the exams for correctness for each answer provided using the LLMs.
-- Store the processed grade in JSON format in Cosmos DB for each student submission. The grade should be a score between 0 and 100. All questions carry equal weight.
+- Uses Azure Services to extract the text from the PDF, PNG, TIFF and JPEG files stored in Azure blob storage.
+- Extracts the full name, profile details, and answers to each exam question for each exam submission and stores the extracted fields in Cosmos DB.
+- For the tourists' travel and activity preferences, extracts the profile data and activity preferences of the guest and stores the extracted data in Cosmos DB
+- Uses Azure Service Bus to throttle during high traffic scenarios.
+- Picks up the extracted JSON documents from Azure Service Bus and grades the exams for correctness for each answer provided using the LLMs.
+- Stores the processed grade in JSON format in Cosmos DB for each student submission. The grades should be a score between 0 and 100. 
 
 You can go to the data explorer for the Cosmos DB to verify that the exam submissions have loaded successfully into the **`examsubmissions`** collection.
 
@@ -158,6 +166,9 @@ For the activity preferences for each customer uploaded, these are parsed and re
 Just like how you uploaded yacht records and modified the yacht records via the http client, use the **rest-api-students-management.http** http client to upload student records to Cosmos DB. The AI assistant will only respond to queries from students registered in the Cosmos DB database.
 
 ### AI Assistants
+
+As seen in the previous challenges, the Citrus Bus AI Assistants can query CosmosDB to return the results to end users. 
+
 Once you have verified that these documents have been parsed and the data has been extracted into the corresponding containers, you can use the Murphy and Priscilla AI Assistants to query the database to get the answers from these data stores.
 
 You will need to configure the assistant tools for each AI assistant to ensure that the correct function is executed when the student or parent needs to retrieve the grades for the exam submissions or when a guest needs to get recommendations for activities during their trip on the island.
