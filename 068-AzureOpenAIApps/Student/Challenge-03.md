@@ -10,7 +10,7 @@ This challenge assumes that all requirements for Challenges 01 & 02 were success
 
 As a major employer on the Contoso Islands, Contoso Yachts, Inc has also expanded into the education vertical, extending their Citrus Bus application with advanced AI services to help educators on the island grade student exams.
 
-The Citrus Bus application has an Azure storage account with a Blob Store containing a large number of documents and Images of handwritten essays from students in various file formats including but not limited to PDF, PNG, TIFF and JPEG.
+The Citrus Bus application has an Azure storage account with a Blob Store containing a large number of documents and images of handwritten essays from students in various file formats including but not limited to PDF, PNG, TIFF and JPEG.
 
 Often, an organization's data is not readily consumable by the app. It needs to be digested, parsed and simplified to extract the data in a format that can be readily leveraged by the language model.  The Azure AI platform has services that help with these tasks such as Azure Document Intelligence, Azure AI Vision, Azure Custom Vision, and Azure Video Indexer. 
 
