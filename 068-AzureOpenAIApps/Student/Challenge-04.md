@@ -4,15 +4,17 @@
 
 ## Pre-requisites
 
-This challenge assumes that all requirements for Challenge 01 were successfully completed.
+This challenge assumes that all requirements for Challenges 1, 2, and 3 were successfully completed.
 
 ## Introduction
+
+In the previous challenge, you observed how the Citrus Bus app uses Azure Document Intelligence to classify and extract data from student exam documents. The extracted exam submission is stored in CosmosDB. The Citrus Bus app also uses an Azure OpenAI LLM to grade the exam submission and then saves the grade in CosmosDB too.
 
 When building any application for production scenarios, there may be scenarios where the quota for the LLMs have to be distributed fairly to prevent or minimize opportunities for starvation amongst the consumers.
 
 For this challenge, our goal is to ensure that for the automated exam grading for each school district, each school district is not exceeding the allocated quota.
 
-The are 4 school districts and they do not have equal number of schools or students so the goal is to ensure that the resource allocation is distributed fairly and equally to each school district.
+The are 4 school districts and they do not have equal number of schools or students, so the goal is to ensure that the resource allocation is distributed fairly and equally to each school district.
 
 The four school districts are:
 - Grapefruit
