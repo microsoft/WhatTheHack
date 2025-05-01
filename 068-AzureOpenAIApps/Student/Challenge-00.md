@@ -11,5 +11,5 @@ This hack can be run where an Azure environment is provided in lab, or where the
 ## Select Your Path!
 **Attention Attendee:**  Your coach will advise you if there is a lab environment provided. If a lab environment is provided, THANK your coaches as they have saved you a few setup steps and a bunch of time. If not, don't worry, we have you covered with all the steps to deploy the Azure resources needed into your own Azure subscription.
 
-### [Challenge 00 - Azure Lab Provided](Challenge-00-Lab.md)
-### [Challenge 00 - Student Self-Deploy Azure Resources](Challenge-00-NoLab.md)
+### [Challenge 00 - Azure Lab Provided](Challenge-00-lab.md)
+### [Challenge 00 - Student Self-Deploy Azure Resources](Challenge-00-nolab.md)
