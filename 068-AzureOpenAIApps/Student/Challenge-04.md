@@ -32,13 +32,15 @@ To summarize this flow:
 
 1. Exam documents in the `submissions` blob storage container trigger the `azure_document_intelligence()` Azure Function.
 1. The `azure_document_intelligence()` Azure Function calls Azure Document Intelligence to classify and extract the exam data from the document.
-1. The `azure_document_intelligence()` Azure Function stores the extracted exam submission in CosmosDB.
+1. The `azure_document_intelligence()` Azure Function saves the extracted exam submission in CosmosDB.
 1. The `azure_document_intelligence()` Azure Function also sends the extracted exam submission to an Azure Service Bus queue for the corresponding school district.
 1. Azure Function Queue Handlers are configured to be triggered by each queue. The queue handler functions:
    1. Send the exam submission to the `grade_exam_submission()` Azure Function.
    2. Notify the `quota_enforcement_manager()` Azure Function to increment the quota count and stop the queue if required.
 1. The `grade_exam_submission()` Azure Function sends exam submission and a prompt asking the LLM to grade the exam submission.
 1. The `grade_exam_submission()` Azure Function saves the returned grade to CosmosDB.
+
+The `quota_enforcement_manager()` Azure Function keeps track of the quota counts, and if condtions are met that exceed the quota, it will suspend the corresponding school district's queue for a set cool down period.  It runs on a timer to periodically check if the cool down period has expired and the queue can be reactivated.
 
 ## Description
 
