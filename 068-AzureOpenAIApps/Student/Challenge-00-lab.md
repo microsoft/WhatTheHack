@@ -65,7 +65,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-Your developer environment is ready, hooray! Skip to section: [Deploy Azure Resources](#deploy-azure-resources)
+Your developer environment is ready, hooray! Skip to section: [Setup Citrus Bus Application](#setup-citrus-bus-application)
 
 **NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
 
