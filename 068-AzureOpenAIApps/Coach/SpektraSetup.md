@@ -6,3 +6,22 @@ When running this hack in a labs environment, we have a deployment script the de
 
 ## Deployment Script
 
+The deployment script can be found in the Codespace repo for this hack.  We recommend cloning the Codespace repo to wherever you will run the deployment script from.
+
+[Azure OpenAI Apps Codespace Repo](https://github.com/perktime/wth-aiapps-codespace)
+
+This sample code should kick off the deployment script:
+
+```
+git clone https://github.com/perktime/wth-aiapps-codespace.git
+
+
+cd infra
+chmod +x deploy.sh
+./deploy.sh --subscription-id "[subscription-id]" --resource-group-name "[resource-group-name]" --tenant-id "[tenant-id]"
+
+```
+The deployment script requires the following parameters:
+- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
+- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script. 
+- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
