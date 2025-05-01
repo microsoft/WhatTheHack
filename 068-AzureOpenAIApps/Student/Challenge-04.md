@@ -22,7 +22,7 @@ The four school districts are:
 
 To ensure fair access to the LLMs, the Citrus Bus app has implemented a set of Azure Service Bus queues to handle all calls to the LLM from the school districts.  You can see how this system is set up in the diagram below:
 
-![Exam grading & LLM Quota Enforcement Flow](../images/c3-exam-grading-flow.png)
+![Exam grading & LLM Quota Enforcement Flow](../images/c4-exam-grading-flow.png)
 
 The application contains settings that an administrator can configure to manage LLM Quota Enforcement via the queues.  
 
