@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the Azure Open AI Apps What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Azure Open AI Apps What The Hack. An Azure lab environment will be provided to you with the sample application resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
 
 ## Description
 
@@ -15,15 +15,17 @@ In this challenge, you will setup the necessary pre-requisites and environment t
   - [Use GitHub Codespaces](#use-github-codespaces)
   - [Use Local Workstation](#use-local-workstation)
 - [Setup Citrus Bus Application](#setup-citrus-bus-application)
-  - [Deploy Azure Resources](#deploy-azure-resources)
+  - [Get Azure Resource Settings](#get-azure-resource-settings)
   - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
     - [Setup App Backend](#setup-app-backend)
     - [Setup App Frontend](#setup-app-frontend)
 
 ### Access Azure Subscription 
 
-You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
-- [Azure Subscription](https://azure.microsoft.com/en-us/free/)
+You will be provided login credentials to an Azure subscription to complete this hack by your coach. When you receive your credentials, make note of them and login to the Azure Portal:
+- [Azure Portal](https://portal.azure.com)
+
+Keep your credentials handy as you will also need them to login to the Azure CLI (command line interface).
 
 ### Setup Development Environment 
 
@@ -121,7 +123,7 @@ Contoso Yachts, Inc has developed the Citrus Bus application in-house. The Citru
 The Citrus Bus application was developed using Python and Typescript/Javascript, and implements a RAG architecture with Azure OpenAI, Azure AI Search, and other Azure AI platform services. These services, as well as frameworks such as Langchain, have support for both Typescript and Python.
 
 There are three major steps to setup the Sample Application:
-- [Deploy Azure Resources](#deploy-azure-resources)
+- [Get Azure Resource Settings](#get-azure-resource-settings)
 - [Setup App Backend](#setup-app-backend)
 - [Setup App Frontend](#setup-app-frontend)
 
@@ -133,106 +135,23 @@ In your codespace, or student `Resources.zip` package, you fill find the followi
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
 
-#### Deploy Azure Resources
+#### Get Azure Resource Settings
 
-We have provided a deployment script and a set of Bicep templates which will deploy and configure the Azure resources required to run the sample application in the cloud. You can find these files in the `/infra` folder.
+The Azure lab environment has the Citrus Bus application resources pre-deployed into Azure. We have provided you with a script that will load the Azure resource settings into a local settings file that you will use during the hack.  
 
-The deployment script uses the Azure PowerShell Commandlets to log into your Azure subscription. The script can be run from the terminal in your Codespace, or the terminal on your local workstation.
+You can find this script in the `/infra` folder of your Codespace or Student resources package.
 
-**NOTE:** Logging into your Azure subscription with PowerShell or the Azure CLI from a GitHub Codespace requires a Device Login Code. Some Azure subscriptions may block this method of authentication. For subscriptions where authentication with a Device Login Code is not permitted, you will need to create and use an Azure Service Principal to login from GitHub Codespaces.
-
-##### Setup Service Principal
-
-If your Azure subscription does not allow authentication with a Device Login Code, expand the hidden section below to learn how to create an Azure Service Principal.
-
-**NOTE:** Microsoft FTEs with an internal Azure subscription in the FDPO Entra ID tenant will need to use a Service Principal so that they can log in to the Azure CLI. 
-
-<details markdown="1">
-<summary markdown="span">Click to expand/collapse Setup Service Principal Requirements </summary>
-
-To create an Azure Service Principal, we recommend using the [Azure Cloud Shell](https://shell.azure.com) in your browser. You will then collect the login details and use them to run the sample application's deployment script from your GitHub Codespace or local workstation.
-
-Run the following command to create a service principal with the Contributor role on the subscription. Replace the `<NAME>` with a meaningful name.  Replace the subscription ID (`00000000-0000-0000-0000-000000000000`) with your Azure subscription ID.
-
-  ````bash
-  az ad sp create-for-rbac --name <NAME> --role contributor --scopes /subscriptions/00000000-0000-0000-0000-000000000000
-  ````
-  Your output should look something like this:
-
-  ![Service Principal](/068-AzureOpenAIApps/images/service-principle.png)
-
-<b>Make sure you save the output of the above command as you will need it later.</b>
-<br>If you get an error when you try to create the service principal due to Azure Policy, you will have to use these steps as an alternative:
-* Open your Codespace in Visual Studio Code Desktop
-* Open Terminal and run this command `CODESPACES=false`
-* Continue to the next section. When the script executes `az login`, you should NOT be using a device code and will instead be prompted in the browser to authenticate to your Azure subscription using the normal authentication method.
-</details>
-
-##### Provisioning Azure Resources
+The deployment script uses the Azure CLI to log into your Azure subscription. When prompted for Azure credentials, use the ones provided by your coach for the Azure lab environment.
 
 Execute the following commands in your GitHub Codespace or local workstation terminal window:
 
 ```bash
 cd infra
-chmod +x deploy.sh
-./deploy.sh --subscription-id "[subscription-id]" --resource-group-name "[resource-group-name]" --tenant-id "[tenant-id]" 
+chmod +x genlocalsettings.sh
+./genlocalsettings.sh --resource-group-name "openai-apps-wth"
 ```
 
-- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
-- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script. 
-- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
-
-**NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
-
-<details markdown="1">
-<summary markdown="span">Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
-
-**NOTE:** Do not run these steps in Azure Cloud Shell. Use the terminal in your GitHub Codespace or local workstation!
-
-```bash
-cd infra
-chmod +x deploy.sh
-./deploy.sh --subscription-id "[subscription-id]" --resource-group-name "[resource-group-name]" --tenant-id "[tenant-id]" --use-service-principal --service-principal-id "[service-principal-id]" --service-principal-password "[service-principal-password]"
-```
-- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
-- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script. 
-- `service-principal-id`: The App ID
-- `service-principal-password`: The Service Principal Password
-- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
-
-</details>
-
-The deployment process takes about 30 minutes to complete.
-
-###### Capacity Issues
-
-At the time this hack was authored (June 2024), the Azure AI resources required for the solution are not all available in the same region. By default, the deployment script above will attempt to deploy most Azure resources in `East US 2` and the Azure Document Intelligence resource in `East US`.
-
-If you have any errors with capacity or quota issues, expand the hidden section below for troubleshooting instructions.
-
-<details markdown="1">
-<summary markdown="span">Click to expand/collapse Troubleshoot Capacity Issues</summary>
-
-If you have any errors with capacity or quota issues, you may need to re-deploy the solution using one or more of the optional location parameters below. Note the resource type and region that failed to deploy in any error messages, and choose a different region based on the information below.
-
-- `location`: The Azure region where you want to deploy all resources EXCEPT Azure Open AI & Azure Document Intelligence. (Default value is `eastus2`)
-- `openai-location`: The Azure region where the Azure OpenAI resource will be deployed. (Default value is `eastus2`)
-- `document-intelligence-location`: The Azure region where the Azure Document Intelligence resource will be deployed. (Default value is `eastus`)
-
-**NOTE:** The hack requires the Azure OpenAI Assistant API feature which is currently in preview and NOT available in ALL regions *where Azure OpenAI is available*!
- 
-As of June 2024, Azure OpenAI with the Assistant API preview feature is available in the following regions: `eastus2`, `australiaeast`, 
-`francecentral`, `norwayeast`, `swedencentral`, `uksouth`, `westus`, `westus3`
-
-This information is subject to change over time, for the most up to date list of available locations see [Azure OpenAI Service Models - Assistants (Preview) Availability](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview)
-
-**NOTE:** This hack uses Python to interact with the Azure Document Intelligence API. Python is supported with the `2024-02-29-preview` version of the Document Intelligence API.  The `2024-02-29-preview` version of the API is currently NOT available in ALL regions *where Azure Document Intelligence is available*!
-
-As of June 2024, Azure Document Intelligence with support for API version `2024-02-29-preview` (with Python support) is available in the following regions: `eastus`, `westus2`, `westeurope`
-
-This information is subject to change over time, for the most up to date list of available locations see [What is Azure AI Document Intelligence? - API `2024-02-29-preview` Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
-
-</details>
+To confirm that the script executed successfully, you should find a new file named **`local.settings.json`** in the **`/ContosoAIAppsBackend`** folder of your Codespace or your Student resources location on your local workstation.  The file will be populated with the Azure resource endpoints and access keys from your Azure lab environment.
 
 #### Setup App Backend and Frontend
 
