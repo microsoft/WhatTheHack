@@ -32,3 +32,7 @@ The deployment script requires the following CLIs to be available wherever it is
 - Bicep
 - jq
 
+The deployment takes 25-30 minutes on average to complete.
+
+If the deployment script runs into any errors, please see the [Challenge 0 Coach Guide](Solution-00.md) for troubleshooting tips.
+
