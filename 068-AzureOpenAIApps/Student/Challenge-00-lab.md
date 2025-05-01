@@ -1,4 +1,4 @@
-# Challenge 00 - Prerequisites - Ready, Set, GO! - LAB PROVIDED
+# Challenge 00 - Prerequisites - Ready, Set, GO! (Lab Provided)
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
