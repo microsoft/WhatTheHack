@@ -22,11 +22,23 @@ The four school districts are:
 - Orange
 - Tangerine
 
-To ensure fair access to the LLMs, the Citrus Bus app has implemented a set of Azure Service Bus queues to handle all calls to the LLM from the school districts.  You can see how this system is set up in the diagram below:
+To ensure fair access to the LLMs, the Citrus Bus app has implemented a set of Azure Service Bus queues to handle all calls to the LLM from the school districts. The application contains settings that an administrator can configure to manage LLM Quota Enforcement via the queues.  
+ 
+You can see how this system is set up in the diagram below:
 
 ![Exam grading & LLM Quota Enforcement Flow](../images/c4-exam-grading-flow.png)
 
-The application contains settings that an administrator can configure to manage LLM Quota Enforcement via the queues.  
+To summarize this flow:
+
+1. Exam documents in the `submissions` blob storage container trigger the `azure_document_intelligence()` Azure Function.
+1. The `azure_document_intelligence()` Azure Function calls Azure Document Intelligence to classify and extract the exam data from the document.
+1. The `azure_document_intelligence()` Azure Function stores the extracted exam submission in CosmosDB.
+1. The `azure_document_intelligence()` Azure Function also sends the extracted exam submission to an Azure Service Bus queue for the corresponding school district.
+1. Azure Function Queue Handlers are configured to be triggered by each queue. The queue handler functions:
+   1. Send the exam submission to the `grade_exam_submission()` Azure Function.
+   2. Notify the `quota_enforcement_manager()` Azure Function to increment the quota count and stop the queue if required.
+1. The `grade_exam_submission()` Azure Function sends exam submission and a prompt asking the LLM to grade the exam submission.
+1. The `grade_exam_submission()` Azure Function saves the returned grade to CosmosDB.
 
 ## Description
 
