@@ -24,7 +24,7 @@ chmod +x deploy.sh
 ```
 The deployment script requires the following parameters:
 - `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
-- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script. 
+- `resource-group-name`: The name of the resource group where you want to deploy the resources. Please use "wth-aoai-apps-rg" for this value for all students.
 - `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
 
 The deployment script requires the following CLIs to be available wherever it is run:
