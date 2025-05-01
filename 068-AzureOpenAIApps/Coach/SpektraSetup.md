@@ -22,13 +22,12 @@ az login
 # Navigate to the /infra folder and execute the script
 cd infra
 chmod +x deploy.sh
-./deploy.sh --skip-local-settings-file --subscription-id "[subscription-id]" --resource-group-name "wth-aoai-apps-rg" --tenant-id "[tenant-id]"
+./deploy.sh --silent-install --skip-local-settings-file
 
 ```
-The deployment script requires the following parameters:
-- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
-- `resource-group-name`: The name of the resource group where you want to deploy the resources. Please use "wth-aoai-apps-rg" for this value for all students.
-- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
+The deployment script requires the following flags for running in a lab environment:
+- `silent-install`: Enabling this flag will allow the script to run without user interaction. It also assumes that the user running the script has already authenticated Azure CLI, and will deploy the resources into the default subscription that user is authenticated to.
+- `skip-local-settings-file`: Enabling this flag will prevent the script from generating a local settings file with the Azure resources' access keys.
 
 The deployment script requires the following CLIs to be available wherever it is run:
 - Azure CLI
