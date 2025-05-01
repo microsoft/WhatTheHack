@@ -16,6 +16,9 @@ This sample code should kick off the deployment script:
 # Clone the repo to deployment VM or Cloud Shell
 git clone https://github.com/perktime/wth-aiapps-codespace.git
 
+# Authenticate Azure CLI
+az login
+
 # Navigate to the /infra folder and execute the script
 cd infra
 chmod +x deploy.sh
