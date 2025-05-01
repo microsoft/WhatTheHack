@@ -143,7 +143,7 @@ You can find this script in the `/infra` folder of your Codespace or Student res
 
 The deployment script uses the Azure CLI to log into your Azure subscription. When prompted for Azure credentials, use the ones provided by your coach for the Azure lab environment.
 
-Execute the following commands in your GitHub Codespace or local workstation terminal window:
+Execute the following commands in the terminal of your GitHub Codespace or local workstation terminal window:
 
 ```bash
 cd infra
