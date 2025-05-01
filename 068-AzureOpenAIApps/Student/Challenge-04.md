@@ -40,7 +40,7 @@ To summarize this flow:
 1. The `grade_exam_submission()` Azure Function sends exam submission and a prompt asking the LLM to grade the exam submission.
 1. The `grade_exam_submission()` Azure Function saves the returned grade to CosmosDB.
 
-The `quota_enforcement_manager()` Azure Function keeps track of the quota counts, and if condtions are met that exceed the quota, it will suspend the corresponding school district's queue for a set cool down period.  It runs on a timer to periodically check if the cool down period has expired and the queue can be reactivated.
+The `quota_enforcement_manager()` Azure Function keeps track of the quota counts, and if conditions are met that exceed the quota, it will suspend the corresponding school district's queue for a set cool down period.  It runs on a timer to periodically check if the cool down period has expired and the queue can be reactivated.
 
 ## Description
 
