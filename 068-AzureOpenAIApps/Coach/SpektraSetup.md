@@ -19,7 +19,7 @@ git clone https://github.com/perktime/wth-aiapps-codespace.git
 # Navigate to the /infra folder and execute the script
 cd infra
 chmod +x deploy.sh
-./deploy.sh --skip-local-settings-file true --subscription-id "[subscription-id]" --resource-group-name "wth-aoai-apps-rg" --tenant-id "[tenant-id]"
+./deploy.sh --skip-local-settings-file --subscription-id "[subscription-id]" --resource-group-name "wth-aoai-apps-rg" --tenant-id "[tenant-id]"
 
 ```
 The deployment script requires the following parameters:
