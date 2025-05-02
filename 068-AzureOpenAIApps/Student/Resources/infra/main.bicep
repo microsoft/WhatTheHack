@@ -47,6 +47,7 @@ output cosmosDBPrimaryMasterKey string = cosmos.outputs.primaryMasterKey
 output cosmosDBAddress string = cosmos.outputs.uri
 output cosmosDBDatabaseName string = cosmos.outputs.databaseName
 output cosmosDBConnectionString string = cosmos.outputs.connectionString
+output cosmosDBAccount string = cosmos.outputs.cosmosDBAccount
 
 module openai 'modules/openai.bicep' = {
   name: 'openAIDeployment'
@@ -55,7 +56,7 @@ module openai 'modules/openai.bicep' = {
     location: openAILocation
     name: 'openai-${suffix}'
     deployments: [
-      { name: 'gpt-4',                    version: '1106-Preview' }
+      { name: 'gpt-4o',                    version: '2024-11-20' }
       { name: 'text-embedding-ada-002',   version: '2' }      
     ]    
   }
@@ -74,6 +75,7 @@ module search 'modules/search.bicep' = {
 
 output searchKey string = search.outputs.primaryKey
 output searchEndpoint string = search.outputs.endpoint
+output searchName string = search.outputs.name
 
 module document 'modules/document.bicep' = {
   name: 'documentDeployment'
@@ -102,12 +104,13 @@ module storage 'modules/storage.bicep' = {
   params: {    
     name: 'storage${suffix}'
     location: location
-    containers: [ 'classifications', 'f01-geo-climate', 'f02-tour-economy', 'f03-gov-politics', 'f04-activity-preferences', 'submissions', 'government' ]
+    containers: [ 'classifications', 'f01-geography-climate', 'f02-tour-economy', 'f03-government-politics', 'f04-activity-preferences', 'submissions', 'government' ]
   }
 }
 
 output storagePrimaryKey string = storage.outputs.primaryKey
 output storageConnectionString string = storage.outputs.connectionString
+output name string = storage.outputs.name
 
 module appinsights 'modules/appinsights.bicep' = {
   name: 'appInsightsDeployment'
