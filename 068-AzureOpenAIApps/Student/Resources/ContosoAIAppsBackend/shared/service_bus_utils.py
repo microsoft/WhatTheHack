@@ -41,6 +41,11 @@ class ServiceBusUtils:
         service_bus_message = json.dumps(message)
         return self.send_string_to_queue(queue_name, service_bus_message)
 
+    def get_queue_status(self, queue_name: str):
+        queue_properties: QueueProperties = self.admin_client.get_queue(queue_name)
+        return queue_properties.status
+        
+        
     def update_queue_status(self, queue_name: str, new_status: EntityStatus):
         queue_properties: QueueProperties = self.admin_client.get_queue(queue_name)
         queue_properties.status = new_status
