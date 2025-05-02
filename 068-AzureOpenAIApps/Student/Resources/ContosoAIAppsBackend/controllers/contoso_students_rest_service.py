@@ -112,7 +112,7 @@ def handle_get_request(request: func.HttpRequest):
             LoggingUtils.track_event("RETRIEVE_SINGLE_STUDENT", {"student_id": student_identifier})
             return APISuccessOK(response).build_response()
         else:
-            message = {"message": "No student matches yacht identifier provided", "student id": student_identifier}
+            message = {"message": "No student matches student identifier provided", "student id": student_identifier}
             response = json.dumps(message)
             return APINotFound(response).build_response()
     else:

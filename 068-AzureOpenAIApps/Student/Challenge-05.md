@@ -39,6 +39,8 @@ To kick things off, ensure that the **`COMPUTE_EMBEDDINGS_ONLY_IF_NECESSARY`** a
 When this value is set to `0`, embeddings are computed regardless of whether the text contents have been modified.
 When it is set to `1`, embeddings are only calculated if the text contents have been updated.
 
+**NOTE:** Any changes to the configuration settings file require that the Azure Function app be stopped and restarted to pick up the new changes.
+
 The application solves this by maintaining a copy of the document or description contents' SHA1 hash in memory via Azure Redis Cache and comparing it to subsequent receipts of similar content for the same record or document to ensure that we only compute the embedding if the text contents have been modified.
 
 Using the HTTP client, make changes to each yacht `price` and `maxCapacity` fields and save the changes.

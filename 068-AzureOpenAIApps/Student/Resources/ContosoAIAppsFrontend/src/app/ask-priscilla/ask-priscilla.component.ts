@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-ask-priscilla',
   templateUrl: './ask-priscilla.component.html',
-  styleUrls: ['./ask-priscilla.component.css']
+  styleUrls: ['./ask-priscilla.component.css'],
+  standalone: false
 })
 export class AskPriscillaComponent {
 

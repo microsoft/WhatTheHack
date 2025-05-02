@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-ask-murphy',
   templateUrl: './ask-murphy.component.html',
-  styleUrls: ['./ask-murphy.component.css']
+  styleUrls: ['./ask-murphy.component.css'],
+  standalone: false
 })
 export class AskMurphyComponent {
 

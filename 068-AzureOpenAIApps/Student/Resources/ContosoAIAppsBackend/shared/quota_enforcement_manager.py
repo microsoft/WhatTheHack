@@ -70,7 +70,11 @@ class QuotaEnforcementManager:
 
     def reactivate_queue_if_necessary(self):
 
-        if self.quota_enforcement_enabled is False:
+        if self.quota_enforcement_enabled is False and self.service_bus_util.get_queue_status(self.queue_name) != "Active":
+            print("Reactivating Queue {}".format(self.queue_name))
+            event_name = "DEACTIVATE_QUEUE_{}".format(self.queue_name)
+            LoggingUtils.track_event(event_name)
+            self.service_bus_util.update_queue_active(self.queue_name)
             return 0
 
         enforcement_flag_key = self.quota_enforcement_tracker_flag_key
@@ -80,9 +84,12 @@ class QuotaEnforcementManager:
         if queue_is_still_suspended:
             print("Queue is still suspended due to quota enforcement {}".format(self.queue_name))
         else:
-            print("Reactivating Queue {}".format(self.queue_name))
-            event_name = "DEACTIVATE_QUEUE_{}".format(self.queue_name)
-            LoggingUtils.track_event(event_name)
-            self.service_bus_util.update_queue_active(self.queue_name)
+            if self.service_bus_util.get_queue_status(self.queue_name) == "Active":
+                return 0
+            else:
+                print("Reactivating Queue {}".format(self.queue_name))
+                event_name = "DEACTIVATE_QUEUE_{}".format(self.queue_name)
+                LoggingUtils.track_event(event_name)
+                self.service_bus_util.update_queue_active(self.queue_name)
 
         return 1

@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "contoso-ai-apps:build:production"
+              "buildTarget": "contoso-ai-apps:build:production"
             },
             "development": {
-              "browserTarget": "contoso-ai-apps:build:development"
+              "buildTarget": "contoso-ai-apps:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "contoso-ai-apps:build"
+            "buildTarget": "contoso-ai-apps:build"
           }
         },
         "test": {

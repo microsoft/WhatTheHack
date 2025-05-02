@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-ask-veta',
   templateUrl: './ask-veta.component.html',
-  styleUrls: ['./ask-veta.component.css']
+  styleUrls: ['./ask-veta.component.css'],
+  standalone: false
 })
 export class AskVetaComponent {
 

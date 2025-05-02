@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-ask-donald',
   templateUrl: './ask-donald.component.html',
-  styleUrls: ['./ask-donald.component.css']
+  styleUrls: ['./ask-donald.component.css'],
+  standalone: false
 })
 export class AskDonaldComponent {
 
