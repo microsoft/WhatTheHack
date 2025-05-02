@@ -20,3 +20,5 @@ resource search 'Microsoft.Search/searchServices@2020-08-01' = {
 #disable-next-line outputs-should-not-contain-secrets
 output primaryKey string = search.listAdminKeys().primaryKey
 output endpoint string = 'https://${name}.search.windows.net'
+output name string = search.name
+

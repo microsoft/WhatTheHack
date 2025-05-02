@@ -32,7 +32,7 @@
     }
   },
   {
-    "classifier_document_type": "f03-geography-politics",
+    "classifier_document_type": "f03-government-politics",
     "extractor_model_name": "f03-extractor",
     "model_description": "This is used to extract the contents of Form 03 using Azure Doc Intelligence",
     "fields": {
