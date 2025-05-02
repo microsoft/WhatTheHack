@@ -167,17 +167,17 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
       - Navigate to the [AI Foundry](https://ai.azure.com)
       - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
       - Click on Connected resources under your project
-      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for OPENAI_API_BASE and OPEN_API_KEY, respectively into the .env file
-      - From the **Manage connect resources in this project** screen, click the Name with the type **AIServices**. Copy the Target URL and the API Key for AZURE_FORM_RECOGNIZER_ENDPOINT and AZURE_FORM_RECOGNIZER_KEY, respectively into the .env file
+      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for `OPENAI_API_BASE` and `OPEN_API_KEY`, respectively into the `.env` file
+      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. Copy the Target URL and the API Key for `AZURE_FORM_RECOGNIZER_ENDPOINT` and `AZURE_FORM_RECOGNIZER_KEY`, respectively into the `.env` file
       - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
       - Locate your **AI Search** service that you created earlier
-      - From the **Overview**, copy the URL for AZURE_COGNITIVE_SEARCH_ENDPOINT in the .env file
-      - Under **Settings** go to Keys, copy the admin key into AZURE_COGNITIVE_SEARCH_KEY in the .env file      
+      - From the **Overview**, copy the URL for `AZURE_COGNITIVE_SEARCH_ENDPOINT` in the .env file
+      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_COGNITIVE_SEARCH_KEY` in the `.env` file      
       - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
       - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Click on your **Storage account** resource
-      - Click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
+      - Click on your **`Storage account`** resource
+      - Click on **`Security + networking`** and find **`Access keys`**. You should be able to see the **`Storage account name`**, **`key`**, and **`Connection string`**.
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
 
