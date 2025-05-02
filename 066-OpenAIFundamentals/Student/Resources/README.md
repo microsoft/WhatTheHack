@@ -12,6 +12,10 @@ This folder contains the configuration for these resources to be hosted in a Git
 ## `/data`
 This folder contains the structured and unstructured data that will be used to complete the challenges of this hack
 
+## `/infra`
+
+This folder contains the deployment scripts and Azure Bicep files used to deploy Azure AI Foundry resources into Azure.
+
 ## `/notebooks`
 This folder contains the Jupyter Notebooks you will run to complete the tasks of this hack. You must have a Jupyter Notebook runtime environment to run these files. GitHub Codespaces is the easiest way to get started.  Instructions on how to set up a Jupyter Notebook runtime environment on your local workstation are also provided if you do not want to use GitHub Codespaces.
 

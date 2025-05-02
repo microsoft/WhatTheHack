@@ -6,7 +6,7 @@
 
 In this challenge, you will learn about the different capabilities of OpenAI models and learn how to choose the best model for your use case.
 
-There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore various LLMs and compare gpt3.5 to gpt4 model in this challenge. 
+There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore various LLMs and compare gpt3.5 to gpt4-o model in this challenge. 
 
 In a world where the availability and development of models are always changing, the models we compare may change over time. But we encourage you to understand the general concepts and material in this Challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large and/or Small Language Models. For more information on legacy models and additional models, reference the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and [Azure model catalog](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog-overview) for more details.
 
@@ -51,7 +51,7 @@ Scenario: You are part of a research team working on getting information from bi
 
 **TIP** The scenario will go into the system prompt. Click on the button "Show parameters setting" next to the trash can once your model has been selected.
 
-Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
+Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4o to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
 #### Student Task 2.3.1: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.
