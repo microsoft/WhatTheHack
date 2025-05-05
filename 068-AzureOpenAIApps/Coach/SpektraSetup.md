@@ -8,7 +8,7 @@ When running this hack in a labs environment, we have a deployment script the de
 
 The deployment script can be found in the Codespace repo for this hack.  We recommend cloning the Codespace repo to wherever you will run the deployment script from.
 
-[Azure OpenAI Apps Codespace Repo](https://github.com/perktime/wth-aiapps-codespace)
+[Azure OpenAI Apps Codespace Repo](https://github.com/devanshithakar12/wth-aiapps-codespace)
 
 This sample code should kick off the deployment script:
 
