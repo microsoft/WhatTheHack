@@ -64,7 +64,11 @@ Your challenge is to run water through the pipes as described above. The Azure r
 
 ### Upload Documents to Azure Blob Storage
 
-There are documents in the **`/artifacts/documents/contoso-islands`** folder in your Codespace or student Resources package that need to be uploaded to the **`government`** container in the Azure Blob Storage account.
+There are documents in the **`/artifacts/documents/contoso-islands`** folder in your Codespace or student Resources package that need to be uploaded to the **`government`** container in the Azure Blob Storage account in your Azure environment.
+
+The storage account name with the **`government`** container is prefixed with `storage` followed by set of unique characters. For example: `storagexxxxxxxxxxxxx`.
+
+**NOTE:** You will see a storage account name prefixed with `webjobs`. This is NOT the storage account to use for this challenge!
 
 You can use the **`az storage blob upload`** command examples below to upload the document to Azure Blob Storage.
 

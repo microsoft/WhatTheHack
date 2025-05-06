@@ -81,7 +81,7 @@ To work on your local workstation, please ensure you have the following tools an
 
 The Jupyter notebooks, starter code, and sample data sources for this hack are available in a Student Resources package.
 
-- [Download and unpack the `Resources.zip`](https://aka.ms/wthopenaifundamentalsresources) package to your local workstation. 
+- [Download and unpack the `Resources.zip`](https://aka.ms/wth/openaifundamentals/resources) package to your local workstation. 
 
 The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
@@ -130,20 +130,25 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 Once you have set up a Jupyter notebook environment, navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
 
-- Click on the **+ New Project** button.
-- Give your project a name and hit **Create a new hub**.
-  - Fill out a name for your hub, choose your subscription, resource group, location
-  - Hit **Create new AI Services**, and **Create new AI Search**.
-  - Then, you can **Create a project**.
-- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure  services you will use within the challenges.
+- Click on the **+ Create Project** button.
+- Give your project a name and click **Create a new hub**.
+  - Fill out a name for your hub. 
+  - Click the **Next** button
+  - Click the **Customize** button
+  - Click **Create new AI Search**.
+  - Fill out a name for your Azure AI Search
+  - Click the **Next** button to finish setting up your Azure AI Search
+  - Click the **Next** button on the screen where it says **Create a hub for your projects**
+  - On the Review and Finish page, click the **Create** button
+- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure services you will use within the challenges.
 
 #### Deploy Azure OpenAI Models
 
 Now we will deploy the needed large language models from Azure OpenAI. 
 
-- Navigate to the [AI Foundry](https://ai.azure.com) and click on **Hub Overview**. In the Connected resources, you should see Azure OpenAI.
-- On the left navigation bar, click on Deployments. 
-- Deploy the following models in your Azure OpenAI resource. 
+- Navigate to the [AI Foundry](https://ai.azure.com) 
+- On the left navigation bar, under My Assets, click on Models + endpoints. Click the Deploy Model button and select Deploy base model
+- Deploy the following 3 models in your Azure OpenAI resource. 
   - `gpt-4o`
   - `gpt-35-turbo`
   - `text-embedding-ada-002`
@@ -158,24 +163,21 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 
 - Rename the file from `.env.sample` to `.env`.
 - Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
-    - For **Azure OpenAI, Model Deployments, AI Search, Document Intelligence**, you can find these credentials in the [Azure Portal](portal.azure.com).
-      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Click on the **Azure AI Services** and find the **Keys and Endpoint** pane to grab the key and the endpoint under **Language APIs**.
-      - Do the same for the Document Intelligence resource by clicking on the three dots next to **Content Understanding**. You will be able to see all the Azure AI services including **Document Intelligence**. Grab the key and the endpoint. 
+    - For **Azure OpenAI and Model Deployments**, you can find these credentials in Azure AI Foundry:
+      - Navigate to the [AI Foundry](https://ai.azure.com)
+      - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
+      - Click on Connected resources under your project
+      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for `OPENAI_API_BASE` and `OPEN_API_KEY`, respectively into the `.env` file
+      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. Copy the Target URL and the API Key for `AZURE_FORM_RECOGNIZER_ENDPOINT` and `AZURE_FORM_RECOGNIZER_KEY`, respectively into the `.env` file
+      - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
+      - Locate your **AI Search** service that you created earlier
+      - From the **Overview**, copy the URL for `AZURE_COGNITIVE_SEARCH_ENDPOINT` in the .env file
+      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_COGNITIVE_SEARCH_KEY` in the `.env` file      
       - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
-      - **HINT:** Document Intelligence is part of AI Services. 
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
       - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Click on your **Storage account** resource
-      - Click on **Security + networking** and find **Access keys**. You should be able to see the **Storage account name**, **key**, and **Connection string**.
-    - For **Azure AI Search**, you can find these credentials in the [Azure Portal](portal.azure.com) or within the **Management Center** tab within your project and clicking on **Connected Resources**
-        - Portal Instructions
-          - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-          - Within the **Overview** tab, you will find the **Url**
-          - Click on the **Settings** tab, and navigate to **Keys** to find the key
-        - Management Center Instructions
-          - Grab the endpoint: **Target** 
-          - Grab the **Key** 
+      - Click on your **`Storage account`** resource
+      - Click on **`Security + networking`** and find **`Access keys`**. You should be able to see the **`Storage account name`**, **`key`**, and **`Connection string`**.
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
 

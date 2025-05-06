@@ -87,3 +87,4 @@ output connectionString string = account.listConnectionStrings().connectionStrin
 
 output uri string = account.properties.documentEndpoint
 output databaseName string = databaseName
+output cosmosDBAccount string = account.name
