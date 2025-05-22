@@ -80,7 +80,7 @@ If you want to setup your environment on your local workstation, expand the sect
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
-On Mac OS (**NOTE:**: only tested on Apple Silicon):
+On Mac OS (**NOTE:** only tested on Apple Silicon):
 - Download and install Docker Desktop
 - Clone the Codespace's GitHub repo locally on your Mac
 - Open the root folder for the repo in Visual Studio Code
