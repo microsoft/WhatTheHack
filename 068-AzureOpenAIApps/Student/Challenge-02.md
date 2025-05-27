@@ -53,9 +53,9 @@ In this challenge, you will be asked to configure the system message and tools u
 
 #### Configuring Your Virtual Assistants
 
- In your `/ContosoAIAppsBackend` folder there is an `/assistant_configurations` folder that contains two files: one json and one text file
+ In your `/ContosoAIAppsBackend` folder there is an `/assistant_configurations` folder that contains two files: one JSON and one text file. 
 
- The text file (`.txt`) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
+ The text file (`.txt`) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave. You should be modifying each text file using the description of what each assistant does (hint: they are each described above).
 
  The JSON file (`.json`) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
 
@@ -175,8 +175,8 @@ Once you have proved the backend is responding properly using the REST Client, y
 
 To complete the challenge successfully, the solution should demonstrate the following:
 - Ensure that the application is able to handle the natural language inputs from the customer
-- Configure the assistants that receives that question/query from the customer and responses.
-- The assistant should be able to keep track of the conversation history during the session and remember important details about the customer making the inquiry or reservation. This should be true for at least the last 3 to 5 sentences input from the customer. 
+- Configure the assistants that receives that question/query from the customer and responses
+- The assistant should be able to keep track of the conversation history during the session and remember important details about the customer making the inquiry or reservation. This should be true for at least the last 3 to 5 sentences input from the customer
 - The virtual assistant should be able to handle natural language inputs and be trained to understand different variations of the questions related to the tour status. 
 - It should also be able to all the scenarios identified as capabilities for each assistant
 - For read/write scenarios, the changes requested by the customer/user should be captured and saved correctly to the databases.
