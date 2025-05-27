@@ -168,11 +168,11 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
       - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
       - Click on Connected resources under your project
       - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for `OPENAI_API_BASE` and `OPEN_API_KEY`, respectively into the `.env` file
-      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. Copy the Target URL and the API Key for `AZURE_FORM_RECOGNIZER_ENDPOINT` and `AZURE_FORM_RECOGNIZER_KEY`, respectively into the `.env` file
+      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. The AI Services deployment is a multi-service resource that allows you to access multiple Azure AI services like Document Intelligence with a single key and endpoint. Copy the Target URL and the API Key for `AZURE_DOC_INTELLIGENCE_ENDPOINT` and `AZURE_DOC_INTELLIGENCE_KEY`, respectively into the `.env` file
       - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
       - Locate your **AI Search** service that you created earlier
-      - From the **Overview**, copy the URL for `AZURE_COGNITIVE_SEARCH_ENDPOINT` in the .env file
-      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_COGNITIVE_SEARCH_KEY` in the `.env` file      
+      - From the **Overview**, copy the URL for `AZURE_AI_SEARCH_ENDPOINT` in the .env file
+      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_AI_SEARCH_KEY` in the `.env` file      
       - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
     - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
       - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
