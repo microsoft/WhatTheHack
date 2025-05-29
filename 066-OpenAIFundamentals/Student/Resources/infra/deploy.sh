@@ -117,8 +117,8 @@ source $environment_sample_file
 echo "Populating .env file..."
 echo "OPENAI_API_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesKey')\"" >> $environment_file
 echo "OPENAI_API_BASE=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesOpenAiEndpoint')\"" >> $environment_file
-echo "AZURE_COGNITIVE_SEARCH_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchKey')\"" >> $environment_file
-echo "AZURE_COGNITIVE_SEARCH_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchEndpoint')\"" >> $environment_file
+echo "AZURE_AI_SEARCH_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchKey')\"" >> $environment_file
+echo "AZURE_AI_SEARCH_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchEndpoint')\"" >> $environment_file
 echo "DOCUMENT_INTELLIGENCE_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.documentEndpoint')\"" >> $environment_file
 echo "DOCUMENT_INTELLIGENCE_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.documentKey')\"" >> $environment_file
 echo "AZURE_BLOB_STORAGE_ACCOUNT_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountName')\"" >> $environment_file
@@ -128,7 +128,7 @@ echo "AZURE_BLOB_STORAGE_CONNECTION_STRING=\"$(echo "$json" | jq -r '.deployment
 echo "CHAT_MODEL_NAME=\"$CHAT_MODEL_NAME\"" >> $environment_file
 echo "CHAT_MODEL_NAME2=\"$CHAT_MODEL_NAME2\"" >> $environment_file
 echo "OPENAI_API_TYPE=\"$OPENAI_API_TYPE\"" >> $environment_file
-echo "TEXT_DEPLOYMENT_ID=\"$TEXT_DEPLOYMENT_ID\"" >> $environment_file
+echo "CHAT_MODEL_NAME=\"$CHAT_MODEL_NAME\"" >> $environment_file
 echo "OPENAI_API_VERSION=\"$OPENAI_API_VERSION\"" >> $environment_file
 echo "EMBEDDING_MODEL_NAME=\"$EMBEDDING_MODEL_NAME\"" >> $environment_file
 
