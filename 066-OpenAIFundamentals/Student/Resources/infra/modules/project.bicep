@@ -134,9 +134,25 @@ resource project 'Microsoft.MachineLearningServices/workspaces@2024-04-01-previe
   }
 }
 
+resource azureAIDeveloperRoleDefinition 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
+  name: '64702f94-c441-49e6-a78b-ef80e0188fee'
+  scope: subscription()
+}
+
 resource azureMLDataScientistRole 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
   name: 'f6c7c914-8db3-469d-8ca1-694a8f32e121'
   scope: subscription()
+}
+
+// This resource defines the Azure AI Developer role, which provides permissions for managing Azure AI resources, including deployments and configurations
+resource aiDeveloperRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(userObjectId)) {
+  name: guid(project.id, azureAIDeveloperRoleDefinition.id, userObjectId)
+  scope: project
+  properties: {
+    roleDefinitionId: azureAIDeveloperRoleDefinition.id
+    principalType: 'User'
+    principalId: userObjectId
+  }
 }
 
 // This role assignment grants the user the required permissions to start a Prompt Flow in a compute service within Azure AI Foundry
