@@ -5,6 +5,10 @@ var location = resourceGroup().location
 
 param openAILocation string
 param documentIntelligenceLocation string
+param modelName string = 'gpt-4o'
+param modelVersion string = '2024-11-20'
+param embeddingModel string = 'text-embedding-ada-002'
+param embeddingModelVersion string = '2'
 
 module redis 'modules/redis.bicep' = {
   name: 'redisDeployment'
@@ -56,14 +60,19 @@ module openai 'modules/openai.bicep' = {
     location: openAILocation
     name: 'openai-${suffix}'
     deployments: [
-      { name: 'gpt-4o',                    version: '2024-11-20' }
-      { name: 'text-embedding-ada-002',   version: '2' }      
+      { name: modelName,                    version: modelVersion }
+      { name: embeddingModel,   version: embeddingModelVersion }      
     ]    
   }
 }
 
 output openAIKey string = openai.outputs.key1
 output openAIEndpoint string = openai.outputs.endpoint
+output modelName string = modelName
+output modelVersion string = modelVersion
+output embeddingModel string = embeddingModel
+output embeddingModelVersion string = embeddingModelVersion
+
 
 module search 'modules/search.bicep' = {
   name: 'searchDeployment'

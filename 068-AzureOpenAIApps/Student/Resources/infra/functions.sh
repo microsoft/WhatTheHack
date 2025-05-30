@@ -36,6 +36,10 @@ function generate_local_settings_file {
     --arg storageConnection "$(echo "$outputs" | jq -r '.storageConnectionString.value')" \
     --arg appInsightsConnection "$(echo "$outputs" | jq -r '.appInsightsConnectionString.value')" \
     --arg serviceBusConnection "$(echo "$outputs" | jq -r '.serviceBusConnectionString.value')" \
+    --arg modelName "$(echo "$outputs" | jq -r '.modelName.value')" \
+    --arg modelVersion "$(echo "$outputs" | jq -r '.modelVersion.value')" \
+    --arg embeddingModel "$(echo "$outputs" | jq -r '.embeddingModel.value')" \
+    --arg embeddingModelVersion "$(echo "$outputs" | jq -r '.embeddingModelVersion.value')" \
     '.Values.AZURE_OPENAI_API_KEY = $openAIKey |
         .Values.AZURE_OPENAI_ENDPOINT = $openAIEndpoint |
         .Values.AZURE_AI_SEARCH_ADMIN_KEY = $searchKey |
@@ -49,7 +53,9 @@ function generate_local_settings_file {
         .Values.AzureWebJobsStorage = $webjobsConnection |
         .Values.DOCUMENT_STORAGE = $storageConnection |
         .Values.APPLICATIONINSIGHTS_CONNECTION_STRING = $appInsightsConnection |
-        .Values.SERVICE_BUS_CONNECTION_STRING = $serviceBusConnection' \
+        .Values.SERVICE_BUS_CONNECTION_STRING = $serviceBusConnection |
+        .Values.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = $modelName |
+        .Values.AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME = $embeddingModel' \
     "$settings_file" > tmp.json && mv tmp.json "$settings_file"
 
     echo -e "\e[32mSettings file created successfully.\e[0m"

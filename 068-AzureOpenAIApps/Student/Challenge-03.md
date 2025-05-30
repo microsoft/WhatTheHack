@@ -168,6 +168,8 @@ Once you have verified that these documents have been parsed and the data has be
 - Murphy: answers questions about exams, grades and exam submissions from students.
 - Priscilla: answers questions about things to do on Contoso Islands as well as make recommendations to guests based on their activity preferences.
 
+When working with the assistants, you may get a response that says something like "One moment, please. I’ll retrieve the details for you now". If that happens, you can try your prompt again. However, a better way would be to change the system prompt so that doesn't happen. Can you think of a way to modify the system prompt to prevent that? Alternatively, ask your coach for a system prompt that avoids you having to wait if you are running short on time. 
+
 ## Success Criteria
 
 During this challenge you will:
