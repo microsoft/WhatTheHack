@@ -84,7 +84,7 @@ If you want to setup your environment on your local workstation, expand the sect
 
 The sample application code, Azure deployment scripts, and sample data sources for this hack are available in a Student Resources package.
 
-- [Download and unpack the Resources.zip](https://aka.ms/openaiapps/resources) package to your local workstation.
+- [Download and unpack the Resources.zip](https://aka.ms/wth/openaiapps/resources) package to your local workstation.
 
 The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
