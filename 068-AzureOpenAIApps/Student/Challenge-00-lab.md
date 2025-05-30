@@ -79,7 +79,7 @@ If you want to setup your environment on your local workstation, expand the sect
 
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
-  
+
 #### Student Resources
 
 The sample application code, Azure deployment scripts, and sample data sources for this hack are available in a Student Resources package.
@@ -88,14 +88,18 @@ The sample application code, Azure deployment scripts, and sample data sources f
 
 The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
-You will next be setting up your local workstation so that it can use dev containers. A dev container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+#### Set Up Local Dev Container
+
+You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+
+**NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). As of May 2025, WSL on Windows ARM64 does not currently support running the Azure Function Core Tools needed for this hackathon in x86_64 emulation using QEMU. IF you are using a Windows on ARM device, you will need to use a GitHub Codespace instead.
 
 On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - Download and install Docker Desktop
 - (Mac OS only) In Docker Desktop settings, choose Apple Virtualization Framework for the Virtual Machine Manager. Also, click the checkbox to use Rosetta for x86_64/amd64 emulation on Apple Silicon
-- (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the Resources.zip to your Linux home directory and unzip it there. **NOTE:** WSL on Windows ARM64 does not currently support running the Azure Function Core Tools in x86_64 emulation using QEMU so you will need to use a Codespace instead
-- Open the root folder for the repo in Visual Studio Code
-- You might get prompted to re-open the container in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select Dev Containers: Reopen in Container
+- (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
+- Open the root folder of the Student resource package in Visual Studio Code
+- You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
 </details>
 
