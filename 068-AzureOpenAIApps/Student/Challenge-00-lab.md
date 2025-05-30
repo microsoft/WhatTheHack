@@ -80,39 +80,26 @@ If you want to setup your environment on your local workstation, expand the sect
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
-To work on your local workstation, please ensure you have the following tools and resources before hacking:
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-
-**NOTE:** For Windows users, we recommend that the following tools be installed in your WSL environment, and NOT on Windows itself. (This includes the Azure CLI itself, which is listed above.) 
-
-- [Node v20.11.0](https://nodejs.org/en/download) - Only v20.11.0
-- Make sure [NPM 10.2.4](https://nodejs.org/en/download) - Comes with Node Installation
-- Install [Angular CLI](https://angular.io/cli#installing-angular-cli) globally
-- Install the [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools#installing) V4 Globally Using NPM
-- Install [Python 3.11](https://www.python.org/downloads/)
-- Install [Python Package Install PIP](https://pypi.org/project/pip/)
-- Create a Python virtual environment for Python 3.11 <br>
-  ```bash
-  python3.11 -m venv .venv
-  source .venv/bin/activate
-  python3.11 -m pip install --upgrade pip
-  ```
-  
-
 #### Student Resources
 
 The sample application code, Azure deployment scripts, and sample data sources for this hack are available in a Student Resources package.
 
-- [Download and unpack the Resources.zip](https://aka.ms/openaiapps/resources) package to your local workstation.
+- [Download and unpack the Resources.zip](https://aka.ms/wth/openaiapps/resources) package to your local workstation.
 
 The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
+
+#### Set Up Local Dev Container
+
+You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+
+**NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). As of May 2025, WSL on Windows ARM64 does not currently support running the Azure Function Core Tools needed for this hackathon in x86_64 emulation using QEMU. IF you are using a Windows on ARM device, you will need to use a GitHub Codespace instead.
+
+On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
+- Download and install Docker Desktop
+- (Mac OS only) In Docker Desktop settings, choose Apple Virtualization Framework for the Virtual Machine Manager. Also, click the checkbox to use Rosetta for x86_64/amd64 emulation on Apple Silicon
+- (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
+- Open the root folder of the Student resource package in Visual Studio Code
+- You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
 </details>
 

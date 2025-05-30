@@ -21,3 +21,4 @@ vectorized
 uploader
 Huachao
 queueing
+QEMU
