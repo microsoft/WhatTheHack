@@ -31,7 +31,7 @@ param allowStorageAccountPublicAccess string = 'Enabled'
 param allowBlobPublicAccess bool = false
 
 @description('Specifies whether the storage account allows shared key access. The default value is false.')
-param allowSharedKeyAccess bool = false
+param allowSharedKeyAccess bool = true
 
 @description('Specifies whether the storage account allows cross-tenant replication. The default value is false.')
 param allowCrossTenantReplication bool = false

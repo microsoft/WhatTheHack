@@ -110,6 +110,7 @@ resource cognitiveServicesOpenAIUserRoleDefinition 'Microsoft.Authorization/role
   name: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'
   scope: subscription()
 }
+
 // This role assignment grants the user the required permissions to eventually delete and purge the Azure AI Services account
 // https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-contributor
 resource cognitiveServicesContributorRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(userObjectId)) {
