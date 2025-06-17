@@ -6,6 +6,11 @@
     "waitFor": "onCreateCommand",
     "updateContentCommand": "python3 -m pip install -r requirements.txt",
     "postCreateCommand": "",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+          "installBicep": true
+        }
+      },
     "customizations": {
       "codespaces": {
         "openFiles": []
