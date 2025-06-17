@@ -1,0 +1,23 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_exam_answers",
+            "description": "Retrieves answers to examination or quiz questions about the country Contoso Islands",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                  "question_id": {
+                        "type": "string",
+                        "description": "A string that uniquely identifies the examination question"
+                    },
+                    "examination_question": {
+                        "type": "string",
+                        "description": "The quiz or examination question about Contoso Islands"
+                    }
+                },
+                "required": ["question_id","examination_question"]
+            }
+        }
+    }
+]

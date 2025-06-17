@@ -1,0 +1,19 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_information",
+            "description": "This is where the function description should be specified. Be very specific",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "data type goes here",
+                        "description": "The question about Contoso Islands"
+                    }
+                },
+                "required": ["query"]
+            }
+        }
+    }
+]

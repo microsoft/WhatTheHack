@@ -1,0 +1,8 @@
+applicationName: ms-openai-cosmosdb-tls
+issuerName: ms-openai-cosmosdb-tls-staging
+certName: ms-openai-cosmosdb-tls-cert-staging
+environment: staging
+server: https://acme-v02.api.letsencrypt.org/directory
+certSecretName: tls-staging
+issuerSecretName: letsencrypt-staging
+ingressClass: webapprouting.kubernetes.azure.com

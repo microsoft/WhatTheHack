@@ -8,20 +8,16 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
-- [Access Azure OpenAI](#access-azure-openai)
+- [Azure Subscription](#azure-subscription)
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Setup Azure OpenAI](#setup-azure-openai)
+- [Setup Azure AI Foundry Project and Hub](#setup-azure-ai-foundry-project-and-hub)
 
-### Access Azure OpenAI 
+### Azure Subscription
 
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
-
-Before you can start the hack, you will also need to apply for access to Azure OpenAI as it is currently in high-demand.
-
-An Azure subscription is necessary to [apply for Azure OpenAI access](https://aka.ms/oaiapply). We recommend applying as early as possible as processing times will vary, sometimes taking more than several business days.
 
 ### Setup Jupyter Notebook Environment
 
@@ -62,7 +58,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure OpenAI](#setup-azure-openai)
+You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure AI Foundry Project and Hub](#Setup-Azure-AI-Foundry-Project-and-Hub)
 
 #### Use Local Workstation
 
@@ -85,7 +81,7 @@ To work on your local workstation, please ensure you have the following tools an
 
 The Jupyter notebooks, starter code, and sample data sources for this hack are available in a Student Resources package.
 
-- [Download and unpack the `Resources.zip`](https://aka.ms/wthopenaifundamentalsresources) package to your local workstation. 
+- [Download and unpack the `Resources.zip`](https://aka.ms/wth/openaifundamentals/resources) package to your local workstation. 
 
 The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
 
@@ -130,14 +126,31 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 </details>
 <br/>
 
-### Setup Azure OpenAI
+### Setup Azure AI Foundry Project and Hub
 
-Once you have set up a Jupyter notebook environment, create an Azure OpenAI resource in your Azure Subscription and do some initial configuration.
+Once you have set up a Jupyter notebook environment, navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
 
-- [Create an Azure OpenAI Resource](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) 
-- Deploy the following models in your Azure OpenAI resource.
-  - `gpt-4`
-  - `gpt-35-turbo`
+- Click on the **+ Create Project** button.
+- Give your project a name and click **Create a new hub**.
+  - Fill out a name for your hub. 
+  - Click the **Next** button
+  - Click the **Customize** button
+  - Click **Create new AI Search**.
+  - Fill out a name for your Azure AI Search
+  - Click the **Next** button to finish setting up your Azure AI Search
+  - Click the **Next** button on the screen where it says **Create a hub for your projects**
+  - On the Review and Finish page, click the **Create** button
+- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure services you will use within the challenges.
+
+#### Deploy Azure OpenAI Models
+
+Now we will deploy the needed large language models from Azure OpenAI. 
+
+- Navigate to the [AI Foundry](https://ai.azure.com) 
+- On the left navigation bar, under My Assets, click on Models + endpoints. Click the Deploy Model button and select Deploy base model
+- Deploy the following 3 models in your Azure OpenAI resource. 
+  - `gpt-4o`
+  - `gpt-4o-mini`
   - `text-embedding-ada-002`
 
 #### Setup Jupyter Notebooks Configuration File
@@ -149,13 +162,24 @@ The code in the Jupyter notebooks retrieve their configuration values from envir
 You will find the `.env.sample` file in the root of the codespace. If you are working on your local workstation, you will find the `.env.sample` file in the root of the folder where you have unpacked the student `Resources.zip` file.
 
 - Rename the file from `.env.sample` to `.env`.
-- Add required credentials of Azure resources in the `.env` file.  
-
-  **HINT:** You can get these credentials through the Azure Portal within your AOAI resource. Click on `Keys and Endpoint` from the dropdown menu on the left side.
+- Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
+    - For **Azure OpenAI and Model Deployments**, you can find these credentials in Azure AI Foundry:
+      - Navigate to the [AI Foundry](https://ai.azure.com)
+      - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
+      - Click on Connected resources under your project
+      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for `OPENAI_API_BASE` and `OPEN_API_KEY`, respectively into the `.env` file
+      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. The AI Services deployment is a multi-service resource that allows you to access multiple Azure AI services like Document Intelligence with a single key and endpoint. Copy the Target URL and the API Key for `AZURE_DOC_INTELLIGENCE_ENDPOINT` and `AZURE_DOC_INTELLIGENCE_KEY`, respectively into the `.env` file
+      - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
+      - Locate your **AI Search** service that you created earlier
+      - From the **Overview**, copy the URL for `AZURE_AI_SEARCH_ENDPOINT` in the .env file
+      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_AI_SEARCH_KEY` in the `.env` file      
+      - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
+    - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
+      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
+      - Click on your **`Storage account`** resource
+      - Click on **`Security + networking`** and find **`Access keys`**. You should be able to see the **`Storage account name`**, **`key`**, and **`Connection string`**.
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
-  
-**NOTE:** Additional Azure resources such as Azure Form Recognizer (a.k.a. Azure Document Intelligence) and Azure Cognitive Search (a.k.a. Azure AI Search) will be required for later challenges. You can add these values to the `.env` file later as you progress through the challenges.
 
 **NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
 
@@ -173,7 +197,8 @@ If using GitHub Codespaces:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+- Verify that you have created the Project and Hub in your AI Foundry.
+    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 If working on a local workstation: 
 
@@ -185,7 +210,8 @@ If working on a local workstation:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Azure OpenAI resource and deployed the necessary models in your Azure Subscription
+- Verify that you have created the Project and Hub in your AI Foundry.
+    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 ## Learning Resources
 

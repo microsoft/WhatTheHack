@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+name: aks-app-template # change with your app name
+metadata:
+    template: aks-app-template@0.0.1-beta
+hooks:
+    preprovision:
+        interactive: false
+        shell: pwsh
+        run: infra/azd-hooks/preprovision.ps1 # Registers any required features on the subscription
+    predeploy:
+        interactive: false
+        shell: pwsh
+        run: infra/azd-hooks/predeploy.ps1 # installs additional components on the cluster
+    postdeploy:
+        interactive: false
+        shell: pwsh
+        run: infra/azd-hooks/postdeploy.ps1 # installs additional components on the cluster
+infra:
+    provider: bicep
+    path: infra
+    module: main
+services:
+    api:
+        project: ../../src/ChatAPI 
+        language: dotnet 
+        host: aks 
+        docker:
+            context: ../
+            path: Dockerfile
+        k8s:
+            deploymentPath: ../ChatAPI/manifests
+            deployment:
+                name: api
+            service:
+                name: api
+            ingress:
+              name: api
+              relativePath: /api/
+    web:
+        project: ../../src/UserPortal 
+        language: dotnet 
+        host: aks 
+        docker:
+            context: ../
+            path: Dockerfile
+        k8s:
+            deploymentPath: ../UserPortal/manifests
+            deployment:
+                name: web
+            ingress:
+                name: web
+pipeline:
+    provider: github

@@ -1,0 +1,63 @@
+
+# You will need to install the following VSCode extension: humao.rest-client
+
+# Please click on the "Send Request" option above each URL to transmit the request to the backend
+
+# This will allow you to test your function endpoint to make sure they are ready to be intergrated with the frontend
+
+@api_endpoint = http://localhost:7072
+@conversation_id = 22334567
+@student_id = "100"
+
+# Make sure that you specify the api_endpoint and conversation_id shared variables in your extension config
+
+# Use this to retrieve all students (Click Send Request)
+GET {{api_endpoint}}/api/students-management HTTP/1.1
+Accept: application/json
+
+###
+
+# Use this to retrieve a single student (Click Send Request)
+GET {{api_endpoint}}/api/students-management/{{student_id}} HTTP/1.1
+Accept: application/json
+
+
+###
+
+# Use this to create or update a single record for existing students (Click Send Request)
+PUT {{api_endpoint}}/api/students-management HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+{"studentId": 4123457, "schoolDistrict": "Grapefruit", "fullName": "Devanshi Gupta", "schoolName": "Pisces High School"}
+
+###
+
+# Use this to create or update bulk records for existing students (Click Send Request)
+POST {{api_endpoint}}/api/students-management HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+[
+    {"studentId": 1234570, "schoolDistrict": "Orange", "fullName": "Amanda Sullivan", "schoolName": "Scoprio High School"},
+    {"studentId": 1234567, "schoolDistrict": "Orange", "fullName": "David Reynolds", "schoolName": "Gemini High School"},
+    {"studentId": 2345687, "schoolDistrict": "Lemon", "fullName": "Peter Baker", "schoolName": "Libra High School"},
+    {"studentId": 1234568, "schoolDistrict": "Orange", "fullName": "Devanshi Patel", "schoolName": "Scorpio High School"},
+    {"studentId": 2345683, "schoolDistrict": "Lemon", "fullName": "Pete Anderson", "schoolName": "Libra High School"},
+    {"studentId": 4123456, "schoolDistrict": "Grapefruit", "fullName": "David Ramirez", "schoolName": "Pisces High School"},
+    {"studentId": 6123462, "schoolDistrict": "Tangerine", "fullName": "Kevin Tangerine", "schoolName": "Taurus High School"},
+    {"studentId": 6123465, "schoolDistrict": "Tangerine", "fullName": "Peter Lemon", "schoolName": "Sagittarius High School"},
+    {"studentId": 2345685, "schoolDistrict": "Lemon", "fullName": "Nikki Patel", "schoolName": "Leo High School"},
+    {"studentId": 1234571, "schoolDistrict": "Orange", "fullName": "Charlotte Hughes", "schoolName": "Gemini High School"},
+    {"studentId": 6123458, "schoolDistrict": "Tangerine", "fullName": "Israel Citron", "schoolName": "Capricorn High School"},
+    {"studentId": 4123457, "schoolDistrict": "Grapefruit", "fullName": "Devanshi Gupta", "schoolName": "Pisces High School"},
+    {"studentId": 4123458, "schoolDistrict": "Grapefruit", "fullName": "Israel Martinez", "schoolName": "Pisces High School"},
+    {"studentId": 4123459, "schoolDistrict": "Grapefruit", "fullName": "Amanda Peterson", "schoolName": "Pisces High School"},
+    {"studentId": 4123460, "schoolDistrict": "Grapefruit", "fullName": "Charlotte Brown", "schoolName": "Pisces High School"},
+    {"studentId": 4123461, "schoolDistrict": "Grapefruit", "fullName": "Pete Collins", "schoolName": "Pisces High School"},
+    {"studentId": 4123462, "schoolDistrict": "Grapefruit", "fullName": "Kevin Murphy", "schoolName": "Pisces High School"},
+    {"studentId": 4123463, "schoolDistrict": "Grapefruit", "fullName": "Nikki Campbell", "schoolName": "Pisces High School"},
+    {"studentId": 4123464, "schoolDistrict": "Grapefruit", "fullName": "George Turner", "schoolName": "Pisces High School"},
+    {"studentId": 4123465, "schoolDistrict": "Grapefruit", "fullName": "Peter Reed", "schoolName": "Pisces High School"},
+    {"studentId": 1234572, "schoolDistrict": "Orange", "fullName": "Pete Thompson", "schoolName": "Scorpio High School"}
+  ]

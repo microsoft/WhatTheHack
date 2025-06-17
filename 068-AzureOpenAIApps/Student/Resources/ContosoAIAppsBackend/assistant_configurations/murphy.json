@@ -1,0 +1,173 @@
+[
+  {
+      "type": "function",
+      "function": {
+          "name": "is_registered_student",
+          "description": "Checks if a particular student identifier belongs to a registered student. Returns True if successful and False otherwise",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                      "type": "string",
+                      "description": "A 7-digit number that uniquely identifies a student"
+                  }
+              },
+              "required": ["student_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "student_has_exam_submissions",
+          "description": "Checks if a particular student has submitted an exam for grading. Returns True if successful and False otherwise",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                      "type": "string",
+                      "description": "A 7-digit number that uniquely identifies a student"
+                  }
+              },
+              "required": ["student_id"]
+          }
+      }
+  },
+  {
+      "type": "function",
+      "function": {
+          "name": "student_has_exam_grades",
+          "description": "Checks if a particular student has grades available for one or more of the exams they submitted for grading. Returns True if successful and False otherwise",
+          "parameters": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                      "type": "string",
+                      "description": "A 7-digit number that uniquely identifies a student"
+                  }
+              },
+              "required": ["student_id"]
+          }
+      }
+  },
+  {
+        "type": "function",
+        "function": {
+            "name": "get_student_submissions",
+            "description": "Retrieves all the exams that the student has submitted for grading",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                  "student_id": {
+                        "type": "string",
+                        "description": "A 7-digit number that uniquely identifies a student"
+                    }
+                },
+                "required": ["student_id"]
+            }
+        }
+  },
+  {
+        "type": "function",
+        "function": {
+            "name": "get_student_submissions_by_date",
+            "description": "Retrieves a list of exams submitted by the student for grading on a specific date",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                  "student_id": {
+                        "type": "string",
+                        "description": "A 7-digit number that uniquely identifies a student"
+                    },
+                  "exam_date": {
+                      "type": "string",
+                      "format": "date",
+                      "description": "The date the exam was taken in YYYY-MM-DD format"
+                  }
+                },
+                "required": ["student_id", "exam_date"]
+            }
+        }
+  },
+  {
+        "type": "function",
+        "function": {
+            "name": "get_student_submissions_by_exam_id",
+            "description": "Retrieves a list of exams submitted by the student for grading using the exam identifiers",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                  "student_id": {
+                        "type": "string",
+                        "description": "A 7-digit number that uniquely identifies a student"
+                    },
+                  "exam_id": {
+                      "type": "string",
+                       "enum": ["F01", "F02","F03"],
+                      "description": "Uniquely identifies the exam taken by the student"
+                  }
+                },
+                "required": ["student_id", "exam_id"]
+            }
+        }
+  },
+  {
+    "type": "function",
+    "function": {
+        "name": "get_submission_details",
+        "description": "Retrieves details about a specific exam submitted by the student",
+        "parameters": {
+            "type": "object",
+            "properties": {
+              "student_id": {
+                    "type": "string",
+                    "description": "A 7-digit number that uniquely identifies a student"
+                },
+              "submission_id": {
+                  "type": "string",
+                  "description": "The submission identifier uniquely identifying the exam submitted by the student"
+              }
+            },
+            "required": ["student_id", "submission_id"]
+        }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+        "name": "get_student_grades",
+        "description": "Retrieves the grades for a student for all exams",
+        "parameters": {
+            "type": "object",
+            "properties": {
+              "student_id": {
+                    "type": "string",
+                    "description": "A 7-digit number that uniquely identifies a student"
+                }
+            },
+            "required": ["student_id"]
+        }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+        "name": "get_submission_grade_details",
+        "description": "Retrieves the details and grades about a specific exam submission",
+        "parameters": {
+            "type": "object",
+            "properties": {
+              "student_id": {
+                    "type": "string",
+                    "description": "A 7-digit number that uniquely identifies a student"
+                },
+              "submission_id": {
+                  "type": "string",
+                  "description": "The submission identifier uniquely identifying the exam submitted by the student"
+              }
+            },
+            "required": ["student_id", "submission_id"]
+        }
+    }
+  }
+]

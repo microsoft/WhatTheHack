@@ -31,7 +31,7 @@ router bgp ?
 ## Success Criteria
 
 - BGP adjacencies are created between the following devices:
-    - VNG1 and VNG1
+    - VNG1 and VNG2
     - VNG1 and CSR3
     - VNG1 and CSR4
     - VNG2 and CSR3
