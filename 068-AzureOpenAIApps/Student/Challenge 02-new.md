@@ -1,4 +1,4 @@
-# Challenge 02 - Contoso Travel Assistant
+# Challenge 02 - Model Context Protocol (MCP)
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -6,9 +6,9 @@
 
 Virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
 
-Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistants to the customers.
+Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistance to the customers. 
 
-In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company, Contoso Yachts. The virtual assistants will also allow guest to create accounts, manage bank account balances and make or cancel yacht reservations with Contoso Yachts.
+The virtual assistants will also allow guest to create accounts, manage bank account balances and make or cancel yacht reservations with Contoso Yachts.
 
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
@@ -50,6 +50,10 @@ This assistants allows customers to manage bank accounts.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
 
 In this challenge, you will be asked to configure the system message and tools used by each assistant to perform the tasks.
+
+#### What is Model Context Protocol (MCP)
+
+MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools 
 
 #### Configuring Your Virtual Assistants
 
