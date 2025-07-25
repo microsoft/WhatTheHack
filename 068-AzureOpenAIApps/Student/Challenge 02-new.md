@@ -51,121 +51,34 @@ This assistants allows customers to manage bank accounts.
 
 In this challenge, you will be asked to configure the system message and tools used by each assistant to perform the tasks.
 
-#### What is Model Context Protocol (MCP)
-
-MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works.
+#### What is Model Context Protocol (MCP)?
+ MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (Credit to anthropic for the diagram).
 
 ![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
 
+#### Components of MCP
 
+Host - The user facing application that manages different clients, enforces security policies, coordinate AI intergration. The main job of a host is to facilitate user interactions and initate connectrions to servers via clients.
 
-#### Configuring Your Virtual Assistants
+Client - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
 
- In your `/ContosoAIAppsBackend` folder there is an `/assistant_configurations` folder that contains two files: one JSON and one text file. 
+Server - Provides specialized capabilites and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data or prompts to the client.
 
- The text file (`.txt`) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave. You should be modifying each text file using the description of what each assistant does (hint: they are each described above).
+#### TODO: Configuring Your MCP Server
 
- The JSON file (`.json`) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
+ In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects the Veta agent to the national weather service API. This functionality will help you  check the weather before booking the yacht reservation to tour Contoso Islands. 
+ 
+ We have already configured the the client files and all the necessary architecture, all you have to do is fill in the code in `mcp_weather_server.py` to build the server with the help of Github Copilot. Use using the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
 
- For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
+**PASTE FINAL PROMPT HERE**
 
-#### Mapping Python Data Types to JSON Schema Types
+Note: Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly. The following files may be helpful to add as context but you can add more based on what you think is necessary: veta.json, veta.txt, mcp_weather_server.py, and the ContosoAIAppsBackend folder.
 
-| Python Data Type    | JSON Schema Reference |
-| -------- | ------- |
-| [`str`](https://docs.python.org/3/library/string.html)  |  [`string`](https://json-schema.org/understanding-json-schema/reference/string)   |
-| [`bool`](https://docs.python.org/3/library/stdtypes.html#boolean-type-bool)| [`boolean`](https://json-schema.org/understanding-json-schema/reference/boolean)|
-| [`int`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`integer`](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
-| [`float`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`number`](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
-| [`list` or `tuple`](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [`array`](https://json-schema.org/understanding-json-schema/reference/array) |
+#### How All the Assitants (Except Veta) Currently Work
 
-#### The Python function registration for each assistant are in the following files
+![screenshot of Priscilla Sequence Diagram](../images/PriscillaAssistant.jpg)
 
-This is where the tools are registered in the application.
-
-- `/controllers/ask_donald.py`
-- `/controllers/ask_callum.py`
-- `/controllers/ask_veta.py`
-
-#### The Python function definition for each assistant are in the following files:
-
-This is where the functions used in the tools are defined in Python code
-
-- `/shared/assistant_tools_donald.py`
-- `/shared/assistant_tools_callum.py`
-- `/shared/assistant_tools_veta.py`
-
-You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (Priscilla and Murphy) to see how it is configured to figure out the function description and parameter data types.
-
-Make sure that the value of the first parameter to `ToolUtils.register_tool_mapping()` matches the name of the function in the JSON function definition for the assistant configuration.
-
-The second parameter to `ToolUtils.register_tool_mapping()` is the actual Python function definition.
-
-You will be using this information in these Python files to configure your assistants tools and system messages.
-
-````python
-
-    util = ToolUtils(AssistantName.VETA, system_message1, tools_config1, conversation_id)
-
-    util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
-    util.register_tool_mapping("get_yacht_details", v_get_yacht_details)
-    util.register_tool_mapping("get_bank_account_balance", v_get_bank_account_balance)
-    util.register_tool_mapping("bank_account_balance_is_sufficient", v_bank_account_balance_is_sufficient)
-    util.register_tool_mapping("get_valid_reservation_search_dates", v_get_valid_reservation_search_dates)
-    util.register_tool_mapping("yacht_is_available_for_date", v_yacht_is_available_for_date)
-    util.register_tool_mapping("is_valid_search_date", v_is_valid_search_date)
-    util.register_tool_mapping("get_yacht_availability_by_id", v_get_yacht_availability_by_id)
-    util.register_tool_mapping("get_yacht_availability_by_date", v_get_yacht_availability_by_date)
-    util.register_tool_mapping("yacht_reservation_exists", v_yacht_reservation_exists)
-    util.register_tool_mapping("get_reservation_details", v_get_reservation_details)
-    util.register_tool_mapping("cancel_yacht_reservation", v_cancel_yacht_reservation)
-    util.register_tool_mapping("get_customer_yacht_reservations", v_get_customer_yacht_reservations)
-    util.register_tool_mapping("create_yacht_reservation", v_create_yacht_reservation)
-
-````
-
-The format for the parameter description and typing follows the JSON schema specification so you can use [this tool](https://www.liquid-technologies.com/online-json-to-schema-converter) to figure out the data types for the parameters.
-
-```json 
-[
-    {
-        "type": "function",
-        "function": {
-            "name": "ask_question",
-            "description": "Retrieves answers to relevant questions about the country Contoso Islands",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "The question about Contoso Islands"
-                    }
-                },
-                "required": ["query"]
-            }
-        }
-    },
-    {
-      "type": "function",
-      "function": {
-          "name": "get_yacht_details",
-          "description": "Retrieves the details of the yacht such as name, price, maximum capacity and description",
-          "parameters": {
-              "type": "object",
-              "properties": {
-                  "yacht_id": {
-                    "type": "string",
-                    "enum": ["100", "200","300","400","500"],
-                    "description": "The yacht id for the yacht"
-                  }
-              },
-              "required": ["yacht_id"]
-          }
-      }
-  },
-]
-
-```
+#### How Veta Will Work After Implementing MCP Server
 
 #### Testing and Debugging the Assistants
 
