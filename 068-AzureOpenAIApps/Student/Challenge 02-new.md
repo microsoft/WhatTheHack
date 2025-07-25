@@ -57,6 +57,41 @@ Note: Ensure Github Copilot is in Agent mode and you have used the Add Context b
 
 #### How Veta Will Work After Implementing MCP Server
 
+![screenshot of Priscilla Sequence Diagram](../images/Veta-ADS.png)
+
+#### Initalization Sequence
+Veta Assistant Request
+    ↓
+Weather Tools Called
+    ↓
+SyncMCPWeatherClient._ensure_client()
+    ↓
+Start subprocess: python mcp_weather_server.py
+    ↓
+JSON-RPC handshake:
+    - initialize request
+    - capabilities exchange
+    - initialized notification
+
+#### Weather Request Flow
+User: "Book yacht for tomorrow"
+    ↓
+Veta: Check weather conditions
+    ↓
+Weather Tools: v_get_weather_summary_for_client()
+    ↓
+MCP Client: get_weather_summary()
+    ↓
+JSON-RPC: tools/call request
+    ↓
+MCP Server: handle_call_tool()
+    ↓
+HTTP Request: NWS API
+    ↓
+Format & Return: Client-friendly summary
+    ↓
+Veta: Present weather to customer
+
 #### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
