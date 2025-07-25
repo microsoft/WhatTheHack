@@ -60,6 +60,7 @@ Note: Ensure Github Copilot is in Agent mode and you have used the Add Context b
 ![screenshot of Priscilla Sequence Diagram](../images/Veta-ADS.png)
 
 #### Initalization Sequence
+```
 Veta Assistant Request
     ↓
 Weather Tools Called
@@ -72,8 +73,9 @@ JSON-RPC handshake:
     - initialize request
     - capabilities exchange
     - initialized notification
-
+```
 #### Weather Request Flow
+```
 User: "Book yacht for tomorrow"
     ↓
 Veta: Check weather conditions
@@ -91,7 +93,7 @@ HTTP Request: NWS API
 Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
-
+```
 #### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
