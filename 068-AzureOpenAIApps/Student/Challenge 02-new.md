@@ -55,6 +55,8 @@ In this challenge, you will be asked to configure the system message and tools u
 
 MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works.
 
+![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
+
 
 
 #### Configuring Your Virtual Assistants
