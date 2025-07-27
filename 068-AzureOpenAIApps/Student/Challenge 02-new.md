@@ -14,7 +14,7 @@ There are two existing customers in the database, and there are 5 yachts that cu
 
 ## Description
 
-In this challenge, you will configure build and MCP server that connects the Veta agent to the National Weather Service API.
+In this challenge, you will configure and build an MCP server that connects the Veta agent to the National Weather Service API.
 
 #### Assistant Descriptions
 Please read the `.txt` files in `/ContosoAIAppsBackend/assistant_configurations` folder for Donald, Veta, and Callum to understand what each of the assiants do. Also look through the `.json` files to understand what functions the agents have pre-built into them.
