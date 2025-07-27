@@ -45,11 +45,13 @@ Server - Provides specialized capabilites and access to resources such as data a
 
  In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects the Veta agent to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
  
- We have already configured the the client files and all the necessary architecture, all you have to do is fill in the code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
+ We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
+ 
+```
+Complete the functions with TODO in the mcp_weather_server.py file to have the proper functionality and look the llms-full.txt file to do so. Carefully look at the mcp_weather_client file to ensure the names of functions are the same to ensure they can call each other. Also look at veta.txt and veta.json to know what the agent functionality is supposed to be. Make the code as simple as possible to have proper functionality. Only change the server file since everything else is properly configured to work with a properly configured server.
+```
 
-**PASTE FINAL PROMPT HERE**
-
-Note: Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly. The following files may be helpful to add as context but you can add more based on what you think is necessary: veta.json, veta.txt, mcp_weather_server.py, and the ContosoAIAppsBackend folder. Also play around with the cooridinates in veta.txt and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app).
+Note: Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly. The following files may be helpful to add as context but you can add more based on what you think is necessary: veta.json, veta.txt, mcp_weather_server.py, ask_veta.py, and the ContosoAIAppsBackend folder. After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper. Also play around with the cooridinates in veta.txt and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app). This challenge will take a few tries and debugging to work, but please try to persevere through it.
 
 #### How All the Assitants (Except Veta) Currently Work
 
