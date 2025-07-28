@@ -1,6 +1,7 @@
 {
     "name" : "066-OpenAIFundamentals",
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "workspaceFolder": "/workspaces/WhatTheHack/066-OpenAIFundamentals/Student",
     "hostRequirements": {
       "cpus": 2
     },
