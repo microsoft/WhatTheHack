@@ -1,7 +1,8 @@
 {
     "name" : "066-OpenAIFundamentals",
     "image": "mcr.microsoft.com/devcontainers/python:3.11",
-    "workspaceFolder": "${localWorkspaceFolder}/066-OpenAIFundamentals/Student",
+    "workspaceFolder": "/workspace/066-OpenAIFundamentals/Student",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "hostRequirements": {
       "cpus": 2
     },
