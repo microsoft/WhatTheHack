@@ -12,6 +12,18 @@ The virtual assistants will also allow guest to create accounts, manage bank acc
 
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
+#### What is Model Context Protocol (MCP)?
+ MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to anthropic for the diagram).
+
+![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
+
+#### Components of MCP
+Host - The user facing application that manages different clients, enforces security policies, and coordinates AI intergration. The main job of a host is to facilitate user interactions and initate connections to servers via clients.
+
+Client - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
+
+Server - Provides specialized capabilites and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data or prompts to the client.
+
 ## Description
 
 In this challenge, you will configure and build an MCP server that connects the Veta agent to the National Weather Service API.
@@ -27,19 +39,6 @@ Note for Veta:
 #### System Messages & Tools for AI Assistants
 - System Messages are used in the application configuration to direct the LLM on how it should behave. This is where you exert control over the behavior of the language models used in the application.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
-
-#### What is Model Context Protocol (MCP)?
- MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to anthropic for the diagram).
-
-![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
-
-#### Components of MCP
-
-Host - The user facing application that manages different clients, enforces security policies, and coordinates AI intergration. The main job of a host is to facilitate user interactions and initate connections to servers via clients.
-
-Client - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
-
-Server - Provides specialized capabilites and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data or prompts to the client.
 
 #### TODO: Configuring Your MCP Server
 
