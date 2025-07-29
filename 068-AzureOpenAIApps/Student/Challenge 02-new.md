@@ -95,6 +95,23 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
+#### Security for MCP
+At Microsoft our pirority is always security. If implementing such an app at a production we would need to take neumerous security measures to avoid any adverserial attacks. Below are security measures you could apply at each level of the application to ensure its properly secured.
+
+Securing the Host: 
+- Use virtual networks and private endpoints to isolate the environment
+- Add a web application firewall and application gateway to protect entry points
+- Utilize monitoring services and application inights for proper monitoring
+Securing the Client:
+-  Use TLS 1.2+ for JSON-RPC communication and mTLS to authenticate server and client
+-  Use Entra ID and RBAC for authentication
+-  Add rate limiting or input validation using Azure API management
+Securing the Server:
+- Run the server in containers with network isolation using ACA or AKs
+- Use HTTPS to encrypt API calls
+
+These layers of security in your MCP application will ensure safety against adverserial attacks.
+
 #### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
