@@ -102,10 +102,12 @@ Securing the Host:
 - Use virtual networks and private endpoints to isolate the environment
 - Add a web application firewall and application gateway to protect entry points
 - Utilize monitoring services and application inights for proper monitoring
+
 Securing the Client:
 -  Use TLS 1.2+ for JSON-RPC communication and mTLS to authenticate server and client
 -  Use Entra ID and RBAC for authentication
 -  Add rate limiting or input validation using Azure API management
+
 Securing the Server:
 - Run the server in containers with network isolation using ACA or AKs
 - Use HTTPS to encrypt API calls
