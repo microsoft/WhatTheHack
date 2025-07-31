@@ -311,7 +311,7 @@
       "type": "function",
       "function": {
           "name": "get_weather_forecast",
-          "description": "Get detailed weather forecast for a specific location using latitude and longitude coordinates. Use this to check weather conditions before making yacht reservations.",
+          "description": "REQUIRED FIRST STEP: Must be called before any yacht reservation to check weather conditions for safety. Gets weather forecast for specified coordinates..",
           "parameters": {
               "type": "object",
               "properties": {
