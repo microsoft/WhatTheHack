@@ -12,6 +12,10 @@ from shared.assistant_tools_veta import v_get_yacht_details, v_bank_account_bala
     v_is_valid_search_date, v_get_yacht_availability_by_id, v_get_yacht_availability_by_date, \
     v_yacht_reservation_exists, v_get_reservation_details, v_cancel_yacht_reservation, \
     v_get_customer_yacht_reservations, v_create_yacht_reservation
+from shared.assistant_tools_weather import v_get_weather_forecast, v_get_weather_summary_for_client, \
+    v_check_weather_suitable_for_yacht_tour, v_get_contoso_islands_weather
+from shared.assistant_tools_weather import v_get_weather_forecast, v_get_weather_summary_for_client, \
+    v_check_weather_suitable_for_yacht_tour, v_get_contoso_islands_weather
 from shared.function_utils import APISuccessOK
 from shared.tool_utils import ToolUtils
 from shared.assistant_tools import get_contoso_document_vector_store, contoso_document_retrieval_hybrid, \
@@ -55,6 +59,18 @@ def ask_veta(req: func.HttpRequest) -> func.HttpResponse:
     util.register_tool_mapping("cancel_yacht_reservation", v_cancel_yacht_reservation)
     util.register_tool_mapping("get_customer_yacht_reservations", v_get_customer_yacht_reservations)
     util.register_tool_mapping("create_yacht_reservation", v_create_yacht_reservation)
+
+    # Register weather tools for MCP integration
+    util.register_tool_mapping("get_weather_forecast", v_get_weather_forecast)
+    util.register_tool_mapping("get_weather_summary_for_client", v_get_weather_summary_for_client)
+    util.register_tool_mapping("check_weather_suitable_for_yacht_tour", v_check_weather_suitable_for_yacht_tour)
+    util.register_tool_mapping("get_contoso_islands_weather", v_get_contoso_islands_weather)
+    
+    # Register weather tools using MCP
+    util.register_tool_mapping("get_weather_forecast", v_get_weather_forecast)
+    util.register_tool_mapping("get_weather_summary_for_client", v_get_weather_summary_for_client)
+    util.register_tool_mapping("check_weather_suitable_for_yacht_tour", v_check_weather_suitable_for_yacht_tour)
+    util.register_tool_mapping("get_contoso_islands_weather", v_get_contoso_islands_weather)
 
     results = util.run_conversation(user_question)
 
