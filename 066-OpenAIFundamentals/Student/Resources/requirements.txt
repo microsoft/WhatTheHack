@@ -16,5 +16,13 @@ matplotlib
 scipy
 datasets
 evaluate
+azure-ai-evaluation[redteam]
+azure-identity
+azure-ai-evaluation
+openai
+semantic-kernel
+azure-ai-projects
+pyrit
+
 # numpy==1.23.1
 
