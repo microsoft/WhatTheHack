@@ -13,7 +13,7 @@ The virtual assistants will also allow guest to create accounts, manage bank acc
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
 #### What is Model Context Protocol (MCP)?
- MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to anthropic for the diagram).
+ MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
 
 ![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
 
@@ -95,8 +95,8 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
-#### Security for MCP
-At Microsoft our pirority is always security. If implementing such an app at a production we would need to take neumerous security measures to avoid any adverserial attacks. Below are security measures you could apply at each level of the application to ensure its properly secured.
+#### Security for MCP (Add to lecture)
+At Microsoft our pirority is always security. If implementing such an app at a production we would need to take neumerous security measures to avoid any adversarial attacks. Below are security measures you could apply at each level of the application to ensure its properly secured.
 
 Securing the Host: 
 - Use virtual networks and private endpoints to isolate the environment
@@ -140,3 +140,4 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
