@@ -1,5 +1,5 @@
 {
-    "name": "What The Hack AI Apps",
+    "name": "068-AzureOpenAIApps",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "..",
