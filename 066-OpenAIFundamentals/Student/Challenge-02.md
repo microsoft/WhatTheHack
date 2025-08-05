@@ -76,7 +76,8 @@ Scenario: You are a product manager at a multinational tech company, and your te
 ### 2.4 Model Router
 #### Student Task 2.4
 - Navigate to AI Foundry and deploy an instance of model router in the same project as your other models
-- In Chat Playground use the model router deployment and prompt the it with different difficulty of questions and watch it swtich models (you can see this switch in the metadata on top of the query).
+- In Chat Playground use the model router deployment and prompt it with a variety of questions ranging simple to difficult. You can use the sample prompts below or come up with your own! Note how different models are used for each query (you can see this switch in the metadata on top of the prompt).
+- After trying the below prompts navigate to a browser window and open Copilot. Ask Copilot the pricing for the three different models each query used. Note the price difference for each model. The smart routing is optimizing cost by using light weight models (which are cheaper) for the easier prompts!
 
 Simple Prompt:
 
@@ -93,8 +94,6 @@ Difficult Prompt:
 ```
 Generate a Bicep script to deploy a secure, autoscaling AKS cluster with Azure Entra ID integration and private networking.
 ```
-
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
