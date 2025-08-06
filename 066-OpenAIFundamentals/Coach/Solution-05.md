@@ -17,3 +17,6 @@
 - False - you can specify which entity types you want to detect
 - False - it is currently non-customizable on your data
 - False - you can stream data or conduct analyses asynchronously with batch requests
+
+### Challenge 5.7
+Known Error: The red team agent results do not upload to foundry, it is only on your local device.
