@@ -14,6 +14,7 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 - [Setup Development Environment](#setup-development-environment)
   - [Use GitHub Codespaces](#use-github-codespaces)
   - [Use Local Workstation](#use-local-workstation)
+  - [Use Github Copilot](#use-github-copilot)
 - [Setup Citrus Bus Application](#setup-citrus-bus-application)
   - [Get Azure Resource Settings](#get-azure-resource-settings)
   - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
@@ -102,6 +103,10 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
 </details>
+
+#### Use Github Copilot
+
+For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of wether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
 
 ### Setup Citrus Bus Application
 
