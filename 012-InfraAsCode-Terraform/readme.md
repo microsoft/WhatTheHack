@@ -1,58 +1,66 @@
-# What the Hack:  Infrastructure as Code with Terraform
+# What The Hack: Infrastructure As Code with Terraform
+
 ## Introduction
 
-DevOps is a journey not a destination. Implementing Infrastructure-as-Code is one of the first steps you will take on your DevOps journey!
+DevOps is a journey not a destination. Implementing Infrastructure-as-Code is one of the first steps you will need to take!
 
 When implementing an application environment in the cloud, it is important to have a repeatable way to deploy the underlying infrastructure components as well as your software into the target environment.  This includes resources such as:
 - Virtual Networks, Network Security Groups (Firewalls), Public IPs, Virtual Machines, Storage (Disks)
-- PaaS Services (Azure SQL, App Service, etc)
+- PaaS Services (Azure Container Apps, Azure SQL, App Service, etc)
 - Configuration Management (installing & configuring software on VMs)
 
-The best way to make deployments repeatable is to define them with code, hence the term "Infrastructure as Code" (aka IAC).  There are multiple technologies that enable you to define your IaC. Some of these include:
-- Azure Resource Manager (ARM) Templates
-- PowerShell Desired State Configuration (DSC)
-- HashiCorp's Terraform & Packer
+The best way to make deployments repeatable is to define them with code, hence the term "Infrastructure as Code" (aka IAC).  There are multiple technologies that enable you to achieve this. Some of these include:
+- ARM Templates
+- Bicep Templates
+- HashiCorp's Terraform
 - Ansible, Chef, Puppet, Salt Stack, and others
 
-Terraform is a tool (templating language) for building, changing, and versioning infrastructure safely and efficiently. Using Terraform, you can automate the tasks of building, changing and de-provisioning the infrastructure
-
-This hack is focused on using Terraform to implement your IaC. It does not mean this is the only way to implement IaC.  It is just one way amongst many. If you want to learn how to do IaC in Azure with other technologies, try one of our other IaC hacks for [ARM Templates](../011-InfraAsCode-ARM-DSC) or [Ansible](../013-InfraAsCode-Ansible/).
-
+This hack is focused on using Terraform to implement your IaC.
 
 ## Learning Objectives
-This hack will help you learn:
-- How Terraform works to deploy infrastructure in Azure
-- How Terraform can be used to trigger the install of software on a VM
 
-## Challenges
-0. [Get your machine ready](./Student/prerequisite.md) 
-   - Configure Terraform on Linux subsystem, credentials
-1. ["Hello World" Terraform](./Student/readme.md)
-   - Create an Azure resource group using Terraform 
-1. [Deploy a Virtual Network](./Student/readme.md)
-   - Learn how to find Terraform HCL syntax to deploy an Azure resource
-1. [Open Some Ports](./Student/readme.md)
-   - Learn about variables, dependencies, idempotency
-1. [Create a Linux Virtual Machine](./Student/readme.md)
-   - Learn what an Azure Virtual Machine is composed of
-1. [Use Packer to Create a Linux image with NGINX installed](./Student/readme.md)
-   - Learn about custom build images with Packer
+This hack will help you learn:
+- How Terraform can be used to deploy Azure infrastructure
+
+The challenges build upon each other incrementally. You will start by creating basic Terraform manifests to get you familiar with the tools & syntax.  Then you extend your manifests incrementally to deploy multiple infrastructure resources to Azure.
+
+### Challenges
+
+- Challenge 0: **[Pre-Requisites - Ready, Set, Go!](./Student/Challenge-00.md)**
+   - Prepare your workstation to work with Azure and Terraform
+- Challenge 1: **[Basic Terraform](./Student/Challenge-01.md)**
+   - Develop a simple Terraform manifest that takes inputs to create an Azure Storage Account and returns outputs
+- Challenge 2: **[Terraform expressions and referencing resources](./Student/Challenge-02.md)**
+   - Learn Terraform expressions, conditionals, and referencing resources
+- Challenge 3: **[Advanced resource declarations](./Student/Challenge-03.md)**
+   - Advanced resource declarations including iteration
+- Challenge 4: **[Secret Values with Azure Key Vault](./Student/Challenge-04.md)**
+   - Create and reference an Azure Key Vault
+- Challenge 5: **[Deploy a Virtual Machine](./Student/Challenge-05.md)**
+   - Create a complex deployment with multiple dependencies
+- Challenge 6: **[Terraform Modules](./Student/Challenge-06.md)**  
+   - Learn how create reusable modules for granular resource management
+ - Challenge 7: **[Azure Container Apps (ACA)](./Student/Challenge-07.md)**
+   - Create an ACA environment and deploy a simple `hello world` application to it
+ - Challenge 8: **[Advanced ACA](./Student/Challenge-08.md)**
+   - Provision an Azure Container Registry, import images to it, then provision and deploy a multi-microservice (frontend and backend) containerized application
+
+
+
 
 ## Prerequisites
-- Your own Azure subscription with Owner access
-- Visual Studio Code
-- Azure CLI
-- Terraform
 
-## Repository Contents
+You will want to prepare your machine with the following to help complete the Challenges for this hack:
 
-- `../Coach/Solutions`
-  - Complete solution files for each challenge
+* Azure Subscription
+* _optional_ [Windows Subsystem for Linux (Windows 10-only)](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Visual Studio Code](https://code.visualstudio.com/)
+
+
+## Repository Contents 
 - `../Student`
   - Terraform challenges
-
-
-## Contributors
-- Pete Rodriguez
-
+- `../Student/Resources`
+  - Shell scripts needed to complete the challenges
 
