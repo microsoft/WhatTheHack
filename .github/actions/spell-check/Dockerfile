@@ -12,6 +12,7 @@ RUN apt-get update \
     aspell \
     hunspell \
     wget \
+    aspell-en
 && rm -rf /var/lib/apt/lists/*
  
 RUN wget -q https://github.com/mikefarah/yq/releases/download/v4.43.1/yq_linux_amd64 -O /usr/local/bin/yq \
