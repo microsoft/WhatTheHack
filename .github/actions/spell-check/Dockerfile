@@ -8,12 +8,12 @@ LABEL "repository"="https://github.com/microsoft/WhatTheHack"
 LABEL "homepage"="https://github.com/microsoft/WhatTheHack"
  
 RUN apt-get update \
-&& apt-get install -y --no-install-recommends \
-    aspell \
-    hunspell \
-    wget \
-    aspell-en
-&& rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends \
+        aspell \
+        aspell-en \
+        hunspell \
+        wget \
+    && rm -rf /var/lib/apt/lists/*
  
 RUN wget -q https://github.com/mikefarah/yq/releases/download/v4.43.1/yq_linux_amd64 -O /usr/local/bin/yq \
 && chmod +x /usr/local/bin/yq
