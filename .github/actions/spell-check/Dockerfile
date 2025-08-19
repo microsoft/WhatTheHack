@@ -9,7 +9,6 @@ LABEL "homepage"="https://github.com/microsoft/WhatTheHack"
  
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        aspell \
         aspell-en \
         hunspell \
         wget \
