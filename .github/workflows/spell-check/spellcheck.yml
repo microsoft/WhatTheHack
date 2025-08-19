@@ -1,5 +1,3 @@
-on:
-  workflow_dispatch:
 matrix:
   - name: Markdown
     sources:
