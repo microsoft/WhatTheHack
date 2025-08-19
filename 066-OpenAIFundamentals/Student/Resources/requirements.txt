@@ -3,7 +3,7 @@ azure-search-documents==11.4.0b3
 azure-ai-formrecognizer==3.2.1
 python-dotenv
 num2words==0.5.12
-openai
+openai>=1.98.0
 pdfminer==20191125
 plotly==6.0.1
 tiktoken
@@ -23,6 +23,5 @@ openai
 semantic-kernel
 azure-ai-projects
 pyrit
-
-# numpy==1.23.1
+numpy
 
