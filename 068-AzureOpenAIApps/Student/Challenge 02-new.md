@@ -1,4 +1,5 @@
 # Challenge 02 - Model Context Protocol (MCP)
+## TODO - PROMOTE TO Challenge-02.md
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
@@ -140,5 +141,6 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
