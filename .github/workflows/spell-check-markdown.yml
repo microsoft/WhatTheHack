@@ -1,12 +1,11 @@
 name: Spell Check
 
 on:
-  workflow_dispatch:
   pull_request:
     types:
       - opened
       - synchronize
-    branches: [FixSpellCheck]
+    branches: [master]
     paths:
       - "**.md"
 
