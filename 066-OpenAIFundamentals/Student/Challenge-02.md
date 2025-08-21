@@ -100,7 +100,7 @@ To complete this challenge successfully, you should be able to:
 - Show an understanding of each model and its suitable use cases
 - Show an understanding of differences between models
 - Select the most suitable model to apply under different scenarios
-- Show an understanding for the capabilites of model router and its use cases
+- Show an understanding for the capabilities of model router and its use cases
 
 ## Learning Resources
 
