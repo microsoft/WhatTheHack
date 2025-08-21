@@ -92,7 +92,7 @@ util.register_tool_mapping("get_contoso_islands_weather", v_get_contoso_islands_
 Weather tools are defined in `assistant_configurations/veta.json` with proper JSON Schema validation.
 
 ### System Message Updates
-Veta's system message (`assistant_configurations/veta.txt`) has been updated with:
+The agent system message (`assistant_configurations/veta.txt`) has been updated with:
 - Weather checking requirements
 - Workflow instructions
 - Contoso Islands coordinates
@@ -108,7 +108,7 @@ Veta's system message (`assistant_configurations/veta.txt`) has been updated wit
 
 ### Rate Limiting and Performance
 - HTTP client with reasonable timeouts (30 seconds)
-- Connection pooling via httpx AsyncClient
+- Connection pooling via httpx `AsyncClient`
 - Process lifecycle management for MCP server
 - Resource cleanup on client close
 
@@ -138,9 +138,9 @@ python test_weather_integration.py
 
 ### Development Benefits
 - **Separation of Concerns**: Weather logic isolated in MCP server
-- **Testability**: Each component can be tested independently
+- **Testable**: Each component can be tested independently
 - **Maintainability**: Clear interfaces between components
-- **Reusability**: MCP server can be used by other applications
+- **Reusable**: MCP server can be used by other applications
 
 ## Future Enhancements
 
@@ -182,6 +182,6 @@ Potential improvements:
 - Tool definitions in JSON configuration
 - System message with weather requirements
 - Proper coordinate validation
-- Error handling and fallbacks
+- Error handling and fall backs
 
 The MCP weather integration is now fully implemented and ready for use with the Contoso AI Apps Backend.
