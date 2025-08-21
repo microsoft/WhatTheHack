@@ -208,7 +208,7 @@ Come up with your own prompts to evaluate the performance of Protected Material 
 ### 5.7 Red Teaming
 
 #### Student Task 5.7.1
-Follow along with the Jupyter notebook. Run and understand the code and look throuhg the output files to see the result of the red teaming agent. 
+Follow along with the Jupyter notebook. Run and understand the code and look through the output files to see the result of the red teaming agent. 
 
 
 ## Success Criteria
