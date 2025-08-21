@@ -106,7 +106,7 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 
 #### Use Github Copilot
 
-For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of wether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
+For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of whether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
 
 ### Setup Citrus Bus Application
 
