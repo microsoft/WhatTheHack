@@ -35,9 +35,9 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # Check if Bicep CLI is installed
-if ! command -v bicep &> /dev/null; then
-    error_exit "Bicep CLI not found. Install it using 'az bicep install'."
-fi
+# if ! command -v bicep &> /dev/null; then
+#     error_exit "Bicep CLI not found. Install it using 'az bicep install'."
+# fi
 
 echo -e "\n\t\t\e[32mWHAT THE HACK - AZURE OPENAI APPS\e[0m"
 echo -e "\tcreated with love by the Americas GPS Tech Team!\n"

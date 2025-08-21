@@ -25,8 +25,8 @@ def v_yacht_travel_party_size_within_capacity(yacht_id: str, number_of_passenger
     return serialize_assistant_response(result)
 
 
-def v_get_bank_account_balance(customer_email: str) -> str:
-    response = get_customer_account_balance(customer_email)
+def v_get_bank_account_balance(customer_email_address: str) -> str:
+    response = get_customer_account_balance(customer_email_address)
     return serialize_assistant_response(response)
 
 

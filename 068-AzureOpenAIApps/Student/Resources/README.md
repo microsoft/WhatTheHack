@@ -1,4 +1,4 @@
-This folder/repo contains all the student resources needed for the OpenAI Apps What The Hack.
+This folder/repo contains all the student resources needed to do the OpenAI Apps What The Hack.
 
 Students should follow the instructions in the student guide for this hack here:
 
