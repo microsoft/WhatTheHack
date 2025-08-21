@@ -180,6 +180,7 @@ HealthCheck
 HostPool
 HostPools
 HttpClient
+httpx
 IAM
 IIS
 IP
@@ -231,6 +232,8 @@ Linq
 Linux
 LoadBalancer
 LogLevel
+MCP
+mcp
 MLOps
 MPLS
 MQTT
@@ -330,6 +333,7 @@ RDP
 README
 RHEL
 RPO
+RPC
 RSA
 RTO
 RabbitMQ
