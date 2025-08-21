@@ -38,7 +38,7 @@ The MCP weather integration consists of:
 ### Key Benefits
 
 - **Standardized Protocol**: Uses MCP for tool discovery and communication
-- **Server Introspection**: Tools are dynamically discoverable
+- **Server Introspection**: Tools are dynamically discovered
 - **Weather-Aware Booking**: Veta now checks weather before confirming reservations
 - **Client Safety**: Customers are informed about weather conditions
 - **Flexible Architecture**: Easy to extend with additional weather features
@@ -65,27 +65,6 @@ httpx == 0.28.1
    ```bash
    python test_mcp_weather.py
    ```
-
-## Configuration
-
-### Contoso Islands Coordinates
-
-The system includes predefined coordinates for Contoso Islands tour locations:
-
-- **Main Island**: 25.7617, -80.1918
-- **North Bay**: 25.8000, -80.1500
-- **South Harbor**: 25.7200, -80.2300
-- **East Marina**: 25.7700, -80.1300
-- **West Dock**: 25.7500, -80.2500
-
-### Weather Suitability Criteria
-
-Default criteria for yacht tour suitability:
-- **Minimum Temperature**: 60°F
-- **Maximum Wind Speed**: 25 mph
-- **Dangerous Conditions**: Thunderstorms, severe weather, hurricanes
-- **Warning Conditions**: Rain, storms, fog (tour possible but with caution)
-
 ## Usage
 
 ### Veta Assistant Workflow
