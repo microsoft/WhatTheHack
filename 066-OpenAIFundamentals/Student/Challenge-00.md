@@ -129,7 +129,7 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 #### Use Github Copilot
 
-For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of wether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
+For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of whether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
 
 ### Setup Azure AI Foundry Project and Hub
 
