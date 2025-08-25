@@ -12,7 +12,6 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-  - [Github Copilot](#setup-github-copilot)
 - [Setup Azure AI Foundry Project and Hub](#setup-azure-ai-foundry-project-and-hub)
 
 ### Azure Subscription
@@ -90,6 +89,10 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 Visual Studio Code is a code editor which you will work with Jupyter notebooks.
 
+##### Setup Github Copilot
+
+For parts of this hack we will be relying heavily on Github Copilot for coding. Please setup [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
 - [Install VS Code](https://getvisualstudiocode.com)
 
 ##### Python
@@ -126,10 +129,6 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 </details>
 <br/>
-
-#### Use Github Copilot
-
-For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of whether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
 
 ### Setup Azure AI Foundry Project and Hub
 
