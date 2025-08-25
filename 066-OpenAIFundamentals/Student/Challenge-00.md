@@ -89,11 +89,11 @@ The rest of the challenges will refer to the relative paths inside the `Resource
 
 Visual Studio Code is a code editor which you will work with Jupyter notebooks.
 
+- [Install VS Code](https://getvisualstudiocode.com)
+
 ##### Setup Github Copilot
 
 For parts of this hack we will be relying heavily on Github Copilot for coding. Please setup [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
-
-- [Install VS Code](https://getvisualstudiocode.com)
 
 ##### Python
 
