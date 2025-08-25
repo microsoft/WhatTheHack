@@ -22,7 +22,7 @@ There are six challenges, but only the first four require participants to genera
 - Challenge 01: **[Prompt Engineering](./Solution-01.md)**
 	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
-- Challenge 02: **[OpenAI Models, Capabilities, & Model Router](./Solution-02.md)**
+- Challenge 02: **[OpenAI Models, Capabilities, and Model Router](./Solution-02.md)**
    - What are the capacities of each Azure OpenAI model?
 	- How to select the right model for your application
 - Challenge 03: **[Grounding, Chunking, and Embedding](./Solution-03.md)**
