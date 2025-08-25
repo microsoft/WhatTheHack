@@ -1,4 +1,4 @@
-# Challenge 02 - OpenAI Models & Capabilities - Coach's Guide 
+# Challenge 02 - OpenAI Models, Capabilities, and Model Router - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
