@@ -22,10 +22,9 @@ There are six challenges, but only the first four require participants to genera
 - Challenge 01: **[Prompt Engineering](./Solution-01.md)**
 	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
-- Challenge 02: **[OpenAI Models & Capabilities](./Solution-02.md)**
-	 - This challenge is OPTIONAL.
+- Challenge 02: **[OpenAI Models, Capabilities, and Model Router](./Solution-02.md)**
    - What are the capacities of each Azure OpenAI model?
-	 - How to select the right model for your application
+	- How to select the right model for your application
 - Challenge 03: **[Grounding, Chunking, and Embedding](./Solution-03.md)**
 	 - Why is grounding important and how can you ground a Large Language Model (LLM)?
 	 - What is a token limit? How can you deal with token limits? What are techniques of chunking?

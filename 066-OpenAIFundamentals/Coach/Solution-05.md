@@ -17,3 +17,4 @@
 - False - you can specify which entity types you want to detect
 - False - it is currently non-customizable on your data
 - False - you can stream data or conduct analyses asynchronously with batch requests
+
