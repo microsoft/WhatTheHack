@@ -62,6 +62,7 @@ Note: Ensure Github Copilot is in Agent mode and you have used the Add Context b
 ![screenshot of Priscilla Sequence Diagram](../images/Veta-ADS.png)
 
 #### Initalization Sequence
+
 ```
 Veta Assistant Request
     ↓
@@ -76,7 +77,9 @@ JSON-RPC handshake:
     - capabilities exchange
     - initialized notification
 ```
+
 #### Weather Request Flow
+
 ```
 User: "Book yacht for tomorrow"
     ↓
@@ -96,6 +99,7 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
+
 #### Security for MCP (Add to lecture)
 At Microsoft our pirority is always security. If implementing such an app at a production we would need to take neumerous security measures to avoid any adversarial attacks. Below are security measures you could apply at each level of the application to ensure its properly secured.
 
@@ -141,6 +145,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
