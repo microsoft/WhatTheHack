@@ -9,7 +9,7 @@ Virtual assistants augment customer service and can be leveraged to interact wit
 
 Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistance to the customers. 
 
-The virtual assistants will also allow guest to create accounts, manage bank account balances and make or cancel yacht reservations with Contoso Yachts.
+The virtual assistants will also allow guests to create accounts, manage bank account balances, and make or cancel yacht reservations with Contoso Yachts.
 
 There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
@@ -141,6 +141,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
