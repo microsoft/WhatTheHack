@@ -127,7 +127,7 @@ The question you have for the AI assistant needs to be in the `message` field fo
 
 Once you have proved the backend is responding properly using the REST Client, you can navigate to the Frontend webpage for the assistants to send your questions to each one.
 
-## Success Criteria for the Challenge
+## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
 - Understand how the agents work and play with their functionalities
@@ -145,6 +145,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
