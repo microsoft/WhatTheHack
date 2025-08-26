@@ -11,7 +11,7 @@ Virtual assistants use information available in vector databases and other APIs 
 
 The virtual assistants will also allow guests to create accounts, manage bank account balances, and make or cancel yacht reservations with Contoso Yachts.
 
-There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
+There are two existing customers in the database and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
 #### What is Model Context Protocol (MCP)?
  MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
@@ -141,6 +141,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
