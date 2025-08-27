@@ -14,7 +14,6 @@ In this challenge, you will setup the necessary pre-requisites and environment t
 - [Setup Development Environment](#setup-development-environment)
   - [Use GitHub Codespaces](#use-github-codespaces)
   - [Use Local Workstation](#use-local-workstation)
-  - [Use Github Copilot](#use-github-copilot)
 - [Setup Citrus Bus Application](#setup-citrus-bus-application)
   - [Get Azure Resource Settings](#get-azure-resource-settings)
   - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
@@ -102,11 +101,11 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - Open the root folder of the Student resource package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
+##### Setup Github Copilot
+
+For parts of this hack we will be relying heavily on Github Copilot for coding. Please setup [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
 </details>
-
-#### Use Github Copilot
-
-For parts of this hack we will be relying heavily on Github Copilot for coding. Regardless of whether you are using Codespaces of Local Workstation please install Github Copilot extension on VS Code.
 
 ### Setup Citrus Bus Application
 
@@ -212,3 +211,4 @@ Here are some resources that should provide you with background information and 
 
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
 - [Document Intelligence Region/API Version Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
+- [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
