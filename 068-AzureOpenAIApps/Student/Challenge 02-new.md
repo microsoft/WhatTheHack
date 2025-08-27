@@ -27,10 +27,10 @@ Server - Provides specialized capabilites and access to resources such as data a
 
 ## Description
 
-In this challenge, you will configure and build an MCP server that connects the Veta agent to the National Weather Service API.
+In this challenge, you will configure and build an MCP server that connects the Veta to the National Weather Service API.
 
 #### Assistant Descriptions
-Please read the `.txt` files in `/ContosoAIAppsBackend/assistant_configurations` folder for Donald, Veta, and Callum to understand what each of the assiants do. Also look through the `.json` files to understand what functions the agents have pre-built into them.
+Please read the `.txt` files in `/ContosoAIAppsBackend/assistant_configurations` folder for Donald, Veta, and Callum to understand what each of the assiants do. Also look through the `.json` files to understand what functions the assistants have pre-built into them.
 
 Note for Veta:
 - Reservations can only be made up to 3 days from the current date.
@@ -41,9 +41,9 @@ Note for Veta:
 - System Messages are used in the application configuration to direct the LLM on how it should behave. This is where you exert control over the behavior of the language models used in the application.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
 
-#### TODO: Configuring Your MCP Server
+#### Student Taks: Configuring Your MCP Server
 
- In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects the Veta agent to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
+ In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects Veta, the the booking asstant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
  
  We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
  
@@ -100,25 +100,6 @@ Format & Return: Client-friendly summary
 Veta: Present weather to customer
 ```
 
-#### Security for MCP (Add to lecture)
-At Microsoft our pirority is always security. If implementing such an app at a production we would need to take neumerous security measures to avoid any adversarial attacks. Below are security measures you could apply at each level of the application to ensure its properly secured.
-
-Securing the Host: 
-- Use virtual networks and private endpoints to isolate the environment
-- Add a web application firewall and application gateway to protect entry points
-- Utilize monitoring services and application inights for proper monitoring
-
-Securing the Client:
--  Use TLS 1.2+ for JSON-RPC communication and mTLS to authenticate server and client
--  Use Entra ID and RBAC for authentication
--  Add rate limiting or input validation using Azure API management
-
-Securing the Server:
-- Run the server in containers with network isolation using ACA or AKs
-- Use HTTPS to encrypt API calls
-
-These layers of security in your MCP application will ensure safety against adverserial attacks.
-
 #### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
@@ -142,9 +123,11 @@ Here are a list of resources that should assist you with completing this challen
 - [Basic MCP Information](https://modelcontextprotocol.io/introduction) - This is basic documentation for MCP provided by Anthropic
 - [How to Build MCP Servers With LLMS](https://modelcontextprotocol.io/tutorials/building-mcp-with-llms) - Clearly lays out instructions for how to build MCP servers faster using LLMs
 - [MCP for Beginners](https://github.com/microsoft/mcp-for-beginners#msdynttrid=l9Nn7lrAy_8n7EEHOO-5tEDmdgsw2eIsIXZAuIMQwAs) - Github repo that walks through key concepts of MCP
+- [Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) - Anthropic's recommendations for security with MCP
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
