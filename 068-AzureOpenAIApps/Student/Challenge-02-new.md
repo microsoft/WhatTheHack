@@ -1,4 +1,4 @@
-# Challenge 02 - Model Context Protocol (MCP)
+# Challenge 02 - Weather Integreation Using Model Context Protocol
 ## TODO - PROMOTE TO Challenge-02.md from C2-New.md
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
@@ -41,17 +41,24 @@ Note for Veta:
 - System Messages are used in the application configuration to direct the LLM on how it should behave. This is where you exert control over the behavior of the language models used in the application.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
 
-#### Student Taks: Configuring Your MCP Server
+#### Student Task: Configuring Your MCP Server
 
- In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects Veta, the the booking asstant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
+In your `/ContosoAIAppsBackend` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects Veta, the the booking asstant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
  
- We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
+We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file and the prompt below to ensure that the MCP server is built properly.
+
+In the `ContosoAIAppsBackend` folder read through the following files: `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, and `MCP_WEATHER_README.md`. This wil help you learn and fully understand what the code does.
  
 ```
 Complete the functions with TODO in the mcp_weather_server.py file to have the proper functionality and look the llms-full.txt file to do so. Carefully look at the mcp_weather_client file to ensure the names of functions are the same to ensure they can call each other. Also look at veta.txt and veta.json to know what the agent functionality is supposed to be. Make the code as simple as possible to have proper functionality. Only change the server file since everything else is properly configured to work with a properly configured server.
 ```
 
-Note: Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly. The following files may be helpful to add as context but you can add more based on what you think is necessary: veta.json, veta.txt, mcp_weather_server.py, ask_veta.py, and the ContosoAIAppsBackend folder. After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper. Also play around with the cooridinates in veta.txt and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app). This challenge will take a few tries and debugging to work, but please try to persevere through it.
+Important Note:
+- Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly.
+- The following files may be helpful to add as context but you can add more based on what you think is necessary: `llm-full.txt`, `veta.json`, `veta.txt`, `mcp_weather_server.py`, `ask_veta.py`, `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, `MCP_WEATHER_README.md`, and the `ContosoAIAppsBackend` folder.
+- After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper.
+- Also play around with the cooridinates in veta.txt and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app).
+- This challenge will take a few tries and debugging to work, but please try to persevere through it.
 
 #### How All the Assitants (Except Veta) Currently Work
 
@@ -78,6 +85,8 @@ JSON-RPC handshake:
     - initialized notification
 ```
 
+This is how the sync between the client and server is initalized.
+
 #### Weather Request Flow
 
 ```
@@ -99,6 +108,7 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
+This is a flow of the user query, showing which functions are activated when a prompt is given to the Veta Assistant. This is the general flow that your prompt takes before the Assistant gives you back the response.
 
 #### Testing and Debugging the Assistants
 
@@ -107,6 +117,10 @@ You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIApp
 The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
 
 Once you have proved the backend is responding properly using the REST Client, you can navigate to the Frontend webpage for the assistants to send your questions to each one.
+
+#### Security in Model Context Protocol (MCP)?
+
+There are many security aspects to consider when using MCP for enterprise applications, we discuss these in the lecture slides. There is also a link provided in the Resources section below about security, that you should read.
 
 ## Success Criteria
 
@@ -127,6 +141,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
