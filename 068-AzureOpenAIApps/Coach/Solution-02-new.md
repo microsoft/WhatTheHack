@@ -18,6 +18,8 @@ This challenge is about creating an MCP server using Github Copilot to connect V
 
 The front end application simply needs to modify the environment.ts file to point to the specific endpoint where the API service is running to enable the AI Assistant interaction with the user.
 
+The environment.ts file tells the client where to find the backend. If the backend location get changed because it ran in a codespace, or any other reason, the student might need to change the value in the file.
+
 
 
 ### Working MCP Server Code
