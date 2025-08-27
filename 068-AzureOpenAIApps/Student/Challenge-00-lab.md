@@ -204,7 +204,7 @@ To complete this challenge successfully, you should be able to:
  
 Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
 
-You should also be able to ask Murphy and Priscilla for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts. The other assistants will not currently respond correctly and will be fixed in a later challenge.
+You should also be able to ask all the Assistants for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts.
 
 ## Learning Resources
 
