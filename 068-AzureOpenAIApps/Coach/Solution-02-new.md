@@ -1,5 +1,5 @@
 
-# Challenge 02 - Create MCP Server - Coach's Guide 
+# Challenge 02 - Weather Integreation Using Model Context Protocol - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
 
