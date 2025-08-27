@@ -59,7 +59,7 @@ Note: Ensure Github Copilot is in Agent mode and you have used the Add Context b
 
 #### How Veta Will Work After Implementing MCP Server
 
-![screenshot of Priscilla Sequence Diagram](../images/Veta-ADS.png)
+![screenshot of Veta Sequence Diagram](../images/Veta-ADS.png)
 
 #### Initalization Sequence
 
@@ -127,6 +127,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
