@@ -62,7 +62,7 @@ The participants will learn how to:
 	 - Prepare your workstation and environment to work with Azure. Deploy Azure resources for the Citrus Bus application
 - Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
 	- Load source data into an automation process that prepares it for Azure AI Search
-- Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
+- Challenge 02: **[Weather Integreation Using Model Context Protocol](Student/Challenge-02.md)**
 	- Use prompt engineering to configure a virtual assistants that responds to frequently asked questions about the Contoso Islands, and provides near real-time answers to Contoso Islands tourists that are looking to make reservations for yacht tours.
 - Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
