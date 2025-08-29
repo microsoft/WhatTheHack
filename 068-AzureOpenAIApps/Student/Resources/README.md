@@ -18,7 +18,7 @@ This folder contains all of the application code for the backend of the Contoso 
 
 This folder contains the application code for the frontend of the Contoso Islands Citrus Bus app.
 
-## `/artifacts`
+## `/data`
 
 This folder contains all of the Contoso Islands corporate & sample data that students will use during the hack to make the application work.
 
