@@ -4,13 +4,16 @@
 
 ## Introduction
 
-Virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
+Contoso Yacht's "Citrus Bus" application features multiple AI-powered virtual assistants that can be used by both its customer service team and Contoso Yacht's customers. The virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
 
-Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistance to the customers. 
+There are three virtual assistants that you will experiment with during this challenge:
+- Donald
+- Callum
+- Veta
 
-The virtual assistants will also allow guests to create accounts, manage bank account balances, and make or cancel yacht reservations with Contoso Yachts.
+The virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistance to the customers. They also allow customers to create accounts, manage bank account balances, and make or cancel yacht reservations with Contoso Yachts. There are two existing customers in the Citrus Bus application database and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
-There are two existing customers in the database and there are 5 yachts that customers can make future reservations for a specific date and yacht.
+The Donald & Callum assistants are fully implemented and you will explore their functionality during this challenge. The main focus of this challenge is to extend the Veta virtual assistant's functionality using Model Context Protocol (MCP) to consider the current weather forecast when booking a yacht reservation.
 
 ### What is Model Context Protocol (MCP)?
 MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP, one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
