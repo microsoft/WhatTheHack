@@ -12,21 +12,22 @@ The virtual assistants will also allow guests to create accounts, manage bank ac
 
 There are two existing customers in the database and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
-#### What is Model Context Protocol (MCP)?
- MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
+### What is Model Context Protocol (MCP)?
+MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP, one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
 
 ![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
 
-#### Components of MCP
-Host - The user facing application that manages different clients, enforces security policies, and coordinates AI integration. The main job of a host is to facilitate user interactions and initiate connections to servers via clients.
+### Components of MCP
 
-Client - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
+**Host** - The user facing application that manages different clients, enforces security policies, and coordinates AI integration. The main job of a host is to facilitate user interactions and initiate connections to servers via clients.
 
-Server - Provides specialized capabilities and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data or prompts to the client.
+**Client** - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
+
+**Server** - Provides specialized capabilities and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data, or prompts to the client.
 
 ## Description
 
-In this challenge, you will configure and build an MCP server that connects the Veta to the National Weather Service API.
+In this challenge, you will configure and build an MCP server that connects the Veta assistant to the National Weather Service API.
 
 #### Assistant Descriptions
 Please read the `.txt` files in `/ContosoAIAppsBackend/assistant_configurations` folder for Donald, Veta, and Callum to understand what each of the assistants do. Also look through the `.json` files to understand what functions the assistants have pre-built into them.
