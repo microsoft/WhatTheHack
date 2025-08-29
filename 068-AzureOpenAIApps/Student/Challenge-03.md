@@ -53,7 +53,7 @@ You will use the copies of these sample documents for training the custom classi
 
 ![Image of where files are store in Azure Storage](../images/c3-train-classification-extraction-models.png)
 
-**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
+**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/data/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
 
 In order to observe all of the things above in action, you will need to complete the following high-level tasks:
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
@@ -140,7 +140,7 @@ The first 3 extractor models are straightforward. However, in the 4th document t
 
 ### Submit Student Exams to be Processed
 
-In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the classification and extraction processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
+In the **`/data/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the classification and extraction processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
 
 When files are uploaded to the **`submissions`** container, this will trigger the app's Azure Functions. The Azure Functions will invoke the Azure Document Intelligence service to classify the exams, extract the data, grade the exams, and then store the results in Cosmos DB. 
 
