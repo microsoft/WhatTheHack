@@ -75,6 +75,8 @@ Important Note:
 
 #### Initialization Sequence
 
+This is how the sync between the client and server is initialized.
+
 ```
 Veta Assistant Request
     ↓
@@ -90,9 +92,9 @@ JSON-RPC handshake:
     - initialized notification
 ```
 
-This is how the sync between the client and server is initialized.
-
 #### Weather Request Flow
+
+This is a flow of the user query, showing which functions are activated when a prompt is given to the Veta Assistant. This is the general flow that your prompt takes before the Assistant gives you back the response.
 
 ```
 User: "Book yacht for tomorrow"
@@ -113,8 +115,6 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
-This is a flow of the user query, showing which functions are activated when a prompt is given to the Veta Assistant. This is the general flow that your prompt takes before the Assistant gives you back the response.
-
 #### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
