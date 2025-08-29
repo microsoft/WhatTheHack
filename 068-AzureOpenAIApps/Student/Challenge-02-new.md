@@ -47,7 +47,12 @@ In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains de
  
 We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp_files` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly.
 
-In the `/data` folder read through the following files: `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, and `MCP_WEATHER_README.md`. This wil help you learn and fully understand what the code does.
+In the `/data` folder read through the following files: 
+- [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+-  [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+-  [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+
+This wil help you learn and fully understand what the code does.
  
 ```
 Complete the functions with TODO in the mcp_weather_server.py file to have the proper functionality and look the llms-full.txt file to do so. Carefully look at the mcp_weather_client file to ensure the names of functions are the same to ensure they can call each other. Also look at veta.txt and veta.json to know what the agent functionality is supposed to be. Make the code as simple as possible to have proper functionality. Only change the server file since everything else is properly configured to work with a properly configured server.
@@ -141,6 +146,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
