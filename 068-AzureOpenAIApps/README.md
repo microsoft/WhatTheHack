@@ -87,6 +87,7 @@ We seize this opportunity to express our sincere gratitude to all our contributo
 We thank them for sharing their experience and creativity to design the scenarios and for taking the time to review the content that has been developed.
 
 - [Alexis Joseph](https://github.com/alexistj)
+- [Agam Makkar](https://github.com/AgamMakkar21)
 - [Amanda Wong](https://github.com/wongamanda)
 - [Charlotte Oickle](https://github.com/charlietfcgirl)
 - [Devanshi Thakar](https://github.com/devanshithakar12)
