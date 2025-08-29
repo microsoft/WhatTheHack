@@ -48,9 +48,9 @@ In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains de
 We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp_files` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly.
 
 In the `/data` folder read through the following files: 
-- [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
--  [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
--  [Implementation summmary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+- [MCP Weather Integration - Implementation Summary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+-  [MCP_WEATHER_INTEGRATION.md](./Resources/data/mcp-info/MCP_WEATHER_INTEGRATION.md)
+-  [MCP_WEATHER_README.md](./Resources/data/mcp-info/MCP_WEATHER_README.md)
 
 This wil help you learn and fully understand what the code does.
  
@@ -146,6 +146,7 @@ Here are a list of resources that should assist you with completing this challen
 ## Tips
 
 - If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+
 
 
 
