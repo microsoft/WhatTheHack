@@ -1,5 +1,4 @@
 # Challenge 02 - Weather Integreation Using Model Context Protocol
-## TODO - PROMOTE TO Challenge-02.md from C2-New.md
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
