@@ -28,40 +28,54 @@ MCP is an open protocol that allows us to standardize how tools and data is prov
 
 **Server** - Provides specialized capabilities and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data, or prompts to the client.
 
+### Security in Model Context Protocol (MCP)?
+
+There are many security aspects to consider when using MCP for enterprise applications, your coach should cover these during the lecture for this challenge. There is also a link provided in the Learning Resources section below about security, that you can read for more guidance and details..
+
 ## Description
 
-In this challenge, you will configure and build an MCP server that connects the Veta assistant to the National Weather Service API.
+The goal of this challenge is explore the existing functionality of the virtual assistants, then extend the functionality of the Veta virtual assistant to consider the current weather forecast when booking a yacht reservation. Finally, you will test all of the assistants to ensure they work properly.
 
-#### Assistant Descriptions
-Please read the `.txt` files in `/ContosoAIAppsBackend/assistant_configurations` folder for Donald, Veta, and Callum to understand what each of the assistants do. Also look through the `.json` files to understand what functions the assistants have pre-built into them.
+### Understanding Virtual Assistant Functionality
 
-Note for Veta:
-- Reservations can only be made up to 3 days from the current date.
-- Reservations must be within the passenger capacity of the yacht.
-- Reservations should contain the full name, email address and customer identifier in the database.
+The virtual assistants are configured with System Messages (prompts) to use Tools (functions/APIs) to complete their tasks.
 
 #### System Messages & Tools for AI Assistants
 - System Messages are used in the application configuration to direct the LLM on how it should behave. This is where you exert control over the behavior of the language models used in the application.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
 
-#### Student Task: Configuring Your MCP Server
+Please view the configuration files in the `/ContosoAIAppsBackend/assistant_configurations` folder for the Donald, Veta, and Callum assistants to understand what each of the assistants do. 
+
+- The `.txt` file for each assistant contains the system message (prompt) that specifies to the LLM how the assistant should behave
+- The `.json` file for each assistant specifies what tools (functions/APIs) the assistants have the ability to invoke.
+
+As you will be extending Veta's functionality, note the following requirements for Veta:
+- Reservations can only be made up to 3 days from the current date.
+- Reservations must be within the passenger capacity of the yacht.
+- Reservations should contain the full name, email address and customer identifier in the database.
+
+At the end of this challenge, you will test each of the assistant's functionalities to see them in action.
+
+### Configure MCP Server for the Veta Virtual Assistant
+
+In this challenge, you will configure and build an MCP server that connects the Veta assistant to the National Weather Service API.
 
 In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects Veta, the the booking assistant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
  
-We have already configured the the client files and all the necessary architecture, all you have to do is fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp_files` folder to build the server with the help of Github Copilot. Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly.
+We have already configured the the MCP client files and all the necessary architecture, your task is to fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp` folder to build the MCP server component with the help of Github Copilot. 
 
-In the `/data` folder read through the following files: 
-- [MCP Weather Integration - Implementation Summary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
--  [MCP_WEATHER_INTEGRATION.md](./Resources/data/mcp-info/MCP_WEATHER_INTEGRATION.md)
--  [MCP_WEATHER_README.md](./Resources/data/mcp-info/MCP_WEATHER_README.md)
-
-This will help you learn and fully understand what the code does.
+Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly:
  
 ```
 Complete the functions with TODO in the mcp_weather_server.py file to have the proper functionality and look the llms-full.txt file to do so. Carefully look at the mcp_weather_client file to ensure the names of functions are the same to ensure they can call each other. Also look at veta.txt and veta.json to know what the agent functionality is supposed to be. Make the code as simple as possible to have proper functionality. Only change the server file since everything else is properly configured to work with a properly configured server.
 ```
 
-Important Note:
+In the `/data` folder you will find a set of documentation files that were generated by AI.  We recommend optionally reading through these files to help you learn and fully understand what the code does:
+- [MCP Weather Integration - Implementation Summary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+- [MCP_Weather Integration for Contoso AI Apps Backend](./Resources/data/mcp-info/MCP_WEATHER_INTEGRATION.md)
+- [MCP_Weather Integration - Documentation](./Resources/data/mcp-info/MCP_WEATHER_README.md)
+
+#### Tips for using GitHub Copilot
 - Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly.
 - The following files may be helpful to add as context but you can add more based on what you think is necessary: `llm-full.txt`, `veta.json`, `veta.txt`, `mcp_weather_server.py`, `ask_veta.py`, `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, `MCP_WEATHER_README.md`, and the `ContosoAIAppsBackend` folder.
 - After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper.
@@ -118,17 +132,13 @@ Format & Return: Client-friendly summary
     ↓
 Veta: Present weather to customer
 ```
-#### Testing and Debugging the Assistants
+### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
 
 The question you have for the AI assistant needs to be in the `message` field for the JSON object for the body of the HTTP request.
 
 Once you have proved the backend is responding properly using the REST Client, you can navigate to the Frontend webpage for the assistants to send your questions to each one.
-
-#### Security in Model Context Protocol (MCP)?
-
-There are many security aspects to consider when using MCP for enterprise applications, we discuss these in the lecture slides. There is also a link provided in the Resources section below about security, that you should read.
 
 ## Success Criteria
 
