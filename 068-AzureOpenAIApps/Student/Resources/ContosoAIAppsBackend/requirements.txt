@@ -10,7 +10,7 @@ azure-ai-documentintelligence == 1.0.0b3
 redis == 5.0.8
 openai == 1.55.3
 langchain == 0.2.14
-langchain-community == 0.2.12
+langchain-community == 0.3.27
 langchain-openai == 0.1.22
 azure-monitor-opentelemetry == 1.6.7
 azure-monitor-events-extension == 0.1.0
