@@ -91,9 +91,9 @@ Visual Studio Code is a code editor which you will work with Jupyter notebooks.
 
 - [Install VS Code](https://getvisualstudiocode.com)
 
-##### Setup Github Copilot
+##### Setup GitHub Copilot
 
-For parts of this hack we will be relying heavily on Github Copilot for coding. Please setup [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
 
 ##### Python
 
