@@ -20,7 +20,7 @@ In this challenge, you will focus on just one of these parsers, Azure Document I
 
 The goal of this challenge is to configure Azure Document Intelligence to classify documents and extract data from them.  You will then observe the extraction of the school district, school name, student ID, student name, and question answers from civics/social studies exams from students in the country. You will also see the parsing of the activity preferences and advance requests from the tourists visiting Contoso Islands.
 
-### Understanding the Citrus Bus Classification & Extraction Data Flow
+### Understanding the Citrus Bus Classification and Extraction Data Flow
 
 The Citrus Bus application has a pipeline that can process PDF and PNG files for exam submissions and activity preferences which are submitted to an Azure Blob Storage account.  When exam or activity preference documents are posted to the **`submissions`** container of the storage account, the app will send them to the Azure Document Intelligence service for processing.
 
@@ -53,7 +53,7 @@ You will use the copies of these sample documents for training the custom classi
 
 ![Image of where files are store in Azure Storage](../images/c3-train-classification-extraction-models.png)
 
-**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/artifacts/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
+**NOTE:** You can find the source files which were used to populate the Azure storage account in your Codespace or Student Resources package in the sub-folders under the **`/data/contoso-education`** folder. These files were pre-loaded into Azure Storage by the deployment script you ran in Challenge 0 and are there only for reference.
 
 In order to observe all of the things above in action, you will need to complete the following high-level tasks:
 - [Create a Custom Classifier Model in Document Intelligence Studio](#create-a-custom-classifier-model-in-document-intelligence-studio)
@@ -140,7 +140,7 @@ The first 3 extractor models are straightforward. However, in the 4th document t
 
 ### Submit Student Exams to be Processed
 
-In the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification & extraction models in Document Intelligence Studio, you can test the classification and extraction processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
+In the **`/data/contoso-education/submissions`** folder of your Codespace or Student Resources package, you will find a set of student exams and traveler preference documents. After configuring the classification and extraction models in Document Intelligence Studio, you can test the classification and extraction processing pipeline by uploading these files to the **`submissions`** container in the Azure Blob Storage account. 
 
 When files are uploaded to the **`submissions`** container, this will trigger the app's Azure Functions. The Azure Functions will invoke the Azure Document Intelligence service to classify the exams, extract the data, grade the exams, and then store the results in Cosmos DB. 
 

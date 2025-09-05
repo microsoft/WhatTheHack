@@ -1,0 +1,14 @@
+
+There are 4 school districts in the Contoso Islands: The Orange School District. The Lemon School District. The Grapefruit School District. The Tangerine School District.
+
+Each school district has between one and five schools, and each high school can hold up to 25,000 students. The ratio of teachers to student is 1 to 15.
+
+Orange School District has two high schools: Gemini High School and Scorpio High School
+
+Lemon School District has two high schools: Leo High School and Libra High School.
+
+Grapefruit School District has one high school: Pisces High School.
+
+Tangerine School District has five high schools: Virgo High School, Taurus High School, Capricon High School, Aries High School and Sagittarius High School.
+
+There are four civics exams in the Contoso Standard Tests administered by the Contoso School Board: Geography and Climate; Tourism and Economy; Government and Politics

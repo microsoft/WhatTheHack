@@ -1,4 +1,4 @@
-This folder/repo contains all the student resources needed for the OpenAI Apps What The Hack.
+This folder/repo contains all the student resources needed to do the OpenAI Apps What The Hack.
 
 Students should follow the instructions in the student guide for this hack here:
 
@@ -18,7 +18,7 @@ This folder contains all of the application code for the backend of the Contoso 
 
 This folder contains the application code for the frontend of the Contoso Islands Citrus Bus app.
 
-## `/artifacts`
+## `/data`
 
 This folder contains all of the Contoso Islands corporate & sample data that students will use during the hack to make the application work.
 
