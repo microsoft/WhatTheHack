@@ -16,8 +16,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	- Design and implement a pipeline that tracks changes to the document sources (object stores, relational databases, NoSQL databases) and automatically processes the embeddings for these documents (if necessary). 
     - The pipeline also stores these dense vectors in the appropriate vector databases for usage in vector, sparse and hybrid search.
 - Challenge 02: **[Weather Integration Using Model Context Protocol](Solution-02.md)**
-	 - Implement an MCP server that integrates into the application and gives Veta Assistant the ability to gather weather information for the date of the yacht reservation.
-	 - Test this server implementation buy asking Veta to book a yacht reservation and watch it respond with the weather information for the date of the tour.
+	 - Implement an MCP server that integrates into the application and gives the Veta Assistant the ability to gather weather information for the date of the yacht reservation.
+	 - Test this server implementation by asking Veta to book a yacht reservation and watch it respond with the weather information for the date of the tour.
 - Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Solution-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
 - Challenge 04: **[Quota Monitoring and Enforcement](Solution-04.md)**
