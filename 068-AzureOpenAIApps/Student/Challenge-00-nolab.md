@@ -54,16 +54,17 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button.
-- Then click the three dots in the "Codespaces" section and select "New with Options...".
-  - We recommend selecting 4-cores for "Machine Type, if possible.
-- Finally, click "Create Codespace".
+Once you are signed in:
+- Verify that the `Dev container configuration` drop down is set to `068-AzureOpenAIApps`
+- Click on the green "Create Codespace" button.
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
 Your developer environment is ready, hooray! Skip to section: [Deploy Azure Resources](#deploy-azure-resources)
+
+**NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
 **NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
 
