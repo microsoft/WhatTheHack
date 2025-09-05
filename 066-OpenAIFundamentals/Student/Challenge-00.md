@@ -91,6 +91,10 @@ Visual Studio Code is a code editor which you will work with Jupyter notebooks.
 
 - [Install VS Code](https://getvisualstudiocode.com)
 
+##### Setup GitHub Copilot
+
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
 ##### Python
 
 - [Python Installation](https://www.python.org/downloads), version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.

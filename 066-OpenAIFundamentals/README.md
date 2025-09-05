@@ -29,7 +29,7 @@ Evaluate models for truthfulness and monitor for PII detection in model interact
 - Challenge 01: **[Prompt Engineering](Student/Challenge-01.md)**
 	 - What's possible through Prompt Engineering 
 	 - Best practices when using OpenAI text and chat models
-- Challenge 02: **[OpenAI Models & Capabilities](Student/Challenge-02.md)**
+- Challenge 02: **[OpenAI Models, Capabilities, and Model Router](Student/Challenge-02.md)**
 	 - What are the capacities of each Azure OpenAI model?
 	 - How to select the right model for your application
 - Challenge 03: **[Grounding, Chunking, and Embedding](Student/Challenge-03.md)**

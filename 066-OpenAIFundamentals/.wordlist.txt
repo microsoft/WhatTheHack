@@ -40,3 +40,4 @@ cyberattacks
 TPM
 multimodal
 Agentic
+MCP
