@@ -60,9 +60,9 @@ At the end of this challenge, you will test each of the assistant's functionalit
 
 In this challenge, you will configure and build an MCP server that connects the Veta assistant to the National Weather Service API.
 
-In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to Github Copilot and build an MCP server that connects Veta, the the booking assistant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
+In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to GitHub Copilot and build an MCP server that connects Veta, the the booking assistant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
  
-We have already configured the the MCP client files and all the necessary architecture, your task is to fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp` folder to build the MCP server component with the help of Github Copilot. 
+We have already configured the the MCP client files and all the necessary architecture, your task is to fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp` folder to build the MCP server component with the help of GitHub Copilot. 
 
 Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly:
  
@@ -76,7 +76,7 @@ In the `/data` folder you will find a set of documentation files that were gener
 - [MCP_Weather Integration - Documentation](./Resources/data/mcp-info/MCP_WEATHER_README.md)
 
 #### Tips for using GitHub Copilot
-- Ensure Github Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly.
+- Ensure GitHub Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly.
 - The following files may be helpful to add as context but you can add more based on what you think is necessary: `llm-full.txt`, `veta.json`, `veta.txt`, `mcp_weather_server.py`, `ask_veta.py`, `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, `MCP_WEATHER_README.md`, and the `ContosoAIAppsBackend` folder.
 - After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper.
 - Also play around with the coordinates in `veta.txt` and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app).
@@ -154,11 +154,11 @@ Here are a list of resources that should assist you with completing this challen
 
 - [Basic MCP Information](https://modelcontextprotocol.io/introduction) - This is basic documentation for MCP provided by Anthropic
 - [How to Build MCP Servers With LLMS](https://modelcontextprotocol.io/tutorials/building-mcp-with-llms) - Clearly lays out instructions for how to build MCP servers faster using LLMs
-- [MCP for Beginners](https://github.com/microsoft/mcp-for-beginners#msdynttrid=l9Nn7lrAy_8n7EEHOO-5tEDmdgsw2eIsIXZAuIMQwAs) - Github repo that walks through key concepts of MCP
+- [MCP for Beginners](https://github.com/microsoft/mcp-for-beginners#msdynttrid=l9Nn7lrAy_8n7EEHOO-5tEDmdgsw2eIsIXZAuIMQwAs) - GitHub repo that walks through key concepts of MCP
 - [Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) - Anthropic's recommendations for security with MCP
 ## Tips
 
-- If you run into bugs try adding more context to Github Copilot and maybe even change the provided prompt to deal with those bugs
+- If you run into bugs try adding more context to GitHub Copilot and maybe even change the provided prompt to deal with those bugs
 
 
 
