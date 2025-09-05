@@ -67,7 +67,7 @@ Update these settings as per the requirements listed above.
 
 ### Re-Process Student Exams
 
-To verify the LLM Quota Enforcement is working, re-upload the student exam files from the **`/artifacts/contoso-education/submissions`** folder of your Codespace or Student Resources package, to **`submissions`** container in Azure Blob Storage.
+To verify the LLM Quota Enforcement is working, re-upload the student exam files from the **`/data/contoso-education/submissions`** folder of your Codespace or Student Resources package, to **`submissions`** container in Azure Blob Storage.
 
 These are the same files that you processed in Challenge 3.
 

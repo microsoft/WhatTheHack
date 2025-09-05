@@ -62,8 +62,8 @@ The participants will learn how to:
 	 - Prepare your workstation and environment to work with Azure. Deploy Azure resources for the Citrus Bus application
 - Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
 	- Load source data into an automation process that prepares it for Azure AI Search
-- Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
-	- Use prompt engineering to configure a virtual assistants that responds to frequently asked questions about the Contoso Islands, and provides near real-time answers to Contoso Islands tourists that are looking to make reservations for yacht tours.
+- Challenge 02: **[Weather Integration Using Model Context Protocol](Student/Challenge-02.md)**
+	- Build an MCP server to add weather functionality to the Veta assistant using GitHub Copilot.
 - Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
 - Challenge 04: **[Quota Monitoring and Enforcement](Student/Challenge-04.md)**
@@ -87,6 +87,7 @@ We seize this opportunity to express our sincere gratitude to all our contributo
 We thank them for sharing their experience and creativity to design the scenarios and for taking the time to review the content that has been developed.
 
 - [Alexis Joseph](https://github.com/alexistj)
+- [Agam Makkar](https://github.com/AgamMakkar21)
 - [Amanda Wong](https://github.com/wongamanda)
 - [Charlotte Oickle](https://github.com/charlietfcgirl)
 - [Devanshi Thakar](https://github.com/devanshithakar12)

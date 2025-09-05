@@ -99,6 +99,10 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - Open the root folder of the Student resource package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
+##### Setup GitHub Copilot
+
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
 </details>
 
 ### Setup Citrus Bus Application
@@ -115,7 +119,7 @@ There are three major steps to setup the Sample Application:
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
 - `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Azure AI  Services like Azure OpenAI and Azure Document Intelligence.
 - `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
-- `/artifacts` - Contains various artifacts and data sources that will be used by the Citrus Bus application
+- `/data` - Contains various artifacts and data sources that will be used by the Citrus Bus application
 - `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the Citrus Bus application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
