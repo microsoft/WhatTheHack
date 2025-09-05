@@ -15,7 +15,7 @@ In the **`/ContosoAIAppsBackend/`** folder of the Codespace or Student resources
 - Modify the application configuration to specify the cool down period when the transaction threshold is reach:  This is done by changing the `LLM_QUOTA_ENFORCEMENT_COOL_DOWN_SECONDS` to 300
 
 ### Student Exams to be Re-processed
-The students will use the Azure CLI to upload the submission documents located in `artifacts/contoso-education/submissions`:<br>
+The students will use the Azure CLI to upload the submission documents located in `data/contoso-education/submissions`:<br>
 Example: <br>
 `az storage blob upload-batch --account-name contosopeterod1storage -d submissions -s .`
 

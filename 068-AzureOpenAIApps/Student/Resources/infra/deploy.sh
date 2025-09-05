@@ -35,9 +35,9 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # Check if Bicep CLI is installed
-if ! command -v bicep &> /dev/null; then
-    error_exit "Bicep CLI not found. Install it using 'az bicep install'."
-fi
+# if ! command -v bicep &> /dev/null; then
+#     error_exit "Bicep CLI not found. Install it using 'az bicep install'."
+# fi
 
 echo -e "\n\t\t\e[32mWHAT THE HACK - AZURE OPENAI APPS\e[0m"
 echo -e "\tcreated with love by the Americas GPS Tech Team!\n"
@@ -131,10 +131,10 @@ az resource update --ids $cosmosdb --set properties.disableLocalAuth=false --lat
 declare -A hashtable
 
 # Add key-value pairs to the hashtable
-hashtable["../artifacts/contoso-education/F01-Civics-Geography and Climate/"]="f01-geography-climate"
-hashtable["../artifacts/contoso-education/F02-Civics-Tourism and Economy/"]="f02-tour-economy"
-hashtable["../artifacts/contoso-education/F03-Civics-Government and Politics/"]="f03-government-politics"
-hashtable["../artifacts/contoso-education/F04-Activity-Preferences/"]="f04-activity-preferences"
+hashtable["../data/contoso-education/F01-Civics-Geography and Climate/"]="f01-geography-climate"
+hashtable["../data/contoso-education/F02-Civics-Tourism and Economy/"]="f02-tour-economy"
+hashtable["../data/contoso-education/F03-Civics-Government and Politics/"]="f03-government-politics"
+hashtable["../data/contoso-education/F04-Activity-Preferences/"]="f04-activity-preferences"
 
 # Iterate over the hashtable
 for sourceDir in "${!hashtable[@]}"; do

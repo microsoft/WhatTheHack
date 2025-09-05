@@ -11,7 +11,7 @@
     "postAttachCommand": "bash .devcontainer/postAttachCommands.sh",
     "features": {
         "ghcr.io/devcontainers/features/azure-cli:1": {
-            "installBicep": false
+            "installBicep": true
         },
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/github-cli:1": {}
@@ -31,7 +31,9 @@
                 "ms-azuretools.vscode-azureresourcegroups",
                 "humao.rest-client",
                 "ms-azuretools.vscode-bicep",
-                "adamraichu.pdf-viewer"
+                "adamraichu.pdf-viewer",
+                "github.copilot",
+                "github.copilot-chat"
             ]
         }
     },
