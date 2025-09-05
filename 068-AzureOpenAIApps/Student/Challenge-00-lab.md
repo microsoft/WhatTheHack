@@ -101,9 +101,9 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - Open the root folder of the Student resource package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
-##### Setup Github Copilot
+##### Setup GitHub Copilot
 
-For parts of this hack we will be relying heavily on Github Copilot for coding. Please setup [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
 
 </details>
 
@@ -203,7 +203,7 @@ To complete this challenge successfully, you should be able to:
  
 Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
 
-You should also be able to ask all the Assistants for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts.
+You should also be able to ask all the assistants for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts.
 
 ## Learning Resources
 
