@@ -52,13 +52,17 @@ The GitHub Codespace for this hack will host the Jupyter Notebook files, configu
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button. Then click on "Codespaces". Finally, hit "Create codespace on main".
-
+Once you are signed in:
+- Verify that the `Dev container configuration` drop down is set to `066-OpenAIFundamentals`
+- Click on the green "Create Codespace" button.
+  
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
 You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure AI Foundry Project and Hub](#Setup-Azure-AI-Foundry-Project-and-Hub)
+
+**NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
 #### Use Local Workstation
 
