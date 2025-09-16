@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Setup Azure AI Foundry Project and Hub](#setup-azure-ai-foundry-project-and-hub)
+- [Deploy Azure AI Foundry Resources](#deploy-azure-ai-foundry-resources)
 
 ### Azure Subscription
 
