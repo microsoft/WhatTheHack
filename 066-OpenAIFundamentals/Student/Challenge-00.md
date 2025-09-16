@@ -182,7 +182,7 @@ chmod +x deploy.sh
 
 #### Manual Azure AI Foundry Deployment
 
-**NOTE:** You can skip this section if you chose to automate the deployent.
+**NOTE:** You can skip this section if you chose to automate the deployment.
 
 If you want to deploy the Azure AI Foundry resources, expand the section below and follow instructions there.
 
