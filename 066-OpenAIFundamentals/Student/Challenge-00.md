@@ -138,18 +138,47 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 
 Now that you have a Jupyter notebook environment setup, you need to:
 - Deploy AI models and resources in Azure AI Foundry.  
-- Grab API keys and secrets for those resources from the Azure environment and add them to the configuration file for the Jupyter notebook environment
-
+- Setup Jupyter Notebooks Configuration File
+  
 We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Azure AI Foundry.
 
-- Automate Azure AI Foundry Deployment
-- Manual Azure AI Foundry Deployment
+- [Automate Azure AI Foundry Deployment](#automate-azure-ai-foundry-deployment)
+- [Manual Azure AI Foundry Deployment](#manual-azure-ai-foundry-deployment)
 
 **NOTE:** If you are limited on time, we recommend using the automation script option.
 
 #### Automate Azure AI Foundry Deployment
 
-Here are the automation details...
+We have provided a deployment script and a set of Bicep templates which will deploy and configure the Azure AI resources which you will use for this hackathon. You can find these files in the `/infra` folder of your Codespace or the student `Resources.zip` package.
+
+Login to the Azure CLI from the terminal in your GitHub Codespace or local workstation:
+
+```
+az login
+```
+**NOTE:** If you have access to multiple Azure subscriptions, you may need to switch to the subscription you want to work with.
+
+If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps as an alternative:
+- Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- From the terminal in Visual Studio Code, run these commands to login:
+```
+CODESPACES=false`
+az login
+```
+You should be prompted in the browser to authenticate to your Azure subscription using the normal authentication method.
+
+Execute the following commands in your GitHub Codespace or local workstation terminal window to initiate the deployment:
+
+```bash
+cd infra
+chmod +x deploy.sh
+./deploy.sh  
+```
+**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a resource group name parameter if you need the resources deployed to a specific resource group.
+
+```
+./deploy.sh --resource-group-name "[resource-group-name]"
+```
 
 #### Manual Azure AI Foundry Deployment
 
