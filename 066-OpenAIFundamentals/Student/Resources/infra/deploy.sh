@@ -18,7 +18,7 @@ userObjectId=$(az ad signed-in-user show --query id --output tsv)
 
 parse_args variables $@
 
-# Validates if the resource group exists in the subscription, if not creates it
+# Validates if the resource group exists in the subscription, if not, it creates it
 echo "Checking if [$resourceGroupName] resource group exists in the [$subscriptionName] subscription..."
 az group show --name $resourceGroupName &>/dev/null
 
@@ -107,7 +107,16 @@ fi
 # Create the .env file
 echo -e "\n- Creating the .env file:"
 environment_file="../.env"
-environment_sample_file="../.env.sample"  
+environment_sample_file="../.env.sample"
+
+# check if the .env file already exists and back it up if it does
+    if [[ -f "$environment_file" ]]; then
+        random_chars=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 5)
+        cp "$environment_file" "${environment_file}-${random_chars}.bak"
+        echo -e "\e[33mWarning: Existing .env file found. Backed up to ${environment_file}-${random_chars}.bak\e[0m"
+    else
+        touch $environment_file
+    fi
   if [[ ! -f "$environment_sample_file" ]]; then
       error_exit "Example .env.sample file not found at $environment_sample_file."
   fi
