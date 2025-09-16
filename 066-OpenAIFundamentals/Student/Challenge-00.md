@@ -162,7 +162,7 @@ If you are using GitHub Codespaces, the `az login` command will use a Device Cod
 - Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
 - From the terminal in Visual Studio Code, run these commands to login:
 ```
-CODESPACES=false`
+CODESPACES=false
 az login
 ```
 You should be prompted in the browser to authenticate to your Azure subscription using the normal authentication method.
