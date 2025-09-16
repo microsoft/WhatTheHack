@@ -134,9 +134,35 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 </details>
 <br/>
 
-### Setup Azure AI Foundry Project and Hub
+### Deploy Azure AI Foundry Resources
 
-Once you have set up a Jupyter notebook environment, navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
+Now that you have a Jupyter notebook environment setup, you need to:
+- Deploy AI models and resources in Azure AI Foundry.  
+- Grab API keys and secrets for those resources from the Azure environment and add them to the configuration file for the Jupyter notebook environment
+
+We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Azure AI Foundry.
+
+- Automate Azure AI Foundry Deployment
+- Manual Azure AI Foundry Deployment
+
+**NOTE:** If you are limited on time, we recommend using the automation script option.
+
+#### Automate Azure AI Foundry Deployment
+
+Here are the automation details...
+
+#### Manual Azure AI Foundry Deployment
+
+**NOTE:** You can skip this section if you chose to automate the deployent.
+
+If you want to deploy the Azure AI Foundry resources, expand the section below and follow instructions there.
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Manual Deployment Instructions</strong></summary>
+
+#### Setup Azure AI Foundry Project and Hub
+
+Navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
 
 - Click on the **+ Create Project** button.
 - Give your project a name and click **Create a new hub**.
@@ -192,6 +218,9 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 **NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
 
 **NOTE:** On MacOS, files that start with a `.` are hidden files and are not viewable in Finder when browsing the file system. They will be visible in both VS Code or GitHub Codespaces.
+
+</details>
+</br>
 
 ## Success Criteria
 
