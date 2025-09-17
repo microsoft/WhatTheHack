@@ -34,7 +34,7 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
 
-We highly recommend using GitHub Codespaces to make it easier complete this hack.
+We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
 #### Use GitHub Codespaces
 
