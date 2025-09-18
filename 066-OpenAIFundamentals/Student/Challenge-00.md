@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Setup Azure AI Foundry Project and Hub](#setup-azure-ai-foundry-project-and-hub)
+- [Deploy Azure AI Foundry Resources](#deploy-azure-ai-foundry-resources)
 
 ### Azure Subscription
 
@@ -34,7 +34,7 @@ A GitHub Codespace is a development environment that is hosted in the cloud that
 - [Use GitHub Codespaces](#use-github-codespaces)
 - [Use Local Workstation](#use-local-workstation)
 
-We highly recommend using GitHub Codespaces to make it easier complete this hack.
+We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
 #### Use GitHub Codespaces
 
@@ -134,9 +134,64 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 </details>
 <br/>
 
-### Setup Azure AI Foundry Project and Hub
+### Deploy Azure AI Foundry Resources
 
-Once you have set up a Jupyter notebook environment, navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
+Now that you have a Jupyter notebook environment setup, you need to:
+- Deploy AI models and resources in Azure AI Foundry.  
+- Setup Jupyter Notebooks Configuration File
+  
+We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Azure AI Foundry.
+
+- [Automate Azure AI Foundry Deployment](#automate-azure-ai-foundry-deployment)
+- [Manual Azure AI Foundry Deployment](#manual-azure-ai-foundry-deployment)
+
+**NOTE:** If you are limited on time, we recommend using the automation script option.
+
+#### Automate Azure AI Foundry Deployment
+
+We have provided a deployment script and a set of Bicep templates which will deploy and configure the Azure AI resources which you will use for this hackathon. You can find these files in the `/infra` folder of your Codespace or the student `Resources.zip` package.
+
+Login to the Azure CLI from the terminal in your GitHub Codespace or local workstation:
+
+```
+az login
+```
+**NOTE:** If you have access to multiple Azure subscriptions, you may need to switch to the subscription you want to work with.
+
+If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps as an alternative:
+- Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- From the terminal in Visual Studio Code, run these commands to login:
+```
+CODESPACES=false
+az login
+```
+You should be prompted in the browser to authenticate to your Azure subscription using the normal authentication method.
+
+Execute the following commands in your GitHub Codespace or local workstation terminal window to initiate the deployment:
+
+```bash
+cd infra
+chmod +x deploy.sh
+./deploy.sh  
+```
+**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a resource group name parameter if you need the resources deployed to a specific resource group.
+
+```
+./deploy.sh --resource-group-name "[resource-group-name]"
+```
+
+#### Manual Azure AI Foundry Deployment
+
+**NOTE:** You can skip this section if you chose to automate the deployment.
+
+If you want to deploy the Azure AI Foundry resources, expand the section below and follow instructions there.
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Manual Deployment Instructions</strong></summary>
+
+#### Setup Azure AI Foundry Project and Hub
+
+Navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
 
 - Click on the **+ Create Project** button.
 - Give your project a name and click **Create a new hub**.
@@ -192,6 +247,9 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 **NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
 
 **NOTE:** On MacOS, files that start with a `.` are hidden files and are not viewable in Finder when browsing the file system. They will be visible in both VS Code or GitHub Codespaces.
+
+</details>
+</br>
 
 ## Success Criteria
 
