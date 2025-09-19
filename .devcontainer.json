@@ -1,0 +1,20 @@
+{
+    "name": "WhatTheHack",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/python:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.vscode-json",
+                "ms-python.python"
+            ]
+        }
+    },
+    "postCreateCommand": "echo 'Dev container ready!'",
+    "remoteUser": "codespace"
+}
