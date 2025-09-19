@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "WhatTheHack",
     "image": "mcr.microsoft.com/devcontainers/universal:2",
     "features": {
@@ -17,4 +18,13 @@
     },
     "postCreateCommand": "echo 'Dev container ready!'",
     "remoteUser": "codespace"
+=======
+    "name": "WhatTheHack Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/universal:2-ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/python:1": {}
+    }
+>>>>>>> TestCodespaceButton
 }
