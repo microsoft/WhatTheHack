@@ -32,7 +32,7 @@ Keep your credentials handy as you will also need them to login to the Azure CLI
 You will need a set of developer tools to work with the sample application for this hack. 
 
 You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can setup the developer tools on your local workstation.
-| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/perktime/WhatTheHack?devcontainer_path=.devcontainer%2F068-AzureOpenAIApps%2Fdevcontainer.json) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/perktime/WhatTheHack/tree/TestCodespaceButton) | 
+| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/perktime/WhatTheHack?devcontainer_path=.devcontainer%2F068-AzureOpenAIApps%2Fdevcontainer.json) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](vscode://ms-vscode-remote.remote-containers/cloneInContainer?url=https://github.com/perktime/WhatTheHack&folder=.devcontainer/068-AzureOpenAIApps) | 
 |---|---|
 
 
