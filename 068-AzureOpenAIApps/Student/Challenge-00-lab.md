@@ -32,6 +32,9 @@ Keep your credentials handy as you will also need them to login to the Azure CLI
 You will need a set of developer tools to work with the sample application for this hack. 
 
 You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can setup the developer tools on your local workstation.
+| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/perktime/WhatTheHack?devcontainer_path=.devcontainer%2F068-AzureOpenAIApps%2Fdevcontainer.json) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/perktime/WhatTheHack) | 
+|---|---|
+
 
 A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
 
@@ -66,9 +69,13 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 Your developer environment is ready, hooray! Skip to section: [Setup Citrus Bus Application](#setup-citrus-bus-application)
 
+<<<<<<< Updated upstream
 **NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
 **NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
+=======
+**NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on GitHub. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
+>>>>>>> Stashed changes
 
 **NOTE:** Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
 
@@ -95,9 +102,9 @@ You will next be setting up your local workstation so that it can use dev contai
 
 **NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). As of May 2025, WSL on Windows ARM64 does not currently support running the Azure Function Core Tools needed for this hackathon in x86_64 emulation using QEMU. IF you are using a Windows on ARM device, you will need to use a GitHub Codespace instead.
 
-On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
+On Windows and macOS (**NOTE:** only tested on Apple Silicon):
 - Download and install Docker Desktop
-- (Mac OS only) In Docker Desktop settings, choose Apple Virtualization Framework for the Virtual Machine Manager. Also, click the checkbox to use Rosetta for x86_64/amd64 emulation on Apple Silicon
+- (macOS only) In Docker Desktop settings, choose Apple Virtualization Framework for the Virtual Machine Manager. Also, click the checkbox to use Rosetta for x86_64/amd64 emulation on Apple Silicon
 - (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
 - Open the root folder of the Student resource package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
@@ -119,10 +126,17 @@ There are three major steps to setup the Sample Application:
 - [Setup App Backend](#setup-app-backend)
 - [Setup App Frontend](#setup-app-frontend)
 
+<<<<<<< Updated upstream
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
 - `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Azure AI  Services like Azure OpenAI and Azure Document Intelligence.
 - `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
 - `/data` - Contains various artifacts and data sources that will be used by the Citrus Bus application
+=======
+In your codespace, or student `Resources.zip` package, you will find the following folders containing the frontend and backend API of the sample application to help you get started:
+- `/ContosoAIAppsBackend` - Contains an Azure Function app that provides capabilities of processing data and interacting with Azure AI  Services like Azure OpenAI and Azure Document Intelligence.
+- `/ContosoAIAppsFrontend` - Contains an Angular app that provides a user interface to some example virtual assistants.
+- `/artifacts` - Contains various artifacts and data sources that will be used by the Citrus Bus application
+>>>>>>> Stashed changes
 - `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the Citrus Bus application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
