@@ -112,7 +112,7 @@ environment_sample_file="../.env.sample"
 # check if the .env file already exists and back it up if it does
     if [[ -f "$environment_file" ]]; then
         random_chars=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 5)
-        cp "$environment_file" "${environment_file}-${random_chars}.bak"
+        mv "$environment_file" "${environment_file}-${random_chars}.bak"
         echo -e "\e[33mWarning: Existing .env file found. Backed up to ${environment_file}-${random_chars}.bak\e[0m"
     else
         touch $environment_file
