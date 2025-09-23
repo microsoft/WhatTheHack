@@ -176,3 +176,7 @@ output openAiEndpoint string = aiServices.properties.endpoints['OpenAI Language 
 output principalId string = aiServices.identity.principalId
 #disable-next-line outputs-should-not-contain-secrets
 output key1 string = aiServices.listKeys().key1
+// Output the deployed model names
+output deployedModels array = [for deployment in deployments: {
+  name: deployment.model.name
+}]

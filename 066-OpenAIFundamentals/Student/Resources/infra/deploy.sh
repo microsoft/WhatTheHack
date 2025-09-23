@@ -13,6 +13,8 @@ declare -A variables=(
   [useWhatIf]=0
 )
 
+authenticate_to_azure
+
 subscriptionName=$(az account show --query name --output tsv)
 userObjectId=$(az ad signed-in-user show --query id --output tsv)
 
@@ -120,6 +122,7 @@ environment_sample_file="../.env.sample"
   if [[ ! -f "$environment_sample_file" ]]; then
       error_exit "Example .env.sample file not found at $environment_sample_file."
   fi
+# Load existing values from .env.sample file
 source $environment_sample_file
 
 # Extract values from JSON and write to .env file with double quotes around values
@@ -133,11 +136,11 @@ echo "DOCUMENT_INTELLIGENCE_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.
 echo "AZURE_BLOB_STORAGE_ACCOUNT_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountName')\"" >> $environment_file
 echo "AZURE_BLOB_STORAGE_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountKey')\"" >> $environment_file
 echo "AZURE_BLOB_STORAGE_CONNECTION_STRING=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountConnectionString')\"" >> $environment_file
+# Warning: this assumes the first deployed model is the chat model used by the Jupyter notebooks
+echo "CHAT_MODEL_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.deployedModels[0].name')\"" >> $environment_file
+
 # Add values from the existing .env.sample file
-echo "CHAT_MODEL_NAME=\"$CHAT_MODEL_NAME\"" >> $environment_file
-echo "CHAT_MODEL_NAME2=\"$CHAT_MODEL_NAME2\"" >> $environment_file
 echo "OPENAI_API_TYPE=\"$OPENAI_API_TYPE\"" >> $environment_file
-echo "CHAT_MODEL_NAME=\"$CHAT_MODEL_NAME\"" >> $environment_file
 echo "OPENAI_API_VERSION=\"$OPENAI_API_VERSION\"" >> $environment_file
 echo "EMBEDDING_MODEL_NAME=\"$EMBEDDING_MODEL_NAME\"" >> $environment_file
 
