@@ -1,47 +1,66 @@
-# Challenge 00 - Prerequisites - Ready, Set, GO! (Lab Provided)
+# 🚀 Challenge 00 - Prerequisites - Ready, Set, GO! (Lab Provided)
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
+**[🏠 Home](../README.md)** - [Next Challenge > 📋](./Challenge-01.md)
 
-## Introduction
+---
 
-Thank you for participating in the Azure Open AI Apps What The Hack. An Azure lab environment will be provided to you with the sample application resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
+## 👋 Introduction
 
-## Description
+> **Welcome to the Azure OpenAI Apps What The Hack!** 
+> 
+> An Azure lab environment will be provided to you with the sample application resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
+
+---
+
+## 📋 Description
 
 In this challenge, you will setup the necessary pre-requisites and environment to complete the rest of the hack, including:
 
-- [Access Azure Subscription](#access-azure-subscription)
-- [Setup Development Environment](#setup-development-environment)
-  - [Use GitHub Codespaces](#use-github-codespaces)
-  - [Use Local Workstation](#use-local-workstation)
-- [Setup Citrus Bus Application](#setup-citrus-bus-application)
-  - [Get Azure Resource Settings](#get-azure-resource-settings)
-  - [Setup App Backend and Frontend](#setup-app-backend-and-frontend)
-    - [Setup App Backend](#setup-app-backend)
-    - [Setup App Frontend](#setup-app-frontend)
+### 🎯 Quick Navigation
+- [🔐 Access Azure Subscription](#access-azure-subscription)
+- [⚙️ Setup Development Environment](#setup-development-environment)
+  - [☁️ Use GitHub Codespaces](#use-github-codespaces)
+  - [💻 Use Local Workstation](#use-local-workstation)
+- [🏗️ Setup Citrus Bus Application](#setup-citrus-bus-application)
+  - [⚙️ Get Azure Resource Settings](#get-azure-resource-settings)
+  - [🔧 Setup App Backend and Frontend](#setup-app-backend-and-frontend)
+    - [🔙 Setup App Backend](#setup-app-backend)
+    - [🎨 Setup App Frontend](#setup-app-frontend)
 
-### Access Azure Subscription 
+---
 
-You will be provided login credentials to an Azure subscription to complete this hack by your coach. When you receive your credentials, make note of them and login to the Azure Portal:
-- [Azure Portal](https://portal.azure.com)
+### 🔐 Access Azure Subscription 
 
-Keep your credentials handy as you will also need them to login to the Azure CLI (command line interface).
+> **📝 Note:** You will be provided login credentials to an Azure subscription to complete this hack by your coach.
 
-### Setup Development Environment 
+When you receive your credentials, make note of them and login to the Azure Portal:
+
+🌐 **[Azure Portal](https://portal.azure.com)**
+
+⚠️ **Important:** Keep your credentials handy as you will also need them to login to the Azure CLI (command line interface).
+
+---
+
+### ⚙️ Setup Development Environment 
 
 You will need a set of developer tools to work with the sample application for this hack. 
 
-You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can setup the developer tools on your local workstation.
-| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/perktime/WhatTheHack?devcontainer_path=.devcontainer%2F068-AzureOpenAIApps%2Fdevcontainer.json) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/perktime/WhatTheHack) | 
-|---|---|
+> **🚀 Quick Start Options**
+> 
+> Choose your preferred development environment:
 
+<div align="center">
 
-A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
+| ☁️ **GitHub Codespaces** | 🖥️ **Dev Containers** | 💻 **Local Workstation** |
+|:---:|:---:|:---:|
+| [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/perktime/WhatTheHack?devcontainer_path=.devcontainer%2F068-AzureOpenAIApps%2Fdevcontainer.json) | [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/perktime/WhatTheHack) | [📖 Setup Guide](#use-local-workstation) |
+| **Recommended** ⭐ | **VS Code Required** | **Manual Setup** |
 
-- [Use GitHub Codespaces](#use-github-codespaces)
-- [Use Local Workstation](#use-local-workstation)
+</div>
 
-**NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
+> **💡 Recommendation:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
+
+---
 
 #### Use Github Codespaces
 
@@ -201,29 +220,60 @@ npm start
 
 Open another terminal session in VSCode so that you can continue the rest of the challenges. The terminal sessions you opened to run the Frontend and Backend should remain running in the background. 
 
-## Success Criteria
+---
 
-To complete this challenge successfully, you should be able to:
+## ✅ Success Criteria
 
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that you have deployed the following resources in Azure:
+> **🎯 Challenge Complete!** 
+> 
+> To complete this challenge successfully, you should be able to accomplish the following:
 
-  - Azure OpenAI Service
-  - Azure Cognitive Search
-  - Two Azure Storage Accounts with Azure Blob Storage
-  - Azure Cosmos DB service with databases and containers
-  - Azure Service Bus with at least one queue set up
-  - Azure Redis Cache Instance
-  - Azure Document Intelligence Service (formerly Azure Form Recognizer)
- 
-Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
+### 🔧 Development Environment
+- ✅ Verify that you have a **bash shell** with the **Azure CLI** available
+- ✅ Your **Azure Function Backend** is up and running 
+- ✅ Your **Frontend application** is reachable via HTTP (Browser)
 
-You should also be able to ask all the assistants for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts.
+### ☁️ Azure Resources Deployed
+Verify that you have the following resources deployed in Azure:
 
-## Learning Resources
+<div class="card">
 
-Here are some resources that should provide you with background information and educational content on the resources you have just deployed
+| Service | Status | Purpose |
+|---------|--------|---------|
+| 🤖 **Azure OpenAI Service** | ✅ Required | AI language models |
+| 🔍 **Azure Cognitive Search** | ✅ Required | Search and indexing |
+| 💾 **Azure Storage Accounts** (2x) | ✅ Required | Blob storage |
+| 🗄️ **Azure Cosmos DB** | ✅ Required | Database and containers |
+| 📨 **Azure Service Bus** | ✅ Required | Message queuing |
+| ⚡ **Azure Redis Cache** | ✅ Required | Caching layer |
+| 📄 **Azure Document Intelligence** | ✅ Required | Form processing |
 
-- [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
-- [Document Intelligence Region/API Version Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
-- [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+</div>
+
+### 🧪 Functional Testing
+- ✅ **Assistant Response Test**: Ask all assistants for their name from the front-end
+- ✅ **Expected Result**: They should respond correctly with the configured names from system prompts
+
+---
+
+## 📚 Learning Resources
+
+> **💡 Expand Your Knowledge**
+> 
+> Here are essential resources to deepen your understanding of the technologies used:
+
+### 🤖 AI & OpenAI
+- 🔗 [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) - Complete guide to Azure OpenAI
+- 🔗 [Document Intelligence Overview](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0) - Region and API version details
+
+### 🛠️ Development Tools
+- 🔗 [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796) - AI-powered coding assistant
+
+### 📖 Additional Resources
+- 🔗 [Azure Functions Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
+- 🔗 [Angular Framework Guide](https://angular.io/docs)
+- 🔗 [GitHub Codespaces Documentation](https://docs.github.com/en/codespaces)
+
+---
+
+🎉 **Ready for the next challenge?** [Continue to Challenge 01 →](./Challenge-01.md)
