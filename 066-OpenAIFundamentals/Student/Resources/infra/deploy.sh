@@ -13,6 +13,8 @@ declare -A variables=(
   [useWhatIf]=0
 )
 
+authenticate_to_azure
+
 subscriptionName=$(az account show --query name --output tsv)
 userObjectId=$(az ad signed-in-user show --query id --output tsv)
 
