@@ -1,54 +1,39 @@
-<!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-{% seo %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
-    <script>
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default',
-        themeVariables: {
-          primaryColor: '#0366d6',
-          primaryTextColor: '#ffffff',
-          primaryBorderColor: '#0366d6',
-          lineColor: '#6a737d',
-          secondaryColor: '#f6f8fa',
-          tertiaryColor: '#ffffff'
-        }
-      });
-    </script>
-    <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="{{ '/assets/css/ie.css' | relative_url }}">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  {%- include head.html -%}
 
-  </head>
   <body>
 
-    <div class="wrapper">
+    {%- include header.html -%}
 
-      <section>
-        <div id="title">
-          <!--h1>{{ site.title | default: site.github.repository_name }}</h1-->
-          <!--p>{{ site.description | default: site.github.project_tagline }}</p-->
-          <img src="{{ '/assets/images/wth-logo.png' | relative_url }}">
-        </div>
-
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+        <script>
+          mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+              primaryColor: '#42A5F5',
+              primaryTextColor: '#ffffff',
+              primaryBorderColor: '#1E88E5',
+              lineColor: '#757575',
+              secondaryColor: '#E3F2FD',
+              tertiaryColor: '#ffffff',
+              background: '#FAFAFA',
+              mainBkg: '#ffffff',
+              secondaryBkg: '#E3F2FD'
+            }
+          });
+        </script>
+        
         {{ content }}
+      </div>
+    </main>
 
-      </section>
-
-    </div>
+    {%- include footer.html -%}
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7MV34DNDL"></script>
@@ -60,5 +45,7 @@
       gtag('config', 'G-E7MV34DNDL');
       gtag('config', 'UA-173162534-1');
     </script>
+
   </body>
+
 </html>

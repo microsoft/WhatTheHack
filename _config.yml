@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: minima
 title: What The Hack
 description: A collection of challenge-based hackathons including student guides, coach guides, lecture presentations, sample/template code and sample solutions.
 include: [CONTRIBUTING.md]
@@ -8,3 +8,13 @@ plugins:
   - jekyll-readme-index
   - jekyll-default-layout
   - jekyll-relative-links
+minima:
+  skin: classic
+  social_links:
+    github: perktime
+author:
+  name: What The Hack
+  email: info@whathehack.com
+header_pages:
+  - VISUAL-SHOWCASE.md
+  - CONTRIBUTING.md
