@@ -1,3 +1,10 @@
-theme: jekyll-theme-midnight
+theme: jekyll-theme-cayman
 title: What The Hack
+description: A collection of challenge-based hackathons including student guides, coach guides, lecture presentations, sample/template code and sample solutions.
 include: [CONTRIBUTING.md]
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-relative-links
