@@ -6,20 +6,10 @@ param keyVaultEnablePurgeProtection = false
 param acrEnabled = false
 param nspEnabled = false
 param openAiDeployments = [
-  {
+{
     model: {
-      name: 'text-embedding-ada-002'
-      version: '2'
-    }
-    sku: {
-      name: 'Standard'
-      capacity: 10
-    }
-  }
-  {
-    model: {
-      name: 'gpt-4'
-      version: 'turbo-2024-04-09'
+      name: 'gpt-4o'
+      version: '2024-08-06'
     }
     sku: {
       name: 'Standard'
@@ -33,6 +23,16 @@ param openAiDeployments = [
     }
     sku: {
       name: ''
+      capacity: 10
+    }
+  }
+  {
+    model: {
+      name: 'text-embedding-ada-002'
+      version: '2'
+    }
+    sku: {
+      name: 'Standard'
       capacity: 10
     }
   }
