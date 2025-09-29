@@ -18,6 +18,10 @@ Some possible model choices include:
 
 For Model Comparison, please navigate to [Github's Model Marketplace](https://github.com/marketplace/models). The students will be comparing different models through the [Github's Model Marketplace](https://github.com/marketplace/models) with various prompts. We are using Github models as it provides free access to AI LLM's for anyone with a Github account. This makes it very easy to get familiar and see the differences between the models without creating any Azure resources. 
 
+Some possible model choices include: 
+1. GPT-4o and GPT-4o Mini
+2. GPT-4o and GPT-5 Mini
+
 For Model Router, students will be deploying an instance of model router in AI Foundry and prompting it with different questions in the chat playground to see how the queries are automatically sent to the different LLMs in depending on their complexity.
 
 <!--- 
