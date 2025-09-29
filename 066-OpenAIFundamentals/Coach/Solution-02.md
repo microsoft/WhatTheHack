@@ -24,6 +24,9 @@ Some possible model choices include:
 
 For Model Router, students will be deploying an instance of model router in AI Foundry and prompting it with different questions in the chat playground to see how the queries are automatically sent to the different LLMs in depending on their complexity.
 
+The router may choose the model **gpt-5-nano-2025-08-07** consistently for the given prompts. This model is known for it's ultra low latency and fast responses for simple tasks. Encourage students to try longer, multi-step reasoning prompts to trigger a different model.
+
+
 <!--- 
 The students will go through each section of this notebook in the `/Student/Resources/Notebooks` folder:
 - [`CH-02-ModelComparison.ipynb`](../Student/Resources/Notebooks/CH-02-ModelComparison.ipynb)
