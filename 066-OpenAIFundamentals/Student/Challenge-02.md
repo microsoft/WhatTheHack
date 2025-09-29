@@ -33,20 +33,20 @@ This challenge is divided into the following sections:
   
 
 ### 2.1 Model Discovery
-Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
+Scenario: You are building a chatbot for a retail company that needs fast responses and safe outputs. Your goal is to explore the Model Catalog and identify models for this use case. There is no right or wrong answer here.
 
 #### Student Task 2.1
 - Go into the [Azure AI Foundry](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
-- Identify which models can potentially improve the accuracy of the task at hand.
+- Identify which model can potentially help with the task at hand.
+- Share your findings with a peer and compare your choices. Did you pick the same models? Why or why not?
 
-**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for question answering? 
+**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options? Think about the trade-offs as you choose.
 
 ### 2.2 Model Leaderboards 
 #### Student Task 2.2
 - Use the leaderboard feature within the **Model Catalog** in Foundry to compare the performance of selected models you chose from the previous challenge, on industry standard datasets now. This can be found in the **Trade-off charts** section by clicking on **Compare between metrics**.
-- Leverage the metrics such as accuracy, coherence, and more.
-- Recommend the best-performing model for biotech news Q&A.
+- Leverage the metrics such as quality, cost, safety, and throughput.
 
 ### 2.3 Model Comparison
 #### Student Task 2.3
