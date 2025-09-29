@@ -12,6 +12,10 @@ There are 3 sections to Challenge-02:
 
 For Model Discovery and Model Benchmarking, the students will be comparing different models from the Model Catalog. The goal is for them to explore the model catalog and the model benchmarking tool. There is no right or wrong answer. Coaches should ask students which models look like a good pick for the task and why.
 
+Some possible model choices include: 
+1. GPT-4o Mini: Offers low latency and cost, making it ideal for real-time applications like chatbots or customer support. Multimodal support (text, image, audio), fast response times, and optimized for chaining multiple model calls.
+2. Phi-4 Mini Instruct: Lightweight model with strong instruction-following and safety features. 128K token context length, fine-tuned for reasoning and safety adherence.
+
 For Model Comparison, please navigate to [Github's Model Marketplace](https://github.com/marketplace/models). The students will be comparing different models through the [Github's Model Marketplace](https://github.com/marketplace/models) with various prompts. We are using Github models as it provides free access to AI LLM's for anyone with a Github account. This makes it very easy to get familiar and see the differences between the models without creating any Azure resources. 
 
 For Model Router, students will be deploying an instance of model router in AI Foundry and prompting it with different questions in the chat playground to see how the queries are automatically sent to the different LLMs in depending on their complexity.
