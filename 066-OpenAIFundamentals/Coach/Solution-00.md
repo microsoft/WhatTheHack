@@ -11,3 +11,5 @@ They will be creating all needed Azure resources through the Azure AI Foundry. O
 Note: Target | Endpoint | Base can be used interchangeably. 
 
 Note: For all of the challenges, if a student changes any variables in their .env file, they will need to re-run those cells that load the .env file and set the variables in Python. They can check the values of their Jupyter variables by clicking the Jupyter tab in Visual Studio Code. 
+
+If you want the students to deploy models other than the default ones (gpt-4o and gpt-4o-mini), you can modify the bicep file found in the [Bicep](https://github.com/devanshithakar12/WhatTheHack/blob/066-updateUST/066-OpenAIFundamentals/Student/Resources/infra/main.bicepparam). The first model specified will be used in the .env file and within the Jupyter Notebooks.

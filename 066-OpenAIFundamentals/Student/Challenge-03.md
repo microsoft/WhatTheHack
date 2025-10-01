@@ -5,9 +5,7 @@
 
 ## Pre-requisites
 
-* Azure AI Search resource for indexing and retrieving relevant information
-* Azure OpenAI service for Generative AI Models and Embedding Models
-* Add required credentials of above resources in `.env` file
+* Ensure you have completed the steps in Challenge-00.
 
 ## Introduction
 
