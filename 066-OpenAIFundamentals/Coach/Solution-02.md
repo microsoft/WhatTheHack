@@ -10,6 +10,8 @@ There are 3 sections to Challenge-02:
 - Model Comparison
 - Model Router
 
+If you want the students to deploy models other than the default ones (gpt-4o and gpt-4o-mini), you can modify the bicep file found in the [Bicep](https://github.com/devanshithakar12/WhatTheHack/blob/066-updateUST/066-OpenAIFundamentals/Student/Resources/infra/main.bicepparam). The first model specified will be used in the .env file and within the Jupyter Notebooks.
+
 For Model Discovery and Model Benchmarking, the students will be comparing different models from the Model Catalog. The goal is for them to explore the model catalog and the model benchmarking tool. There is no right or wrong answer. Coaches should ask students which models look like a good pick for the task and why.
 
 Some possible model choices include: 
