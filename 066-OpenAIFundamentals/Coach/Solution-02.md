@@ -14,7 +14,7 @@ There are 3 sections to Challenge-02:
 
 Students can use different/newer models than the ones listed in the student guide when this hack was published. Most models should work fine. 
 
-If students use the automation script to deploy the models and populate the `.env` file values, the model names and versions to be deployed are specified in the [`main.bicepparam` file]((../Student/Resources/infra/main.bicepparam)) in the `/infra` folder of the Codepsace/DevContainer. These values are listed in a JSON array in the parameter file. The first model in the array will be used to set the value of `CHAT_MODEL_NAME` in the `.env` file for use within the Jupyter Notebooks.
+If students use the automation script to deploy the models and populate the `.env` file values, the model names and versions to be deployed are specified in the [`main.bicepparam` file]((../Student/Resources/infra/main.bicepparam)) in the `/infra` folder of the Codespace/DevContainer. These values are listed in a JSON array in the parameter file. The first model in the array will be used to set the value of `CHAT_MODEL_NAME` in the `.env` file for use within the Jupyter Notebooks.
 
 For Model Discovery and Model Benchmarking, the students will be comparing different models from the Model Catalog. The goal is for them to explore the model catalog and the model benchmarking tool. There is no right or wrong answer. Coaches should ask students which models look like a good pick for the task and why.
 
