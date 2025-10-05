@@ -6,7 +6,7 @@
 
 In this challenge, you will learn about the different capabilities of OpenAI models and learn how to choose the best model for your use case.
 
-There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore various LLMs and compare different GPT models in this challenge while learn about the benefits of model router.
+There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore and compare various LLMs in this challenge while learning about the benefits of model router.
 
 In a world where the availability and development of models are always changing, the models we compare may change over time. But we encourage you to understand the general concepts and material in this challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large and/or Small Language Models. For more information on legacy models and additional models, reference the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and [Azure model catalog](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog-overview) for more details.
 
