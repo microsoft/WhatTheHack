@@ -19,8 +19,8 @@ param openAiDeployments = [
   }
   {
     model: {
-      name: 'gpt-35-turbo'
-      version: '0125'
+      name: 'gpt-4o-mini'
+      version: '2024-07-18'
     }
     sku: {
       name: ''
