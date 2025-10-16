@@ -2,7 +2,8 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the AgenticAIApps What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for **AgenticAIApps**, a modern **Azure Agentic AI Hack** designed to help participants build, test, and scale intelligent multi-agent systems.  
+Here you will find links to specific guidance for coaches for each of the challenges.
 
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
@@ -10,91 +11,103 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 ## Learning Objectives
 
-This project is designed to teach participants how to build agentic applications using Azure’s AI ecosystem. It begins with setting up a cloud-native development environment through GitHub Codespaces and Azure AI Foundry, eliminating local setup and streamlining access to cloud resources. Learners will orchestrate intelligent agents using Semantic Kernel, implement secure communication protocols like Agent2Agent (A2A), and deploy multi-agent workflows with live metric integration via Azure Monitor. The experience is grounded in hands-on development with Python, and optionally enhanced with a Flask-based UI for visualizing agent interactions. By the end, participants will be equipped to design, deploy, and manage scalable, secure, and collaborative AI agents in real-world scenarios.
+This project is designed to teach participants how to build agentic applications using Azure’s AI ecosystem.  
+Participants will orchestrate intelligent agents using Semantic Kernel, implement secure communication protocols, and deploy multi-agent workflows with live metric integration via Azure Monitor. By the end, participants will be equipped to design, deploy, and manage scalable, secure, and collaborative AI agents in real-world scenarios.
+
+Participants will learn to:
+
+- Provision and configure a Linux VM in Azure with read/write permissions  
+- Deploy and test **Anomaly Detector**, **Resource Optimizer**, and **Alert Manager** agents  
+- Orchestrate multi-agent collaboration for real-time decision-making  
+- Build and visualize logs locally and in Azure (via Streamlit or Power BI)  
+- Spike VM resources to test agent detection and resilience  
+- Integrate Azure tools (Monitor, Storage, and AI Foundry) for advanced observability  
+
+---
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
-- Challenge 05: **[Title of Challenge](./Solution-05.md)**
-	 - Description of challenge
-- Challenge 06: **[Title of Challenge](./Solution-06.md)**
-	 - Description of challenge
-- Challenge 07: **[Title of Challenge](./Solution-07.md)**
-	 - Description of challenge
-- Challenge 08: **[Title of Challenge](./Solution-08.md)**
-	 - Description of challenge
-- Challenge 09: **[Title of Challenge](./Solution-09.md)**
-	 - Description of challenge
+- **Challenge 00:** [Azure AI Foundry Onboarding & Environment Prep](./Solution-00.md)  
+  *Set up your Azure environment and validate permissions.*
+
+- **Challenge 01:** [Semantic Kernel Setup & Configuration](./Solution-01.md)  
+  *Deploy a Linux VM with contributor permissions and enable SSH access.*
+
+- **Challenge 02:** [Build the Anomaly Detector Agent (Real Azure Metrics)](./Solution-02.md)  
+  *Set up your environment with Python, Bash, and Azure SDKs, and create your first monitoring agent.*
+
+- **Challenge 03:** [Build the Resource Optimizer Agent (Real Azure Integration)](./Solution-03.md)  
+  *Implement automated resource adjustments based on detected anomalies.*
+
+- **Challenge 04:** [Build the Alert Manager Agent (Live Azure Integration)](./Solution-04.md)  
+  *Design a communication layer to notify or log alerts from your system.*
+
+- **Challenge 05:** [Orchestrate Agent-to-Agent Communication](./Solution-05.md)  
+  *Build an orchestrator to coordinate communication between agents.*
+
+- **Challenge 06:** [Enable Agent-to-Agent Communication (A2A)](./Solution-06.md)  
+  *Enable agents to share context, pass messages, and coordinate actions dynamically.*
+
+- **Challenge 07:** [Build the Anomaly & Resolution Tracker](./Solution-07.md)  
+  *Log and visualize all anomaly and resolution events in real time.*
+
+- **Challenge 08:** [Spike VM Resources & Test Agent Detection](./Solution-08.md)  
+  *Simulate CPU and memory spikes to validate your agentic system.*
+
+---
 
 ## Coach Prerequisites
 
-This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
+Before hosting, coaches should ensure they can perform the following:
 
-The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
+- **Active Azure Subscription**  
+- **Python 3.7 or higher** *(Python 3.13 preferred)*  
+- **Pip** (Python package installer)  
+- **GitHub account** with access to the AgenticAIApps repository and **Codespaces**  
+- **VS Code** with Python and Azure extensions  
+- **Azure CLI** installed and authenticated  
+- Basic familiarity with **Linux, SSH, and Bash scripting**  
+- (Optional) Azure Monitor, Streamlit, and Power BI for visualization  
 
-**Required Prerequisites:**
-- Python (Version 3.7 or higher, Python 3.13 preferred)
-- Pip (package installer for Python)
-- Active Azure Subscription
-- Azure Developer CLI
+Always review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for event-specific instructions.
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Coaches should download and package the `/Student/Resources` folder into a `Resources.zip` file and provide it to students at the start of the hack.
 
-Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
+**NOTE:** Students should **not** have access to the repository before or during the hack. 
 
-**NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
-
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
+---
 
 ## Azure Requirements
 
-This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
+Students require access to an Azure subscription capable of creating and consuming resources used in the challenges.  
+This includes:
 
-_Please list Azure subscription requirements._
+- VM creation and scaling  
+- Storage access (for logs)  
+- Permissions to deploy agents and monitoring solutions  
 
-_For example:_
+---
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+## Learning Resources
 
-## Suggested Hack Agenda (Optional)
+- [Microsoft Agent Framework – Python User Guide](https://learn.microsoft.com/en-us/agent-framework/user-guide/agents/agent-types/?pivots=programming-language-python)  
+- [Connect to a VM using SSH (Azure Docs)](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)  
+- [Introduction to Bash and Linux CLI](https://ubuntu.com/tutorials/command-line-for-beginners)  
+- [Azure AI Foundry Overview](https://learn.microsoft.com/en-us/azure/ai-foundry/)  
 
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+---
 
 ## Repository Contents
 
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
+- `./Coach` – Coach's guide and related files  
+- `./Coach/Solutions` – Completed solution files for each challenge  
+- `./Student` – Student challenge guide  
+- `./Student/Resources` – Resource files, sample code, and scripts for students  
 
-- `./Coach`
-  - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
-- `./Student`
-  - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+---
 
 ## Contributors
-- Esvin RUiz 
+
+- **Esvin Ruiz**  
