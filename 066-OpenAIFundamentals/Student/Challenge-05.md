@@ -25,6 +25,7 @@ This challenge is divided into the following sections:
 - [5.4 Groundedness Detection](#54-groundedness-detection-preview)
 - [5.5 Prompt Shields](#55-prompt-shields)
 - [5.6 Protected Material Detection](#56-protected-material-detection-preview)
+- [5.7 Red Teaming](#57-red-teaming)
 
 For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
@@ -203,6 +204,21 @@ Here is a sample prompt for testing purposes:
 
 Come up with your own prompts to evaluate the performance of Protected Material Detection on your LLM!
 
+
+### 5.7 Red Teaming
+
+#### Student Task 5.7.1
+
+For this task, you will switch back to the Jupyter Notebook environment you used for the earlier challenges in this hack.
+
+You will run the following Jupyter notebook to complete the tasks for this challenge:
+- `CH-5.7-RedTeaming.ipynb`
+
+The file can be found in your Codespace under the `/notebooks` folder. 
+If you are working locally or in the Cloud, you can find it in the `/notebooks` folder of `Resources.zip` file.
+
+Follow along with the Jupyter notebook. Run and understand the code and look through the output files to see the result of the red teaming agent. 
+
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
@@ -233,4 +249,5 @@ As you move forward, remember the significance of grounding responses in accurat
 - [New Updates in AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/whats-new)
 - [eBook](https://aka.ms/contentsafetyebook)
 - [Infuse Responsible AI tools and practices in your LLMOps Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/)
+- [Introducing AI Red Teaming Agent: Accelerate your AI safety and security journey with Azure AI Foundry](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/)
   

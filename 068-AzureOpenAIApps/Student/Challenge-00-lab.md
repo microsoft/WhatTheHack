@@ -56,16 +56,17 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-- Once you are signed in, click on the green "Code" button.
-- Then click the three dots in the "Codespaces" section and select "New with Options...".
-  - We recommend selecting 4-cores for "Machine Type, if possible.
-- Finally, click "Create Codespace".
+Once you are signed in:
+- Verify that the `Dev container configuration` drop down is set to `068-AzureOpenAIApps`
+- Click on the green "Create Codespace" button.
 
 Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
 Your developer environment is ready, hooray! Skip to section: [Setup Citrus Bus Application](#setup-citrus-bus-application)
+
+**NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
 **NOTE:** GitHub Codespaces time out after 20 minutes if you are not actively interacting with it in the browser. If your codespace times out, you can restart it and the developer environment and its files will return with its state intact within seconds. If you want to have a better experience, you can also update the default timeout value in your personal setting page on Github. Refer to this page for instructions: [Default-Timeout-Period](https://docs.github.com/en/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces#setting-your-default-timeout-period) 
 
@@ -101,6 +102,10 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - Open the root folder of the Student resource package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
 
+##### Setup GitHub Copilot
+
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
 </details>
 
 ### Setup Citrus Bus Application
@@ -117,7 +122,7 @@ There are three major steps to setup the Sample Application:
 In your codespace, or student `Resources.zip` package, you fill find the following folders containing the frontend and backend API of the sample application to help you get started:
 - `/ContosoAIAppsBackend` - Contains an Azure function app that provides capabilities of processing data and interacting with Azure AI  Services like Azure OpenAI and Azure Document Intelligence.
 - `/ContosoAIAppsFrontend` - Contains an Angular App that provides a user interface to some example virtual assistants.
-- `/artifacts` - Contains various artifacts and data sources that will be used by the Citrus Bus application
+- `/data` - Contains various artifacts and data sources that will be used by the Citrus Bus application
 - `/infra` - Contains deployment script and Bicep templates to deploy Azure resources for hosting the Citrus Bus application in Azure.
 
 The apps also contain helper utilities, functions and tools to help you speed up development as well as hints to the challenges you will be taking on.
@@ -199,7 +204,7 @@ To complete this challenge successfully, you should be able to:
  
 Your Azure Function Backend and Front End applications should be up and running and reachable via HTTP (Browser)
 
-You should also be able to ask Murphy and Priscilla for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts. The other assistants will not currently respond correctly and will be fixed in a later challenge.
+You should also be able to ask all the assistants for their name from the front-end and they should respond correctly with the correct name configured in the app's system prompts.
 
 ## Learning Resources
 
@@ -207,3 +212,4 @@ Here are some resources that should provide you with background information and 
 
 - [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/)
 - [Document Intelligence Region/API Version Availability](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview?view=doc-intel-4.0.0)
+- [VS Code with Github Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
