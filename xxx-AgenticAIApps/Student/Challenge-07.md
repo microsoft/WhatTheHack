@@ -1,99 +1,156 @@
-# Challenge 07 - <Title of Challenge>
+````markdown
+# Challenge 07 - Build the Anomaly & Resolution Tracker
 
 [< Previous Challenge](./Challenge-06.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-08.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge, you will build a **tracking system** to log anomalies detected by your **Anomaly Detector Agent** and resolutions applied by your **Resource Optimizer Agent**.  
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+This system will help you visualize events in real time and optionally integrate with dashboards like **Streamlit**, **Power BI**, or **Azure Workbooks**.  
 
-*For example:*
+You will explore:
+- Logging and storing agent actions
+- Structuring log data for clarity
+- Visualizing agent activity locally or in the cloud
+- Optional integration with Azure storage services for persistence
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+---
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Your task is to **implement anomaly and resolution tracking** for your agent system.  
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+Key goals:
+- Create logging for both anomaly detection and resolution events
+- Maintain a **consistent log format** for easy parsing and visualization
+- Optionally build a **Streamlit dashboard** to view logs interactively
+- Optionally store logs in **Azure Table Storage** or **Cosmos DB** for cloud-based tracking
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+Skeleton example for logging:
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+### Anomaly Detector Agent
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+```python
+import logging
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+logging.basicConfig(filename='agent_log.txt', level=logging.INFO, format='[%(asctime)s] %(message)s')
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+def log_anomaly(metric, value):
+    # TODO: Call this function whenever an anomaly is detected
+    logging.info(f"Anomaly Detected: {metric} = {value}")
+````
 
-*Sample challenge text for the IoT Hack Of The Century:*
+### Resource Optimizer Agent
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+```python
+def log_resolution(action):
+    # TODO: Call this function after performing a resolution
+    logging.info(f"Resolution Applied: {action}")
+```
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+---
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+### Log Format Example
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+```
+[2025-08-21 14:32:10] Anomaly Detected: CPU = 92%
+[2025-08-21 14:32:15] Resolution Applied: Scaled VM to Standard_DS2_v2
+```
+
+> **Tip:** Using timestamps helps track and visualize event sequences effectively.
+
+---
+
+### Optional — Streamlit Dashboard
+
+Create **`dashboard.py`**:
+
+```python
+import streamlit as st
+
+st.title("🔍 Anomaly & Resolution Tracker")
+
+with open("agent_log.txt") as f:
+    logs = f.readlines()
+
+for line in logs:
+    st.text(line.strip())
+```
+
+Run the dashboard:
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+### Optional — Azure Storage Integration
+
+**Azure Table Storage**
+
+```bash
+pip install azure-data-tables
+```
+
+```python
+from azure.data.tables import TableServiceClient
+from datetime import datetime
+import os
+
+service = TableServiceClient.from_connection_string(conn_str=os.getenv("AZURE_STORAGE_CONNECTION_STRING"))
+table_client = service.get_table_client(table_name="AgentLogs")
+
+def log_to_table(event_type, detail):
+    entity = {
+        "PartitionKey": "AgentLogs",
+        "RowKey": str(datetime.utcnow().timestamp()),
+        "EventType": event_type,
+        "Detail": detail
+    }
+    table_client.create_entity(entity)
+```
+
+**Azure Cosmos DB** can also be used to store structured JSON logs for advanced analytics.
+
+---
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+* Validate that the **Anomaly Detector Agent** logs anomalies
+* Validate that the **Resource Optimizer Agent** logs resolutions
+* Demonstrate that logs are readable and follow a consistent format
+* Optionally show the **Streamlit dashboard** displaying live logs
+* Optionally store and retrieve logs from **Azure Table Storage** or **Cosmos DB**
+
+---
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+* [Python Logging Module](https://docs.python.org/3/library/logging.html) – Learn how to log messages with timestamps
+* [Streamlit Documentation](https://docs.streamlit.io/) – Guide to building interactive dashboards
+* [Azure Data Tables](https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview) – Overview of Azure Table Storage
+* [Azure Cosmos DB Python SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/cosmos-db?view=azure-python) – Learn to store JSON documents in Cosmos DB
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+---
 
 ## Tips
 
-*This section is optional and may be omitted.*
+* Start by logging to a local file before moving to cloud storage
+* Keep log formats consistent for easier visualization
+* Use small sample data to verify the Streamlit dashboard works before scaling
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
+---
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+## Next Steps
 
-## Advanced Challenges (Optional)
+Proceed to **Challenge 08** to extend your tracking system with:
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+* Persistent memory across agent sessions
+* Advanced analytics for anomaly trends
+* Automated reporting using Azure AI Foundry
 
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+```

@@ -1,99 +1,171 @@
-# Challenge 04 - <Title of Challenge>
+````markdown
+# Challenge 04 - Build the Alert Manager Agent (Live Azure Integration)
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+## Pre-requisites
 
-## Pre-requisites (Optional)
+- Completion of Challenge 03 – Resource Optimizer Agent  
+- Active Azure subscription with Monitor and Action Groups access  
+- `.env` file updated with your Azure subscription, resource group, and action group name  
+- Installed dependencies:  
+  ```bash
+  pip install azure-monitor-query azure-identity azure-mgmt-monitor python-dotenv
+````
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+---
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge, you’ll create the **Alert Manager Agent**, responsible for notifying stakeholders when anomalies or optimization events occur.
+This agent integrates with **Azure Monitor** and **Action Groups**, allowing your system to deliver real-time alerts about critical events.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+You’ll implement alerting logic, test it in a safe “simulation” mode, and prepare it to handle live alerts in later challenges.
 
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+---
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Your goal is to build an agent that listens for incoming messages about anomalies or optimization results, and sends alerts using Azure Monitor or your chosen notification service.
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+You’ll:
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+* Create the **Alert Manager Agent**
+* Detect when an anomaly or optimization event occurs
+* Send (or simulate sending) alerts
+* Ensure alerts appear in the terminal or Azure Action Group log
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+> **Note:** Some code sections are intentionally left incomplete — you’ll implement the core alert logic and message handling yourself.
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+---
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+### Create the Agent
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+Create a new file called `alert_manager.py`:
 
-*Sample challenge text for the IoT Hack Of The Century:*
+```python
+import os
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.monitor import MonitorManagementClient
+from azure.ai.foundry import Agent, Message, Thread
+from dotenv import load_dotenv
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+load_dotenv()
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+class AlertManagerAgent(Agent):
+    def init(self):
+        super().init(name="alert-manager")
+        self.subscription_id = os.getenv("AZURESUBSCRIPTIONID")
+        self.resource_group = os.getenv("AZURERESOURCEGROUP")
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+        # TODO: Initialize the Azure Monitor client here
+        # Example:
+        # self.monitor_client = MonitorManagementClient(
+        #     credential=DefaultAzureCredential(),
+        #     subscription_id=self.subscription_id
+        # )
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+    def run(self, thread: Thread, message: Message):
+        print("Alert Manager received:", message.content)
 
-## Success Criteria
+        # TODO: Detect anomaly or optimization message
+        # if "Anomaly" in message.content or "Optimization" in message.content:
+        #     alert_msg = f"🚨 Alert triggered: {message.content}"
+        #     thread.send_message(Message(content=alert_msg, role="agent"))
+        #     print("Sending alert to Azure Monitor action group…")
+        #     self.send_alert(alert_msg)
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
+    def send_alert(self, alert_msg):
+        # TODO: Implement your alert-sending logic (can be simulated for testing)
+        # print(f"Simulated alert sent: {alert_msg}")
+        pass
+```
 
-*The success criteria should not be a list of instructions.*
+---
 
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
+### Register the Agent
 
-*Sample success criteria for the IoT sample challenge:*
+Create a file named `register_alert.py`:
 
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+```python
+from azure.ai.foundry import AgentClient
+from alert_manager import AlertManagerAgent
+
+client = AgentClient()
+agent = AlertManagerAgent()
+client.register_agent(agent)
+```
+
+Run the registration:
+
+```bash
+python register_alert.py
+```
+
+---
+
+### Test the Agent
+
+Create a file named `test_alert.py`:
+
+```python
+from azure.ai.foundry import AgentClient
+
+client = AgentClient()
+thread = client.create_thread()
+
+# Simulate a message from the optimizer or anomaly agent
+client.send_message(
+    thread.id,
+    "⚠️ Optimization failed due to high CPU usage",
+    agent_name="alert-manager"
+)
+```
+
+Run the test:
+
+```bash
+python test_alert.py
+```
+
+ **Expected Output Example:**
+
+```
+Alert Manager received: ⚠️ Optimization failed due to high CPU usage
+🚨 Alert triggered: ⚠️ Optimization failed due to high CPU usage
+Simulated alert sent: 🚨 Alert triggered: ⚠️ Optimization failed due to high CPU usage
+```
+
+---
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+* [Azure Monitor Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+* [Azure Monitor Action Groups](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups)
+* [Azure Identity Python SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/identity-readme)
+* [Semantic Kernel Python Docs](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+---
 
 ## Tips
 
-*This section is optional and may be omitted.*
+* Keep your `.env` file clean (no quotes or extra spaces).
+* You can safely test alerts by printing them to the terminal before enabling live alerts.
+* Once verified, you can extend `send_alert()` to send real alerts through Azure Monitor’s **Action Groups** or webhooks.
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
+---
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+## Success Criteria
 
-## Advanced Challenges (Optional)
+To complete this challenge successfully, you should:
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+* Create and register an `AlertManagerAgent` class
+* Implement message detection for anomalies or optimizations
+* Simulate or send an alert through `send_alert()`
+* Verify
 
-*This section is optional and may be omitted.*
+## Next Steps
 
-*Sample IoT advanced challenges:*
+Proceed to **Challenge 05** to build the **Agent-to-Agent Communication Layer**, enabling collaboration and orchestration between all agents.
 
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+```

@@ -1,99 +1,182 @@
-# Challenge 02 - <Title of Challenge>
+````markdown
+# Challenge 02 - Build the Anomaly Detector Agent (Real Azure Metrics)
 
-[< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+**[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+---
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge, you’ll build your first **intelligent agent** — the **Anomaly Detector Agent**. This agent will use **Semantic Kernel** to analyze **live Azure Monitor metrics** and detect when your virtual machine experiences performance anomalies (for example, high CPU or memory usage).  
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+By the end of this challenge, you’ll have a functional AI-driven process that monitors your Azure resources and flags abnormal behavior — forming the foundation for your next, self-healing agent.
 
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+---
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+You will extend your existing environment (from Challenge 01) by creating a new skill and agent capable of:
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+- Reading **real telemetry data** (CPU, Memory, Disk I/O) from your Azure VM  
+- Comparing metric values to defined thresholds  
+- Reporting an **anomaly detected** message when metrics exceed limits  
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+This challenge focuses on **logic building**, **skill registration**, and **data reasoning** using Semantic Kernel.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+---
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+### Confirm Your Setup
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+Before building your agent:
 
-*Sample challenge text for the IoT Hack Of The Century:*
+- Ensure your `.env` file includes your Azure credentials.  
+- Confirm that your **Azure Monitor Skill** from Challenge 01 works and returns live metrics.
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+You can quickly test it by running:
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+```bash
+python test_kernel.py
+````
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+✅ You should see something like:
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+```
+Current CPU usage: 23.54%
+```
+
+---
+
+### Create the Anomaly Detector Skill
+
+In the `skills/` folder, create a new file named `anomaly_detector_skill.py`.
+
+Inside this file, you will:
+
+* Define a class called `AnomalyDetectorSkill`
+* Set threshold values for CPU and Memory
+* Add a function called `detect_anomaly()` that checks for high usage and returns a message
+
+Start with the following structure and fill in the logic where marked:
+
+```python
+from semantic_kernel.skill_definition import sk_function
+
+class AnomalyDetectorSkill:
+    def __init__(self, cpu_threshold: float = 80.0, memory_threshold: float = 85.0):
+        self.cpu_threshold = cpu_threshold
+        self.memory_threshold = memory_threshold
+
+    @sk_function(name="detect_anomaly", description="Detect if system metrics exceed normal thresholds")
+    def detect_anomaly(self, cpu_usage: float, memory_usage: float) -> str:
+        """
+        TODO: Compare metric values against thresholds.
+        If CPU or memory usage exceeds their threshold,
+        return a message describing the anomaly.
+        Otherwise, return a message that the system is normal.
+        """
+```
+
+---
+
+### Create the Anomaly Detector Agent
+
+Now, in the `agents/` folder, create a file called `anomaly_detector_agent.py`.
+
+This agent will:
+
+* Initialize the Semantic Kernel
+* Register both the `AzureMonitorSkill` and your new `AnomalyDetectorSkill`
+* Retrieve CPU and memory data
+* Pass it into your anomaly detection skill and print the result
+
+Use this as your starter template:
+
+```python
+import asyncio
+from semantic_kernel import Kernel
+from skills.azure_monitor_skill import AzureMonitorSkill
+from semantic_kernel.connectors.ai.open_ai import AzureChatCompletion
+
+# TODO: Import your new AnomalyDetectorSkill here
+
+async def main():
+    kernel = Kernel()
+    kernel.add_service(
+        AzureChatCompletion(
+            service_id="chatcompletion",
+            deployment_name="your-deployment",
+            endpoint="your-endpoint",
+            api_key="your-api-key"
+        )
+    )
+
+    kernel.import_skill(AzureMonitorSkill(), "azure_monitor")
+
+    # TODO:
+    # 1. Import and register the AnomalyDetectorSkill.
+    # 2. Retrieve live metrics using the Azure Monitor skill.
+    # 3. Pass the metrics to your anomaly detection function.
+    # 4. Print the result.
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+---
+
+### Test Your Agent
+
+Run your agent script:
+
+```bash
+python agents/anomaly_detector_agent.py
+```
+
+✅ Expected Output:
+
+```
+CPU anomaly detected: 91.3% exceeds 80.0%
+```
+
+or
+
+```
+System metrics are within normal range.
+```
+
+---
+
+### Learning Resources
+
+These resources will help you complete the challenge:
+
+* [Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/)
+* [Azure Monitor Python SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/monitor-query-readme)
+* [Anomaly Detection in Azure](https://learn.microsoft.com/en-us/azure/ai-services/anomaly-detector/overview)
+* [AsyncIO in Python](https://docs.python.org/3/library/asyncio.html)
+
+---
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
+To successfully complete Challenge 02, you should be able to:
 
-*The success criteria should not be a list of instructions.*
+- Verify that the **Anomaly Detector Agent** initializes without errors.
+- Confirm that live metrics from your Azure VM (CPU, Memory, Disk I/O) are retrieved correctly.
+- Demonstrate that the agent **detects anomalies** when metrics exceed defined thresholds.
+- Show that the agent prints appropriate messages for both normal and anomalous states.
+- Ensure that the skill and agent are **registered and callable** via Semantic Kernel.
 
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
 
-*Sample success criteria for the IoT sample challenge:*
+---
 
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+## Next Steps
 
-## Learning Resources
+Proceed to **[Challenge 03 – Build the Resource Optimizer Agent](./Challenge-03.md)** to:
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+* Respond to detected anomalies with remediation actions
+* Enable multi-agent communication (Agent-to-Agent protocol)
+* Begin orchestrating self-healing AI systems in Azure
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
-
-## Tips
-
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
-
-## Advanced Challenges (Optional)
-
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
-
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+```

@@ -1,99 +1,115 @@
-# Challenge 06 - <Title of Challenge>
+````markdown
+# Challenge 06 - Enable Agent-to-Agent Communication (A2A)
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge, you will enhance your multi-agent system by enabling **direct communication between agents**.  
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+Your agents—**Anomaly Detector**, **Resource Optimizer**, and **Alert Manager**—will now share context and coordinate actions dynamically through a **shared thread**.  
 
-*For example:*
+This step transforms your system from a static orchestration sequence into a **fully agentic network**, allowing agents to collaborate intelligently and make decisions based on previous outputs.  
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+You will also explore optional **Semantic Kernel integration** for dynamic planning and goal-driven agent behavior.
+
+---
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Your task is to extend the orchestrator from Challenge 05 to enable **agent-to-agent communication**.
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+You will:
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+- Update `agent_orchestrator.py` to implement dynamic routing through shared threads.
+- Ensure agents can read messages from the thread, respond appropriately, and pass results to the next agent.
+- Optionally integrate Semantic Kernel for intelligent, goal-based agent planning.
+- Modify `app.py` (if using a UI) to call the new dynamic orchestrator method.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+Below is a partial skeleton for your orchestrator logic. Complete the missing functionality:
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+```python
+def orchestratedynamic(self, user_input):
+    thread = self.create_thread()
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+    # Step 1: Anomaly Detector
+    self.send_to_agent(thread, "anomaly", user_input)
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+    # Step 2: Read anomaly message
+    messages = self.get_thread_messages(thread)
+    anomaly_msg = next((m.content for m in messages if "Anomaly" in m.content), None)
 
-*Sample challenge text for the IoT Hack Of The Century:*
+    # Step 3: Resource Optimizer
+    if anomaly_msg:
+        self.send_to_agent(thread, "optimizer", anomaly_msg)
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+    # Step 4: Read optimization message
+    messages = self.get_thread_messages(thread)
+    optimization_msg = next((m.content for m in messages if "🛠️" in m.content), None)
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+    # Step 5: Alert Manager
+    if optimization_msg:
+        self.send_to_agent(thread, "alert", optimization_msg)
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+    return self.get_thread_messages(thread)
+````
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+### Optional: Semantic Kernel Planning
 
-## Success Criteria
+You may optionally add **goal-driven orchestration**:
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
+```python
+from semantickernel import Kernel
 
-*The success criteria should not be a list of instructions.*
+kernel = Kernel()
+plan = kernel.create_plan("Detect and respond to system anomalies")
+for step in plan.steps:
+    orchestrator.send_to_agent(thread, step.plugin_name, step.description)
+```
 
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
+This enables your orchestrator to decide dynamically which agent to call next based on the context.
 
-*Sample success criteria for the IoT sample challenge:*
+---
 
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+* [Azure AI Foundry Overview](https://learn.microsoft.com/en-us/azure/ai-services/)
+* [Python Threading & Concurrency](https://realpython.com/intro-to-python-threading/)
+* [Introduction to Multi-Agent Systems](https://learn.microsoft.com/en-us/azure/architecture/guide/ai/design-multi-agent-systems)
+* [Empowering Multi-Agent Apps with the Open Agent2Agent (A2A) Protocol](https://www.microsoft.com/en-us/microsoft-cloud/blog/2025/05/07/empowering-multi-agent-apps-with-the-open-agent2agent-a2a-protocol/?utm_source=chatgpt.com)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+---
 
 ## Tips
 
-*This section is optional and may be omitted.*
+* Test each agent individually before running the full orchestrator.
+* Use logging statements to visualize message flow in the shared thread.
+* Make sure thread messages are correctly tagged with agent names to aid debugging.
+* Start simple: first pass static messages, then add dynamic routing logic.
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+---
 
-## Advanced Challenges (Optional)
+## Success Criteria
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+To complete this challenge successfully, you should be able to:
 
-*This section is optional and may be omitted.*
+* Verify that all three agents communicate through a shared thread.
+* Confirm that messages from one agent are correctly routed to the next.
+* Demonstrate console output showing step-by-step interactions:
 
-*Sample IoT advanced challenges:*
+```
+anomaly-detector: Anomaly detected: CPU = 92%
+resource-optimizer: Scaling VM to Standard_DS2_v2
+alert-manager: Alert sent: VM scaled successfully
+```
 
-Too comfortable?  Eager to do more?  Try these additional challenges!
+* Optionally, show dynamic routing with Semantic Kernel if implemented.
+---
 
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+## Next Steps
+
+Proceed to **Challenge 07** to implement **memory persistence**, long-term knowledge storage, and context-aware planning to make your agents even more autonomous and intelligent.
+
+```

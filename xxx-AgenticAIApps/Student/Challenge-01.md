@@ -1,99 +1,89 @@
-# Challenge 01 - <Title of Challenge>
+````markdown
+# Challenge 01 - Semantic Kernel Setup & Configuration
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+---
 
-## Pre-requisites (Optional)
+## Pre-requisites
 
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+- Completion of **Challenge 00 – Azure AI Foundry Onboarding & Environment Prep**
+- Active **Azure AI Foundry** resource
+- **GitHub Codespaces** environment ready
+- `.env` file configured with your **Azure OpenAI** keys
+
+---
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this challenge, you will set up **Semantic Kernel** inside your GitHub Codespaces environment.  
+Semantic Kernel provides the **cognitive layer** for your AI agents, enabling them to interpret instructions, generate structured plans, and execute actions.  
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+You’ll configure your environment to connect to Azure OpenAI services and prepare to create your first **agent skills**.  
+Later, these skills will be extended to work with live Azure telemetry data.
 
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+---
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Your goal is to configure **Semantic Kernel** and establish the foundation for skill development.  
+This includes:
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+- Initializing the kernel with **Azure OpenAI** credentials  
+- Testing a simple **prompt** to confirm connectivity  
+- Creating a `skills/` folder for skill development  
+- Preparing a skeleton for a **live Azure Monitor skill** (students implement core functionality)
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+> **Note:** Some code sections are intentionally left incomplete for you to implement. Follow the hints and references below to complete the skill.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+---
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+### Skeleton Example (`azure_monitor_skill.py`)
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+```python
+# students implement this
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+class AzureMonitorSkill:
+    def __init__(self):
+        # TODO: Initialize Azure credentials and MetricsQueryClient
+        pass
 
-*Sample challenge text for the IoT Hack Of The Century:*
+    def get_vm_cpu(self) -> str:
+        # TODO: Query Azure Monitor for VM CPU usage and return a string
+        pass
+````
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+---
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
-
-## Success Criteria
-
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
-To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
+* [Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/overview)
+* [Azure Monitor Metrics Query SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/monitor-query-readme)
+* [Azure Identity Python SDK](https://learn.microsoft.com/en-us/python/api/overview/azure/identity-readme)
+* [GitHub Codespaces Basics](https://docs.github.com/en/codespaces/getting-started/quickstart)
 
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+---
 
 ## Tips
 
-*This section is optional and may be omitted.*
+* Ensure your `.env` file has **no extra spaces or quotes** around values
+* Test prompts incrementally to confirm **connectivity** before implementing skills
+* Use the learning resources to guide your **Azure Monitor queries**
+* Keep your class methods small, modular, and focused for easier debugging
 
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
+---
 
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+## Success Criteria
 
-## Advanced Challenges (Optional)
+To complete this challenge successfully, you should be able to:
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+1. Validate that **Semantic Kernel** initializes correctly with Azure OpenAI credentials
+2. Verify that a **test prompt** returns a meaningful response
+3. Demonstrate that the `skills/` folder exists and contains at least one skill skeleton (`AzureMonitorSkill`)
+4. Explain how the kernel can be extended to pull **live telemetry** from Azure
 
-*This section is optional and may be omitted.*
 
-*Sample IoT advanced challenges:*
+[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+```
