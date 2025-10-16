@@ -8,6 +8,10 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
 
+## Learning Objectives
+
+This project is designed to teach participants how to build agentic applications using Azure’s AI ecosystem. It begins with setting up a cloud-native development environment through GitHub Codespaces and Azure AI Foundry, eliminating local setup and streamlining access to cloud resources. Learners will orchestrate intelligent agents using Semantic Kernel, implement secure communication protocols like Agent2Agent (A2A), and deploy multi-agent workflows with live metric integration via Azure Monitor. The experience is grounded in hands-on development with Python, and optionally enhanced with a Flask-based UI for visualizing agent interactions. By the end, participants will be equipped to design, deploy, and manage scalable, secure, and collaborative AI agents in real-world scenarios.
+
 ## Coach's Guides
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
@@ -36,6 +40,12 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 This hack has pre-reqs that a coach is responsible for understanding and/or setting up BEFORE hosting an event. Please review the [What The Hack Hosting Guide](https://aka.ms/wthhost) for information on how to host a hack event.
 
 The guide covers the common preparation steps a coach needs to do before any What The Hack event, including how to properly configure Microsoft Teams.
+
+**Required Prerequisites:**
+- Python (Version 3.7 or higher, Python 3.13 preferred)
+- Pip (package installer for Python)
+- Active Azure Subscription
+- Azure Developer CLI
 
 ### Student Resources
 
@@ -85,3 +95,6 @@ _The default files & folders are listed below. You may add to this if you want t
   - Student's Challenge Guide
 - `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
+## Contributors
+- Esvin RUiz 
