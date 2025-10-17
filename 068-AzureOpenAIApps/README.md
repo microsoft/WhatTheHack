@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI service with Microsoft Azure platform services.
+This hands-on set of challenges will provide participants with experience on how to integrate the Azure OpenAI Service with Microsoft Azure platform services.
 
 This hack assumes you a have basic understanding of generative AI fundamentals such as:
 - Prompt Engineering
@@ -43,12 +43,12 @@ In this hack, you will explore the architecture and configuration of the Citrus 
 
 ## Learning Objectives
 
-The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure Open AI service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
+The objective of the hack is to make participants aware and comfortable with the different strategies and scenarios for integrating the Azure OpenAI Service with Azure Platform products necessary to build, deploy and maintain highly performant AI applications in production.
 
 The participants will learn how to:
 - Select different architectures to implement Open AI solutions on Azure based on the scenarios.
 - Understand when to use Open AI products and when to leverage Azure AI Services or other solutions
-- Provision and configure Azure Open AI resources.
+- Provision and configure Azure OpenAI resources.
 - Understand the different libraries, frameworks, capabilities and tools available to implement intelligent AI apps.
 - Implement Q&A virtual assistants using RAG architectures powered by vector stores, full text search and hybrid search.
 - Understand techniques and options available on Azure for processing and storing data used for implementing RAG architectures.
@@ -62,8 +62,8 @@ The participants will learn how to:
 	 - Prepare your workstation and environment to work with Azure. Deploy Azure resources for the Citrus Bus application
 - Challenge 01: **[Auto-Vectorization: Automatic Processing of Document Embeddings from Data Sources](Student/Challenge-01.md)**
 	- Load source data into an automation process that prepares it for Azure AI Search
-- Challenge 02: **[Contoso Travel Assistant](Student/Challenge-02.md)**
-	- Use prompt engineering to configure a virtual assistants that responds to frequently asked questions about the Contoso Islands, and provides near real-time answers to Contoso Islands tourists that are looking to make reservations for yacht tours.
+- Challenge 02: **[Weather Integration Using Model Context Protocol](Student/Challenge-02.md)**
+	- Build an MCP server to add weather functionality to the Veta assistant using GitHub Copilot.
 - Challenge 03: **[The Teacher's Assistant — Batch & Near Realtime Essay Grading](Student/Challenge-03.md)**
 	 - Design and implement a pipeline that reads, analyzes and grades essays submitted in various file and image formats (PDF, JPEG/JPG, PNG, BMP, and TIFF) loaded from Azure Blob Storage.
 - Challenge 04: **[Quota Monitoring and Enforcement](Student/Challenge-04.md)**
@@ -87,6 +87,7 @@ We seize this opportunity to express our sincere gratitude to all our contributo
 We thank them for sharing their experience and creativity to design the scenarios and for taking the time to review the content that has been developed.
 
 - [Alexis Joseph](https://github.com/alexistj)
+- [Agam Makkar](https://github.com/AgamMakkar21)
 - [Amanda Wong](https://github.com/wongamanda)
 - [Charlotte Oickle](https://github.com/charlietfcgirl)
 - [Devanshi Thakar](https://github.com/devanshithakar12)

@@ -5,17 +5,23 @@
 
 ## Pre-requisites
 
-* Azure Cognitive Search resource for indexing and retrieving relevant information
-* Azure OpenAI service for Generative AI Models and Embedding Models
-* Add required credentials of above resources in `.env` file
-* Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ``` if you have not already.
+* Ensure you have completed the steps in Challenge-00.
 
 ## Introduction
 
 When working with large language models, it is important to understand how to ground them with the right data. In addition, you will take a look at how to deal with token limits when you have a lot of data. Finally, you will experiment with embeddings. This challenge will teach you all the fundamental concepts - Grounding, Chunking, Embedding - before you see them in play in Challenge 4. Below are brief introductions to the concepts you will learn.
 
-Grounding is a technique used when you want the model to return reliable answers to a given question.
+Grounding is a technique used when you want the model to return reliable answers to a given question. We can ground our models through the system prompt or through the knowledge base. Within the prompt, you can provide specific instructions that help guide the model's responses. When using the Chat Completions API, the prompt is made up of a messages from different roles. 
+
+These roles are:
+- The `system message` which sets the behavior, tone, and context.
+- The  `user message` which is the input from the user.
+- And finally, the `assistant messages` which are the responses from the assistant.
+
+All three of these, `system message` + `user message` + `assistant message`, make up the prompt. 
+
 Chunking is the process of breaking down a large document. It helps limit the amount of information we pass into the model.
+
 An embedding is an information dense representation of the semantic meaning of a piece of text.
 
 ## Description
@@ -46,9 +52,9 @@ To complete this challenge successfully, you should be able to:
 - Demonstrate various chunking techniques
 - Demonstrate how to create embeddings 
 
-## Additional Resources 
+## Learning Resources 
 
 * [Grounding LLMs](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/grounding-llms/ba-p/3843857)
 * [Embeddings example](https://github.com/openai/openai-cookbook/blob/main/examples/Embedding_Wikipedia_articles_for_search.ipynb)
-* [Langchain Chunking](https://js.langchain.com/docs/modules/indexes/text_splitters/examples/recursive_character)
+* [Langchain Chunking](https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/)
   

@@ -1,0 +1,31 @@
+{
+    "name" : "066-OpenAIFundamentals",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    "workspaceFolder": "/workspace/066-OpenAIFundamentals/Student/Resources",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "hostRequirements": {
+      "cpus": 2
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "python3 -m pip install -r requirements.txt",
+    "postCreateCommand": "",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+          "installBicep": true
+        }
+      },
+    "customizations": {
+      "codespaces": {
+        "openFiles": []
+      },
+      "vscode": {
+        "extensions": [
+          "ms-toolsai.jupyter",
+          "ms-python.python",
+		  "github.copilot",
+          "github.copilot-chat"
+        ]
+      }
+    }
+  }
+

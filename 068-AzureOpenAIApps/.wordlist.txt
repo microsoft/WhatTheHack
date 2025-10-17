@@ -6,6 +6,7 @@ Bittencourt
 Ekpo
 Callum
 Veta
+Veta's
 Vectorization
 vectorization
 Checkboxes
@@ -21,3 +22,7 @@ vectorized
 uploader
 Huachao
 queueing
+QEMU
+Anthropic
+Anthropic's
+backend's

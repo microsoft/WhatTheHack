@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-ask-callum',
   templateUrl: './ask-callum.component.html',
-  styleUrls: ['./ask-callum.component.css']
+  styleUrls: ['./ask-callum.component.css'],
+  standalone: false
 })
 export class AskCallumComponent {
 

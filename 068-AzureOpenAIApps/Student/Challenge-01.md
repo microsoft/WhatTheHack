@@ -64,11 +64,15 @@ Your challenge is to run water through the pipes as described above. The Azure r
 
 ### Upload Documents to Azure Blob Storage
 
-There are documents in the **`/artifacts/documents/contoso-islands`** folder in your Codespace or student Resources package that need to be uploaded to the **`government`** container in the Azure Blob Storage account.
+There are documents in the **`/data/documents/contoso-islands`** folder in your Codespace or student Resources package that need to be uploaded to the **`government`** container in the Azure Blob Storage account in your Azure environment.
+
+The storage account name with the **`government`** container is prefixed with `storage` followed by set of unique characters. For example: `storagexxxxxxxxxxxxx`.
+
+**NOTE:** You will see a storage account name prefixed with `webjobs`. This is NOT the storage account to use for this challenge!
 
 You can use the **`az storage blob upload`** command examples below to upload the document to Azure Blob Storage.
 
-To upload the documents to blob store, navigate to the **`/artifacts/documents/contoso-islands`** folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk. 
+To upload the documents to blob store, navigate to the **`/data/documents/contoso-islands`** folder and use the Azure CLI to upload the files. You may upload the files individually or in bulk. 
 
 Here is some sample code to help you:
 
@@ -82,7 +86,7 @@ az login --use-device-code
 az login --service-principal -u <app-id> -p <password-or-cert> --tenant <tenant>
 
 # navigate to document directory
-cd artifacts/documents/contoso-islands
+cd data/documents/contoso-islands
 
 ````
 
@@ -111,7 +115,7 @@ az storage blob upload-batch --account-name contosopeterod1storage -d government
 
 ### Upload Documents to Azure Cosmos DB
 
-There are JSON documents in the **`/artifacts/cosmos-db/contoso-yachts`** folder that need to be uploaded to the corresponding Azure **`yachts`** Cosmos DB containers respectively. These JSON documents contain details about the yachts owned by Contoso Yachts.
+There are JSON documents in the **`/data/cosmos-db/contoso-yachts`** folder that need to be uploaded to the corresponding Azure **`yachts`** Cosmos DB containers respectively. These JSON documents contain details about the yachts owned by Contoso Yachts.
 
 For Cosmos DB, you can upload the JSON documents using the REST API client file **`rest-api-yachts-management.http`** located in the **`/ContosoAIAppsBackend`** folder of your Codespace or student Resource package. 
 

@@ -1,165 +1,138 @@
-# Challenge 02 - Contoso Travel Assistant
+# Challenge 02 - Weather Integration Using Model Context Protocol
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ## Introduction
 
-Virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
+Contoso Yacht's "Citrus Bus" application features multiple AI-powered virtual assistants that can be used by both its customer service team and Contoso Yacht's customers. The virtual assistants augment customer service and can be leveraged to interact with customers during off-hours or when the customer service team is extremely busy.
 
-Virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistants to the customers.
+There are three virtual assistants that you will experiment with during this challenge:
+- Donald
+- Callum
+- Veta
 
-In this challenge, you will configure three virtual assistants that will answer questions about a fictitious country called Contoso Islands as well as a hypothetical tour company, Contoso Yachts. The virtual assistants will also allow guest to create accounts, manage bank account balances and make or cancel yacht reservations with Contoso Yachts.
+The virtual assistants use information available in vector databases and other APIs to read and write to these data stores while providing assistance to the customers. They also allow customers to create accounts, manage bank account balances, and make or cancel yacht reservations with Contoso Yachts. There are two existing customers in the Citrus Bus application database and there are 5 yachts that customers can make future reservations for a specific date and yacht.
 
-There are two existing customers in the database, and there are 5 yachts that customers can make future reservations for a specific date and yacht.
+The Donald & Callum assistants are fully implemented and you will explore their functionality during this challenge. The main focus of this challenge is to extend the Veta virtual assistant's functionality using Model Context Protocol (MCP) to consider the current weather forecast when booking a yacht reservation.
+
+### What is Model Context Protocol (MCP)?
+MCP is an open protocol that allows us to standardize how tools and data is provided to LLMs. Before MCP, one would have to do custom integrations for tools based on the specific APIs and models that are being used. However, with MCP you can make one server which has the tools, and the agents can directly talk to the server and access those tools in a standardized way. Below is a diagram of how MCP works (credit to Anthropic for the diagram).
+
+![screenshot of General MCP Diagram](../images/General-MCP-Architecture.png)
+
+### Components of MCP
+
+**Host** - The user facing application that manages different clients, enforces security policies, and coordinates AI integration. The main job of a host is to facilitate user interactions and initiate connections to servers via clients.
+
+**Client** - Maintains a 1:1 connection with the specific server using the MCP protocol as shown in the diagram above. The main job of a client is to manage bidirectional communication and maintain session state and security boundaries. 
+
+**Server** - Provides specialized capabilities and access to resources such as data and APIs. This can be local or remote. The main job of the server is to give tools, data, or prompts to the client.
+
+### Security in Model Context Protocol (MCP)?
+
+There are many security aspects to consider when using MCP for enterprise applications, your coach should cover these during the lecture for this challenge. There is also a link provided in the Learning Resources section below about security, that you can read for more guidance and details..
 
 ## Description
 
-In this challenge, you will configure 3 virtual assistants:
-- A Contoso Islands Travel Assistant
-- A Contoso Yachts Assistant
-- A Bank Account Management Assistant
+The goal of this challenge is explore the existing functionality of the virtual assistants, then extend the functionality of the Veta virtual assistant to consider the current weather forecast when booking a yacht reservation. Finally, you will test all of the assistants to ensure they work properly.
 
-#### Contoso Islands Travel Assistant (Donald)
-This assistant should be able to answer any question about the country of Contoso Island from any of the following categories:
-- Climate of Contoso Islands
-- Location and Geography of Contoso Islands
-- Population, Tourism details, Languages Spoken and the Economy of Contoso Islands
-- Government and Cabinet Members of Contoso Islands
+### Understanding Virtual Assistant Functionality
 
-#### Contoso Yachts Assistant (Veta)
-
-Reservations can only be made up to 3 days from the current date.
-Reservations must be within the passenger capacity of the yacht.
-Reservations should contain the full name, email address and customer identifier in the database.
-
-This virtual assistant should be able to do the following:
-- Check if an existing customer has a yacht reservation in the database or not.
-- Create a new reservation for a specific date and yacht name
-- Cancel existing reservation for a specific yacht and date. Updates the status to cancelled.
-- Update the travel party size (number of passengers) for a particular reservation
-- Get details about the yacht like how many passengers it can take, its maximum speed, initial date of service and cost of acquisition.
-
-#### Bank Account Management Assistant (Callum)
-This assistants allows customers to manage bank accounts.
-- It can help the guest to create a new bank account with their email address and full name.
-- It can also check account balances
-- It can also make deposits and withdrawals from the bank accounts
+The virtual assistants are configured with System Messages (prompts) to use Tools (functions/APIs) to complete their tasks.
 
 #### System Messages & Tools for AI Assistants
 - System Messages are used in the application configuration to direct the LLM on how it should behave. This is where you exert control over the behavior of the language models used in the application.
 - Tools are application method invocations (or functions) that are invoked optionally with input data and the actions are used to query databases or remote APIs to create, update or fetch data that can be used by the LLM to perform tasks or respond to queries from the user.
 
-In this challenge, you will be asked to configure the system message and tools used by each assistant to perform the tasks.
+Please view the configuration files in the `/ContosoAIAppsBackend/assistant_configurations` folder for the Donald, Veta, and Callum assistants to understand what each of the assistants do. 
 
-#### Configuring Your Virtual Assistants
+- The `.txt` file for each assistant contains the system message (prompt) that specifies to the LLM how the assistant should behave
+- The `.json` file for each assistant specifies what tools (functions/APIs) the assistants have the ability to invoke.
 
- In your `/ContosoAIAppsBackend` folder there is an `/assistant_configurations` folder that contains two files: one json and one text file
+As you will be extending Veta's functionality, note the following requirements for Veta:
+- Reservations can only be made up to 3 days from the current date.
+- Reservations must be within the passenger capacity of the yacht.
+- Reservations should contain the full name, email address and customer identifier in the database.
 
- The text file (`.txt`) shares the same name as the AI assistant and this is where you enter the system message instructing the AI assistant how it should behave.
+At the end of this challenge, you will test each of the assistant's functionalities to see them in action.
 
- The JSON file (`.json`) share the same name as the AI assistant and this is where we define all the tools that the AI assistant is going to use when interacting with the users.
+### Configure MCP Server for the Veta Virtual Assistant
 
- For this JSON file, the most important portions are the description property of the function as well as the description for each parameter
+In this challenge, you will configure and build an MCP server that connects the Veta assistant to the National Weather Service API.
 
-#### Mapping Python Data Types to JSON Schema Types
+In your `/data/mcp-info` folder there is an `llm-full.txt` file that contains detailed instructions to give LLMs on how to build an MCP server. Your job in this hack is to feed that file and the given prompt to GitHub Copilot and build an MCP server that connects Veta, the the booking assistant to the national weather service API. This functionality will help you check the weather before booking the yacht reservation to tour Contoso Islands. 
+ 
+We have already configured the the MCP client files and all the necessary architecture, your task is to fill in the missing code in `mcp_weather_server.py` located in `/ContosoAIAppsBackend/mcp` folder to build the MCP server component with the help of GitHub Copilot. 
 
-| Python Data Type    | JSON Schema Reference |
-| -------- | ------- |
-| [`str`](https://docs.python.org/3/library/string.html)  |  [`string`](https://json-schema.org/understanding-json-schema/reference/string)   |
-| [`bool`](https://docs.python.org/3/library/stdtypes.html#boolean-type-bool)| [`boolean`](https://json-schema.org/understanding-json-schema/reference/boolean)|
-| [`int`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`integer`](https://json-schema.org/understanding-json-schema/reference/numeric#integer)|
-| [`float`](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)| [`number`](https://json-schema.org/understanding-json-schema/reference/numeric#number)|
-| [`list` or `tuple`](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range) | [`array`](https://json-schema.org/understanding-json-schema/reference/array) |
-
-#### The Python function registration for each assistant are in the following files
-
-This is where the tools are registered in the application.
-
-- `/controllers/ask_donald.py`
-- `/controllers/ask_callum.py`
-- `/controllers/ask_veta.py`
-
-#### The Python function definition for each assistant are in the following files:
-
-This is where the functions used in the tools are defined in Python code
-
-- `/shared/assistant_tools_donald.py`
-- `/shared/assistant_tools_callum.py`
-- `/shared/assistant_tools_veta.py`
-
-You will have to look at the code samples to figure out how to describe the function as well as the data type for each parameter for each function. Take a look at the examples for the remaining assistants (Priscilla and Murphy) to see how it is configured to figure out the function description and parameter data types.
-
-Make sure that the value of the first parameter to `ToolUtils.register_tool_mapping()` matches the name of the function in the JSON function definition for the assistant configuration.
-
-The second parameter to `ToolUtils.register_tool_mapping()` is the actual Python function definition.
-
-You will be using this information in these Python files to configure your assistants tools and system messages.
-
-````python
-
-    util = ToolUtils(AssistantName.VETA, system_message1, tools_config1, conversation_id)
-
-    util.register_tool_mapping("check_if_customer_account_exists", v_check_if_customer_account_exists)
-    util.register_tool_mapping("get_yacht_details", v_get_yacht_details)
-    util.register_tool_mapping("get_bank_account_balance", v_get_bank_account_balance)
-    util.register_tool_mapping("bank_account_balance_is_sufficient", v_bank_account_balance_is_sufficient)
-    util.register_tool_mapping("get_valid_reservation_search_dates", v_get_valid_reservation_search_dates)
-    util.register_tool_mapping("yacht_is_available_for_date", v_yacht_is_available_for_date)
-    util.register_tool_mapping("is_valid_search_date", v_is_valid_search_date)
-    util.register_tool_mapping("get_yacht_availability_by_id", v_get_yacht_availability_by_id)
-    util.register_tool_mapping("get_yacht_availability_by_date", v_get_yacht_availability_by_date)
-    util.register_tool_mapping("yacht_reservation_exists", v_yacht_reservation_exists)
-    util.register_tool_mapping("get_reservation_details", v_get_reservation_details)
-    util.register_tool_mapping("cancel_yacht_reservation", v_cancel_yacht_reservation)
-    util.register_tool_mapping("get_customer_yacht_reservations", v_get_customer_yacht_reservations)
-    util.register_tool_mapping("create_yacht_reservation", v_create_yacht_reservation)
-
-````
-
-The format for the parameter description and typing follows the JSON schema specification so you can use [this tool](https://www.liquid-technologies.com/online-json-to-schema-converter) to figure out the data types for the parameters.
-
-```json 
-[
-    {
-        "type": "function",
-        "function": {
-            "name": "ask_question",
-            "description": "Retrieves answers to relevant questions about the country Contoso Islands",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                        "type": "string",
-                        "description": "The question about Contoso Islands"
-                    }
-                },
-                "required": ["query"]
-            }
-        }
-    },
-    {
-      "type": "function",
-      "function": {
-          "name": "get_yacht_details",
-          "description": "Retrieves the details of the yacht such as name, price, maximum capacity and description",
-          "parameters": {
-              "type": "object",
-              "properties": {
-                  "yacht_id": {
-                    "type": "string",
-                    "enum": ["100", "200","300","400","500"],
-                    "description": "The yacht id for the yacht"
-                  }
-              },
-              "required": ["yacht_id"]
-          }
-      }
-  },
-]
-
+Use the `llm-full.txt` file in `/data/mcp-info` and the prompt below to ensure that the MCP server is built properly:
+ 
+```
+Complete the functions with TODO in the mcp_weather_server.py file to have the proper functionality and look the llms-full.txt file to do so. Carefully look at the mcp_weather_client file to ensure the names of functions are the same to ensure they can call each other. Also look at veta.txt and veta.json to know what the agent functionality is supposed to be. Make the code as simple as possible to have proper functionality. Only change the server file since everything else is properly configured to work with a properly configured server.
 ```
 
-#### Testing and Debugging the Assistants
+In the `/data` folder you will find a set of documentation files that were generated by AI.  We recommend optionally reading through these files to help you learn and fully understand what the code does:
+- [MCP Weather Integration - Implementation Summary](./Resources/data/mcp-info/IMPLEMENTATION_SUMMARY.md)
+- [MCP_Weather Integration for Contoso AI Apps Backend](./Resources/data/mcp-info/MCP_WEATHER_INTEGRATION.md)
+- [MCP_Weather Integration - Documentation](./Resources/data/mcp-info/MCP_WEATHER_README.md)
+
+#### Tips for using GitHub Copilot
+- Ensure GitHub Copilot is in Agent mode and you have used the Add Context button to give it all the files it needs to execute the job properly.
+- The following files may be helpful to add as context but you can add more based on what you think is necessary: `llm-full.txt`, `veta.json`, `veta.txt`, `mcp_weather_server.py`, `ask_veta.py`, `IMPLEMENTATION_SUMMARY.md`, `MCP_WEATHER_INTEGRATION.md`, `MCP_WEATHER_README.md`, and the `ContosoAIAppsBackend` folder.
+- After implemented toggle from Agent mode to Ask mode to ask it whether the implementation is proper.
+- Also play around with the coordinates in `veta.txt` and change them to your current location to see how accurate the weather is (you will have the kill the terminal and restart the front and backend after making any changes to the app).
+- This challenge will take a few tries and debugging to work, but please try to persevere through it.
+
+#### How All the Assistants (Except Veta) Currently Work
+
+![screenshot of Priscilla Sequence Diagram](../images/PriscillaAssistant.jpg)
+
+#### How Veta Will Work After Implementing MCP Server
+
+![screenshot of Veta Sequence Diagram](../images/Veta-ADS.png)
+
+#### Initialization Sequence
+
+This is how the sync between the client and server is initialized.
+
+```
+Veta Assistant Request
+    ↓
+Weather Tools Called
+    ↓
+SyncMCPWeatherClient._ensure_client()
+    ↓
+Start subprocess: python mcp_weather_server.py
+    ↓
+JSON-RPC handshake:
+    - initialize request
+    - capabilities exchange
+    - initialized notification
+```
+
+#### Weather Request Flow
+
+This is a flow of the user query, showing which functions are activated when a prompt is given to the Veta Assistant. This is the general flow that your prompt takes before the Assistant gives you back the response.
+
+```
+User: "Book yacht for tomorrow"
+    ↓
+Veta: Check weather conditions
+    ↓
+Weather Tools: v_get_weather_summary_for_client()
+    ↓
+MCP Client: get_weather_summary()
+    ↓
+JSON-RPC: tools/call request
+    ↓
+MCP Server: handle_call_tool()
+    ↓
+HTTP Request: NWS API
+    ↓
+Format & Return: Client-friendly summary
+    ↓
+Veta: Present weather to customer
+```
+### Testing and Debugging the Assistants
 
 You can use the `rest-api-ask-assistants.http` REST Client in the `/ContosoAIAppsBackend` folder to test and debug directly against the backend how the assistants will respond. We recommend you use the REST Client so that you will be able to view and troubleshoot any error messages you receive.
 
@@ -167,27 +140,37 @@ The question you have for the AI assistant needs to be in the `message` field fo
 
 Once you have proved the backend is responding properly using the REST Client, you can navigate to the Frontend webpage for the assistants to send your questions to each one.
 
-#### Sequence Diagram for How the Assistants Function
-![screenshot of Priscilla Sequence Diagram](../images/PriscillaAssistant.jpg)
-
-
-## Success Criteria for Each Assistant
+## Success Criteria
 
 To complete the challenge successfully, the solution should demonstrate the following:
-- Ensure that the application is able to handle the natural language inputs from the customer
-- Configure the assistants that receives that question/query from the customer and responses.
-- The assistant should be able to keep track of the conversation history during the session and remember important details about the customer making the inquiry or reservation. This should be true for at least the last 3 to 5 sentences input from the customer. 
-- The virtual assistant should be able to handle natural language inputs and be trained to understand different variations of the questions related to the tour status. 
-- It should also be able to all the scenarios identified as capabilities for each assistant
-- For read/write scenarios, the changes requested by the customer/user should be captured and saved correctly to the databases.
+- Understand how the agents work and play with their functionalities
+- The MCP server is built and functioning
+- Veta is providing weather information when you ask for a yacht reservation.
+- You are able to book a reservation using the Veta agent
 
 ## Learning Resources
 
 Here are a list of resources that should assist you with completing this challenge: 
 
-- [JSON Schema Generators](https://www.liquid-technologies.com/online-json-to-schema-converter) - This is a free online JSON to JSON Schema Converter. It will take a sample JSON document and then infer JSON schema from it. 
-- [Function Calling with Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling)
-
+- [Basic MCP Information](https://modelcontextprotocol.io/introduction) - This is basic documentation for MCP provided by Anthropic
+- [How to Build MCP Servers With LLMS](https://modelcontextprotocol.io/tutorials/building-mcp-with-llms) - Clearly lays out instructions for how to build MCP servers faster using LLMs
+- [MCP for Beginners](https://github.com/microsoft/mcp-for-beginners#msdynttrid=l9Nn7lrAy_8n7EEHOO-5tEDmdgsw2eIsIXZAuIMQwAs) - GitHub repo that walks through key concepts of MCP
+- [Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) - Anthropic's recommendations for security with MCP
 ## Tips
 
-- The sample app in the Function apps contains examples of function calling and prompt templates
+- If you run into bugs try adding more context to GitHub Copilot and maybe even change the provided prompt to deal with those bugs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

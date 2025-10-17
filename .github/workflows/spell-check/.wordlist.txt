@@ -95,6 +95,7 @@ CmdLet
 CmdLets
 CoE
 CodeQL
+Codespace
 Codespaces
 ConfigMap
 ConnectionString
@@ -180,6 +181,7 @@ HealthCheck
 HostPool
 HostPools
 HttpClient
+httpx
 IAM
 IIS
 IP
@@ -231,6 +233,8 @@ Linq
 Linux
 LoadBalancer
 LogLevel
+MCP
+mcp
 MLOps
 MPLS
 MQTT
@@ -330,6 +334,7 @@ RDP
 README
 RHEL
 RPO
+RPC
 RSA
 RTO
 RabbitMQ
@@ -678,3 +683,5 @@ yum
 zsh
 backticks
 backtick
+Agam
+Makkar

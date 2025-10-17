@@ -5,6 +5,10 @@ var location = resourceGroup().location
 
 param openAILocation string
 param documentIntelligenceLocation string
+param modelName string = 'gpt-4o'
+param modelVersion string = '2024-11-20'
+param embeddingModel string = 'text-embedding-ada-002'
+param embeddingModelVersion string = '2'
 
 module redis 'modules/redis.bicep' = {
   name: 'redisDeployment'
@@ -47,6 +51,7 @@ output cosmosDBPrimaryMasterKey string = cosmos.outputs.primaryMasterKey
 output cosmosDBAddress string = cosmos.outputs.uri
 output cosmosDBDatabaseName string = cosmos.outputs.databaseName
 output cosmosDBConnectionString string = cosmos.outputs.connectionString
+output cosmosDBAccount string = cosmos.outputs.cosmosDBAccount
 
 module openai 'modules/openai.bicep' = {
   name: 'openAIDeployment'
@@ -55,14 +60,19 @@ module openai 'modules/openai.bicep' = {
     location: openAILocation
     name: 'openai-${suffix}'
     deployments: [
-      { name: 'gpt-4',                    version: '1106-Preview' }
-      { name: 'text-embedding-ada-002',   version: '2' }      
+      { name: modelName,                    version: modelVersion }
+      { name: embeddingModel,   version: embeddingModelVersion }      
     ]    
   }
 }
 
 output openAIKey string = openai.outputs.key1
 output openAIEndpoint string = openai.outputs.endpoint
+output modelName string = modelName
+output modelVersion string = modelVersion
+output embeddingModel string = embeddingModel
+output embeddingModelVersion string = embeddingModelVersion
+
 
 module search 'modules/search.bicep' = {
   name: 'searchDeployment'
@@ -74,6 +84,7 @@ module search 'modules/search.bicep' = {
 
 output searchKey string = search.outputs.primaryKey
 output searchEndpoint string = search.outputs.endpoint
+output searchName string = search.outputs.name
 
 module document 'modules/document.bicep' = {
   name: 'documentDeployment'
@@ -102,12 +113,13 @@ module storage 'modules/storage.bicep' = {
   params: {    
     name: 'storage${suffix}'
     location: location
-    containers: [ 'classifications', 'f01-geo-climate', 'f02-tour-economy', 'f03-gov-politics', 'f04-activity-preferences', 'submissions', 'government' ]
+    containers: [ 'classifications', 'f01-geography-climate', 'f02-tour-economy', 'f03-government-politics', 'f04-activity-preferences', 'submissions', 'government' ]
   }
 }
 
 output storagePrimaryKey string = storage.outputs.primaryKey
 output storageConnectionString string = storage.outputs.connectionString
+output name string = storage.outputs.name
 
 module appinsights 'modules/appinsights.bicep' = {
   name: 'appInsightsDeployment'

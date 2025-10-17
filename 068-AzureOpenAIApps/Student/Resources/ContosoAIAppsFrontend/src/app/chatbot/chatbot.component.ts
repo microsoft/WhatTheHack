@@ -5,7 +5,8 @@ import {SimpleChatResponse} from "../models/chat-models";
 @Component({
   selector: 'app-chatbot',
   templateUrl: './chatbot.component.html',
-  styleUrls: ['./chatbot.component.css']
+  styleUrls: ['./chatbot.component.css'],
+  standalone: false
 })
 export class ChatbotComponent {
 
