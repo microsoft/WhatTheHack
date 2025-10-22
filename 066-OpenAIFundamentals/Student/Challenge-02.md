@@ -6,7 +6,7 @@
 
 In this challenge, you will learn about the different capabilities of OpenAI models and learn how to choose the best model for your use case.
 
-There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore various LLMs and compare gpt3.5 to gpt4-o model in this challenge and learn about the benefits of model router.
+There are a lot of different models available in the Azure AI Model Catalog. These include models from OpenAI and other open source large language models from Meta, Hugging Face, and more. You are going to explore and compare various LLMs in this challenge while learning about the benefits of model router.
 
 In a world where the availability and development of models are always changing, the models we compare may change over time. But we encourage you to understand the general concepts and material in this challenge because the comparison techniques utilized can be applicable to scenarios where you are comparing Large and/or Small Language Models. For more information on legacy models and additional models, reference the [documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models) and [Azure model catalog](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/model-catalog-overview) for more details.
 
@@ -24,7 +24,7 @@ You will work in the Azure AI Foundry for this challenge. We recommend keeping t
 This challenge is divided into the following sections:
 
 - [2.1 Model Discovery](#21-model-discovery)
-- [2.2 Model Benchmarking](#22-model-benchmarking)
+- [2.2 Model Leaderboards](#22-model-leaderboards)
 - [2.3 Model Comparison](#23-model-comparison)
     - 2.3.1 Complex Problem Solving
     - 2.3.2 Creative and Technical Writing
@@ -33,20 +33,20 @@ This challenge is divided into the following sections:
   
 
 ### 2.1 Model Discovery
-Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
+Scenario: You are building a chatbot for a retail company that needs fast responses and safe outputs. Your goal is to explore the Model Catalog and identify models for this use case. There is no right or wrong answer here.
 
 #### Student Task 2.1
 - Go into the [Azure AI Foundry](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
-- Identify which models can potentially improve the accuracy of the task at hand.
+- Identify which model can potentially help with the task at hand.
+- Share your findings with a peer and compare your choices. Did you pick the same models? Why or why not?
 
-**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options for question answering? 
+**HINT:** Take a look at the model cards for each model by clicking into them. Evaluate the models based on their capabilities, limitations, and fit for the use case. Which models seem to be good options? Think about the trade-offs as you choose.
 
-### 2.2 Model Benchmarking 
+### 2.2 Model Leaderboards 
 #### Student Task 2.2
-- Use the benchmarking tool and **Compare models** in Foundry to compare the performance of all the selected models you chose from the previous challenge, on industry standard datasets now.
-- Leverage the metrics such as accuracy, coherence, and more.
-- Recommend the best-performing model for biotech news Q&A.
+- Use the leaderboard feature within the **Model Catalog** in Foundry to compare the performance of selected models you chose from the previous challenge, on industry standard datasets now. This can be found in the **Trade-off charts** section by clicking on **Compare between metrics**.
+- Leverage the metrics such as quality, cost, safety, and throughput.
 
 ### 2.3 Model Comparison
 #### Student Task 2.3
@@ -55,7 +55,7 @@ Scenario: You are part of a research team working on getting information from bi
 
 **TIP** The scenario will go into the system prompt. Click on the button "Show parameters setting" next to the trash can once your model has been selected.
 
-Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4o to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
+Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between the two models you chose above to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
 #### Student Task 2.3.1: Complex Problem Solving
   Compare the models' abilities to navigate complex customer complaints and provide satisfactory solutions.

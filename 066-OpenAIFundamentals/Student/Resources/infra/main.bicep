@@ -409,5 +409,5 @@ output deploymentInfo object = {
   storageAccountId: storageAccount.outputs.id
   storageAccountConnectionString: storageAccount.outputs.connectionString
   storageAccountKey: storageAccount.outputs.primaryKey
-  
+  deployedModels: aiServices.outputs.deployedModels
 }
