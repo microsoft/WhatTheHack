@@ -174,7 +174,7 @@ cd infra
 chmod +x deploy.sh
 ./deploy.sh  
 ```
-**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a `resourceGroupName` and/or `location` parameters if you need the resources deployed to a specific resource group or region.  The default location is "eastus" if you don't specify one. 
+**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a `resourceGroupName` and/or `location` parameters if you need the resources deployed to a specific resource group or region.  The default location is "`eastus`" if you don't specify one. 
 
 ```
 ./deploy.sh --resourceGroupName "[resource-group-name]" --location "[location]"
