@@ -3,7 +3,7 @@
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
 ## Notes & Guidance
-
+*** Need to Update to include new methods you can interact with GHCP now**
 - We give the students 2 options to do the hack.  A language they are familiar with or a new language.  This is because these are two very common scenarios that we see developers leverage Copilot for.
   - A developer who is focused on a specific language can see how Copilot can assist them with their daily tasks such as boilerplate code.
   - A developer who switches languages or may be learning a new language can see how Copilot can help with that transition.
