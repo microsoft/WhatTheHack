@@ -1,28 +1,25 @@
-# Challenge 05 - Debugging and Code Optimization with Copilot
+# Challenge 05 - Leveraging Copilot for Test Case and Documentation
 
-[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** 
+[< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
 ## Introduction
-In this final challenge, you'll harness the power of GitHub Copilot to identify and resolve security vulnerabilities in a pre-written code snippet. You will also optimize your code, refining its performance and maintainability based on the intelligent suggestions provided by Copilot. This challenge is an opportunity to deepen your understanding of how Copilot can be an integral part of your debugging and code optimization processes.
-
-Please note, while GitHub Copilot can identify vulnerabilities and filter out security vulnerabilities in its suggestions [Link](https://github.blog/2023-02-14-github-copilot-now-has-a-better-ai-model-and-new-capabilities/), it does not replace traditional security tools such as GitHub Advanced Security which have more robust capabilities at identifying vulnerabilities. 
+This challenge focuses on improving the quality and maintainability of your Whack-a-Mole game. You'll leverage GitHub Copilot's capabilities to generate comprehensive test cases and create detailed documentation. This challenge is about maintaining quality and improving ease of maintenance.
 
 ## Description
-This challenge is centered around enhancing your debugging and code optimization skills with the help of GitHub Copilot. We will be using the codebase from [OWASP Juice Shop](https://github.com/juice-shop/juice-shop) which is an intentionally insecure web application.  You do not need to grab the entire application for this challenge, you may select one of the many files in the routes directory instead. Your tasks are to:
+Utilize GitHub Copilot to guide you through the creation of meaningful test cases that cover various aspects of your application, from basic functionalities to edge cases. Following that, focus on enhancing your app's documentation with Copilot's assistance to ensure clarity and comprehensiveness. Your tasks are:
 
-- **Understand the Code**: Sometimes, understanding what a piece of code does is as crucial as writing it. Use Copilot to explain complex code sections, ensuring you comprehend what your code is doing and why.
-- **Identify and Fix Bugs**: Leverage the conversational interface to receive guidance on identifying and fixing these bugs.
-- **Optimize the Code**: After rectifying the bugs, focus on optimizing the code. Ask Copilot for suggestions on how to improve the efficiency, readability, and performance of your code.
+- **Generate Test Cases**: With the new feature in place, use Copilot to assist in creating comprehensive test cases. Focus on covering a wide range of scenarios, including edge cases, to ensure your application's robustness.
+- **Document Your Application**: Add in documentation and comments to make your application easier to maintain for the next developer.
+- **Include in CI Pipeline**: After generating the test cases, include them in your CI pipeline.
 
-Through this process, you'll not only refine your code but also deepen your understanding of how Copilot can assist in various stages of the development lifecycle, from debugging to code explanation.
+This challenge is not just about coding but also about thinking about application quality and maintainability. It's an opportunity to see how Copilot can contribute to these aspects of software development.
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Have used Copilot to effectively identify and resolve bugs in the provided code snippet.
-2. Can demonstrate code optimization improvements suggested by Copilot.
-3. Can articulate how Copilot helped in understanding complex parts of the code, shedding light on the 'why' and 'how' behind certain code segments.
+1. Show your test cases generated with the assistance of Copilot, covering both the existing and newly added functionalities.
+2. Show that your test cases are integrated into your CI Pipeline.
+3. Show the documentation you have added to your application.
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-

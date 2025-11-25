@@ -24,11 +24,13 @@ This GitHub Copilot What The Hack will help you learn how to do the following wi
 	 - Create your first program and explore GitHub Copilot.
 - Challenge 02: **[Best Practices When Using Copilot](Student/Challenge-02.md)**
 	 - Discover GitHub Copilot's best practices.
-- Challenge 03: **[Leveraging GitHub Copilot in Your Dev Workflow](Student/Challenge-03.md)**
+- Challenge 03: **[Extending GitHub Copilot with Model Context Protocol](Student/Challenge-03.md)**
+	 - Learn to extend GitHub Copilot with MCP, custom agents, and chat modes.
+- Challenge 04: **[Leveraging GitHub Copilot in Your Dev Workflow](Student/Challenge-04.md)**
 	 - Learn to leverage Copilot beyond just writing code.
-- Challenge 04: **[Leveraging Copilot for Test Case and Documentation](Student/Challenge-04.md)**
+- Challenge 05: **[Leveraging Copilot for Test Case and Documentation](Student/Challenge-05.md)**
 	 - Generate test cases and documentation with the help of GitHub Copilot.
-- Challenge 05: **[Debugging and Code Optimization with Copilot](Student/Challenge-05.md)**
+- Challenge 06: **[Debugging and Code Optimization with Copilot](Student/Challenge-06.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
 
 ## Prerequisites
