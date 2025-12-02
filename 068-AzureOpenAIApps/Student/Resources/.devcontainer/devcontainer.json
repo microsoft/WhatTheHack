@@ -1,0 +1,55 @@
+{
+    "name": "What The Hack AI Apps",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "..",
+        "options": [
+            "--platform=linux/amd64"
+        ]
+    },
+    "onCreateCommand": "npm install -g @angular/cli azure-functions-core-tools@4",
+    "postAttachCommand": "bash .devcontainer/postAttachCommands.sh",
+    "features": {
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "installBicep": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "customizations": {
+        "codespaces": {
+            "openFiles": []
+        },
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.csharp",
+                "ms-azuretools.vscode-azurefunctions",
+                "ms-vscode.vscode-typescript-next",
+                "ms-vscode.azure-account",
+                "ms-azuretools.vscode-azureresourcegroups",
+                "humao.rest-client",
+                "ms-azuretools.vscode-bicep",
+                "adamraichu.pdf-viewer",
+                "github.copilot",
+                "github.copilot-chat"
+            ]
+        }
+    },
+    "hostRequirements": {
+        "cpus": 2
+    },
+    "forwardPorts": [
+        7072,
+        4200 // Added port 4200
+    ],
+    "portsAttributes": {
+        "7072": {
+            "label": "backend"
+        },
+        "4200": { // Added attributes for port 4200
+            "label": "frontend"
+        }
+    }
+}

@@ -7,9 +7,8 @@
 Inject a default route (`0.0.0.0/0`) over BGP from one of the CSRs. You might use these commands:
 
 ```
-    ip prefix-list S2B permit 0.0.0.0/0
     router bgp 65100
-      default-information originate
+      neighbor ? default-originate
 ```
 
 ## Success Criteria

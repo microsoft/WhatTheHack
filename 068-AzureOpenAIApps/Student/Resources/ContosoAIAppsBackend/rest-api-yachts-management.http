@@ -1,0 +1,38 @@
+
+# You will need to install the following VSCode extension: humao.rest-client
+
+# Please click on the "Send Request" option above each URL to transmit the request to the backend
+
+# This will allow you to test your function endpoint to make sure they are ready to be intergrated with the frontend
+
+@api_endpoint = http://localhost:7072
+@conversation_id = 22334567
+@yacht_id = "100"
+
+# Make sure that you specify the api_endpoint and conversation_id shared variables in your extension config
+
+# Use this to retrieve all yachts (Click Send Request)
+GET {{api_endpoint}}/api/yachts-management HTTP/1.1
+Accept: application/json
+
+###
+
+# Use this to retrieve a single yacht (Click Send Request)
+GET {{api_endpoint}}/api/yachts-management/{{yacht_id}} HTTP/1.1
+Accept: application/json
+
+
+###
+
+# Use this to create or update and existing yacht (Click Send Request)
+PUT {{api_endpoint}}/api/yachts-management HTTP/1.1
+Content-Type: application/json
+x-conversation-id: {{conversation_id}}
+
+{
+  "yachtId": "400",
+  "price": 250.01,
+  "name": "Artificial Idiot",
+  "maxCapacity": 99,
+  "description": "The Artificial Idiot aka A.I. is a 99-person capacity yacht operated by Contoso Travels. It costs approximately 12 million US dollars. It was entered into service on April 1 2023. It has a maximum speed of 35 mph."
+}
