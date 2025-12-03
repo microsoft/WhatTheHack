@@ -2,7 +2,7 @@
 
 **[Home](./README.md)** - [Next Solution >](./Solution-00.md)
 
-```markdown
+
 # Challenge 00 - Azure AI Foundry Onboarding & Environment Prep - Coach's Guide
 
 **[Home](./README.md)** - [Next Solution >](./Solution-00.md)
