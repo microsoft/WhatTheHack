@@ -1,12 +1,10 @@
-```markdown
 # Challenge 05 - Orchestrate Agent-to-Agent Communication - Coach's Guide
 
 [< Previous Solution](./Solution-04.md) - **[Home](../README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-This challenge connects all previous agents — **Anomaly Detector**, **Resource Optimizer**, and **Alert Manager** — into a unified system.  
-It introduces **message routing**, **shared threads for memory**, and optional **Semantic Kernel planning** for adaptive orchestration.
+This challenge connects all previous agents — **Anomaly Detector**, **Resource Optimizer**, and **Alert Manager** — into a unified system. It introduces **message routing**, **shared threads for memory**, and optional **Semantic Kernel planning** for adaptive orchestration.
 
 ---
 
