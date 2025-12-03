@@ -1,17 +1,17 @@
-````markdown
 # Challenge 04 - Build the Alert Manager Agent (Live Azure Integration)
 
-[< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
+[< Previous Challenge](./Challenge-03.md) - **[Home](./README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Pre-requisites
 
 - Completion of Challenge 03 – Resource Optimizer Agent  
 - Active Azure subscription with Monitor and Action Groups access  
 - `.env` file updated with your Azure subscription, resource group, and action group name  
-- Installed dependencies:  
+- Installed dependencies:
+  
   ```bash
   pip install azure-monitor-query azure-identity azure-mgmt-monitor python-dotenv
-````
+  ```
 
 ---
 
