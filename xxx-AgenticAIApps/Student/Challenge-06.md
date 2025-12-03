@@ -1,4 +1,3 @@
-````markdown
 # Challenge 06 - Enable Agent-to-Agent Communication (A2A)
 
 [< Previous Challenge](./Challenge-05.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-07.md)
