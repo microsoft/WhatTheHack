@@ -106,7 +106,7 @@ Tip: Keep your `.env` and Foundry configuration handy — you’ll reuse them th
 
 ---
 
-Proceed to **[Challenge 001 – Semantic Kernel Setup & Configuration](./Solution-001.md)** to:
+Proceed to **[Challenge 001 – Semantic Kernel Setup & Configuration](./Solution-01.md)** to:
 - Integrate **Semantic Kernel** for planning and reasoning.  
 - Explore how prompts, skills, and plugins form the cognitive layer of your agents.  
 - Learn how agents interpret natural language requests and turn them into structured actions.  
