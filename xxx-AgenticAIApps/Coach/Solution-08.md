@@ -1,6 +1,6 @@
 # Challenge 008 – Spike VM Resources & Test Agent Detection – Coach's Guide
 
-[< Previous Solution](./Solution-005.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-07.md) - **[Home](./README.md)**
 
 ## Goal
 Temporarily spike CPU and memory on your VM to test agent detection.  
