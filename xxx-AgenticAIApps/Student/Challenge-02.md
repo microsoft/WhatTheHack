@@ -1,7 +1,6 @@
-````markdown
 # Challenge 02 - Build the Anomaly Detector Agent (Real Azure Metrics)
 
-**[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
+**[Home](./README.md)** - [Next Challenge >](./Challenge-03.md)
 
 ---
 
