@@ -1,7 +1,6 @@
-````markdown
 # Challenge 01 - Semantic Kernel Setup & Configuration
 
-[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+[< Previous Challenge](./Challenge-00.md) - **[Home](./README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ---
 
@@ -41,7 +40,7 @@ This includes:
 ### Skeleton Example (`azure_monitor_skill.py`)
 
 ```python
-# students implement this
+# students complete building this section
 
 class AzureMonitorSkill:
     def __init__(self):
@@ -84,6 +83,6 @@ To complete this challenge successfully, you should be able to:
 4. Explain how the kernel can be extended to pull **live telemetry** from Azure
 
 
-[< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
+[< Previous Challenge](./Challenge-00.md) - **[Home](./README.md)** - [Next Challenge >](./Challenge-02.md)
 
 ```
