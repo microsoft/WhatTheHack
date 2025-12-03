@@ -1,7 +1,6 @@
-````markdown
 # Challenge 03 - Build the Resource Optimizer Agent (Real Azure Integration)
 
-[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](./README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ---
 
@@ -168,7 +167,7 @@ To successfully complete Challenge 03, you should be able to:
 
 Once your **Resource Optimizer Agent** is working, move to **Challenge 04**, where you’ll build an **Alert Manager Agent** that coordinates notifications and alert responses across your system.
 
-[< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
+[< Previous Challenge](./Challenge-02.md) - **[Home](./README.md)** - [Next Challenge >](./Challenge-04.md)
 
 ```
 
