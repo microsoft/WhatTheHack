@@ -1,4 +1,3 @@
-````markdown
 # Challenge 08 - Spike VM Resources & Test Agent Detection
 
 [< Previous Challenge](./Challenge-07.md) - **[Home](../README.md)**
