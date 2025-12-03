@@ -85,6 +85,8 @@ This is a Whack-a-Mole game project built with HTML, CSS, and JavaScript.
 
 ### Chat Mode Demonstrations
 
+**Recommended: Demonstrate all chat modes at the end** - Some students may not be aware of all the different chat modes available. Going through each mode helps ensure everyone understands when to use each one.  In addition if you have experience with another MCP server like Azure MCP, feel free to demo.
+
 Help students understand when to use each mode:
 
 **@workspace Mode:**
