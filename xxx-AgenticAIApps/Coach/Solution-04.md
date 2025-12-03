@@ -4,8 +4,7 @@
 
 ## Notes & Guidance
 
-In this challenge, participants build an **Alert Manager Agent** that notifies stakeholders when anomalies or optimizations occur.  
-This involves integrating with **Azure Monitor Action Groups** and simulating real-world alert handling within an agentic workflow.
+In this challenge, participants build an **Alert Manager Agent** that notifies stakeholders when anomalies or optimizations occur. This involves integrating with **Azure Monitor Action Groups** and simulating real-world alert handling within an agentic workflow.
 
 ---
 
