@@ -1,4 +1,3 @@
-````markdown
 # Challenge 04 - Build the Alert Manager Agent (Live Azure Integration) - Coach's Guide
 
 [< Previous Solution](./Solution-03.md) - **[Home](../README.md)** - [Next Solution >](./Solution-05.md)
@@ -114,7 +113,7 @@ Expected Output:
 
 ```
 Alert Manager received: ⚠️ Optimization failed due to high CPU usage
-🚨 Alert triggered: ⚠️ Optimization failed due to high CPU usage
+Alert triggered: ⚠️ Optimization failed due to high CPU usage
 Simulated alert sent: 🚨 Alert triggered: ⚠️ Optimization failed due to high CPU usage
 ```
 
