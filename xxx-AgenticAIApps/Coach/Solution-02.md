@@ -1,6 +1,6 @@
 # Challenge 2 - Build the Anomaly Detector Agent (Real Azure Metrics) - Coach's Guide
 
-[< Previous Solution](./Solution-02.0.md) - **[Home](../README.md)** - [Next Solution >](./Solution-04.md)
+[< Previous Solution](./Solution-01.md) - **[Home](../README.md)** - [Next Solution >](./Solution-03.md)
 
 ## Notes & Guidance
 
