@@ -1,6 +1,6 @@
 # Challenge 03 - Build the Resource Optimizer Agent (Real Azure Integration) - Coach's Guide
 
-[< Previous Solution](./Solution-02.md) - **[Home](../README.md)** - [Next Solution >](./Solution-04.md)
+[< Previous Solution](./Solution-02.md) - **[Home](./README.md)** - [Next Solution >](./Solution-04.md)
 
 ## Notes & Guidance
 
