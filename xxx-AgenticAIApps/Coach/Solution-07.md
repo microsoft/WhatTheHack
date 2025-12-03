@@ -1,12 +1,10 @@
-````markdown
 # Challenge 07 - Build the Anomaly & Resolution Tracker - Coach's Guide
 
 [< Previous Solution](./Solution-06.md) - **[Home](./README.md)** - [Next Solution >](./Solution-08.md)
 
 ## Notes & Guidance
 
-In this challenge, participants will **track anomalies and resolutions** detected by their Azure Agents and visualize the results in real time.  
-You’ll implement lightweight logging, optionally add a Streamlit dashboard, and explore Azure-based storage options for enterprise-scale tracking.
+In this challenge, participants will **track anomalies and resolutions** detected by their Azure Agents and visualize the results in real time. You’ll implement lightweight logging, optionally add a Streamlit dashboard, and explore Azure-based storage options for enterprise-scale tracking.
 
 ---
 
