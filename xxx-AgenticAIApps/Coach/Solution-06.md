@@ -1,12 +1,10 @@
-````markdown
 # Challenge 06 - Enable Agent-to-Agent Communication (A2A) - Coach's Guide
 
 [< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
 
-In this challenge, participants enable **real-time communication between Azure Agents**, allowing them to exchange context and coordinate actions.  
-This marks the transition from isolated automation to a **collaborative, agentic network** powered by shared threads and dynamic planning.
+In this challenge, participants enable **real-time communication between Azure Agents**, allowing them to exchange context and coordinate actions. This marks the transition from isolated automation to a **collaborative, agentic network** powered by shared threads and dynamic planning.
 
 ---
 
@@ -62,7 +60,7 @@ def orchestrate_dynamic(self, user_input):
 
 ---
 
-## ⚙️ Update the App to Use Dynamic Orchestration
+## Update the App to Use Dynamic Orchestration
 
 Update `app.py` so user input triggers your new dynamic orchestration:
 
@@ -95,7 +93,7 @@ alert-manager: Notification sent to admin
 
 ---
 
-## 🤖 Optional: Semantic Kernel Integration
+## Optional: Semantic Kernel Integration
 
 For adaptive task routing, integrate **Microsoft Semantic Kernel**:
 
@@ -144,8 +142,3 @@ Proceed to **Challenge 07** to extend your agentic system with:
 
 All sections marked with `🔹 STUDENT MISSING SECTION` are **what students were expected to implement themselves** in the student guide.
 Coaches can reference these to confirm the correctness of submitted solutions.
-
-```
-
-Would you like me to continue with **Challenge 07 (Anomaly & Resolution Tracker)** in the same GitHub-ready format next?
-```
