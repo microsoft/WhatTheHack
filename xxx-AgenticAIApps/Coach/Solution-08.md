@@ -1,4 +1,3 @@
-````markdown
 # Challenge 008 – Spike VM Resources & Test Agent Detection – Coach's Guide
 
 [< Previous Solution](./Solution-005.md) - **[Home](./README.md)**
