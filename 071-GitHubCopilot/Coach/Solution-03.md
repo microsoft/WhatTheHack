@@ -128,7 +128,7 @@ Help students understand when to use each mode:
   - Connecting to API documentation for libraries they're using
   - Accessing database schemas
   - Reading from configuration files outside the workspace
-  - Fetching example code from GitHub gists or documentation sites
+  - Fetching example code from GitHub gist or documentation sites
 
 ### Success Criteria Validation
 
