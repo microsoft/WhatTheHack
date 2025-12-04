@@ -77,7 +77,7 @@ Every What The Hack consists of:
 
 **Cumulative Challenges:**
 - Start small and simple ("Hello World")
-- Build progressively more complex but allow for modularity for students to cherry pick content
+- Build progressively more complex but remain modular for students to cherry pick content
 - Establish confidence → Build competence
 - Each challenge has educational value (even if only 3 of 7 completed)
 
