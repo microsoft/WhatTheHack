@@ -45,7 +45,7 @@ Every What The Hack consists of:
 - **Repository Contents** (Optional): Catalog of provided files
 - **Contributors**: Names and optional contact info of authors
 
-### 2. Challenge Files (Student/ChallengeXX.md)
+### 2. Challenge Files (Student/Challenge-XX.md)
 
 **Structure:**
 - Navigation links (previous/home/next) using relative paths
@@ -56,7 +56,7 @@ Every What The Hack consists of:
   - **EXCEPTION**: Challenge 00 (Prerequisites) MAY use ordered/numbered lists and step-by-step instructions since it's focused on setup, not core learning objectives
   - May use sub-headers to organize sections
   - Reference resources from Resources.zip provided by coach (OR Codespaces if the hack includes a devcontainer)
-  - NO direct links to WTH repo (exception: raw links to PDFs/Office docs)
+  - NO direct links to WTH repo (exception: raw links to PDF/Office docs)
 - **Success Criteria**: Verifiable checks (start with "Validate...", "Verify...", "Show...", "Demonstrate...")
 - **Learning Resources**: Relevant links with descriptive text (not just URLs)
 - **Tips** (Optional): Hints and food for thought
