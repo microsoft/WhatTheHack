@@ -99,7 +99,7 @@ Every What The Hack consists of:
 ### 6. Coach Solutions (Coach/Solutions/)
 
 - Example solutions (one way to solve challenges)
-- Full working applications, configs, templates
+- Full working applications, configurations, templates
 - Prerequisites for Azure environment if needed
 - Scripts/templates to share if teams really stuck
 - NOT intended for attendees before/during event (but publicly available)
@@ -134,7 +134,7 @@ XXX-YourHackName/
 
 ### What to DO:
 - ✅ Use bullet lists for goals and specifications
-- ✅ Use relative links for navigation (./ChallengeXX.md)
+- ✅ Use relative links for navigation (./Challenge-XX.md)
 - ✅ Use descriptive link text (not bare URLs)
 - ✅ Refer to Resources.zip in student challenges
 - ✅ Keep challenge descriptions concise (shorter than the authoring guide!)
@@ -156,7 +156,7 @@ XXX-YourHackName/
 
 All templates are in `000-HowToHack/`:
 - `WTH-HackDescription-Template.md` → Hack README.md
-- `WTH-Challenge-Template.md` → Student/ChallengeXX.md
+- `WTH-Challenge-Template.md` → Student/Challenge-XX.md
 - `WTH-CoachGuide-Template.md` → Coach/README.md
 - `WTH-Challenge-Solution-Template.md` → Coach/Solution-XX.md
 - `WTH-ChallengeZero-Template.md` → Student/Challenge-00.md
