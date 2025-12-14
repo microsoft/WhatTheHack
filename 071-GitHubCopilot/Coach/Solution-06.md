@@ -1,6 +1,6 @@
-# Challenge 05 - Debugging and Code Optimization with Copilot - Coach's Guide 
+# Challenge 06 - Debugging and Code Optimization with Copilot - Coach's Guide 
 
-[< Previous Solution](./Solution-04.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-05.md) - **[Home](./README.md)**
 
 ## Notes & Guidance
 
