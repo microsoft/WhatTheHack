@@ -1,4 +1,4 @@
-# Challenge 04 - Leveraging Copilot for Test Case and Documentation - Coach's Guide 
+# Challenge 05 - Leveraging Copilot for Test Case and Documentation - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
