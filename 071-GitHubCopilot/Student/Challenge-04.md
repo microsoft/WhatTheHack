@@ -1,25 +1,31 @@
-# Challenge 04 - Leveraging Copilot for Test Case and Documentation
+# Challenge 04 - Leveraging GitHub Copilot in Your Dev Workflow
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
+
 ## Introduction
-This challenge focuses on improving the quality and maintainability of your Whack-a-Mole game. You'll leverage GitHub Copilot's capabilities to generate comprehensive test cases and create detailed documentation. This challenge is about maintaining quality and improving ease of maintenance.
+In this challenge, you'll explore how GitHub Copilot can be your ally beyond just writing code. This challenge is about integrating Copilot deeper into your entire development workflow.
 
 ## Description
-Utilize GitHub Copilot to guide you through the creation of meaningful test cases that cover various aspects of your application, from basic functionalities to edge cases. Following that, focus on enhancing your app's documentation with Copilot's assistance to ensure clarity and comprehensiveness. Your tasks are:
+GitHub Copilot is more than just a coding assistant; it's a tool that can enhance various aspects of software development. In this challenge, you will checkin your code into a git repository in GitHub.
 
-- **Generate Test Cases**: With the new feature in place, use Copilot to assist in creating comprehensive test cases. Focus on covering a wide range of scenarios, including edge cases, to ensure your application's robustness.
-- **Document Your Application**: Add in documentation and comments to make your application easier to maintain for the next developer.
-- **Include in CI Pipeline**: After generating the test cases, include them in your CI pipeline.
+- **Craft Commit Messages with Copilot**: Use Copilot to help you write clear and descriptive commit messages that accurately summarize your code changes.
+- **Build Pipelines with GitHub Actions**: Discover how Copilot can assist in creating CI workflows with GitHub Actions, helping you automate your build, test, and deployment processes.
 
-This challenge is not just about coding but also about thinking about application quality and maintainability. It's an opportunity to see how Copilot can contribute to these aspects of software development.
+This challenge emphasizes the versatility of GitHub Copilot, showcasing its potential to streamline your entire development lifecycle.
 
 ## Success Criteria
-You will have successfully completed this challenge when you:
+Successfully complete this challenge by demonstrating that you can:
 
-1. Show your test cases generated with the assistance of Copilot, covering both the existing and newly added functionalities.
-2. Show that your test cases are integrated into your CI Pipeline.
-3. Show the documentation you have added to your application.
-
+- Demonstrate a functional CI pipeline set up with Copilot's guidance.
+  
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Creating GitHub Actions for CI/CD](https://docs.github.com/en/actions)
+
+## Advanced Challenges (Optional)
+
+If you're using GitHub Copilot Enterprise, take the opportunity to explore additional features designed to enhance your development workflow further.
+
+- **Create PR Summaries**: Leverage Copilot to help you draft detailed and informative PR summaries, ensuring your team understands the purpose and content of your changes.
+- **Interact in PR Discussions**: Explore how Copilot can help you during the PR process when reviewing code.
