@@ -17,9 +17,9 @@ This challenge is not just about coding but also about thinking about applicatio
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Show your test cases generated with the assistance of Copilot, covering both the existing and newly added functionalities.
-2. Show that your test cases are integrated into your CI Pipeline.
-3. Show the documentation you have added to your application.
+- Show your test cases generated with the assistance of Copilot, covering both the existing and newly added functionalities
+- Demonstrate that your test cases are integrated into your CI Pipeline
+- Show the documentation you have added to your application
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)

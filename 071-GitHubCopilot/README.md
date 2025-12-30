@@ -19,7 +19,7 @@ This GitHub Copilot What The Hack will help you learn how to do the following wi
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
+	 - Prepare your workstation for the hack.
 - Challenge 01: **[Introduction to GitHub Copilot](Student/Challenge-01.md)**
 	 - Create your first program and explore GitHub Copilot.
 - Challenge 02: **[Best Practices When Using Copilot](Student/Challenge-02.md)**
@@ -30,11 +30,9 @@ This GitHub Copilot What The Hack will help you learn how to do the following wi
 	 - Personalize Copilot with custom agent instructions and chat modes.
 - Challenge 05: **[Leveraging GitHub Copilot in Your Dev Workflow](Student/Challenge-05.md)**
 	 - Learn to leverage Copilot beyond just writing code.
-- Challenge 06: **[GitHub Spark](Student/Challenge-06.md)**
-	 - Create micro apps using natural language with GitHub Spark.
-- Challenge 07: **[Leveraging Copilot for Test Case and Documentation](Student/Challenge-07.md)**
+- Challenge 06: **[Leveraging Copilot for Test Case and Documentation](Student/Challenge-06.md)**
 	 - Generate test cases and documentation with the help of GitHub Copilot.
-- Challenge 08: **[Debugging and Code Optimization with Copilot](Student/Challenge-08.md)**
+- Challenge 07: **[Debugging and Code Optimization with Copilot](Student/Challenge-07.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
 
 ## Prerequisites

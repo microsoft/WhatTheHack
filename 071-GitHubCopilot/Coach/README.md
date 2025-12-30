@@ -20,11 +20,9 @@ Welcome to the coach's guide for the GitHub Copilot What The Hack. Here you will
 	 - Personalize Copilot with custom agent instructions and chat modes.
 - Challenge 05: **[Leveraging GitHub Copilot in Your Dev Workflow](./Solution-05.md)**
 	 - Learn to leverage Copilot beyond just writing code.
-- Challenge 06: **[GitHub Spark](./Solution-06.md)**
-	 - Create micro apps using natural language with GitHub Spark.
-- Challenge 07: **[Leveraging Copilot for Test Case and Documentation](./Solution-07.md)**
+- Challenge 06: **[Leveraging Copilot for Test Case and Documentation](./Solution-06.md)**
 	 - Generate test cases and documentation with the help of GitHub Copilot.
-- Challenge 08: **[Debugging and Code Optimization with Copilot](./Solution-08.md)**
+- Challenge 07: **[Debugging and Code Optimization with Copilot](./Solution-07.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
 
 ## Coach Prerequisites
@@ -42,17 +40,16 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Suggested Hack Agenda
 
-This hack is intended to be completed in 1 day in 5 hours.
+This hack is intended to be completed in 1 day in 4.5 hours.
 
 - Sample Day 1
-  - Challenge 1 (30 mins)
-  - Challenge 2 (30 mins)
+  - Challenge 1 (45 mins)
+  - Challenge 2 (45 mins)
   - Challenge 3 (45 mins)
   - Challenge 4 (45 mins)
   - Challenge 5 (30 mins)
-  - Challenge 6 (30 mins)
-  - Challenge 7 (45 mins)
-  - Challenge 8 (30 mins)
+  - Challenge 6 (45 mins)
+  - Challenge 7 (30 mins)
 
 
 ## Repository Contents

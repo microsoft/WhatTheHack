@@ -19,9 +19,9 @@ Through this process, you'll not only refine your code but also deepen your unde
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Have used Copilot to effectively identify and resolve bugs in the provided code snippet.
-2. Can demonstrate code optimization improvements suggested by Copilot.
-3. Can articulate how Copilot helped in understanding complex parts of the code, shedding light on the 'why' and 'how' behind certain code segments.
+- Demonstrate using Copilot to effectively identify and resolve bugs in the provided code snippet
+- Show code optimization improvements suggested by Copilot
+- Explain how Copilot helped in understanding complex parts of the code, shedding light on the 'why' and 'how' behind certain code segments
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
