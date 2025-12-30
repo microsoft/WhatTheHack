@@ -1,31 +1,32 @@
-# Challenge 04 - Leveraging GitHub Copilot in Your Dev Workflow
+# Challenge 04 - Customizing GitHub Copilot in Your IDE
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-
 ## Introduction
-In this challenge, you'll explore how GitHub Copilot can be your ally beyond just writing code. This challenge is about integrating Copilot deeper into your entire development workflow.
+GitHub Copilot becomes significantly more useful when it understands the context, standards, and expectations of your project. In this challenge, you will customize Copilot within your IDE using custom agent instructions and then use chat modes to interact with Copilot in different ways.
+
 
 ## Description
-GitHub Copilot is more than just a coding assistant; it's a tool that can enhance various aspects of software development. In this challenge, you will checkin your code into a git repository in GitHub.
+GitHub Copilot can be customized within the IDE in multiple ways. Custom instructions define behavior that applies across multiple Copilot interactions, while chat modes provide optional, selectable ways to interact with Copilot for specific tasks.
 
-- **Craft Commit Messages with Copilot**: Use Copilot to help you write clear and descriptive commit messages that accurately summarize your code changes.
-- **Build Pipelines with GitHub Actions**: Discover how Copilot can assist in creating CI workflows with GitHub Actions, helping you automate your build, test, and deployment processes.
+In this challenge, you will define custom instructions to guide GitHub Copilot’s behavior across your project, and then use chat modes to interact with Copilot in more focused, task-oriented ways.
 
-This challenge emphasizes the versatility of GitHub Copilot, showcasing its potential to streamline your entire development lifecycle.
+In this challenge you will:
+
+- **Create Custom Instructions**  
+  Define custom instructions in `.github/copilot-instructions.md` that guide Copilot’s behavior across all Copilot interactions, such as coding style, architectural preferences, or project-specific assumptions.
+
+- **Use Chat Modes in the IDE**  
+  Install and select a chat mode from the [Awesome Copilot collection](https://github.com/github/awesome-copilot/tree/main), then use it in the IDE to create a more focused interactive experience while working in the codebase.
+
 
 ## Success Criteria
-Successfully complete this challenge by demonstrating that you can:
+You will have successfully completed this challenge when you:
 
-- Demonstrate a functional CI pipeline set up with Copilot's guidance.
-  
+- Show a custom instructions file and explain how it guides GitHub Copilot’s behavior across all interactions
+- Demonstrate a chat mode installed from the Awesome Copilot collection and selected in the IDE
+- Show Copilot responding in a way that reflects your custom instructions
+
 ## Learning Resources
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [Creating GitHub Actions for CI/CD](https://docs.github.com/en/actions)
-
-## Advanced Challenges (Optional)
-
-If you're using GitHub Copilot Enterprise, take the opportunity to explore additional features designed to enhance your development workflow further.
-
-- **Create PR Summaries**: Leverage Copilot to help you draft detailed and informative PR summaries, ensuring your team understands the purpose and content of your changes.
-- **Interact in PR Discussions**: Explore how Copilot can help you during the PR process when reviewing code.
+- [Customizing GitHub Copilot with Custom Instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
+- [VS Code Chat Modes and Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-chat)
