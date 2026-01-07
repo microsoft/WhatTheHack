@@ -174,10 +174,10 @@ cd infra
 chmod +x deploy.sh
 ./deploy.sh  
 ```
-**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a resource group name parameter if you need the resources deployed to a specific resource group.
+**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a `resourceGroupName` and/or `location` parameters if you need the resources deployed to a specific resource group or region.  The default location is "`eastus`" if you don't specify one. 
 
 ```
-./deploy.sh --resource-group-name "[resource-group-name]"
+./deploy.sh --resourceGroupName "[resource-group-name]" --location "[location]"
 ```
 
 #### Manual Azure AI Foundry Deployment
@@ -287,3 +287,5 @@ If working on a local workstation:
 - [Project Jupyter](https://en.wikipedia.org/wiki/Project_Jupyter)
 - [Run Jupyter Notebooks In Your (Azure Machine Learning) Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
 - [How to setup .env in Python](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items)
+- [Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai&tabs=global-standard-aoai%2Cstandard-chat-completions%2Cglobal-standard)
+  
