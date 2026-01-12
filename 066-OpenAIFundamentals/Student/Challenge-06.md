@@ -12,7 +12,7 @@ In this challenge, you will create a basic agent.
 
 ### Setup
 
-1. Log into your [AI Foundry portal](ai.azure.com)
+1. Log into your [Microsoft Foundry portal](ai.azure.com)
 2. In your project's left-hand pane, navigate to `My assets -> Models and endpoints`.
 3. On the Model deployments tab, click the `+ Deploy model` button and select `Deploy base model` from the drop down.
 4. Search for the gpt-4o-mini model, select it, and confirm the deployment.
@@ -38,12 +38,12 @@ To complete this challenge successfully, you should be able to:
 - Identify tools available to extend an agents capabilities
 
 ## Conclusion 
-In this Challenge, you explored creating an AI Agent through the Azure AI Foundry portal. This developer friendly experience integrates with several tools, knowledge connections, and systems. As you start or continue to develop your AI applications, think about the coordination needed between different agents and their roles. What would be some important considerations with multi-agent systems when handling complex tasks?
+In this Challenge, you explored creating an agent through the Microsoft Foundry portal. This developer friendly experience integrates with several tools, knowledge connections, and systems. As you start or continue to develop your AI applications, think about the coordination needed between different agents and their roles. What would be some important considerations with multi-agent systems when handling complex tasks?
 
 ## Learning Resources
 
-- [Overview of Azure AI Agents](https://learn.microsoft.com/en-us/azure/ai-services/agents/?view=azure-python-preview)
-- These steps are listed here along with many other prompts: [AI Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
+- [Overview of Microsoft Agents](https://learn.microsoft.com/en-us/azure/ai-services/agents/?view=azure-python-preview)
+- These steps are listed here along with many other prompts: [Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
 
 
   

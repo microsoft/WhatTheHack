@@ -7,7 +7,7 @@ source ./functions.sh
 declare -A variables=(
   [template]="main.bicep"
   [parameters]="main.bicepparam"
-  [resourceGroupName]="rg-ai-foundry-secure"
+  [resourceGroupName]="rg-microsoft-foundry-secure"
   [location]="eastus"
   [validateTemplate]=0
   [useWhatIf]=0
@@ -90,9 +90,8 @@ deploymentOutputs=$(az deployment group create \
   --parameters $parameters \
   --parameters location=$location \
   --parameters userObjectId=$userObjectId \
-  --query 'properties.outputs' -o json)
+  --query 'properties.outputs' -o json 2>/dev/null | grep -A 9999 '^{')
 
-  #echo $deploymentOutputs
   if [[ $? == 0 ]]; then
     echo "[$template] Bicep template deployment succeeded"
   else
@@ -113,7 +112,7 @@ environment_sample_file="../.env.sample"
 
 # check if the .env file already exists and back it up if it does
     if [[ -f "$environment_file" ]]; then
-        random_chars=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 5)
+        random_chars=$(LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 5)
         mv "$environment_file" "${environment_file}-${random_chars}.bak"
         echo -e "\e[33mWarning: Existing .env file found. Backed up to ${environment_file}-${random_chars}.bak\e[0m"
     else
@@ -127,15 +126,10 @@ source $environment_sample_file
 
 # Extract values from JSON and write to .env file with double quotes around values
 echo "Populating .env file..."
-echo "OPENAI_API_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesKey')\"" >> $environment_file
 echo "OPENAI_API_BASE=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesOpenAiEndpoint')\"" >> $environment_file
-echo "AZURE_AI_SEARCH_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchKey')\"" >> $environment_file
 echo "AZURE_AI_SEARCH_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchEndpoint')\"" >> $environment_file
 echo "DOCUMENT_INTELLIGENCE_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.documentEndpoint')\"" >> $environment_file
-echo "DOCUMENT_INTELLIGENCE_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.documentKey')\"" >> $environment_file
-echo "AZURE_BLOB_STORAGE_ACCOUNT_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountName')\"" >> $environment_file
-echo "AZURE_BLOB_STORAGE_KEY=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountKey')\"" >> $environment_file
-echo "AZURE_BLOB_STORAGE_CONNECTION_STRING=\"$(echo "$json" | jq -r '.deploymentInfo.value.storageAccountConnectionString')\"" >> $environment_file
+echo "AZURE_AI_PROJECT_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesProjectEndpoint')\"" >> $environment_file
 # Warning: this assumes the first deployed model is the chat model used by the Jupyter notebooks
 echo "CHAT_MODEL_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.deployedModels[0].name')\"" >> $environment_file
 

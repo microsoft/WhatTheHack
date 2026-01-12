@@ -11,49 +11,13 @@ param location string = resourceGroup().location
 @description('Specifies the name of the Network Security Perimeter.')
 param nspName string = ''
 
-@description('Specifies the name Azure AI Hub workspace.')
-param hubName string = ''
-
-@description('Specifies the friendly name of the Azure AI Hub workspace.')
-param hubFriendlyName string = 'Demo AI Hub'
-
-@description('Specifies the description for the Azure AI Hub workspace displayed in Azure AI Foundry.')
-param hubDescription string = 'This is a demo hub for use in Azure AI Foundry.'
-
-@description('Specifies the Isolation mode for the managed network of the Azure AI Hub workspace.')
-@allowed([
-  'AllowInternetOutbound'
-  'AllowOnlyApprovedOutbound'
-  'Disabled'
-])
-param hubIsolationMode string = 'Disabled'
-
-@description('Specifies the public network access for the Azure AI Hub workspace.')
-param hubPublicNetworkAccess string = 'Enabled'
-
-@description('Specifies the authentication method for the OpenAI Service connection.')
-@allowed([
-  'ApiKey'
-  'AAD'
-  'ManagedIdentity'
-  'None'
-])
-param connectionAuthType string = 'AAD'
-
-@description('Determines whether or not to use credentials for the system datastores of the workspace workspaceblobstore and workspacefilestore. The default value is accessKey, in which case, the workspace will create the system datastores with credentials. If set to identity, the workspace will create the system datastores with no credentials.')
-@allowed([
-  'identity'
-  'accessKey'
-])
-param systemDatastoresAuthMode string = 'identity'
-
-@description('Specifies the name for the Azure AI Foundry Hub Project workspace.')
+@description('Specifies the name for the Microsoft Foundry Project.')
 param projectName string = ''
 
-@description('Specifies the friendly name for the Azure AI Foundry Hub Project workspace.')
-param projectFriendlyName string = 'AI Foundry Hub Project'
+@description('Specifies the friendly name for the Microsoft Foundry Project.')
+param projectFriendlyName string = 'Microsoft Foundry Project'
 
-@description('Specifies the public network access for the Azure AI Project workspace.')
+@description('Specifies the public network access for the Microsoft Foundry Project.')
 param projectPublicNetworkAccess string = 'Enabled'
 
 @description('Specifies the name of the Azure Log Analytics resource.')
@@ -89,9 +53,6 @@ param aiServicesIdentity object = {
 
 @description('Specifies an optional subdomain name used for token-based authentication.')
 param aiServicesCustomSubDomainName string = ''
-
-@description('Specifies whether disable the local authentication via API key.')
-param aiServicesDisableLocalAuth bool = false
 
 @description('Specifies whether or not public endpoint access is allowed for this account..')
 @allowed([
@@ -287,7 +248,7 @@ module storageAccount 'modules/storageAccount.bicep' = {
     networkAclsDefaultAction: storageAccountANetworkAclsDefaultAction
     supportsHttpsTrafficOnly: storageAccountSupportsHttpsTrafficOnly
     workspaceId: workspace.outputs.id
-
+    
     // role assignments
     userObjectId: userObjectId
     aiServicesPrincipalId: aiServices.outputs.principalId
@@ -306,7 +267,6 @@ module aiServices 'modules/aiServices.bicep' = {
     customSubDomainName: empty(aiServicesCustomSubDomainName)
       ? toLower('ai-services-${suffix}')
       : aiServicesCustomSubDomainName
-    disableLocalAuth: aiServicesDisableLocalAuth
     publicNetworkAccess: aiServicesPublicNetworkAccess
     deployments: openAiDeployments
     workspaceId: workspace.outputs.id
@@ -316,13 +276,12 @@ module aiServices 'modules/aiServices.bicep' = {
   }
 }
 
-module hub 'modules/hub.bicep' = {
-  name: 'hub'
+module project 'modules/foundryProject.bicep' = {
+  name: 'project'
   params: {
     // workspace organization
-    name: empty(hubName) ? toLower('hub-${suffix}') : hubName
-    friendlyName: hubFriendlyName
-    description_: hubDescription
+    name: empty(projectName) ? toLower('project-${suffix}') : projectName
+    friendlyName: projectFriendlyName
     location: location
     tags: tags
 
@@ -332,31 +291,9 @@ module hub 'modules/hub.bicep' = {
     containerRegistryId: acrEnabled ? containerRegistry.outputs.id : ''
     keyVaultId: keyVault.outputs.id
     storageAccountId: storageAccount.outputs.id
-    connectionAuthType: connectionAuthType
-    systemDatastoresAuthMode: systemDatastoresAuthMode
-
-    // workspace configuration
-    publicNetworkAccess: hubPublicNetworkAccess
-    isolationMode: hubIsolationMode
-    workspaceId: workspace.outputs.id
-
-    // role assignments
-    userObjectId: userObjectId
-  }
-}
-
-module project 'modules/project.bicep' = {
-  name: 'project'
-  params: {
-    // workspace organization
-    name: empty(projectName) ? toLower('project-${suffix}') : projectName
-    friendlyName: projectFriendlyName
-    location: location
-    tags: tags
 
     // workspace configuration
     publicNetworkAccess: projectPublicNetworkAccess
-    hubId: hub.outputs.id
     workspaceId: workspace.outputs.id
 
     // role assignments
@@ -388,6 +325,7 @@ module document 'modules/document.bicep' = {
   params: {
     name: 'document-${suffix}'
     location: location
+    customSubDomainName: toLower('document-intelligence-${suffix}')
   }
 }
 
@@ -398,16 +336,8 @@ output deploymentInfo object = {
   aiServicesName: aiServices.outputs.name
   aiServicesEndpoint: aiServices.outputs.endpoint
   aiServicesOpenAiEndpoint: aiServices.outputs.openAiEndpoint
-  aiServicesKey: aiServices.outputs.key1
-  hubName: hub.outputs.name
   projectName: project.outputs.name
-  documentKey: document.outputs.key1
   documentEndpoint: document.outputs.endpoint
-  searchKey: search.outputs.primaryKey
   searchEndpoint: search.outputs.endpoint
-  storageAccountName: storageAccount.outputs.name
-  storageAccountId: storageAccount.outputs.id
-  storageAccountConnectionString: storageAccount.outputs.connectionString
-  storageAccountKey: storageAccount.outputs.primaryKey
   deployedModels: aiServices.outputs.deployedModels
 }

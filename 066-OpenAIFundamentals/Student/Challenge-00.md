@@ -60,7 +60,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Azure AI Foundry Project and Hub](#Setup-Azure-AI-Foundry-Project-and-Hub)
+You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup Microsoft Foundry Project](#Setup-Microsoft-Foundry-Project)
 
 **NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
@@ -134,20 +134,20 @@ Once you have an Azure Machine Learning Studio Workspace set up, you can upload 
 </details>
 <br/>
 
-### Deploy Azure AI Foundry Resources
+### Deploy Microsoft Foundry Resources
 
 Now that you have a Jupyter notebook environment setup, you need to:
-- Deploy AI models and resources in Azure AI Foundry.  
+- Deploy AI models and resources in Microsoft Foundry.  
 - Setup Jupyter Notebooks Configuration File
   
 We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Azure AI Foundry.
 
-- [Automate Azure AI Foundry Deployment](#automate-azure-ai-foundry-deployment)
-- [Manual Azure AI Foundry Deployment](#manual-azure-ai-foundry-deployment)
+- [Automate Microsoft Foundry Deployment](#automate-microsoft-foundry-deployment)
+- [Manual Microsoft Foundry Deployment](#manual-microsoft-foundry-deployment)
 
 **NOTE:** If you are limited on time, we recommend using the automation script option.
 
-#### Automate Azure AI Foundry Deployment
+#### Automate Microsoft Foundry Deployment
 
 We have provided a deployment script and a set of Bicep templates which will deploy and configure the Azure AI resources which you will use for this hackathon. You can find these files in the `/infra` folder of your Codespace or the student `Resources.zip` package.
 
@@ -174,36 +174,32 @@ cd infra
 chmod +x deploy.sh
 ./deploy.sh  
 ```
-**NOTE:** By default, the script will create an Azure resource group for you named `rg-ai-foundry-secure`. You may optionally specify a `resourceGroupName` and/or `location` parameters if you need the resources deployed to a specific resource group or region.  The default location is "`eastus`" if you don't specify one. 
+**NOTE:** By default, the script will create an Azure resource group for you named `rg-microsoft-foundry-secure`. You may optionally specify a `resourceGroupName` and/or `location` parameters if you need the resources deployed to a specific resource group or region.  The default location is "`eastus`" if you don't specify one. 
 
 ```
 ./deploy.sh --resourceGroupName "[resource-group-name]" --location "[location]"
 ```
 
-#### Manual Azure AI Foundry Deployment
+#### Manual Microsoft Foundry Deployment
 
 **NOTE:** You can skip this section if you chose to automate the deployment.
 
-If you want to deploy the Azure AI Foundry resources, expand the section below and follow instructions there.
+If you want to deploy the Microsoft Foundry resources, expand the section below and follow instructions there.
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Manual Deployment Instructions</strong></summary>
 
 #### Setup Azure AI Foundry Project and Hub
 
-Navigate to [AI Foundry](https://ai.azure.com) to create your Azure AI project and the needed resources. A project is used to organize your work and allows you to collaborate with others. A hub provides the hosting environment for your projects. An Azure AI hub can be used across multiple projects.
+Navigate to [AI Foundry](https://ai.azure.com) to create your Microsoft Foundry project. 
 
-- Click on the **+ Create Project** button.
-- Give your project a name and click **Create a new hub**.
-  - Fill out a name for your hub. 
-  - Click the **Next** button
-  - Click the **Customize** button
-  - Click **Create new AI Search**.
-  - Fill out a name for your Azure AI Search
-  - Click the **Next** button to finish setting up your Azure AI Search
-  - Click the **Next** button on the screen where it says **Create a hub for your projects**
-  - On the Review and Finish page, click the **Create** button
-- The hub will create an Azure Open AI, Azure Blob, and an AI Service resource for you once it is finished. Resources are different Azure services you will use within the challenges.
+- Click on the **+ Create New** button.
+- Choose Microsoft Foundry resource for the resource type. Click the **Next** button
+  - Fill out a name for your project. **Note:** You should not need to specify Advanced Options unless you need or want to change the region because of capacity contraints. Click the **Create** button
+- From the Azure portal (or you can use an Infrastructure as Code approach if you prefer using Bicep/Terraform/ARM/CLI)
+  - Create an Azure AI Search service
+  - Specify a service name for your Azure AI Search. You can use the same resource group and location as the Microsoft Foundry resource. **Note:** Make sure you set the Pricing Tier to Standard (Basic/Free is not supported)
+
 
 #### Deploy Azure OpenAI Models
 

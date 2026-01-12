@@ -19,7 +19,7 @@ Questions you should be able to answer by the end of this challenge:
 - What model would you select to perform complex problem solving？
 - What model would you select to generate new names?
 
-You will work in the Azure AI Foundry for this challenge. We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
+You will work in the Microsoft Foundry for this challenge. We recommend keeping the student guide and the Microsoft Foundry in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 This challenge is divided into the following sections:
 
@@ -36,7 +36,7 @@ This challenge is divided into the following sections:
 Scenario: You are building a chatbot for a retail company that needs fast responses and safe outputs. Your goal is to explore the Model Catalog and identify models for this use case. There is no right or wrong answer here.
 
 #### Student Task 2.1
-- Go into the [Azure AI Foundry](https://ai.azure.com).
+- Go into the [Microsoft Foundry](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which model can potentially help with the task at hand.
 - Share your findings with a peer and compare your choices. Did you pick the same models? Why or why not?
