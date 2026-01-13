@@ -96,7 +96,9 @@ deploymentOutputs=$(az deployment group create \
     echo "[$template] Bicep template deployment succeeded"
   else
     echo "Failed to deploy [$template] Bicep template"
-    exit
+    echo "Fetching deployment error details..."
+    az deployment group show --resource-group "$resourceGroupName" --name "$deploymentName" --query 'properties.error' -o json
+    exit 1
   fi
 
 json=$deploymentOutputs
