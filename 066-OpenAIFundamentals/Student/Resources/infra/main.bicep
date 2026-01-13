@@ -288,7 +288,7 @@ module project 'modules/foundryProject.bicep' = {
     // dependent resources
     aiServicesName: aiServices.outputs.name
     applicationInsightsId: applicationInsights.outputs.id
-    containerRegistryId: acrEnabled ? containerRegistry.outputs.id : ''
+    containerRegistryId: acrEnabled ? containerRegistry!.outputs.id : ''
     keyVaultId: keyVault.outputs.id
     storageAccountId: storageAccount.outputs.id
 
