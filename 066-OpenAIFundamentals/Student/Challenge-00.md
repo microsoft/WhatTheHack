@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Deploy Azure AI Foundry Resources](#deploy-azure-ai-foundry-resources)
+- [Deploy Microsoft Foundry Resources](#deploy-azure-ai-foundry-resources)
 
 ### Azure Subscription
 
@@ -140,7 +140,7 @@ Now that you have a Jupyter notebook environment setup, you need to:
 - Deploy AI models and resources in Microsoft Foundry.  
 - Setup Jupyter Notebooks Configuration File
   
-We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Azure AI Foundry.
+We have provided an automation script that will perform these tasks for you. However, you may wish to complete these tasks manually to become more familiar with Microsoft Foundry.
 
 - [Automate Microsoft Foundry Deployment](#automate-microsoft-foundry-deployment)
 - [Manual Microsoft Foundry Deployment](#manual-microsoft-foundry-deployment)
@@ -182,16 +182,16 @@ chmod +x deploy.sh
 
 #### Manual Microsoft Foundry Deployment
 
-**NOTE:** You can skip this section if you chose to automate the deployment.
+**NOTE:** You can skip this section if you chose to automate the deployment. It is strongly recommended that you use the automated approach. If you'd like to understand more what the automated approach is doing, you can use GitHub Copilot to explain what the deployment script and associated Bicep files are doing. 
 
 If you want to deploy the Microsoft Foundry resources, expand the section below and follow instructions there.
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Manual Deployment Instructions</strong></summary>
 
-#### Setup Azure AI Foundry Project and Hub
+#### Setup Azure Microsoft Foundry Project 
 
-Navigate to [AI Foundry](https://ai.azure.com) to create your Microsoft Foundry project. 
+Navigate to [Microsoft Foundry](https://ai.azure.com) to create your Microsoft Foundry project. 
 
 - Click on the **+ Create New** button.
 - Choose Microsoft Foundry resource for the resource type. Click the **Next** button
@@ -205,7 +205,7 @@ Navigate to [AI Foundry](https://ai.azure.com) to create your Microsoft Foundry 
 
 Now we will deploy the needed large language models from Azure OpenAI. 
 
-- Navigate to the [AI Foundry](https://ai.azure.com) 
+- Navigate to the [Microsoft Foundry](https://ai.azure.com) 
 - On the left navigation bar, under My Assets, click on Models + endpoints. Click the Deploy Model button and select Deploy base model
 - Deploy the following 3 models in your Azure OpenAI resource. 
   - `gpt-4o`
@@ -222,21 +222,9 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
 
 - Rename the file from `.env.sample` to `.env`.
 - Add all the required Azure resource credentials in the `.env` file. This includes: Azure OpenAI, model deployments, AI Search, Azure Document Intelligence, and Azure Blob
-    - For **Azure OpenAI and Model Deployments**, you can find these credentials in Azure AI Foundry:
-      - Navigate to the [AI Foundry](https://ai.azure.com)
-      - Navigate to your project. In the lower left corner, click on the link to Management Center. It is also under Project details.
-      - Click on Connected resources under your project
-      - Click the name of your Azure OpenAI Service to see its details. Copy the Target URL and API Key for `OPENAI_API_BASE` and `OPEN_API_KEY`, respectively into the `.env` file
-      - From the **`Manage connect resources in this project`** screen, click the Name with the type **`AIServices`**. The AI Services deployment is a multi-service resource that allows you to access multiple Azure AI services like Document Intelligence with a single key and endpoint. Copy the Target URL and the API Key for `AZURE_DOC_INTELLIGENCE_ENDPOINT` and `AZURE_DOC_INTELLIGENCE_KEY`, respectively into the `.env` file
-      - In the [Azure Portal](portal.azure.com), navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Locate your **AI Search** service that you created earlier
-      - From the **Overview**, copy the URL for `AZURE_AI_SEARCH_ENDPOINT` in the .env file
-      - Under **`Settings`** go to Keys, copy the admin key into `AZURE_AI_SEARCH_KEY` in the `.env` file      
-      - Model deployment names should be the same as the ones populated in the `.env.sample` file especially if you have deployed a different model due to quota issues.
-    - For **Azure Blob**, you can find these credentials in the [Azure Portal](portal.azure.com).
-      - In the Azure Portal, navigate to the resource group you made when creating your hub within the AI Foundry.
-      - Click on your **`Storage account`** resource
-      - Click on **`Security + networking`** and find **`Access keys`**. You should be able to see the **`Storage account name`**, **`key`**, and **`Connection string`**.
+    - For **Azure OpenAI and Model Deployments**, you can find these credentials in Azure Microsoft Foundry:
+      - Navigate to the [Microsoft Foundry](https://ai.azure.com)
+      - You will need the values for `OPENAI_API_BASE`, `AZURE_DOC_INTELLIGENCE_ENDPOINT`, `AZURE_AI_SEARCH_ENDPOINT`, `AZURE_AI_PROJECT_ENDPOINT`, and `AZURE_BLOB_STORAGE_ACCOUNT_NAME` to put in your `.env` file. Use your favorite search tool or Github Copilot to figure out where to retrieve these values either in the Foundry Portal, Azure Portal, or using the Azure CLI. 
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
 
@@ -259,7 +247,7 @@ If using GitHub Codespaces:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project and Hub in your AI Foundry.
+- Verify that you have created the Project and Hub in your Microsoft Foundry.
     - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 If working on a local workstation: 
@@ -272,7 +260,7 @@ If working on a local workstation:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project and Hub in your AI Foundry.
+- Verify that you have created the Project and Hub in your Microsoft Foundry.
     - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 ## Learning Resources

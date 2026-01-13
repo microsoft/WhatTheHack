@@ -75,7 +75,7 @@ Scenario: You are a product manager at a multinational tech company, and your te
 
 ### 2.4 Model Router
 #### Student Task 2.4
-- Navigate to AI Foundry and deploy an instance of model router in the same project as your other models
+- Navigate to Microsoft Foundry and deploy an instance of model router in the same project as your other models
 - In Chat Playground use the model router deployment and prompt it with a variety of questions ranging simple to difficult. You can use the sample prompts below or come up with your own! Note how different models are used for each query (you can see this switch in the metadata on top of the prompt).
 - After trying the below prompts navigate to a browser window and open Copilot. Ask Copilot the pricing for the three different models each query used. Note the price difference for each model. The smart routing is optimizing cost by using light weight models (which are cheaper) for the easier prompts!
 
@@ -105,7 +105,7 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [Overview of Azure OpenAI Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/models)
-- [Use Model Router for Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router)
+- [Use Model Router for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/model-router)
 - [Azure OpenAI Pricing Page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/)
 - [Request for Quota Increase](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu)
 - [Customize Models](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio)

@@ -17,7 +17,7 @@ Questions you should be able to answer by the end of this challenge:
 - What model would you select to perform complex problem solving？
 - What model would you select to generate new names?
 
-You will work in the Azure AI Foundry for this challenge. We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
+You will work in the Azure Microsoft Foundry for this challenge. We recommend keeping the student guide and the Azure Microsoft Foundry in two windows side by side as you work. This will also help to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
 This challenge is divided into the following sections:
 
@@ -33,7 +33,7 @@ This challenge is divided into the following sections:
 Scenario: You are part of a research team working on getting information from biotech news articles. Your goal is to explore the Model Catalog and identify some suitable models for accurate question answering. There is no right or wrong answer here.
 
 #### Student Task 2.1
-- Go into the [Azure AI Foundry](https://ai.azure.com).
+- Go into the [Microsoft Foundry](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which models can potentially improve the accuracy of the task at hand.
 
@@ -53,7 +53,7 @@ Scenario: You are part of a research team working on getting information from bi
 ### 2.4 Prompt Flow
 Scenario: You are a product manager at a multinational tech company, and your team is developing an advanced AI-powered virtual assistant to provide real-time customer support. The company is deciding between GPT-3.5 Turbo and GPT-4 to power the virtual assistant. Your task is to evaluate both models to determine which one best meets the company's needs for handling diverse customer inquiries efficiently and effectively.
 
-Navigate to the AI Foundry and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
+Navigate to the Microsoft Foundry and click on your project. You should be able to see **Prompt flow** under Tools in the navigation bar. Create a new **standard flow** to solve the tasks below and compare the responses from different models. For each task, you will see the provided prompts that you can test against the deployed models.
 
 **NOTE:** If you get this **User Error: This request is not authorized to perform this operation using this permission. Please grant workspace/registry read access to the source storage account.** when you create a new **standard** flow using the default name, then please append some random characters to the name or create a unique name for your flow.
 

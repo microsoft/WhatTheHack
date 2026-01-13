@@ -43,7 +43,7 @@ In this Challenge, you explored creating an agent through the Microsoft Foundry 
 ## Learning Resources
 
 - [Overview of Microsoft Agents](https://learn.microsoft.com/en-us/azure/ai-services/agents/?view=azure-python-preview)
-- These steps are listed here along with many other prompts: [Agents in AI Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
+- These steps are listed here along with many other prompts: [Agents in Microsoft Foundry](https://techcommunity.microsoft.com/blog/educatordeveloperblog/step-by-step-tutorial-building-an-ai-agent-using-azure-ai-foundry/4386122) . 
 
 
   
