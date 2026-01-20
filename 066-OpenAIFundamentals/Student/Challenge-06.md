@@ -10,13 +10,6 @@ Integrating agents into an application after implementing Retrieval-Augmented Ge
 
 In this challenge, you will create a basic agent. 
 
-### Setup
-
-1. Log into your [Microsoft Foundry portal](ai.azure.com)
-2. In your project's left-hand pane, navigate to `My assets -> Models and endpoints`.
-3. On the Model deployments tab, click the `+ Deploy model` button and select `Deploy base model` from the drop down.
-4. Search for the gpt-4o-mini model, select it, and confirm the deployment.
-
 ### Creating the Agent 
 1. In the left-hand pane, under `Build & Customize`, select `Agents`
 2. Select your Azure OpenAI resource and hit `Let's go`.
