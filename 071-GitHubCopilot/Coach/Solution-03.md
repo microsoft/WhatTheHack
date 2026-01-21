@@ -4,7 +4,7 @@
 
 ## Notes & Guidance
 
-This challenge introduces students to the Model Context Protocol (MCP), custom agent instructions, and chat modes - powerful ways to extend and customize GitHub Copilot beyond its default capabilities. This is a more advanced topic that builds on their foundational Copilot knowledge.
+This challenge introduces students to the Model Context Protocol (MCP), a powerful way to extend GitHub Copilot beyond its default capabilities by connecting it to external data sources and tools.
 
 ### Key Concepts to Explain Before the Challenge
 
@@ -13,37 +13,39 @@ This challenge introduces students to the Model Context Protocol (MCP), custom a
 - Think of it as a way to give Copilot access to information beyond the code in the workspace
 - MCP servers act as bridges between Copilot and external context sources (APIs, databases, documentation, etc.)
 - This is particularly valuable for providing domain-specific knowledge or organization-specific context
+- Unlike IDE-level customization (covered in Challenge 04), MCP is about accessing external resources
 
-**Custom Agent Instructions:**
-- These are user-defined instructions that modify how GitHub Copilot behaves
-- Can be used to enforce coding standards, specify preferred frameworks, or provide project context
-- Persists across chat sessions within a workspace
-- Located in `.github/copilot-instructions.md` or configured in VS Code settings
-
-**Chat Modes:**
-- **Workspace Mode (@workspace)**: Copilot has context of the entire workspace
-- **Editor Mode**: Focused on the currently open file
-- **Agent Mode**: Specialized agents for specific tasks (e.g., @terminal, @vscode)
-- Each mode has different strengths for different scenarios
+**Authentication Best Practices:**
+- **OAuth is recommended** for GitHub MCP server - provides secure, seamless authentication
+- OAuth allows users to authorize without exposing long-lived tokens
+- Personal Access Tokens (PATs) are an alternative but require manual token management and rotation
+- Students should configure GitHub MCP using OAuth for better security and user experience
 
 ### Setting Up MCP Servers
 
 Students will need to configure an MCP server. Here are recommended starting points:
 
 **Easy MCP Servers to Start With:**
-1. **Filesystem Server**: Provides file system access beyond the workspace
-2. **Fetch Server**: Allows Copilot to fetch content from URLs
-3. **SQLite Server**: Connects to local SQLite databases
+1. **GitHub MCP Server**: Provides access to GitHub repositories, issues, PRs (recommended for this challenge)
+2. **Filesystem Server**: Provides file system access beyond the workspace
+3. **Fetch Server**: Allows Copilot to fetch content from URLs
+4. **SQLite Server**: Connects to local SQLite databases
 
 **Configuration Location:**
 - VS Code: Settings → Extensions → GitHub Copilot → Model Context Protocol
 - Or manually edit `settings.json` with MCP server configurations
 
-**Example MCP Server Configuration (settings.json):**
+**Example MCP Server Configuration with OAuth (Recommended):**
 ```json
 {
   "github.copilot.chat.mcp.enabled": true,
   "github.copilot.chat.mcp.servers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"]
+      // OAuth authentication will be handled automatically via VS Code
+      // No need to manually provide tokens
+    },
     "filesystem": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/directory"]
@@ -56,53 +58,30 @@ Students will need to configure an MCP server. Here are recommended starting poi
 }
 ```
 
-### Custom Agent Instructions
-
-Guide students to create `.github/copilot-instructions.md` in their project root:
-
-**Example Instructions:**
-```markdown
-# Project Instructions for GitHub Copilot
-
-This is a Whack-a-Mole game project built with HTML, CSS, and JavaScript.
-
-## Coding Standards
-- Use ES6+ JavaScript syntax
-- Follow camelCase naming conventions
-- Add JSDoc comments for all functions
-- Prefer const over let, avoid var
-
-## Project Context
-- Game state is managed in gameState object
-- All timing functions use milliseconds
-- DOM manipulation should be vanilla JS (no jQuery)
-
-## Preferences
-- When suggesting code, include error handling
-- Prioritize readability over brevity
-- Add accessibility attributes to HTML elements
+**Alternative: Personal Access Token (Not Recommended):**
+If OAuth is not available, students can use a PAT, but this requires manual token management:
+```json
+{
+  "github.copilot.chat.mcp.servers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxxxxxxxxxx"
+      }
+    }
+  }
+}
 ```
 
-### Chat Mode Demonstrations
+### GitHub Repository Setup
 
-**Recommended: Demonstrate all chat modes at the end** - Some students may not be aware of all the different chat modes available. Going through each mode helps ensure everyone understands when to use each one.  In addition if you have experience with another MCP server like Azure MCP, feel free to demo.
+For this challenge, students should:
+- Create a GitHub repository for their Whack-a-Mole project (or use existing)
+- Add at least 5 sample issues with different labels (e.g., "bug," "enhancement," "documentation," "question," "good first issue")
+- Optionally add pull requests, project boards, or milestones to practice more MCP queries
 
-Help students understand when to use each mode:
-
-**@workspace Mode:**
-- Use when the question relates to multiple files or the overall project structure
-- Example: "How is the game state managed across different files?"
-- Copilot will analyze all files in the workspace for context
-
-**Editor Mode (default):**
-- Use for file-specific questions or when adding code to the current file
-- More focused and faster responses
-- Example: "Add a function to increase difficulty"
-
-**Agent Modes:**
-- **@terminal**: For shell commands and terminal operations
-- **@vscode**: For VS Code settings and configuration questions
-- These are specialized for specific tools
+This setup provides realistic data for students to query via MCP.
 
 ### Common Blockers and Solutions
 
@@ -112,16 +91,19 @@ Help students understand when to use each mode:
 - Verify the MCP feature is enabled in Copilot settings
 - Look at VS Code's Output panel → GitHub Copilot Chat for error messages
 
-**Blocker 2: Custom Instructions Not Taking Effect**
-- Instructions must be in `.github/copilot-instructions.md`
-- Restart VS Code or reload the window after creating the file
-- Instructions work best when specific and actionable
-- Test by asking Copilot about the project context
+**Blocker 2: OAuth Authentication Issues**
+- GitHub MCP server should use OAuth authentication (recommended approach)
+- When first using GitHub MCP, VS Code will prompt to authorize via OAuth
+- If OAuth prompt doesn't appear, check that GitHub Copilot extension is up to date
+- If students must use PAT (not recommended), ensure token has scopes: `repo`, `read:org`, `read:user`
+- Generate PAT at: https://github.com/settings/tokens (only if OAuth fails)
+- **Emphasize OAuth is the preferred and more secure approach**
 
 **Blocker 3: Understanding Which Chat Mode to Use**
-- If stuck, students can just ask Copilot! "Should I use @workspace for this question?"
-- Generally: specific file questions → editor mode, multi-file questions → @workspace
-- Remind students they can experiment - switching modes is quick
+- MCP works with Copilot Chat - students can ask questions in natural language
+- Example queries: "List all open issues in my repo," "What are the recent PRs?"
+- Can use @workspace for multi-file context or editor mode for focused queries
+- Remind students to experiment - MCP responses may take slightly longer
 
 **Blocker 4: No Obvious Use Case for MCP**
 - Suggest practical scenarios:
@@ -133,25 +115,29 @@ Help students understand when to use each mode:
 ### Success Criteria Validation
 
 **MCP Server Working:**
-- Student can show Copilot accessing external context
+- Student can show Copilot accessing external context via MCP
+- For GitHub MCP: ask Copilot to list issues, check PR status, or query repository information
+- **Verify OAuth authentication** - student should NOT have GITHUB_PERSONAL_ACCESS_TOKEN in settings.json
+- Student can explain why OAuth is preferred (security, no token management, automatic refresh)
 - For fetch server: ask Copilot to fetch and summarize content from a URL
 - For filesystem: demonstrate accessing files outside the workspace
 - Check VS Code settings show configured MCP servers
 
-**Custom Instructions:**
-- Student can show the `.github/copilot-instructions.md` file
-- Demonstrate that Copilot follows the instructions (e.g., coding style preferences)
-- Test by asking Copilot to write a function and verify it follows the guidelines
+**GitHub Repository Setup:**
+- Repository exists with Whack-a-Mole code pushed to GitHub
+- At least 5 issues created with varied labels
+- Student can demonstrate querying this data via Copilot with MCP
 
-**Chat Modes:**
-- Student can explain the difference between @workspace and editor mode
-- Show examples of when each would be most useful
-- Demonstrate using at least one specialized agent (@terminal or @vscode)
+**MCP Queries:**
+- Student successfully uses Copilot to query external data
+- Example: "What are all the bug issues in my repo?"
+- Example: "Show me the most recently updated pull request"
+- Demonstrates understanding of how MCP extends Copilot's reach
 
-**Practical Application:**
-- Student used the enhanced Copilot setup to add a feature or solve a problem
-- Can articulate how the external context helped
-- Example: Used MCP to access documentation and implemented a feature based on it
+**Understanding MCP:**
+- Student can explain what MCP does and why it's useful
+- Understands difference between local workspace context and external MCP context
+- Can articulate when MCP adds value vs when it's unnecessary
 
 ### Advanced Challenge Guidance
 
@@ -162,37 +148,40 @@ Help students understand when to use each mode:
 
 **Multiple MCP Servers:**
 - Students can configure several servers simultaneously
-- Example: filesystem + fetch + custom server
+- Example: GitHub + filesystem + fetch
 - Copilot will use whichever is relevant to the question
 
-**Team Coding Standards:**
-- Instructions can encode team preferences
-- Include linting rules, naming conventions, architecture patterns
-- This becomes a "team knowledge base" for Copilot
+**Custom MCP Servers:**
+- Point students to the MCP SDK documentation for building their own
+- A simple custom server could provide game configuration data
+- Could create an MCP server that serves game tips or achievement data
 
-**Internal Documentation Server:**
+**Enterprise Use Cases:**
 - For enterprise scenarios, build MCP server serving company docs
 - Could connect to Confluence, internal wikis, or API documentation
-- Makes Copilot aware of organization-specific patterns
+- Makes Copilot aware of organization-specific patterns and data
 
 ### Estimated Time
 
 This challenge typically takes 45 minutes:
-- 15 minutes: Understanding MCP and configuration
-- 15 minutes: Setting up custom instructions and exploring chat modes
-- 15 minutes: Applying to practical task
+- 15 minutes: Understanding MCP concepts and configuration
+- 15 minutes: Setting up GitHub repository with issues and MCP server
+- 15 minutes: Testing MCP queries and understanding capabilities
 
 ### Tips to Share If Teams Are Stuck
 
-- Start simple with the fetch or filesystem server before building custom ones
-- Custom instructions are powerful but need to be specific - vague instructions don't help much
-- MCP is most valuable when you have domain-specific knowledge to inject
-- Don't overthink chat modes - they're just different scopes of context
+- Start with the GitHub MCP server since it aligns with the challenge requirements
+- **Use OAuth authentication** - don't configure with PAT tokens unless OAuth is unavailable
+- When configuring GitHub MCP, VS Code should prompt for OAuth authorization on first use
+- Create diverse issues (bugs, features, questions) to make MCP queries interesting
+- Use descriptive labels and titles for issues to practice filtering queries
+- MCP is most valuable when you have external data or APIs to connect
 - The Resources.zip may contain example MCP configurations to get started quickly
+- If MCP setup is problematic, focus on understanding concepts and trying simpler servers (fetch)
 
 ### Reference Links
 
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
+- [GitHub MCP Server](https://github.com/modelcontextprotocol/servers/tree/main/src/github)
 - [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
 - [GitHub Copilot Chat Documentation](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
-- [Customizing Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)
