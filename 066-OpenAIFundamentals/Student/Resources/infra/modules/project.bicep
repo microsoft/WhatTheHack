@@ -155,7 +155,7 @@ resource aiDeveloperRoleAssignment 'Microsoft.Authorization/roleAssignments@2022
   }
 }
 
-// This role assignment grants the user the required permissions to start a Prompt Flow in a compute service within Azure AI Foundry
+// This role assignment grants the user the required permissions to start a Prompt Flow in a compute service within Microsoft Foundry
 resource azureMLDataScientistUserRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(userObjectId)) {
   name: guid(project.id, azureMLDataScientistRole.id, userObjectId)
   scope: project
@@ -166,7 +166,7 @@ resource azureMLDataScientistUserRoleAssignment 'Microsoft.Authorization/roleAss
   }
 }
 
-// This role assignment grants the Azure AI Services managed identity the required permissions to start Prompt Flow in a compute service defined in Azure AI Foundry
+// This role assignment grants the Azure AI Services managed identity the required permissions to start Prompt Flow in a compute service defined in Microsoft Foundry
 resource azureMLDataScientistManagedIdentityRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(aiServicesPrincipalId)) {
   name: guid(project.id, azureMLDataScientistRole.id, aiServicesPrincipalId)
   scope: project
