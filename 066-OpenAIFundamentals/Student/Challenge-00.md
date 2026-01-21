@@ -229,7 +229,7 @@ You will find the `.env.sample` file in the root of the codespace. If you are wo
    
   **TIP:** Learn more about using `.env` files [here](https://dev.to/edgar_montano/how-to-setup-env-in-python-4a83#:~:text=How%20to%20setup%20a%20.env%20file%201%201.To,file%20using%20the%20following%20format%3A%20...%20More%20items).
 
-**NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your renamed `.env` file to a Git repo during this hack.
+**NOTE:** We have also provided a `.gitignore` file that should prevent you from accidentally committing your own `.env` file to a Git repo during this hack.
 
 **NOTE:** On MacOS, files that start with a `.` are hidden files and are not viewable in Finder when browsing the file system. They will be visible in both VS Code or GitHub Codespaces.
 
@@ -245,7 +245,7 @@ If using GitHub Codespaces:
 - Verify you have the following files & folders available in the Codespace:
     - `/data`
     - `/notebooks`
-    - `.env` <= Renamed from `.env.sample`
+    - `.env` <= Copied from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
 - Verify that you have created the Project in Microsoft Foundry.
