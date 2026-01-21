@@ -248,7 +248,7 @@ If using GitHub Codespaces:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project and Hub in your Microsoft Foundry.
+- Verify that you have created the Project in Microsoft Foundry.
     - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 If working on a local workstation: 
@@ -261,7 +261,7 @@ If working on a local workstation:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project and Hub in your Microsoft Foundry.
+- Verify that you have created the Project in your Microsoft Foundry.
     - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 ## Learning Resources

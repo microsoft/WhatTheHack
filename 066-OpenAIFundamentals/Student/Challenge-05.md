@@ -1,4 +1,4 @@
-# Challenge 05 - Trustworthy AI
+# Challenge 05 - Responsible AI
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
@@ -30,30 +30,6 @@ This challenge is divided into the following sections:
 For each section of this Challenge, you will work in [Microsoft Foundry](https://ai.azure.com). We recommend keeping the student guide and Microsoft Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
 **NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Microsoft Foundry. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Microsoft Foundry for this hack.
-
-### Access Content Safety Service - TEMPORARY STEP
-
-Azure AI Services are constantly changing. As of July 2024, Microsoft Foundry does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Microsoft Foundry should handle this automatically.
-
-Follow these steps to grant your user account access to the Content Safety service:
-
-- In the [Azure Portal](https://portal.azure.com), navigate to the resource group where your AI resources are deployed 
-- Navigate to the **Azure AI services** resource
-- Click **Access control (IAM)** from the left menu
-- Click the **+ ADD** button, then select **Add role assignment**
-- On the **Add role assignment** screen, type "Cognitive Services User" in the search box
-- In the list of roles, click/highlight the **Cognitive Services User** row
-- Click the **NEXT** button at the bottom of the screen
-- Click **+ Select Members**
-- In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **`ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com`**)
-- Click the **SELECT** button
-- Click the **Review & Assign** button to complete the role assignment
-
-After the role assignment completes in the Azure Portal, you will need to wait 1-3 minutes and then follow one additional step:
-
-- Log out of [Microsoft Foundry](https://ai.azure.com), and then log back in. This will ensure your login token is refreshed with the new permissions for Content Safety.
-
-You should now be prepared to complete the rest of this challenge!
 
 ### 5.1 Harmful Content Detection
 
