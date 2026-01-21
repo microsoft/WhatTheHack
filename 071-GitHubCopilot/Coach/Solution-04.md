@@ -1,18 +1,52 @@
-# Challenge 04 - Leveraging GitHub Copilot in Your Dev Workflow - Coach's Guide 
+# Challenge 04 - Customizing GitHub Copilot in Your IDE - Coach's Guide 
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
 
-- This challenge is to show that Copilot can do more than just help with developers writing code.  Here we are going to also leverage Copilot to help with commit messages and a GitHub Action pipeline (yaml).  At the end of this challenge you can also discuss some other areas where Copilot may be able to help.  Copilot chat will likely be able to help scaffold a good portion of this.  Below are some examples:
-  - Helping with XML such as in APIM policies
-  - Infrastructure as code such as ARM/Bicep
-  - SQL Queries
-- To generate a commit message, they can go to VS Code, and in the source control section there will be these stars/diamonds next to the commit message box.  Selecting that will allow you to leverage Copilot to generate a commit message.  They can generate this after creating the pipeline to have something to checkin to.
-- This could also be a great time to talk about some of GitHub Copilot Enterprises other features such as PR message creation which is along the same concept. However this is a higher license tier and not part of the hack.  There are three tiers of GitHub Copilot Licensing, this hack will focus on the features that apply to Individual/Business:
-  - Copilot Individual ($10/Month) - This is for individual developers.
-  - Copilot Business ($19/Month) -  This is meant for organizations and allows capabilities to manage licenses and features within Copilot.
-  - Copilot Enterprise ($39/Month) - This requires the codebase to be in GitHub but allows for organizations to infuse AI across the developer workflow.
-  - Full Feature Comparison: https://docs.github.com/en/copilot/get-started/plans
- 
-[Sample Pipeline Solution](./Solutions/Solution-03.yaml)
+This challenge focuses on customizing GitHub Copilot behavior **within the IDE** using custom instructions and custom agents. The goal is to show how a small amount of guidance can immediately change Copilot’s output in a meaningful way.  We aren't expecting long lengthy instruction files to be built
+
+Students should focus on **simple, high-impact rules** that are easy to observe during the hackathon.
+
+---
+
+## Key Concepts to Explain Before the Challenge
+
+### Custom Agent Instructions
+
+- Defined in `.github/copilot-instructions.md` at the repository root
+- Apply to **all Copilot interactions** in the workspace
+- Used to guide coding standards, testing expectations, and project conventions
+- Changes take effect immediately after file creation or modification
+
+### Chat Modes (Usage Only)
+
+- Chat modes are selected explicitly in the IDE
+- They provide a focused interactive experience
+- They do **not** override or replace agent instructions
+- Instructions always apply, regardless of the selected chat mode
+
+---
+
+Sample Instruction File below, many other examples in Awesome Copilot repo.
+
+
+### Example Agent Instructions (.NET)
+
+Keep instructions short and concrete so behavior changes are obvious.
+
+```markdown
+# GitHub Copilot Project Instructions
+
+## Coding Standards
+- Use C# and modern .NET conventions
+- Prefer explicit types over `var` unless the type is obvious
+- Use meaningful method and variable names
+- Keep methods small and focused on a single responsibility
+
+## Testing Expectations
+- New game logic should include unit tests
+- Use xUnit for testing
+- Test names should describe behavior, not implementation
+- Avoid testing UI code directly; focus on game logic
+

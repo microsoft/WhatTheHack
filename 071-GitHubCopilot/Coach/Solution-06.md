@@ -1,16 +1,9 @@
-# Challenge 06 - Debugging and Code Optimization with Copilot - Coach's Guide 
+# Challenge 06 - Leveraging Copilot for Test Case and Documentation - Coach's Guide 
 
-[< Previous Solution](./Solution-05.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-05.md) - **[Home](./README.md)** - [Next Solution >](./Solution-07.md)
 
 ## Notes & Guidance
 
-- Students can grab a file of their choice from the [OWASP Juice Shop Repo](https://github.com/juice-shop/juice-shop).  For example you can choose the order.ts file located under routes folder [here](https://github.com/juice-shop/juice-shop/blob/master/routes/order.ts).
-- Students should be able to use Copilot chat to ask what the whole file does or highlight and interact with Copilot to explain a snippet of code.
-- Asking Copilot Chat should also give them the ability to request for a code snippet to resolve the vulnerability as well.
-- Please remind students that while Copilot can find vulnerabilities as we will see here, we should not assume it catches everything.  This is not a replacement for other security tools such as static code analysis tools (CodeQL).
-- Since this is a known vulnerable application, we do not expect them to fix and checkin the changes.  This is just an exercise to see how Copilot can help you understand
-  - What the file or piece of code is doing
-  - Find and resolve vulnerabilities
-  - Find and optimize your code
- 
-- As an added note, you can discuss with your students on other similar scenarios and how this could be useful such as refactoring or code conversion. 
+- Students should be able to generate test cases and documentation.  This can either be done via Copilot Chat by asking in a prompt or by highlighting and right clicking a section and choosing "Generate Tests" or "Generate Docs" from the Copilot menu.
+- Students can also ask Copilot Chat to update the pipeline as well.
+- In either of these scenarios they can start typing in their IDE and have Copilot assist as well.

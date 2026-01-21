@@ -17,8 +17,8 @@ In this challenge, you'll focus on learning best practices for working with GitH
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Demonstrate the differences before and after leveraging prompt engineering techniques. You should be able to demonstrate all three scenarios listed in the description, plus at least one additional example of prompt engineering.
-2. Show that you have successfully integrated a new feature into your game.
+- Demonstrate the differences before and after leveraging prompt engineering techniques - show all three core techniques listed in the description, plus at least one additional prompt engineering example
+- Show that you have successfully integrated a new feature into your game
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)

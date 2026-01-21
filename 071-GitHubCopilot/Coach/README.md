@@ -15,12 +15,14 @@ Welcome to the coach's guide for the GitHub Copilot What The Hack. Here you will
 - Challenge 02: **[Best Practices When Using Copilot](./Solution-02.md)**
 	 - Discover GitHub Copilot's best practices.
 - Challenge 03: **[Extending GitHub Copilot with Model Context Protocol](./Solution-03.md)**
-	 - Learn to extend GitHub Copilot with MCP, custom agents, and chat modes.
-- Challenge 04: **[Leveraging GitHub Copilot in Your Dev Workflow](./Solution-04.md)**
+	 - Learn how to extend Copilot with external tools and data sources via MCP.
+- Challenge 04: **[Customizing GitHub Copilot in Your IDE](./Solution-04.md)**
+	 - Personalize Copilot with custom agent instructions and chat modes.
+- Challenge 05: **[Leveraging GitHub Copilot in Your Dev Workflow](./Solution-05.md)**
 	 - Learn to leverage Copilot beyond just writing code.
-- Challenge 05: **[Leveraging Copilot for Test Case and Documentation](./Solution-05.md)**
+- Challenge 06: **[Leveraging Copilot for Test Case and Documentation](./Solution-06.md)**
 	 - Generate test cases and documentation with the help of GitHub Copilot.
-- Challenge 06: **[Debugging and Code Optimization with Copilot](./Solution-06.md)**
+- Challenge 07: **[Debugging and Code Optimization with Copilot](./Solution-07.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
 
 ## Coach Prerequisites
@@ -38,15 +40,16 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Suggested Hack Agenda
 
-This hack is intended to be completed in 1 day in 3 hours.
+This hack is intended to be completed in 1 day in 4.5 hours.
 
 - Sample Day 1
-  - Challenge 1 (30 mins)
-  - Challenge 2 (30 mins)
+  - Challenge 1 (45 mins)
+  - Challenge 2 (45 mins)
   - Challenge 3 (45 mins)
   - Challenge 4 (45 mins)
-  - Challenge 5 (45 mins)
-  - Challenge 6 (30 mins)
+  - Challenge 5 (30 mins)
+  - Challenge 6 (45 mins)
+  - Challenge 7 (30 mins)
 
 
 ## Repository Contents
