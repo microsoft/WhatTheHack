@@ -47,8 +47,7 @@ You can see your balance of available codespace hours on the [GitHub billing pag
 The GitHub Codespace for this hack will host the Jupyter Notebook files, configuration files, and other data files needed for this event. Here are the steps you will need to follow:
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [WTH OpenAI Fundamentals Codespace Repo](https://codespaces.new/perktime/wth-openaifundamentals-codespace?devcontainer_path=.devcontainer/devcontainer.json)
-  <!-- - [WTH OpenAI Fundamentals Codespace Repo](https://aka.ms/wth/openaifundamentals/codespace) -->
+  - [WTH OpenAI Fundamentals Codespace Repo](https://aka.ms/wth/openaifundamentals/codespace)
   - Please open this link and sign in with your personal Github account. 
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
