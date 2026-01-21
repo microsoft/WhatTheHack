@@ -21,6 +21,9 @@ param tags object
 @description('Specifies an optional subdomain name used for token-based authentication.')
 param customSubDomainName string = ''
 
+@description('Specifies whether disable the local authentication via API key.')
+param disableLocalAuth bool = false
+
 @description('Specifies whether or not public endpoint access is allowed for this account..')
 @allowed([
   'Enabled'
@@ -70,6 +73,7 @@ resource aiServices 'Microsoft.CognitiveServices/accounts@2024-04-01-preview' = 
   tags: tags
   properties: {
     customSubDomainName: customSubDomainName
+    disableLocalAuth: disableLocalAuth
     publicNetworkAccess: publicNetworkAccess
   }
 }
@@ -170,7 +174,8 @@ output name string = aiServices.name
 output endpoint string = aiServices.properties.endpoint
 output openAiEndpoint string = aiServices.properties.endpoints['OpenAI Language Model Instance API']
 output principalId string = aiServices.identity.principalId
-
+#disable-next-line outputs-should-not-contain-secrets
+output key1 string = aiServices.listKeys().key1
 // Output the deployed model names
 output deployedModels array = [for deployment in deployments: {
   name: deployment.model.name
