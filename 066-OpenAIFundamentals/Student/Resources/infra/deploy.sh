@@ -82,6 +82,8 @@ if [[ $validateTemplate == 1 ]]; then
 fi
 
 # Deploy the Bicep template
+# Get deployment name from template filename (without path and extension)
+deploymentName=$(basename "$template" .bicep)
 echo "Deploying [$template] Bicep template..."
 deploymentOutputs=$(az deployment group create \
   --resource-group $resourceGroupName \
@@ -131,7 +133,7 @@ echo "Populating .env file..."
 echo "OPENAI_API_BASE=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesOpenAiEndpoint')\"" >> $environment_file
 echo "AZURE_AI_SEARCH_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.searchEndpoint')\"" >> $environment_file
 echo "DOCUMENT_INTELLIGENCE_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.documentEndpoint')\"" >> $environment_file
-echo "AZURE_AI_PROJECT_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.aiServicesProjectEndpoint')\"" >> $environment_file
+echo "AZURE_AI_PROJECT_ENDPOINT=\"$(echo "$json" | jq -r '.deploymentInfo.value.projectEndpoint')\"" >> $environment_file
 # Warning: this assumes the first deployed model is the chat model used by the Jupyter notebooks
 echo "CHAT_MODEL_NAME=\"$(echo "$json" | jq -r '.deploymentInfo.value.deployedModels[0].name')\"" >> $environment_file
 

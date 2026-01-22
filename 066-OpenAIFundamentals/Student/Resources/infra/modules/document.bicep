@@ -7,7 +7,7 @@ param location string
 @description('Custom subdomain name for the Azure Document Intelligence.')
 param customSubDomainName string
 
-resource account 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
+resource account 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
   name: name
   location: location
   sku: {

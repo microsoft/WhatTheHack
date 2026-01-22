@@ -3,7 +3,6 @@ using './main.bicep'
 
 param userObjectId = '<user-object-id>'
 param keyVaultEnablePurgeProtection = false
-param acrEnabled = false
 param nspEnabled = false
 //param aiServicesDisableLocalAuth = false
 param storageAccountAllowSharedKeyAccess = true

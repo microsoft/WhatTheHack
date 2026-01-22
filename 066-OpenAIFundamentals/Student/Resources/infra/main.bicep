@@ -35,9 +35,6 @@ param logAnalyticsSku string = 'PerNode'
 @description('Specifies the workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.')
 param logAnalyticsRetentionInDays int = 60
 
-@description('Specifies the name of the Azure Application Insights resource.')
-param applicationInsightsName string = ''
-
 @description('Specifies the name of the Azure AI Services resource.')
 param aiServicesName string = ''
 
@@ -116,23 +113,6 @@ param keyVaultEnableRbacAuthorization bool = true
 @description('Specifies the soft delete retention in days.')
 param keyVaultSoftDeleteRetentionInDays int = 7
 
-@description('Specifies whether creating the Azure Container Registry.')
-param acrEnabled bool = false
-
-@description('Specifies the name of the Azure Container Registry resource.')
-param acrName string = ''
-
-@description('Enable admin user that have push / pull permission to the registry.')
-param acrAdminUserEnabled bool = false
-
-@description('Tier of your Azure Container Registry.')
-@allowed([
-  'Basic'
-  'Standard'
-  'Premium'
-])
-param acrSku string = 'Standard'
-
 @description('Specifies the name of the Azure Azure Storage Account resource resource.')
 param storageAccountName string = ''
 
@@ -208,30 +188,6 @@ module workspace 'modules/logAnalytics.bicep' = {
   }
 }
 
-module applicationInsights 'modules/applicationInsights.bicep' = {
-  name: 'applicationInsights'
-  params: {
-    // properties
-    name: empty(applicationInsightsName) ? toLower('app-insights-${suffix}') : applicationInsightsName
-    location: location
-    tags: tags
-    workspaceId: workspace.outputs.id
-  }
-}
-
-module containerRegistry 'modules/containerRegistry.bicep' = if (acrEnabled) {
-  name: 'containerRegistry'
-  params: {
-    // properties
-    name: empty(acrName) ? toLower('acr${suffix}') : acrName
-    location: location
-    tags: tags
-    sku: acrSku
-    adminUserEnabled: acrAdminUserEnabled
-    workspaceId: workspace.outputs.id
-  }
-}
-
 module storageAccount 'modules/storageAccount.bicep' = {
   name: 'storageAccount'
   params: {
@@ -276,32 +232,6 @@ module aiServices 'modules/aiServices.bicep' = {
   }
 }
 
-module project 'modules/foundryProject.bicep' = {
-  name: 'project'
-  params: {
-    // workspace organization
-    name: empty(projectName) ? toLower('project-${suffix}') : projectName
-    friendlyName: projectFriendlyName
-    location: location
-    tags: tags
-
-    // dependent resources
-    aiServicesName: aiServices.outputs.name
-    applicationInsightsId: applicationInsights.outputs.id
-    containerRegistryId: acrEnabled ? containerRegistry!.outputs.id : ''
-    keyVaultId: keyVault.outputs.id
-    storageAccountId: storageAccount.outputs.id
-
-    // workspace configuration
-    publicNetworkAccess: projectPublicNetworkAccess
-    workspaceId: workspace.outputs.id
-
-    // role assignments
-    userObjectId: userObjectId
-    aiServicesPrincipalId: aiServices.outputs.principalId
-  }
-}
-
 module networkSecurityPerimeter 'modules/networkSecurityPerimeter.bicep' = if (nspEnabled) {
   name: 'networkSecurityPerimeter'
   params: {
@@ -336,8 +266,8 @@ output deploymentInfo object = {
   aiServicesName: aiServices.outputs.name
   aiServicesEndpoint: aiServices.outputs.endpoint
   aiServicesOpenAiEndpoint: aiServices.outputs.openAiEndpoint
-  projectName: project.outputs.name
   documentEndpoint: document.outputs.endpoint
   searchEndpoint: search.outputs.endpoint
   deployedModels: aiServices.outputs.deployedModels
+  projectEndpoint: aiServices.outputs.projectEndpoint
 }

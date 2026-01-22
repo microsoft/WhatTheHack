@@ -61,7 +61,7 @@ var aiServicesMetrics = [
 ]
 
 // Resources
-resource aiServices 'Microsoft.CognitiveServices/accounts@2024-04-01-preview' = {
+resource aiServices 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
   name: name
   location: location
   sku: sku
@@ -71,11 +71,24 @@ resource aiServices 'Microsoft.CognitiveServices/accounts@2024-04-01-preview' = 
   properties: {
     customSubDomainName: customSubDomainName
     publicNetworkAccess: publicNetworkAccess
+    allowProjectManagement: true
+    defaultProject: '${name}-project'
+    associatedProjects:[
+      '${name}-project'
+    ]
   }
 }
-
+resource project 'Microsoft.CognitiveServices/accounts/projects@2025-09-01' = {
+  name: '${aiServices.name}-project'
+  parent: aiServices
+  location: location
+  identity: identity
+  properties: {
+    description: 'Default project for the AI Services account.'
+  }
+}
 @batchSize(1)
-resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = [
+resource model 'Microsoft.CognitiveServices/accounts/deployments@2025-09-01' = [
   for deployment in deployments: {
     name: deployment.model.name
     parent: aiServices
@@ -170,7 +183,7 @@ output name string = aiServices.name
 output endpoint string = aiServices.properties.endpoint
 output openAiEndpoint string = aiServices.properties.endpoints['OpenAI Language Model Instance API']
 output principalId string = aiServices.identity.principalId
-
+output projectEndpoint string = project.properties.endpoints['AI Foundry API']
 // Output the deployed model names
 output deployedModels array = [for deployment in deployments: {
   name: deployment.model.name
