@@ -2,6 +2,8 @@
   "name": "071-GitHubCopilot",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
+  "workspaceFolder": "/workspace/071-GitHubCopilot/Student/Resources",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
