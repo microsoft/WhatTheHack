@@ -195,7 +195,7 @@ Navigate to [Microsoft Foundry](https://ai.azure.com) to create your Microsoft F
 
 - Click on the **+ Create New** button.
 - Choose Microsoft Foundry resource for the resource type. Click the **Next** button
-  - Fill out a name for your project. **Note:** You should not need to specify Advanced Options unless you need or want to change the region because of capacity contraints. Click the **Create** button
+  - Fill out a name for your project. **Note:** You should not need to specify Advanced Options unless you need or want to change the region because of capacity constraints. Click the **Create** button
 - From the Azure portal (or you can use an Infrastructure as Code approach if you prefer using Bicep/Terraform/ARM/CLI)
   - Create an Azure AI Search service
   - Specify a service name for your Azure AI Search. You can use the same resource group and location as the Microsoft Foundry resource. **Note:** Make sure you set the Pricing Tier to Standard (Basic/Free is not supported)
