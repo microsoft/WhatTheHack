@@ -5,30 +5,12 @@
   "workspaceFolder": "/workspace/071-GitHubCopilot/Student/Resources",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
-      "installMaven": "true"
-    },
-    "ghcr.io/devcontainers/features/dotnet:1": {
-      "version": "8.0"
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
-  },
-
   "customizations": {
     "vscode": {
       "extensions": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "ms-python.python",
-        "ms-vscode.vscode-node-azure-pack",
         "vscjava.vscode-java-pack",
         "ms-dotnettools.csdevkit",
         "dbaeumer.vscode-eslint",
@@ -58,4 +40,5 @@
       "onAutoForward": "notify"
     }
   }
+}
 }
