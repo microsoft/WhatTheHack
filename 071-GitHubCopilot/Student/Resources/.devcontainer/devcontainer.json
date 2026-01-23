@@ -2,6 +2,9 @@
   "name": "071-GitHubCopilot",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   
+  "workspaceFolder": "/workspace/071-GitHubCopilot/Student/Resources",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
@@ -43,6 +46,14 @@
 
   "portsAttributes": {
     "3000": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    },
+    "5000": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    },
+    "8080": {
       "label": "Application",
       "onAutoForward": "notify"
     }
