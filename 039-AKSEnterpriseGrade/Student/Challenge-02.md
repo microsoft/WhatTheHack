@@ -18,7 +18,8 @@ You need to fulfill these requirements to complete this challenge:
 - Deploy as few nodes as possible
 - Attach the cluster to the Azure Container Registry you created in the previous challenge.
 
-**NOTE:** If you do not have "Owner" permissions on your Azure subscription, you will not have permission to attach your AKS cluster to your ACR.  We have staged the sample application on Docker Hub so that you can use the container images at these locations:
+**NOTE:** If you do not have "Owner" permissions on your Azure subscription, you will not have permission to attach your AKS cluster to your ACR. Instead of using an Azure identity, you can store the ACR's admin credentials as Kubernetes secrets, and refer to the secrets from the YAML manifest. As last resource, we have staged the sample application on Docker Hub so that you can use the container images at these locations:
+
 - **API app:** `whatthehackmsft/api`
 - **Web app:** `whatthehackmsft/web`
 
@@ -45,6 +46,7 @@ You need to fulfill these requirements to complete this challenge:
 
 These docs might help you achieving these objectives:
 
+- [Pull an image from a private registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
 - [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 - [Restrict AKS egress traffic](https://docs.microsoft.com/azure/aks/limit-egress-traffic)
 - [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview)
