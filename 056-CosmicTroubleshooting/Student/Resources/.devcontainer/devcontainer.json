@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+	"name": "C# (.NET)",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/powershell:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/jq-likes:0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"omnisharp.defaultLaunchSolution": "Challenge00/WTHAzureCosmosDB.sln"
+			},
+			"extensions": [
+				"ms-vscode.vscode-node-azure-pack",
+				"ms-azuretools.vscode-bicep",
+				"azps-tools.azps-tools",
+				"ms-vscode.PowerShell"
+			]
+		}
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
+	// Use 'postCreateCommand' to run commands after the container is created./notifications/
+	// "postCreateCommand": "dotnet restore",
+	"postCreateCommand": "dotnet restore Challenge00/WTHAzureCosmosDB.sln && pwsh -Command Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force"
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
