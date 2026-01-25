@@ -26,3 +26,17 @@ These topics are not covered, and you might want to introduce them along the way
     - Add an Application Gateway to the mix
 - Challenge 5: **[PaaS Networking](05-Paas.md)**
     - Integrate Azure Web Apps and Azure SQL Databases with your hub and spoke design
+
+## Deployment using Infrastructure-as-Code
+The coaches solutions for this hack includes a deployment of the challenges written in Bicep.
+
+For coaches, the infrastructure deployed in the solution can provide a quick reference architecture/lab for an approach to implementing the challenges.
+
+For students, the automation presents a solution, which the students are generally expected to figure out on their own. However, there are a number of scenarios where providing a student with the Bicep files could be helpful:
+
+* Bringing a student up to speed with the rest of the cohort
+* Enabling students to focus on the network aspects of the hack, versus manual infrastructure deployment (especially when they are struggling with a less-relevant aspect)
+* Quickly bringing a cohort of students up to a specific challenge (for example, enabling data-focused students to work with PaaS services and Private Endpoints, without having had to manually deploy the underlying infrastructure)
+* Providing examples to students looking to implement the hack with IaC
+
+**See [Bicep Solution Readme](./Solutions/bicep/README.md) for detail deployment process.**
