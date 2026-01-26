@@ -36,7 +36,7 @@ This challenge is divided into the following sections:
 Scenario: You are building a chatbot for a retail company that needs fast responses and safe outputs. Your goal is to explore the Model Catalog and identify models for this use case. There is no right or wrong answer here.
 
 #### Student Task 2.1
-- Go into the [Microsoft Foundry](https://ai.azure.com).
+- Go into [Microsoft Foundry](https://ai.azure.com).
 - Navigate to the Model Catalog and explore different models using the correct filters. 
 - Identify which model can potentially help with the task at hand.
 - Share your findings with a peer and compare your choices. Did you pick the same models? Why or why not?
