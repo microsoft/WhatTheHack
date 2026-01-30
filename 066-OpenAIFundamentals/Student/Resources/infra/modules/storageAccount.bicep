@@ -248,8 +248,3 @@ resource blobServiceDiagnosticSettings 'Microsoft.Insights/diagnosticSettings@20
 // Outputs
 output id string = storageAccount.id
 output name string = storageAccount.name
-#disable-next-line outputs-should-not-contain-secrets
-output primaryKey string = storageAccount.listKeys().keys[0].value
-
-#disable-next-line outputs-should-not-contain-secrets
-output connectionString string = 'DefaultEndpointsProtocol=https;AccountName=${name};AccountKey=${storageAccount.listKeys().keys[0].value};EndpointSuffix=core.windows.net'
