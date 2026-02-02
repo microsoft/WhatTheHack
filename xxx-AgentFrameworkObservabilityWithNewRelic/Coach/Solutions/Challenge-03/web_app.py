@@ -61,12 +61,12 @@ resource = Resource.create({
 
 #
 # Step 3: Setup observability with the resource
-# HINT: configure_otel_providers(???)
-configure_otel_providers(resource)
+# HINT: configure_otel_providers()
+configure_otel_providers()
 
 #
 # Challenge 04: TODO - Update to use OTLP exporters for New Relic
-# HINT: setup_observability(resource, exporters=[???])
+# HINT: configure_otel_providers(exporters=[???])
 
 #
 # Challenge 03: TODO - Step 3: Get tracer and meter instances
@@ -199,8 +199,8 @@ agent = ChatAgent(
 # ============================================================================
 # Challenge 07: TODO - Harden System Prompt Against Prompt Injection
 # ============================================================================
+# HINT: HARDENED_INSTRUCTIONS = hardenInstructions(instructions)
 # HINT: use `ChatAgent` with hardened instructions
-# HARDENED_INSTRUCTIONS = """`
 
 # ============================================================================
 # Challenge 07: TODO - Security Detection Functions
