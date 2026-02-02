@@ -51,7 +51,7 @@ logger = logging.getLogger(__name__)
 # HINT: resource = Resource.create({ ??? })
 
 #
-# Step 2: Setup observability with the resource
+# Step 3: Setup observability with the resource
 # HINT: setup_observability(???)
 
 #
@@ -98,10 +98,12 @@ def get_random_destination() -> str:
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
-    HINT: span.set_attribute(???, ???)
+    HINT:     span.set_attribute(???, ???)
 
     Returns:
-        A random destination with confirmation message
+        A string confirming the destination
+
+    Hint: Simply return a confirmation message with the destination name
     """
     destinations = ["Garmisch-Partenkirchen", "Munich",
                     "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
@@ -116,7 +118,7 @@ def get_weather(location: str) -> str:
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
-    HINT: span.set_attribute(???, ???)
+    HINT:     span.set_attribute(???, ???)
 
 
     Args:
@@ -135,7 +137,7 @@ def get_datetime() -> str:
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
-    HINT: span.set_attribute(???, ???)
+    HINT:     span.set_attribute(???, ???)
 
 
     Returns:
@@ -145,36 +147,25 @@ def get_datetime() -> str:
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
 
+model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
+
 # ============================================================================
 # Challenge 02: TODO - Create the OpenAI Chat Client
 # ============================================================================
-
-
-model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
-
-# HINT: openai_chat_client = OpenAIChatClient(???)
+# HINT: use `OpenAIChatClient` with appropriate parameters, i.e. base_url, api_key, model_id
 
 
 # ============================================================================
 # Challenge 02: TODO - Create the Travel Planning ChatAgent
 # ============================================================================
-# HINT: agent = ChatAgent(
-#     chat_client=???,
-#     instructions="???",
-#     tools=???
-# )
+# HINT: use `ChatAgent` with appropriate parameters, i.e. chat_client, instructions, tools
 
 
 # ============================================================================
 # Challenge 07: TODO - Harden System Prompt Against Prompt Injection
 # ============================================================================
-# HINT: agent = ChatAgent(
-#     chat_client=???,
-#     instructions="""???""",
-#     tools=???
-# )
-# ============================================================================
-
+# HINT: use `ChatAgent` with hardened instructions
+# HARDENED_INSTRUCTIONS = """`
 
 # ============================================================================
 # Challenge 07: TODO - Security Detection Functions
@@ -185,7 +176,6 @@ model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
 # HINT: def sanitize_input(text: str) -> str:
 #     return ???
 #
-# See Coach/Solutions/Challenge-07/security_detector.py for reference
 # ============================================================================
 
 # ============================================================================
@@ -295,7 +285,6 @@ async def plan_trip():
         # ====================================================================
         # HINT: evaluation_result = ???
         # HINT: evaluation_passed_counter.add(???)
-        # See Coach/Solutions/Challenge-06/evaluator.py
         # ====================================================================
 
         # Challenge 05: TODO - Record response time

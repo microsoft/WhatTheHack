@@ -3,7 +3,7 @@
 # Run the Flask-based Travel Planner Web Application
 
 echo "🤖 WanderAI Travel Agent Planner"
-echo "=============================="
+echo "================================"
 echo ""
 
 # Check if Python is installed
