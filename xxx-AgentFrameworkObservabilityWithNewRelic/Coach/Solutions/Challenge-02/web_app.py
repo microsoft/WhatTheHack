@@ -1,6 +1,6 @@
 # 📦 Import Required Libraries
-from agent_framework.openai import OpenAIChatClient
-from agent_framework import ChatAgent
+# Challenge 02: TODO - Base imports for Flask and Agent Framework
+from dotenv import load_dotenv
 import os
 import asyncio
 import time
@@ -10,30 +10,97 @@ from random import randint, uniform
 # Flask imports
 from flask import Flask, render_template, request, jsonify
 
+# Challenge 02: TODO - Import Microsoft Agent Framework
+# HINT: from agent_framework.openai import ???
+# HINT: from agent_framework import ???
+from agent_framework.openai import OpenAIChatClient
+from agent_framework import ChatAgent
+
+
+# Challenge 03: TODO - Import OpenTelemetry instrumentation
+# HINT: from agent_framework.observability import ???
+# HINT: from opentelemetry.sdk.resources import ???
+# HINT: from opentelemetry.semconv._incubating.attributes.service_attributes import ???
+
+
+# Challenge 04: TODO - Import OTLP Exporters for New Relic
+# HINT: from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import ???
+# HINT: from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import ???
+# HINT: from opentelemetry.exporter.otlp.proto.grpc._log_exporter import ???
+# HINT: from opentelemetry.sdk._logs import ???
+
+
+# Challenge 06: TODO - Import for AI Monitoring
+# HINT: from opentelemetry._logs import ???
+
+
+# Challenge 07: TODO - Import for Security Detection
+# HINT: import re
+# HINT: from typing import ???
+
+
 # Load environment variables
-from dotenv import load_dotenv
 load_dotenv()
 
 # 📝 Configure Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Microsoft Agent Framework
+# ============================================================================
+# Challenge 03: TODO - Setup OpenTelemetry Observability
+# ============================================================================
+# Step 1: Create a resource identifying your service
+# HINT: resource = Resource.create({ ??? })
+
+#
+# Step 3: Setup observability with the resource
+# HINT: setup_observability(???)
+
+#
+# Challenge 04: TODO - Update to use OTLP exporters for New Relic
+# HINT: configure_otel_providers(resource, exporters=[???])
+
+#
+# Challenge 03: TODO - Step 3: Get tracer and meter instances
+# HINT: tracer = ???
+# HINT: meter = ???
+# ============================================================================
+
+# ============================================================================
+# Challenge 05: TODO - Create Custom Metrics for Monitoring
+# ============================================================================
+# HINT: request_counter = meter.create_counter(name="???\", description="???\", unit="???")
+# HINT: error_counter = meter.create_counter(???)
+# HINT: response_time_histogram = meter.create_histogram(???)
+# HINT: tool_call_counter = meter.create_counter(???)
+
+#
+# Challenge 06: TODO - Add evaluation metrics
+# HINT: evaluation_passed_counter = meter.create_counter(???)
+
+#
+# Challenge 07: TODO - Add security metrics
+# HINT: security_detected_counter = meter.create_counter(???)
+# HINT: security_blocked_counter = meter.create_counter(???)
+# HINT: security_score_histogram = meter.create_histogram(???)
+# ============================================================================
+
 # 🌐 Initialize Flask Application
 app = Flask(__name__)
 
 # ============================================================================
-# TODO 1: Define Tool Functions
+# Challenge 02: TODO - Define Tool Functions
 # ============================================================================
 # These are functions the agent can call to get information
 
 
 def get_random_destination() -> str:
     """
-    TODO: Implement this tool function
+    Challenge 02: TODO - Returns a random travel destination
 
-    Args:
-        destination: The destination the user selected
+    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    HINT: with tracer.start_as_current_span(???) as span:
+    HINT:     span.set_attribute(???, ???)
 
     Returns:
         A string confirming the destination
@@ -49,19 +116,18 @@ def get_random_destination() -> str:
 
 def get_weather(location: str) -> str:
     """
-    TODO: Implement this tool function
+    Challenge 02: TODO - Returns weather for a location
 
-    This should return weather information for a location.
-    For now, you can return a fake weather message.
+    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    HINT: with tracer.start_as_current_span(???) as span:
+    HINT:     span.set_attribute(???, ???)
+
 
     Args:
         location: The location to get weather for
 
     Returns:
-        A weather description string
-
-    Hint: For MVP, just return something like "The weather in {location} is sunny with a high of 22°C"
-    Real weather API integration is optional and can use OPENWEATHER_API_KEY
+        Weather description string
     """
     logger.info(f"Fetching weather for location: {location}")
     return f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
@@ -69,26 +135,26 @@ def get_weather(location: str) -> str:
 
 def get_datetime() -> str:
     """
-    TODO: Implement this tool function
+    Challenge 02: TODO - Returns current date and time
 
-    Return the current date and time
+    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    HINT: with tracer.start_as_current_span(???) as span:
+    HINT:     span.set_attribute(???, ???)
+
 
     Returns:
         Current date and time as string
-
-    Hint: Use datetime.datetime.now().isoformat()
     """
     logger.info("Fetching current date and time.")
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
-# ============================================================================
-# TODO 2: Create the OpenAI Chat Client
-# ============================================================================
-
 
 model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
 
-# Use Microsoft Foundry endpoint directly
+# ============================================================================
+# Challenge 02: TODO - Create the OpenAI Chat Client
+# ============================================================================
+# HINT: use `OpenAIChatClient` with appropriate parameters, i.e. base_url, api_key, model_id
 openai_chat_client = OpenAIChatClient(
     base_url=os.environ.get("MSFT_FOUNDRY_ENDPOINT"),
     api_key=os.environ.get("MSFT_FOUNDRY_API_KEY"),
@@ -97,14 +163,9 @@ openai_chat_client = OpenAIChatClient(
 
 
 # ============================================================================
-# TODO 3: Create the Travel Planning Agent
+# Challenge 02: TODO - Create the Travel Planning ChatAgent
 # ============================================================================
-
-# TODO: Create a ChatAgent with:
-# - chat_client: Your OpenAI client
-# - instructions: "You are a helpful AI Agent that can help plan vacations for customers."
-# - tools: A list of the three tool functions [get_random_destination, get_weather, get_datetime]
-
+# HINT: use `ChatAgent` with appropriate parameters, i.e. chat_client, instructions, tools
 agent = ChatAgent(
     chat_client=openai_chat_client,
     instructions="You are a helpful AI Agent that can help plan vacations for customers at random destinations.",
@@ -113,9 +174,25 @@ agent = ChatAgent(
 )
 
 # ============================================================================
-# TODO 4: Create Flask Routes
+# Challenge 07: TODO - Harden System Prompt Against Prompt Injection
+# ============================================================================
+# HINT: use `ChatAgent` with hardened instructions
+# HARDENED_INSTRUCTIONS = """`
+
+# ============================================================================
+# Challenge 07: TODO - Security Detection Functions
+# ============================================================================
+# HINT: def detect_prompt_injection(user_input: str) -> Dict:
+#     return {"risk_score": ???, "patterns_detected": ???}
+#
+# HINT: def sanitize_input(text: str) -> str:
+#     return ???
+#
 # ============================================================================
 
+# ============================================================================
+# Flask Routes
+# ============================================================================
 
 @app.route('/')
 def index():
@@ -129,21 +206,45 @@ async def plan_trip():
     """
     Handle travel plan requests from the form.
 
-    TODO: Implement this endpoint
+    Challenge 02: TODO - Basic agent execution
+    Challenge 03: TODO - Add span instrumentation
+    Challenge 05: TODO - Record custom metrics
+    Challenge 06: TODO - Emit AI Monitoring events and run evaluation
+    Challenge 07: TODO - Add security detection and input sanitization
     """
     logger.info("Received travel plan request.")
+
+    # Challenge 05: TODO - Start timing the request
+    # HINT: start_time = ???
+
+    # Challenge 03: TODO - Create span for the entire request
+    # HINT: with tracer.start_as_current_span(???) as span:
+
     try:
-        # TODO: Extract form data
-        # Hint: Use request.form.get() for single values and request.form.getlist() for checkboxes
-        # You need: origin, destination, date, duration, interests (list), special_requests
+        # Challenge 02: TODO - Extract form data
         date = request.form.get('date', '')
         duration = request.form.get('duration', '3')
         interests = request.form.getlist('interests')
         special_requests = request.form.get('special_requests', '')
 
-        # TODO: Build a user prompt for the agent
-        # Example structure:
-        # f"Plan me a {duration}-day trip from {origin} to {destination}..."
+        # Challenge 03: TODO - Set span attributes for request parameters
+        # HINT: span.set_attribute(???, ???)
+
+        # Challenge 05: TODO - Increment request counter
+        # HINT: request_counter.add(???)
+
+        # ====================================================================
+        # Challenge 07: TODO - Security Detection (BEFORE agent execution)
+        # ====================================================================
+        # HINT: user_input = ???
+        # HINT: detection_result = detect_prompt_injection(???)
+        # HINT: risk_score = detection_result[???]
+        # HINT: if risk_score > ???:
+        #           return render_template(???, error=???), ???
+        # HINT: special_requests = sanitize_input(???)
+        # ====================================================================
+
+        # Challenge 02: TODO - Build user prompt for the agent
         user_prompt = f"""Plan me a {duration}-day trip to a random destination starting on {date}.
 
             Trip Details:
@@ -161,31 +262,81 @@ async def plan_trip():
             6. Current date and time reference
             """
 
-        # TODO: Run the agent asynchronously
-        # Hint: Use asyncio to run: response = await agent.run(user_prompt)
+        # ====================================================================
+        # Challenge 06: TODO - Emit AI Monitoring Event (User Message)
+        # ====================================================================
+        # HINT: logger.info(???, extra={
+        #     "newrelic.event.type": "LlmChatCompletionMessage",
+        #     "role": ???,
+        #     "content": ???,
+        #     "sequence": ???
+        # })
+        # ====================================================================
+
+        # Challenge 03: TODO - Create span for agent execution
+        # HINT: with tracer.start_as_current_span(???) as agent_span:
+
+        # Challenge 02: TODO - Run the agent asynchronously
+        # HINT: response = await agent.run(???)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         response = await agent.run(user_prompt)
         loop.close()
-
-        # TODO: Extract the travel plan from response
-        # Hint: response.messages[-1].contents[0].text
+        
+        # Challenge 02: TODO - Extract the travel plan from response
+        # HINT: text_content = response.messages[???].contents[???].text
         last_message = response.messages[-1]
         text_content = last_message.contents[0].text
+        
+        # Challenge 03: TODO - Add response attributes to span
+        # HINT: agent_span.set_attribute(???, ???)
 
-        # TODO: Render and return 'result.html' with the travel plan
+        # ====================================================================
+        # Challenge 06: TODO - Emit AI Monitoring Events (Assistant + Summary)
+        # ====================================================================
+        # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionMessage", ...})
+        # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionSummary", ...})
+        # ====================================================================
+
+        # ====================================================================
+        # Challenge 06: TODO - Run Evaluation
+        # ====================================================================
+        # HINT: evaluation_result = ???
+        # HINT: evaluation_passed_counter.add(???)
+        # ====================================================================
+
+        # Challenge 05: TODO - Record response time
+        # HINT: duration_ms = ???
+        # HINT: response_time_histogram.record(???)
+
         return render_template('result.html',
                                travel_plan=text_content,
                                duration=duration)
 
     except Exception as e:
         logger.error(f"Error planning trip: {str(e)}")
+
+        # Challenge 05: TODO - Increment error counter
+        # HINT: error_counter.add(???)
+
         return render_template('error.html', error=str(e)), 500
+
+
+# ============================================================================
+# Challenge 06: TODO - User Feedback Collection Route
+# ============================================================================
+# HINT: @app.route('/feedback', methods=[???])
+# HINT: def feedback():
+#     trace_id = ???
+#     rating = ???
+#     logger.info(???, extra={"newrelic.event.type": "LlmFeedbackMessage", ...})
+#     return jsonify(???)
+# ============================================================================
+
 
 # ============================================================================
 # Main Execution
 # ============================================================================
-
 if __name__ == "__main__":
     # Run Flask development server
     app.run(debug=True, host='0.0.0.0', port=5002)

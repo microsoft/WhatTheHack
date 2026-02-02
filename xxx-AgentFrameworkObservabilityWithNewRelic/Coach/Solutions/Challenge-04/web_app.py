@@ -1,5 +1,5 @@
 # 📦 Import Required Libraries
-from agent_framework.observability import setup_observability, get_tracer, get_meter
+from agent_framework.observability import configure_otel_providers, get_tracer, get_meter
 from agent_framework.openai import OpenAIChatClient
 from agent_framework import ChatAgent
 from dotenv import load_dotenv
@@ -50,7 +50,7 @@ otlp_exporters = [
 ]
 
 # Setup observability with the resource
-setup_observability(resource, exporters=otlp_exporters)
+configure_otel_providers(resource, exporters=otlp_exporters)
 # Get a tracer
 tracer = get_tracer()
 # Get a meter

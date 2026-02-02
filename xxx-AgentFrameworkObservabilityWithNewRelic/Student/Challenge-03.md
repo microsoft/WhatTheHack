@@ -38,6 +38,8 @@ Refer to the [Agent Framework Observability Guide](https://learn.microsoft.com/e
 
 Once you updated your application to successfully emit traces to the console (hint: this should only include adding two lines of code to your app), start your app again and evaluate the console output.
 
+Run the Flask app with the `run.sh` command. Then submit a travel request through the web UI. You should see traces being printed in the console output.
+
 If you are curious, Agent Framework also allows you to configure logging of sensitive data (prompts, responses, function call arguments, and results). This will log sensitive data to the console along with the traces. Be cautious when enabling this in production environments.
 
 If you see traces and logs being emitted there, you can then proceed to instrument the tool functions and Flask routes as described below.
