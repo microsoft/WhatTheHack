@@ -122,7 +122,7 @@ To complete this challenge successfully, you should be able to:
 - [New Relic AI Monitoring](https://docs.newrelic.com/docs/ai-monitoring/intro-to-ai-monitoring/)
 - [New Relic Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/)
 - [LLM Evaluation Best Practices](https://docs.newrelic.com/docs/ai-monitoring/explore-ai-data/view-model-data/)
-- [GitHub Actions CI/CD](https://docs.github.com/en/actions)
+- [OpenTelemetry Log Data Model](https://opentelemetry.io/docs/reference/specification/logs/data-model/)
 
 ## Tips
 
