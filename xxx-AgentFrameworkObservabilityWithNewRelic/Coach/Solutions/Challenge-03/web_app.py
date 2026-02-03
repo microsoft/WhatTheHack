@@ -61,7 +61,7 @@ resource = Resource.create({
 
 #
 # Step 3: Setup observability with the resource
-# HINT: configure_otel_providers()
+# HINT: https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python#1-standard-opentelemetry-environment-variables-recommended
 configure_otel_providers()
 
 #

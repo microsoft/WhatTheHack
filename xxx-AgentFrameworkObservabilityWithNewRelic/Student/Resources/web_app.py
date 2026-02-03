@@ -1,5 +1,4 @@
 # 📦 Import Required Libraries
-# Challenge 02: TODO - Base imports for Flask and Agent Framework
 from dotenv import load_dotenv
 import os
 import asyncio
@@ -40,7 +39,7 @@ from flask import Flask, render_template, request, jsonify
 # Load environment variables
 load_dotenv()
 
-# 📝 Configure Logging (Challenge 02)
+# 📝 Configure Logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -52,7 +51,7 @@ logger = logging.getLogger(__name__)
 
 #
 # Step 3: Setup observability with the resource
-# HINT: configure_otel_providers()
+# HINT: https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python#1-standard-opentelemetry-environment-variables-recommended
 
 #
 # Challenge 04: TODO - Update to use OTLP exporters for New Relic
@@ -94,7 +93,7 @@ app = Flask(__name__)
 
 def get_random_destination() -> str:
     """
-    Challenge 02: TODO - Returns a random travel destination
+    Challenge 02: TODO - (optional) Update function to return a random travel destination
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
@@ -114,7 +113,7 @@ def get_random_destination() -> str:
 
 def get_weather(location: str) -> str:
     """
-    Challenge 02: TODO - Returns weather for a location
+    Challenge 02: TODO - Update function to return weather for a location
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
@@ -133,7 +132,7 @@ def get_weather(location: str) -> str:
 
 def get_datetime() -> str:
     """
-    Challenge 02: TODO - Returns current date and time
+    Challenge 02: TODO - (optional) Update function to return current date and time
 
     Challenge 03: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
@@ -209,7 +208,7 @@ async def plan_trip():
     # HINT: with tracer.start_as_current_span(???) as span:
 
     try:
-        # Challenge 02: TODO - Extract form data
+        # Extract form data
         date = request.form.get('date', '')
         duration = request.form.get('duration', '3')
         interests = request.form.getlist('interests')
@@ -232,7 +231,7 @@ async def plan_trip():
         # HINT: special_requests = sanitize_input(???)
         # ====================================================================
 
-        # Challenge 02: TODO - Build user prompt for the agent
+        # Challenge 02: TODO - (optional) update user prompt for the agent
         user_prompt = f"""Plan me a {duration}-day trip to a random destination starting on {date}.
 
             Trip Details:
@@ -291,7 +290,7 @@ async def plan_trip():
         # HINT: duration_ms = ???
         # HINT: response_time_histogram.record(???)
 
-        # Challenge 02: TODO - Render result
+        # Render result
         return render_template('result.html',
                                travel_plan=text_content,
                                duration=duration)

@@ -36,7 +36,7 @@ Your goal is to add comprehensive OpenTelemetry instrumentation to your travel p
 
 Refer to the [Agent Framework Observability Guide](https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python) for details on initialization. It is recommended to start the simplest approach first, such as console exporter.
 
-Once you updated your application to successfully emit traces to the console (hint: this should only include adding two lines of code to your app), start your app again and evaluate the console output.
+Once you updated your application to successfully emit traces to the **console** (hint: this should only include adding two lines of code to your app), start your app again and evaluate the console output.
 
 Run the Flask app with the `run.sh` command. Then submit a travel request through the web UI. You should see traces being printed in the console output.
 
