@@ -99,7 +99,7 @@ def get_random_destination() -> str:
     """
     Challenge 02: TODO - Returns a random travel destination
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -127,7 +127,7 @@ def get_weather(location: str) -> str:
     """
     Challenge 02: TODO - Returns weather for a location
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -161,7 +161,7 @@ def get_datetime() -> str:
     """
     Challenge 02: TODO - Returns current date and time
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -239,7 +239,7 @@ async def plan_trip():
     Handle travel plan requests from the form.
 
     Challenge 02: TODO - Basic agent execution
-    Challenge 03: TODO - Add span instrumentation
+    Challenge 04: TODO - Add span instrumentation
     Challenge 05: TODO - Record custom metrics
     Challenge 06: TODO - Emit AI Monitoring events and run evaluation
     Challenge 07: TODO - Add security detection and input sanitization
@@ -249,7 +249,7 @@ async def plan_trip():
     # Challenge 05: TODO - Start timing the request
     # HINT: start_time = ???
 
-    # Challenge 03: TODO - Create span for the entire request
+    # Challenge 04: TODO - Create span for the entire request
     # HINT: with tracer.start_as_current_span(???) as span:
 
     with tracer.start_as_current_span("plan_trip") as span:
@@ -260,7 +260,7 @@ async def plan_trip():
             interests = request.form.getlist('interests')
             special_requests = request.form.get('special_requests', '')
 
-            # Challenge 03: TODO - Set span attributes for request parameters
+            # Challenge 04: TODO - Set span attributes for request parameters
             # HINT: span.set_attribute(???, ???)
             span.set_attribute("date", date)
             span.set_attribute("duration", duration)
@@ -308,7 +308,7 @@ async def plan_trip():
             # })
             # ====================================================================
 
-            # Challenge 03: TODO - Create span for agent execution
+            # Challenge 04: TODO - Create span for agent execution
             # HINT: with tracer.start_as_current_span(???) as agent_span:
             with tracer.start_as_current_span("plan_trip_request") as agent_span:
 
@@ -324,7 +324,7 @@ async def plan_trip():
                 last_message = response.messages[-1]
                 text_content = last_message.contents[0].text
                 
-                # Challenge 03: TODO - Add response attributes to span
+                # Challenge 04: TODO - Add response attributes to span
                 # HINT: agent_span.set_attribute(???, ???)
                 agent_span.set_attribute("date", date)
                 agent_span.set_attribute("duration", duration)

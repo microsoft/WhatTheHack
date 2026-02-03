@@ -99,7 +99,7 @@ def get_random_destination() -> str:
     """
     Challenge 02: TODO - Returns a random travel destination
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -109,17 +109,15 @@ def get_random_destination() -> str:
     Hint: Simply return a confirmation message with the destination name
     """
     destination = ""
-    with tracer.start_as_current_span("get_random_destination") as span:
-        # Simulate network latency with a small random sleep
-        delay_seconds = uniform(0, 0.99)
-        time.sleep(delay_seconds)
+    
+    # Simulate network latency with a small random sleep
+    delay_seconds = uniform(0, 0.99)
+    time.sleep(delay_seconds)
         
-        span.set_attribute("tool.name", "get_random_destination")
-        destinations = ["Garmisch-Partenkirchen", "Munich",
-                        "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
-        destination = destinations[randint(0, len(destinations) - 1)]
-        logger.info(f"Selected random destination: {destination}")
-        span.set_attribute("destination", destination)
+    destinations = ["Garmisch-Partenkirchen", "Munich",
+                    "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
+    destination = destinations[randint(0, len(destinations) - 1)]
+    logger.info(f"Selected random destination: {destination}")
     return f"You have selected {destination} as your travel destination."
 
 
@@ -127,7 +125,7 @@ def get_weather(location: str) -> str:
     """
     Challenge 02: TODO - Returns weather for a location
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -140,20 +138,17 @@ def get_weather(location: str) -> str:
     """
     logger.info(f"Fetching weather for location: {location}")
     weather = ""
-    with tracer.start_as_current_span("get_weather") as span:
-        # Simulate network latency with a small random float sleep
-        delay_seconds = uniform(0.3, 3.7)
-        time.sleep(delay_seconds)
-        
-        # fail every now and then to simulate real-world API unreliability
-        if randint(1, 10) > 7:
-            raise Exception(
-                "Weather service is currently unavailable. Please try again later.")
-        
-        span.set_attribute("tool.name", "get_weather")
-        span.set_attribute("location", location)
-        weather = f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
-        logger.info(f"Weather for {location}: {weather}")
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.3, 3.7)
+    time.sleep(delay_seconds)
+    
+    # fail every now and then to simulate real-world API unreliability
+    if randint(1, 10) > 7:
+        raise Exception(
+            "Weather service is currently unavailable. Please try again later.")
+    
+    weather = f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
+    logger.info(f"Weather for {location}: {weather}")
     return weather
 
 
@@ -161,7 +156,7 @@ def get_datetime() -> str:
     """
     Challenge 02: TODO - Returns current date and time
 
-    Challenge 03: TODO - Add OpenTelemetry span instrumentation
+    Challenge 04: TODO - Add OpenTelemetry span instrumentation
     HINT: with tracer.start_as_current_span(???) as span:
     HINT:     span.set_attribute(???, ???)
 
@@ -171,14 +166,12 @@ def get_datetime() -> str:
     """
     logger.info("Fetching current date and time.")
     datetime_str = ""
-    with tracer.start_as_current_span("get_datetime") as span:
-        # Simulate network latency with a small random float sleep
-        delay_seconds = uniform(0.10, 5.0)
-        time.sleep(delay_seconds)
-        
-        span.set_attribute("tool.name", "get_datetime")
-        datetime_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        logger.info(f"Current date and time: {datetime_str}")
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.10, 5.0)
+    time.sleep(delay_seconds)
+    
+    datetime_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    logger.info(f"Current date and time: {datetime_str}")
     return datetime_str
 
 
@@ -239,7 +232,7 @@ async def plan_trip():
     Handle travel plan requests from the form.
 
     Challenge 02: TODO - Basic agent execution
-    Challenge 03: TODO - Add span instrumentation
+    Challenge 04: TODO - Add span instrumentation
     Challenge 05: TODO - Record custom metrics
     Challenge 06: TODO - Emit AI Monitoring events and run evaluation
     Challenge 07: TODO - Add security detection and input sanitization
@@ -249,116 +242,110 @@ async def plan_trip():
     # Challenge 05: TODO - Start timing the request
     # HINT: start_time = ???
 
-    # Challenge 03: TODO - Create span for the entire request
+    # Challenge 04: TODO - Create span for the entire request
     # HINT: with tracer.start_as_current_span(???) as span:
 
-    with tracer.start_as_current_span("plan_trip") as span:
-        try:
-            # Extract form data
-            date = request.form.get('date', '')
-            duration = request.form.get('duration', '3')
-            interests = request.form.getlist('interests')
-            special_requests = request.form.get('special_requests', '')
+    try:
+        # Extract form data
+        date = request.form.get('date', '')
+        duration = request.form.get('duration', '3')
+        interests = request.form.getlist('interests')
+        special_requests = request.form.get('special_requests', '')
 
-            # Challenge 03: TODO - Set span attributes for request parameters
-            # HINT: span.set_attribute(???, ???)
-            span.set_attribute("date", date)
-            span.set_attribute("duration", duration)
+        # Challenge 04: TODO - Set span attributes for request parameters
+        # HINT: span.set_attribute(???, ???)
 
-            # Challenge 05: TODO - Increment request counter
-            # HINT: request_counter.add(???)
+        # Challenge 05: TODO - Increment request counter
+        # HINT: request_counter.add(???)
 
-            # ====================================================================
-            # Challenge 07: TODO - Security Detection (BEFORE agent execution)
-            # ====================================================================
-            # HINT: user_input = ???
-            # HINT: detection_result = detect_prompt_injection(???)
-            # HINT: risk_score = detection_result[???]
-            # HINT: if risk_score > ???:
-            #           return render_template(???, error=???), ???
-            # HINT: special_requests = sanitize_input(???)
-            # ====================================================================
+        # ====================================================================
+        # Challenge 07: TODO - Security Detection (BEFORE agent execution)
+        # ====================================================================
+        # HINT: user_input = ???
+        # HINT: detection_result = detect_prompt_injection(???)
+        # HINT: risk_score = detection_result[???]
+        # HINT: if risk_score > ???:
+        #           return render_template(???, error=???), ???
+        # HINT: special_requests = sanitize_input(???)
+        # ====================================================================
 
-            # Challenge 02: TODO - (optional) update user prompt for the agent
-            user_prompt = f"""Plan me a {duration}-day trip to a random destination starting on {date}.
+        # Challenge 02: TODO - (optional) update user prompt for the agent
+        user_prompt = f"""Plan me a {duration}-day trip to a random destination starting on {date}.
 
-                Trip Details:
-                - Date: {date}
-                - Duration: {duration} days
-                - Interests: {', '.join(interests) if interests else 'General sightseeing'}
-                - Special Requests: {special_requests if special_requests else 'None'}
+            Trip Details:
+            - Date: {date}
+            - Duration: {duration} days
+            - Interests: {', '.join(interests) if interests else 'General sightseeing'}
+            - Special Requests: {special_requests if special_requests else 'None'}
 
-                Instructions:
-                1. A detailed day-by-day itinerary with activities tailored to the interests
-                2. Current weather information for the destination
-                3. Local cuisine recommendations
-                4. Best times to visit specific attractions
-                5. Travel tips and budget estimates
-                6. Current date and time reference
-                """
+            Instructions:
+            1. A detailed day-by-day itinerary with activities tailored to the interests
+            2. Current weather information for the destination
+            3. Local cuisine recommendations
+            4. Best times to visit specific attractions
+            5. Travel tips and budget estimates
+            6. Current date and time reference
+            """
 
-            # ====================================================================
-            # Challenge 06: TODO - Emit AI Monitoring Event (User Message)
-            # ====================================================================
-            # HINT: logger.info(???, extra={
-            #     "newrelic.event.type": "LlmChatCompletionMessage",
-            #     "role": ???,
-            #     "content": ???,
-            #     "sequence": ???
-            # })
-            # ====================================================================
+        # ====================================================================
+        # Challenge 06: TODO - Emit AI Monitoring Event (User Message)
+        # ====================================================================
+        # HINT: logger.info(???, extra={
+        #     "newrelic.event.type": "LlmChatCompletionMessage",
+        #     "role": ???,
+        #     "content": ???,
+        #     "sequence": ???
+        # })
+        # ====================================================================
 
-            # Challenge 03: TODO - Create span for agent execution
-            # HINT: with tracer.start_as_current_span(???) as agent_span:
-            with tracer.start_as_current_span("plan_trip_request") as agent_span:
+        # Challenge 04: TODO - Create span for agent execution
+        # HINT: with tracer.start_as_current_span(???) as agent_span:
 
-                # Challenge 02: TODO - Run the agent asynchronously
-                # HINT: response = await agent.run(???)
-                loop = asyncio.new_event_loop()
-                asyncio.set_event_loop(loop)
-                response = await agent.run(user_prompt)
-                loop.close()
+        # Challenge 02: TODO - Run the agent asynchronously
+        # HINT: response = await agent.run(???)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        response = await agent.run(user_prompt)
+        loop.close()
 
-                # Challenge 02: TODO - Extract the travel plan from response
-                # HINT: text_content = response.messages[???].contents[???].text
-                last_message = response.messages[-1]
-                text_content = last_message.contents[0].text
-                
-                # Challenge 03: TODO - Add response attributes to span
-                # HINT: agent_span.set_attribute(???, ???)
-                agent_span.set_attribute("date", date)
-                agent_span.set_attribute("duration", duration)
+        # Challenge 02: TODO - Extract the travel plan from response
+        # HINT: text_content = response.messages[???].contents[???].text
+        last_message = response.messages[-1]
+        text_content = last_message.contents[0].text
+        
+        # Challenge 04: TODO - Add response attributes to span
+        # HINT: agent_span.set_attribute(???, ???)
 
-                # ====================================================================
-                # Challenge 06: TODO - Emit AI Monitoring Events (Assistant + Summary)
-                # ====================================================================
-                # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionMessage", ...})
-                # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionSummary", ...})
-                # ====================================================================
+        # ====================================================================
+        # Challenge 06: TODO - Emit AI Monitoring Events (Assistant + Summary)
+        # ====================================================================
+        # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionMessage", ...})
+        # HINT: logger.info(???, extra={"newrelic.event.type": "LlmChatCompletionSummary", ...})
+        # ====================================================================
 
-                # ====================================================================
-                # Challenge 06: TODO - Run Evaluation
-                # ====================================================================
-                # HINT: evaluation_result = ???
-                # HINT: evaluation_passed_counter.add(???)
-                # ====================================================================
+        # ====================================================================
+        # Challenge 06: TODO - Run Evaluation
+        # ====================================================================
+        # HINT: evaluation_result = ???
+        # HINT: evaluation_passed_counter.add(???)
+        # ====================================================================
 
-                # Challenge 05: TODO - Record response time
-                # HINT: duration_ms = ???
-                # HINT: response_time_histogram.record(???)
+        # Challenge 05: TODO - Record response time
+        # HINT: duration_ms = ???
+        # HINT: response_time_histogram.record(???)
 
-                # Render result
-                return render_template('result.html',
-                                    travel_plan=text_content,
-                                    duration=duration)
+        # Render result
+        return render_template('result.html',
+                            travel_plan=text_content,
+                            duration=duration)
 
-        except Exception as e:
-            logger.error(f"Error planning trip: {str(e)}")
+    except Exception as e:
+        logger.error(f"Error planning trip: {str(e)}")
 
-            # Challenge 05: TODO - Increment error counter
-            # HINT: error_counter.add(???)
+        # Challenge 05: TODO - Increment error counter
+        # HINT: error_counter.add(???)
 
-            return render_template('error.html', error=str(e)), 500
+        return render_template('error.html', error=str(e)), 500
 
 
 # ============================================================================
