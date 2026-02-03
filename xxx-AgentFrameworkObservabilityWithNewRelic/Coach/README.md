@@ -16,9 +16,9 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 - Challenge 02: **[Build Your MVP](./Solution-02.md)**
   - Create Flask app with AI travel planner agent (2-3 hours)
 - Challenge 03: **[Add OpenTelemetry Instrumentation](./Solution-03.md)**
-  - Instrument application with traces, metrics, and logs (1.5-2 hours)
+  - Initialize built-in OpenTelemetry, verify console output, and validate in New Relic (45 mins)
 - Challenge 04: **[New Relic Integration](./Solution-04.md)**
-  - Connect observability pipeline to New Relic platform (1 hour)
+  - Add custom spans/metrics/logging and validate custom signals in New Relic (1 hour)
 - Challenge 05: **[Monitoring Best Practices](./Solution-05.md)**
   - Build dashboards and configure alerts for production (1.5 hours)
 - Challenge 06: **[LLM Evaluation & Quality Gates](./Solution-06.md)**
@@ -110,12 +110,12 @@ This hack is designed to be completed in a single day with approximately 8 hours
   - Hands-on: Build Flask app with AI travel planner agent
   - Support participants who encounter issues
 - **11:45 - 12:30** - Lunch
-- **12:30 - 1:30** - Challenge 3 (Add OpenTelemetry)
+- **12:30 - 1:15** - Challenge 3 (Add OpenTelemetry)
   - Brief lecture on observability concepts
-  - Hands-on instrumentation
-- **1:30 - 2:15** - Challenge 4 (New Relic Integration)
-  - Configure OTLP exporters
-  - View data in New Relic
+  - Verify built-in telemetry in console and New Relic
+- **1:15 - 2:15** - Challenge 4 (New Relic Integration)
+  - Add custom spans/metrics/logging
+  - Validate custom signals in New Relic
 - **2:15 - 2:30** - Break
 - **2:30 - 3:30** - Challenge 5 (Monitoring Best Practices)
   - Build custom dashboards
@@ -133,7 +133,7 @@ Participants can complete this hack at their own pace over 1-2 weeks, spending a
 
 - Challenges 0-1: 1.5 hours
 - Challenge 2: 2-3 hours
-- Challenge 3: 2 hours
+- Challenge 3: 45 minutes
 - Challenge 4: 1 hour
 - Challenge 5: 1.5 hours
 - Challenge 6: 2.5 hours

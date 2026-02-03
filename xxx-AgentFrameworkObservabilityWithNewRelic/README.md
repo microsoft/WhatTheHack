@@ -35,14 +35,14 @@ This hack walks you through building the platform layer by layer, adding observa
     - Get customer requests flowing through the system
 
 3. 📊 Add Observability: "Can you see what's happening?"
-    - Instrument your agents with OpenTelemetry
-    - Capture traces of every agent decision
-    - Export metrics and logs from your system
+    - Initialize built-in OpenTelemetry
+    - Verify traces and metrics in the console
+    - Send the same built-in telemetry to New Relic
 
-4. 🔗 Connect to New Relic: "Time to see the full picture!"
-    - Send telemetry to New Relic
-    - View traces, metrics, and logs in dashboards
-    - Troubleshoot real issues in your agents
+4. 🧩 Custom Telemetry: "Add your own signals."
+    - Add custom spans for tools and routes
+    - Record custom metrics for business logic
+    - Correlate logs with trace context in New Relic
 
 5. 🎯 Optimize for Production: "Make it fast, reliable, and insightful."
     - Implement monitoring best practices
@@ -84,9 +84,9 @@ This hack walks you through building the platform layer by layer, adding observa
 - Challenge 02: **[Build Your MVP](Student/Challenge-02.md)**
   - Create basic agent + Flask web app
 - Challenge 03: **[Add OpenTelemetry Instrumentation](Student/Challenge-03.md)**
-  - Instrument everything
+  - Built-in telemetry to console and New Relic
 - Challenge 04: **[New Relic Integration](Student/Challenge-04.md)**
-  - See your data!
+  - Custom spans/metrics/logging in New Relic
 - Challenge 05: **[Monitoring Best Practices](Student/Challenge-05.md)**
   - Learn industry best practices for monitoring AI-driven applications.
 - Challenge 06: **[LLM Evaluation & Quality Gates](Student/Challenge-06.md)**

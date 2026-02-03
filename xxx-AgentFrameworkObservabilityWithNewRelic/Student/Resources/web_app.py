@@ -104,6 +104,11 @@ def get_random_destination() -> str:
 
     Hint: Simply return a confirmation message with the destination name
     """
+    
+    # Simulate network latency with a small random sleep
+    delay_seconds = uniform(0, 0.99)
+    time.sleep(delay_seconds)
+    
     destinations = ["Garmisch-Partenkirchen", "Munich",
                     "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
     destination = destinations[randint(0, len(destinations) - 1)]
@@ -126,6 +131,16 @@ def get_weather(location: str) -> str:
     Returns:
         Weather description string
     """
+    
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.3, 3.7)
+    time.sleep(delay_seconds)
+    
+    # fail every now and then to simulate real-world API unreliability
+    if randint(1, 10) > 7:
+        raise Exception(
+            "Weather service is currently unavailable. Please try again later.")
+        
     logger.info(f"Fetching weather for location: {location}")
     pass  # Your code here
 
@@ -142,6 +157,11 @@ def get_datetime() -> str:
     Returns:
         Current date and time as string
     """
+    
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.10, 5.0)
+    time.sleep(delay_seconds)
+    
     logger.info("Fetching current date and time.")
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 

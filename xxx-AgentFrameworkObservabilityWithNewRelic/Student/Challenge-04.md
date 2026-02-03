@@ -1,93 +1,104 @@
-# Challenge 04 - New Relic Integration
+# Challenge 04 - Custom Instrumentation with OpenTelemetry
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
 
-Console output is great for development, but in production you need a backend that can store, search, and analyze your telemetry at scale. New Relic is an observability platform that receives OpenTelemetry data and provides powerful tools for viewing traces, correlating across services, and collaborating with your team on debugging.
+In Challenge 03, you verified that the Agent Framework automatically generates traces and metrics for your AI agent operations. Now it's time to add **custom instrumentation** to capture application-specific insights.
 
-In this challenge, you will connect your OpenTelemetry-instrumented application to New Relic so your entire team can see and analyze agent behavior in real-time.
+Custom instrumentation allows you to:
 
-## Pre-requisites
+- Create spans for specific business operations (e.g., "plan_trip", "validate_itinerary")
+- Record custom metrics (e.g., number of destinations, planning duration)
+- Add structured logging context for better debugging
+- Correlate application events with AI agent activities
 
-You will need:
-
-- A New Relic account (free tier works fine)
-- Your New Relic License Key (found in Account Settings)
-- The New Relic OTLP endpoint URL (US: `https://otlp.nr-data.net`, EU: `https://otlp.eu01.nr-data.net`)
+By the end of this challenge, you'll have visibility into both the automatic Agent Framework telemetry **and** your custom business logic, all flowing to New Relic.
 
 ## Description
 
-Your goal is to configure your application to send traces, metrics, and logs to New Relic using the OpenTelemetry Line Protocol (OTLP) exporter.
+Your goal is to add custom spans, metrics, and structured logging to your travel planning application:
 
-**Environment Configuration:**
+- **Add Custom Spans** - Instrument tool calls and business logic with manual spans
+- **Add Custom Metrics** - Record meaningful measurements (trip planning duration, destination counts, etc.)
+- **Add Structured Logging** - Correlate logs with spans using trace context
+- **Verify in New Relic** - Confirm custom telemetry appears alongside auto-generated signals
 
-- Configure the OTLP endpoint URL for your region (US or EU)
-- Set up the authentication header with your New Relic License Key
-- Configure service identification attributes
+### What You're Adding
 
-**Update OpenTelemetry Initialization:**
+**Tool Instrumentation:**
 
-- Replace the console exporter with the OTLP exporter
-(- Configure exporters for traces, metrics, and logs)
-- Ensure your resource attributes identify your service properly
+By leveraging the above approach you will notice that the Agent Framework automatically instruments tool calls. However, to get more detailed insights, you will manually add spans around each tool function:
 
-**Validate the Integration:**
+- Get a tracer for creating spans
+- Wrap each tool function (`get_random_destination`, `get_weather`, `get_datetime`) with `tracer.start_as_current_span()` to create custom spans
+- Add relevant attributes to spans (e.g., location, destination)
+- Log information within the span context
 
-- Make test requests to your application
-- Verify traces appear in the New Relic UI
-- Search and filter traces to confirm your data is flowing correctly
+**Route Instrumentation:**
 
-### What to Configure
+Instrument your Flask routes to capture the full request lifecycle. Add spans for request handling, data validation, and response preparation.
 
-Your `.env` file needs these OTel-specific variables:
+- Wrap the /plan route handler with a span
+- Add request-specific attributes (destination, duration, etc.)
+- Handle errors and mark spans appropriately
 
-- `OTEL_EXPORTER_OTLP_ENDPOINT` - The New Relic OTLP endpoint for your region
-- `OTEL_EXPORTER_OTLP_HEADERS` - Authentication header with your License Key
-- `OTEL_SERVICE_NAME` - Your service name (e.g., "travel-planner")
-- `OTEL_SERVICE_VERSION` - Your service version
-- comment the line `ENABLE_CONSOLE_EXPORTERS=True` by adding a # at the beginning of the line
+**Logging Configuration:**
 
-Python OpenTelemetry SDK will automatically read these environment variables when you initialize the OTLP exporter. However, you need to modify the `requirements.txt` to include `opentelemetry-exporter-otlp-proto-grpc` package.
+Configure structured logging that automatically includes trace context. This allows you to correlate logs with specific spans in New Relic, making it easier to debug issues.
 
-Restart your app again and execute a generate request for a travel plan. Verify that your app appears in [New Relic](https://one.newrelic.com/) (it can take a few minutes for data to appear) as an entity within the `Services - OpenTelemetry` section. The name of the entity should match the OTEL_SERVICE_NAME you set in the `.env` file. Dig into `Distributed tracing` section and look for traces generated by your application. You should see a trace group with a name like `plan_trip` (or similar, depending upon the name of your span for the `/plan` route handler). In case you did not create a custom span for the `/plan` route handler, you should see `invoke_agent xxx`. Investigate and observe the details of a single trace.
+Example: When a user requests a trip plan, you should see:
 
-![New Relic Distributed Tracing (auto)](../Images/newrelic-distributed-tracing-auto.png)
-
-By clicking into the `Logs` tab of the trace details, you should also be able to see any logs that were emitted during the request, correlated to the trace.
-
-![New Relic Distributed Tracing (auto) - Logs](../Images/newrelic-distributed-tracing-auto-logs.png)
-
-If you see traces in New Relic, you can then proceed to instrument the tool functions and Flask routes as described below.
+1. An auto-generated Agent Framework span for the agent orchestration
+2. Custom spans for each tool call
+3. Custom spans for business logic (validation, filtering)
+4. Logs with trace context attached to relevant spans
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- [ ] Verify that traces appear in New Relic within seconds of making requests
-- [ ] Demonstrate that tool spans are visible in the trace details (get_weather, get_datetime, etc.)
-- [ ] Show the service map in New Relic displaying your application
-- [ ] Verify that custom attributes are visible in trace details
-- [ ] Demonstrate that you can search and filter traces using NRQL queries
+- [ ] Add custom spans around tool implementations
+- [ ] Add custom spans around Flask routes
+- [ ] Configure structured logging with trace context
+- [ ] Verify custom spans appear in New Relic traces
+- [ ] Verify custom metrics appear in New Relic
+- [ ] Correlate logs to spans in New Relic using trace context
+
+When you submit a travel request, you should see a complete trace in New Relic showing:
+
+- Auto-generated Agent Framework spans
+- Custom spans for tools and routes
+- Logs correlated with spans
+- Custom metrics displayed alongside auto-generated metrics
+
+Restart your app again and execute a generate request for a travel plan. Verify that your app appears in [New Relic](https://one.newrelic.com/) (it can take a few minutes for additional data to appear) as an entity within the `Services - OpenTelemetry` section. The name of the entity should match the OTEL_SERVICE_NAME you set in the `.env` file. Dig into `Distributed tracing` section and look for traces generated by your application. You should see an additional trace group with a name like `plan_trip` (or similar if you used a different name in for the custom span).
+
+![WanderAI OTel custom trace](../Images/newrelic-distributed-tracing-custom.png)
+
+Click into the trace group to see all the individual traces for that group.
+
+![WanderAI OTel custom trace](../Images/newrelic-trace-group-custom.png)
+
+Investigate and observe the details of a single trace.
+
+![WanderAI OTel custom trace](../Images/newrelic-distributed-tracing-trace-custom.png)
 
 ## Learning Resources
 
-- [New Relic OTLP Ingest](https://docs.newrelic.com/docs/opentelemetry/opentelemetry-introduction/)
-- [Configuring OTLP Endpoint](https://docs.newrelic.com/docs/opentelemetry/best-practices/opentelemetry-otlp/)
-- [New Relic AI Monitoring](https://docs.newrelic.com/docs/ai-monitoring/intro-to-ai-monitoring/)
-- [OpenTelemetry OTLP Exporters](https://opentelemetry.io/docs/instrumentation/python/exporters/)
+- [Microsoft Agent Framework Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python)
+- [OpenTelemetry Python Manual Instrumentation](https://opentelemetry.io/docs/instrumentation/python/manual/)
+- [OpenTelemetry Spans](https://opentelemetry.io/docs/concepts/signals/traces/#spans)
+- [OpenTelemetry Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/)
+- [New Relic Distributed Tracing](https://docs.newrelic.com/docs/distributed-tracing/concepts/introduction-distributed-tracing/)
+- [New Relic Log Management](https://docs.newrelic.com/docs/logs/get-started/get-started-log-management/)
 
 ## Tips
 
-- Never commit your `.env` file with your License Key to git
-- Use the BatchSpanProcessor for efficient sending of traces
-- Make requests and watch traces appear live in the New Relic UI
-- Add custom attributes that will be useful for debugging (destination, duration, model name)
-- The OTLP exporters automatically read configuration from environment variables starting with `OTEL_EXPORTER_OTLP_*`
-
-## Advanced Challenges (Optional)
-
-- Configure separate exporters for traces, metrics, and logs
-- Set up metric collection alongside traces
-- Configure log forwarding with trace correlation
-- Explore the New Relic Service Map to visualize your application
+- Use `get_tracer()` and `get_meter()` from Agent Framework for consistency
+- Add spans at logical boundaries (function entry/exit)
+- Use span attributes to capture relevant context (destination names, flight prices, etc.)
+- Structure logs as JSON for easier parsing in New Relic
+- Test custom spans in the console before switching to New Relic OTLP
+- Use span status to indicate success/failure of operations
+- Correlate logs with spans using trace IDs automatically provided by OpenTelemetry

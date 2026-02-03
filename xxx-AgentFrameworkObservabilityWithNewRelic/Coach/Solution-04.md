@@ -1,36 +1,41 @@
-# Challenge 04 - New Relic Integration - Coach's Guide
+# Challenge 04 - Custom Instrumentation with OpenTelemetry - Coach's Guide
 
 [< Previous Solution](./Solution-03.md) - **[Home](./README.md)** - [Next Solution >](./Solution-05.md)
 
 ## Notes & Guidance
 
-Guide attendees to integrate their instrumented app with New Relic using OTLP for backend monitoring.
+Guide attendees to add custom spans, metrics, and logging to their app, then verify those custom signals in New Relic.
 
 ### Key Points
 
-- OTLP export: Configure OpenTelemetry to export to New Relic.
-- Backend monitoring: Value of centralized monitoring and alerting.
-- Troubleshooting: Help resolve integration issues (API keys, endpoints).
+- Manual spans: Add custom spans for tools, routes, and business logic.
+- Custom metrics: Record meaningful measurements for the app.
+- Structured logging: Correlate logs with spans using trace context.
+- Verification: Confirm custom signals appear alongside auto-generated telemetry in New Relic.
 
 ### Tips
 
-- Provide New Relic account setup instructions.
-- Show how to view traces/metrics in New Relic dashboard.
-- Encourage setting up basic alerts/dashboards.
+- Start with one route and one tool to demonstrate custom spans.
+- Use `get_tracer()` and `get_meter()` from Agent Framework for consistency.
+- Add span attributes for key context (destination, duration, tool name).
+- Validate in New Relic by opening a trace and expanding custom spans.
 
 ### Pitfalls
 
-- Incorrect endpoint or API key.
-- Not verifying data in New Relic.
+- Too many spans or attributes (noise and cardinality).
+- Spans created outside of a current context (flat traces).
+- Metrics recorded but never emitted due to meter misconfiguration.
 
 ### Success Criteria
 
-- App exports observability data to New Relic.
-- Attendees can view traces/metrics/logs in curated experiences and dashboards.
+- Custom spans appear in New Relic traces alongside auto-generated spans.
+- Custom metrics appear in New Relic Metrics Explorer.
+- Logs correlate with spans using trace context.
+- Attendees can explain auto-generated vs custom telemetry.
 
 ### Example solution implementation
 
-The [Example solution implementation](./Solutions/Challenge-04/) folder contains sample implementation of the challenge 2. It contains:
+The [Example solution implementation](./Solutions/Challenge-04/) folder contains sample implementation of the challenge 4. It contains:
 
 - **[web_app.py](./Solutions/Challenge-04/web_app.py)**: Python Flask web application with Agent framework implementation
 - **[templates/index.html](./Solutions/Challenge-04/templates/index.html)**: sample web UI form
@@ -42,78 +47,76 @@ The [Example solution implementation](./Solutions/Challenge-04/) folder contains
 
 ## Common Issues & Troubleshooting
 
-### Issue 1: No Data Appearing in New Relic
+### Issue 1: Spans Not Nested Correctly
 
-**Symptom:** App runs, but New Relic shows no traces/metrics
-**Cause:** OTLP endpoint or API key misconfigured
+**Symptom:** Traces show flat structure instead of parent-child relationships
+**Cause:** Context not propagated between spans
 **Solution:**
 
-- Verify `OTEL_EXPORTER_OTLP_ENDPOINT` is set to `https://otlp.nr-data.net:4317`
-- Check `OTEL_EXPORTER_OTLP_HEADERS` includes `api-key=<YOUR_LICENSE_KEY>`
-- Ensure license key is an INGEST key (not a User key)
-- Test connectivity: `curl -v https://otlp.nr-data.net:4317`
-- Wait 1-2 minutes for data to appear (initial delay is normal)
+- Use `with` statement for automatic context management
+- Ensure child spans are created inside parent span's `with` block
+- Don't create new event loops inside span contexts
+- Use `tracer.start_as_current_span()` not `tracer.start_span()`
 
-### Issue 2: 401/403 Authentication Errors
+### Issue 2: Metrics Not Recording
 
-**Symptom:** Exporter logs show authentication failures
-**Cause:** Invalid or wrong type of New Relic license key
+**Symptom:** Counters/histograms created but values always zero
+**Cause:** Metrics not being called or meter not configured
 **Solution:**
 
-- Get a new INGEST license key from New Relic: API Keys → Create key → Ingest - License
-- Check for extra whitespace or quotes in the key
-- Verify the key matches the account you're viewing in New Relic
-- For EU accounts, use `https://otlp.eu01.nr-data.net:4317`
+- Verify `.add()` or `.record()` is actually being called
+- Check that metric names don't have invalid characters
+- Ensure meter is created from the same provider as tracer
+- Add debug logging to confirm metric recording code executes
 
-### Issue 3: gRPC Connection Errors
+### Issue 3: Logs Not Correlating with Traces
 
-**Symptom:** `grpc._channel._InactiveRpcError` or connection refused
-**Cause:** Firewall blocking gRPC or wrong port
+**Symptom:** Logs appear but aren't linked to traces in backend
+**Cause:** Logger not configured with OpenTelemetry handler
 **Solution:**
 
-- Ensure port 4317 (gRPC) is not blocked by firewall
-- Try HTTP endpoint: `https://otlp.nr-data.net:4318/v1/traces`
-- Check if corporate proxy requires configuration
-- Verify no VPN is interfering with the connection
+- Add `LoggingHandler` from opentelemetry to root logger
+- Include span context in log records
+- Use structured logging with `extra={}` parameter
+- Reference solution code for correct logging setup
 
-### Issue 4: Traces Appear But No Metrics/Logs
+### Issue 4: Missing Span Attributes
 
-**Symptom:** Only some signal types visible in New Relic
-**Cause:** Separate exporters needed for each signal type
+**Symptom:** Spans show up, but lack useful context
+**Cause:** Attributes not being set or added too late
 **Solution:**
 
-- Create separate OTLP exporters for traces, metrics, and logs
-- Verify all three are passed to `configure_otel_providers()`
-- Check New Relic for each signal type separately
-- Ensure BatchProcessors are configured for each
+- Add attributes at span creation time
+- Use semantic conventions where available
+- Avoid high-cardinality attributes (e.g., full prompts)
 
-### Issue 5: Service Name Not Showing Correctly
+### Issue 5: Too Many Spans or High Cardinality
 
-**Symptom:** Data appears under wrong service name or "unknown_service"
-**Cause:** Resource attributes not set correctly
+**Symptom:** Traces are noisy or slow to query
+**Cause:** Too many spans or high-cardinality attributes
 **Solution:**
 
-- Set `SERVICE_NAME` in Resource: `Resource.create({SERVICE_NAME: "travel-planner"})`
-- Verify resource is passed to all providers (tracer, meter, logger)
-- Check `service.name` attribute in New Relic trace details
+- Keep spans at logical boundaries
+- Avoid per-token or per-message spans
+- Limit attributes with unbounded values
 
 ---
 
 ## What Participants Struggle With
 
-- **Finding the Right Endpoint:** Help them understand US vs EU endpoints and gRPC vs HTTP
-- **License Key Types:** Explain the difference between Ingest keys and User API keys
-- **Waiting for Data:** Set expectations that first data may take 1-2 minutes to appear
-- **Navigating New Relic UI:** Show them where to find: APM, Distributed Tracing, Metrics Explorer, Logs
-- **Understanding OTLP:** Explain it's a standard protocol, not New Relic-specific
+- **Understanding Span Hierarchy:** Use diagrams to show parent-child span relationships
+- **Where to Add Instrumentation:** HTTP requests, agent runs, tool calls, external API calls
+- **Metric Types:** Counters (events) vs. histograms (durations/distributions)
+- **Attribute Naming:** Encourage semantic conventions (e.g., `http.method`, `destination.name`)
+- **Too Much vs. Too Little:** Balance visibility vs. noise
 
 ---
 
 ## Time Management
 
-**Expected Duration:** 45 minutes
-**Minimum Viable:** 30 minutes (traces appearing in New Relic)
-**Stretch Goals:** +15 minutes (verify all signal types, explore New Relic features)
+**Expected Duration:** 1 hour
+**Minimum Viable:** 45 minutes (custom spans for main request flow)
+**Stretch Goals:** +30 minutes (custom metrics and log correlation)
 
 ---
 
@@ -121,11 +124,10 @@ The [Example solution implementation](./Solutions/Challenge-04/) folder contains
 
 Coach should verify participants have:
 
-- [ ] Environment variables set for OTLP endpoint and API key
-- [ ] OTLP exporters created for traces, metrics, and logs
-- [ ] App runs without exporter errors in console
-- [ ] Traces visible in New Relic Distributed Tracing
-- [ ] Service name appears correctly in New Relic APM
-- [ ] Can navigate to a specific trace and see span details
-- [ ] Metrics visible in Metrics Explorer (if implemented)
-- [ ] Logs visible and correlated with traces (if implemented)
+- [ ] Custom spans wrap key operations (routes, agent run, tools)
+- [ ] Spans include relevant attributes (destination, duration, tool name)
+- [ ] At least one custom metric (counter or histogram) is recording data
+- [ ] Logs include trace context for correlation
+- [ ] Traces show both auto-generated and custom spans
+- [ ] Custom metrics visible in New Relic Metrics Explorer
+- [ ] Logs visible and correlated with spans in New Relic

@@ -4,34 +4,36 @@
 
 ## Notes & Guidance
 
-Help attendees instrument their agent app with OpenTelemetry for traces, metrics, and logs.
+Help attendees initialize built-in OpenTelemetry for their agent app, verify telemetry in the console, and then confirm the same telemetry in New Relic.
 
 ### Key Points
 
-- Observability setup: Instrument Flask app and agent logic.
-- Traces, metrics, logs: Understand and implement each.
-- Debugging: Use observability to diagnose agent-tool issues.
+- Observability setup: Initialize OpenTelemetry using Agent Framework helpers.
+- Console verification: Confirm traces/metrics appear locally first.
+- New Relic verification: Switch to OTLP and confirm the same signals in New Relic.
 
 ### Tips
 
-- Demonstrate OpenTelemetry setup if needed.
-- Encourage checking traces/logs during testing.
-- Discuss real-world observability scenarios.
-- Reference OpenTelemetry docs and examples.
+- Demonstrate the minimal setup (e.g., `configure_otel_providers()` + service resource).
+- Encourage console verification before switching to OTLP.
+- Remind attendees it can take a few minutes for data to appear in New Relic.
+- Reference OpenTelemetry + Agent Framework docs for initialization.
 
 ### Pitfalls
 
-- Instrumenting only part of the app.
-- Not verifying traces/logs output.
+- Forgetting to set OTLP endpoint or API key.
+- Using the wrong New Relic key type.
+- Expecting custom spans before adding manual instrumentation.
 
 ### Success Criteria
 
-- App emits traces, metrics, and logs for key operations.
-- Attendees can explain observability's role in debugging and monitoring.
+- App emits built-in traces and metrics to the console.
+- Same built-in signals appear in New Relic via OTLP.
+- Attendees can explain the difference between auto-generated vs custom telemetry.
 
 ### Example solution implementation
 
-The [Example solution implementation](./Solutions/Challenge-03/) folder contains sample implementation of the challenge 2. It contains:
+The [Example solution implementation](./Solutions/Challenge-03/) folder contains sample implementation of the challenge 3. It contains:
 
 - **[web_app.py](./Solutions/Challenge-03/web_app.py)**: Python Flask web application with Agent framework implementation
 - **[templates/index.html](./Solutions/Challenge-03/templates/index.html)**: sample web UI form
@@ -51,7 +53,6 @@ The [Example solution implementation](./Solutions/Challenge-03/) folder contains
 
 - Verify `configure_otel_providers()` is called before creating tracer/meter
 - Check that `get_tracer()` and `get_meter()` are called after setup
-- Ensure spans are created with `with tracer.start_as_current_span("name"):`
 - Add a console exporter temporarily to verify data is being generated
 
 ### Issue 2: Import Errors for OpenTelemetry
@@ -65,56 +66,54 @@ The [Example solution implementation](./Solutions/Challenge-03/) folder contains
 - Check requirements.txt includes all OTel dependencies
 - Restart Python/terminal after installing
 
-### Issue 3: Spans Not Nested Correctly
+### Issue 3: No Data Appearing in New Relic
 
-**Symptom:** Traces show flat structure instead of parent-child relationships
-**Cause:** Context not propagated between spans
+**Symptom:** App runs, but New Relic shows no traces/metrics
+**Cause:** OTLP endpoint or API key misconfigured
 **Solution:**
 
-- Use `with` statement for automatic context management
-- Ensure child spans are created inside parent span's `with` block
-- Don't create new event loops inside span contexts
-- Use `tracer.start_as_current_span()` not `tracer.start_span()`
+- Verify `OTEL_EXPORTER_OTLP_ENDPOINT` matches your region
+- Check `OTEL_EXPORTER_OTLP_HEADERS` includes `api-key=<YOUR_LICENSE_KEY>`
+- Ensure the license key is an INGEST key
+- Wait 1-2 minutes for data to appear
 
-### Issue 4: Metrics Not Recording
+### Issue 4: 401/403 Authentication Errors
 
-**Symptom:** Counters/histograms created but values always zero
-**Cause:** Metrics not being called or meter not configured
+**Symptom:** Exporter logs show authentication failures
+**Cause:** Invalid or wrong type of New Relic license key
 **Solution:**
 
-- Verify `.add()` or `.record()` is actually being called
-- Check that metric names don't have invalid characters
-- Ensure meter is created from the same provider as tracer
-- Add debug logging to confirm metric recording code executes
+- Create a new INGEST license key in New Relic
+- Remove whitespace or quotes from the key
+- Verify the key matches the account you're viewing
+- For EU accounts, use `https://otlp.eu01.nr-data.net`
 
-### Issue 5: Logs Not Correlating with Traces
+### Issue 5: gRPC Connection Errors
 
-**Symptom:** Logs appear but aren't linked to traces in backend
-**Cause:** Logger not configured with OpenTelemetry handler
+**Symptom:** `grpc._channel._InactiveRpcError` or connection refused
+**Cause:** Firewall blocking gRPC or wrong port
 **Solution:**
 
-- Add `LoggingHandler` from opentelemetry to root logger
-- Include span context in log records
-- Use structured logging with `extra={}` parameter
-- Reference solution code for correct logging setup
+- Ensure port 4317 (gRPC) is not blocked
+- Try HTTP endpoint: `https://otlp.nr-data.net:4318/v1/traces`
+- Check proxy/VPN settings
 
 ---
 
 ## What Participants Struggle With
 
-- **Understanding Span Hierarchy:** Use diagrams to show parent-child span relationships
-- **Where to Add Instrumentation:** Guide them to instrument: HTTP requests, agent runs, tool calls, external API calls
-- **Metric Types:** Explain when to use counters (events) vs. histograms (durations/distributions)
-- **Attribute Naming:** Encourage semantic conventions (e.g., `http.method`, `destination.name`)
-- **Too Much vs. Too Little:** Help them find balance—not every line needs a span
+- **Finding the Right Endpoint:** US vs EU regions and gRPC vs HTTP
+- **License Key Types:** Ingest keys vs user keys
+- **Waiting for Data:** First data may take 1-2 minutes to appear
+- **Navigating New Relic:** APM, Distributed Tracing, Metrics Explorer
 
 ---
 
 ## Time Management
 
-**Expected Duration:** 1 hour
-**Minimum Viable:** 45 minutes (traces for main request flow)
-**Stretch Goals:** +30 minutes (metrics, custom attributes, log correlation)
+**Expected Duration:** 45 minutes
+**Minimum Viable:** 30 minutes (traces visible in console and New Relic)
+**Stretch Goals:** +15 minutes (verify metrics, explore trace details)
 
 ---
 
@@ -122,10 +121,9 @@ The [Example solution implementation](./Solutions/Challenge-03/) folder contains
 
 Coach should verify participants have:
 
-- [ ] OpenTelemetry SDK properly initialized with resource attributes
-- [ ] Tracer created and spans wrap key operations (request handler, agent run, tool calls)
-- [ ] Spans include relevant attributes (destination, duration, token count)
-- [ ] At least one metric (counter or histogram) is recording data
-- [ ] Logs include trace context for correlation
-- [ ] Can explain what each span represents in the request flow
-- [ ] Console or debug output shows telemetry is being generated
+- [ ] OpenTelemetry SDK initialized with service resource attributes
+- [ ] Console exporter shows traces/metrics during a request
+- [ ] OTLP environment variables set correctly
+- [ ] Traces visible in New Relic Distributed Tracing
+- [ ] Service name appears correctly in New Relic APM
+- [ ] Attendees can explain auto-generated vs custom telemetry

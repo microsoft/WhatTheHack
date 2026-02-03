@@ -54,15 +54,17 @@ logger = logging.getLogger(__name__)
 # Step 3: Setup observability with the resource
 # HINT: https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python#1-standard-opentelemetry-environment-variables-recommended
 
-#
+# ============================================================================
 # Challenge 04: TODO - Update to use OTLP exporters for New Relic
 # HINT: configure_otel_providers(exporters=[???])
-
-#
-# Challenge 03: TODO - Step 3: Get tracer and meter instances
-# HINT: tracer = ???
-# HINT: meter = ???
 # ============================================================================
+
+
+# ============================================================================
+# Challenge 04: TODO - Get tracer
+# HINT: tracer = ???
+# ============================================================================
+
 
 # ============================================================================
 # Challenge 05: TODO - Create Custom Metrics for Monitoring
@@ -105,6 +107,11 @@ def get_random_destination() -> str:
 
     Hint: Simply return a confirmation message with the destination name
     """
+    
+    # Simulate network latency with a small random sleep
+    delay_seconds = uniform(0, 0.99)
+    time.sleep(delay_seconds)
+    
     destinations = ["Garmisch-Partenkirchen", "Munich",
                     "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
     destination = destinations[randint(0, len(destinations) - 1)]
@@ -127,6 +134,16 @@ def get_weather(location: str) -> str:
     Returns:
         Weather description string
     """
+    
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.3, 3.7)
+    time.sleep(delay_seconds)
+    
+    # fail every now and then to simulate real-world API unreliability
+    if randint(1, 10) > 7:
+        raise Exception(
+            "Weather service is currently unavailable. Please try again later.")
+        
     logger.info(f"Fetching weather for location: {location}")
     return f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
 
@@ -143,6 +160,11 @@ def get_datetime() -> str:
     Returns:
         Current date and time as string
     """
+    
+    # Simulate network latency with a small random float sleep
+    delay_seconds = uniform(0.10, 5.0)
+    time.sleep(delay_seconds)
+    
     logger.info("Fetching current date and time.")
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 

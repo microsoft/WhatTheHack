@@ -10,29 +10,22 @@ OpenTelemetry is the industry standard for observability in modern applications.
 
 Microsoft Agent Framework already integrates with OpenTelemetry out of the box, and more specifically Agent Framework emits traces, logs, and metrics according to the [OpenTelemetry GenAI Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/).
 
-In this challenge, you will enhance your travel planning application by adding OpenTelemetry instrumentation to key parts of the codebase, including:
-
-- Tool functions
-- Flask route handlers
-- Logging configuration
-
-We will start by initializing OpenTelemetry in the application, then proceed to instrument the tool functions and Flask routes to capture detailed traces. Finally, we will configure structured logging that includes trace context for better correlation.
+In this challenge, you will initialize OpenTelemetry, verify telemetry in the **console**, and then confirm the **same telemetry in New Relic** before moving on to custom instrumentation in the next challenge.
 
 ## Description
 
-Your goal is to add comprehensive OpenTelemetry instrumentation to your travel planning application. This includes:
+Your goal is to add basic OpenTelemetry instrumentation to your travel planning application and validate the results:
 
 - **Initialize OpenTelemetry** - Set up the tracer provider and configure resource attributes to identify your service
-- **Instrument Tool Functions** - Wrap each tool function with a span to capture timing and attributes
-- **Instrument Flask Routes** - Add spans to your request handlers to track the full request lifecycle
-- **Add Structured Logging** - Configure logging with context that correlates to your traces
+- **Verify Console Telemetry** - Confirm traces and metrics show up in your terminal
+- **Send Telemetry to New Relic** - Switch exporters to OTLP and confirm the same signals in New Relic
 
 ### What You're Adding
 
 **OpenTelemetry Initialization:**
 
-- Create a resource identifying your service (e.g., "travel-planner")
-- Set up the observability framework using the Agent Framework's built-in helpers
+- Set up the observability framework using the Agent Framework's built-in helper
+- Focus on the recommended section first (console exporter), then move to OTLP for New Relic
 
 Refer to the [Agent Framework Observability Guide](https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python) for details on initialization. It is recommended to start the simplest approach first, such as console exporter.
 
@@ -40,41 +33,7 @@ Once you updated your application to successfully emit traces to the **console**
 
 Run the Flask app with the `run.sh` command. Then submit a travel request through the web UI. You should see traces being printed in the console output.
 
-If you are curious, Agent Framework also allows you to configure logging of sensitive data (prompts, responses, function call arguments, and results). This will log sensitive data to the console along with the traces. Be cautious when enabling this in production environments.
-
-If you see traces and logs being emitted there, you can then proceed to instrument the tool functions and Flask routes as described below.
-
-**Tool Instrumentation:**
-
-By leveraging the above approach you will notice that the Agent Framework automatically instruments tool calls. However, to get more detailed insights, you will manually add spans around each tool function:
-
-- Get a tracer for creating spans
-- Wrap each tool function (`get_random_destination`, `get_weather`, `get_datetime`) with `tracer.start_as_current_span()`
-- Add relevant attributes to spans (e.g., location, destination)
-- Log information within the span context
-
-**Route Instrumentation:**
-
-- Wrap the `/plan` route handler with a span
-- Add request-specific attributes (destination, duration, etc.)
-- Handle errors and mark spans appropriately
-
-**Logging Configuration:**
-
-- Set up structured logging that includes trace context
-- Log meaningful events throughout the request lifecycle
-
-## Success Criteria
-
-To complete this challenge successfully, you should be able to:
-
-- [ ] Verify that OpenTelemetry SDK is initialized in your application
-- [ ] Demonstrate that traces appear in the console when you make requests
-- [ ] Show that tool function spans are captured with their attributes
-- [ ] Verify that Flask route spans include request information
-- [ ] Demonstrate that logs include trace context for correlation
-
-If everything is set up correctly, when you run your Flask app and submit a travel request, you should see detailed traces in the console output showing the full journey of the request, including tool calls and route handling.
+If everything is set up correctly, when you run your Flask app and submit a travel request, you should see detailed traces in the console output and in New Relic, including tool calls and route handling.
 
 ![WanderAI OTel trace](../Images/wanderai-otlp-console-exporter-trace.png)
 
@@ -82,7 +41,56 @@ After some time, you should also see some metrics appear in the console.
 
 ![WanderAI OTel metric](../Images/wanderai-otlp-console-exporter-metric.png)
 
-## Learning Resources
+If you see traces and logs being emitted there, proceed to send the same telemetry to New Relic.
+
+**Send the same telemetry to New Relic:**
+
+- Switch your exporters from **console** to **OTLP**
+- Set the required environment variables for New Relic (OTLP endpoint + header API key)
+- Re-run the app and make another travel request
+- Verify the same traces and metrics appear in New Relic
+
+> Note: You’re still using **built-in** Agent Framework OpenTelemetry here — no manual spans or other custom instrumentation yet.
+
+If everything is set up correctly, when you run your Flask app and submit a travel request, you should see detailed traces in New Relic showing the full journey of the request, including tool calls and route handling.
+
+Verify that your app appears in [New Relic](https://one.newrelic.com/) (it can take a few minutes for data to appear) as an entity within the `APM & Services` / `Services - OpenTelemetry` section. The name of the entity should match the OTEL_SERVICE_NAME you set in the `.env` file. Dig into `Distributed tracing` section and look for traces generated by your application. You should see a trace group with a name like `invoke_agent xxx`.
+
+![WanderAI OTel trace](../Images/newrelic-distributed-tracing-auto.png)
+
+Click into tthe trace group to see all the individual traces for that group.
+
+![WanderAI OTel trace](../Images/newrelic-trace-group-auto.png)
+
+Investigate and observe the details of a single trace.
+
+![WanderAI OTel trace](../Images/newrelic-distributed-tracing-trace-auto.png)
+
+At trace level, you can also see logs associated with each span, which provides additional context for debugging and analysis.
+
+![WanderAI OTel trace logs](../Images/newrelic-distributed-tracing-auto-logs.png)
+
+After some time, you should also see some metrics appear in New Relic. While you are still looking at the `APM & Services` / `Services - OpenTelemetry` section and have your WanderAI entity open, navigate to the `Metrics explorer` sub-menu to see the collected metrics.
+
+![WanderAI OTel metrics](../Images/newrelic-metrics-explorer.png)
+
+From here, click on the `Open query console` button to show all of the metrics that are currently being collected.
+
+![WanderAI OTel metrics](../Images/newrelic-metrics-auto.png)
+
+**Sensitive Data Logging (Optional):**
+
+If you are curious, Agent Framework also allows you to configure logging of sensitive data (prompts, responses, function call arguments, and results). This will log sensitive data to the console and/or New Relic along with the traces. Be cautious when enabling this in production environments.
+
+## Success Criteria
+
+To complete this challenge successfully, you should be able to:
+
+- [ ] Verify that OpenTelemetry SDK is initialized in your application
+- [ ] Demonstrate that traces appear in the console when you make requests
+- [ ] Confirm traces and metrics appear in New Relic using the OTLP exporter
+
+### Learning Resources
 
 - [Microsoft Agent Framework Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python)
 - [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)
@@ -92,9 +100,8 @@ After some time, you should also see some metrics appear in the console.
 
 ## Tips
 
-- Start small - Instrument one tool first, then expand to others
+- Start small - Verify console telemetry first
 - Check the console - Traces should print when requests complete
-- Use meaningful attributes - Include anything that helps debugging
-- Don't overload - Every span and log should have a purpose
+- Verify in New Relic - You should see the same traces and metrics
 - Test without the agent first - Make sure basic Flask routes work before adding agent complexity
-- The Agent Framework provides helper functions like `configure_otel_providers()`, `get_tracer()`, and `get_meter()` that simplify setup
+- The Agent Framework provides a helper function named `configure_otel_providers()` that simplifies setup
