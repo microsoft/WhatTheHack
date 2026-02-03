@@ -19,7 +19,7 @@ from agent_framework import ChatAgent
 # HINT: from agent_framework.observability import ???
 # HINT: from opentelemetry.sdk.resources import ???
 # HINT: from opentelemetry.semconv._incubating.attributes.service_attributes import ???
-from agent_framework.observability import configure_otel_providers, get_tracer
+from agent_framework.observability import configure_otel_providers, get_tracer, get_meter
 
 # Challenge 04: TODO - Import OTLP Exporters for New Relic
 # HINT: from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import ???
@@ -70,9 +70,28 @@ tracer = get_tracer()
 # ============================================================================
 # Challenge 05: TODO - Create Custom Metrics for Monitoring
 # ============================================================================
+meter = get_meter()
 # HINT: request_counter = meter.create_counter(name="???\", description="???\", unit="???")
 # HINT: error_counter = meter.create_counter(???)
 # HINT: tool_call_counter = meter.create_counter(???)
+request_counter = meter.create_counter(
+    name="travel_plan.requests.total",
+    description="Total number of travel plan requests",
+    unit="1"
+)
+
+error_counter = meter.create_counter(
+    name="travel_plan.errors.total",
+    description="Total number of errors",
+    unit="1"
+)
+
+tool_call_counter = meter.create_counter(
+    name="travel_plan.tool_calls.total",
+    description="Number of tool calls by tool name",
+    unit="1"
+)
+
 
 #
 # Challenge 06: TODO - Add evaluation metrics
@@ -122,10 +141,8 @@ def get_random_destination() -> str:
 
         # Challenge 05: TODO - Increment request counter
         # HINT: request_counter.add(???)
-
-        # Challenge 05: TODO - Increment tool call counter
-        # HINT: tool_call_counter.add(???)
-
+        request_counter.add(1, {"destination": destination})
+        tool_call_counter.add(1, {"tool_name": "get_random_destination"})
     return f"You have selected {destination} as your travel destination."
 
 
@@ -153,6 +170,7 @@ def get_weather(location: str) -> str:
         
         # fail every now and then to simulate real-world API unreliability
         if randint(1, 10) > 7:
+            error_counter.add(1, {"error_type": "API unreliability"})
             raise Exception(
                 "Weather service is currently unavailable. Please try again later.")
         
@@ -160,10 +178,7 @@ def get_weather(location: str) -> str:
         span.set_attribute("location", location)
         weather = f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
         logger.info(f"Weather for {location}: {weather}")
-
-        # Challenge 05: TODO - Increment tool call counter
-        # HINT: tool_call_counter.add(???)
-
+        tool_call_counter.add(1, {"tool_name": "get_weather"})
     return weather
 
 
@@ -189,10 +204,7 @@ def get_datetime() -> str:
         span.set_attribute("tool.name", "get_datetime")
         datetime_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         logger.info(f"Current date and time: {datetime_str}")
-
-        # Challenge 05: TODO - Increment tool call counter
-        # HINT: tool_call_counter.add(???)
-
+        tool_call_counter.add(1, {"tool_name": "get_datetime"})
     return datetime_str
 
 
@@ -364,6 +376,7 @@ async def plan_trip():
 
             # Challenge 05: TODO - Increment error counter
             # HINT: error_counter.add(???)
+            error_counter.add(1, {"error_type": type(e).__name__})
 
             return render_template('error.html', error=str(e)), 500
 

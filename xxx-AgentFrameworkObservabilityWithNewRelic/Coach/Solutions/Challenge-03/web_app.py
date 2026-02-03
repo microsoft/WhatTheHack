@@ -72,7 +72,6 @@ configure_otel_providers()
 # ============================================================================
 # HINT: request_counter = meter.create_counter(name="???\", description="???\", unit="???")
 # HINT: error_counter = meter.create_counter(???)
-# HINT: response_time_histogram = meter.create_histogram(???)
 # HINT: tool_call_counter = meter.create_counter(???)
 
 #
@@ -118,6 +117,13 @@ def get_random_destination() -> str:
                     "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
     destination = destinations[randint(0, len(destinations) - 1)]
     logger.info(f"Selected random destination: {destination}")
+
+    # Challenge 05: TODO - Increment request counter
+    # HINT: request_counter.add(???)
+
+    # Challenge 05: TODO - Increment tool call counter
+    # HINT: tool_call_counter.add(???)
+
     return f"You have selected {destination} as your travel destination."
 
 
@@ -149,6 +155,10 @@ def get_weather(location: str) -> str:
     
     weather = f"The weather in {location} is sunny with a high of {randint(20, 30)}°C."
     logger.info(f"Weather for {location}: {weather}")
+
+    # Challenge 05: TODO - Increment tool call counter
+    # HINT: tool_call_counter.add(???)
+
     return weather
 
 
@@ -172,6 +182,10 @@ def get_datetime() -> str:
     
     datetime_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     logger.info(f"Current date and time: {datetime_str}")
+
+    # Challenge 05: TODO - Increment tool call counter
+    # HINT: tool_call_counter.add(???)
+
     return datetime_str
 
 
@@ -255,9 +269,6 @@ async def plan_trip():
         # Challenge 04: TODO - Set span attributes for request parameters
         # HINT: span.set_attribute(???, ???)
 
-        # Challenge 05: TODO - Increment request counter
-        # HINT: request_counter.add(???)
-
         # ====================================================================
         # Challenge 07: TODO - Security Detection (BEFORE agent execution)
         # ====================================================================
@@ -329,10 +340,6 @@ async def plan_trip():
         # HINT: evaluation_result = ???
         # HINT: evaluation_passed_counter.add(???)
         # ====================================================================
-
-        # Challenge 05: TODO - Record response time
-        # HINT: duration_ms = ???
-        # HINT: response_time_histogram.record(???)
 
         # Render result
         return render_template('result.html',

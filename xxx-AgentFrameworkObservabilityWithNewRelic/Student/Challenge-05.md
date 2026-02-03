@@ -16,12 +16,11 @@ Your goal is to build a comprehensive monitoring solution for WanderAI that incl
 
 Add custom metrics to your application using the OpenTelemetry meter:
 
-- **Request Counter** - Track total number of travel plan requests
-- **Error Counter** - Track total number of errors
-- **Response Time Histogram** - Measure response times in milliseconds
+- **Request Counter** - Track total number of travel plan requests per destination
+- **Error Counter** - Track total number of errors, think about different error types
 - **Tool Call Counter** - Track how often each tool is called
 
-Emit these metrics from your application code at appropriate points (request handlers, error handlers, tool functions).
+Emit these metrics from your application code at appropriate points (request handlers, error handlers, tool functions). Check mock application code for examples and hints of how to create and record metrics using the get_meter() helper function.
 
 ### Part 2: Create a New Relic Dashboard
 
