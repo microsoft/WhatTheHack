@@ -4,8 +4,8 @@
 
 ## Pre-requisites 
 
-- Azure Form Recognizer resource for extracting text from raw unstructured data
-- Azure Cognitive Search resource for indexing and retrieving relevant information
+- Azure Document Intelligence resource for extracting text from raw unstructured data
+- Azure AI Search resource for indexing and retrieving relevant information
 - Azure OpenAI service for Generative AI Models and Embedding Models
 - Add required credentials of above resources in `.env` file 
 - Install the required libraries in the `requirements.txt` file via ```pip install -r requirements.txt ``` if you have not already
@@ -14,7 +14,7 @@
 
 Knowledge bases are widely used in enterprises and can contain an extensive number of documents across various categories. Retrieving relevant content based on user queries is a challenging task. Traditionally, methods like Page Rank have been employed to accurately retrieve information at the document level. However, users still need to manually search within the document to find the specific and relevant information they need. The recent advancements in Foundation Models, such as the one developed by OpenAI, offer a solution through the use of "Retrieval Augmented Generation" techniques and encoding information like "Embeddings." These methods aid in finding the relevant information and then to answer or summarize the content to present to the user in a concise and succinct manner.
 
-Retrieval augmented generation (RAG) is an innovative approach that combines the power of retrieval-based Knowledge bases, such as Azure Cognitive Search, and generative Large Language Models (LLMs), such as Azure OpenAI ChatGPT, to enhance the quality and relevance of generated outputs. This technique involves integrating a retrieval component into a generative model, enabling the retrieval of contextual and domain-specific information from the knowledge base. By incorporating this contextual knowledge alongside the original input, the model can generate desired outputs, such as summaries, information extraction, or question answering. In essence, the utilization of RAG with LLMs allows you to generate domain-specific text outputs by incorporating specific external data as part of the context provided to the LLMs.
+Retrieval augmented generation (RAG) is an innovative approach that combines the power of retrieval-based Knowledge bases, such as Azure AI Search, and generative Large Language Models (LLMs), such as Azure OpenAI ChatGPT, to enhance the quality and relevance of generated outputs. This technique involves integrating a retrieval component into a generative model, enabling the retrieval of contextual and domain-specific information from the knowledge base. By incorporating this contextual knowledge alongside the original input, the model can generate desired outputs, such as summaries, information extraction, or question answering. In essence, the utilization of RAG with LLMs allows you to generate domain-specific text outputs by incorporating specific external data as part of the context provided to the LLMs.
 
 RAG aims to overcome limitations found in purely generative models, including issues of factual accuracy, relevance, and coherence, often seen in the form of "hallucinations". By integrating retrieval into the generative process, RAG seeks to mitigate these challenges. The incorporation of retrieved information serves to "ground" the large language models (LLMs), ensuring that the generated content better aligns with the intended context, enhances factual correctness, and produces more coherent and meaningful outputs.
 
@@ -43,28 +43,27 @@ If you are working locally or in the Cloud, you can find them in the `/notebooks
 
 To run a Jupyter notebook, navigate to it in your Codespace or open it in VS Code on your local workstation. You will find further instructions for the challenge, as well as in-line code blocks that you will interact with to complete the tasks for the challenge.  Return here to the student guide after completing all tasks in the Jupyter notebook to validate you have met the [success criteria](#success-criteria) below for this challenge.
 
-### Exploring RAG in Azure AI Foundry 
-Try RAG in the Azure AI Foundry portal with unstructured data. 
-1. This is the prerequisite to the following steps: Navigate to the [Azure Portal](https://portal.azure.com/#home) and find your resource group. Then navigate to the right storage account. On the left navigation, click `Networking`. Under `Firewalls and virtual networks`, select `Enabled from all networks`.
-2. Navigate to [Azure AI Foundry](https://ai.azure.com/) and `Playgrounds` in the left navigation. Find the `Chat Playground`.
-3. Feel free to keep the default model instructions or modify them.
-4. Click on `Add your data` and then `+ Add a new data source`. Let's choose `Upload files` from the drop down of different data sources for this exercise. Grab the data provided in your Codespace under the `/data` folder in `ch2_1.5_product_review.txt`.
-5. Click next and select your search service and vector index.On the next page, click `Add vector search to this search resource` and choose your AOAI Service connection. Finally, select `Create vector index`.
-6. Once complete, you should be able to chat with the data we added earlier.
-7. Ask **What are some of the features and functionalities of the Gally Smartwatch?**
+### Exploring RAG in Microsoft Foundry 
+Try RAG in the Microsoft portal with unstructured data. 
+1. Navigate to [Microsoft Foundry](https://ai.azure.com/) and `Playgrounds` in the left navigation. Find the `Chat Playground`.
+2. Feel free to keep the default model instructions or modify them.
+3. Click on `Add your data` and then `+ Add a new data source`. Let's choose `Upload files` from the drop down of different data sources for this exercise. Grab the data provided in your Codespace under the `/data` folder in `ch2_1.5_product_review.txt`.
+4. Click next and select your search service and vector index.On the next page, click `Add vector search to this search resource` and choose your AOAI Service connection. Finally, select `Create vector index`.
+5. Once complete, you should be able to chat with the data we added earlier.
+6. Ask **What are some of the features and functionalities of the Gally Smartwatch?**
    
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 - Verify that you have extracted text from raw unstructured data using the Azure Document Intelligence API into a more structured format such as JSON
-- Verify that you have created an index using Azure Cognitive Search based on the type of data you are dealing with and load data into the index.
+- Verify that you have created an index using Azure AI Search based on the type of data you are dealing with and load data into the index.
 - Demonstrate the use of Iterative Prompt Development to write effective prompts for your AI tasks
 
 
 ## Learning Resources
 
 - [Use OpenAI GPT with your Enterprise Data](https://techcommunity.microsoft.com/t5/startups-at-microsoft/use-openai-gpt-with-your-enterprise-data/ba-p/3817141)
-- [ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search](https://github.com/Azure-Samples/azure-search-openai-demo)
+- [ChatGPT + Enterprise data with Azure OpenAI and AI Search](https://github.com/Azure-Samples/azure-search-openai-demo)
 - [Build Industry-Specific LLMs Using Retrieval Augmented Generation](https://towardsdatascience.com/build-industry-specific-llms-using-retrieval-augmented-generation-af9e98bb6f68)
 
 ## Advanced Challenges (Optional)

@@ -17,7 +17,7 @@ function authenticate_to_azure {
 parse_args() {
     # $1 - The associative array name containing the argument definitions and default values
     # $2 - The arguments passed to the script
-    local -n arg_defs=$1
+    local -n arg_defs=$1 # this won't work by default on the Mac zsh shell, but works in bash. brew install bash and then /opt/homebrew/bin/bash ./deploy.sh to use it. 
     shift
     local args=("$@")
 

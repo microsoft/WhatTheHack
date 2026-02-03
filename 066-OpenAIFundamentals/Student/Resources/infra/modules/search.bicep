@@ -14,9 +14,12 @@ resource search 'Microsoft.Search/searchServices@2023-11-01' = {
     replicaCount: 1
     partitionCount: 1
     hostingMode: 'default'
+    authOptions: {
+      aadOrApiKey: {
+        aadAuthFailureMode: 'http401WithBearerChallenge'
+      }
+    }
   }
 }
 
-#disable-next-line outputs-should-not-contain-secrets
-output primaryKey string = search.listAdminKeys().primaryKey
 output endpoint string = 'https://${name}.search.windows.net'

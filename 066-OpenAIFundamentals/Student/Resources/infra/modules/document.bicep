@@ -4,17 +4,20 @@ param name string
 @description('Location where the Azure Document Intelligence will be created.')
 param location string
 
-resource account 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
+@description('Custom subdomain name for the Azure Document Intelligence.')
+param customSubDomainName string
+
+resource account 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
   name: name
   location: location
   sku: {
     name: 'S0'
   }
   kind: 'FormRecognizer'
-  properties: {
+  properties: {   
+    customSubDomainName: customSubDomainName
+    
   }
 }
 
-#disable-next-line outputs-should-not-contain-secrets
-output key1 string = account.listKeys().key1
 output endpoint string = account.properties.endpoint
