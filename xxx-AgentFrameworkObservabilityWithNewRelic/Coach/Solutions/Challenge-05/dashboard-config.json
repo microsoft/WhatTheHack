@@ -31,7 +31,7 @@
                                 "accountIds": [
                                     YOUR_NEW_RELIC_ACCOUNT_ID
                                 ],
-                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES"
+                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES SINCE TODAY"
                             }
                         ],
                         "platformOptions": {
@@ -71,7 +71,7 @@
                                 "accountIds": [
                                     YOUR_NEW_RELIC_ACCOUNT_ID
                                 ],
-                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.errors.total' TIMESERIES"
+                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.errors.total' TIMESERIES SINCE TODAY"
                             }
                         ],
                         "platformOptions": {
@@ -120,7 +120,7 @@
                                 "accountIds": [
                                     YOUR_NEW_RELIC_ACCOUNT_ID
                                 ],
-                                "query": "SELECT average(travel_plan.response_time_ms) FROM Metric TIMESERIES"
+                                "query": "SELECT average(gen_ai.client.operation.duration) FROM Metric WHERE metricName = 'gen_ai.client.operation.duration' SINCE TODAY TIMESERIES "
                             }
                         ],
                         "platformOptions": {
@@ -158,7 +158,7 @@
                                 "accountIds": [
                                     YOUR_NEW_RELIC_ACCOUNT_ID
                                 ],
-                                "query": "SELECT count(*) FROM Metric WHERE metricName = 'travel_plan.tool_calls.total' FACET tool_name"
+                                "query": "SELECT count(*) FROM Metric WHERE metricName = 'travel_plan.tool_calls.total' FACET tool_name SINCE TODAY TIMESERIES "
                             }
                         ],
                         "platformOptions": {

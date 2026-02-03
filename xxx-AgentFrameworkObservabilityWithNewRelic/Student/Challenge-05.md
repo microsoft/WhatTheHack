@@ -26,13 +26,12 @@ Emit these metrics from your application code at appropriate points (request han
 
 Build a dashboard in New Relic called "WanderAI Agent Performance" that visualizes:
 
-- Request rate over time
+- Request rate over time, e.g. SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES SINCE TODAY
 - Error rate over time
 - Average response time
 - Tool usage breakdown by tool name
-- Trace count by service
 
-Use NRQL queries to power your dashboard widgets.
+Use [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/nrql/get-started/introduction-nrql-new-relics-query-language/) queries to power your dashboard widgets.
 
 ### Part 3: Set Up Alerts
 
@@ -66,7 +65,7 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 - [New Relic Dashboards](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/introduction-dashboards/)
-- [NRQL Query Language](https://docs.newrelic.com/docs/query-your-data/nrql-new-relic-query-language/get-started/introduction-nrql-new-relics-query-language/)
+- [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/nrql/get-started/introduction-nrql-new-relics-query-language/)
 - [New Relic Alerts](https://docs.newrelic.com/docs/alerts-applied-intelligence/new-relic-alerts/learn-alerts/introduction-alerts/)
 - [OpenTelemetry Metrics](https://opentelemetry.io/docs/concepts/signals/metrics/)
 - [Service Level Objectives (SLOs)](https://docs.newrelic.com/docs/service-level-management/intro-slm/)
