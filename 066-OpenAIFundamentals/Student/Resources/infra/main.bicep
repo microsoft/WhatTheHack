@@ -247,6 +247,7 @@ module search 'modules/search.bicep' = {
   params: {
     name: 'search-${suffix}'
     location: location
+    userObjectId: userObjectId
   }
 }
 
