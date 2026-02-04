@@ -26,7 +26,7 @@ Emit these metrics from your application code at appropriate points (request han
 
 Build a dashboard in New Relic called "WanderAI Agent Performance" that visualizes:
 
-- Request rate over time, e.g. SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES SINCE TODAY
+- Request rate over time, e.g. `SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES SINCE TODAY`
 - Error rate over time
 - Average response time
 - Tool usage breakdown by tool name
