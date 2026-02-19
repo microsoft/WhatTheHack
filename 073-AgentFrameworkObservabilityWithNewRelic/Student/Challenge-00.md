@@ -10,7 +10,7 @@ Thank you for participating in the WanderAI: Your Travel Planning Startup What T
 
 We have compiled a list of common tools and software that will come in handy to complete this hack!
 
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Account](https://github.com/signup) - Required for GitHub Codespaces
 - [Microsoft Foundry Account](https://azure.microsoft.com/en-us/products/ai-foundry) - Required for Azure OpenAI access
 - [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/partner-solutions/new-relic/overview) - Required for New Relic Observability
