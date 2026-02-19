@@ -56,11 +56,19 @@ This hack walks you through building the platform layer by layer, adding observa
     - Ensure bad outputs never reach customers
     - Measure and improve AI quality over time
 
-7. 🛡️ Secure Against Prompt Injection: "Keep your agents safe."
-    - Detect prompt injection attacks
-    - Monitor for suspicious activity
-    - Log and alert on security events
-    - Ensure your agents stay trustworthy
+7. 🛡️ Platform Security Baseline: "Configure guardrails first."
+
+    - Configure Microsoft Foundry Guardrails
+    - Validate intervention points and risk actions
+    - Monitor platform-level security outcomes
+
+8. 🔐 Application Security Controls: "Defend in your code."
+
+    - Add app-level prompt injection detection
+    - Enforce blocking in request flow
+    - Instrument and validate custom security controls
+
+By the end of this hack, you'll have a fully instrumented AI agent system with production-level observability and security controls. You'll be ready to show your investors that WanderAI isn't just a cool demo—it's a robust, trustworthy service ready for the real world.
 
 ## Learning Objectives
 
@@ -91,8 +99,10 @@ This hack walks you through building the platform layer by layer, adding observa
   - Learn industry best practices for monitoring AI-driven applications.
 - Challenge 06: **[LLM Evaluation & Quality Gates](Student/Challenge-06.md)**
   - Ensure excellence
-- Challenge 07: **[AI Security: Prompt Injection Detection & Prevention](Student/Challenge-07.md)**
-  - Secure your agents
+- Challenge 07: **[AI Security: Platform-Level Guardrails](Student/Challenge-07.md)**
+  - Configure and validate Foundry Guardrails
+- Challenge 08: **[AI Security: Application-Level Prompt Injection Controls](Student/Challenge-08.md)**
+  - Build custom detection and blocking in `web_app.py`
   
 🎉 Launch WanderAI! 🎉
 

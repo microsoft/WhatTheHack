@@ -88,9 +88,9 @@ To complete this challenge successfully, you should be able to:
 
 - [ ] Verify that OpenTelemetry SDK is initialized in your application
 - [ ] Demonstrate that traces appear in the console when you make requests
-- [ ] Confirm traces and metrics appear in New Relic using the OTLP exporter
+- [ ] Validate that traces and metrics appear in New Relic using the OTLP exporter
 
-### Learning Resources
+## Learning Resources
 
 - [Microsoft Agent Framework Observability](https://learn.microsoft.com/en-us/agent-framework/user-guide/observability?pivots=programming-language-python)
 - [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)

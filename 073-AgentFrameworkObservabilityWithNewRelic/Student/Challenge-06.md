@@ -113,7 +113,7 @@ To complete this challenge successfully, you should be able to:
 - [ ] Verify that rule-based evaluation is running on generated travel plans
 - [ ] Demonstrate that evaluation metrics are being tracked (passed/failed counts, scores)
 - [ ] Show that you can view AI monitoring data in New Relic's AI Monitoring section
-- [ ] Implement thumbs up/down feedback buttons in the WanderAI UI
+- [ ] Demonstrate implementing thumbs up/down feedback buttons in the WanderAI UI
 - [ ] Demonstrate that `LlmFeedbackMessage` events with `trace_id` correlation are sent to New Relic
 - [ ] Show that you can query feedback data and correlate it with AI interactions using `trace_id`
 

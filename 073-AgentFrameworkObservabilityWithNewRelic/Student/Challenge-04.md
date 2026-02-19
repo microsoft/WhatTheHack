@@ -49,21 +49,21 @@ Configure structured logging that automatically includes trace context. This all
 
 Example: When a user requests a trip plan, you should see:
 
-1. An auto-generated Agent Framework span for the agent orchestration
-2. Custom spans for each tool call
-3. Custom spans for business logic (validation, filtering)
-4. Logs with trace context attached to relevant spans
+- An auto-generated Agent Framework span for the agent orchestration
+- Custom spans for each tool call
+- Custom spans for business logic (validation, filtering)
+- Logs with trace context attached to relevant spans
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 
-- [ ] Add custom spans around tool implementations
-- [ ] Add custom spans around Flask routes
-- [ ] Configure structured logging with trace context
-- [ ] Verify custom spans appear in New Relic traces
-- [ ] Verify custom metrics appear in New Relic
-- [ ] Correlate logs to spans in New Relic using trace context
+- [ ] Demonstrate adding custom spans around tool implementations
+- [ ] Demonstrate adding custom spans around Flask routes
+- [ ] Verify that structured logging includes trace context
+- [ ] Validate that custom spans appear in New Relic traces
+- [ ] Verify that custom metrics appear in New Relic
+- [ ] Show logs correlated to spans in New Relic using trace context
 
 When you submit a travel request, you should see a complete trace in New Relic showing:
 

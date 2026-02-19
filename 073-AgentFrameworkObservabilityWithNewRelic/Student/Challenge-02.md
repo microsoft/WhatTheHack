@@ -61,7 +61,7 @@ Your application needs the following environment variables configured in a `.env
 
 ### Starter Code
 
-A starter code file `web_app.py` with TODO comments is provided in the Resources folder. This file outlines the structure you need to implement but leaves the core logic for you to figure out.
+A starter code file `web_app.py` with implementation guidance comments is provided in the Resources folder. This file outlines the structure you need to implement but leaves the core logic for you to figure out.
 
 ## Success Criteria
 
@@ -69,7 +69,7 @@ To complete this challenge successfully, you should be able to:
 
 - [ ] Verify that the Flask app runs without errors
 - [ ] Demonstrate that the web form loads at `http://localhost:5002`
-- [ ] Submit a travel request through the form
+- [ ] Demonstrate submitting a travel request through the form
 - [ ] Verify that the AI agent returns a formatted travel plan
 - [ ] Show that the plan includes information from your tool functions (weather, date/time)
 
@@ -94,7 +94,7 @@ Once you enter your travel preferences and submit the form, the AI agent will pr
 
 - Start small - Get the form rendering first, then add the agent logic
 - Test tools individually - Make sure each tool works before integrating
-- Use the starter code - The TODO comments guide you through the implementation
+- Use the starter code - The implementation guidance comments help you complete each section
 - Debug with print() or logging - Log what the agent is thinking
 - Use async properly - The `agent.run()` method must be awaited in an async context
 - If you get stuck, ask your coach for hints or refer to the provided hints file
