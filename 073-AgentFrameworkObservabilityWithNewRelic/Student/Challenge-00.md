@@ -13,7 +13,7 @@ We have compiled a list of common tools and software that will come in handy to 
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
 - [GitHub Account](https://github.com/signup) - Required for GitHub Codespaces
 - [Microsoft Foundry Account](https://foundry.microsoft.com/) - Required for Azure OpenAI access
-- [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/marketplace/new-relic-azure-monitoring/overview) - Required for New Relic Observability
+- [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/partner-solutions/new-relic/overview) - Required for New Relic Observability
 
 ## Description
 
