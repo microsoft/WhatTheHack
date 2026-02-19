@@ -1,10 +1,10 @@
-# What The Hack - 🚀 WanderAI: Your Travel Planning Startup ![WanderAI Logo](Images/wanderai-logo.svg)
+# What The Hack - Agent Framework Observability With New Relic
 
 ## Introduction
 
 ### Welcome to the Hack
 
-You've just founded **WanderAI**, an exciting new travel planning startup! 🌍✈️
+You've just founded 🚀 **WanderAI**, an exciting new travel planning startup! 🌍✈️ ![WanderAI Logo](Images/wanderai-logo.svg)
 
 Your mission: Build an **AI-powered travel planning assistant** that helps your customers discover amazing destinations and create personalized itineraries. But here's the catch—your investors want to see that your AI agents are **reliable, observable, and trustworthy**.
 
