@@ -32,12 +32,12 @@ GitHub Codespaces is available for developers in every organization. All persona
 The GitHub Codespace for this hack will host the developer tools, sample application code, configuration files, and other data files needed for this hack.
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [WTH WanderAI: Your Travel Planning Startup Codespace Repo](https://aka.ms/wth/openaiapps/codespace/)
+  - [WTH WanderAI: Your Travel Planning Startup Codespace Repo](https://aka.ms/wth/agentframework-o11y-w-newrelic/codespace/)
   - Please open this link and sign in with your personal GitHub account.
 
 **NOTE:** Make sure you do not sign in with your enterprise managed GitHub account.
 
-- Verify that the `Dev container configuration` drop down is set to `xxx-AgentFrameworkObservabilityWithNewRelic`
+- Verify that the `Dev container configuration` drop down is set to `073-AgentFrameworkObservabilityWithNewRelic`
 - Click on the green "Create Codespace" button
 - Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
@@ -97,7 +97,7 @@ This license key will be used to send telemetry data from your application to Ne
 
 To complete this challenge successfully, you should be able to:
 
-- [ ] Verify that you have a GitHub Codespace running with the dev container configuration set to `xxx-AgentFrameworkObservabilityWithNewRelic`
+- [ ] Verify that you have a GitHub Codespace running with the dev container configuration set to `073-AgentFrameworkObservabilityWithNewRelic`
 - [ ] Verify that Visual Studio Code is available in your browser (or locally) with the hack files loaded
 - [ ] Verify that you have access to the sample application code and resource files
 - [ ] Verify that you have collected your Microsoft Foundry endpoint and API key
