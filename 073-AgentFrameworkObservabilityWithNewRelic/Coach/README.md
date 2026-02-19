@@ -23,8 +23,10 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
   - Build dashboards and configure alerts for production (1.5 hours)
 - Challenge 06: **[LLM Evaluation & Quality Gates](./Solution-06.md)**
   - Implement AI quality assurance and CI/CD gates (2-3 hours)
-- Challenge 07: **[AI Security: Prompt Injection Detection & Prevention](./Solution-07.md)**
-  - Secure your agents (2-3 hours)
+- Challenge 07: **[AI Security: Platform-Level Guardrails](./Solution-07.md)**
+  - Configure and validate Microsoft Foundry Guardrails (1-1.5 hours)
+- Challenge 08: **[AI Security: Application-Level Prompt Injection Controls](./Solution-08.md)**
+  - Build custom detection and blocking in `web_app.py` (1.5-2 hours)
 
 ## Coach Prerequisites
 
@@ -123,7 +125,10 @@ This hack is designed to be completed in a single day with approximately 8 hours
 - **3:30 - 4:30** - Challenge 6 (LLM Evaluation & Quality Gates)
   - Implement custom events for New Relic AI Monitoring
   - Build evaluation pipeline
-- **4:30 - 5:00** - Final presentations and wrap-up
+- **4:30 - 5:00** - Challenge 7/8 security implementation
+  - Configure platform guardrails (Challenge 7)
+  - Add application-level controls in `web_app.py` (Challenge 8)
+- **5:00 - 5:15** - Final presentations and wrap-up
   - Teams demo complete solutions
   - Q&A and next steps
 
@@ -137,6 +142,8 @@ Participants can complete this hack at their own pace over 1-2 weeks, spending a
 - Challenge 4: 1 hour
 - Challenge 5: 1.5 hours
 - Challenge 6: 2.5 hours
+- Challenge 7: 1-1.5 hours
+- Challenge 8: 1.5-2 hours
 
 ## Repository Contents
 
