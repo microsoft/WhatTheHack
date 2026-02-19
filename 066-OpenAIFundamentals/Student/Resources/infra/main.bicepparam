@@ -3,8 +3,11 @@ using './main.bicep'
 
 param userObjectId = '<user-object-id>'
 param keyVaultEnablePurgeProtection = false
-param acrEnabled = false
 param nspEnabled = false
+//param aiServicesDisableLocalAuth = false
+param storageAccountAllowSharedKeyAccess = true
+//param documentDisableLocalAuth = false
+
 //The first model in the list will be the default model for the Jupyter notebooks
 param openAiDeployments = [
 {
