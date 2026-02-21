@@ -68,12 +68,28 @@ You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup
 
 **NOTE:** You can skip this section if are using GitHub Codespaces!
 
-If you want to setup a Jupyter Notebooks environment on your local workstation, expand the section below and follow the requirements listed. 
+If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. While you could install all of the prerequisite software directly on your workstation, that is not recommended. You are proceding at your own risk! It would be preferable for you to use dev containers instead if you do not want to use GitHub Codespaces.  
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
 
-To work on your local workstation, please ensure you have the following tools and resources before hacking:
+#### Set Up Local Dev Container
+
+You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+
+**NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). 
+
+On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
+- (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
+- Download and install Docker Desktop
+- Open the root folder of the Student resource package in Visual Studio Code
+- You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
+
+##### Setup GitHub Copilot
+
+For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
+
+To work on your local workstation directly (not with dev containers), please ensure you have the following tools and resources before hacking:
 
 - [Student Resources](#student-resources)
 - [Visual Studio Code](#visual-studio-code)
@@ -247,10 +263,8 @@ If using GitHub Codespaces:
     - `.env` <= Copied from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project in Microsoft Foundry.
-    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
-If working on a local workstation: 
+If working directly on a local workstation: 
 
 - Verify that you have Python and Conda installed
 - Verify that you can run Jupyter Notebooks in Visual Studio Code or Azure Machine Learning Studio
@@ -260,8 +274,6 @@ If working on a local workstation:
     - `.env` <= Renamed from `.env.sample`
     - `.gitignore`
     - `requirements.txt`
-- Verify that you have created the Project in your Microsoft Foundry.
-    - Verify that you have the following resources: Azure OpenAI, deployed the necessary models, AI Search, Document Intelligence, Azure Blob.
 
 ## Learning Resources
 
