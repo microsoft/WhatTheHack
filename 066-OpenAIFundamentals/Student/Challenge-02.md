@@ -97,7 +97,7 @@ These require some structure but not deep reasoning.
 
 **Examples**
 
-```Explain the difference between throughput and latency to a non‑technical audience.”``` <br>
+```Explain the difference between throughput and latency to a non‑technical audience.``` <br>
 ```Generate 10 creative marketing slogans for a local bakery.```
 
 ##### 🧩 Deep Reasoning / Multi‑Step Logic
