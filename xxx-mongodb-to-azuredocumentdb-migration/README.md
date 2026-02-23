@@ -1,36 +1,35 @@
-# What The Hack - mongodb-to-azuredocumentdb-migration
+# What The Hack - Mongo DB to Azure Document DB Migration
 
 ## Introduction
 
-The IoT Hack of the Century will take you on a whirlwind tour in the world of IoT and how it is being used in the modern world of mineral extraction in exotic locations like the Arctic and the wilds of South Africa.
+In this hack, you will learn how to move a MongoDB workload from MongoDB Atlas to Azure DocumentDB with minimal effort. You'll start by creating a new MongoDB cluster in Atlas, creating a MongoDB database from a sample, and deploying a sample Node.js application and make sure it works as is. You will then perform a guided migration of that database to Azure using the Visual Studio Code extension for DocumentDB. Finally, you’ll understand the core migration flow, validate data in the new environment, fix an issues you might encounter, and run the app against the migrated database.
+
+
 
 ## Learning Objectives
 
-In this hack you will be solving the common business problem that companies in the mineral extraction industry face and how IoT solutions from Azure are brought to bare
-
-1. Provision an IoT Hub
-2. Set up an IoT Edge device
-3. Bring Azure Sphere to your solution for scale and resiliency
+- Assess source database readiness and identify key migration considerations before moving data.
+- Use the DocumentDB VS Code extension to execute and monitor a database migration.
+- Compare source and target results to verify collection structure, document counts, and query behavior.
+- Update application configuration and troubleshoot common connectivity or compatibility issues after cutover.
 
 ## Challenges
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
-	 - Description of challenge
+	 - Deploy the source database and get the sample application up and running
+- Challenge 01: **[Prepare and perform the migration to Azure DocumentDB](Student/Challenge-01.md)**
+	 - Use the Azure DocumentDB migration extension for Visual Studio Code to assess the source MongoDB workload and identify and fix any issues that will block migration.
+- Challenge 02: **[Compare source and target databases and update the application configuration](Student/Challenge-02.md)**
+	 - Compare the source target databases and if everything is okay, you will modify the application configuration with the new Azure DocumentDB and re-run the application
 
 ## Prerequisites
 
 - Your own Azure subscription with Owner access
 - Visual Studio Code
-- Azure CLI
-- An AVNET X231 device
+- Personal GitHub account
 
 ## Contributors
 
-- Jane Q. Public
-- Joe T. Muppet
+- Pete Rodriguez
+- Mike Shelton
+- Manish Sharma
