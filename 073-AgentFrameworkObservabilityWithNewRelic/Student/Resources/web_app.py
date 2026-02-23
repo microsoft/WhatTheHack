@@ -11,8 +11,6 @@ from flask import Flask, render_template, request, jsonify
 
 # Challenge 02: TODO - Import Microsoft Agent Framework
 # HINT: from agent_framework.openai import ???
-# HINT: from agent_framework import ???
-
 
 # Challenge 03: TODO - Import OpenTelemetry instrumentation
 # HINT: from agent_framework.observability import ???
@@ -191,14 +189,14 @@ model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
 # ============================================================================
 # Challenge 02: TODO - Create the Travel Planning ChatAgent
 # ============================================================================
-# HINT: use `ChatAgent` with appropriate parameters, i.e. chat_client, instructions, tools
+# HINT: use `openai_chat_client.as_agent(...)` with appropriate parameters, i.e. chat_client, instructions, tools
 
 
 # ============================================================================
 # Challenge 08: TODO - Harden System Prompt Against Prompt Injection
 # ============================================================================
 # HINT: HARDENED_INSTRUCTIONS = hardenInstructions(instructions)
-# HINT: use `ChatAgent` with hardened instructions
+# HINT: use `openai_chat_client.as_agent(...)` with hardened instructions
 
 # ============================================================================
 # Challenge 08: TODO - Security Detection Functions
