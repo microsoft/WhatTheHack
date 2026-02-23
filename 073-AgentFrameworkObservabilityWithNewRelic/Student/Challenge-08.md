@@ -88,9 +88,9 @@ Add helper functions for detection:
 
 **Success Criteria**
 
-- Detection logic is integrated into existing app flow.
-- Rule-based detection completes quickly (<100ms target).
-- Detector returns structured output (score, patterns, decision).
+- [ ] Detection logic is integrated into existing app flow.
+- [ ] Rule-based detection completes quickly (<100ms target).
+- [ ] Detector returns structured output (score, patterns, decision).
 
 ### Part 2: Enforce Blocking and Safe Responses
 

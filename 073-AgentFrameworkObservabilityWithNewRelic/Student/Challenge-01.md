@@ -106,6 +106,7 @@ As part of this challenge we are not actually building any code. Instead, you ar
 
 To complete this challenge successfully, you should be able to:
 
+- [ ] Demonstrate to your Coach that you understand the key concepts of AI agents and observability
 - [ ] Reflect on your understanding of what an AI agent is and how it differs from a simple LLM API call
 - [ ] Articulate what tool calling means and why agents need tools
 - [ ] Describe the agent-tool lifecycle

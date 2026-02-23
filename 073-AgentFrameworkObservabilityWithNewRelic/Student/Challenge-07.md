@@ -125,8 +125,8 @@ Connect guardrail outcomes to observability:
 
 **Success Criteria**
 
-- Guardrail decisions are visible in your monitoring workflow.
-- Dashboard shows platform-level protection activity.
+- [ ] Guardrail decisions are visible in your monitoring workflow.
+- [ ] Dashboard shows platform-level protection activity.
 
 ## Final Checklist
 

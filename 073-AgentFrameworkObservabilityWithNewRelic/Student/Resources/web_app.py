@@ -31,7 +31,7 @@ from flask import Flask, render_template, request, jsonify
 # HINT: from opentelemetry._logs import ???
 
 
-# Challenge 07: TODO - Import for Security Detection
+# Challenge 08: TODO - Import for Security Detection
 # HINT: import re
 # HINT: from typing import ???
 
@@ -75,7 +75,7 @@ logger = logging.getLogger(__name__)
 # HINT: evaluation_passed_counter = meter.create_counter(???)
 
 #
-# Challenge 07: TODO - Add security metrics
+# Challenge 08: TODO - Add security metrics
 # HINT: security_detected_counter = meter.create_counter(???)
 # HINT: security_blocked_counter = meter.create_counter(???)
 # HINT: security_score_histogram = meter.create_histogram(???)
@@ -103,11 +103,11 @@ def get_random_destination() -> str:
 
     Hint: Simply return a confirmation message with the destination name
     """
-    
+
     # Simulate network latency with a small random sleep
     delay_seconds = uniform(0, 0.99)
     time.sleep(delay_seconds)
-    
+
     destinations = ["Garmisch-Partenkirchen", "Munich",
                     "Paris", "New York", "Tokyo", "Sydney", "Cairo"]
     destination = destinations[randint(0, len(destinations) - 1)]
@@ -137,16 +137,16 @@ def get_weather(location: str) -> str:
     Returns:
         Weather description string
     """
-    
+
     # Simulate network latency with a small random float sleep
     delay_seconds = uniform(0.3, 3.7)
     time.sleep(delay_seconds)
-    
+
     # fail every now and then to simulate real-world API unreliability
     if randint(1, 10) > 7:
         raise Exception(
             "Weather service is currently unavailable. Please try again later.")
-        
+
     logger.info(f"Fetching weather for location: {location}")
 
     # Challenge 05: TODO - Increment tool call counter
@@ -167,11 +167,11 @@ def get_datetime() -> str:
     Returns:
         Current date and time as string
     """
-    
+
     # Simulate network latency with a small random float sleep
     delay_seconds = uniform(0.10, 5.0)
     time.sleep(delay_seconds)
-    
+
     logger.info("Fetching current date and time.")
 
     # Challenge 05: TODO - Increment tool call counter
@@ -195,13 +195,13 @@ model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
 
 
 # ============================================================================
-# Challenge 07: TODO - Harden System Prompt Against Prompt Injection
+# Challenge 08: TODO - Harden System Prompt Against Prompt Injection
 # ============================================================================
 # HINT: HARDENED_INSTRUCTIONS = hardenInstructions(instructions)
 # HINT: use `ChatAgent` with hardened instructions
 
 # ============================================================================
-# Challenge 07: TODO - Security Detection Functions
+# Challenge 08: TODO - Security Detection Functions
 # ============================================================================
 # HINT: def detect_prompt_injection(user_input: str) -> Dict:
 #     return {"risk_score": ???, "patterns_detected": ???}
@@ -231,7 +231,7 @@ async def plan_trip():
     Challenge 03: TODO - Add span instrumentation
     Challenge 05: TODO - Record custom metrics
     Challenge 06: TODO - Emit AI Monitoring events and run evaluation
-    Challenge 07: TODO - Add security detection and input sanitization
+    Challenge 08: TODO - Add security detection and input sanitization
     """
     logger.info("Received travel plan request.")
 
@@ -252,7 +252,7 @@ async def plan_trip():
         # HINT: span.set_attribute(???, ???)
 
         # ====================================================================
-        # Challenge 07: TODO - Security Detection (BEFORE agent execution)
+        # Challenge 08: TODO - Security Detection (BEFORE agent execution)
         # ====================================================================
         # HINT: user_input = ???
         # HINT: detection_result = detect_prompt_injection(???)

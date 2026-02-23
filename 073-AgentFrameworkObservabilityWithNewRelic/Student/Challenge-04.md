@@ -54,16 +54,7 @@ Example: When a user requests a trip plan, you should see:
 - Custom spans for business logic (validation, filtering)
 - Logs with trace context attached to relevant spans
 
-## Success Criteria
-
-To complete this challenge successfully, you should be able to:
-
-- [ ] Demonstrate adding custom spans around tool implementations
-- [ ] Demonstrate adding custom spans around Flask routes
-- [ ] Verify that structured logging includes trace context
-- [ ] Validate that custom spans appear in New Relic traces
-- [ ] Verify that custom metrics appear in New Relic
-- [ ] Show logs correlated to spans in New Relic using trace context
+### Validation
 
 When you submit a travel request, you should see a complete trace in New Relic showing:
 
@@ -83,6 +74,19 @@ Click into the trace group to see all the individual traces for that group.
 Investigate and observe the details of a single trace.
 
 ![WanderAI OTel custom trace](../Images/newrelic-distributed-tracing-trace-custom.png)
+
+You should see your custom spans (e.g., `plan_trip`, `get_random_destination`, etc.) alongside the auto-generated Agent Framework spans. Click into your custom spans to see the attributes you added (e.g., destination names, flight prices, etc.). You should also see any logs that were correlated with those spans.
+
+## Success Criteria
+
+To complete this challenge successfully, you should be able to:
+
+- [ ] Demonstrate adding custom spans around tool implementations
+- [ ] Demonstrate adding custom spans around Flask routes
+- [ ] Verify that structured logging includes trace context
+- [ ] Validate that custom spans appear in New Relic traces
+- [ ] Verify that custom metrics appear in New Relic
+- [ ] Show logs correlated to spans in New Relic using trace context
 
 ## Learning Resources
 

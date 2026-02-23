@@ -63,6 +63,20 @@ Your application needs the following environment variables configured in a `.env
 
 A starter code file `web_app.py` with implementation guidance comments is provided in the Resources folder. This file outlines the structure you need to implement but leaves the core logic for you to figure out.
 
+Use your knowledge from Challenge 01 or use a tool like GitHub Copilot to complete the tasks.
+
+The files in your Codespace provide the necessary resources and structure to help you get started. These are not complete implementations but rather scaffolds to guide you in building the application. You will need to fill in the logic for the Flask routes, agent setup, and tool functions based on your understanding of the concepts covered in Challenge 01.
+
+List of existing files in the Codespace:
+
+- `web_app.py` - Starter code for the Flask application
+- `templates/index.html` - Starter HTML template for the form page
+- `templates/result.html` - Starter HTML template for the results page
+- `templates/error.html` - Starter HTML template for the error page
+- `static/styles.css` - CSS file for styling the HTML pages
+- `requirements.txt` - Python dependencies for the project
+- `run.sh` - Script to set up environment and run the Flask app
+
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
