@@ -2,6 +2,8 @@
 
 ## Introduction
 
+In this hack, you'll build AI agents using the **Microsoft Agent Framework** and instrument them with **OpenTelemetry** for full-stack observability—powered by **[New Relic](https://newrelic.com)**. From tracing agent decisions to monitoring performance and quality, you'll learn how to make your AI systems production-ready with real-time insights.
+
 ### Welcome to the Hack
 
 You've just founded 🚀 **WanderAI**, an exciting new travel planning startup! 🌍✈️ ![WanderAI Logo](Images/wanderai-logo.svg)
