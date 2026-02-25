@@ -68,7 +68,7 @@ You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup
 
 **NOTE:** You can skip this section if are using GitHub Codespaces!
 
-If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. While you could install all of the prerequisite software directly on your workstation, that is not recommended. You are proceding at your own risk! It would be preferable for you to use dev containers instead if you do not want to use GitHub Codespaces.  
+If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. While you could install all of the prerequisite software directly on your workstation, that is not recommended. You are proceeding at your own risk! It would be preferable for you to use dev containers instead if you do not want to use GitHub Codespaces.  
 
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
