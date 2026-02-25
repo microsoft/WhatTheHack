@@ -23,6 +23,58 @@ You can use GitHub Codespaces where we have a pre-configured development environ
 
 **NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
+### Deploy Azure Resources
+
+Execute the following commands in your GitHub Codespace or local workstation terminal window:
+
+```bash
+cd infra
+chmod +x deploy.sh
+./deploy.sh \
+  --subscription-id "[subscription-id]" \
+  --resource-group-name "[resource-group-name]" \
+  --tenant-id "[tenant-id]" \
+  --new-relic-monitor-user-first-name "[first-name]" \
+  --new-relic-monitor-user-last-name "[last-name]" \
+  --new-relic-monitor-user-email-address "[email-address]" \
+  --new-relic-monitor-user-phone-number "[phone-number]"
+```
+
+- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
+- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script.
+- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
+- `new-relic-monitor-user-first-name`: The first name of the user to create in New Relic for monitoring purposes
+- `new-relic-monitor-user-last-name`: The last name of the user to create in New Relic for monitoring purposes
+- `new-relic-monitor-user-email-address`: The email address of the user to create in New Relic for monitoring purposes. This should be a valid email address as New Relic will send an invitation to this email to join the New Relic account and access the monitoring dashboard.
+- `new-relic-monitor-user-phone-number`: The phone number of the user to create in New Relic for monitoring purposes. This should be a valid phone number as New Relic may use it for account verification and security purposes.
+
+**NOTE:** Additional parameters are required if you are using a service principal to deploy the resources.  Expand the hidden section below for instructions.
+
+<details markdown="1">
+<summary markdown="span">Click to expand/collapse Provision Azure Resources with a Service Principal</summary>
+
+**NOTE:** Do not run these steps in Azure Cloud Shell. Use the terminal in your GitHub Codespace or local workstation!
+
+```bash
+cd infra
+chmod +x deploy.sh
+./deploy.sh --subscription-id "[subscription-id]" --resource-group-name "[resource-group-name]" --tenant-id "[tenant-id]" --use-service-principal --service-principal-id "[service-principal-id]" --service-principal-password "[service-principal-password]"
+```
+
+- `subscription-id`: The ID of the Azure Subscription where you want to deploy the resources
+- `resource-group-name`: The name of the resource group where you want to deploy the resources. It will be created for you when you run the deployment script.
+- `service-principal-id`: The App ID
+- `service-principal-password`: The Service Principal Password
+- `tenant-id`: The Tenant ID associated with your Azure subscription where you want to deploy the resources
+- `new-relic-monitor-user-first-name`: The first name of the user to create in New Relic for monitoring purposes
+- `new-relic-monitor-user-last-name`: The last name of the user to create in New Relic for monitoring purposes
+- `new-relic-monitor-user-email-address`: The email address of the user to create in New Relic for monitoring purposes. This should be a valid email address as New Relic will send an invitation to this email to join the New Relic account and access the monitoring dashboard.
+- `new-relic-monitor-user-phone-number`: The phone number of the user to create in New Relic for monitoring purposes. This should be a valid phone number as New Relic may use it for account verification and security purposes.
+
+</details>
+
+The deployment process takes about 30 minutes to complete.
+
 ### Use GitHub Codespaces
 
 A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the prerequisite developer tools for this hack are pre-installed and available in the codespace.
