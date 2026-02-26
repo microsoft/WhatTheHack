@@ -38,10 +38,6 @@ from flask import Flask, render_template, request, jsonify
 # Load environment variables
 load_dotenv()
 
-# 📝 Configure Logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 # ============================================================================
 # Challenge 03: TODO - Setup OpenTelemetry Observability
 # ============================================================================
@@ -61,6 +57,12 @@ logger = logging.getLogger(__name__)
 # HINT: tracer = ???
 # HINT: meter = ???
 # ============================================================================
+
+# 📝 Configure Logging
+logger = logging.getLogger("agent_framework.web_app")
+logger.setLevel(logging.INFO)
+logger.propagate = True
+
 
 # ============================================================================
 # Challenge 05: TODO - Create Custom Metrics for Monitoring
