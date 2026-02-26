@@ -11,6 +11,7 @@ from flask import Flask, render_template, request, jsonify
 
 # Challenge 02: TODO - Import Microsoft Agent Framework
 # HINT: from agent_framework.openai import ???
+# HINT: from agent_framework import ???
 
 # Challenge 03: TODO - Import OpenTelemetry instrumentation
 # HINT: from agent_framework.observability import ???
@@ -187,7 +188,7 @@ model_id = os.environ.get("MODEL_ID", "gpt-5-mini")
 
 
 # ============================================================================
-# Challenge 02: TODO - Create the Travel Planning ChatAgent
+# Challenge 02: TODO - Create the Travel Planning Agent
 # ============================================================================
 # HINT: use `openai_chat_client.as_agent(...)` with appropriate parameters, i.e. chat_client, instructions, tools
 
