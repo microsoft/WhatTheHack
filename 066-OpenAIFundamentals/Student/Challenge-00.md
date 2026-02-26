@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Development Environment](#setup-development-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Deploy Azure Resources](#deploy-azure-resources)
+- [Deploy Microsoft Foundry Resources](#deploy-microsoft-foundry-resources)
 
 ### Azure Subscription
 
@@ -68,84 +68,30 @@ You are ready to run the Jupyter Notebook files, hooray! Skip to section: [Setup
 
 **NOTE:** You can skip this section if are using GitHub Codespaces!
 
-If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. While you could install all of the prerequisite software directly on your workstation, that is not recommended. You are proceeding at your own risk! It would be preferable for you to use dev containers instead if you do not want to use GitHub Codespaces.  
+If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. We have provided a Dev Container that will load the development environment on your local workstation if you do not want to use GitHub Codespaces.  
 
 <details markdown=1>
-<summary markdown="span"><strong>Click to expand/collapse Local Workstation Requirements</strong></summary>
+<summary markdown="span"><strong>Click to expand/collapse Local Workstation Setup</strong></summary>
+
+#### Download Student Resources
+
+The Dev Container, Jupyter notebooks, starter code, and sample data sources for this hack are available in a Student Resources package.
+
+- [Download `Resources.zip`](https://aka.ms/wth/openaifundamentals/resources) package to your local workstation. 
+
+The rest of the challenges will refer to the relative paths inside the Codespace or `Resources.zip` file where you can find the various resources to complete the challenges.
 
 #### Set Up Local Dev Container
 
-You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+You will next be setting up your local workstation so that it can use Dev Containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
 
 **NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). 
 
 On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 - (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
 - Download and install Docker Desktop
-- Open the root folder of the Student resource package in Visual Studio Code
+- Open the root folder of the Student Resources package in Visual Studio Code
 - You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
-
-##### Setup GitHub Copilot
-
-For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
-
-To work on your local workstation directly (not with dev containers), please ensure you have the following tools and resources before hacking:
-
-- [Student Resources](#student-resources)
-- [Visual Studio Code](#visual-studio-code)
-- [Python](#python)
-- [Conda Runtime](#conda)
-- [Azure CLI (Optional)](#azure-cli-optional)
-
-##### Student Resources
-
-The Jupyter notebooks, starter code, and sample data sources for this hack are available in a Student Resources package.
-
-- [Download and unpack the `Resources.zip`](https://aka.ms/wth/openaifundamentals/resources) package to your local workstation. 
-
-The rest of the challenges will refer to the relative paths inside the `Resources.zip` file where you can find the various resources to complete the challenges.
-
-##### Visual Studio Code
-
-Visual Studio Code is a code editor which you will work with Jupyter notebooks.
-
-- [Install VS Code](https://getvisualstudiocode.com)
-
-##### Setup GitHub Copilot
-
-For parts of this hack we will be relying heavily on GitHub Copilot for coding. Please setup [VS Code with GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified?wt.md_id=AZ-MVP-5004796)
-
-##### Python
-
-- [Python Installation](https://www.python.org/downloads), version at least \>= 3.6, the minimum requirement for using OpenAI's GPT-3.5-based models, such as ChatGPT.
-
-##### Conda
-
-- Conda Installation, for project environment management and package management, version \>= conda 4.1.6. Anaconda distribution is a popular Python distribution, while Miniconda is the lightweight version of Anaconda.
-  - [Anaconda](https://docs.anaconda.com/anaconda/install) OR [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
-- Environment setup:
-  - Open Anaconda Prompt or your favourite terminal and verify Python and Conda installations using `python --version` and `conda --version`
-  - Create a project environment using Conda - `conda create --name <env_name>`
-  - Activate Conda environment - `conda activate <env_name>`
-  - Install required libraries and packages, provided in the form of a `requirements.txt` file in the root folder of the `Resources.zip` file. We recommend using pip or Conda in a virtual environment to do so. For example, you can run `pip install -r requirements.txt`
-  - Open the project in VS Code using `code .`
-  - If you are using Visual Studio Code, make sure you change your Python interpreter (CTRL+SHIFT+P) to select the project/virtual environment that you just created.
-
-For more information, see [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
-
-##### Azure CLI (Optional)
-
-While it is not necessary for this hack, you may wish to use the Azure CLI to interact with Azure in addition to the Azure Portal.
-
-- [Install Azure CLI](https://aka.ms/installazurecli)
-
-#### Cloud Environment
-
-There is a *THIRD* way of setting up a Jupyter Notebook environment if you don't want to set it up on your local workstation or use GitHub Codespaces. You can set one up in the cloud with Azure Machine Learning Studio and take advantage of Azure Compute power. 
-
-For more information, see: [Run Jupyter Notebooks in your Workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks?view=azureml-api-2)
-
-Once you have an Azure Machine Learning Studio Workspace set up, you can upload the contents of the `/notebooks` folder in your `Resources.zip` file to it. For more information on this, see: [How to create and manage files in your workspace](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-manage-files?view=azureml-api-2)
 
 </details>
 <br/>
