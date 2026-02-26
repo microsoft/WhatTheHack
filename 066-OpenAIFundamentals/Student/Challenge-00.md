@@ -9,25 +9,25 @@ Thank you for participating in the OpenAI Fundamentals What The Hack. Before you
 ## Description
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
 - [Azure Subscription](#azure-subscription)
-- [Setup Jupyter Notebook Environment](#setup-jupyter-notebook-environment)
+- [Setup Development Environment](#setup-development-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Deploy Microsoft Foundry Resources](#deploy-microsoft-foundry-resources)
+- [Deploy Azure Resources](#deploy-azure-resources)
 
 ### Azure Subscription
 
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
-### Setup Jupyter Notebook Environment
+### Setup Development Environment
 
-You will be working with Jupyter Notebooks and Python to interact with Azure OpenAI for the hack.
+You will be working with Jupyter Notebooks and Python to interact with Azure OpenAI services for the hack.
 
 [Jupyter Notebooks](https://jupyter.org/) are an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It's useful for a wide range of tasks, such as data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
 
-Jupyter notebooks require an environment to run in.
+Jupyter notebooks require a development environment to run in.
 
-You can use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) where we have a pre-configured Jupyter lab environment set up and ready to go for you, or you can setup a Jupyter lab environment on your local workstation.
+You can use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) where we have a pre-configured Jupyter development environment set up and ready to go for you, or you can setup a Jupyter lab environment on your local workstation using DevContainers.
 
 A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the pre-requisite developer tools for this hack are pre-installed and available in the codespace.
 
