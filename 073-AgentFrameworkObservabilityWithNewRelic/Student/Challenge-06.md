@@ -42,9 +42,58 @@ The foundation of enterprise AI evaluation is capturing AI interactions as struc
 
 You need to emit three custom events after each LLM interaction:
 
-- `LlmChatCompletionMessage` for the user prompt (role: "user", sequence: 0)
-- `LlmChatCompletionMessage` for the LLM response (role: "assistant", sequence: 1)
-- `LlmChatCompletionSummary` for the summary of the interaction
+- **`LlmChatCompletionMessage`** for the user prompt (role: "user", sequence: 0)
+  - `newrelic.event.type` - "LlmChatCompletionMessage",
+  - `appName` - Service name
+  - `duration` - duration of the interaction
+  - `host` - hostname of the service
+  - `id` - user ID (if available)
+  - `request_id` - unique ID for the request (e.g., UUID)
+  - `span_id` - OpenTelemetry span ID for trace correlation
+  - `trace_id` - Links feedback to the specific AI interaction
+  - `response.model` - model used for the response
+  - `token_count` - number of tokens in the prompt
+  - `vendor` - LLM vendor used (e.g., "openai", "azure", "anthropic")
+  - `ingest_source` - "Python" (or your language of choice)
+  - `content` - the user prompt text
+  - `role` - "user" for the prompt
+  - `sequence` - 0 for user prompt
+  - `is_response` - boolean indicating if this event is a user prompt (False) or an LLM response (True)
+  - `completion_id` - unique ID for the LLM completion (e.g., UUID)
+  - `user_id` (optional) - If available
+- **`LlmChatCompletionMessage`** for the LLM response (role: "assistant", sequence: 1)
+  - `newrelic.event.type` - "LlmChatCompletionMessage",
+  - `appName` - Service name
+  - `duration` - duration of the interaction
+  - `host` - hostname of the service
+  - `id` - user ID (if available)
+  - `request_id` - unique ID for the request (e.g., UUID)
+  - `span_id` - OpenTelemetry span ID for trace correlation
+  - `trace_id` - Links feedback to the specific AI interaction
+  - `response.model` - model used for the response
+  - `token_count` - number of tokens in the response
+  - `vendor` - LLM vendor used (e.g., "openai", "azure", "anthropic")
+  - `ingest_source` - "Python" (or your language of choice)
+  - `content` - the LLM response text
+  - `role` - "assistant" for the response
+  - `sequence` - 1
+  - `is_response` - boolean indicating if this event is a user prompt (False) or an LLM response (True)
+  - `completion_id` - unique ID for the LLM completion (e.g., UUID)
+  - `user_id` (optional) - If available
+- **`LlmChatCompletionSummary`** for the summary of the interaction
+  - `newrelic.event.type` - "LlmChatCompletionSummary",
+  - `appName` - Service name
+  - `duration` - duration of the interaction
+  - `host` - hostname of the service
+  - `id` - user ID (if available)
+  - `request_id` - unique ID for the request (e.g., UUID)
+  - `span_id` - OpenTelemetry span ID for trace correlation
+  - `trace_id` - Links feedback to the specific AI interaction
+  - `request.model` - model used for the request
+  - `response.model` - model used for the response
+  - `token_count` - number of tokens (input + output)
+  - `vendor` - LLM vendor used (e.g., "openai", "azure", "anthropic")
+  - `ingest_source` - "Python" (or your language of choice)
 
 ### Layer 2: Rule-Based Evaluation
 
@@ -72,9 +121,12 @@ Capture real user feedback to measure actual satisfaction with AI-generated trav
 - Create a feedback endpoint that captures user ratings (positive/negative)
 - **Critical**: Include the `trace_id` from the agent interaction in the feedback log record
 - Emit a custom event with `newrelic.event.type: 'LlmFeedbackMessage'` containing:
+  - `newrelic.event.type` - "LlmFeedbackMessage",
+  - `appName` - Service name
   - `trace_id` - Links feedback to the specific AI interaction
+  - `feedback` - User's feedback (e.g., "positive", "negative", "neutral")
   - `rating` - User's thumbs up (1) or thumbs down (-1)
-  - `timestamp` - When feedback was provided
+  - `vendor` - LLM vendor used (e.g., "openai", "azure", "anthropic")
   - `user_id` (optional) - If available
   - Any additional metadata (e.g., feedback text, category)
 
