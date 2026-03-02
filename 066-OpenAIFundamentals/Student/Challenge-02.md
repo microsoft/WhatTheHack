@@ -76,24 +76,42 @@ Scenario: You are a product manager at a multinational tech company, and your te
 ### 2.4 Model Router
 #### Student Task 2.4
 - Navigate to Microsoft Foundry and deploy an instance of model router in the same project as your other models
-- In Chat Playground use the model router deployment and prompt it with a variety of questions ranging simple to difficult. You can use the sample prompts below or come up with your own! Note how different models are used for each query (you can see this switch in the metadata on top of the prompt).
+- In Chat Playground use the model router deployment and prompt it with a variety of questions ranging simple to difficult. You will need to try some prompts that demonstrate the model router in action. 
+
+
+
+##### ⚡ Simple Transformations (should route to small/cheap models)
+
+These are intentionally lightweight.
+
+**Examples**
+
+```Summarize this sentence in five words: The cat slept on the warm windowsill.``` <br>
+```Convert this list into comma‑separated values: apples, bananas, pears, grapes”```<br>
+```Classify the sentiment: I guess it’s fine, whatever.”```<br>
+```Rewrite this in past tense: I walk to the store.```
+
+##### 🧠 Moderate Reasoning Tasks (often routes to mid‑tier models)
+
+These require some structure but not deep reasoning.
+
+**Examples**
+
+```Explain the difference between throughput and latency to a non‑technical audience.``` <br>
+```Generate 10 creative marketing slogans for a local bakery.```
+
+##### 🧩 Deep Reasoning / Multi‑Step Logic
+
+These are the ones that really test the router.
+
+**Examples**
+
+```A factory produces widgets using three machines with different failure rates. If machine A fails 3% of the time, B fails 1%, and C fails 0.5%, and they operate in sequence, what is the probability a widget is defective? Show your reasoning.``` <br>
+```Design a 4‑week onboarding curriculum for new data engineers, including prerequisites, labs, and assessments.```
+
+- Notice how different models are used for each query (you can see this switch in the metadata on top of the prompt).
 - After trying the below prompts navigate to a browser window and open Copilot. Ask Copilot the pricing for the three different models each query used. Note the price difference for each model. The smart routing is optimizing cost by using light weight models (which are cheaper) for the easier prompts!
 
-Simple Prompt:
-
-```
-What is the capital of the United States?
-```
-Medium Prompt:
-
-```
-Given a hybrid cloud architecture with latency-sensitive workloads, how would you design a multi-region failover strategy using Azure services?
-```
-Difficult Prompt:
-
-```
-Generate a Bicep script to deploy a secure, autoscaling AKS cluster with Azure Entra ID integration and private networking.
-```
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
