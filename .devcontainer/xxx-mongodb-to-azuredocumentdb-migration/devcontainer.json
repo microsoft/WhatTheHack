@@ -17,8 +17,8 @@
     }
   },
   "forwardPorts": [5001, 27017],
-  "postCreateCommand": "npm install && sudo rm -f /usr/share/keyrings/mongodb-server-8.0.gpg && curl -fsSL https://pgp.mongodb.com/server-8.0.asc | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg && echo 'deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main' | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list >/dev/null && sudo apt-get update && sudo apt-get install -y mongodb-mongosh && sudo npm uninstall -g mongosh || true",
-  "postStartCommand": "bash -lc \"if ! docker ps -a --format '{{.Names}}' | grep -q '^mongodb-source$'; then docker run -d --name mongodb-source -p 27017:27017 -e MONGO_INITDB_DATABASE=sample_mflix mongo:7; else docker start mongodb-source >/dev/null 2>&1 || true; fi\"",
+  "postCreateCommand": "cd MFlix && npm install && sudo rm -f /usr/share/keyrings/mongodb-server-8.0.gpg && curl -fsSL https://pgp.mongodb.com/server-8.0.asc | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg && echo 'deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main' | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list >/dev/null && sudo apt-get update && sudo apt-get install -y mongodb-mongosh mongodb-database-tools && sudo npm uninstall -g mongosh || true",
+  "postStartCommand": "bash infra/post-start.sh",
   "customizations": {
     "codespaces": {
       "openFiles": []

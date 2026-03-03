@@ -96,7 +96,4 @@ if [[ "$updateEnv" == "1" ]]; then
   echo "Updated [$environment_file] with Azure DocumentDB connection settings."
 fi
 
-echo "Loading sample data into the local MongoDB instance..."
-curl  https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
-mongorestore --archive=sampledata.archive --nsInclude="sample_mflix.*" --drop
-echo "Sample data loaded into local MongoDB instance."
+
