@@ -1,7 +1,7 @@
 {
   "name": "xxx-mongodb-to-azuredocumentdb-migration",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
-  "workspaceFolder": "/workspace/xxx-mongodb-to-azuredocumentdb-migration/Student/Resources/MFlix",
+  "workspaceFolder": "/workspace/xxx-mongodb-to-azuredocumentdb-migration/Student/Resources",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
     "cpus": 2
