@@ -1,0 +1,126 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.39.26.7824",
+      "templateHash": "16915230449429348297"
+    }
+  },
+  "parameters": {
+    "suffix": {
+      "type": "string",
+      "defaultValue": "[substring(uniqueString(resourceGroup().id), 0, 6)]",
+      "minLength": 4,
+      "maxLength": 10,
+      "metadata": {
+        "description": "Specifies a suffix used in Azure resource naming."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specifies the location for all Azure resources."
+      }
+    },
+    "accountName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Specifies the Azure DocumentDB (Cosmos DB for MongoDB API) account name."
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "sample_mflix",
+      "metadata": {
+        "description": "Specifies the MongoDB database name to create."
+      }
+    },
+    "freeTier": {
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "Enables free tier on the account. Only one free tier account is allowed per subscription."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Specifies tags for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2023-04-15",
+      "name": "[if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName'))]",
+      "location": "[parameters('location')]",
+      "kind": "MongoDB",
+      "tags": "[parameters('tags')]",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "enableFreeTier": "[parameters('freeTier')]",
+        "publicNetworkAccess": "Enabled",
+        "disableLocalAuth": false,
+        "consistencyPolicy": {
+          "defaultConsistencyLevel": "Session"
+        },
+        "capabilities": [
+          {
+            "name": "EnableMongo"
+          }
+        ],
+        "locations": [
+          {
+            "locationName": "[parameters('location')]",
+            "failoverPriority": 0,
+            "isZoneRedundant": false
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases",
+      "apiVersion": "2023-04-15",
+      "name": "[format('{0}/{1}', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'))]",
+      "properties": {
+        "resource": {
+          "id": "[parameters('databaseName')]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')))]"
+      ]
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings",
+      "apiVersion": "2023-04-15",
+      "name": "[format('{0}/{1}/{2}', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'), 'default')]",
+      "properties": {
+        "resource": {
+          "throughput": 400
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "deploymentInfo": {
+      "type": "object",
+      "value": {
+        "subscriptionId": "[subscription().subscriptionId]",
+        "resourceGroupName": "[resourceGroup().name]",
+        "location": "[parameters('location')]",
+        "accountName": "[if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName'))]",
+        "databaseName": "[parameters('databaseName')]"
+      }
+    }
+  }
+}

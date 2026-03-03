@@ -2,99 +2,112 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
-
 ## Introduction
 
-Thank you for participating in the mongodb-to-azuredocumentdb-migration What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the MongoDB to Azure DocumentDB migration What The Hack. Before you can hack, you will need to set up some prerequisites.
 
-## Common Prerequisites
+## Prerequisites
 
-We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
+In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
 
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
+- [Azure Subscription](#azure-subscription)
+- [GitHub Codespaces](#setup-github-codespace)
+- [Local Workstation](#setup-local-workstation)
 
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
+### Azure Subscription
 
-- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
-- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
-  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
-  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
-    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
-  - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
-- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
+You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
+- [Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
-## Description
 
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
+#### Use GitHub Codespaces
 
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
+You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup).
 
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
+GitHub Codespaces is available for developers in every organization. All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
 
-_Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
+You can see your balance of available codespace hours on the [GitHub billing page](https://github.com/settings/billing/summary).
 
-**\*NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.\*
+The GitHub Codespace for this hack will let you run the sample MFlix application which uses MongoDB as its database.
 
-**\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
+- A GitHub repo containing the student resources and Codespace for this hack is hosted here:
+  - [MongoDB to Azure DocumentDB WTH Codespace Repo](https://aka.ms/wth/<TBD>/codespace)
+  - Please open this link and sign in with your personal Github account. 
 
-_Sample challenge zero text for the IoT Hack Of The Century:_
+**NOTE:** Make sure you do not sign in with your enterprise managed Github account.
 
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Once you are signed in:
+- Verify that the `Dev container configuration` drop down is set to `xxx-mongodb-toazuredocumentdb-migration`
+- Click on the green "Create Codespace" button.
+  
+Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 
-Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
+- When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-Please install these additional tools:
+You are ready to setup the MongoDB Atlas database. Skip to section: [Setup MongoDB Atlas](#Setup-MongoDB-Atlas)
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+**NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
+#### Use Local Workstation
 
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
+**NOTE:** You can skip this section if are using GitHub Codespaces!
+
+If you want to setup this environment on your local workstation, expand the section below and follow the requirements listed. We have provided a Dev Container that will load the development environment on your local workstation if you do not want to use GitHub Codespaces.  
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Local Workstation Setup</strong></summary>
+
+#### Download Student Resources
+
+The Dev Container with the Mflix app is available in a Student Resources package.
+
+- [Download `Resources.zip`](https://aka.ms/wth/<TBD>/resources) package to your local workstation. 
+
+The rest of the challenges will refer to the relative paths inside the Codespace or `Resources.zip` file where you can find the various resources to complete the challenges.
+
+#### Set Up Local Dev Container
+
+You will next be setting up your local workstation so that it can use Dev Containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
+
+**NOTE:** On Windows, Dev Containers run in the Windows Subsystem for Linux (WSL). 
+
+On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
+- (Windows only) Install the Windows Subsystem for Linux along with a Linux distribution such as Ubuntu. You will need to copy the `Resources.zip` to your Linux home directory and unzip it there. 
+- Download and install Docker Desktop
+- Open the root folder of the Student Resources package in Visual Studio Code
+- You should get prompted to re-open the folder in a Dev Container. You can do that by clicking the Yes button, but if you miss it or hit no, you can also use the Command Palette in VS Code and select `Dev Containers: Reopen in Container`
+
+</details>
+<br/>
+
+#### Setup up the Source MongoDB 
+By default, a local MongoDB instance has already been setup for you running in a Docker container in your GitHub Codespace/Dev Container. If you prefer, you can set this up in MongoDB Atlas instead yourself. [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/). You will need to also load the sample MFlix application into your Atlas cluster. You will also need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
+
+#### Run the MFlix Application
+
+The sample MFlix application's is implemented as a Node.js applicatio. You will be running this application either within your GitHub Codespace or Dev Container for simplicity. In practice, it would be deployed as a container into Azure. 
+
+In a Terminal session in VSCode, navigate to the `MFlix` folder and run the application:
+
 ```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+cd MFlix
+# Installs the node packages required for the frontend
+npm install
+
+# Starts up the MFlix web application on your local machine
+npm start
 ```
+
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
+To complete this challenge successfully, you should:
 
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
-To complete this challenge successfully, you should be able to:
-
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
+- Verify that the MFlix sample application is running in your browser using your source MongoDB database
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [MongoDB Atlas - Get Started](https://www.mongodb.com/docs/atlas/getting-started/)
+- [MongoDB Connection String URI Format](https://www.mongodb.com/docs/manual/reference/connection-string/)
+- [Azure DocumentDB for MongoDB](https://learn.microsoft.com/azure/cosmos-db/mongodb/)
+- [Azure DocumentDB Migration with Azure Data Studio Extension](https://learn.microsoft.com/azure/cosmos-db/mongodb/migrate) 
