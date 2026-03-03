@@ -257,6 +257,7 @@ module document 'modules/document.bicep' = {
     name: 'document-${suffix}'
     location: location
     customSubDomainName: toLower('document-intelligence-${suffix}')
+    userObjectId: userObjectId
   }
 }
 

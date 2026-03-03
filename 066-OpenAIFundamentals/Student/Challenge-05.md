@@ -213,7 +213,7 @@ As you move forward, remember the significance of grounding responses in accurat
 ## Learning Resources
 
 - [Overview of Responsible AI practices for Azure OpenAI models](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/overview)
-- [Azure Cognitive Services - What is Content Filtering](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter)
+- [Azure AI Services - What is Content Filtering](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter)
 - [Azure AI Content Safety tool](https://learn.microsoft.com/en-us/azure/cognitive-services/content-safety/overview)
 - [Azure Content Safety Annotations feature](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter#annotations-preview)
 - [OpenAI PII Detection Plugin](https://github.com/openai/chatgpt-retrieval-plugin/tree/main#plugins)
