@@ -51,8 +51,30 @@ else
   fi
 fi
 
+# Generate a random SECRET_KEY for JWT tokens
+echo "Generating random SECRET_KEY for JWT authentication..."
+SECRET_KEY=$(openssl rand -base64 32)
+ENV_FILE="MFlix/.env"
+ENV_EXAMPLE="MFlix/.env.example"
+
+if [ ! -f "$ENV_FILE" ]; then
+  if [ -f "$ENV_EXAMPLE" ]; then
+    # Copy .env.example to .env
+    cp "$ENV_EXAMPLE" "$ENV_FILE"
+    echo "Created $ENV_FILE from $ENV_EXAMPLE"
+  else
+    echo "Warning: Neither $ENV_FILE nor $ENV_EXAMPLE found."
+    exit 0
+  fi
+fi
+
+# Update the SECRET_KEY in the .env file
+sed -i "s|SECRET_KEY=.*|SECRET_KEY=$SECRET_KEY|" "$ENV_FILE"
+echo "Updated SECRET_KEY in $ENV_FILE"
+
 echo "Downloading sample data for MongoDB..."
 curl  https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
 echo "Loading sample data into the local MongoDB instance..."
 mongorestore --host="mongodb-source:27017" --archive=sampledata.archive --nsInclude="sample_mflix.*" --drop
 echo "Sample data loaded into local MongoDB instance."
+
