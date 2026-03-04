@@ -5,7 +5,6 @@ node_modules/
 .env
 .env.local
 .env.*.local
-sampledata.archive
 .DS_Store
 Thumbs.db
 
@@ -20,3 +19,7 @@ npm-debug.log*
 
 # Build artifacts
 build/
+
+# Misc
+sampledata.archive
+.mongodb-source-credentials

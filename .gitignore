@@ -6,6 +6,9 @@
 # Mac hidden files to ignore
 ._*
 
+# Mongo migration local artifacts
+xxx-mongodb-to-azuredocumentdb-migration/Student/Resources/sampledata.archive
+
 # User-specific files
 *.suo
 *.user
