@@ -54,15 +54,28 @@ if [[ "$validateTemplate" == "1" ]]; then
 fi
 
 echo "Deploying [$template]..."
-az deployment group create \
+clusterName=$(az deployment group create \
   --resource-group "$resourceGroupName" \
   --template-file "$template" \
   --parameters "$parameters" \
   --parameters location="$location" \
   --parameters administratorLogin="$administratorLogin" administratorPassword="$administratorPassword" \
-  >/dev/null
+  --query "properties.outputs.deploymentInfo.value.clusterName" \
+  --output tsv)
 
 echo "Deployment completed."
+
+publicIpAddress=$(curl -s https://api.ipify.org)
+echo "Adding [$publicIpAddress] to firewall rules for cluster [$clusterName]..."
+az cosmosdb mongocluster firewall rule create \
+  --resource-group "$resourceGroupName" \
+  --cluster-name "$clusterName" \
+  --name "AllowCurrentClientIp" \
+  --start-ip-address "$publicIpAddress" \
+  --end-ip-address "$publicIpAddress" \
+  >/dev/null
+
+echo "Firewall rule added."
 
 if [[ "$updateEnv" == "1" ]]; then
   echo "Skipping .env updates by design. Configure application connection settings manually."
