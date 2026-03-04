@@ -14,6 +14,19 @@ if ! docker info >/dev/null 2>&1; then
   exit 0
 fi
 
+ENV_FILE="MFlix/.env"
+ENV_EXAMPLE="MFlix/.env.example"
+
+if [ ! -f "$ENV_FILE" ]; then
+  if [ -f "$ENV_EXAMPLE" ]; then
+    cp "$ENV_EXAMPLE" "$ENV_FILE"
+    echo "Created $ENV_FILE from $ENV_EXAMPLE"
+  else
+    echo "Warning: Neither $ENV_FILE nor $ENV_EXAMPLE found."
+    exit 0
+  fi
+fi
+
 # Create custom network for hostname resolution if it doesn't exist
 if ! docker network ls --format '{{.Name}}' | grep -q "^${network_name}$"; then
   echo "Creating Docker network: ${network_name}"
@@ -50,27 +63,6 @@ else
     exit 0
   fi
 fi
-
-# Generate a random SECRET_KEY for JWT tokens
-echo "Generating random SECRET_KEY for JWT authentication..."
-SECRET_KEY=$(openssl rand -base64 32)
-ENV_FILE="MFlix/.env"
-ENV_EXAMPLE="MFlix/.env.example"
-
-if [ ! -f "$ENV_FILE" ]; then
-  if [ -f "$ENV_EXAMPLE" ]; then
-    # Copy .env.example to .env
-    cp "$ENV_EXAMPLE" "$ENV_FILE"
-    echo "Created $ENV_FILE from $ENV_EXAMPLE"
-  else
-    echo "Warning: Neither $ENV_FILE nor $ENV_EXAMPLE found."
-    exit 0
-  fi
-fi
-
-# Update the SECRET_KEY in the .env file
-sed -i "s|SECRET_KEY=.*|SECRET_KEY=$SECRET_KEY|" "$ENV_FILE"
-echo "Updated SECRET_KEY in $ENV_FILE"
 
 echo "Downloading sample data for MongoDB..."
 curl  https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive

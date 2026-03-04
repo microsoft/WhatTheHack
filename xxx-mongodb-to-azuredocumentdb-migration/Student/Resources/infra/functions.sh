@@ -48,7 +48,7 @@ parse_args() {
         declare -g "$arg_name"=1
       else
         declare -g "$arg_name"="$next_arg"
-        ((i++))
+        i=$((i + 1))
       fi
     else
       break

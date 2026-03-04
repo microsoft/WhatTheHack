@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.39.26.7824",
-      "templateHash": "16915230449429348297"
+      "version": "0.41.2.15936",
+      "templateHash": "15251279876272205570"
     }
   },
   "parameters": {
@@ -25,25 +25,66 @@
         "description": "Specifies the location for all Azure resources."
       }
     },
-    "accountName": {
+    "clusterName": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "Specifies the Azure DocumentDB (Cosmos DB for MongoDB API) account name."
+        "description": "Specifies the Azure DocumentDB for MongoDB vCore cluster name."
       }
     },
-    "databaseName": {
+    "administratorLogin": {
       "type": "string",
-      "defaultValue": "sample_mflix",
+      "defaultValue": "mflixadmin",
       "metadata": {
-        "description": "Specifies the MongoDB database name to create."
+        "description": "Specifies the cluster administrator username."
       }
     },
-    "freeTier": {
-      "type": "bool",
-      "defaultValue": true,
+    "administratorPassword": {
+      "type": "securestring",
       "metadata": {
-        "description": "Enables free tier on the account. Only one free tier account is allowed per subscription."
+        "description": "Specifies the cluster administrator password."
+      }
+    },
+    "serverVersion": {
+      "type": "string",
+      "defaultValue": "7.0",
+      "metadata": {
+        "description": "Specifies the MongoDB server version."
+      }
+    },
+    "computeTier": {
+      "type": "string",
+      "defaultValue": "M30",
+      "metadata": {
+        "description": "Specifies the cluster compute tier."
+      }
+    },
+    "storageSizeGb": {
+      "type": "int",
+      "defaultValue": 32,
+      "metadata": {
+        "description": "Specifies the storage size in GB per node."
+      }
+    },
+    "shardCount": {
+      "type": "int",
+      "defaultValue": 1,
+      "metadata": {
+        "description": "Specifies the shard count for the cluster."
+      }
+    },
+    "highAvailabilityTargetMode": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "Specifies the target high availability mode."
+      }
+    },
+    "publicNetworkAccess": {
+      "type": "string",
+      "defaultValue": "Enabled",
+      "metadata": {
+        "description": "Specifies whether public network access is enabled."
       }
     },
     "tags": {
@@ -56,59 +97,31 @@
   },
   "resources": [
     {
-      "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2023-04-15",
-      "name": "[if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName'))]",
+      "type": "Microsoft.DocumentDB/mongoClusters",
+      "apiVersion": "2024-07-01",
+      "name": "[if(empty(parameters('clusterName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('clusterName'))]",
       "location": "[parameters('location')]",
-      "kind": "MongoDB",
       "tags": "[parameters('tags')]",
       "properties": {
-        "databaseAccountOfferType": "Standard",
-        "enableFreeTier": "[parameters('freeTier')]",
-        "publicNetworkAccess": "Enabled",
-        "disableLocalAuth": false,
-        "consistencyPolicy": {
-          "defaultConsistencyLevel": "Session"
+        "administrator": {
+          "userName": "[parameters('administratorLogin')]",
+          "password": "[parameters('administratorPassword')]"
         },
-        "capabilities": [
-          {
-            "name": "EnableMongo"
-          }
-        ],
-        "locations": [
-          {
-            "locationName": "[parameters('location')]",
-            "failoverPriority": 0,
-            "isZoneRedundant": false
-          }
-        ]
+        "serverVersion": "[parameters('serverVersion')]",
+        "compute": {
+          "tier": "[parameters('computeTier')]"
+        },
+        "storage": {
+          "sizeGb": "[parameters('storageSizeGb')]"
+        },
+        "sharding": {
+          "shardCount": "[parameters('shardCount')]"
+        },
+        "highAvailability": {
+          "targetMode": "[parameters('highAvailabilityTargetMode')]"
+        },
+        "publicNetworkAccess": "[parameters('publicNetworkAccess')]"
       }
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases",
-      "apiVersion": "2023-04-15",
-      "name": "[format('{0}/{1}', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'))]",
-      "properties": {
-        "resource": {
-          "id": "[parameters('databaseName')]"
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')))]"
-      ]
-    },
-    {
-      "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings",
-      "apiVersion": "2023-04-15",
-      "name": "[format('{0}/{1}/{2}', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'), 'default')]",
-      "properties": {
-        "resource": {
-          "throughput": 400
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName')), parameters('databaseName'))]"
-      ]
     }
   ],
   "outputs": {
@@ -118,8 +131,7 @@
         "subscriptionId": "[subscription().subscriptionId]",
         "resourceGroupName": "[resourceGroup().name]",
         "location": "[parameters('location')]",
-        "accountName": "[if(empty(parameters('accountName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('accountName'))]",
-        "databaseName": "[parameters('databaseName')]"
+        "clusterName": "[if(empty(parameters('clusterName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('clusterName'))]"
       }
     }
   }

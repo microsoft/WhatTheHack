@@ -95,7 +95,7 @@ In a Terminal session in VSCode, navigate to the `MFlix` folder and run the appl
 npm start
 ```
 
-You should see a message in Visual Studio Code to open the MFlix application in your browser. Click the 
+You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. Try it out!
 
 ## Success Criteria
 

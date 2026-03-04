@@ -1,51 +1,45 @@
-# Challenge 01 - <Title of Challenge>
+# Challenge 01 - Migrate MongoDB to Azure Document DB online using Azure DocumentDB migration extension for VS Code
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
-
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
-
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In this hack you will be getting hands-on experience using the Azure Document DB Migration Extension in Visual Studio Code to migrate the data from your source MongoDB to Azure Document DB. 
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+Azure DocumentDB is a great platform choice for MongoDB workloads in Azure because it gives you MongoDB API compatibility with a fully managed service experience. You can scale throughput and storage independently, improve availability with built-in high availability and optional multi-region distribution, and reduce operational overhead for patching, backups, and monitoring. The underlying DocumentDB engine is open source (MIT licensed), while the Azure-hosted experience adds managed operations plus integration with Azure security and governance capabilities for stronger reliability, compliance, and cost control.
 
-*For example:*
+## Prerequisites
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+You should have already completed the steps in [Challenge 0]()./Challenge-00.md) to set up your source MongoDB database and the sample application. 
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+In this challenge, you will install the Azure Document Migration extension in Visual Studio Code and then use it to perform the MongoDB migration. 
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+**NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
+- Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- From the terminal in Visual Studio Code, run these commands to login:
+```
+CODESPACES=false
+az login
+```
+- Install the [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension)
+- Perform the following steps to create an instance of Azure DocumentDB in your Azure subscription
+    - Open a New Terminal window in VS Code
+    - Type the following commands to deploy Azure Document DB. 
+    
+    ```
+    cd infra 
+    ./deploy.sh --administratorLogin mflixadmin --administratorPassword <password>
+    ```
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    ```
+    cd infra 
+    ./deploy.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
+    ```
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
-
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
 
 ## Success Criteria
 
