@@ -1,4 +1,4 @@
-# Challenge 05 - Trustworthy AI
+# Challenge 05 - Responsible AI
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
@@ -27,33 +27,9 @@ This challenge is divided into the following sections:
 - [5.6 Protected Material Detection](#56-protected-material-detection-preview)
 - [5.7 Red Teaming](#57-red-teaming)
 
-For each section of this Challenge, you will work in [Azure AI Foundry](https://ai.azure.com). We recommend keeping the student guide and the Azure AI Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
+For each section of this Challenge, you will work in [Microsoft Foundry](https://ai.azure.com). We recommend keeping the student guide and Microsoft Foundry in two windows side by side as you work. This will also help to validate you have met the success criteria below for this challenge.
 
-**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Azure AI Foundry. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Azure AI Foundry for this hack.
-
-### Access Content Safety Service - TEMPORARY STEP
-
-Azure AI Services are constantly changing. As of July 2024, the Azure AI Foundry does not automatically grant your user access to the Content Safety service. You will need to perform this task manually. We are adding these detailed steps here to complete this challenge today.  We anticipate these steps will not be required in the near future when Azure AI Foundry should handle this automatically.
-
-Follow these steps to grant your user account access to the Content Safety service:
-
-- In the [Azure Portal](https://portal.azure.com), navigate to the resource group where your AI resources are deployed 
-- Navigate to the **Azure AI services** resource
-- Click **Access control (IAM)** from the left menu
-- Click the **+ ADD** button, then select **Add role assignment**
-- On the **Add role assignment** screen, type "Cognitive Services User" in the search box
-- In the list of roles, click/highlight the **Cognitive Services User** row
-- Click the **NEXT** button at the bottom of the screen
-- Click **+ Select Members**
-- In the "Select Members" pane that appears, select YOUR user account from the list of users. (This should be **`ODL_User_XXXXXX@azureholXXXX.onmicrosoft.com`**)
-- Click the **SELECT** button
-- Click the **Review & Assign** button to complete the role assignment
-
-After the role assignment completes in the Azure Portal, you will need to wait 1-3 minutes and then follow one additional step:
-
-- Log out of [Azure AI Foundry](https://ai.azure.com), and then log back in. This will ensure your login token is refreshed with the new permissions for Content Safety.
-
-You should now be prepared to complete the rest of this challenge!
+**NOTE:** Previously, each of the Content Safety services were hosted in their own portals. As of July 2024, they have been integrated into Microsoft Foundry. While searching for documentation of these services, you may find references to their original stand-alone portals. You should access these services via Microsoft Foundry for this hack.
 
 ### 5.1 Harmful Content Detection
 
@@ -63,7 +39,7 @@ Your Azure AI Services resource includes Content Safety. You may refer to this [
 
 1. [Understand harm categories](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/harm-categories?tabs=warning) defined by Microsoft. 
 
-2. In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+2. In the [Microsoft Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
 
 3. Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the moderation results. Try viewing the code!
 
@@ -90,7 +66,7 @@ Let's configure a content filtering system both for user input (prompts) and LLM
 
 #### Student Task 5.2: Create a Custom Content Filter
 
-1. Configure a content filter following these [instructions for the Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/content-filtering#create-a-content-filter). Select the AI project in your AI Hub that contains any model deployments you made in the previous Challenges. Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
+1. Configure a content filter following these [instructions for Microsoft Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/content-filtering#create-a-content-filter). Select the AI project in your AI Hub that contains any model deployments you made in the previous Challenges. Design a content filter that could hypothetically apply to an internal or external tool in your workplace. Or get creative and come up with a scenario that could use a filter, such as an online school forum.
 
 2. In the "Input Filter" step, configure the four content categories. Keep "Prompt shields for jailbreak attacks" and "Prompt shields for indirect attacks" toggled to "Off" (default) for now.
 
@@ -121,7 +97,7 @@ Learn more about PII in the [documentation](https://learn.microsoft.com/en-us/az
 
 #### Student Task 5.3: PII Detection, Redaction, and Extraction
 
-1. In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
+1. In the [Microsoft Foundry](https://ai.azure.com/), navigate to your Project and the "AI Services" in the navigation pane. From here, you should find the option to try out "Language + Translator" capabilities.
 
 * How do you enable redacting PII? How does the output hide those entities?
   
@@ -144,7 +120,7 @@ Any application system that relies on data to provide answers should be mindful 
 Learn what Ungroundedness and Groundedness are, as well as how [Groundedness Detection](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/groundedness) on Azure works, via the [Microsoft Technical Blog](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/detect-and-mitigate-ungrounded-model-outputs/ba-p/4099261). 
 
 #### Student Task 5.4.1
-In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+In the [Microsoft Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
 
 Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. Try viewing the code!
 
@@ -157,7 +133,7 @@ Protecting your LLM application from bad actors is equally important as moderati
 Attacks can occur through user prompts as well as documents that contain hidden embedded instructions to gain unauthorized control over the LLM session. Read more about [subtypes of user prompt attacks](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection). These are considered "input attacks."
 
 #### Student Task 5.5.1
-In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+In the [Microsoft Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
 
 Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. What is the difference between a direct and indirect attack?
 
@@ -165,13 +141,13 @@ Try out the following features in Content Safety using provided sample text and 
 
 #### Student Task 5.5.2: Update and test your custom content filter using Prompt Shields
 
-1. Revisit the custom content filter you created earlier in the Azure AI Foundry.
+1. Revisit the custom content filter you created earlier in Microsoft Foundry.
 
 2. In the **Input filter** tab, toggle the setting for **Prompt shields for jailbreak attacks** and **Prompt shields for indirect attacks** to either **Annotate only** or **Annotate and block**. Keep in mind, for future implementations, that **Annotate and block** can reduce token usage compared to **Annotate only**, which will still return the completed output.
 
 3. Apply the updated filter to one of your deployed models.
 
-4. In the "Chat" tab of the Playground in the Azure AI Foundry, experiment with your updated content filter.
+4. In the "Chat" tab of the Playground in Microsoft Foundry, experiment with your updated content filter.
 
 Here are some example jailbreak attacks to prompt your protected model. Copy and paste the following prompts to evaluate the LLM's filtered responses:
 
@@ -188,17 +164,17 @@ Here are some example jailbreak attacks to prompt your protected model. Copy and
 ### 5.6 Protected Material Detection Preview
 
 #### Student Task 5.6.1
-In the [AI Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
+In [Microsoft Foundry](https://ai.azure.com/), navigate to your Project and the **AI Services** pane. From here, you should find the option to try out Content Safety capabilities. 
 
 Try out the following features in Content Safety using provided sample text and data, or come up with your own examples. Analyze the results. 
 
 * "Protected material detection for text" or "Protected material detection for code"
 
 #### Student Task #5.6.2: Update and test your custom content filter using Protected Material Detection
-1. Revisit the custom content filter you created earlier in the Azure AI Foundry.
+1. Revisit the custom content filter you created earlier in Microsoft Foundry.
 2. In the "Output filter" tab, toggle the setting for "Protected material for text" to either "Annotate only" or "Annotate and block." Keep in mind, for future implementations, that "Annotate and block" can reduce token usage compared to "Annotate only," which will still return the completed output.
 3. Apply the updated filter to one of your deployed models.
-4. In the "Chat" tab of the Playground in the Azure AI Foundry, experiment with your updated content filter. 
+4. In the "Chat" tab of the Playground in Microsoft Foundry, experiment with your updated content filter. 
 Here is a sample prompt for testing purposes: 
 `to everyone, the best things in life are free. the stars belong to everyone, they gleam there for you and me. the flowers in spring, the robins that sing, the sunbeams that shine, they\'re yours, they\'re mine. and love can come to everyone, the best things in life are`
 
@@ -227,9 +203,9 @@ To complete this challenge successfully, you should be able to:
 - Identify tools available to identify and mitigate harms in LLMs
 
 ## Conclusion 
-In this Challenge, you explored principles and practical tools to implement Responsible AI with an LLM system through the Azure AI Foundry. Understanding how to apply Responsible AI principles is essential for maintaining user trust and integrity within AI-driven platforms. 
+In this Challenge, you explored principles and practical tools to implement Responsible AI with an LLM system through Microsoft Foundry. Understanding how to apply Responsible AI principles is essential for maintaining user trust and integrity within AI-driven platforms. 
 
-Throughout this Challenge, you have explored the importance of detecting and managing harmful content, as well as the necessity of personally identifiable information (PII) detection and redaction in generative AI applications. By engaging with Azure AI tools in the AI Foundry, you have gained practical experience in moderating content, filtering out undesirable material, and protecting sensitive data. 
+Throughout this Challenge, you have explored the importance of detecting and managing harmful content, as well as the necessity of personally identifiable information (PII) detection and redaction in generative AI applications. By engaging with Azure AI tools in Microsoft Foundry, you have gained practical experience in moderating content, filtering out undesirable material, and protecting sensitive data. 
 
 As you move forward, remember the significance of grounding responses in accurate data to prevent the propagation of misinformation and safeguard against input attacks. There are many ways to mitigate harms, and securing your application responsibly is an ongoing endeavor. We encourage you to continuously strive to enhance the safety and reliability of your AI systems, keeping in mind the evolving landscape of digital content safety.
 
@@ -237,7 +213,7 @@ As you move forward, remember the significance of grounding responses in accurat
 ## Learning Resources
 
 - [Overview of Responsible AI practices for Azure OpenAI models](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/overview)
-- [Azure Cognitive Services - What is Content Filtering](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter)
+- [Azure AI Services - What is Content Filtering](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter)
 - [Azure AI Content Safety tool](https://learn.microsoft.com/en-us/azure/cognitive-services/content-safety/overview)
 - [Azure Content Safety Annotations feature](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/concepts/content-filter#annotations-preview)
 - [OpenAI PII Detection Plugin](https://github.com/openai/chatgpt-retrieval-plugin/tree/main#plugins)
@@ -249,5 +225,5 @@ As you move forward, remember the significance of grounding responses in accurat
 - [New Updates in AI Content Safety](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/whats-new)
 - [eBook](https://aka.ms/contentsafetyebook)
 - [Infuse Responsible AI tools and practices in your LLMOps Microsoft Azure Blog](https://azure.microsoft.com/en-us/blog/infuse-responsible-ai-tools-and-practices-in-your-llmops/)
-- [Introducing AI Red Teaming Agent: Accelerate your AI safety and security journey with Azure AI Foundry](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/)
+- [Introducing AI Red Teaming Agent: Accelerate your AI safety and security journey with Microsoft Foundry](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/)
   

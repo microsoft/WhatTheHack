@@ -1,31 +1,42 @@
-# Challenge 03 - Leveraging GitHub Copilot in Your Dev Workflow
+# Challenge 03 - Extending GitHub Copilot with Model Context Protocol
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-
 ## Introduction
-In this challenge, you'll explore how GitHub Copilot can be your ally beyond just writing code. This challenge is about integrating Copilot deeper into your entire development workflow.
+GitHub Copilot is a powerful coding assistant, but what if you could make it even smarter by connecting it to external tools, databases, or APIs? This challenge introduces you to the Model Context Protocol (MCP), which allows you to extend Copilot's capabilities by integrating both custom context sources and tools. 
 
 ## Description
-GitHub Copilot is more than just a coding assistant; it's a tool that can enhance various aspects of software development. In this challenge, you will checkin your code into a git repository in GitHub.
 
-- **Craft Commit Messages with Copilot**: Use Copilot to help you write clear and descriptive commit messages that accurately summarize your code changes.
-- **Build Pipelines with GitHub Actions**: Discover how Copilot can assist in creating CI workflows with GitHub Actions, helping you automate your build, test, and deployment processes.
+The Model Context Protocol (MCP) allows GitHub Copilot to connect to external tools and data sources, giving it access to live context beyond your local codebase. In this challenge, you will use MCP to connect Copilot to GitHub and apply it to your Whack-a-Mole project.
 
-This challenge emphasizes the versatility of GitHub Copilot, showcasing its potential to streamline your entire development lifecycle.
+You will:
+
+- **Create a GitHub Repository**  
+  Create a new GitHub repository for your Whack-a-Mole game and push your existing code.
+
+- **Populate GitHub Context**  
+  Create sample GitHub Issues and labels that represent planned features or improvements to the game.
+
+- **Configure the GitHub MCP Server**  
+  Configure and connect the GitHub MCP server using OAuth so Copilot can securely access repositories, issues, labels, and pull requests.
+
+- **Use MCP in Copilot Chat**  
+  Use Copilot Chat with MCP enabled to interact with your GitHub repository and its data.
 
 ## Success Criteria
-Successfully complete this challenge by demonstrating that you can:
+You will have successfully completed this challenge when you:
 
-- Demonstrate a functional CI pipeline set up with Copilot's guidance.
-  
+- Verify that your Whack-a-Mole project is stored in a GitHub repository
+- Show multiple GitHub Issues with labels that represent planned work for the project
+- Demonstrate a working GitHub MCP server connection authenticated using OAuth
+- Demonstrate Copilot Chat interacting with your GitHub repository using MCP
+
 ## Learning Resources
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [Creating GitHub Actions for CI/CD](https://docs.github.com/en/actions)
+- [Customizing GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot)
+- [GitHub MCP Server](https://github.com/github/github-mcp-server)
+- [MCP Registry](https://github.com/mcp)
+- [VS Code Chat Modes and Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-chat)
 
-## Advanced Challenges (Optional)
 
-If you're using GitHub Copilot Enterprise, take the opportunity to explore additional features designed to enhance your development workflow further.
 
-- **Create PR Summaries**: Leverage Copilot to help you draft detailed and informative PR summaries, ensuring your team understands the purpose and content of your changes.
-- **Interact in PR Discussions**: Explore how Copilot can help you during the PR process when reviewing code.
+

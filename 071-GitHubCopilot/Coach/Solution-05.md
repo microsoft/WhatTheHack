@@ -1,16 +1,18 @@
-# Challenge 05 - Debugging and Code Optimization with Copilot - Coach's Guide 
+# Challenge 05 - Leveraging GitHub Copilot in Your Dev Workflow - Coach's Guide 
 
-[< Previous Solution](./Solution-04.md) - **[Home](./README.md)**
+[< Previous Solution](./Solution-04.md) - **[Home](./README.md)** - [Next Solution >](./Solution-06.md)
 
 ## Notes & Guidance
 
-- Students can grab a file of their choice from the [OWASP Juice Shop Repo](https://github.com/juice-shop/juice-shop).  For example you can choose the order.ts file located under routes folder [here](https://github.com/juice-shop/juice-shop/blob/master/routes/order.ts).
-- Students should be able to use Copilot chat to ask what the whole file does or highlight and interact with Copilot to explain a snippet of code.
-- Asking Copilot Chat should also give them the ability to request for a code snippet to resolve the vulnerability as well.
-- Please remind students that while Copilot can find vulnerabilities as we will see here, we should not assume it catches everything.  This is not a replacement for other security tools such as static code analysis tools (CodeQL).
-- Since this is a known vulnerable application, we do not expect them to fix and checkin the changes.  This is just an exercise to see how Copilot can help you understand
-  - What the file or piece of code is doing
-  - Find and resolve vulnerabilities
-  - Find and optimize your code
+- This challenge is to show that Copilot can do more than just help with developers writing code.  Here we are going to also leverage Copilot to help with commit messages and a GitHub Action pipeline (yaml).  At the end of this challenge you can also discuss some other areas where Copilot may be able to help.  Copilot chat will likely be able to help scaffold a good portion of this.  Below are some examples:
+  - Helping with XML such as in APIM policies
+  - Infrastructure as code such as ARM/Bicep
+  - SQL Queries
+- To generate a commit message, they can go to VS Code, and in the source control section there will be these stars/diamonds next to the commit message box.  Selecting that will allow you to leverage Copilot to generate a commit message.  They can generate this after creating the pipeline to have something to checkin to.
+- This could also be a great time to talk about some of GitHub Copilot Enterprises other features such as PR message creation which is along the same concept. However this is a higher license tier and not part of the hack.  There are three tiers of GitHub Copilot Licensing, this hack will focus on the features that apply to Individual/Business:
+  - Copilot Individual ($10/Month) - This is for individual developers.
+  - Copilot Business ($19/Month) -  This is meant for organizations and allows capabilities to manage licenses and features within Copilot.
+  - Copilot Enterprise ($39/Month) - This requires the codebase to be in GitHub but allows for organizations to infuse AI across the developer workflow.
+  - Full Feature Comparison: https://docs.github.com/en/copilot/get-started/plans
  
-- As an added note, you can discuss with your students on other similar scenarios and how this could be useful such as refactoring or code conversion. 
+[Sample Pipeline Solution](./Solutions/Solution-03.yaml)

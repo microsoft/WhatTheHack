@@ -13,10 +13,10 @@ jobs:
   spell-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@d03a93c0dbfac6d6dd6a0d8a5e7daff992b07449
+        uses: tj-actions/changed-files@7dee1b0c1557f278e5c7dc244927139d78c0e22a
         with:
           files: |
             **/*.md

@@ -6,22 +6,24 @@
 Having explored GitHub Copilot's capabilities, it's time to dive deeper and refine your approach. This challenge will not only focus on adopting best practices for effective interaction with Copilot but also apply these strategies to integrate a new feature into your Whack-a-Mole game.
 
 ## Description
-In this challenge, you'll focus on learning best practices for working with GitHub Copilot to implement a new feature in your app. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Below are some to take into consideration:
+In this challenge, you'll focus on learning best practices for working with GitHub Copilot to implement a new feature in your app. You'll learn the art of prompt engineering, which involves crafting inputs that guide Copilot to provide the most relevant and helpful suggestions. Research and experiment with the following techniques (and discover additional ones) to understand how they improve your results:
 
-- **Set The Stage**: Understand the importance of setting the stage of what we are building. A high level overview of what we are trying to achieve can help Copilot offer more accurate and beneficial suggestions, aligning closely with your coding objectives.
+- **Start General, Then Get Specific**: Begin with a broad description of your goal, then progressively add more specific requirements.
 
-- **Keep It Simple and Specific**: Simplify complex problems into smaller, more manageable tasks. Copilot tends to generate more precise and practical solutions when dealing with focused queries rather than broad, vague ones.
+- **Break Complex Tasks Into Simpler Tasks**: Decompose large problems into smaller, focused pieces that are easier to solve incrementally.
 
-- **Give Examples**: Provide some examples of what you are looking for which can help Copilot grasp the context and the specific pattern you're aiming for. 
+- **Give Examples**: Provide examples of inputs, outputs, or patterns to help Copilot understand what you're looking for. 
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Demonstrate the differences before and after leveraging prompt engineering techniques.  You should be able to demonstrate all three scenarios.
-2. Show that you have successfully integrated a new feature into your game.
+- Demonstrate the differences before and after leveraging prompt engineering techniques - show all three core techniques listed in the description, plus at least one additional prompt engineering example
+- Show that you have successfully integrated a new feature into your game
 
 ## Learning Resources
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [GitHub Copilot Prompt Engineering](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering)
+- [GitHub Copilot Best Practices](https://docs.github.com/en/copilot/get-started/best-practices)
 
 ## Tips
 - Context comes in many forms for Copilot.  Not only does it take context from what is around the cursor but also the filename and the other open tabs.

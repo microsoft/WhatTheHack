@@ -1,25 +1,30 @@
-# Challenge 04 - Leveraging Copilot for Test Case and Documentation
+# Challenge 04 - Customizing GitHub Copilot in Your IDE
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
 ## Introduction
-This challenge focuses on improving the quality and maintainability of your Whack-a-Mole game. You'll leverage GitHub Copilot's capabilities to generate comprehensive test cases and create detailed documentation. This challenge is about maintaining quality and improving ease of maintenance.
+GitHub Copilot becomes significantly more useful when it understands the context, standards, and expectations of your project. In this challenge, you will customize Copilot within your IDE by creating custom instructions and installing a custom agent to interact with Copilot in specialized ways.
+
 
 ## Description
-Utilize GitHub Copilot to guide you through the creation of meaningful test cases that cover various aspects of your application, from basic functionalities to edge cases. Following that, focus on enhancing your app's documentation with Copilot's assistance to ensure clarity and comprehensiveness. Your tasks are:
+GitHub Copilot can be customized within the IDE in multiple ways. Custom instructions define behavior that applies across all Copilot interactions, while custom agents (also known as chat modes) provide specialized, task-focused assistance.
 
-- **Generate Test Cases**: With the new feature in place, use Copilot to assist in creating comprehensive test cases. Focus on covering a wide range of scenarios, including edge cases, to ensure your application's robustness.
-- **Document Your Application**: Add in documentation and comments to make your application easier to maintain for the next developer.
-- **Include in CI Pipeline**: After generating the test cases, include them in your CI pipeline.
+In this challenge you will:
 
-This challenge is not just about coding but also about thinking about application quality and maintainability. It's an opportunity to see how Copilot can contribute to these aspects of software development.
+- **Create Custom Instructions**  
+  Define custom instructions in `.github/copilot-instructions.md` that guide Copilot's behavior across all Copilot interactions, such as coding style, architectural preferences, or project-specific assumptions.
+
+- **Install and Use a Custom Agent**  
+  Install and select a custom agent (chat mode) from the [Awesome Copilot collection](https://github.com/github/awesome-copilot/tree/main), then use it in the IDE to create a specialized interactive experience while working in the codebase.
+
 
 ## Success Criteria
 You will have successfully completed this challenge when you:
 
-1. Show your test cases generated with the assistance of Copilot, covering both the existing and newly added functionalities.
-2. Show that your test cases are integrated into your CI Pipeline.
-3. Show the documentation you have added to your application.
+- Show a custom instructions file you created and explain how it guides Copilot's behavior
+- Demonstrate a custom agent installed from the Awesome Copilot collection and show it being selected and used in the IDE
+- Show Copilot responding in a way that reflects your custom instructions
 
 ## Learning Resources
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [Customizing GitHub Copilot with Custom Instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
+- [VS Code Chat Modes and Custom Agents](https://code.visualstudio.com/docs/copilot/copilot-chat)

@@ -4,8 +4,8 @@
 
 ## Prerequisites
 
-* Ensure you have the needed resources from the previous challenge in [AI Foundry](https://ai.azure.com/)
-* Update the `.env.sample` file (and save as `.env`) with your respective resource credentials if you haven't already
+* Ensure you have the needed resources from the previous challenge in [Microsoft Foundry](https://ai.azure.com/)
+* Update the `.env.sample` file (and save as `.env`) with your respective resource credentials if you haven't already done so. 
 
 ## Introduction
 
