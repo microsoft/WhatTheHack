@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Now that you've gotten your source MongoDB application and database working, you will next be installing the Azure Document DB Migration Extension in Visual Studio Code so that you can migrate the data from your source MongoDB to Azure Document DB in the next challenge. You will also be trying out the Azure DocumentDB extension for MongoDB. 
+Now that you've gotten your source MongoDB application and database working, you will next be installing the Azure Document DB Migration Extension in Visual Studio Code so that you can migrate the data from your source MongoDB to Azure Document DB in the next challenge. You will also be trying out the Azure DocumentDB extension for VS Code. 
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You should have already completed the steps in [Challenge 0]()./Challenge-00.md)
 
 ## Description
 
-First, you will install the Azure Document Migration extension in Visual Studio Code. 
+First, you will install the Azure DocumentDB Migration extension in Visual Studio Code. 
 
 - Install the [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension). It will also install the DocumentDB for VS Code extension which we will use prior to migration.
 
@@ -40,13 +40,30 @@ az login
     ./deploy.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
-The deployment will take some time. While this is deploying, use the DocumentDB for VS Code extension to connect to your source MongoDB and explore the data. 
+The deployment will take some time. While this is deploying, use the DocumentDB for VS Code extension to connect to your source MongoDB database and explore the data:
+
+- Use DocumentDB Local
+- The local MongoDB instance name is mongodb-source
+- The default port is 27017
+- Use the username and password you copied from Challenge 0 to connect
+- Enable TLS/SSL (Default)
+
+Once you've connected, explore the collections within the database. You should see:
+- comments
+- embedded_movies
+- movies
+- sessions
+- theaters
+- users
+
+Open `Documents` within the `movies` collection. What do you see?
 
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:
 - Verify that you have the Azure DocumentDB migration extension installed
 - Verify that you have Azure DocumentDB deployed into your Azure subscription
+- Explored the database using the DocumentDB for VS Code extension
 
 ## Learning Resources
 

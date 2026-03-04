@@ -97,6 +97,8 @@ npm start
 
 You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. Try it out!
 
+***Note***: After the containers are done with deployment, you should see MongoDB source credentials in the terminal output for the Username and Password. Copy these values before closing the terminal because you will need these in a later challenge. If you accidentally closed the terminal window without copying the username and password, they are stored in the `MFlix/.mongodb-source-credentials` file so you will have to retrieve them from there. 
+
 ## Success Criteria
 
 To complete this challenge successfully, you should:
