@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the MongoDB to Azure DocumentDB migration What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the MongoDB to Azure DocumentDB migration What The Hack. Before you can start hacking, you will need to set up some prerequisites.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-You are ready to setup the MongoDB Atlas database. Skip to section: [Setup MongoDB Atlas](#Setup-MongoDB-Atlas)
+You are ready to setup the MongoDB source database. Skip to section: [Setup up the Source MongoDB Database](#Setup-up-the-Source-MongoDB-Database)
 
 **NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
@@ -80,30 +80,28 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 </details>
 <br/>
 
-#### Setup up the Source MongoDB 
+#### Setup up the Source MongoDB Database
+
 By default, a local MongoDB instance has already been setup for you running in a Docker container in your GitHub Codespace/Dev Container. If you prefer, you can set this up in MongoDB Atlas instead yourself. [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/). You will need to also load the sample MFlix application into your Atlas cluster. You will also need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
 
 #### Run the MFlix Application
 
-The sample MFlix application's is implemented as a Node.js applicatio. You will be running this application either within your GitHub Codespace or Dev Container for simplicity. In practice, it would be deployed as a container into Azure. 
+The sample MFlix application's is implemented as a Node.js application. You will be running this application either within your GitHub Codespace or Dev Container for simplicity. In practice, it would be deployed as a container into Azure. 
 
 In a Terminal session in VSCode, navigate to the `MFlix` folder and run the application:
 
 ```
-cd MFlix
-# Installs the node packages required for the frontend
-npm install
-
-# Starts up the MFlix web application on your local machine
+# Starts up the MFlix web application 
 npm start
 ```
 
+You should see a message in Visual Studio Code to open the MFlix application in your browser. Click the 
 
 ## Success Criteria
 
 To complete this challenge successfully, you should:
 
-- Verify that the MFlix sample application is running in your browser using your source MongoDB database
+- Verify that the MFlix sample application is running in your browser using your source MongoDB database.
 
 ## Learning Resources
 

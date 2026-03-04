@@ -74,6 +74,13 @@ echo "Updated SECRET_KEY in $ENV_FILE"
 
 echo "Downloading sample data for MongoDB..."
 curl  https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
+
+if ! command -v mongorestore >/dev/null 2>&1; then
+  echo "Warning: mongorestore is not installed in this container; skipping sample data restore." >&2
+  echo "Hint: rebuild the dev container so postCreate installs MongoDB Database Tools." >&2
+  exit 0
+fi
+
 echo "Loading sample data into the local MongoDB instance..."
 mongorestore --host="mongodb-source:27017" --archive=sampledata.archive --nsInclude="sample_mflix.*" --drop
 echo "Sample data loaded into local MongoDB instance."

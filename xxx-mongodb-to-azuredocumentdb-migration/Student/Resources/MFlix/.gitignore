@@ -5,8 +5,7 @@ node_modules/
 .env
 .env.local
 .env.*.local
-
-# OS files
+sampledata.archive
 .DS_Store
 Thumbs.db
 

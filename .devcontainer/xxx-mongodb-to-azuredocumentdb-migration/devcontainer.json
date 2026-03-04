@@ -17,7 +17,7 @@
     }
   },
   "forwardPorts": [5001, 27017],
-  "postCreateCommand": "cd MFlix && npm install && sudo rm -f /usr/share/keyrings/mongodb-server-8.0.gpg && curl -fsSL https://pgp.mongodb.com/server-8.0.asc | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/mongodb-server-8.0.gpg && echo 'deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main' | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list >/dev/null && sudo apt-get update && sudo apt-get install -y mongodb-mongosh mongodb-database-tools && sudo npm uninstall -g mongosh || true",
+  "postCreateCommand": "bash infra/post-create.sh",
   "postStartCommand": "bash infra/post-start.sh",
   "customizations": {
     "codespaces": {
