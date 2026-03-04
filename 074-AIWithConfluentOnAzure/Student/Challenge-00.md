@@ -14,57 +14,27 @@ By the end of this challenge, you should have:
 
 ## Common Prerequisites
 
-We have compiled a list of common tools and software that you will need to complete Challenge 1 and deploy the Terraform-based infrastructure to Azure and Confluent Cloud.
+We have compiled a list of common tools and software that you will need to complete this hack and deploy the Terraform-based infrastructure to Azure and Confluent Cloud.
 
 You may not need all of them outside this challenge. However, if you work with Azure or Confluent Cloud on a regular basis, these are essential components for your development toolkit.
 
-* **Azure Subscription**
+- [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
+- [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
+  - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
+  - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
+    - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
+- [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
+- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
-  * You must have access to an active Azure subscription with permissions to create resources.
-* **Managing Cloud Resources**
+In addition to the common prerequisites above, you will need the following tools specific to this hack:
 
-  * **Azure Portal**
-    [https://portal.azure.com](https://portal.azure.com)
-    Used to visually validate resources deployed by Terraform.
-  * **Azure CLI**
-    [https://learn.microsoft.com/cli/azure/install-azure-cli](https://learn.microsoft.com/cli/azure/install-azure-cli)
-    Required to authenticate and verify your subscription and resource group.
+* **[Terraform CLI](https://developer.hashicorp.com/terraform/downloads)**
+  - Required to deploy infrastructure modules for Azure and Confluent Cloud
+  - After installation, verify by running: `terraform init`
 
-    * After installation, login using:
-
-      ```bash
-      az login
-      ```
-  * **Terraform CLI**
-    [https://developer.hashicorp.com/terraform/downloads](https://developer.hashicorp.com/terraform/downloads)
-    Required to deploy infrastructure modules for Azure and Confluent Cloud.
-
-    * After installation, you should be able to run the following command with the Terraform CLI:
-      ```bash
-      terraform init
-      ```
-* **Confluent Cloud CLI**
-
-  * Required to authenticate to Confluent Cloud and interact with Kafka topics and connectors
-    [https://docs.confluent.io/confluent-cli/current/install.html](https://docs.confluent.io/confluent-cli/current/install.html)
-
-    Use the following command to authenticate with Confluent Cloud via the CLI:
-    ```bash
-    confluent --help
-
-    ```
-
-Optional but helpful:
-
-* **Visual Studio Code**
-
-  * Recommended IDE for editing Terraform configuration files
-    [https://code.visualstudio.com](https://code.visualstudio.com)
-
-* **Azure Storage Explorer**
-
-  * Helpful for inspecting Blob Storage input files during validation
-    [https://azure.microsoft.com/features/storage-explorer/](https://azure.microsoft.com/features/storage-explorer/)
+* **[Confluent Cloud CLI](https://docs.confluent.io/confluent-cli/current/install.html)**
+  - Required to authenticate to Confluent Cloud and interact with Kafka topics and connectors
+  - After installation, verify by running: `confluent --help`
 
 
 ## Description
@@ -101,30 +71,30 @@ To complete this challenge successfully, you should be able to:
 ## Learning Resources
 
 
-* **Install Azure CLI**
-  [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+* **Install Azure CLI:**
+  [Azure CLI Installation Guide](https://learn.microsoft.com/cli/azure/install-azure-cli)
 
-* **Install Terraform CLI**
-  [Terraform CLI](https://developer.hashicorp.com/terraform/downloads)
+* **Install Terraform CLI:**
+  [Terraform CLI Downloads](https://developer.hashicorp.com/terraform/downloads)
 
-* **Install Confluent CLI**
-  [Confluent CLI](https://docs.confluent.io/confluent-cli/current/install.html)
+* **Install Confluent CLI:**
+  [Confluent CLI Installation Guide](https://docs.confluent.io/confluent-cli/current/install.html)
 
-* **Azure Service Principal authentication**
+* **Azure Service Principal authentication:**
   [Azure Service Principal Setup](https://learn.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
-* **Confluent Cloud getting started**
+* **Confluent Cloud getting started:**
   [Confluent Cloud on Azure](https://docs.confluent.io/cloud/current/get-started/index.html)
 
-* **Confluent Connector Hub**
+* **Confluent Connector Hub:**
   [Azure Connectors for Confluent](https://www.confluent.io/hub/plugins?query=azure)
   
-* **Confluent Source & Sink Connectors**
+* **Confluent Source & Sink Connectors:**
   [Kafka Connectors from Confluent](https://docs.confluent.io/cloud/current/connectors/index.html)
 
-* **Azure AI Search documentation**
+* **Azure AI Search documentation:**
   [Azure AI Search Docs](https://learn.microsoft.com/azure/search/search-what-is-azure-search)
 
-* **Azure Cosmos DB documentation**
+* **Azure Cosmos DB documentation:**
   [Azure Cosmos DB Docs](https://learn.microsoft.com/azure/cosmos-db/introduction)
 

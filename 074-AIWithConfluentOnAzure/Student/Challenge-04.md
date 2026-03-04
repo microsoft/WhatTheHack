@@ -26,8 +26,6 @@ During this challenge, you will:
 - Confirm that the employee agent responds with accurate net inventory counts and net sales values
 - Verify that all data matches what is observed in Azure AI Search and Flink output
 
-This challenge requires interaction across multiple personas. You will switch between customer, supplier, and employee tabs or windows to simulate real-world concurrent activity. Each action triggers updates to the net inventory count and net sales tables, and the employee agent should always return accurate, real-time data.
-
 ## Success Criteria
 
 To complete this challenge successfully, you should be able to:

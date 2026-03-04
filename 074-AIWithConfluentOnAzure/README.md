@@ -2,9 +2,9 @@
 
 ## Introduction
 
-This hackathon immerses you in building a real-time AI agent using **Confluent Cloud on Microsoft Azure**. You’ll learn how Confluent’s data streaming platform—based on Apache Kafka—can connect and process retail data in real time, enabling AI-driven insights that keep pace with constantly changing business conditions [1][2]. Whether it’s ingesting product SKUs or synchronizing inventory levels, Confluent Cloud on Azure offers a unified, scalable, and secure platform to design near real-time pipelines and deliver accurate, intelligent solutions.
+This hackathon immerses you in building a real-time AI agent using **Confluent Cloud on Microsoft Azure**. You’ll learn how Confluent’s data streaming platform—based on Apache Kafka—can connect and process retail data in real time, enabling AI-driven insights that keep pace with constantly changing business conditions. Whether it’s ingesting product SKUs or synchronizing inventory levels, Confluent Cloud on Azure offers a unified, scalable, and secure platform to design near real-time pipelines and deliver accurate, intelligent solutions.
 
-Throughout this hack, you’ll capture data from diverse sources—such as transaction logs, returns, and purchase records—and then transform or enrich that data using Apache Flink or ksqlDB. The result is an always up-to-date data backbone, ready to power AI-driven applications that swiftly respond to customer needs, supplier demands, and dynamic inventory scenarios [3][4].
+Throughout this hack, you’ll capture data from diverse sources—such as transaction logs, returns, and purchase records—and then transform or enrich that data using Apache Flink or ksqlDB. The result is an always up-to-date data backbone, ready to power AI-driven applications that swiftly respond to customer needs, supplier demands, and dynamic inventory scenarios.
 
 
 ## Learning Objectives
@@ -36,11 +36,22 @@ By completing this hack, you will:
 - Visual Studio Code
 - Azure CLI
 
-## References
-- 1 https://www.confluent.io/apache-kafka-vs-confluent/
-- 2 https://learn.microsoft.com/en-us/azure/partner-solutions/apache-kafka-confluent-cloud/overview
-- 3 https://learn.microsoft.com/en-us/azure/partner-solutions/apache-kafka-confluent-cloud/create
-- 4 https://www.confluent.io/hub/ 
+## Learning Resources
+- [Apache Kafka vs Confluent](https://www.confluent.io/apache-kafka-vs-confluent/)
+- [What is Apache Kafka & Confluent Cloud on Azure?](https://learn.microsoft.com/en-us/azure/partner-solutions/apache-kafka-confluent-cloud/overview)
+- [Create an Apache Kafka & Confluent Cloud resource](https://learn.microsoft.com/en-us/azure/partner-solutions/apache-kafka-confluent-cloud/create)
+- [Confluent Hub](https://www.confluent.io/hub/)
+
+## Repository Contents
+
+- `./Coach`
+  - Coach's Guide and related files
+- `./Coach/Solutions`
+  - Solution files with completed example answers to a challenge
+- `./Student`
+  - Student's Challenge Guide
+- `./Student/Resources`
+  - Terraform modules, configuration scripts, AI agent application code, and connector configurations (packaged by coach as Resources.zip)
 
 ## Contributors
 

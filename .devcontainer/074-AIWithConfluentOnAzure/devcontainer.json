@@ -1,6 +1,6 @@
 {
     "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
-    "workspaceFolder": "/workspace/073-AIWithConfluentOnAzure/Student/Resources",
+    "workspaceFolder": "/workspace/074-AIWithConfluentOnAzure/Student/Resources",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "hostRequirements": {
       "cpus": 2,
