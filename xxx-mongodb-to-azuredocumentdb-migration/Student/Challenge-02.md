@@ -11,8 +11,19 @@ Make sure you have successfully completed Challenges 0 and 1 before starting thi
 In this challenge you will use the Azure DocumentDB Migration extension in Visual Studio Code to migrate the data from source database to Azure DocumentDB. 
 
 ## Description
+If you were able to successfully connect to your local MongoDB source database in Challenge 1, you should be ready to get started!
 
-
+- Right click on your source database and select `Data migration`. For the data migration provider, select `Migration to Azure Document DB`
+- Put in a Job Name of your choice. For Migration Mode, select `Offline` and for Connectivity, select `Public`
+- For the target Azure DocumentDB account
+    - Subscription: Use the default subscription
+    - Resource Group: Select the resource group where you deployed Azure DocumentDB (default is rg-mflix-documentdb)
+    - Account Name: Select the account name
+    - Connection String: You will have to retrieve this from the Azure Portal. Open your Azure DocumentDB instance. It should be under Settings/Connection Strings. Replace the password with the password you chose when you ran the `deploy.sh` script. 
+- Create the Database Migration Service. You can use the existing resource group for your Azure DocumentDB. 
+- You may have to update firewall rules for Azure DocumentDB accordingly. 
+- Select all of the collections in your `sample_flix` database.
+- Start Migration
 ## Success Criteria
 
 *Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
