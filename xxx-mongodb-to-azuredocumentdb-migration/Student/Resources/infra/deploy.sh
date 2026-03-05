@@ -53,21 +53,17 @@ if [[ "$validateTemplate" == "1" ]]; then
 fi
 
 echo "Deploying [$template]..."
-deployment_output=$(az deployment group create \
+clusterName=$(az deployment group create \
   --resource-group "$resourceGroupName" \
   --template-file "$template" \
   --parameters "$parameters" \
   --parameters location="$location" \
   --parameters administratorLogin="$administratorLogin" administratorPassword="$administratorPassword" \
-  --query "properties.outputs.deploymentInfo.value" \
-  --output json)
-
-clusterName=$(echo "$deployment_output" | jq -r '.clusterName')
-sourceMongoDbFqdn=$(echo "$deployment_output" | jq -r '.sourceMongoDbFqdn')
+  --query "properties.outputs.deploymentInfo.value.clusterName" \
+  --output tsv)
 
 echo "Deployment completed."
 echo "  DocumentDB cluster: $clusterName"
-echo "  Source MongoDB FQDN: $sourceMongoDbFqdn"
 
 publicIpAddress=$(curl -s https://api.ipify.org)
 echo "Adding [$publicIpAddress] to firewall rules for cluster [$clusterName]..."
@@ -81,66 +77,13 @@ az cosmosdb mongocluster firewall rule create \
 
 echo "Firewall rule added."
 
-# --- Load sample data into the ACI source MongoDB ---
-echo "Waiting for source MongoDB ($sourceMongoDbFqdn) to be ready..."
-for i in $(seq 1 30); do
-  if nc -z -w5 "$sourceMongoDbFqdn" 27017 2>/dev/null; then
-    echo "Source MongoDB port is reachable."
-    break
-  fi
-  if [ "$i" -eq 30 ]; then
-    echo "Warning: Timed out waiting for source MongoDB. You may need to load data manually." >&2
-  fi
-  echo "  Attempt $i/30 — waiting 10s..."
-  sleep 10
-done
-
-# Give MongoDB a few extra seconds to finish initialization after the port is open
-sleep 5
-
-echo "Downloading sample data..."
-curl -sL https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
-
-if command -v mongorestore >/dev/null 2>&1; then
-  echo "Loading sample data into source MongoDB at $sourceMongoDbFqdn..."
-  mongorestore \
-    --host="${sourceMongoDbFqdn}:27017" \
-    --username="${administratorLogin}" \
-    --password="${administratorPassword}" \
-    --authenticationDatabase="admin" \
-    --archive=sampledata.archive \
-    --nsInclude="sample_mflix.*" \
-    --drop
-  echo "Sample data loaded into source MongoDB."
-else
-  echo "Warning: mongorestore is not installed; skipping data load." >&2
-  echo "Install MongoDB Database Tools and run manually:" >&2
-  echo "  mongorestore --host=${sourceMongoDbFqdn}:27017 --username=${administratorLogin} --password=<password> --authenticationDatabase=admin --archive=sampledata.archive --nsInclude='sample_mflix.*' --drop" >&2
-fi
-
-rm -f sampledata.archive
-
-# --- Update .env with source MongoDB connection string ---
-sourceMongoUri="mongodb://${administratorLogin}:${administratorPassword}@${sourceMongoDbFqdn}:27017/?retryWrites=false&maxIdleTimeMS=120000&authSource=admin"
-
-ENV_FILE="../MFlix/.env"
-if [ -f "$ENV_FILE" ]; then
-  sed -i "s|^MFLIX_DB_URI=.*|MFLIX_DB_URI=${sourceMongoUri}|" "$ENV_FILE"
-  echo "Updated $ENV_FILE with source MongoDB URI."
-else
-  cat > "$ENV_FILE" <<EOF
-SECRET_KEY=$(python3 -c "import secrets; print(secrets.token_hex(16))")
-MFLIX_DB_URI=${sourceMongoUri}
-MFLIX_NS=sample_mflix
-PORT=5001
-EOF
-  echo "Created $ENV_FILE with source MongoDB URI."
-fi
-
 echo ""
 echo "===== Deployment Summary ====="
-echo "Source MongoDB (ACI):  mongodb://${administratorLogin}:<password>@${sourceMongoDbFqdn}:27017/?authSource=admin"
-echo "Target DocumentDB:     Use Azure Portal to get the connection string for cluster [$clusterName]"
+echo "Target DocumentDB cluster: $clusterName"
+echo "Use Azure Portal to get the connection string for cluster [$clusterName]"
 echo "=============================="
+echo ""
+echo "To deploy the source MongoDB, run:"
+echo "  ./deploy-source-db.sh --administratorPassword <your-password>"
 
 
