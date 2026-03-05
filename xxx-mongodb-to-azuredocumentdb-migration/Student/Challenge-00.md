@@ -82,7 +82,35 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 
 #### Setup up the Source MongoDB Database
 
-By default, a local MongoDB instance has already been setup for you running in a Docker container in Azure Container Instances. If you prefer, you can set this up in MongoDB Atlas instead yourself. [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/). You will need to also load the sample MFlix application into your Atlas cluster. You will need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
+You can choose to deploy a MongoDB instance in Docker container in Azure Container Instances or if you prefer, you can set up the source database in MongoDB Atlas instead yourself. 
+
+To deploy MongoDB in Azure Container Instances:
+
+**NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
+- Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- From the terminal in Visual Studio Code, run these commands to login:
+```
+CODESPACES=false
+az login
+```
+- Perform the following steps to create an instance of Azure DocumentDB in your Azure subscription
+    - Open a New Terminal window in VS Code
+    - Type the following commands to deploy Azure Document DB. 
+    
+    ```
+    cd infra 
+    ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
+    ```
+
+    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    ```
+    cd infra 
+    ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
+    ```
+
+If you want to deploy to MongoDB Atlas instead, go to this link: [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/).
+- You will need to also load the sample MFlix application into your Atlas cluster.
+- You will need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
 
 #### Run the MFlix Application
 

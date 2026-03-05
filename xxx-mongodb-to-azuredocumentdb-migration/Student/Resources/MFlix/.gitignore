@@ -17,8 +17,8 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Build artifacts
-build/
+# Build artifacts (commented out - keeping pre-built frontend assets)
+# build/
 
 # Misc
 sampledata.archive
