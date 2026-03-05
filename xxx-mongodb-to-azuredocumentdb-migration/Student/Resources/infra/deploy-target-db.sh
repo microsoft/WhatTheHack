@@ -26,7 +26,7 @@ subscriptionName=$(az account show --query name --output tsv)
 echo "Checking if [$resourceGroupName] resource group exists in [$subscriptionName]..."
 if ! az group show --name "$resourceGroupName" >/dev/null 2>&1; then
   echo "Creating [$resourceGroupName] in [$location]..."
-  az group create --name "$resourceGroupName" --location "$location" >/dev/null
+  az group create --name "$resourceGroupName" --location "$location"
   echo "[$resourceGroupName] created."
 else
   echo "[$resourceGroupName] already exists."
@@ -48,7 +48,7 @@ if [[ "$validateTemplate" == "1" ]]; then
       --template-file "$template" \
       --parameters "$parameters" \
       --parameters location="$location" \
-      --parameters administratorLogin="$administratorLogin" administratorPassword="$administratorPassword" >/dev/null
+      --parameters administratorLogin="$administratorLogin" administratorPassword="$administratorPassword"
   fi
 fi
 
@@ -72,8 +72,7 @@ az cosmosdb mongocluster firewall rule create \
   --cluster-name "$clusterName" \
   --name "AllowCurrentClientIp" \
   --start-ip-address "$publicIpAddress" \
-  --end-ip-address "$publicIpAddress" \
-  >/dev/null
+  --end-ip-address "$publicIpAddress"
 
 echo "Firewall rule added."
 
