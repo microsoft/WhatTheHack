@@ -70,7 +70,7 @@ echo "Adding [$publicIpAddress] to firewall rules for cluster [$clusterName]..."
 az cosmosdb mongocluster firewall rule create \
   --resource-group "$resourceGroupName" \
   --cluster-name "$clusterName" \
-  --name "AllowCurrentClientIp" \
+  --rule-name "AllowCurrentClientIp" \
   --start-ip-address "$publicIpAddress" \
   --end-ip-address "$publicIpAddress"
 

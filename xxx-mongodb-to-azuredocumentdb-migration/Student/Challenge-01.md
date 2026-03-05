@@ -38,17 +38,13 @@ az login
     Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     ```
     cd infra 
-    
+
     ./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
 The deployment will take some time. While this is deploying, use the DocumentDB for VS Code extension to connect to your source MongoDB database and explore the data:
 
-- Use DocumentDB Local
-- The local MongoDB instance name is mongodb-source
-- The default port is 27017
-- Use the username and password you copied from Challenge 0 to connect
-- Enable TLS/SSL (Default)
+- Whether you chose MongoDB running in ACI or Mongo DB Atlas, the MongoDB connection string information is in your .env
 
 Once you've connected, explore the collections within the database. You should see:
 - comments
