@@ -1,0 +1,50 @@
+<svg width="80" height="80" viewBox="0 0 80 80"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="globeGradientIconDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#818CF8;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Globe with Location Pin -->
+    <g transform="translate(5, 5)">
+        <!-- Main Globe -->
+        <circle cx="35" cy="35" r="32" fill="url(#globeGradientIconDark)" opacity="0.15"/>
+        <circle cx="35" cy="35" r="32" fill="none" stroke="url(#globeGradientIconDark)" stroke-width="3.5"/>
+
+        <!-- Meridians (vertical lines) -->
+        <path d="M 35 3 L 35 67" stroke="#A5B4FC" stroke-width="2.8" fill="none" opacity="0.8"/>
+        <path d="M 35 5 Q 20 35 35 65" stroke="#A5B4FC" stroke-width="2.5" fill="none" opacity="0.7"/>
+        <path d="M 35 5 Q 50 35 35 65" stroke="#A5B4FC" stroke-width="2.5" fill="none" opacity="0.7"/>
+        <path d="M 35 8 Q 13 35 35 62" stroke="#C4B5FD" stroke-width="2.2" fill="none" opacity="0.6"/>
+        <path d="M 35 8 Q 57 35 35 62" stroke="#C4B5FD" stroke-width="2.2" fill="none" opacity="0.6"/>
+
+        <!-- Parallels (horizontal lines) -->
+        <ellipse cx="35" cy="35" rx="32" ry="12" stroke="#A5B4FC" stroke-width="2.8" fill="none" opacity="0.8"/>
+        <ellipse cx="35" cy="20" rx="26" ry="9" stroke="#A5B4FC" stroke-width="2.3" fill="none" opacity="0.7"/>
+        <ellipse cx="35" cy="50" rx="26" ry="9" stroke="#A5B4FC" stroke-width="2.3" fill="none" opacity="0.7"/>
+        <ellipse cx="35" cy="13" rx="18" ry="6" stroke="#C4B5FD" stroke-width="2" fill="none" opacity="0.6"/>
+        <ellipse cx="35" cy="57" rx="18" ry="6" stroke="#C4B5FD" stroke-width="2" fill="none" opacity="0.6"/>
+
+        <!-- Location Pin on Globe -->
+        <g transform="translate(20, 10)">
+            <path d="M 15 0 C 11.134 0 8 3.134 8 7 C 8 12.5 15 22 15 22 C 15 22 22 12.5 22 7 C 22 3.134 18.866 0 15 0 Z" fill="#F87171" stroke="#FCA5A5" stroke-width="1.8"/>
+            <circle cx="15" cy="7" r="3.5" fill="white" opacity="0.95"/>
+        </g>
+
+        <!-- AI sparkle effects -->
+        <circle cx="10" cy="18" r="3" fill="#67E8F9" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="50" cy="10" r="2.5" fill="#A78BFA" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="6" cy="38" r="2" fill="#67E8F9" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="54" cy="35" r="2" fill="#C4B5FD" opacity="0.9">
+            <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.8s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+</svg>
