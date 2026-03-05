@@ -112,8 +112,11 @@ sourceMongoUri="mongodb://${administratorLogin}:${administratorPassword}@${sourc
 
 ENV_FILE="../MFlix/.env"
 if [ -f "$ENV_FILE" ]; then
+  # Update both MFLIX_DB_URI and SECRET_KEY
   sed -i "s|^MFLIX_DB_URI=.*|MFLIX_DB_URI=${sourceMongoUri}|" "$ENV_FILE"
-  echo "Updated $ENV_FILE with source MongoDB URI."
+  SECRET_KEY=$(python3 -c "import secrets; print(secrets.token_hex(16))")
+  sed -i "s|^SECRET_KEY=.*|SECRET_KEY=${SECRET_KEY}|" "$ENV_FILE"
+  echo "Updated $ENV_FILE with source MongoDB URI and generated SECRET_KEY."
 else
   cat > "$ENV_FILE" <<EOF
 SECRET_KEY=$(python3 -c "import secrets; print(secrets.token_hex(16))")
