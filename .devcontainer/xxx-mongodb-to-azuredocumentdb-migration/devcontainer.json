@@ -16,7 +16,7 @@
       "installBicep": true
     }
   },
-  "forwardPorts": [5001, 27017],
+  "forwardPorts": [5001],
   "postCreateCommand": "bash infra/post-create.sh",
   "postStartCommand": "bash infra/post-start.sh",
   "customizations": {

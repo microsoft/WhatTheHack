@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this hack, you will learn how to move a MongoDB workload from MongoDB Atlas to Azure DocumentDB with minimal effort. You'll start by creating a new MongoDB cluster in Atlas, creating a MongoDB database from a sample, and deploying a sample Node.js application and make sure it works as is. You will then perform a guided migration of that database to Azure using the Visual Studio Code extension for DocumentDB. Finally, you’ll understand the core migration flow, validate data in the new environment, fix an issues you might encounter, and run the app against the migrated database.
+In this hack, you will learn how to move a MongoDB workload from MongoDB to Azure DocumentDB with minimal effort. You'll start by creating a MongoDB database from a sample and deploying a sample Node.js application. You will make sure it works as is. You will then perform a guided migration of that database to Azure using the Visual Studio Code extension for DocumentDB. Finally, you’ll understand the core migration flow, validate data in the new environment, fix an issues you might encounter, and run the app against the migrated database.
 
 
 

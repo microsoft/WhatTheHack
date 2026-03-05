@@ -82,7 +82,7 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 
 #### Setup up the Source MongoDB Database
 
-By default, a local MongoDB instance has already been setup for you running in a Docker container in your GitHub Codespace/Dev Container. If you prefer, you can set this up in MongoDB Atlas instead yourself. [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/). You will need to also load the sample MFlix application into your Atlas cluster. You will also need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
+By default, a local MongoDB instance has already been setup for you running in a Docker container in Azure Container Instances. If you prefer, you can set this up in MongoDB Atlas instead yourself. [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/). You will need to also load the sample MFlix application into your Atlas cluster. You will need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
 
 #### Run the MFlix Application
 
