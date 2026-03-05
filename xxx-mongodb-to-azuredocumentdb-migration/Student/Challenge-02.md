@@ -19,7 +19,7 @@ If you were able to successfully connect to your local MongoDB source database i
     - Subscription: Use the default subscription
     - Resource Group: Select the resource group where you deployed Azure DocumentDB (default is rg-mflix-documentdb)
     - Account Name: Select the account name
-    - Connection String: You will have to retrieve this from the Azure Portal. Open your Azure DocumentDB instance. It should be under Settings/Connection Strings. Replace the password with the password you chose when you ran the `deploy.sh` script. 
+    - Connection String: You will have to retrieve this from the Azure Portal. Open your Azure DocumentDB instance. It should be under Settings/Connection Strings. Replace the password with the password you chose when you ran the `deploy-target-db.sh` script. 
 - Create the Database Migration Service. You can use the existing resource group for your Azure DocumentDB. 
 - You may have to update firewall rules for Azure DocumentDB accordingly. 
 - Select all of the collections in your `sample_flix` database.

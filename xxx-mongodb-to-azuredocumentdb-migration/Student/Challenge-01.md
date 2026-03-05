@@ -8,7 +8,7 @@ Now that you've gotten your source MongoDB application and database working, you
 
 ## Prerequisites
 
-You should have already completed the steps in [Challenge 0]()./Challenge-00.md) to set up your source MongoDB database and the sample application. 
+You should have already completed the steps in [Challenge 0](./Challenge-00.md) to set up your source MongoDB database and the sample application. 
 
 ## Description
 
@@ -27,17 +27,17 @@ az login
 ```
 - Perform the following steps to create an instance of Azure DocumentDB in your Azure subscription
     - Open a New Terminal window in VS Code
-    - Type the following commands to deploy Azure Document DB. 
+    - Type the following commands to deploy Azure DocumentDB. 
     
     ```
     cd infra 
-    ./deploy.sh --administratorLogin mflixadmin --administratorPassword <password>
+    ./deploy-target-db.sh --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
-    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     ```
     cd infra 
-    ./deploy.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
+    ./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
 The deployment will take some time. While this is deploying, use the DocumentDB for VS Code extension to connect to your source MongoDB database and explore the data:

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Ensure the MFlix .env file exists (from template).
-# The actual MongoDB URI will be configured by deploy.sh after Azure resources are provisioned.
+# The actual MongoDB URI will be configured by deploy-target-db.sh after Azure resources are provisioned.
 ENV_FILE="MFlix/.env"
 ENV_EXAMPLE="MFlix/.env.example"
 
@@ -17,6 +17,6 @@ fi
 
 echo ""
 echo "To deploy Azure resources (source MongoDB + target DocumentDB), run:"
-echo "  cd infra && ./deploy.sh --administratorPassword <your-password>"
+echo "  cd infra && ./deploy-target-db.sh --administratorPassword <your-password>"
 echo ""
 

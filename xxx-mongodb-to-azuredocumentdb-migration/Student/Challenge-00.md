@@ -19,7 +19,6 @@ In this challenge, you will set up the necessary prerequisites and environment t
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
 
-
 #### Use GitHub Codespaces
 
 You must have a GitHub account to use GitHub Codespaces. If you do not have a GitHub account, you can [Sign Up Here](https://github.com/signup).
@@ -44,7 +43,7 @@ Your Codespace environment should load in a new browser tab. It will take approx
 
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
 
-You are ready to setup the MongoDB source database. Skip to section: [Setup up the Source MongoDB Database](#Setup-up-the-Source-MongoDB-Database)
+You are ready to setup the MongoDB source database. Skip to section: [Setup the Source MongoDB Database](#setup-the-source-mongodb-database)
 
 **NOTE:** If you close your Codespace window, or need to return to it later, you can go to [GitHub Codespaces](https://github.com/codespaces) and you should find your existing Codespaces listed with a link to re-launch it.
 
@@ -80,9 +79,9 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 </details>
 <br/>
 
-#### Setup up the Source MongoDB Database
+#### Setup the Source MongoDB Database
 
-You can choose to deploy a MongoDB instance in Docker container in Azure Container Instances or if you prefer, you can set up the source database in MongoDB Atlas instead yourself. 
+You can choose to deploy a MongoDB instance in Docker container in Azure Container Instances with a deployment script or if you prefer, you can set up the source database in MongoDB Atlas instead manually. 
 
 To deploy MongoDB in Azure Container Instances:
 
@@ -99,12 +98,14 @@ az login
     
     ```
     cd infra 
+
     ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
-    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     ```
     cd infra 
+
     ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
@@ -125,7 +126,7 @@ npm start
 
 You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. Try it out!
 
-***Note***: After the containers are done with deployment, you should see MongoDB source credentials in the terminal output for the Username and Password. Copy these values before closing the terminal because you will need these in a later challenge. If you accidentally closed the terminal window without copying the username and password, they are stored in the `MFlix/.mongodb-source-credentials` file so you will have to retrieve them from there. 
+***Note***: If you need the username and password you chose during the MongoDB deployment, they are stored in the `MFlix/.env` file in the `MFLIX_DB_URI` connection string. 
 
 ## Success Criteria
 
