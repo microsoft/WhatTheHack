@@ -102,7 +102,7 @@ az login
     ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
-    Optional: you can specify the `resourceGroupName` and `location` if you need to as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     ```
     cd infra 
 
