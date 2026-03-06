@@ -61,7 +61,7 @@ Open `Documents` within the `movies` collection. What do you see?
 To complete this challenge successfully, you should be able to:
 - Verify that you have the Azure DocumentDB migration extension installed
 - Verify that you have Azure DocumentDB deployed into your Azure subscription
-- Explored the database using the DocumentDB for VS Code extension
+- Explore the database using the DocumentDB for VS Code extension
 
 ## Learning Resources
 

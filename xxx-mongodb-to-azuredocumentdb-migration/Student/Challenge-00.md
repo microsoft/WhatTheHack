@@ -110,6 +110,7 @@ az login
     ```
 
 If you want to deploy to MongoDB Atlas instead, go to this link: [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/).
+- You will probably want to follow the steps mentioned in the Atlas UI tab (as opposed to the Atlas CLI but you can figure that out if you want).
 - You will need to also load the sample MFlix application into your Atlas cluster.
 - You will need to modify the MFlix's `.env` file with your MongoDB connection string from Atlas. 
 
@@ -137,6 +138,7 @@ To complete this challenge successfully, you should:
 ## Learning Resources
 
 - [MongoDB Atlas - Get Started](https://www.mongodb.com/docs/atlas/getting-started/)
+- [Compare Azure DocumentDB to MongoDB Atlas](https://learn.microsoft.com/en-us/azure/documentdb/compare-mongodb-atlas)
 - [MongoDB Connection String URI Format](https://www.mongodb.com/docs/manual/reference/connection-string/)
 - [Azure DocumentDB for MongoDB](https://learn.microsoft.com/azure/cosmos-db/mongodb/)
 - [Azure DocumentDB Migration with Azure Data Studio Extension](https://learn.microsoft.com/azure/cosmos-db/mongodb/migrate) 
