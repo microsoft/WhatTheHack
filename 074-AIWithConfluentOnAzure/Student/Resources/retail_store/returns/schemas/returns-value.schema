@@ -1,0 +1,66 @@
+{
+  "title": "Return Transaction Record Value",
+  "description": "Schema for a return transaction record, including return ID, receipt ID, transaction date, and a list of returned items.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Unique identifier for the return transaction."
+    },
+    "return_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier for the return associated with the transaction."
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier of the original receipt linked to the return."
+    },
+    "transaction_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the return transaction occurred, in ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ)."
+    },
+    "customer_id": {
+      "type": "string",
+      "description": "Unique identifier for the customer making the return."
+    },
+    "items": {
+      "type": "array",
+      "description": "List of returned items in the transaction.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku_id": {
+            "type": "string",
+            "pattern": "^[0-9]+$",
+            "description": "SKU identifier for the returned item."
+          },
+          "units": {
+            "type": "number",
+            "description": "Number of units returned."
+          },
+          "unit_price": {
+            "type": "number",
+            "description": "Price per unit of the returned item."
+          }
+        },
+        "required": [
+          "sku_id",
+          "units",
+          "unit_price"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "return_id",
+    "receipt_id",
+    "transaction_date",
+    "items",
+    "customer_id"
+  ]
+}

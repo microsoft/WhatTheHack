@@ -334,3 +334,34 @@ ASALocalRun/
 .DS_Store
 
 .env
+
+
+shared_environment_variables.sh
+shared_environment_variables.env
+
+.env.sh
+
+# Confluent Ignores
+*confluent-environment*
+*confluent-environment.sh
+
+# Terraform Stuff
+terraform.tfstate.backup
+.terraform
+*.tfstate
+.terraform*
+azure_environment_variables.sh
+main_variables.tf
+microsoft_hackathon.plan
+
+# Othe files from Python and Node
+.cosmos_permissions
+DRAFT.txt
+node_modules
+.idea
+.vscode
+.project
+__pycache__
+*.final.json
+
+

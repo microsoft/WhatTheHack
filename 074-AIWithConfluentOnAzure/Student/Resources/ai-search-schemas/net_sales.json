@@ -1,0 +1,75 @@
+{
+    "name": "net_sales",
+    "fields": [
+      {
+        "name": "id",
+        "type": "Edm.String",
+        "searchable": false,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": false,
+        "key": true,
+        "synonymMaps": []
+      },
+     {
+        "name": "sku_id",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "synonymMaps": []
+      },
+      {
+        "name": "net_sales",
+        "type": "Edm.Double",
+        "searchable": false,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "synonymMaps": []
+      },
+      {
+        "name": "name",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "synonymMaps": []
+      },
+      {
+        "name": "department",
+        "type": "Edm.String",
+        "searchable": true,
+        "filterable": true,
+        "retrievable": true,
+        "stored": true,
+        "sortable": true,
+        "facetable": true,
+        "key": false,
+        "synonymMaps": []
+      }
+    ],
+    "scoringProfiles": [],
+    "suggesters": [],
+    "analyzers": [],
+    "normalizers": [],
+    "tokenizers": [],
+    "tokenFilters": [],
+    "charFilters": [],
+    "similarity": {
+      "@odata.type": "#Microsoft.Azure.Search.BM25Similarity"
+    }
+  }

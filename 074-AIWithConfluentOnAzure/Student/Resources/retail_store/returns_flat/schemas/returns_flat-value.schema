@@ -1,0 +1,41 @@
+{
+  "title": "Return Transactions",
+  "description": "Flattened Table for all returns",
+  "type": "object",
+  "properties": {
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier associated with the transaction receipt."
+    },
+    "transaction_date": {
+      "type": "string",
+      "description": "Date and time of the transaction in 'YYYY-MM-DD HH:MM:SS' format."
+    },
+    "customer_id": {
+        "type": "string",
+        "description": "Unique identifier for the customer making the return."
+    },
+    "sku_id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "SKU identifier for the returned item."
+    },
+    "units": {
+        "type": "number",
+        "description": "Number of units returns."
+    },
+    "unit_price": {
+        "type": "number",
+        "description": "Price per unit of the item."
+    }
+  },
+  "required": [
+    "receipt_id",
+    "transaction_date",
+    "customer_id",
+    "sku_id",
+    "units",
+    "unit_price"
+  ]
+}

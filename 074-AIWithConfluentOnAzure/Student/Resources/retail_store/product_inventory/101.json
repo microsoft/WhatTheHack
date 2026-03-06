@@ -1,0 +1,8 @@
+{
+    "sku_id": "101",
+    "inventory_level": 300.00,
+    "unit_price": 9.99,
+    "name": "Toaster",
+    "description": "Electric Toaster",
+    "department":"appliance"
+}
