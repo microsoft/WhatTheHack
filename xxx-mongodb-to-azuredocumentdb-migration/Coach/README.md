@@ -1,23 +1,24 @@
-# What The Hack - mongodb-to-azuredocumentdb-migration - Coach Guide
+# What The Hack - Mongo DB to Azure Document DB Migration - Coach's Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the mongodb-to-azuredocumentdb-migration What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+In this hack, the students will learn how to move a MongoDB workload from MongoDB to Azure DocumentDB with minimal effort. They'll start by creating a MongoDB database from a sample and deploying a sample Node.js application. They will make sure it works as is. They will then perform a guided migration of that database to Azure using the Visual Studio Code extension for DocumentDB. Finally, they'll understand the core migration flow, validate data in the new environment, fix an issues they might encounter, and run the app against the migrated database.
 
-This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+## Learning Objectives
 
-**NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
+- Assess source database readiness and identify key migration considerations before moving data.
+- Use the DocumentDB VS Code extension to execute and monitor a database migration.
+- Compare source and target results to verify collection structure, document counts, and query behavior.
+- Update application configuration and troubleshoot common connectivity or compatibility issues after cutover.
 
-## Coach's Guides
+## Coach guides
 
-- Challenge 00: **[Prerequisites - Ready, Set, GO!](./Solution-00.md)**
-	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](./Solution-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](./Solution-02.md)**
-	 - Description of challenge
-- Challenge 03: **[Title of Challenge](./Solution-03.md)**
-	 - Description of challenge
+- Challenge 00: **[Prerequisites - Ready, Set, GO!](Solution-00.md)**
+   - Deploy the source database and get the sample application up and running
+- Challenge 01: **[Prepare and perform the migration to Azure DocumentDB](Solution-01.md)**
+   - Use the Azure DocumentDB migration extension for Visual Studio Code to assess the source MongoDB workload and identify and fix any issues that will block migration.
+- Challenge 02: **[Compare source and target databases and update the application configuration](Solution-02.md)**
+   - Compare the source target databases and if everything is okay, you will modify the application configuration with the new Azure DocumentDB and re-run the application
 
 ## Coach Prerequisites
 
@@ -33,37 +34,23 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
 
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
-
 ## Azure Requirements
 
 This hack requires students to have access to an Azure subscription where they can create and consume Azure resources. These Azure requirements should be shared with a stakeholder in the organization that will be providing the Azure subscription(s) that will be used by the students.
 
-_Please list Azure subscription requirements._
+- The hack deploys MongoDB on Azure Container Instances for the source MongoDB. It also deploys Azure DocumentDB to the M20 Compute Tier. This is configurable. 
+- The student should have contributor access to the Azure subscription. 
 
-_For example:_
+## Suggested Hack Agenda 
 
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
+* Challenge 0 (Setup): 30-45 minutes
+* Challenge 1 (Extension + DocumentDB deployment): 45-60 minutes
+* Challenge 2 (Migration): 45-60 minutes
+* Buffer time for troubleshooting: 30 minutes per challenge
 
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
+This timing does not include any lecture content that you may wish to include 
 
 ## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
 
 - `./Coach`
   - Coach's Guide and related files

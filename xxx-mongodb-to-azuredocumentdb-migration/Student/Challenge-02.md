@@ -32,12 +32,11 @@ If the migration was successful, you will then need to update the connection str
 To complete this challenge successfully, you should be able to:
 - Ensure that the data migration completed successfully 
 - Update the app's database connection string to point to the new Azure DocumentDB 
-- Verify that the application is working correctly
+- Verify that the application is working correctly with the new Azure DocumentDB
 
 ## Learning Resources
 
 
 - [Migrate MongoDB to Azure DocumentDB online using Azure DocumentDB migration extension (public preview)](https://learn.microsoft.com/en-us/azure/documentdb/how-to-migrate-vs-code-extension)
 
-## Tips
 

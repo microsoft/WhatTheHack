@@ -1,20 +1,10 @@
-# Challenge 02 - <Title of Challenge> - Coach's Guide 
+# Challenge 02 - Compare source and target databases and update the application configuration - Coach's Guide 
 
-[< Previous Solution](./Solution-01.md) - **[Home](./README.md)** - [Next Solution >](./Solution-03.md)
+[< Previous Solution](./Solution-01.md) - **[Home](./README.md)** 
 
 ## Notes & Guidance
 
-This is the only section you need to include.
+* Students will need to restart the application with `Ctrl+C` and then `npm start` after changing the connection string.
+* If the web site doesn't work because of a port conflict, they can use `ps -ef` and `kill <process-id>` to kill and restart the web application.
+* After the web site comes up, make sure they click around again to make sure the site is working
 
-Use general non-bulleted text for the beginning of a solution area for this challenge
-
-- Then move into bullets
-  - And sub-bullets and even
-    - sub-sub-bullets
-
-Break things apart with more than one bullet list
-
-- Like this
-- One
-- Right
-- Here
