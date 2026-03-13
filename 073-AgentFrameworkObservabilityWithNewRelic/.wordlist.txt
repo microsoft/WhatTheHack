@@ -14,3 +14,13 @@ pytest
 handoff
 WanderAI's
 Kimpel
+lifecycles
+asyncio
+SLOs
+SLIs
+SLO
+SLI
+PagerDuty
+sanitization
+l33tspeak
+overfitting
