@@ -42,7 +42,7 @@ Your application needs these key pieces:
 
 - **Agent Setup** - Create the AI agent:
   - Initialize OpenAI client (using Microsoft Foundry)
-  - Create ChatAgent with tools
+  - Create `ChatAgent` with tools
   - Set system instructions for travel planning
 
 - **Templates** - HTML pages:
