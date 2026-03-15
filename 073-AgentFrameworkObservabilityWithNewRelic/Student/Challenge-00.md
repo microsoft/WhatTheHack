@@ -131,7 +131,7 @@ Before proceeding with the hack, you will need to gather the following credentia
 
 #### Microsoft Foundry Credentials
 
-1. Navigate to your Microsoft Foundry environment (typically at [https://ai.azure.com/nextgen](https://ai.azure.com/nextgen))
+1. Navigate to your [Microsoft Foundry environment](https://ai.azure.com/nextgen)
 2. Locate and copy your **Foundry Endpoint URL**
 3. Locate and copy your **Foundry API Key**
 
@@ -139,8 +139,8 @@ Keep these credentials in a safe place as you will need them to configure your a
 
 #### New Relic License Key
 
-1. Access your New Relic account at [https://one.newrelic.com/](https://one.newrelic.com/)
-2. Navigate to your account settings or API keys section at [https://one.newrelic.com/launcher/api-keys-ui.api-keys-launcher](https://one.newrelic.com/launcher/api-keys-ui.api-keys-launcher)
+1. Access your New Relic account at [`https://one.newrelic.com/`](https://one.newrelic.com/)
+2. Navigate to your account settings or API keys section at [`https://one.newrelic.com/launcher/api-keys-ui.api-keys-launcher`](https://one.newrelic.com/launcher/api-keys-ui.api-keys-launcher)
 3. Locate and copy your **New Relic License Key** (also known as Ingest License Key)
 
 This license key will be used to send telemetry data from your application to New Relic for observability and monitoring.
