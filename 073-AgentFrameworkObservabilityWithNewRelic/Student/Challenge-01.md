@@ -119,7 +119,7 @@ In the subsequent challenges, you will apply this foundational knowledge by buil
 
 - [Microsoft Agent Framework GitHub](https://github.com/microsoft/agent-framework)
 - [Agent Framework Documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
-- [ChatAgent Concepts](https://learn.microsoft.com/en-us/agent-framework/tutorials/agents/run-agent?pivots=programming-language-python#create-the-agent-1)
+- [`ChatAgent` Concepts](https://learn.microsoft.com/en-us/agent-framework/tutorials/agents/run-agent?pivots=programming-language-python#create-the-agent-1)
 - [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)
 - [Why Observability Matters](https://docs.newrelic.com/docs/using-new-relic/welcome-new-relic/get-started/introduction-new-relic/#observability)
 - [Flask Quickstart](https://flask.palletsprojects.com/en/3.0.x/quickstart/)
