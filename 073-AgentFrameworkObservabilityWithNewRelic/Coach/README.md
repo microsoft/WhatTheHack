@@ -63,7 +63,7 @@ This hack requires students to have access to the following:
 ### Required External Services
 
 - **New Relic Account (Free Tier, if no Azure subscription is available)**
-  - Sign up at: <https://newrelic.com/signup>
+  - [Sign up for the New Relic Free Tier](https://newrelic.com/signup)
   - Free tier includes:
     - 100 GB data ingest per month
     - 1 full platform user
