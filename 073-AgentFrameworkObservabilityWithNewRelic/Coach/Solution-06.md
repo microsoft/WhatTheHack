@@ -8,7 +8,7 @@ Guide attendees to implement the core of New Relic's AI Monitoring platform: cus
 
 ## Core Concept: Custom Events as Foundation
 
-OpenTelemetry defines an [Event](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#events) as a `LogRecord` with a non-empty [EventName](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#field-eventname). [Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/) are a core signal in the New Relic platform. However, despite using the same name, OpenTelemetry Events and New Relic Custom Events are not identical concepts:
+OpenTelemetry defines an [Event](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#events) as a `LogRecord` with a non-empty [`EventName`](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#field-eventname). [Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/) are a core signal in the New Relic platform. However, despite using the same name, OpenTelemetry Events and New Relic Custom Events are not identical concepts:
 
 - OpenTelemetry `EventName`s do not share the same format or [semantics](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/events.md) as Custom Event types. OpenTelemetry Event names are fully qualified with a namespace and follow lower snake case, e.g. `com.acme.my_event`. Custom Event types are pascal case, e.g. `MyEvent`.
 - OpenTelemetry Events can be thought of as an enhanced structured log. Like structured logs, their data is encoded in key-value pairs rather than free form text. In addition, the `EventName` acts as an unambiguous signal of the class / type of event which occurred. Custom Events are treated as an entirely new event type, accessible via NRQL with `SELECT * FROM MyEvent`.
@@ -36,7 +36,7 @@ The `newrelic.event.type` attribute in logger.info() calls is THE mechanism that
 ## Implementation Path
 
 - Reference: `web_app.py` lines 439-509 (custom events template)
-- Create `evaluation.py` with TravelPlanEvaluator class
+- Create `evaluation.py` with `TravelPlanEvaluator` class
 - Integrate evaluation into Flask routes
 - Add metrics/counters for New Relic dashboard
 - Test with different models and prompts
@@ -145,7 +145,7 @@ The `newrelic.event.type` attribute in logger.info() calls is THE mechanism that
 ## What Participants Struggle With
 
 - **Custom Event Structure:** Walk through the exact attributes needed for `LlmChatCompletionMessage` and `LlmChatCompletionSummary`
-- **Understanding newrelic.event.type:** Explain this is the magic attribute that unlocks AI Monitoring features
+- **Understanding `newrelic.event.type`:** Explain this is the magic attribute that unlocks AI Monitoring features
 - **Evaluation Design:** Help them think about what "quality" means for their travel planner
 - **Async Evaluation:** Guide them on when to evaluate synchronously vs. asynchronously
 - **CI/CD Integration:** Show how pytest and GitHub Actions work together for quality gates

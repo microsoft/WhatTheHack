@@ -63,7 +63,7 @@ The [Example solution implementation](./Solutions/Challenge-03/) folder contains
 
 - Run `pip install opentelemetry-api opentelemetry-sdk`
 - Install exporters: `pip install opentelemetry-exporter-otlp`
-- Check requirements.txt includes all OTel dependencies
+- Check `requirements.txt` includes all `OTel` dependencies
 - Restart Python/terminal after installing
 
 ### Issue 3: No Data Appearing in New Relic

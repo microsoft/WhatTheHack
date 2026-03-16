@@ -79,7 +79,7 @@ Add helper functions for detection:
    - Travel-domain abuse patterns (policy bypass, budget bypass)
 
 2. **Heuristic checks**
-   - Obfuscation/l33tspeak detection
+   - Obfuscation/`l33tspeak` detection
    - Unusual punctuation/length anomalies
    - Suspicious keyword combinations
 

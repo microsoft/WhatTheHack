@@ -70,7 +70,7 @@ The [Example solution implementation](./Solutions/Challenge-02/) folder contains
 
 ### Issue 3: Agent Not Using Tools
 
-**Symptom:** Agent responds but doesn't call weather/datetime tools
+**Symptom:** Agent responds but doesn't call `weather`/`datetime` tools
 **Cause:** Tools not registered or prompt doesn't trigger tool use
 **Solution:**
 
@@ -126,7 +126,7 @@ Coach should verify participants have:
 - [ ] Flask app starts without errors on specified port
 - [ ] Home page (`/`) renders the travel planning form
 - [ ] Form submission triggers agent and returns a travel plan
-- [ ] At least one tool (weather or datetime) is called by the agent
+- [ ] At least one tool (`weather` or `datetime`) is called by the agent
 - [ ] Result page displays the generated travel plan
 - [ ] Error page handles exceptions gracefully
 - [ ] Code is organized and readable (not one giant function)

@@ -14,7 +14,7 @@ Your goal is to implement a comprehensive evaluation and quality assurance syste
 
 ### Layer 1: Custom Events for New Relic AI Monitoring
 
-OpenTelemetry defines an [Event](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#events) as a `LogRecord` with a non-empty [EventName](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#field-eventname). [Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/) are a core signal in the New Relic platform. However, despite using the same name, OpenTelemetry Events and New Relic Custom Events are not identical concepts:
+OpenTelemetry defines an [Event](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#events) as a `LogRecord` with a non-empty [`EventName`](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#field-eventname). [Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/) are a core signal in the New Relic platform. However, despite using the same name, OpenTelemetry Events and New Relic Custom Events are not identical concepts:
 
 - OpenTelemetry `EventName`s do not share the same format or [semantics](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/general/events.md) as Custom Event types. OpenTelemetry Event names are fully qualified with a namespace and follow lower snake case, e.g. `com.acme.my_event`. Custom Event types are pascal case, e.g. `MyEvent`.
 - OpenTelemetry Events can be thought of as an enhanced structured log. Like structured logs, their data is encoded in key-value pairs rather than free form text. In addition, the `EventName` acts as an unambiguous signal of the class / type of event which occurred. Custom Events are treated as an entirely new event type, accessible via NRQL with `SELECT * FROM MyEvent`.
@@ -43,7 +43,7 @@ The foundation of enterprise AI evaluation is capturing AI interactions as struc
 You need to emit three custom events after each LLM interaction:
 
 - **`LlmChatCompletionMessage`** for the user prompt (role: "user", sequence: 0)
-  - `newrelic.event.type` - "LlmChatCompletionMessage",
+  - `newrelic.event.type` - `LlmChatCompletionMessage`,
   - `appName` - Service name
   - `duration` - duration of the interaction
   - `host` - hostname of the service
@@ -62,7 +62,7 @@ You need to emit three custom events after each LLM interaction:
   - `completion_id` - unique ID for the LLM completion (e.g., UUID)
   - `user_id` (optional) - If available
 - **`LlmChatCompletionMessage`** for the LLM response (role: "assistant", sequence: 1)
-  - `newrelic.event.type` - "LlmChatCompletionMessage",
+  - `newrelic.event.type` - `LlmChatCompletionMessage`,
   - `appName` - Service name
   - `duration` - duration of the interaction
   - `host` - hostname of the service
@@ -81,7 +81,7 @@ You need to emit three custom events after each LLM interaction:
   - `completion_id` - unique ID for the LLM completion (e.g., UUID)
   - `user_id` (optional) - If available
 - **`LlmChatCompletionSummary`** for the summary of the interaction
-  - `newrelic.event.type` - "LlmChatCompletionSummary",
+  - `newrelic.event.type` - `LlmChatCompletionSummary`,
   - `appName` - Service name
   - `duration` - duration of the interaction
   - `host` - hostname of the service
@@ -121,7 +121,7 @@ Capture real user feedback to measure actual satisfaction with AI-generated trav
 - Create a feedback endpoint that captures user ratings (positive/negative)
 - **Critical**: Include the `trace_id` from the agent interaction in the feedback log record
 - Emit a custom event with `newrelic.event.type: 'LlmFeedbackMessage'` containing:
-  - `newrelic.event.type` - "LlmFeedbackMessage",
+  - `newrelic.event.type` - `LlmFeedbackMessage`,
   - `appName` - Service name
   - `trace_id` - Links feedback to the specific AI interaction
   - `feedback` - User's feedback (e.g., "positive", "negative", "neutral")

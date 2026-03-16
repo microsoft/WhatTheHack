@@ -8,7 +8,7 @@
 
 1. [Microsoft Agent Framework GitHub](https://github.com/microsoft/agent-framework)
 2. [Agent Framework Documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview)
-3. [ChatAgent Concepts](https://learn.microsoft.com/en-us/agent-framework/tutorials/agents/run-agent?pivots=programming-language-python#create-the-agent-1)
+3. [`ChatAgent` Concepts](https://learn.microsoft.com/en-us/agent-framework/tutorials/agents/run-agent?pivots=programming-language-python#create-the-agent-1)
 4. [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)
 5. [Why Observability Matters](https://docs.newrelic.com/docs/using-new-relic/welcome-new-relic/get-started/introduction-new-relic/#observability)
 
@@ -50,7 +50,7 @@
 
 ## What Participants Struggle With
 
-- **Understanding ChatAgent:** Help them see it as a conversation manager that can use tools to answer questions
+- **Understanding `ChatAgent`:** Help them see it as a conversation manager that can use tools to answer questions
 - **Grasping Observability Value:** Use concrete examples like "knowing why a travel plan took 10 seconds vs 2 seconds"
 - **Async/Await Concepts:** Some may need a quick refresher on Python async patterns
 - **Connecting Theory to Practice:** Keep referring back to "you'll implement this in the next challenge"
@@ -70,7 +70,7 @@
 Coach should verify participants can:
 
 - [ ] Explain what the Microsoft Agent Framework is and its relationship to Semantic Kernel/AutoGen
-- [ ] Describe what a ChatAgent does and how tools extend its capabilities
+- [ ] Describe what a `ChatAgent` does and how tools extend its capabilities
 - [ ] Define traces, spans, metrics, and logs in their own words
 - [ ] Articulate why observability matters for AI applications
 - [ ] Identify at least 3 things they'd want to observe in an AI travel planner
