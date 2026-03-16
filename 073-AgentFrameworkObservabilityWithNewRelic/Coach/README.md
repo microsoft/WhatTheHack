@@ -97,38 +97,36 @@ This hack requires students to have access to the following:
 
 ## Suggested Hack Agenda
 
-This hack is designed to be completed in a single day with approximately 8 hours of active learning time (including breaks).
+This hack is designed to be completed in a single day and finish by 5:00 PM with a compressed agenda (no scheduled breaks).
 
 ### **Single Day Agenda (8 hours)**
 
-- **9:00 - 9:30** - Opening & Challenge 0 (Prerequisites)
+- **9:00 - 9:20** - Opening & Challenge 0 (Prerequisites)
   - Ensure all participants have working Codespaces or local dev environments
   - Verify GitHub Copilot is configured
-- **9:30 - 10:00** - Challenge 1 (Master the Foundations)
+- **9:20 - 9:45** - Challenge 1 (Master the Foundations)
   - Brief lecture on Microsoft Agent Framework concepts
   - Quick knowledge check
-- **10:00 - 10:15** - Break
-- **10:15 - 11:45** - Challenge 2 (Build Your MVP)
+- **9:45 - 11:15** - Challenge 2 (Build Your MVP)
   - Hands-on: Build Flask app with AI travel planner agent
   - Support participants who encounter issues
-- **11:45 - 12:30** - Lunch
-- **12:30 - 1:15** - Challenge 3 (Add OpenTelemetry)
+- **11:15 - 12:00** - Challenge 3 (Add OpenTelemetry)
   - Brief lecture on observability concepts
   - Verify built-in telemetry in console and New Relic
-- **1:15 - 2:15** - Challenge 4 (New Relic Integration)
+- **12:00 - 12:40** - Lunch
+- **12:40 - 1:30** - Challenge 4 (New Relic Integration)
   - Add custom spans/metrics/logging
   - Validate custom signals in New Relic
-- **2:15 - 2:30** - Break
-- **2:30 - 3:30** - Challenge 5 (Monitoring Best Practices)
+- **1:30 - 2:20** - Challenge 5 (Monitoring Best Practices)
   - Build custom dashboards
-  - Configure alerts
-- **3:30 - 4:30** - Challenge 6 (LLM Evaluation & Quality Gates)
+  - Configure alerts, SLIs, and SLOs for production readiness
+- **2:20 - 3:20** - Challenge 6 (LLM Evaluation & Quality Gates)
   - Implement custom events for New Relic AI Monitoring
   - Build evaluation pipeline
-- **4:30 - 5:00** - Challenge 7/8 security implementation
+- **3:20 - 4:20** - Challenge 7/8 security implementation
   - Configure platform guardrails (Challenge 7)
   - Add application-level controls in `web_app.py` (Challenge 8)
-- **5:00 - 5:15** - Final presentations and wrap-up
+- **4:20 - 5:00** - Final presentations and wrap-up
   - Teams demo complete solutions
   - Q&A and next steps
 
@@ -157,3 +155,57 @@ _The default files & folders are listed below. You may add to this if you want t
   - Student's Challenge Guide
 - `./Student/Resources`
   - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+
+## Judging Criteria
+
+If this hack is run as a competition, use the following 100-point rubric:
+
+### Judge Scorecard (One Page)
+
+| Category | Weight | Score (0-4) | Weighted Score | Notes |
+| --- | ---: | ---: | ---: | --- |
+| Solution Completeness | 25 |  |  |  |
+| Observability Quality | 20 |  |  |  |
+| AI Quality & Evaluation | 20 |  |  |  |
+| Security Implementation | 20 |  |  |  |
+| Demo Clarity & Engineering Excellence | 15 |  |  |  |
+| **Total** | **100** |  |  |  |
+
+Scoring formula for each row: `Weighted Score = (Score / 4) x Weight`
+
+Use this quick worksheet format:
+
+- Team Name:
+- Judge Name:
+- Date:
+- Final Total (out of 100):
+
+- **Solution Completeness (25 points)**
+  - Challenges 0-6 implemented end-to-end
+  - Challenge 7 and 8 security controls implemented and demonstrated
+- **Observability Quality (20 points)**
+  - Built-in and custom telemetry visible and actionable in New Relic
+  - Dashboards, alerts, SLIs, and SLOs are meaningful and production-oriented
+- **AI Quality & Evaluation (20 points)**
+  - LLM evaluation pipeline is implemented and produces clear pass/fail signals
+  - Quality gates are integrated into workflow (manual or CI/CD)
+- **Security Implementation (20 points)**
+  - Platform guardrails are correctly configured and validated
+  - Application-level prompt injection protections are effective and tested
+- **Demo Clarity & Engineering Excellence (15 points)**
+  - Team explains architecture and trade-offs clearly
+  - Code/readme organization, reliability, and troubleshooting approach are strong
+
+Suggested scoring scale per category:
+
+- 0 = Not implemented
+- 1 = Partially implemented, major gaps
+- 2 = Functional but limited depth
+- 3 = Strong implementation with minor gaps
+- 4 = Excellent, production-ready quality
+
+Tie-breakers (in order):
+
+1. Best evidence-driven incident response workflow using telemetry and alerts
+2. Strongest measurable improvement from evaluation/quality gate iterations
+3. Most complete and defensible security validation during demo
