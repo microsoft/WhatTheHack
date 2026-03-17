@@ -10,7 +10,7 @@ uv venv
 
 ## Activating the Virtual Environment
 
-You can run these commands to activiate the virtual environment
+You can run these commands to activate the virtual environment
 
 ### On Mac OS X or Linux
 
