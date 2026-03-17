@@ -2,7 +2,7 @@
 ## Data Pipeline Overview
 
 The goal of the pipeline is to ensure that 
-- the data from the source datastores (Cosmos and Blob store) flows into Kafka topics
+- the data from the source data stores (Cosmos and Blob store) flows into Kafka topics
 - the data from the topics are joined and merged into transient tables
 - the data from the transient tables to finalized into the summary topics and tables
 - the data from the summary tables and pushed out to Azure AI search for the AI agent to use via MCP
