@@ -6,6 +6,6 @@ We have data for the following collections:
 - product_pricing - the unit price for each sku
 - purchases - transactions where customers purchased one or more items
 - returns - transactions where customers returned one or more items
-- replenishments - transactions where suppliers replinished one or more items
+- replenishments - transactions where suppliers replenish one or more items
 - product_inventory - the global inventory count for each SKU
 - net_sales - the global view sales for a particular SKU considering returns as well
