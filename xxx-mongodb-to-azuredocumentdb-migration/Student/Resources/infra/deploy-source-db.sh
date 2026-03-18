@@ -3,6 +3,13 @@ set -euo pipefail
 
 source ./functions.sh
 
+format_duration() {
+  local seconds=$1
+  printf "%dm %02ds" $((seconds / 60)) $((seconds % 60))
+}
+
+script_start=$SECONDS
+
 declare -A variables=(
   [template]="source-db.bicep"
   [parameters]="source-db.bicepparam"
@@ -23,6 +30,7 @@ authenticate_to_azure
 
 subscriptionName=$(az account show --query name --output tsv)
 
+step_start=$SECONDS
 echo "Checking if [$resourceGroupName] resource group exists in [$subscriptionName]..."
 if ! az group show --name "$resourceGroupName" >/dev/null 2>&1; then
   echo "Creating [$resourceGroupName] in [$location]..."
@@ -31,6 +39,7 @@ if ! az group show --name "$resourceGroupName" >/dev/null 2>&1; then
 else
   echo "[$resourceGroupName] already exists."
 fi
+echo "  (Resource group: $(format_duration $((SECONDS - step_start))))"
 
 if [[ "$validateTemplate" == "1" ]]; then
   if [[ "$useWhatIf" == "1" ]]; then
@@ -52,6 +61,7 @@ if [[ "$validateTemplate" == "1" ]]; then
   fi
 fi
 
+step_start=$SECONDS
 echo "Deploying source MongoDB (ACI) via [$template]..."
 deployment_output=$(az deployment group create \
   --resource-group "$resourceGroupName" \
@@ -64,14 +74,24 @@ deployment_output=$(az deployment group create \
 
 sourceMongoDbFqdn=$(echo "$deployment_output" | jq -r '.sourceMongoDbFqdn')
 
-echo "Deployment completed."
+echo "Deployment completed. ($(format_duration $((SECONDS - step_start))))"
 echo "  Source MongoDB FQDN: $sourceMongoDbFqdn"
 
 # --- Wait for source MongoDB to be ready ---
+step_start=$SECONDS
+command -v mongosh >/dev/null 2>&1 || error_exit "mongosh is required for readiness checks but is not installed."
+
 echo "Waiting for source MongoDB ($sourceMongoDbFqdn) to be ready..."
 for i in $(seq 1 30); do
-  if nc -z -w5 "$sourceMongoDbFqdn" 27017 2>/dev/null; then
-    echo "Source MongoDB port is reachable."
+  if mongosh \
+    --host "$sourceMongoDbFqdn" \
+    --port 27017 \
+    --username "$administratorLogin" \
+    --password "$administratorPassword" \
+    --authenticationDatabase "admin" \
+    --quiet \
+    --eval "db.adminCommand({ ping: 1 }).ok" 2>/dev/null | grep -q '^1$'; then
+    echo "Source MongoDB responded to authenticated ping."
     break
   fi
   if [ "$i" -eq 30 ]; then
@@ -80,11 +100,13 @@ for i in $(seq 1 30); do
   echo "  Attempt $i/30 — waiting 10s..."
   sleep 10
 done
+echo "  (MongoDB readiness wait: $(format_duration $((SECONDS - step_start))))"
 
-# Give MongoDB a few extra seconds to finish initialization after the port is open
+# Give MongoDB a few extra seconds after readiness checks
 sleep 5
 
 # --- Load sample data ---
+step_start=$SECONDS
 echo "Downloading sample data..."
 curl -sL https://atlas-education.s3.amazonaws.com/sampledata.archive -o sampledata.archive
 
@@ -104,6 +126,7 @@ else
   echo "Install MongoDB Database Tools and run manually:" >&2
   echo "  mongorestore --host=${sourceMongoDbFqdn}:27017 --username=${administratorLogin} --password=<password> --authenticationDatabase=admin --archive=sampledata.archive --nsInclude='sample_mflix.*' --drop" >&2
 fi
+echo "  (Data download + load: $(format_duration $((SECONDS - step_start))))"
 
 rm -f sampledata.archive
 
@@ -131,3 +154,4 @@ echo ""
 echo "===== Source MongoDB Deployment Summary ====="
 echo "Source MongoDB (ACI):  mongodb://${administratorLogin}:<password>@${sourceMongoDbFqdn}:27017/?authSource=admin"
 echo "============================================="
+echo "Total deployment time: $(format_duration $((SECONDS - script_start)))"
