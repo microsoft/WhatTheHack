@@ -116,18 +116,6 @@ variable "kafka_partitions_count" {
 # -----------------
 # Connector Maps
 # -----------------
-variable "blob_store_connectors" {
-  description = "Blob source connectors map"
-  type = map(object({
-    name      = string
-    topic     = string
-    container = string
-  }))
-  default = {}
-}
-
-
-
 variable "cosmos_db_connectors" {
   description = "Cosmos DB source connectors map"
   type = map(object({

@@ -38,9 +38,9 @@ connector_config_populate_secrets "ai_search_product_inventory"
 connector_config_populate_secrets "ai_search_net_sales"
 connector_config_populate_secrets "ai_search_departments_flat"
 
-connector_config_populate_secrets "azure_blob_departments"
-connector_config_populate_secrets "azure_blob_product_skus"
-connector_config_populate_secrets "azure_blob_product_pricing"
+connector_config_populate_secrets "cosmos_db_departments"
+connector_config_populate_secrets "cosmos_db_product_skus"
+connector_config_populate_secrets "cosmos_db_product_pricing"
 
 connector_config_populate_secrets "cosmos_db_purchases"
 connector_config_populate_secrets "cosmos_db_returns"

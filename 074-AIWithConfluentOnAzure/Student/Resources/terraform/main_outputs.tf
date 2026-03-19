@@ -47,21 +47,5 @@ output "azure_search_endpoint" {
   value       = azurerm_search_service.search.name
 }
 
-output "storage_account_name" {
-  description = "The name of the storage account"
-  value       = azurerm_storage_account.storage.name
-}
-
-output "storage_account_primary_access_key" {
-  description = "Primary Access Key for Azure Storage Account"
-  value       = azurerm_storage_account.storage.primary_access_key
-  sensitive   = true
-}
-
-output "storage_account_blob_endpoint" {
-  description = "Blob service endpoint for the storage account"
-  value       = azurerm_storage_account.storage.primary_blob_endpoint
-}
-
 
 

@@ -25,7 +25,7 @@ delete_topic_schemas() {
 confluent schema-registry schema list
 
 
-# Reference topics from Azure Blob Store
+# Reference topics from Azure Cosmos DB
 delete_topic_schemas "departments"
 delete_topic_schemas "product_pricing"
 delete_topic_schemas "product_skus"

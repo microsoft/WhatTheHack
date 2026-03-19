@@ -81,69 +81,6 @@ resource "confluent_schema" "value_schemas" {
   depends_on = [ confluent_schema_registry_cluster_config.microsoft_hackathon ]
 }
 
-# Create the Source Connectors for Azure Blob Storage
-resource "confluent_connector" "blob_store_connectors" {
-
-  for_each = var.blob_store_connectors
-
-  environment {
-    id = var.confluent_environment_id
-  }
-
-  kafka_cluster {
-    id = var.kafka_id
-  }
-
-  config_sensitive = {
-    "azblob.account.key"                            = azurerm_storage_account.storage.primary_access_key
-  }
-
-  config_nonsensitive = {
-    "azblob.account.name"                           = azurerm_storage_account.storage.name
-    "connector.class"                               = "AzureBlobSource"
-    "name"                                          = each.value.name
-    "topic.regex.list"                              = each.value.topic
-    "schema.context.name"                           = "default"
-    "kafka.auth.mode"                               = "SERVICE_ACCOUNT"
-    "kafka.service.account.id"                      = var.kafka_service_account_id
-    "azblob.container.name"                         = each.value.container
-    "azblob.retry.type"                             = "EXPONENTIAL"
-    "input.data.format"                             = "JSON"
-    "output.data.format"                            = "JSON"
-    "topics.dir"                                    = "topics"
-    "directory.delim"                               = "/"
-    "behavior.on.error"                             = "FAIL"
-    "format.bytearray.separator"                    = "\n"
-    "task.batch.size"                               = "10"
-    "file.discovery.starting.timestamp"             = "0"
-    "azblob.poll.interval.ms"                       = "60000"
-    "record.batch.max.size"                         = "200"
-    "tasks.max"                                     = "1"
-    "value.converter.decimal.format"                = "BASE64"
-    "value.converter.replace.null.with.default"     = "true"
-    "value.converter.reference.subject.name.strategy" = "DefaultReferenceSubjectNameStrategy"
-    "value.converter.schemas.enable"                = "false"
-    "errors.tolerance"                              = "none"
-    "value.converter.value.subject.name.strategy"   = "TopicNameStrategy"
-    "key.converter.key.subject.name.strategy"       = "TopicNameStrategy"
-    "value.converter.ignore.default.for.nullables"  = "false"
-    "auto.restart.on.user.error"                    = "true"
-  }
-
-  depends_on = [
-        azurerm_storage_account.storage,
-        azurerm_storage_container.containers,
-        confluent_kafka_topic.topics,
-        confluent_schema.key_schemas,
-        confluent_schema.value_schemas
-  ]
-
-  lifecycle {
-    prevent_destroy = false
-  }
-}
-
-
 # Create the Source Connectors for Azure Cosmos DB
 resource "confluent_connector" "cosmos_db_connectors" {
   for_each = var.cosmos_db_connectors
@@ -191,6 +128,9 @@ resource "confluent_connector" "cosmos_db_connectors" {
     azurerm_cosmosdb_sql_container.purchases,
     azurerm_cosmosdb_sql_container.returns,
     azurerm_cosmosdb_sql_container.replenishments,
+    azurerm_cosmosdb_sql_container.departments,
+    azurerm_cosmosdb_sql_container.product_pricing,
+    azurerm_cosmosdb_sql_container.product_skus,
     confluent_kafka_topic.topics,
     confluent_schema.key_schemas,
     confluent_schema.value_schemas  

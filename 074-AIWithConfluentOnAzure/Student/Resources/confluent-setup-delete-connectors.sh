@@ -6,7 +6,7 @@
 # Function to get connector IDs from their names
 
 # Example usage:
-# get_connector_ids "azure_blob_product_pricing_source_connector,azure_cosmos_db_purchases_source,azure_cosmos_db_returns_source"
+# get_connector_ids "azure_cosmos_db_product_pricing_source,azure_cosmos_db_purchases_source,azure_cosmos_db_returns_source"
 get_connector_ids() {
   local connector_names_csv="$1"
   local connector_names_array
@@ -42,7 +42,7 @@ echo "Deleting specified connectors from the cluster:"
 
 
 # These are the connector names to delete
-connectors="ai_search_departments_sink,ai_search_net_sales_sink,ai_search_departments_flat_sink,ai_search_product_inventory_sink,azure_blob_product_pricing_source_connector,azure_cosmos_db_purchases_source,azure_blob_product_skus_source_connector,azure_cosmos_db_returns_source,azure_cosmos_db_replenishments_source,azure_blob_departments_source_connector"
+connectors="ai_search_departments_sink,ai_search_net_sales_sink,ai_search_departments_flat_sink,ai_search_product_inventory_sink,azure_cosmos_db_product_pricing_source,azure_cosmos_db_purchases_source,azure_cosmos_db_product_skus_source,azure_cosmos_db_returns_source,azure_cosmos_db_replenishments_source,azure_cosmos_db_departments_source"
 
 # Call the function
 ids=$(get_connector_ids "$connectors")

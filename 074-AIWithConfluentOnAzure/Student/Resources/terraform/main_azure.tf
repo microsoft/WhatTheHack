@@ -4,36 +4,6 @@ resource "azurerm_resource_group" "main" {
   location = var.resource_group_location
 }
 
-
-
-resource "azurerm_storage_account" "storage" {
-  name                     = "${var.name_prefix}sa"
-  resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.main.location
-  account_tier             = "Standard"
-  account_replication_type = "ZRS"
-  account_kind             = "StorageV2"
-  public_network_access_enabled = true
-  shared_access_key_enabled = true
-}
-
-# Define a list of blob container names
-locals {
-  container_names = [
-    "departments",
-    "product-pricing",
-    "product-skus"
-  ]
-}
-
-# Create containers using a loop
-resource "azurerm_storage_container" "containers" {
-  for_each              = toset(local.container_names)
-  name                  = each.value
-  storage_account_id    = azurerm_storage_account.storage.id
-  container_access_type = "private"
-}
-
 # Azure AI Search Instance
 # New changes to the Azure Search Service API require the use of 
 # `local_authentication_enabled` and `authentication_failure_mode` properties.
@@ -51,8 +21,6 @@ resource "azurerm_search_service" "search" {
   local_authentication_enabled = true
   authentication_failure_mode = "http403"
   public_network_access_enabled = true
-
-  depends_on = [ azurerm_storage_container.containers ]
 }
 
 # Azure Cosmos DB (SQL API)
@@ -74,8 +42,6 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     location          = azurerm_resource_group.main.location
     failover_priority = 0
   }
-
-  depends_on = [ azurerm_storage_container.containers ]
 }
 
 # Cosmos DB SQL Database
@@ -117,6 +83,39 @@ resource "azurerm_cosmosdb_sql_container" "replenishments" {
   database_name       = azurerm_cosmosdb_sql_database.retailstore.name
 
   partition_key_paths  = ["/vendor_id"]
+  throughput          = 400
+}
+
+# Departments Container
+resource "azurerm_cosmosdb_sql_container" "departments" {
+  name                = "departments"
+  resource_group_name = azurerm_resource_group.main.name
+  account_name        = azurerm_cosmosdb_account.cosmosdb.name
+  database_name       = azurerm_cosmosdb_sql_database.retailstore.name
+
+  partition_key_paths  = ["/department"]
+  throughput          = 400
+}
+
+# Product Pricing Container
+resource "azurerm_cosmosdb_sql_container" "product_pricing" {
+  name                = "product_pricing"
+  resource_group_name = azurerm_resource_group.main.name
+  account_name        = azurerm_cosmosdb_account.cosmosdb.name
+  database_name       = azurerm_cosmosdb_sql_database.retailstore.name
+
+  partition_key_paths  = ["/sku_id"]
+  throughput          = 400
+}
+
+# Product SKUs Container
+resource "azurerm_cosmosdb_sql_container" "product_skus" {
+  name                = "product_skus"
+  resource_group_name = azurerm_resource_group.main.name
+  account_name        = azurerm_cosmosdb_account.cosmosdb.name
+  database_name       = azurerm_cosmosdb_sql_database.retailstore.name
+
+  partition_key_paths  = ["/sku_id"]
   throughput          = 400
 }
 

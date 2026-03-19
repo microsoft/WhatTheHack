@@ -32,7 +32,7 @@ delete_kafka_topic_and_schemas() {
     echo "Topic $topic_name and its schemas have been deleted."
 }
 
-# Reference topics from Azure Blob Store
+# Reference topics from Azure Cosmos DB
 delete_kafka_topic_and_schemas "departments"
 delete_kafka_topic_and_schemas "product_pricing"
 delete_kafka_topic_and_schemas "product_skus"

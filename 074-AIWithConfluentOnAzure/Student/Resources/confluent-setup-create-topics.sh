@@ -67,7 +67,7 @@ set_schema_registry_subject_compatibility() {
 
 }
 
-# Reference topics from Azure Blob Store
+# Reference topics from Azure Cosmos DB
 create_topic_with_schema "departments"
 create_topic_with_schema "product_pricing"
 create_topic_with_schema "product_skus"

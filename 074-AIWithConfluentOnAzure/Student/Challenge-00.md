@@ -52,8 +52,8 @@ In this challenge, you will:
 
 | Platform            | Resource Provisioned                                                                                       |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **Azure**           | Azure OpenAI, Cosmos DB, Azure AI Search, Azure Redis Cache, Azure Storage Account                         |
-| **Confluent Cloud** | Kafka Cluster, Schema Registry, Kafka topics, Cosmos DB & Blob Source connectors, AI Search Sink connector |
+| **Azure**           | Azure OpenAI, Cosmos DB, Azure AI Search, Azure Redis Cache                                                |
+| **Confluent Cloud** | Kafka Cluster, Schema Registry, Kafka topics, Cosmos DB Source connectors, AI Search Sink connector       |
 | **AI Agents / MCP** | Deployment of microservices + MCP servers that expose capabilities to agents                               |
 
 ## Success Criteria
@@ -61,7 +61,7 @@ In this challenge, you will:
 To complete this challenge successfully, you should be able to:
 
 - Verify Terraform deploys successfully and resources appear in Azure Portal and Confluent Cloud
-- Verify source connectors are live and pushing data from Cosmos DB and Blob Storage into Kafka topics
+- Verify source connectors are live and pushing data from Cosmos DB into Kafka topics
 - Verify sink connector is pushing data into Azure AI Search (net sales + net inventory count topics)
 - Demonstrate the MCP-powered AI agent can:
   - Respond when prompted

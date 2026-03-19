@@ -97,7 +97,6 @@ terraform apply
 If you included the `output` blocks (like I did in the Terraform file earlier), after `apply`, Terraform will print the important connection details:
 
 ✅ Cosmos DB endpoint  
-✅ Storage account blob URL  
 ✅ Redis hostname and access key  
 ✅ Azure Search keys  
 
