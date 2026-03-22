@@ -116,7 +116,7 @@ If you want to deploy to MongoDB Atlas instead, go to this link: [Get Started Wi
 
 #### Run the MFlix Application
 
-The sample MFlix application's is implemented as a Node.js application. You will be running this application either within your GitHub Codespace or Dev Container for simplicity. In practice, it would be deployed as a container into Azure. 
+The sample MFlix application is implemented as a Node.js application. You will be running this application either within your GitHub Codespace or Dev Container for simplicity. In practice, it would be deployed as a container into Azure. 
 
 In a Terminal session in VSCode, navigate to the `MFlix` folder and run the application:
 
