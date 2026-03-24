@@ -8,8 +8,6 @@ WanderAI now runs in production, and your first security priority is to establis
 
 In this challenge, you will configure and validate **Microsoft Foundry Guardrails** as the first line of defense for your agent. You’ll focus on built-in controls, intervention points, and observability of guardrail decisions.
 
-**⚠️ Educational Purpose:** This challenge is designed for authorized security training only.
-
 ## What You’ll Build
 
 You will implement baseline protection using Foundry Guardrails:
@@ -17,7 +15,6 @@ You will implement baseline protection using Foundry Guardrails:
 - Configure guardrails for user input and output
 - Optionally enable tool call/tool response monitoring (preview)
 - Validate detection against known prompt-injection patterns
-- Track guardrail outcomes in New Relic dashboards
 
 ## Security Scope for Challenge 07
 
@@ -111,31 +108,13 @@ Run your prompt test set and evaluate behavior:
 - [ ] Legitimate travel prompts are not falsely blocked.
 - [ ] You can explain what the platform catches well and what it misses.
 
-### Part 3: Observe Guardrail Activity in New Relic
-
-Connect guardrail outcomes to observability:
-
-1. Identify available guardrail metadata/events.
-2. Forward or log those outcomes into New Relic.
-3. Build a simple dashboard with:
-   - Requests scanned
-   - Blocks by category
-   - Input vs output interventions
-   - Block rate trend
-
-**Success Criteria**
-
-- [ ] Guardrail decisions are visible in your monitoring workflow.
-- [ ] Dashboard shows platform-level protection activity.
-
 ## Final Checklist
 
 To complete Challenge 07, you must:
 
 1. [ ] Configure Foundry Guardrails for input/output.
 2. [ ] Validate detection using attack and legitimate prompts.
-3. [ ] Capture guardrail outcomes in New Relic.
-4. [ ] Document current platform coverage and known gaps.
+3. [ ] Document current platform coverage and known gaps.
 
 ## Learning Resources
 
