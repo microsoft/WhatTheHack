@@ -44,7 +44,7 @@ GitHub Codespaces is available for developers in every organization. All persona
 The GitHub Codespace for this hack will host the developer tools, sample application code, configuration files, and other data files needed for this hack.
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [WTH WanderAI: Your Travel Planning Startup Codespace Repo](https://aka.ms/wth/agentframework-o11y-w-newrelic/codespace/)
+  - [WTH: New Relic Agent Observability Codespace Repo](https://aka.ms/wth/newrelicagentobservability/codespace/)
   - Please open this link and sign in with your personal GitHub account.
 
 **NOTE:** Make sure you do not sign in with your enterprise managed GitHub account.
