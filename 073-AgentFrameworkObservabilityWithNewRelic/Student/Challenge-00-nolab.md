@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the WanderAI: Your Travel Planning Startup What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Agent Framework Observability With New Relic What The Hack. Before you can hack, you will need to set up some prerequisites.
 
 ## Prerequisites
 
