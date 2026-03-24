@@ -12,8 +12,6 @@ Your mission: Build an **AI-powered travel planning assistant** that helps your 
 
 This hack is your journey from "cool prototype" to "production-ready AI service."
 
----
-
 ### 📖 The Story
 
 Your startup's CTO (that's you!) has been tasked with building the **AI Travel Planner** service that will power WanderAI's platform. Your customers will use a web interface to describe their travel preferences, and your AI agents will craft perfect itineraries.
