@@ -4,26 +4,45 @@
 
 ## Introduction
 
-Thank you for participating in the WanderAI: Your Travel Planning Startup What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Agent Framework Observability With New Relic What The Hack. An Azure lab environment will be provided to you with the AI and New Relic resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
 
-## Common Prerequisites
+## Prerequisites
 
 We have compiled a list of common tools and software that will come in handy to complete this hack!
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [GitHub Account](https://github.com/signup) - Required for GitHub Codespaces
-- [Microsoft Foundry Account](https://azure.microsoft.com/en-us/products/ai-foundry) - Required for Azure OpenAI access
-- [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/partner-solutions/new-relic/overview) - Required for New Relic Observability
+- [Microsoft Foundry Account](https://azure.microsoft.com/en-us/products/ai-foundry) - This will be provided in the lab environment.
+- [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/partner-solutions/new-relic/overview) - This will be provided in the lab environment.
 
 ## Description
 
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
+- [Access Azure Subscription](#access-azure-subscription)
+- [Setup Development Environment](#setup-development-environment)
+  - [Use GitHub Codespaces](#use-github-codespaces)
+  - [Use Local Workstation](#use-local-workstation)
+- [Gather Your Credentials](#gather-your-credentials)
+  - [Microsoft Foundry Credentials](#microsoft-foundry-credentials)
+  - [New Relic License Key](#new-relic-license-key)
+
+### Access Azure Subscription 
+
+You will be provided login credentials to an Azure subscription to complete this hack by your coach. When you receive your credentials, make note of them and login to the Azure Portal:
+- [Azure Portal](https://portal.azure.com)
+
+Keep your credentials handy as you will also need them to login to the Azure CLI (command line interface).
+
+### Setup Development Environment 
+
+You will need a set of developer tools to work with the sample application for this hack. 
+
 You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can set up the developer tools on your local workstation.
 
 **NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
-### Use GitHub Codespaces
+#### Use GitHub Codespaces
 
 A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the prerequisite developer tools for this hack are pre-installed and available in the codespace.
 
@@ -48,7 +67,7 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
 
-### Use Local Workstation
+#### Use Local Workstation
 
 **NOTE:** You can skip this section if you are using GitHub Codespaces!
 
@@ -57,7 +76,7 @@ If you want to set up your environment on your local workstation, expand the sec
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
-#### Set Up Local Dev Container
+##### Set Up Local Dev Container
 
 You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment.
 
