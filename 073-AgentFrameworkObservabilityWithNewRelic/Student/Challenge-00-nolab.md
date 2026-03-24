@@ -6,7 +6,7 @@
 
 Thank you for participating in the WanderAI: Your Travel Planning Startup What The Hack. Before you can hack, you will need to set up some prerequisites.
 
-## Common Prerequisites
+## Prerequisites
 
 We have compiled a list of common tools and software that will come in handy to complete this hack!
 
