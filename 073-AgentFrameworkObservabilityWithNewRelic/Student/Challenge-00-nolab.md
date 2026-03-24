@@ -1,6 +1,6 @@
 # Challenge 00 - Prerequisites - Ready, Set, GO
 
-**[Home](../README.md)** - [< Previous](./Challenge-00.md) - [Next Challenge >](./Challenge-01.md)
+[< Previous](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
 ## Introduction
 
@@ -16,8 +16,6 @@ We have compiled a list of common tools and software that will come in handy to 
 - [Azure Native New Relic Service](https://learn.microsoft.com/en-us/azure/partner-solutions/new-relic/overview) - Required for New Relic Observability
 
 ## Description
-
-In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
