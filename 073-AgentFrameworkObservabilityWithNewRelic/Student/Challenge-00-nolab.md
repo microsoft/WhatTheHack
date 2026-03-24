@@ -19,11 +19,25 @@ We have compiled a list of common tools and software that will come in handy to 
 
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
 
+In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack.
+
+- [Setup Development Environment](#setup-development-environment)
+  - [Use GitHub Codespaces](#use-github-codespaces)
+  - [Use Local Workstation](#use-local-workstation)
+- [Deploy Azure Resources](#deploy-azure-resources)
+- [Gather Your Credentials](#gather-your-credentials)
+  - [Microsoft Foundry Credentials](#microsoft-foundry-credentials)
+  - [New Relic License Key](#new-relic-license-key)
+
+### Setup Development Environment 
+
+You will need a set of developer tools to work with the sample application for this hack. 
+
 You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can set up the developer tools on your local workstation.
 
 **NOTE:** We highly recommend using GitHub Codespaces to make it easier to complete this hack.
 
-### Use GitHub Codespaces
+#### Use GitHub Codespaces
 
 A GitHub Codespace is a development environment that is hosted in the cloud that you access via a browser. All of the prerequisite developer tools for this hack are pre-installed and available in the codespace.
 
@@ -48,7 +62,7 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Codespaces expire after 30 days unless you extend the expiration date. When a Codespace expires, the state of all files in it will be lost.
 
-### Use Local Workstation
+#### Use Local Workstation
 
 **NOTE:** You can skip this section if you are using GitHub Codespaces!
 
@@ -57,7 +71,7 @@ If you want to set up your environment on your local workstation, expand the sec
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
-#### Set Up Local Dev Container
+##### Set Up Local Dev Container
 
 You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment.
 
@@ -150,11 +164,11 @@ This license key will be used to send telemetry data from your application to Ne
 
 To complete this challenge successfully, you should be able to:
 
-- [ ] Verify that you have a GitHub Codespace running with the dev container configuration set to `073-AgentFrameworkObservabilityWithNewRelic`
-- [ ] Verify that Visual Studio Code is available in your browser (or locally) with the hack files loaded
-- [ ] Verify that you have access to the sample application code and resource files
-- [ ] Verify that you have collected your Microsoft Foundry endpoint and API key
-- [ ] Verify that you have collected your New Relic license key
+- Verify that you have a GitHub Codespace running with the dev container configuration set to `073-AgentFrameworkObservabilityWithNewRelic`
+- Verify that Visual Studio Code is available in your browser (or locally) with the hack files loaded
+- Verify that you have access to the sample application code and resource files
+- Verify that you have collected your Microsoft Foundry endpoint and API key
+- Verify that you have collected your New Relic license key
 
 ## Learning Resources
 
