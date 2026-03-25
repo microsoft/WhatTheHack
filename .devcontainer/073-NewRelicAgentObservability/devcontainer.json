@@ -1,0 +1,31 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "workspaceFolder": "/workspace/073-NewRelicAgentObservability/Student/Resources",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "features": {
+        "azure-cli": "latest",
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/dotnet:latest": {
+            "version": "10.0"
+        }
+    },
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "python3 -m pip install -r requirements.txt",
+    "postCreateCommand": "",
+    "customizations": {
+        "codespaces": {
+            "openFiles": []
+        },
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "GitHub.copilot"
+            ]
+        }
+    }
+}
