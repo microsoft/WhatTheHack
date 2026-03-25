@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the Agent Framework Observability With New Relic What The Hack. An Azure lab environment will be provided to you with the AI and New Relic resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
+Thank you for participating in the New Relic Agent Observability What The Hack. An Azure lab environment will be provided to you with the AI and New Relic resources pre-deployed into Azure. Before you can hack, you will still need to set up some prerequisites.
 
 ## Prerequisites
 
