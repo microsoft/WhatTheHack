@@ -1,0 +1,173 @@
+{
+    "name": "🚀 WanderAI Agent Performance",
+    "description": "Monitor AI travel planner agent performance",
+    "permissions": "PUBLIC_READ_WRITE",
+    "pages": [
+        {
+            "name": "WanderAI Agent Performance",
+            "description": null,
+            "widgets": [
+                {
+                    "title": "Request Rate",
+                    "layout": {
+                        "column": 1,
+                        "row": 1,
+                        "width": 4,
+                        "height": 3
+                    },
+                    "linkedEntityGuids": [],
+                    "visualization": {
+                        "id": "viz.line"
+                    },
+                    "rawConfiguration": {
+                        "facet": {
+                            "showOtherSeries": true
+                        },
+                        "legend": {
+                            "enabled": true
+                        },
+                        "nrqlQueries": [
+                            {
+                                "accountIds": [
+                                    YOUR_NEW_RELIC_ACCOUNT_ID
+                                ],
+                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.requests.total' TIMESERIES SINCE TODAY"
+                            }
+                        ],
+                        "platformOptions": {
+                            "ignoreTimeRange": false
+                        }
+                    }
+                },
+                {
+                    "title": "Error Rate",
+                    "layout": {
+                        "column": 5,
+                        "row": 1,
+                        "width": 4,
+                        "height": 3
+                    },
+                    "linkedEntityGuids": [],
+                    "visualization": {
+                        "id": "viz.line"
+                    },
+                    "rawConfiguration": {
+                        "facet": {
+                            "showOtherSeries": false
+                        },
+                        "legend": {
+                            "enabled": true
+                        },
+                        "markers": {
+                            "displayedTypes": {
+                                "criticalViolations": false,
+                                "deployments": true,
+                                "relatedDeployments": true,
+                                "warningViolations": false
+                            }
+                        },
+                        "nrqlQueries": [
+                            {
+                                "accountIds": [
+                                    YOUR_NEW_RELIC_ACCOUNT_ID
+                                ],
+                                "query": "SELECT rate(count(*), 1 minute) FROM Metric WHERE metricName = 'travel_plan.errors.total' TIMESERIES SINCE TODAY"
+                            }
+                        ],
+                        "platformOptions": {
+                            "ignoreTimeRange": false
+                        },
+                        "thresholds": {
+                            "isLabelVisible": true
+                        },
+                        "yAxisLeft": {
+                            "zero": true
+                        },
+                        "yAxisRight": {
+                            "zero": true
+                        }
+                    }
+                },
+                {
+                    "title": "Average Response Time",
+                    "layout": {
+                        "column": 9,
+                        "row": 1,
+                        "width": 4,
+                        "height": 3
+                    },
+                    "linkedEntityGuids": [],
+                    "visualization": {
+                        "id": "viz.line"
+                    },
+                    "rawConfiguration": {
+                        "facet": {
+                            "showOtherSeries": false
+                        },
+                        "legend": {
+                            "enabled": true
+                        },
+                        "markers": {
+                            "displayedTypes": {
+                                "criticalViolations": false,
+                                "deployments": true,
+                                "relatedDeployments": true,
+                                "warningViolations": false
+                            }
+                        },
+                        "nrqlQueries": [
+                            {
+                                "accountIds": [
+                                    YOUR_NEW_RELIC_ACCOUNT_ID
+                                ],
+                                "query": "SELECT average(gen_ai.client.operation.duration) FROM Metric WHERE metricName = 'gen_ai.client.operation.duration' SINCE TODAY TIMESERIES "
+                            }
+                        ],
+                        "platformOptions": {
+                            "ignoreTimeRange": false
+                        },
+                        "thresholds": {
+                            "isLabelVisible": true
+                        },
+                        "yAxisLeft": {
+                            "zero": true
+                        },
+                        "yAxisRight": {
+                            "zero": true
+                        }
+                    }
+                },
+                {
+                    "title": "Tool Usage Breakdown",
+                    "layout": {
+                        "column": 1,
+                        "row": 4,
+                        "width": 4,
+                        "height": 3
+                    },
+                    "linkedEntityGuids": [],
+                    "visualization": {
+                        "id": "viz.bar"
+                    },
+                    "rawConfiguration": {
+                        "facet": {
+                            "showOtherSeries": false
+                        },
+                        "nrqlQueries": [
+                            {
+                                "accountIds": [
+                                    YOUR_NEW_RELIC_ACCOUNT_ID
+                                ],
+                                "query": "SELECT count(*) FROM Metric WHERE metricName = 'travel_plan.tool_calls.total' FACET tool_name SINCE TODAY TIMESERIES "
+                            }
+                        ],
+                        "platformOptions": {
+                            "ignoreTimeRange": false
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variables": []
+}
