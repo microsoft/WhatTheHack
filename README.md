@@ -56,6 +56,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
 - [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
 - [GitHub Copilot](/071-GitHubCopilot/README.md)
+- [New Relic Agent Observability](/073-NewRelicAgentObservability/README.md)
 
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
@@ -98,6 +99,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 ## Operations
 - [Azure Monitoring](/007-AzureMonitoring/README.md)
 - [Datadog On Azure](/059-DatadogOnAzure/README.md)
+- [New Relic Agent Observability](/073-NewRelicAgentObservability/README.md)
 - [DevOps with GitHub](/031-DevOpsWithGitHub/README.md)
 - [Modern Development and DevOps with GitHub](/065-ModernGitHubDev/README.md)
 - [DevOps with GitHub Actions](/044-DevOpswithGithubActions/README.md)
