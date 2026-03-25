@@ -1,0 +1,72 @@
+<svg width="400" height="120" viewBox="0 0 400 120"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Globe with Location Pin -->
+    <g transform="translate(20, 15)">
+        <!-- Main Globe -->
+        <circle cx="25" cy="25" r="22" fill="url(#globeGradient)" opacity="0.15"/>
+        <circle cx="25" cy="25" r="22" fill="none" stroke="url(#globeGradient)" stroke-width="2.5"/>
+
+        <!-- Meridians (vertical lines) -->
+        <path d="M 25 3 L 25 47" stroke="#4F46E5" stroke-width="1.8" fill="none" opacity="0.7"/>
+        <path d="M 25 4 Q 15 25 25 46" stroke="#4F46E5" stroke-width="1.6" fill="none" opacity="0.6"/>
+        <path d="M 25 4 Q 35 25 25 46" stroke="#4F46E5" stroke-width="1.6" fill="none" opacity="0.6"/>
+        <path d="M 25 6 Q 10 25 25 44" stroke="#7C3AED" stroke-width="1.4" fill="none" opacity="0.5"/>
+        <path d="M 25 6 Q 40 25 25 44" stroke="#7C3AED" stroke-width="1.4" fill="none" opacity="0.5"/>
+
+        <!-- Parallels (horizontal lines) -->
+        <ellipse cx="25" cy="25" rx="22" ry="8" stroke="#4F46E5" stroke-width="1.8" fill="none" opacity="0.7"/>
+        <ellipse cx="25" cy="15" rx="18" ry="6" stroke="#4F46E5" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <ellipse cx="25" cy="35" rx="18" ry="6" stroke="#4F46E5" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <ellipse cx="25" cy="10" rx="12" ry="4" stroke="#7C3AED" stroke-width="1.2" fill="none" opacity="0.5"/>
+        <ellipse cx="25" cy="40" rx="12" ry="4" stroke="#7C3AED" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+        <!-- Location Pin on Globe -->
+        <g transform="translate(15, 8)">
+            <path d="M 10 0 C 7.239 0 5 2.239 5 5 C 5 8.5 10 15 10 15 C 10 15 15 8.5 15 5 C 15 2.239 12.761 0 10 0 Z" fill="#EF4444" stroke="#991B1B" stroke-width="1.2"/>
+            <circle cx="10" cy="5" r="2.5" fill="white" opacity="0.9"/>
+        </g>
+
+        <!-- AI sparkle effects -->
+        <circle cx="15" cy="12" r="2" fill="#06B6D4" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="45" cy="8" r="1.5" fill="#7C3AED" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="12" cy="25" r="1.2" fill="#06B6D4" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+
+    <!-- WanderAI Text -->
+    <text x="80" y="52" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="url(#textGradient)">
+    Wander<tspan fill="#06B6D4">AI</tspan>
+    </text>
+
+    <!-- Tagline -->
+    <text x="82" y="72" font-family="Arial, sans-serif" font-size="14" fill="#F6C243" font-style="italic">
+    Your Intelligent Travel Companion
+    </text>
+
+    <!-- AI circuit pattern decoration -->
+    <g opacity="0.3" stroke="#4F46E5" stroke-width="1.5" fill="none">
+        <circle cx="360" cy="25" r="8"/>
+        <line x1="360" y1="17" x2="360" y2="10"/>
+        <circle cx="360" cy="10" r="2" fill="#4F46E5"/>
+        <line x1="368" y1="25" x2="375" y2="25"/>
+        <circle cx="375" cy="25" r="2" fill="#06B6D4"/>
+        <line x1="352" y1="25" x2="345" y2="25"/>
+        <circle cx="345" cy="25" r="2" fill="#7C3AED"/>
+    </g>
+</svg>
