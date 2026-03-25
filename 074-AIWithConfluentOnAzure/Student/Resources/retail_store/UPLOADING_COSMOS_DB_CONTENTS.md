@@ -14,7 +14,7 @@ We can upload the departments, product_pricing and product_skus datasets to Cosm
 
 Make sure you have set the required environment variables:
 - `AZURE_COSMOS_DB_ACCOUNT_NAME`: The name of your Cosmos DB account
-- `AZURE_COSMOS_DB_DATABASE_NAME`: The name of your Cosmos DB database (typically "retailstore")
+- `AZURE_COSMOS_DB_DATABASE_NAME`: The name of your Cosmos DB database (typically "`retailstore`")
 
 Then run:
 
