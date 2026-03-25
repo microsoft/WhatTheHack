@@ -69,6 +69,10 @@ If you want to set up your environment on your local workstation, expand the sec
 <details markdown=1>
 <summary markdown="span">Click to expand/collapse Local Workstation Requirements</summary>
 
+##### Download Student Resources
+
+Download the Student Resources package, [`Resources.zip`](https://aka.ms/wth/newrelicagentobservability/resources) to your local workstation.  Un-zip this package to a local folder, then follow the instructions below to open the DevContainer in VS Code.  
+
 ##### Set Up Local Dev Container
 
 You will next be setting up your local workstation so that it can use dev containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment.
