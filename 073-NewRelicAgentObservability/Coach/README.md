@@ -1,8 +1,8 @@
-# What The Hack - 🚀 WanderAI - Coach Guide
+# What The Hack - New Relic Agent Observability - Coach Guide
 
 ## Introduction
 
-Welcome to the coach's guide for the WanderAI What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the New Relic Agent Observability What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 This hack includes an optional [lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
 
 **NOTE:** If you are a Hackathon participant, this is the answer guide. Don't cheat yourself by looking at these during the hack! Go learn something. :)
@@ -36,15 +36,15 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
+This hack provides a development environment and Student Resources via a GitHub Codespace which is referenced in Challenge 00. 
+
+If a student wishes to use their local workstation for the development environment, they can do that via a DevContainer.  The DevContainer is provided in the Student Resource package which the coach can create and distribute as per below.
+
 Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
 **NOTE:** Students should **not** be given a link to the What The Hack repo before or during a hack. The student guide does **NOT** have any links to the Coach's guide or the What The Hack repo on GitHub.
-
-### Additional Coach Prerequisites (Optional)
-
-_Please list any additional pre-event setup steps a coach would be required to set up such as, creating or hosting a shared dataset, or deploying a lab environment._
 
 ## Azure Requirements
 
@@ -143,24 +143,11 @@ Participants can complete this hack at their own pace over 1-2 weeks, spending a
 - Challenge 7: 1-1.5 hours
 - Challenge 8: 1.5-2 hours
 
-## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
-- `./Coach`
-  - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
-- `./Student`
-  - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
-
-## Judging Criteria
+### Judging Criteria
 
 If this hack is run as a competition, use the following 100-point rubric:
 
-### Judge Scorecard (One Page)
+#### Judge Scorecard (One Page)
 
 | Category | Weight | Score (0-4) | Weighted Score | Notes |
 | --- | ---: | ---: | ---: | --- |
@@ -209,3 +196,17 @@ Tie-breakers (in order):
 1. Best evidence-driven incident response workflow using telemetry and alerts
 2. Strongest measurable improvement from evaluation/quality gate iterations
 3. Most complete and defensible security validation during demo
+
+
+
+## Repository Contents
+
+- `./Coach`
+  - Coach's Guide and related files
+- `./Coach/Solutions`
+  - Solution files with completed example answers to a challenge
+- `./Student`
+  - Student's Challenge Guide
+- `./Student/Resources`
+  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
+

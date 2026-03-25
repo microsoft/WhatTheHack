@@ -1,4 +1,4 @@
-# What The Hack - Agent Framework Observability With New Relic
+# What The Hack - New Relic Agent Observability
 
 ## Introduction
 
