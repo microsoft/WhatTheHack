@@ -1,0 +1,11 @@
+ACI
+Codespace
+Codespaces
+CosmosDB
+DMS
+DocumentDB
+ExpressRoute
+MFlix
+MongoDB
+VPN
+mflixadmin
