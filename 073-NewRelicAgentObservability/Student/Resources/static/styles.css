@@ -1,0 +1,252 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #00AC69 0%, #00ce7c 100%);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 206, 124, 0.3);
+}
+
+.branding-title {
+    margin: 0;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.branding-subtitle {
+    margin: 4px 0 0 0;
+    color: #00FF8C;
+    font-size: 0.9em;
+}
+
+.header-title {
+    font-size: 2.5em;
+    margin-top: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #00AC69 0%, #00ce7c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.form-section h2 {
+    color: #00AC69;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #00ce7c;
+    box-shadow: 0 0 0 3px rgba(0, 206, 124, 0.1);
+}
+
+select[multiple] {
+    min-height: 120px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.3em;
+    background: linear-gradient(135deg, #00AC69 0%, #00ce7c 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #00FF8C 0%, #00ce7c 100%);
+    box-shadow: 0 6px 20px rgba(0, 206, 124, 0.4);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #00AC69;
+}
+
+.loading.show {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.branding-title {
+    margin: 0;
+}
+
+.branding-subtitle {
+    margin: 4px 0 0 0;
+}
+
+.header-title {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.error-container {
+    margin-top: 30px;
+    background: #ffe0e0;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ff6b6b;
+}
+
+.error-message {
+    color: #c92a2a;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #00AC69 0%, #00ce7c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #00FF8C 0%, #00ce7c 100%);
+    box-shadow: 0 4px 15px rgba(0, 206, 124, 0.3);
+    transform: translateY(-2px);
+}
+
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.branding-title {
+    margin: 0;
+}
+
+.branding-subtitle {
+    margin: 4px 0 0 0;
+}
+
+.header-title {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.result-container {
+    margin-top: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 172, 105, 0.15);
+}
+
+.travel-plan {
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-size: 1.05em;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #00AC69 0%, #00ce7c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #00FF8C 0%, #00ce7c 100%);
+    box-shadow: 0 4px 15px rgba(0, 206, 124, 0.3);
+    transform: translateY(-2px);
+}
+
+.trip-summary {
+    background: linear-gradient(135deg, #00ce7c 0%, #00FF8C 100%);
+    color: #001f3f;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}

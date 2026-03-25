@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ AI Travel Planner</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="header-wrapper">
+        <div>
+            <h1 class="branding-title">New Relic</h1>
+            <p class="branding-subtitle">DevRel AI Samples</p>
+        </div>
+    </div>
+    <div class="header-title">✈️ WanderAI Travel Planner</div>
+    
+    <div class="form-container">
+        <form action="/plan" method="post" id="travelForm">
+                <div class="form-section">
+                    <h2>✨ Trip Details</h2>
+                    <label for="date">📅 Start Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    
+                    <label for="duration">⏱️ Trip Duration (days):</label>
+                    <input type="number" id="duration" name="duration" min="1" max="30" value="3" required>
+                </div>
+            
+            <div class="form-section">
+                <h2>🎨 Your Interests</h2>
+                <label for="interests">Select your interests (hold Ctrl/Cmd to select multiple):</label>
+                <select id="interests" name="interests" multiple>
+                    <option value="Beach & Relaxation">🏖️ Beach & Relaxation</option>
+                    <option value="Culture & History">🎭 Culture & History</option>
+                    <option value="Food & Dining">🍽️ Food & Dining</option>
+                    <option value="Adventure & Hiking">🏔️ Adventure & Hiking</option>
+                    <option value="Shopping">🛍️ Shopping</option>
+                    <option value="Art & Museums">🎨 Art & Museums</option>
+                    <option value="Nightlife">🎉 Nightlife</option>
+                    <option value="Nature & Wildlife">🌿 Nature & Wildlife</option>
+                </select>
+            </div>
+            
+            <div class="form-section">
+                <h2>📝 Special Requests</h2>
+                <label for="special_requests">Any special requirements or preferences?</label>
+                <textarea id="special_requests" name="special_requests" placeholder="e.g., budget-friendly, family-friendly, romantic getaway, accessible travel, etc." rows="4"></textarea>
+            </div>
+            
+            <button type="submit">🚀 Generate My Travel Plan</button>
+        </form>
+        
+        <div class="loading" id="loadingMessage">
+            <div style="font-size: 3em;">✈️</div>
+            <p>Planning your amazing trip... This may take a minute!</p>
+        </div>
+    </div>
+    
+    <hr style="margin-top: 40px;">
+    <div style="text-align: center; color: gray; font-size: 0.9em; margin-top: 30px;">
+        Made with ❤️ using WanderAI Travel Planner | Powered by Microsoft Agent Framework
+    </div>
+    
+    <script>
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+        dateInput.value = today;
+        
+        // Show destination description when selected
+        const destinationSelect = document.getElementById('destination');
+        const descriptionDiv = document.getElementById('destinationDescription');
+        
+        destinationSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const description = selectedOption.getAttribute('data-description');
+            
+            if (description && this.value) {
+                descriptionDiv.textContent = description;
+                descriptionDiv.style.display = 'block';
+            } else {
+                descriptionDiv.style.display = 'none';
+            }
+        });
+        
+        // Show loading message when form is submitted
+        document.getElementById('travelForm').addEventListener('submit', function() {
+            document.getElementById('loadingMessage').classList.add('show');
+            document.querySelector('button[type="submit"]').disabled = true;
+        });
+    </script>
+</body>
+</html>

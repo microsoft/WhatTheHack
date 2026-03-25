@@ -1,0 +1,6 @@
+agent-framework-core
+flask[async]
+flask-cors
+requests
+python-dotenv
+opentelemetry-exporter-otlp-proto-grpc
