@@ -1,6 +1,6 @@
 {
     "image": "mcr.microsoft.com/devcontainers/python:3",
-    "workspaceFolder": "/workspace/073-AgentFrameworkObservabilityWithNewRelic/Student/Resources",
+    "workspaceFolder": "/workspace/073-NewRelicAgentObservability/Student/Resources",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "features": {
         "azure-cli": "latest",
