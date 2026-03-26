@@ -14,7 +14,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 - [Setup Development Environment](#setup-development-environment)
   - [GitHub Codespaces](#setup-github-codespace)
   - [Local Workstation](#setup-local-workstation)
-- [Setup MongoDB Source Database](#deploy-mongodb-resources)
+- [Setup MongoDB Source Database](#setup-mongodb-source-database)
 
 ### Azure Subscription
 
@@ -68,7 +68,7 @@ If you want to setup this environment on your local workstation, expand the sect
 
 The Dev Container with the Mflix app is available in a Student Resources package.
 
-- [Download `Resources.zip`](https://aka.ms/wth/<TBD>/resources) package to your local workstation. 
+- [Download `Resources.zip`](https://aka.ms/wth/mongodb2documentdb/resources) package to your local workstation. 
 
 The rest of the challenges will refer to the relative paths inside the Codespace or `Resources.zip` file where you can find the various resources to complete the challenges.
 
@@ -117,12 +117,13 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
     ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
-    Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
-    ```
+Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
+    ```bash
     cd infra 
     chmod +x deploy-source-db.sh
     ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
+#### Deploy MongoDB in Atlas
 
 If you want to deploy to MongoDB Atlas instead, go to this link: [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/).
 - You will probably want to follow the steps mentioned in the Atlas UI tab (as opposed to the Atlas CLI but you can figure that out if you want).
