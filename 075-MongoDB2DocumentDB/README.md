@@ -17,9 +17,10 @@ In this hack, you will learn how to move a MongoDB workload from MongoDB to Azur
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Deploy the source database and get the sample application up and running
-- Challenge 01: **[Prepare and perform the migration to Azure DocumentDB](Student/Challenge-01.md)**
-	 - Use the Azure DocumentDB migration extension for Visual Studio Code to assess the source MongoDB workload and identify and fix any issues that will block migration.
-- Challenge 02: **[Compare source and target databases and update the application configuration](Student/Challenge-02.md)**
+- Challenge 01: **[Install the Azure DocumentDB migration extension for VS Code and Deploy Azure Document DB](Student/Challenge-01.md)**
+	 - Install the Azure DocumentDB Migration extension in Visual Studio Code and deploy an instance of Azure DocumentDB in your Azure subscription.
+- Challenge 02: **[Migrating from MongoDB to Azure Document DB](Student/Challenge-02.md)**
+	 - Use the Azure DocumentDB Migration extension to migrate data from your source MongoDB to Azure DocumentDB, then update and test the application with the new connection.
 	 - Compare the source target databases and if everything is okay, you will modify the application configuration with the new Azure DocumentDB and re-run the application
 
 ## Prerequisites
