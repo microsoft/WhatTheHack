@@ -173,6 +173,9 @@ To complete this challenge successfully, you should be able to:
 
 - [New Relic AI Monitoring](https://docs.newrelic.com/docs/ai-monitoring/intro-to-ai-monitoring/)
 - [New Relic Custom Events](https://docs.newrelic.com/docs/data-apis/custom-data/custom-events/report-custom-event-data/)
+- [New Relic data dictionary - `LlmChatCompletionMessage`](https://docs.newrelic.com/attribute-dictionary/?dataSource=APM&event=LlmChatCompletionMessage)
+- [New Relic data dictionary - `LlmChatCompletionSummary`](https://docs.newrelic.com/attribute-dictionary/?dataSource=APM&event=LlmChatCompletionSummary)
+- [New Relic data dictionary - `LlmFeedbackMessage`](https://docs.newrelic.com/attribute-dictionary/?dataSource=APM&event=LlmFeedbackMessage)
 - [LLM Evaluation Best Practices](https://docs.newrelic.com/docs/ai-monitoring/explore-ai-data/view-model-data/)
 - [OpenTelemetry Log Data Model](https://opentelemetry.io/docs/reference/specification/logs/data-model/)
 
