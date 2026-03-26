@@ -25,22 +25,23 @@ Next, you will deploy Azure Document DB.
 CODESPACES=false
 az login
 ```
-- Perform the following steps to create an instance of Azure DocumentDB in your Azure subscription
-    - Open a New Terminal window in VS Code
-    - Type the following commands to deploy Azure DocumentDB. 
+Perform the following steps to create an instance of Azure DocumentDB in your Azure subscription
+- Open a New Terminal window in VS Code
+- Type the following commands to deploy Azure DocumentDB. 
     
-    ```
-    cd infra 
+```
+cd infra 
+chmod +x deploy-target-db.sh
+./deploy-target-db.sh --administratorLogin mflixadmin --administratorPassword <password>
+```
 
-    ./deploy-target-db.sh --administratorLogin mflixadmin --administratorPassword <password>
-    ```
+Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
 
-    Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
-    ```
-    cd infra 
-
-    ./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
-    ```
+```
+cd infra 
+chmod +x deploy-target-db.sh
+./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
+```
 
 The deployment will take some time. While this is deploying, use the DocumentDB for VS Code extension to connect to your source MongoDB database and explore the data:
 
