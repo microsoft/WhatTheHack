@@ -111,19 +111,19 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
     - Open a New Terminal window in VS Code
     - Type the following commands to deploy MongoDB in a container
     
-    ```
-    cd infra 
-    chmod +x deploy-source-db.sh
-    ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
-    ```
+  ```
+  cd infra 
+  chmod +x deploy-source-db.sh
+  ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
+  ```
 
 Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     
-    ```
-    cd infra 
-    chmod +x deploy-source-db.sh
-    ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
-    ```
+  ```
+  cd infra 
+  chmod +x deploy-source-db.sh
+  ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
+  ```
 #### Deploy MongoDB in Atlas
 
 If you want to deploy to MongoDB Atlas instead, go to this link: [Get Started With Atlas](https://www.mongodb.com/docs/atlas/getting-started/).
