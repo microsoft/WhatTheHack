@@ -1,4 +1,4 @@
-# Challenge 01 - Prepare and perform the migration to Azure DocumentDB - Coach's Guide 
+# Challenge 01 - Install the Azure DocumentDB migration extension for VS Code and Deploy Azure Document DB - Coach's Guide 
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
