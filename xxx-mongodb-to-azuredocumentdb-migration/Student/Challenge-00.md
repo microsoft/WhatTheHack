@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Thank you for participating in the MongoDB to Azure DocumentDB migration What The Hack. Before you can start hacking, you will need to set up some prerequisites.
+Thank you for participating in the MongoDB to Azure DocumentDB Migration What The Hack. Before you can start hacking, you will need to set up some prerequisites.
 
 ## Prerequisites
 
