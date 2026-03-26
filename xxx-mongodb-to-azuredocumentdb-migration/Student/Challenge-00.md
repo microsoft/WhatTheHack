@@ -111,7 +111,7 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
     - Open a New Terminal window in VS Code
     - Type the following commands to deploy MongoDB in a container
     
-    ```bash
+    ```
     cd infra 
     chmod +x deploy-source-db.sh
     ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
@@ -119,7 +119,7 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
 
 Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     
-    ```bash
+    ```
     cd infra 
     chmod +x deploy-source-db.sh
     ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
