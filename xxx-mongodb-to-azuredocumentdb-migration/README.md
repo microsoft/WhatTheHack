@@ -30,6 +30,6 @@ In this hack, you will learn how to move a MongoDB workload from MongoDB to Azur
 
 ## Contributors
 
-- Pete Rodriguez
-- Mike Shelton
-- Manish Sharma
+- [Pete Rodriguez](https://github.com/perktime)
+- [Mike Shelton](https://github.com/mshelt)
+- [Manish Sharma](https://github.com/manishmsfte)
