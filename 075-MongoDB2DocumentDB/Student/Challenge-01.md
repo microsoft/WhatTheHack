@@ -14,7 +14,7 @@ You should have already completed the steps in [Challenge 0](./Challenge-00.md) 
 
 First, you will install the Azure DocumentDB Migration extension in Visual Studio Code. 
 
-- Install the [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension). It will also install the DocumentDB for VS Code extension which we will use prior to migration.
+- [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension). This will also install the DocumentDB for VS Code extension which we will use prior to migration.
 
 Next, you will deploy Azure Document DB. 
 
