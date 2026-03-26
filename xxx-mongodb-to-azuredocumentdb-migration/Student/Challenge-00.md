@@ -11,13 +11,21 @@ Thank you for participating in the MongoDB to Azure DocumentDB Migration What Th
 In this challenge, you will set up the necessary prerequisites and environment to complete the rest of the hack, including:
 
 - [Azure Subscription](#azure-subscription)
-- [GitHub Codespaces](#setup-github-codespace)
-- [Local Workstation](#setup-local-workstation)
+- [Setup Development Environment](#setup-development-environment)
+  - [GitHub Codespaces](#setup-github-codespace)
+  - [Local Workstation](#setup-local-workstation)
+- [Setup MongoDB Source Database](#deploy-mongodb-resources)
 
 ### Azure Subscription
 
 You will need an Azure subscription to complete this hack. If you don't have one, get a free trial here...
 - [Azure Subscription](https://azure.microsoft.com/en-us/free/)
+
+### Setup Development Environment
+
+You will need a set of developer tools to work with the sample application for this hack. 
+
+You can use GitHub Codespaces where we have a pre-configured development environment set up and ready to go for you, or you can setup the developer environment on your local workstation using DevContainers.
 
 #### Use GitHub Codespaces
 
@@ -30,7 +38,7 @@ You can see your balance of available codespace hours on the [GitHub billing pag
 The GitHub Codespace for this hack will let you run the sample MFlix application which uses MongoDB as its database.
 
 - A GitHub repo containing the student resources and Codespace for this hack is hosted here:
-  - [MongoDB to Azure DocumentDB WTH Codespace Repo](https://aka.ms/wth/<TBD>/codespace)
+  - [MongoDB to Azure DocumentDB WTH Codespace Repo](https://aka.ms/wth/mongodb2documentdb/codespace)
   - Please open this link and sign in with your personal Github account. 
 
 **NOTE:** Make sure you do not sign in with your enterprise managed Github account.
@@ -56,7 +64,7 @@ If you want to setup this environment on your local workstation, expand the sect
 <details markdown=1>
 <summary markdown="span"><strong>Click to expand/collapse Local Workstation Setup</strong></summary>
 
-#### Download Student Resources
+##### Download Student Resources
 
 The Dev Container with the Mflix app is available in a Student Resources package.
 
@@ -64,7 +72,7 @@ The Dev Container with the Mflix app is available in a Student Resources package
 
 The rest of the challenges will refer to the relative paths inside the Codespace or `Resources.zip` file where you can find the various resources to complete the challenges.
 
-#### Set Up Local Dev Container
+##### Set Up Local Dev Container
 
 You will next be setting up your local workstation so that it can use Dev Containers. A Dev Container is a Docker-based environment designed to provide a consistent and reproducible development setup. The VS Code Dev Containers extension lets you easily open projects inside a containerized environment. 
 
@@ -79,33 +87,40 @@ On Windows and Mac OS (**NOTE:** only tested on Apple Silicon):
 </details>
 <br/>
 
-#### Setup the Source MongoDB Database
+### Setup MongoDB Source Database
 
 You can choose to deploy a MongoDB instance in Docker container in Azure Container Instances with a deployment script or if you prefer, you can set up the source database in MongoDB Atlas instead manually. 
 
-To deploy MongoDB in Azure Container Instances:
+#### Deploy MongoDB in Azure Container Instances
 
-**NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
+Login to the Azure CLI from the terminal in your GitHub Codespace or local workstation:
+
+```
+az login
+```
+**NOTE:** If you have access to multiple Azure subscriptions, you may need to switch to the subscription you want to work with.
+
+If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
 - Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
 - From the terminal in Visual Studio Code, run these commands to login:
 ```
 CODESPACES=false
 az login
 ```
-- Perform the following steps to create an instance of MongoDB in your Azure subscription
+Perform the following steps to create an instance of MongoDB in your Azure subscription
     - Open a New Terminal window in VS Code
     - Type the following commands to deploy MongoDB in a container
     
-    ```
+    ```bash
     cd infra 
-
+    chmod +x deploy-source-db.sh
     ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
     Optional: If you need to, you can specify the `resourceGroupName` and `location` as arguments to the `deploy-target-db.sh` script as follows. ***Note***: It defaults to `rg-mflix-documentdb` and `eastus2` for those, respectively:
     ```
     cd infra 
-
+    chmod +x deploy-source-db.sh
     ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
     ```
 
