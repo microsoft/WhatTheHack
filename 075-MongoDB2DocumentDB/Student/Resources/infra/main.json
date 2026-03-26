@@ -1,0 +1,138 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.41.2.15936",
+      "templateHash": "15251279876272205570"
+    }
+  },
+  "parameters": {
+    "suffix": {
+      "type": "string",
+      "defaultValue": "[substring(uniqueString(resourceGroup().id), 0, 6)]",
+      "minLength": 4,
+      "maxLength": 10,
+      "metadata": {
+        "description": "Specifies a suffix used in Azure resource naming."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specifies the location for all Azure resources."
+      }
+    },
+    "clusterName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Specifies the Azure DocumentDB for MongoDB vCore cluster name."
+      }
+    },
+    "administratorLogin": {
+      "type": "string",
+      "defaultValue": "mflixadmin",
+      "metadata": {
+        "description": "Specifies the cluster administrator username."
+      }
+    },
+    "administratorPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Specifies the cluster administrator password."
+      }
+    },
+    "serverVersion": {
+      "type": "string",
+      "defaultValue": "7.0",
+      "metadata": {
+        "description": "Specifies the MongoDB server version."
+      }
+    },
+    "computeTier": {
+      "type": "string",
+      "defaultValue": "M30",
+      "metadata": {
+        "description": "Specifies the cluster compute tier."
+      }
+    },
+    "storageSizeGb": {
+      "type": "int",
+      "defaultValue": 32,
+      "metadata": {
+        "description": "Specifies the storage size in GB per node."
+      }
+    },
+    "shardCount": {
+      "type": "int",
+      "defaultValue": 1,
+      "metadata": {
+        "description": "Specifies the shard count for the cluster."
+      }
+    },
+    "highAvailabilityTargetMode": {
+      "type": "string",
+      "defaultValue": "Disabled",
+      "metadata": {
+        "description": "Specifies the target high availability mode."
+      }
+    },
+    "publicNetworkAccess": {
+      "type": "string",
+      "defaultValue": "Enabled",
+      "metadata": {
+        "description": "Specifies whether public network access is enabled."
+      }
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Specifies tags for all resources."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/mongoClusters",
+      "apiVersion": "2024-07-01",
+      "name": "[if(empty(parameters('clusterName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('clusterName'))]",
+      "location": "[parameters('location')]",
+      "tags": "[parameters('tags')]",
+      "properties": {
+        "administrator": {
+          "userName": "[parameters('administratorLogin')]",
+          "password": "[parameters('administratorPassword')]"
+        },
+        "serverVersion": "[parameters('serverVersion')]",
+        "compute": {
+          "tier": "[parameters('computeTier')]"
+        },
+        "storage": {
+          "sizeGb": "[parameters('storageSizeGb')]"
+        },
+        "sharding": {
+          "shardCount": "[parameters('shardCount')]"
+        },
+        "highAvailability": {
+          "targetMode": "[parameters('highAvailabilityTargetMode')]"
+        },
+        "publicNetworkAccess": "[parameters('publicNetworkAccess')]"
+      }
+    }
+  ],
+  "outputs": {
+    "deploymentInfo": {
+      "type": "object",
+      "value": {
+        "subscriptionId": "[subscription().subscriptionId]",
+        "resourceGroupName": "[resourceGroup().name]",
+        "location": "[parameters('location')]",
+        "clusterName": "[if(empty(parameters('clusterName')), toLower(format('mflix{0}', parameters('suffix'))), parameters('clusterName'))]"
+      }
+    }
+  }
+}
