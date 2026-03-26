@@ -114,7 +114,7 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
     
   ```
   cd infra 
-  chmod +x deploy-source-db.sh
+  chmod +x ./deploy-source-db.sh
   ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
   ```
 
@@ -122,7 +122,7 @@ Optional: If you need to, you can specify the `resourceGroupName` and `location`
     
   ```
   cd infra 
-  chmod +x deploy-source-db.sh
+  chmod +x ./deploy-source-db.sh
   ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
   ```
 #### Deploy MongoDB in Atlas
@@ -143,7 +143,7 @@ In a Terminal session in VSCode, navigate to the `MFlix` folder and run the appl
 npm start
 ```
 
-You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. Try it out!
+You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. If it doesn't appear, you can click the `Ports` tab in VS Code and then click the `Open In Browser` icon to open it. Try it out!
 
 ***Note***: If you need the username and password you chose during the MongoDB deployment, they are stored in the `MFlix/.env` file in the `MFLIX_DB_URI` connection string. 
 
