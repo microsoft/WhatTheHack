@@ -1,4 +1,4 @@
-# Challenge 02 - Compare source and target databases and update the application configuration - Coach's Guide 
+# Challenge 02 - Migrating from MongoDB to Azure Document DB - Coach's Guide 
 
 [< Previous Solution](./Solution-01.md) - **[Home](./README.md)** 
 
