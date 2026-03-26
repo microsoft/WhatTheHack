@@ -1,7 +1,7 @@
 {
-  "name": "xxx-mongodb-to-azuredocumentdb-migration",
+  "name": "075-MongoDB2DocumentDB",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
-  "workspaceFolder": "/workspace/xxx-mongodb-to-azuredocumentdb-migration/Student/Resources",
+  "workspaceFolder": "/workspace/075-MongoDB2DocumentDB/Student/Resources",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
     "cpus": 2
