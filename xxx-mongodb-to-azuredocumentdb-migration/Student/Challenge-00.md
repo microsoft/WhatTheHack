@@ -108,8 +108,9 @@ CODESPACES=false
 az login
 ```
 Perform the following steps to create an instance of MongoDB in your Azure subscription
-    - Open a New Terminal window in VS Code
-    - Type the following commands to deploy MongoDB in a container
+
+- Open a New Terminal window in VS Code
+- Type the following commands to deploy MongoDB in a container
     
   ```
   cd infra 
