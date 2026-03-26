@@ -20,7 +20,7 @@ Next, you will deploy Azure Document DB.
 
 **NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
 - Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
-- From the terminal in Visual Studio Code, run these commands to login:
+- From the terminal in Visual Studio Code, run these commands to login (if necessary):
 ```
 CODESPACES=false
 az login
