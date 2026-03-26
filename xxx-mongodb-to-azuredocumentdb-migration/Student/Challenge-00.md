@@ -12,7 +12,7 @@ In this challenge, you will set up the necessary prerequisites and environment t
 
 - [Azure Subscription](#azure-subscription)
 - [Setup Development Environment](#setup-development-environment)
-  - [GitHub Codespaces](#use-github-codespace)
+  - [GitHub Codespaces](#use-github-codespaces)
   - [Local Workstation](#use-local-workstation)
 - [Setup MongoDB Source Database](#setup-mongodb-source-database)
 
