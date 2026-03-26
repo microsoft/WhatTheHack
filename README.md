@@ -114,6 +114,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
 - [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
 - [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
+- [MongoDB To DocumentDB Migration](/075-MongoDB2DocumentDB/README.md)
 - [Fabric Real-time Intelligence](/069-FabricRealTimeIntelligence/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
 - [Data Governance with Microsoft Purview](/051-MicrosoftPurview/README.md)
