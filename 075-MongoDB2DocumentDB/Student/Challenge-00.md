@@ -114,7 +114,6 @@ Perform the following steps to create an instance of MongoDB in your Azure subsc
     
   ```
   cd infra 
-  chmod +x ./deploy-source-db.sh
   ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
   ```
 
@@ -122,7 +121,6 @@ Optional: If you need to, you can specify the `resourceGroupName` and `location`
     
   ```
   cd infra 
-  chmod +x ./deploy-source-db.sh
   ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
   ```
 #### Deploy MongoDB in Atlas

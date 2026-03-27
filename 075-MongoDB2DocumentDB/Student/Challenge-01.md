@@ -31,7 +31,6 @@ Perform the following steps to create an instance of Azure DocumentDB in your Az
     
 ```
 cd infra 
-chmod +x deploy-target-db.sh
 ./deploy-target-db.sh --administratorLogin mflixadmin --administratorPassword <password>
 ```
 
@@ -39,7 +38,6 @@ Optional: If you need to, you can specify the `resourceGroupName` and `location`
 
 ```
 cd infra 
-chmod +x deploy-target-db.sh
 ./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
 ```
 
