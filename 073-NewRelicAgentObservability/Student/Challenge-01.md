@@ -100,8 +100,6 @@ Answer these questions to validate your learning:
 
 ## Success Criteria
 
-# **TODO: check whether we want to run some kind of quiz or knowledge check here**
-
 As part of this challenge we are not actually building any code. Instead, you are focusing on learning the foundational concepts needed for the rest of the challenges.
 
 To complete this challenge successfully, you should be able to:
