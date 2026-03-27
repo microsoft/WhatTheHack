@@ -16,7 +16,7 @@ First, you will install the Azure DocumentDB Migration extension in Visual Studi
 
 - [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension). This will also install the DocumentDB for VS Code extension which we will use prior to migration.
 
-Next, you will deploy Azure Document DB. 
+Next, you will deploy Azure Document DB. If you are continuing right from from Challenge 0, you do not need to login again. 
 
 **NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
 - Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
