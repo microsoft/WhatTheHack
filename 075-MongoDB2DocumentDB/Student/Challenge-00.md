@@ -110,7 +110,7 @@ az login
 Perform the following steps to create an instance of MongoDB in your Azure subscription
 
 - Open a New Terminal window in VS Code
-- Type the following commands to deploy MongoDB in a container
+- Type the following commands to deploy MongoDB in a container. Replace the password with one of your own choosing. ***Note***: Use only dashes, underscores, numbers, lower, and/or upper case letters.
     
   ```
   cd infra 
@@ -137,6 +137,7 @@ The sample MFlix application is implemented as a Node.js application. You will b
 In a Terminal session in VSCode, navigate to the `MFlix` folder and run the application:
 
 ```
+cd ../MFlix
 # Starts up the MFlix web application 
 npm start
 ```
