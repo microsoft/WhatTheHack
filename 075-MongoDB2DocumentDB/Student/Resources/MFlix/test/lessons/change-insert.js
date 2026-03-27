@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient
-const faker = require("faker")
+const { faker } = require("@faker-js/faker")
 require("dotenv").config()
 ;(async function() {
   const client = await MongoClient.connect(process.env.MFLIX_DB_URI, {
