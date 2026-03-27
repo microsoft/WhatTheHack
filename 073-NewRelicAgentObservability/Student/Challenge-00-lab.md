@@ -56,7 +56,7 @@ The GitHub Codespace for this hack will host the developer tools, sample applica
 
 **NOTE:** Make sure you do not sign in with your enterprise managed GitHub account.
 
-- Verify that the `Dev container configuration` drop down is set to `073-AgentFrameworkObservabilityWithNewRelic`
+- Verify that the `Dev container configuration` drop down is set to `073-NewRelicAgentObservability`
 - Click on the green "Create Codespace" button
 - Your Codespace environment should load in a new browser tab. It will take approximately 3-5 minutes the first time you create the codespace for it to load.
 - When the codespace completes loading, you should find an instance of Visual Studio Code running in your browser with the files needed for this hackathon.
