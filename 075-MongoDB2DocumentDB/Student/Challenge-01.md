@@ -45,7 +45,7 @@ The deployment will take some time. While this is deploying, use the DocumentDB 
 
 - Whether you chose MongoDB running in ACI or Mongo DB Atlas, the MongoDB connection string information is in your .env
 
-Once you've connected, explore the collections within the database. You should see:
+Once you've connected, explore the collections within the `sample_mflix` database. You should see:
 - `comments`
 - `embedded_movies`
 - `movies`
