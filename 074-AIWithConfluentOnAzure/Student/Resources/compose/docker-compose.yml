@@ -1,0 +1,34 @@
+---
+# Run the following commands to start the compose file
+# docker-compose up
+
+# Run the following command to stop the compose file
+# docker-compose down --remove-orphans
+
+networks:
+  default:
+    name: confluent_streams
+    driver: bridge
+    
+services:
+  inventory:
+    image: izzyacademy/inventory:latest
+    env_file: [shared_environment_variables.env]
+    hostname: inventory
+    ports: ["8080:8080"]
+
+  replenishment:
+    image: izzyacademy/replenishment:latest
+    env_file: [shared_environment_variables.env]
+    hostname: replenishment
+    ports: ["8081:8081"]
+
+  employee:
+    image: izzyacademy/employee:latest
+    env_file: [shared_environment_variables.env]
+    hostname: employee
+
+  supplier:
+    image: izzyacademy/supplier:latest
+    env_file: [shared_environment_variables.env]
+    hostname: supplier

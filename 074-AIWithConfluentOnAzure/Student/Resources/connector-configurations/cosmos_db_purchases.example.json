@@ -1,0 +1,27 @@
+{
+    "config": {
+      "connector.class": "CosmosDbSource",
+      "name": "azure_cosmos_db_purchases_source",
+      "schema.context.name": "default",
+      "kafka.auth.mode": "KAFKA_API_KEY",
+      "kafka.api.key": "[KAFKA_API_KEY]",
+      "kafka.api.secret": "[KAFKA_API_SECRET]",
+      "connect.cosmos.connection.endpoint": "https://[AZURE_COSMOS_DB_ACCOUNT_NAME].documents.azure.com:443/",
+      "connect.cosmos.master.key": "[AZURE_COSMOS_DB_ACCOUNT_KEY]",
+      "connect.cosmos.databasename": "[AZURE_COSMOS_DB_DATABASE_NAME]",
+      "connect.cosmos.containers.topicmap": "purchases#purchases",
+      "connect.cosmos.task.timeout": "5000",
+      "connect.cosmos.task.buffer.size": "10000",
+      "connect.cosmos.task.batch.size": "100",
+      "connect.cosmos.task.poll.interval": "1000",
+      "output.data.format": "JSON_SR",
+      "connect.cosmos.messagekey.enabled": "true",
+      "connect.cosmos.messagekey.field": "id",
+      "tasks.max": "1",
+      "auto.restart.on.user.error": "true",
+      "value.converter.decimal.format": "BASE64",
+      "value.converter.reference.subject.name.strategy": "DefaultReferenceSubjectNameStrategy",
+      "value.converter.value.subject.name.strategy": "TopicNameStrategy",
+      "key.converter.key.subject.name.strategy": "TopicNameStrategy"
+    }
+  }

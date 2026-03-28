@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "sku_id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "department": {
+        "type": "string",
+        "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
+      }
+    },
+    "required": ["id", "sku_id", "name", "description", "department"],
+    "additionalProperties": false
+  }
+  

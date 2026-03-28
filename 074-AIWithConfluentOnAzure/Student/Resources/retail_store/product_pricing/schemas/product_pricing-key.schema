@@ -1,0 +1,7 @@
+{
+    "type": "string",
+    "title": "Product Pricing SKU Key",
+    "description": "A unique identifier for the product SKU pricing",
+    "pattern": "^[0-9]+$"
+}
+  

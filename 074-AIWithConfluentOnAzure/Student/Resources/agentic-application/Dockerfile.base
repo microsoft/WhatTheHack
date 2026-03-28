@@ -1,0 +1,15 @@
+# Ubuntu 24.04 base
+FROM ubuntu:24.04
+
+# Install curl + certs (needed to fetch uv); keep image slim
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends coreutils \
+ curl ca-certificates vim \
+ iputils-ping telnet netcat-openbsd \
+ && rm -rf /var/lib/apt/lists/*
+
+# Install uv (to /root/.local/bin/uv by default) and make it globally available
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
+ && ln -s /root/.local/bin/uv /usr/local/bin/uv \
+ && uv --version
+

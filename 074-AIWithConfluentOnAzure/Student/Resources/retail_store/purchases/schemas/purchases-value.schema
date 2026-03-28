@@ -1,0 +1,63 @@
+{
+  "title": "Purchase Transaction Record Value",
+  "description": "Schema for a transaction record containing receipt information, transaction date, and purchased items.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Unique identifier for the transaction record."
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier associated with the transaction receipt."
+    },
+    "transaction_date": {
+      "type": "string",
+      "description": "Date and time of the transaction in 'YYYY-MM-DD HH:MM:SS' format."
+    },
+    "customer_id": {
+        "type": "string",
+        "description": "Unique identifier for the customer making the purchase."
+    },
+    "items": {
+      "type": "array",
+      "description": "List of items included in the transaction.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sku_id": {
+            "type": "string",
+            "description": "SKU identifier for the purchased item."
+          },
+          "units": {
+            "type": "number",
+            "description": "Number of units purchased."
+          },
+          "unit_price": {
+            "type": "number",
+            "description": "Price per unit of the item."
+          },
+          "discounts": {
+            "type": "number",
+            "description": "Total discounts applied to the item."
+          }
+        },
+        "required": [
+          "sku_id",
+          "units",
+          "unit_price",
+          "discounts"
+        ]
+      }
+    }
+  },
+  "required": [
+    "id",
+    "receipt_id",
+    "transaction_date",
+    "items",
+    "customer_id"
+  ]
+}

@@ -1,0 +1,8 @@
+Flink
+DDL
+DML
+Confluent
+Confluent's
+ksqlDB
+replenishments
+upsert

@@ -1,0 +1,13 @@
+[project]
+name = "contoso-retail-application"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "azure-datastore-utils==0.2.4",
+    "mcp==1.13.1",
+    "pydantic-ai==1.0.2",
+    "pydantic-graph==1.0.2",
+    "rich>=14.1.0"
+]

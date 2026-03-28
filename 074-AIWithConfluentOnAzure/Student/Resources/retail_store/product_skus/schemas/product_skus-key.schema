@@ -1,0 +1,6 @@
+{
+    "type": "string",
+    "description": "A unique identifier for the product SKU.",
+    "pattern": "^[0-9]+$"
+}
+  
