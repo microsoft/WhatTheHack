@@ -1,0 +1,35 @@
+# =============================================================================
+# Foundry Agents Hack - Python Requirements
+# =============================================================================
+
+# --- Microsoft Agent Framework & Foundry SDK ---
+azure-ai-projects>=1.0.0b7
+azure-ai-agents>=1.0.0
+azure-ai-inference>=1.0.0b9
+
+# --- Azure Identity & Authentication ---
+azure-identity>=1.19.0
+
+# --- Azure AI Evaluation ---
+azure-ai-evaluation>=1.6.0
+
+# --- Azure AI Search SDK ---
+azure-search-documents>=11.6.0b8
+
+# --- Azure Storage SDK ---
+azure-storage-blob>=12.24.0
+
+# --- Azure AI Foundry CLI extension (install separately via: az extension add --name ml) ---
+# The Azure CLI itself must be installed from https://aka.ms/installazurecli
+
+# --- MCP (Model Context Protocol) Tools ---
+mcp[cli]>=1.9.0
+fastmcp>=2.0.0
+httpx>=0.28.0
+httpx-sse>=0.4.0
+
+# --- Common Utilities ---
+python-dotenv>=1.1.0
+openai>=1.76.0
+pydantic>=2.11.0
+aiohttp>=3.11.0

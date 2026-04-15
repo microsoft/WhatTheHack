@@ -2,99 +2,128 @@
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
-**_This is a template for "Challenge Zero" which focuses on getting prerequisites set up for the hack. The italicized text provides hints & examples of what should or should NOT go in each section._**
-
-**_We have included links to some common What The Hack pre-reqs in this template. All common prerequisite links go to the WTH-CommonPrerequisites page where there are more details on what each tool's purpose is._**
-
-**_You should remove any common pre-reqs that are not required for your hack. Then add additional pre-reqs that are required for your hack in the Description section below._**
-
-**_You should remove all italicized & sample text in this template and replace with your content._**
-
 ## Introduction
 
-Thank you for participating in the FoundryAgents What The Hack. Before you can hack, you will need to set up some prerequisites.
+Thank you for participating in the Foundry Agents What The Hack. Before you can hack, you will need to set up some prerequisites including local development tools, Azure infrastructure, and Python dependencies.
 
 ## Common Prerequisites
 
 We have compiled a list of common tools and software that will come in handy to complete most What The Hack Azure-based hacks!
 
-You might not need all of them for the hack you are participating in. However, if you work with Azure on a regular basis, these are all things you should consider having in your toolbox.
-
-<!-- If you are editing this template manually, be aware that these links are only designed to work if this Markdown file is in the /xxx-HackName/Student/ folder of your hack. -->
-
 - [Azure Subscription](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-subscription)
-- [Windows Subsystem for Linux](../../000-HowToHack/WTH-Common-Prerequisites.md#windows-subsystem-for-linux)
 - [Managing Cloud Resources](../../000-HowToHack/WTH-Common-Prerequisites.md#managing-cloud-resources)
   - [Azure Portal](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-portal)
   - [Azure CLI](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cli)
     - [Note for Windows Users](../../000-HowToHack/WTH-Common-Prerequisites.md#note-for-windows-users)
-    - [Azure PowerShell CmdLets](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-powershell-cmdlets)
   - [Azure Cloud Shell](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-cloud-shell)
 - [Visual Studio Code](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code)
-  - [VS Code plugin for ARM Templates](../../000-HowToHack/WTH-Common-Prerequisites.md#visual-studio-code-plugins-for-arm-templates)
-- [Azure Storage Explorer](../../000-HowToHack/WTH-Common-Prerequisites.md#azure-storage-explorer)
 
 ## Description
 
-_This section should clearly state any additional prerequisite tools that need to be installed or set up in the Azure environment that the student will hack in._
-
-_While ordered lists are generally not welcome in What The Hack challenge descriptions, you can use one here in Challenge Zero IF and only IF the steps you are asking the student to perform are not core to the learning objectives of the hack._
-
-_For example, if the hack is on IoT Devices and you want the student to deploy an ARM/Bicep template that sets up the environment they will hack in without them needing to understand how ARM/Bicep templates work, you can provide step-by-step instructions on how to deploy the ARM/Bicep template._
-
-_Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack. You should leave the sample text below in that refers to the Resources.zip file._
-
-**\*NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resources.zip file provided by the coach.\*
-
-**\*NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.\*
-
-_Sample challenge zero text for the IoT Hack Of The Century:_
-
-Now that you have the common pre-requisites installed on your workstation, there are prerequisites specifc to this hack.
+Now that you have the common pre-requisites installed on your workstation, there are prerequisites specific to this hack.
 
 Your coach will provide you with a Resources.zip file that contains resources you will need to complete the hack. If you plan to work locally, you should unpack it on your workstation. If you plan to use the Azure Cloud Shell, you should upload it to the Cloud Shell and unpack it there.
 
-Please install these additional tools:
+### Install Required Tools
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension for Visual Studio Code
-- .NET SDK 6.0 or later installed on your development machine. This can be downloaded from [here](https://www.microsoft.com/net/download/all) for multiple platforms.
+Please ensure the following tools are installed on your workstation:
 
-In the `/Challenge00/` folder of the Resources.zip file, you will find an ARM template, `setupIoTEnvironment.json` that sets up the initial hack environment in Azure you will work with in subsequent challenges.
+- **Python 3.10+** — Download from [python.org](https://www.python.org/downloads/)
+- **Azure CLI 2.65+** — Install from [aka.ms/installazurecli](https://aka.ms/installazurecli)
+- **Azure CLI `ml` extension** — Required for Foundry CLI operations
+- **Visual Studio Code** with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-Please deploy the template by running the following Azure CLI commands from the location of the template file:
+### Authenticate with Azure
+
+Log in to Azure CLI and set your target subscription:
+
+```bash
+az login
+az account set --subscription "<your-subscription-id>"
 ```
-az group create --name myIoT-rg --location eastus
-az group deployment create -g myIoT-rg --name HackEnvironment -f setupIoTEnvironment.json
+
+Install the Azure CLI ML extension needed for AI Foundry:
+
+```bash
+az extension add --name ml --upgrade
 ```
+
+### Deploy Azure Infrastructure
+
+In the `infra/` folder of the Resources.zip file, you will find a Bicep template that deploys the Azure resources needed for this hack: a **Microsoft Foundry Resource & Project**, **Azure Storage Account**, and **Azure AI Search**.
+
+Deploy the infrastructure by running the deployment script from the `infra/` folder:
+
+**Bash (Linux/macOS/WSL):**
+```bash
+cd infra
+chmod +x deploy.sh
+./deploy.sh
+```
+
+**PowerShell (Windows):**
+```powershell
+cd infra
+.\deploy.ps1
+```
+
+The script will:
+1. Verify you are logged in to Azure CLI (and prompt `az login` if not)
+2. Confirm your active subscription
+3. Register required Azure resource providers
+4. Deploy the Bicep template at subscription scope (creating the resource group and all resources)
+5. Print the deployment outputs you need for configuration
+
+### Set Up Python Environment
+
+Create a virtual environment and install the Python dependencies:
+
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment:
+- **Windows:** `.venv\Scripts\activate`
+- **Linux/macOS:** `source .venv/bin/activate`
+
+Install the required packages:
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+The deployment script automatically generates a `.env` file in the `Resources/` folder with all values populated from the deployment outputs. Open the `.env` file and verify that the values look correct by comparing them to the `.env.sample` file — each placeholder should now be replaced with a real value (endpoint URLs, resource names, connection strings, etc.).
+
+### Access the Microsoft Foundry Portal
+
+After deployment, navigate to the Microsoft Foundry portal to explore your project:
+
+- Go to [https://ai.azure.com](https://ai.azure.com) and sign in with the same account you used for `az login`
+- You should see your Foundry Resource listed — click into it
+- Select your **Foundry Project** to access the project workspace where you can manage models, deployments, agents, and other resources throughout this hack
 
 ## Success Criteria
 
-_Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach._
-
-_The success criteria should not be a list of instructions._
-
-_Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."_
-
-_Sample success criteria for the IoT prerequisites challenge:_
-
 To complete this challenge successfully, you should be able to:
 
-- Verify that you have a bash shell with the Azure CLI available.
-- Verify that the ARM template has deployed the following resources in Azure:
-  - Azure IoT Hub
-  - Virtual Network
-  - Jumpbox VM
+- Verify that you have Azure CLI installed and are logged in to your Azure subscription.
+- Verify that the Bicep deployment has created the following resources in your Azure subscription:
+  - Resource Group (e.g., `rg-foundry-agents-hack`)
+  - Microsoft Foundry Resource
+  - Microsoft Foundry Project (under the Foundry Resource)
+  - Azure Storage Account
+  - Azure AI Search service
+- Verify that the auto-generated `.env` file exists and all values are populated (no `<placeholder>` values remain) by comparing it to `.env.sample`.
+- Verify that you can sign in to [ai.azure.com](https://ai.azure.com) and navigate to your Foundry Project.
+- Verify that you have a Python 3.10+ virtual environment with all packages from `requirements.txt` installed.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-_Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario._
-
-**\*Note:** Use descriptive text for each link instead of just URLs.\*
-
-_Sample IoT resource links:_
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [What is Azure AI Foundry?](https://learn.microsoft.com/azure/ai-studio/what-is-ai-studio)
+- [Microsoft Agent Framework SDK overview](https://learn.microsoft.com/azure/ai-services/agents/overview)
+- [Azure AI Projects SDK for Python](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme)
+- [MCP (Model Context Protocol) specification](https://modelcontextprotocol.io/)
+- [FastMCP — Build MCP servers in Python](https://github.com/jlowin/fastmcp)
+- [Azure AI Search documentation](https://learn.microsoft.com/azure/search/)
+- [Deploy Azure resources with Bicep](https://learn.microsoft.com/azure/azure-resource-manager/bicep/overview)
