@@ -67,7 +67,7 @@ A.   Write another TestMethod called *EchoStartsWith* that verifies echo prompt 
 
 B.   Can you verify that the echoed messages were sent by a bot?
 
-*Hint:* This would involve checking the properties of IMessageActivity response recieved.
+*Hint:* This would involve checking the properties of IMessageActivity response received.
 
 
  ### Continue to [3_Direct_Line_Testing](3_Direct_Line_Testing.md)
