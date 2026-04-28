@@ -16,10 +16,10 @@ In this hack you will be solving the common business problem that companies in t
 
 - Challenge 00: **[Prerequisites - Ready, Set, GO!](Student/Challenge-00.md)**
 	 - Prepare your workstation to work with Azure.
-- Challenge 01: **[Title of Challenge](Student/Challenge-01.md)**
-	 - Description of challenge
-- Challenge 02: **[Title of Challenge](Student/Challenge-02.md)**
-	 - Description of challenge
+- Challenge 01: **[Your First Foundry Agent (Portal)](Student/Challenge-01.md)**
+	 - Create and configure agents in the Microsoft Foundry portal, write system instructions, and test agent behavior in the playground.
+- Challenge 02: **[Build a News Agent with Code](Student/Challenge-02.md)**
+	 - Create and interact with a news briefing agent programmatically using the Agent Framework SDK and Python.
 - Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
 	 - Description of challenge
 - Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
