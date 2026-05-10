@@ -59,7 +59,7 @@
     "mocha": "^5.2.0",
     "mongodb": "^4.17.2",
     "morgan": "^1.9.1",
-    "npm-check-updates": "^3.2.2",
+    "npm-check-updates": "^19.6.5",
     "prettier": "^1.19.1",
     "sinon": "^5.0.10"
   },
