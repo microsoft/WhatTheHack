@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@azure/cosmos": "^2.0.2",
-    "adal-node": "^0.1.28",
+    "adal-node": "^0.2.4",
     "applicationinsights": "^1.0.6",
     "azure-keyvault": "^3.0.4",
     "csv-parse": "^3.1.3",
