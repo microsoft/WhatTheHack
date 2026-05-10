@@ -56,7 +56,7 @@
     "faker": "^4.1.0",
     "jest-runner": "^24.9.0",
     "jsonwebtoken": "^8.3.0",
-    "mocha": "^5.2.0",
+    "mocha": "^11.7.5",
     "mongodb": "^4.17.2",
     "morgan": "^1.9.1",
     "npm-check-updates": "^3.2.2",
