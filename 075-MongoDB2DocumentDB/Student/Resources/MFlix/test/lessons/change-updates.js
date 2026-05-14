@@ -1,6 +1,6 @@
 require("dotenv").config()
 const MongoClient = require("mongodb").MongoClient
-const faker = require("faker")
+const { faker } = require("@faker-js/faker")
 const MIN_LOAN_AMOUNT = 500
 const MAX_LOAN_AMOUNT = 100000
 ;(async function() {
