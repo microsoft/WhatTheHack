@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.37.5",
     "express": "^4.16.3",
-    "jest-runner": "^23.6.0",
+    "jest-runner": "^30.4.2",
     "jsonwebtoken": "^9.0.2",
     "mocha": "^11.3.0",
     "mongodb": "^4.17.2",
@@ -83,7 +83,7 @@
     "concurrently": "^3.5.1",
     "husky": "^1.0.0",
     "jest": "^25.0.0",
-    "jest-cli": "^19.0.2",
+    "jest-cli": "^30.4.2",
     "jest-express": "^1.11.0",
     "lint-staged": "^15.5.2",
     "nodemon": "^3.1.14"
