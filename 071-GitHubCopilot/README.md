@@ -34,11 +34,16 @@ This GitHub Copilot What The Hack will help you learn how to do the following wi
 	 - Generate test cases and documentation with the help of GitHub Copilot.
 - Challenge 07: **[Debugging and Code Optimization with Copilot](Student/Challenge-07.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
+- Challenge 08: **[Getting Started with GitHub Copilot in the CLI](Student/Challenge-08.md)**
+	 - Use `gh copilot suggest` and `gh copilot explain` to work with Copilot directly from your terminal.
+- Challenge 09: **[Automating DevOps Workflows with GitHub Copilot CLI](Student/Challenge-09.md)**
+	 - Automate an end-to-end DevOps workflow using GitHub Copilot CLI.
 
 ## Prerequisites
 
 - A GitHub account with GitHub Copilot subscription or Copilot Trial
 - Visual Studio Code with GitHub Copilot extension installed
+- GitHub CLI (`gh`) installed and authenticated (required for Challenges 08 and 09)
 - Basic understanding of software development and version control systems
 
 ## Contributors

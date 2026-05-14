@@ -24,6 +24,10 @@ Welcome to the coach's guide for the GitHub Copilot What The Hack. Here you will
 	 - Generate test cases and documentation with the help of GitHub Copilot.
 - Challenge 07: **[Debugging and Code Optimization with Copilot](./Solution-07.md)**
 	 - Use GitHub Copilot for debugging and optimizing your code effectively.
+- Challenge 08: **[Getting Started with GitHub Copilot in the CLI](./Solution-08.md)**
+	 - Use `gh copilot suggest` and `gh copilot explain` to work with Copilot directly from your terminal.
+- Challenge 09: **[Automating DevOps Workflows with GitHub Copilot CLI](./Solution-09.md)**
+	 - Automate an end-to-end DevOps workflow using GitHub Copilot CLI.
 
 ## Coach Prerequisites
 
@@ -50,6 +54,8 @@ This hack is intended to be completed in 1 day in 4.5 hours.
   - Challenge 5 (30 mins)
   - Challenge 6 (45 mins)
   - Challenge 7 (30 mins)
+  - Challenge 8 (45 mins)
+  - Challenge 9 (60 mins)
 
 
 ## Repository Contents
