@@ -5,11 +5,11 @@ source ./functions.sh
 
 # Default values
 LOCATION="East US"
-RESOURCE_GROUP_NAME="newrelic-gameday-wth"
-NEW_RELIC_MONITOR_NAME="newrelic-gameday-monitor"
+RESOURCE_GROUP_NAME="newrelic-agent-o11y-wth"
+NEW_RELIC_MONITOR_NAME="newrelic-agent-o11y-wth"
 NEW_RELIC_MONITOR_USER_FIRST_NAME="Firstname"
 NEW_RELIC_MONITOR_USER_LAST_NAME="Lastname"
-NEW_RELIC_MONITOR_USER_EMAIL_ADDRESS="gameday@example.com"
+NEW_RELIC_MONITOR_USER_EMAIL_ADDRESS="wth@example.com"
 NEW_RELIC_MONITOR_USER_PHONE_NUMBER="+1 800 123456789"
 
 # Parse arguments
@@ -38,7 +38,7 @@ done
 #     error_exit "Bicep CLI not found. Install it using 'az bicep install'."
 # fi
 
-echo -e "\n\t\t\e[32mWHAT THE HACK - NEW RELIC GAMEDAY\e[0m"
+echo -e "\n\t\t\e[32mWHAT THE HACK - NEW RELIC WTH\e[0m"
 echo -e "\tcreated with love by the New Relic DevRel Team!\n"
 
 if [[ "$SILENT_INSTALL" == false ]]; then

@@ -4,9 +4,9 @@ param name string
 @description('Location where the Azure Open AI will be created.')
 param location string
 
-param foundryDefaultProject string = 'gameday-project'
+param foundryDefaultProject string = 'wth-project'
 
-resource accounts_foundry_gameday_name_resource 'Microsoft.CognitiveServices/accounts@2025-06-01' = {
+resource accounts_foundry_wth_name_resource 'Microsoft.CognitiveServices/accounts@2025-06-01' = {
   name: name
   location: location
   sku: {
@@ -33,8 +33,8 @@ resource accounts_foundry_gameday_name_resource 'Microsoft.CognitiveServices/acc
   }
 }
 
-resource accounts_foundry_gameday_name_project_gameday 'Microsoft.CognitiveServices/accounts/projects@2025-06-01' = {
-  parent: accounts_foundry_gameday_name_resource
+resource accounts_foundry_wth_name_project_wth 'Microsoft.CognitiveServices/accounts/projects@2025-06-01' = {
+  parent: accounts_foundry_wth_name_resource
   name: foundryDefaultProject
   location: location
   //kind: 'AIServices'
@@ -47,16 +47,16 @@ resource accounts_foundry_gameday_name_project_gameday 'Microsoft.CognitiveServi
   }
 }
 
-// resource accounts_foundry_gameday_name_Default 'Microsoft.CognitiveServices/accounts/defenderForAISettings@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_Default 'Microsoft.CognitiveServices/accounts/defenderForAISettings@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'Default'
 //   properties: {
 //     state: 'Disabled'
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_gpt_4_1_nano 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_gpt_4_1_nano 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'gpt-4.1-nano'
 //   sku: {
 //     name: 'GlobalStandard'
@@ -74,8 +74,8 @@ resource accounts_foundry_gameday_name_project_gameday 'Microsoft.CognitiveServi
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_gpt_4o_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_gpt_4o_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'gpt-4o-mini'
 //   sku: {
 //     name: 'GlobalStandard'
@@ -93,8 +93,8 @@ resource accounts_foundry_gameday_name_project_gameday 'Microsoft.CognitiveServi
 //   }
 // }
 
-resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-  parent: accounts_foundry_gameday_name_resource
+resource accounts_foundry_wth_name_gpt_5_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+  parent: accounts_foundry_wth_name_resource
   name: 'gpt-5-mini'
   sku: {
     name: 'GlobalStandard'
@@ -112,8 +112,8 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
   }
 }
 
-// resource accounts_foundry_gameday_name_gpt_5_nano 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_gpt_5_nano 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'gpt-5-nano'
 //   sku: {
 //     name: 'GlobalStandard'
@@ -131,8 +131,8 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_o4_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_o4_mini 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'o4-mini'
 //   sku: {
 //     name: 'GlobalStandard'
@@ -150,8 +150,8 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_Phi_4_mini_reasoning 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_Phi_4_mini_reasoning 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'Phi-4-mini-reasoning'
 //   sku: {
 //     name: 'GlobalStandard'
@@ -169,8 +169,8 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_Microsoft_Default 'Microsoft.CognitiveServices/accounts/raiPolicies@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_Microsoft_Default 'Microsoft.CognitiveServices/accounts/raiPolicies@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'Microsoft.Default'
 //   properties: {
 //     mode: 'Blocking'
@@ -235,8 +235,8 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
 //   }
 // }
 
-// resource accounts_foundry_gameday_name_Microsoft_DefaultV2 'Microsoft.CognitiveServices/accounts/raiPolicies@2025-06-01' = {
-//   parent: accounts_foundry_gameday_name_resource
+// resource accounts_foundry_wth_name_Microsoft_DefaultV2 'Microsoft.CognitiveServices/accounts/raiPolicies@2025-06-01' = {
+//   parent: accounts_foundry_wth_name_resource
 //   name: 'Microsoft.DefaultV2'
 //   properties: {
 //     mode: 'Blocking'
@@ -320,5 +320,5 @@ resource accounts_foundry_gameday_name_gpt_5_mini 'Microsoft.CognitiveServices/a
 // }
 
 #disable-next-line outputs-should-not-contain-secrets
-//output key1 string = accounts_foundry_gameday_name_resource.listKeys().key1
-//output endpoint string = accounts_foundry_gameday_name_resource.properties.endpoint
+//output key1 string = accounts_foundry_wth_name_resource.listKeys().key1
+//output endpoint string = accounts_foundry_wth_name_resource.properties.endpoint
