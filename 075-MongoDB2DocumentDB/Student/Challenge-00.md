@@ -110,11 +110,10 @@ az login
 Perform the following steps to create an instance of MongoDB in your Azure subscription
 
 - Open a New Terminal window in VS Code
-- Type the following commands to deploy MongoDB in a container
+- Type the following commands to deploy MongoDB in a container. Replace the password with one of your own choosing. ***Note***: Use only dashes, underscores, numbers, lower, and/or upper case letters.
     
   ```
   cd infra 
-  chmod +x deploy-source-db.sh
   ./deploy-source-db.sh --administratorLogin mflixadmin --administratorPassword <password>
   ```
 
@@ -122,7 +121,6 @@ Optional: If you need to, you can specify the `resourceGroupName` and `location`
     
   ```
   cd infra 
-  chmod +x deploy-source-db.sh
   ./deploy-source-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
   ```
 #### Deploy MongoDB in Atlas
@@ -139,11 +137,12 @@ The sample MFlix application is implemented as a Node.js application. You will b
 In a Terminal session in VSCode, navigate to the `MFlix` folder and run the application:
 
 ```
+cd ../MFlix
 # Starts up the MFlix web application 
 npm start
 ```
 
-You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. Try it out!
+You should see a message in Visual Studio Code that your Application running on port 5001 is available. Click the `Open in Browser` button to open the MFlix application. If it doesn't appear, you can click the `Ports` tab in VS Code and then click the `Open In Browser` icon to open it. Try it out!
 
 ***Note***: If you need the username and password you chose during the MongoDB deployment, they are stored in the `MFlix/.env` file in the `MFLIX_DB_URI` connection string. 
 

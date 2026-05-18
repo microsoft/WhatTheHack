@@ -22,7 +22,7 @@ If you were able to successfully connect to your local MongoDB source database i
     - Connection String: You will have to retrieve this from the Azure Portal. Open your Azure DocumentDB instance. It should be under Settings/Connection Strings. Replace the password with the password you chose when you ran the `deploy-target-db.sh` script. 
 - Create the Database Migration Service. You can use the existing resource group for your Azure DocumentDB. 
 - You may have to update firewall rules for Azure DocumentDB accordingly. 
-- Select all of the collections in your `sample_flix` database.
+- Select all of the collections in your `sample_mflix` database.
 - Start Migration
 
 If the migration was successful, you will then need to update the connection string in your `.env` file to the one for Azure DocumentDB. Once you do that, you will need to stop the MFlix application (hint: `CTRL+C` in the terminal window where the app is running) and restart it (hint: `npm start`). Open the browser with `http://localhost:5001` to see if it's working. 
