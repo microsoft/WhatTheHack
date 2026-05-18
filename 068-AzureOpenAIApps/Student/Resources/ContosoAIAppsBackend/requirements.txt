@@ -9,9 +9,9 @@ azure-search-documents == 11.5.1
 azure-ai-documentintelligence == 1.0.0b3
 redis == 5.0.8
 openai == 1.55.3
-langchain == 0.2.14
+langchain == 0.3.30
 langchain-community == 0.3.27
-langchain-openai == 0.1.22
+langchain-openai == 1.1.14
 azure-monitor-opentelemetry == 1.6.7
 azure-monitor-events-extension == 0.1.0
 # MCP dependencies for weather integration

@@ -16,7 +16,7 @@ First, you will install the Azure DocumentDB Migration extension in Visual Studi
 
 - [Azure DocumentDB migration extension](https://aka.ms/azure-documentdb-migration-extension). This will also install the DocumentDB for VS Code extension which we will use prior to migration.
 
-Next, you will deploy Azure Document DB. 
+Next, you will deploy Azure Document DB. If you are continuing right from from Challenge 0, you do not need to login again. 
 
 **NOTE:** If you are using GitHub Codespaces, the `az login` command will use a Device Code to login. If your organization's Azure policy prevents this, follow these steps first before you run the deployment:
 - Open your [Codespace in Visual Studio Code Desktop](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
@@ -31,7 +31,6 @@ Perform the following steps to create an instance of Azure DocumentDB in your Az
     
 ```
 cd infra 
-chmod +x deploy-target-db.sh
 ./deploy-target-db.sh --administratorLogin mflixadmin --administratorPassword <password>
 ```
 
@@ -39,7 +38,6 @@ Optional: If you need to, you can specify the `resourceGroupName` and `location`
 
 ```
 cd infra 
-chmod +x deploy-target-db.sh
 ./deploy-target-db.sh --resourceGroupName <your_resource_group_name> --location westus --administratorLogin mflixadmin --administratorPassword <password>
 ```
 
@@ -47,7 +45,7 @@ The deployment will take some time. While this is deploying, use the DocumentDB 
 
 - Whether you chose MongoDB running in ACI or Mongo DB Atlas, the MongoDB connection string information is in your .env
 
-Once you've connected, explore the collections within the database. You should see:
+Once you've connected, explore the collections within the `sample_mflix` database. You should see:
 - `comments`
 - `embedded_movies`
 - `movies`
