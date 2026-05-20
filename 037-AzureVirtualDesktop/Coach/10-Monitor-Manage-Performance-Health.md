@@ -18,7 +18,7 @@ Students should be able to demonstrate a number of key elements to be successful
     - Recommended Windows Event Logs from their Windows Virtual Desktop session hosts 
     - [Configuration of Workbook requirements](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor#set-up-using-the-configuration-workbook)
 - Students should configure the Azure Monitor Agent and enable all required counters [Azure Monitor for AVD documentation](https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor). 
-- Data typically flows within a few minutes of enabling the agent and counters however only new data will be received so testing should occur after confirmation that some data is being recieved by Log Analytics.
+- Data typically flows within a few minutes of enabling the agent and counters however only new data will be received so testing should occur after confirmation that some data is being received by Log Analytics.
 - Enabling alerts is an optional feature and not required for the purpose of this challenge however in operational environments it is recommend after baselines of the environment are performed. We don't offer fixed guidance on what alerts should be enabled today however the below links offer some suggestions and guidance on what customers may consider in a real environment.
 
 **Sample Queries**
