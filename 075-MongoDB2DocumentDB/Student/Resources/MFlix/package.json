@@ -50,7 +50,7 @@
     "express": "^4.16.3",
     "jest-runner": "^30.4.2",
     "jsonwebtoken": "^9.0.2",
-    "mocha": "^11.3.0",
+    "mocha": "^11.7.5",
     "mongodb": "^4.17.2",
     "morgan": "^1.9.1",
     "npm-check-updates": "^19.6.6",
