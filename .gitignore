@@ -337,3 +337,4 @@ ASALocalRun/
 .DS_Store
 
 .env
+.venv/
