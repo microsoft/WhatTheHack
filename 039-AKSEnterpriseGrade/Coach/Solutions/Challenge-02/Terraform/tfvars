@@ -1,4 +1,4 @@
-agents_size = "standard_dc2s_v2"
+agents_size = "Standard_D2d_v5"
 rbac_aad_admin_group_object_ids  = [""]
 resource_group_name = ""
 identity_type = "SystemAssigned"
