@@ -1,0 +1,30 @@
+# syntax=docker/dockerfile:1.3-labs 
+FROM alpine:latest
+
+RUN apk add bind-tools
+
+# create input file for the nsupdate command, using placeholders for the values that will be passed in as environment variables
+COPY <<EOF /home/nsupdate.temp
+server <<nameserver>>
+zone <<zonename>>
+update delete <<zonename>> A
+update add <<zonename>> 60 A <<appgwpublicip>>
+key <<keyalg>>:<<keyname>> <<keyvalue>>
+send
+EOF
+
+# create the script that will replace the placeholders with the values passed in as environment variables, then call nsupdate
+COPY <<'EOF' /home/updateDNS.sh
+#!/bin/sh
+sed -i /home/nsupdate.temp -e "s~<<zonename>>~$ZONENAME~g"
+sed -i /home/nsupdate.temp -e "s~<<keyname>>~$KEYNAME~g"
+sed -i /home/nsupdate.temp -e "s~<<appgwpublicip>>~$APPGWPUBLICIP~g"
+sed -i /home/nsupdate.temp -e "s~<<keyvalue>>~$KEYVALUE~g"
+sed -i /home/nsupdate.temp -e "s~<<keyalg>>~$KEYALGORITHM~g"
+sed -i /home/nsupdate.temp -e "s~<<nameserver>>~$NAMESERVER~g"
+nsupdate /home/nsupdate.temp
+EOF
+
+RUN chmod 700 /home/updateDNS.sh
+
+CMD ["/bin/sh", "/home/updateDNS.sh"]
