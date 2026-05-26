@@ -1,99 +1,129 @@
-# Challenge 03 - <Title of Challenge>
+# Challenge 03 - Connect Your Agents to Tools
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+## Pre-requisites
 
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+- Complete [Challenge 02](./Challenge-02.md) — you should have `NewsAgent` deployed programmatically and accessible in your Foundry project.
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+An agent without tools is just a chatbot with good instructions. Tools are what turn your agents into *doers* — they give agents the ability to retrieve real data, execute code, search through files, and call external functions. Without tools, your agents can only respond based on their training data and whatever fits in the conversation context. With tools, they can look things up, crunch numbers, and ground their answers in actual organizational knowledge.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+Microsoft Foundry supports several categories of tools that you can attach to agents:
 
-*For example:*
+- **File Search**: Lets your agent search through uploaded files (PDFs, Word docs, spreadsheets) using a vector store. The agent can retrieve relevant passages and ground its responses in your actual data.
+- **Code Interpreter**: Gives your agent a sandboxed Python execution environment. The agent can write and run code to perform calculations, generate charts, transform data, and analyze files you upload.
+- **Function Calling**: Lets you define custom functions (with schemas) that the agent can invoke. When the agent decides it needs data from an external source or needs to perform an action, it generates a structured function call that your application code fulfills.
+- **Azure AI Search**: Connects your agent to an Azure AI Search index for retrieval-augmented generation (RAG). This is the production-grade approach to grounding agents with large-scale organizational data.
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+In this challenge, you will connect tools to both portal-created and code-first agents in your travel planning scenario. By the end, your agents will be able to answer questions backed by real data — hotel information, flight options, and news sources — rather than making things up.
+
+**Why this matters for production:** In production applications, agents must be grounded in verifiable data. A travel agent that hallucinates hotel names or makes up flight prices is worse than useless. Tool connections are how you bridge the gap between a helpful conversational interface and accurate, data-driven responses.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+In this challenge you will equip your agents with tools that give them access to your travel planning data. You will work with two agents: the portal-based `TravelAgent` (Agent 3 — hotel and activity knowledge) and the code-based `NewsAgent` (Agent 2 — news and event knowledge).
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+You can find the hotel and flight data files in the `/Challenge-03` folder of the Resources.zip file provided by your coach. These include an Excel spreadsheet with hotel information (2 hotels with pricing, amenities, neighborhoods, and ratings) and a CSV with flight options.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+### Part 1: Ground the TravelAgent with File Search (Portal)
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+Your `TravelAgent` from Challenge 01 needs access to real hotel and flight data so it can make grounded recommendations instead of hallucinating.
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+Using the Foundry portal:
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+- Navigate to your `TravelAgent` and open its tool configuration
+- Enable the **File Search** tool
+- Upload the hotel spreadsheet and flight options file to a vector store associated with the agent
+- Update the agent's system instructions to reflect that it now has access to real hotel and flight data, and should always reference this data when making recommendations
+- Test the agent in the playground with queries that require data lookup:
+  - *"What hotels do you have available and what are their price ranges?"*
+  - *"Which hotel is better for someone who wants to be near restaurants?"*
+  - *"What flight options are there for next Friday?"*
+- Verify the agent cites specific data from your files rather than generating generic responses
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+### Part 2: Add Code Interpreter to the TravelAgent (Portal)
 
-*Sample challenge text for the IoT Hack Of The Century:*
+Your `TravelAgent` should also be able to perform calculations and comparisons for users planning a trip on a budget.
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+- Enable the **Code Interpreter** tool on your `TravelAgent`
+- Test it with queries that require computation:
+  - *"Compare the total cost of a 3-night stay at each hotel including the cheapest flight option."*
+  - *"If my budget is $2000 for hotel and flights, what combinations work?"*
+- Verify the agent writes and executes code to perform the calculation rather than estimating
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+### Part 3: Connect the NewsAgent to Tools via Code (SDK)
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+Your `NewsAgent` from Challenge 02 currently has no access to external data. In this part, you will update your Python script to create a new version of the agent with **function calling** configured, allowing it to call an external news source.
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+Create or modify your Python script to:
+
+- Define a function tool schema for a `get_news_articles` function that accepts parameters:
+  - `topic` (string) — the news topic to search for
+  - `region` (string, optional) — geographic region to filter by
+  - `max_results` (integer, optional) — number of articles to return
+- Create a new agent (or update the existing `NewsAgent`) with the function tool attached
+- Implement the function calling loop:
+  - Send a user message to the agent (e.g., *"What are the latest travel advisories for Europe?"*)
+  - When the agent responds with a function call (status `requires_action`), extract the function name and arguments
+  - Provide a simulated function response with sample news data (you can hardcode 2-3 sample news articles as the return value for now)
+  - Submit the tool output back to the agent and let it generate its final response incorporating the news data
+- Print the agent's grounded response to the console
+
+### Part 4: Connect the NewsAgent to Azure AI Search (Code)
+
+For production-grade knowledge retrieval, connect your `NewsAgent` to the Azure AI Search index that was provisioned in Challenge 00.
+
+- Upload a small set of sample news/event documents to your Azure AI Search index (you can find sample documents in the Resources.zip)
+- Update your Python script to create an agent with an **Azure AI Search** tool connection
+- Configure the search tool with your AI Search resource endpoint and index name
+- Test the agent with queries that should trigger search retrieval:
+  - *"Are there any upcoming music festivals in Barcelona?"*
+  - *"What events are happening in Tokyo this month?"*
+- Verify the agent's response references information from your search index
+
+### Key Concepts
+
+- **Vector Store**: A searchable collection of document embeddings. When you upload files to File Search, Foundry chunks the documents, generates embeddings, and stores them so the agent can perform semantic search.
+- **Function Calling**: A structured way for agents to request external data. The agent doesn't call the function directly — it generates a JSON object describing what function it wants to call and with what arguments. Your application code handles the actual execution.
+- **Tool Output Submission**: After your code executes the function the agent requested, you submit the result back to the agent so it can incorporate the data into its response.
+- **Grounding**: The practice of connecting agent responses to verifiable source data rather than relying solely on the model's training knowledge. Grounding reduces hallucination.
+- **RAG (Retrieval-Augmented Generation)**: A pattern where the agent retrieves relevant documents from a knowledge base before generating a response, ensuring answers are based on current, domain-specific data.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+- Demonstrate that your `TravelAgent` in the portal has File Search enabled and can answer questions about specific hotels and flights from your uploaded data
+- Verify that the `TravelAgent` uses Code Interpreter to perform calculations when asked budget or comparison questions
+- Show a Python script that creates an agent with a function calling tool definition (`get_news_articles`)
+- Demonstrate the full function calling loop: agent requests a function call → your code provides the response → agent generates a grounded answer
+- Show the `NewsAgent` connected to Azure AI Search and returning responses that reference data from your search index
+- Demonstrate that your agents cite specific data from their tools rather than generating hallucinated responses
+- Explain to your coach the difference between File Search, Code Interpreter, Function Calling, and Azure AI Search — and when you would use each in a production application
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [Azure AI Agent Service: File Search tool](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search)
+- [Azure AI Agent Service: Code Interpreter tool](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter)
+- [Azure AI Agent Service: Function Calling](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling)
+- [Azure AI Agent Service: Azure AI Search integration](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/azure-ai-search)
+- [Grounding and RAG concepts](https://learn.microsoft.com/azure/ai-services/openai/concepts/retrieval-augmented-generation)
+- [Function calling with the Agent SDK](https://learn.microsoft.com/azure/ai-services/agents/concepts/tools)
+- [Vector stores and file management](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python#vector-stores)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+- When writing function tool schemas, be very precise with your parameter descriptions — the model uses these descriptions to decide when and how to call the function. Vague descriptions lead to incorrect function calls.
+- For File Search, smaller and well-structured documents work better than large monolithic files. If your hotel data is messy, consider cleaning it up before uploading.
+- The function calling loop requires your code to handle the `requires_action` run status. If you skip this step, the agent will appear to hang waiting for tool output.
+- When testing grounding, ask the agent questions you *know* the answer to from your data. If the agent gives an answer that doesn't match your files, it may be hallucinating rather than using the tool.
+- **Stuck on function calling?** Look at the portal code snippets for agents with tools enabled — they show the exact SDK patterns for defining tool schemas and handling the function calling loop.
 
 ## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+Too comfortable? Eager to do more? Try these additional challenges!
 
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Add a **Bing Grounding** tool to your `TravelAgent` so it can supplement file-based knowledge with live web search results for destination information
+- Implement multiple function tools on a single agent (e.g., `get_news_articles` AND `get_weather_forecast`) and observe how the agent decides which tool to call based on the user's query
