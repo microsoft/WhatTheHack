@@ -1,99 +1,75 @@
-# Challenge 04 - <Title of Challenge>
+# Challenge 04 - Deploy a Hosted Weather Agent
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+## Pre-requisites
 
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+- Complete Challenge 03 -- you should be comfortable creating agents with the SDK and connecting tools.
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+In the previous challenges you built prompt-based agents: you defined a system prompt, connected tools, and let the Foundry platform run everything. The platform chose how to host the agent, manage conversations, and call your tools. That works well for many scenarios, but it means you are limited to what the platform supports out of the box.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+Hosted agents are different. A hosted agent is a containerized application -- your code, your framework, your logic -- that runs on Foundry-managed infrastructure. You write a Python application that handles requests, calls models, and returns responses. You package it in a Docker container and deploy it. Foundry provisions the compute, assigns a dedicated Microsoft Entra ID identity, handles scaling, and gives you a persistent endpoint. But the code inside the container is entirely yours.
 
-*For example:*
+This matters because real teams build agents with different frameworks. One team might use LangGraph, another Semantic Kernel, a third might have a custom orchestrator. Hosted agents let you deploy all of them to the same platform with the same management, observability, and security model -- regardless of how the agent was built internally.
 
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+In this challenge, you will build a Weather Agent using the Agent Framework SDK with a custom tool function. You will define the tool, write instructions, assemble the code into a container, build the image on Azure Container Registry, deploy to Foundry via the Python SDK, and invoke the running agent.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+Build and deploy a hosted weather agent on Foundry Agent Service. You will complete the tasks in the following Jupyter notebook: `CH-04-HostedAgents.ipynb`
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+The notebook can be found in the `/Resources` folder of the `Resources.zip` file provided by your coach.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+The `Resources.zip` also includes a `weather-agent/` folder with pre-built container files (Dockerfile, requirements.txt, .dockerignore). You do not need to write these from scratch.
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+By the end of this challenge, you should have:
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+- A weather tool function with typed parameters that the agent can call
+- Agent instructions that define the persona and tool-calling behavior
+- A complete `main.py` assembled from your code components
+- A container image built on Azure Container Registry
+- A deployed hosted agent with Active status on Foundry Agent Service
+- A successful invocation of the deployed agent that returns weather data
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
-
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
-
-*Sample challenge text for the IoT Hack Of The Century:*
-
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
-
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
-
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
-
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+**NOTE:** Your weather tool can return simulated data. This challenge is about the hosting and deployment pattern, not integrating a real weather API.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+- Verify that your weather tool function accepts a typed location parameter and returns weather data
+- Demonstrate agent instructions that define a weather assistant persona
+- Verify that `main.py` was assembled correctly and exists in the `weather-agent/` directory
+- Verify the container image was built successfully on Azure Container Registry
+- Demonstrate a deployed agent with **Active** status in the Foundry portal
+- Verify you can invoke the deployed agent and receive a weather response that includes tool-calling behavior
+- Explain to your coach the difference between a prompt-based agent and a hosted agent
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [What are Hosted Agents in Foundry Agent Service?](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/hosted-agents)
+- [Quickstart: Create and Deploy a Hosted Agent](https://learn.microsoft.com/en-us/azure/foundry/agents/quickstarts/quickstart-hosted-agent)
+- [Deploy a Hosted Agent (Python SDK / REST)](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/deploy-hosted-agent)
+- [Agent Framework GitHub Repository](https://github.com/microsoft/agent-framework)
+- [Foundry Samples -- Hosted Agents (Python)](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents)
+- [Hosted Agent with Tools Sample](https://github.com/microsoft-foundry/foundry-samples/tree/main/samples/python/hosted-agents/agent-framework/responses/02-tools)
+- [DefaultAzureCredential documentation](https://learn.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential)
+- [Azure AI Projects SDK reference](https://learn.microsoft.com/en-us/python/api/overview/azure/ai-projects-readme)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+- Your weather tool can return simulated/hardcoded data -- the learning objective is the deployment pattern.
+- `FOUNDRY_PROJECT_ENDPOINT` is injected automatically by the platform at runtime. You only need it locally in your `.env` for development.
+- If `az acr build` produces encoding errors on Windows, use the `--no-logs` flag.
+- If deployment fails with permission errors, check that you have the **Foundry Project Manager** role at project scope.
+- The notebook includes an idempotency guard -- if an active version already exists, it skips creation.
 
 ## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+Too comfortable? Eager to do more? Try these additional challenges!
 
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Build the same Weather Agent using a different framework (LangGraph, Semantic Kernel, or custom code) and deploy it as a hosted agent
+- Add a `get_forecast` tool that returns a 5-day forecast and observe how the agent decides which tool to call
+- Deploy the agent using the Python SDK programmatically instead of the notebook workflow -- the pattern you would use in a CI/CD pipeline
