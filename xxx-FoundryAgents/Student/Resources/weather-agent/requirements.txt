@@ -1,0 +1,5 @@
+agent-framework>=1.2.2
+agent-framework-foundry-hosting
+azure-identity
+python-dotenv
+pydantic
