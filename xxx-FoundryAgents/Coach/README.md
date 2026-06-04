@@ -18,8 +18,8 @@ This hack includes an optional [lecture presentation](Lectures.pptx) that featur
 	 - Description of challenge
 - Challenge 03: **[Title of Challenge](./Solution-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](./Solution-04.md)**
-	 - Description of challenge
+- Challenge 04: **[Deploy a Hosted Weather Agent](./Solution-04.md)**
+	 - Build a weather agent with a custom tool, containerize it, deploy to Foundry, and invoke it
 - Challenge 05: **[Title of Challenge](./Solution-05.md)**
 	 - Description of challenge
 - Challenge 06: **[Title of Challenge](./Solution-06.md)**
