@@ -22,8 +22,8 @@ In this hack you will be solving the common business problem that companies in t
 	 - Create and interact with a news briefing agent programmatically using the Agent Framework SDK and Python.
 - Challenge 03: **[Title of Challenge](Student/Challenge-03.md)**
 	 - Description of challenge
-- Challenge 04: **[Title of Challenge](Student/Challenge-04.md)**
-	 - Description of challenge
+- Challenge 04: **[Deploy a Hosted Weather Agent](Student/Challenge-04.md)**
+	 - Build a weather agent with a custom tool, containerize it, deploy to Foundry, and invoke it
 - Challenge 05: **[Title of Challenge](Student/Challenge-05.md)**
 	 - Description of challenge
 - Challenge 06: **[Title of Challenge](Student/Challenge-06.md)**
