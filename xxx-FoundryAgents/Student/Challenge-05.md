@@ -1,99 +1,105 @@
-# Challenge 05 - <Title of Challenge>
+# Challenge 05 - Implement End-to-End Observability for Foundry Agents
 
 [< Previous Challenge](./Challenge-04.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-06.md)
 
-***This is a template for a single challenge. The italicized text provides hints & examples of what should or should NOT go in each section.  You should remove all italicized & sample text and replace with your content.***
+## Pre-requisites
 
-## Pre-requisites (Optional)
-
-*Your hack's "Challenge 0" should cover pre-requisites for the entire hack, and thus this section is optional and may be omitted.  If you wish to spell out specific previous challenges that must be completed before starting this challenge, you may do so here.*
+- Complete [Challenge 03](./Challenge-03.md) and [Challenge 04](./Challenge-04.md) so you already have agents deployed that you can observe.
+- Ensure your Foundry project is connected to Application Insights.
+- Ensure you can authenticate with Azure CLI from your development environment.
+- Have at least one existing agent ID available from previous challenges (for example: `TravelAgent`, `NewsAgent`, or your hosted weather agent).
 
 ## Introduction
 
-*This section should provide an overview of the technologies or tasks that will be needed to complete the this challenge.  This includes the technical context for the challenge, as well as any new "lessons" the attendees should learn before completing the challenge.*
+Building an AI agent is only the first step. In production, teams need to answer harder questions: Why did the agent respond this way? Where is latency coming from? How many tokens are being consumed? Is response quality improving or degrading over time? Observability is how you answer those questions with data.
 
-*Optionally, the coach or event host is encouraged to present a mini-lesson (with a PPT or video) to set up the context & introduction to each challenge. A summary of the content of that mini-lesson is a good candidate for this Introduction section*
+In this challenge, you will implement observability end to end in your Challenge 05 notebook, following the same lifecycle demonstrated in the `azure-ai-foundry-observability-demo` repository: tracing, monitoring, continuous evaluation, and batch evaluation. You will instrument interactions on agents you already created in earlier challenges, inspect telemetry in Foundry and Azure Monitor, and evaluate quality with built-in evaluators.
 
-*For example:*
-
-When setting up an IoT device, it is important to understand how 'thingamajigs' work. Thingamajigs are a key part of every IoT device and ensure they are able to communicate properly with edge servers. Thingamajigs require IP addresses to be assigned to them by a server and thus must have unique MAC addresses. In this challenge, you will get hands on with a thingamajig and learn how one is configured.
+By the end of this challenge, you will move from basic agent development to operational readiness, where behavior, safety, quality, and performance can be measured and improved continuously.
 
 ## Description
 
-*This section should clearly state the goals of the challenge and any high-level instructions you want the students to follow. You may provide a list of specifications required to meet the goals. If this is more than 2-3 paragraphs, it is likely you are not doing it right.*
+In this challenge, you will implement observability capabilities yourself in the Challenge 05 notebook provided by your coach.
 
-***NOTE:** Do NOT use ordered lists as that is an indicator of 'step-by-step' instructions. Instead, use bullet lists to list out goals and/or specifications.*
+Important: You should apply this work to an existing agent from prior challenges. Do not create a brand new Challenge 05-only agent unless your coach explicitly asks you to.
 
-***NOTE:** You may use Markdown sub-headers to organize key sections of your challenge description.*
+Use the notebook to complete the following implementation goals:
 
-*Optionally, you may provide resource files such as a sample application, code snippets, or templates as learning aids for the students. These files are stored in the hack's `Student/Resources` folder. It is the coach's responsibility to package these resources into a Resources.zip file and provide it to the students at the start of the hack.*
+### Environment and Readiness
 
-***NOTE:** Do NOT provide direct links to files or folders in the What The Hack repository from the student guide. Instead, you should refer to the Resource.zip file provided by the coach.*
+- Validate that required environment variables, project endpoint configuration, authentication, and model deployment are available.
+- Validate that you can reference at least one previously deployed agent ID from earlier challenges.
+- Confirm your Foundry project and Application Insights connection are ready to receive and display traces.
 
-***NOTE:** As an exception, you may provide a GitHub 'raw' link to an individual file such as a PDF or Office document, so long as it does not open the contents of the file in the What The Hack repo on the GitHub website.*
+### Client-Side Tracing and Traceability
 
-***NOTE:** Any direct links to the What The Hack repo will be flagged for review during the review process by the WTH V-Team, including exception cases.*
+- Add OpenTelemetry instrumentation to your agent client workflow.
+- Execute traceable interactions against your previously created agent.
+- Execute at least one real SDK run against that existing agent and capture the `thread_id` and `run_id` for evidence.
+- Enable trace propagation so related spans across client and service calls can be correlated.
+- Capture key telemetry, including run-level latency and token usage.
+- Record prompts, responses, and tool arguments in traces for learning purposes, and explain the privacy implications.
 
-*Sample challenge text for the IoT Hack Of The Century:*
+### Monitoring and Operational Visibility
 
-In this challenge, you will properly configure the thingamajig for your IoT device so that it can communicate with the mother ship.
+- Inspect agent telemetry in Foundry monitoring views.
+- Analyze key health indicators such as success rate, latency patterns, and usage trends.
+- Cross-check telemetry in Application Insights to understand how trace data flows into Azure Monitor.
 
-You can find a sample `thingamajig.config` file in the `/ChallengeXX` folder of the Resources.zip file provided by your coach. This is a good starting reference, but you will need to discover how to set exact settings.
+### Continuous Evaluation
 
-Please configure the thingamajig with the following specifications:
-- Use dynamic IP addresses
-- Only trust the following whitelisted servers: "mothership", "IoTQueenBee" 
-- Deny access to "IoTProxyShip"
+- Configure a continuous evaluation rule for your agent.
+- Generate test traffic so evaluations execute automatically against live responses.
+- Review evaluation outcomes in monitoring charts and identify at least one improvement opportunity.
 
-You can view an architectural diagram of an IoT thingamajig here: [Thingamajig.PDF](/Student/Resources/Architecture.PDF?raw=true).
+### Batch Evaluation
+
+- Run a batch evaluation using a curated test dataset in your notebook.
+- Evaluate results with built-in evaluators such as task adherence, coherence, and safety-related checks.
+- Compare per-query outcomes and summarize quality patterns you observe.
+
+### Reflection
+
+- Summarize what the observability signals reveal about your agent's behavior.
+- Identify concrete next steps to improve quality, reliability, or cost efficiency.
 
 ## Success Criteria
 
-*Success criteria goes here. The success criteria should be a list of checks so a student knows they have completed the challenge successfully. These should be things that can be demonstrated to a coach.* 
-
-*The success criteria should not be a list of instructions.*
-
-*Success criteria should always start with language like: "Validate XXX..." or "Verify YYY..." or "Show ZZZ..." or "Demonstrate you understand VVV..."*
-
-*Sample success criteria for the IoT sample challenge:*
-
 To complete this challenge successfully, you should be able to:
-- Verify that the IoT device boots properly after its thingamajig is configured.
-- Verify that the thingamajig can connect to the mothership.
-- Demonstrate that the thingamajic will not connect to the IoTProxyShip
+
+- Demonstrate observability on at least one agent created in a previous challenge (not a new throwaway agent).
+- Show evidence of a real run against that existing agent, including captured `thread_id` and `run_id`.
+- Verify that traces are emitted from your notebook workflow and visible in Foundry trace views.
+- Demonstrate traceability by showing correlated spans for a multi-turn interaction.
+- Verify monitoring views display token usage, latency, and success signals for your agent.
+- Demonstrate continuous evaluation is configured and produces results on generated traffic.
+- Verify batch evaluation runs successfully against a dataset and returns evaluator-level results.
+- Show at least one actionable insight derived from your telemetry and evaluation outputs.
+- Explain to your coach how tracing, monitoring, continuous evaluation, and batch evaluation complement each other in production operations.
 
 ## Learning Resources
 
-_List of relevant links and online articles that should give the attendees the knowledge needed to complete the challenge._
-
-*Think of this list as giving the students a head start on some easy Internet searches. However, try not to include documentation links that are the literal step-by-step answer of the challenge's scenario.*
-
-***Note:** Use descriptive text for each link instead of just URLs.*
-
-*Sample IoT resource links:*
-
-- [What is a Thingamajig?](https://www.bing.com/search?q=what+is+a+thingamajig)
-- [10 Tips for Never Forgetting Your Thingamajic](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [IoT & Thingamajigs: Together Forever](https://www.youtube.com/watch?v=yPYZpwSpKmA)
+- [Azure AI Foundry Observability Demo Repository](https://github.com/darkanita/azure-ai-foundry-observability-demo/tree/master)
+- [Set up tracing in Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/how-to/develop/trace-local-sdk)
+- [Add client-side tracing for Foundry agents](https://learn.microsoft.com/azure/ai-studio/how-to/develop/trace-production-sdk)
+- [Configure tracing for AI agent frameworks](https://learn.microsoft.com/azure/ai-studio/how-to/develop/trace-agent-framework)
+- [Monitor agents with the Agent Monitoring Dashboard](https://learn.microsoft.com/azure/ai-studio/how-to/develop/monitor-agents-dashboard)
+- [Evaluate your AI agents](https://learn.microsoft.com/azure/ai-studio/how-to/develop/evaluate-agent)
+- [Application Insights and Azure Monitor overview](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
 ## Tips
 
-*This section is optional and may be omitted.*
-
-*Add tips and hints here to give students food for thought. Sample IoT tips:*
-
-- IoTDevices can fail from a broken heart if they are not together with their thingamajig. Your device will display a broken heart emoji on its screen if this happens.
-- An IoTDevice can have one or more thingamajigs attached which allow them to connect to multiple networks.
+- If traces do not appear immediately, wait a few minutes and verify your Application Insights connection and project permissions.
+- Use synthetic prompts and test data only. Do not place secrets or sensitive user data in prompts, tool arguments, or trace metadata.
+- Content recording is useful for learning and debugging but may not be appropriate for production workloads with strict compliance requirements.
+- Keep your test dataset small and explicit at first so evaluator outcomes are easy to inspect and discuss.
+- When reviewing failures, focus on patterns across multiple runs instead of single outlier responses.
 
 ## Advanced Challenges (Optional)
 
-*If you want, you may provide additional goals to this challenge for folks who are eager.*
+Too comfortable? Eager to do more? Try these additional challenges!
 
-*This section is optional and may be omitted.*
-
-*Sample IoT advanced challenges:*
-
-Too comfortable?  Eager to do more?  Try these additional challenges!
-
-- Observe what happens if your IoTDevice is separated from its thingamajig.
-- Configure your IoTDevice to connect to BOTH the mothership and IoTQueenBee at the same time.
+- Build a custom dashboard or workbook in Azure Monitor that highlights your top operational KPIs.
+- Add alerts for latency or failure-rate anomalies and define an incident response workflow.
+- Extend batch evaluation with additional test cases for adversarial prompts and edge-case behavior.
+- Compare two prompt or tool configurations using the same batch dataset to measure quality deltas.
