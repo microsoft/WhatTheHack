@@ -6,14 +6,13 @@
 // 2. Uncomment and update "workspaceFolder" and "workspaceMount" with your hack's folder name
 // 3. Add any additional features or extensions specific to your hackathon
 //
-// The following two properties should be uncommented and customized per hack:
-//   "workspaceFolder": "/workspace/XXX-HackathonName/Student/Resources",
-//   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-//
 {
   // Update "name" with your hack's number and name (e.g., "042-SAPOnAzure")
   "name": "xxx-HackName",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  // Uncomment and update the following two properties with your hack's folder name:
+  // "workspaceFolder": "/workspace/XXX-HackathonName/Student/Resources",
+  // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
     "cpus": 2
   },
