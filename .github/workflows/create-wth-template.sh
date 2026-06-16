@@ -66,9 +66,6 @@ CreateCodespaceConfig() {
   # Create the Student/Resources/.devcontainer directory
   mkdir -p "$rootPath/Student/Resources/.devcontainer"
 
-  # Remove the .gitkeep since the directory is no longer empty
-  rm -f "$rootPath/Student/Resources/.gitkeep"
-
   # Create Student/Resources copy: update "name" only, leave workspace lines commented
   sed -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
     "$templateFile" > "$rootPath/Student/Resources/.devcontainer/devcontainer.json"
