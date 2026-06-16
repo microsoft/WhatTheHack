@@ -1,0 +1,43 @@
+// This is a template devcontainer.json for What The Hack hackathons.
+// It provides a baseline configuration for GitHub Codespaces and VS Code Dev Containers.
+//
+// Instructions for hackathon authors:
+// 1. Copy this file to your hack's .devcontainer folder as devcontainer.json
+// 2. Uncomment and update "workspaceFolder" and "workspaceMount" with your hack's folder name
+// 3. Add any additional features or extensions specific to your hackathon
+//
+{
+  // Update "name" with your hack's number and name (e.g., "042-SAPOnAzure")
+  "name": "xxx-HackName",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  // Uncomment and update the following two properties with your hack's folder name:
+  // "workspaceFolder": "/workspace/XXX-HackathonName/Student/Resources",
+  // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/azure/azure-dev/azd:latest": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "kubectl": "latest",
+      "helm": "none",
+      "minikube": "none"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-bicep",
+        "ms-python.python",
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    },
+    // Add files here that should auto-open when a Codespace launches (e.g., "Student/Resources/README.md")
+    "codespaces": {
+      "openFiles": []
+    }
+  }
+}
