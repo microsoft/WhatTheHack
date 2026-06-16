@@ -11,8 +11,12 @@
 //   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
 //
 {
-  "name": "What The Hack - Hackathon Template",
+  // Update "name" with your hack's number and name (e.g., "042-SAPOnAzure")
+  "name": "xxx-HackName",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 2
+  },
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {},
     "ghcr.io/azure/azure-dev/azd:latest": {},
