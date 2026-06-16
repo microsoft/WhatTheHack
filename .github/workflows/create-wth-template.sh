@@ -13,7 +13,7 @@ Help() {
    echo "h     Print this Help."
    echo "n     Name of the new WhatTheHack. This must be a valid directory name"
    echo "p     Path to where to create new WhatTheHack directory."
-   echo "s     Include GitHub Codespace configuration."
+   echo "s     Include GitHub Codespaces configuration."
    echo "v     Verbose mode."
    echo
 }
