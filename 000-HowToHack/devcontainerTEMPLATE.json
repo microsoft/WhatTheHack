@@ -35,6 +35,10 @@
         "github.copilot",
         "github.copilot-chat"
       ]
+    },
+    // Add files here that should auto-open when a Codespace launches (e.g., "Student/Challenge-00.md")
+    "codespaces": {
+      "openFiles": []
     }
   }
 }
