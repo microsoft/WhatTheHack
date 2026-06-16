@@ -66,9 +66,16 @@ CreateCodespaceConfig() {
   # Create the Student/Resources/.devcontainer directory
   mkdir -p "$rootPath/Student/Resources/.devcontainer"
 
-  # Create Student/Resources copy: update "name" only, leave workspace lines commented
-  sed -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
-    "$templateFile" > "$rootPath/Student/Resources/.devcontainer/devcontainer.json"
+  # Prepare the brief comment header for Action-created copies
+  local -r briefComment="// Customize this devcontainer.json with features and extensions for your hackathon.\n// See: https://containers.dev/implementors/json_reference/\n"
+
+  # Create Student/Resources copy: strip template instructions, update "name", leave workspace lines commented
+  sed -e '/TEMPLATE_INSTRUCTIONS_START/,/TEMPLATE_INSTRUCTIONS_END/d' \
+    -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
+    "$templateFile" | sed "1i\\
+// Customize this devcontainer.json with features and extensions for your hackathon.\\
+// See: https://containers.dev/implementors/json_reference/" \
+    > "$rootPath/Student/Resources/.devcontainer/devcontainer.json"
 
   if $verbosityArg; then
     echo "Created $rootPath/Student/Resources/.devcontainer/devcontainer.json"
@@ -77,11 +84,15 @@ CreateCodespaceConfig() {
   # Create root-level .devcontainer/xxx-HackName directory
   mkdir -p "$pathArg/.devcontainer/$wthDirectoryName"
 
-  # Create root-level copy: update "name", uncomment and populate workspaceFolder/workspaceMount
-  sed -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
+  # Create root-level copy: strip template instructions, update "name", uncomment and populate workspace settings
+  sed -e '/TEMPLATE_INSTRUCTIONS_START/,/TEMPLATE_INSTRUCTIONS_END/d' \
+    -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
     -e "s|// \"workspaceFolder\": \"/workspace/XXX-HackathonName/Student/Resources\"|\"workspaceFolder\": \"/workspace/$wthDirectoryName/Student/Resources\"|" \
     -e "s|// \"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|\"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|" \
-    "$templateFile" > "$pathArg/.devcontainer/$wthDirectoryName/devcontainer.json"
+    "$templateFile" | sed "1i\\
+// Customize this devcontainer.json with features and extensions for your hackathon.\\
+// See: https://containers.dev/implementors/json_reference/" \
+    > "$pathArg/.devcontainer/$wthDirectoryName/devcontainer.json"
 
   if $verbosityArg; then
     echo "Created $pathArg/.devcontainer/$wthDirectoryName/devcontainer.json"
