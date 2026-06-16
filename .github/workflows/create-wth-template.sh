@@ -6,13 +6,14 @@ IFS=$'\n\t'
 declare -r templateDirectoryName="000-HowToHack"
 
 Help() {
-   echo "Syntax: createWthTemplate [-c|d|h|n|p|v]"
+   echo "Syntax: createWthTemplate [-c|d|h|n|p|s|v]"
    echo "options:"
    echo "c     How many challenges to stub out."
    echo "d     Delete existing directory with same name."
    echo "h     Print this Help."
    echo "n     Name of the new WhatTheHack. This must be a valid directory name"
    echo "p     Path to where to create new WhatTheHack directory."
+   echo "s     Include GitHub Codespace configuration."
    echo "v     Verbose mode."
    echo
 }
@@ -53,6 +54,41 @@ CreateDirectoryStructure() {
   
   #add a file to allow git to store an "empty" directory
   touch $rootPath/Student/Resources/.gitkeep
+}
+
+CreateCodespaceConfig() {
+  local -r templateFile="$pathToTemplateDirectory/devcontainerTEMPLATE.json"
+
+  if $verbosityArg; then
+    echo "Creating Codespace configuration for $wthDirectoryName..."
+  fi
+
+  # Create the Student/Resources/.devcontainer directory
+  mkdir -p "$rootPath/Student/Resources/.devcontainer"
+
+  # Remove the .gitkeep since the directory is no longer empty
+  rm -f "$rootPath/Student/Resources/.gitkeep"
+
+  # Create Student/Resources copy: update "name" only, leave workspace lines commented
+  sed -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
+    "$templateFile" > "$rootPath/Student/Resources/.devcontainer/devcontainer.json"
+
+  if $verbosityArg; then
+    echo "Created $rootPath/Student/Resources/.devcontainer/devcontainer.json"
+  fi
+
+  # Create root-level .devcontainer/xxx-HackName directory
+  mkdir -p "$pathArg/.devcontainer/$wthDirectoryName"
+
+  # Create root-level copy: update "name", uncomment and populate workspaceFolder/workspaceMount
+  sed -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
+    -e "s|// \"workspaceFolder\": \"/workspace/XXX-HackathonName/Student/Resources\"|\"workspaceFolder\": \"/workspace/$wthDirectoryName/Student/Resources\"|" \
+    -e "s|// \"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|\"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|" \
+    "$templateFile" > "$pathArg/.devcontainer/$wthDirectoryName/devcontainer.json"
+
+  if $verbosityArg; then
+    echo "Created $pathArg/.devcontainer/$wthDirectoryName/devcontainer.json"
+  fi
 }
 
 PreprocessTemplateFile() {
@@ -244,8 +280,9 @@ CreateChallengesAndSolutions() {
 # Main program
 declare verbosityArg=false
 declare deleteExistingDirectoryArg=false
+declare codespaceArg=false
 
-while getopts ":c:dhn:p:v" option; do
+while getopts ":c:dhn:p:sv" option; do
   case $option in
     c) numberOfChallengesArg=${OPTARG};;
     d) deleteExistingDirectoryArg=true;;
@@ -253,6 +290,7 @@ while getopts ":c:dhn:p:v" option; do
        exit;;
     n) nameOfHackArg=${OPTARG};;
     p) pathArg=${OPTARG};;
+    s) codespaceArg=true;;
     v) verbosityArg=true
   esac
 done
@@ -275,3 +313,7 @@ CreateDirectoryStructure $deleteExistingDirectoryArg
 CreateHackDescription $numberOfChallengesArg
 
 CreateChallengesAndSolutions $numberOfChallengesArg
+
+if $codespaceArg; then
+  CreateCodespaceConfig
+fi
