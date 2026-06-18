@@ -10,6 +10,17 @@ What The Hack is all about being "for the people, by the people". This repo was 
 
 This document provides the general guidelines for how to contribute to the What The Hack project.
 
+## Documentation Map
+
+Depending on your role, here are the key documents you should read:
+
+| I want to... | Read this |
+|---|---|
+| **Author a new hack** | This guide (contribution process) + [Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (content design) |
+| **Host/deliver a hack event** | [How To Host a What The Hack](./000-HowToHack/WTH-HowToHostAHack.md) |
+| **Review a Pull Request** | [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) |
+| **Report a bug or propose an improvement** | This guide ([Report a Bug](#report-a-bug-in-an-existing-hack) or [Propose an Improvement](#propose-new-hack-topic-or-improvement-to-existing-hack)) |
+
 ## How Can I Contribute?
 
 The best way to contribute is to engage the What The Hack team by [submitting an issue via GitHub](https://github.com/microsoft/WhatTheHack/issues/new/choose). 
@@ -129,6 +140,11 @@ The instructions below assume you have the [Git command line tool](https://git-s
     - Create a new branch in your fork with the name of your hack prefixed with "xxx-". For example: `xxx-MyAwesomeHack`
     - Create a new folder in the new branch with the same name as the branch: `xxx-MyAwesomeHack`
     - Create templated markdown files in the new folder for your hack as per the [WTH Author's Guide](https://aka.ms/wthauthor).
+    - Create two copies of the `devcontainer.json` file for GitHub Codespaces and local DevContainer support:
+      - `/.devcontainer/xxx-MyAwesomeHack/devcontainer.json` — for launching a Codespace from your fork during development
+      - `xxx-MyAwesomeHack/Student/Resources/.devcontainer/devcontainer.json` — for local DevContainer use by students
+    
+    See the [Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md#student-resources) for details on customizing and working with these files.
 1. When the GitHub Action has completed running, clone your new fork to your local machine.
     - Open a command prompt with access to the Git CLI and navigate to a folder location on your local workstation where you would like to clone it to.
     - **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, Google Drive, etc.
@@ -154,6 +170,10 @@ The instructions below assume you have the [Git command line tool](https://git-s
         - The Student guide's Challenge markdown files
         - `/Resources` 
             - The code and supporting files the students will need throughout the hack.
+            - `/.devcontainer`
+                - The `devcontainer.json` file for local DevContainer use.
+    
+    You will also find a root-level devcontainer entry at `/.devcontainer/xxx-MyAwesomeHack/devcontainer.json` for launching Codespaces from your fork during development.
 1. Re-read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.  The templates contain in-line instructions and sample text to help guide you. 
 
 **NOTE:** If you have any questions regarding how to use Git/GitHub (commits/push/pull/etc), the WTH V-Team will be happy to help you.

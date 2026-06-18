@@ -190,13 +190,38 @@ If the challenges are published in Markdown files, we recommend pinning the hack
 
 #### Student Resources
 
-Many hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) have provided resources (code snippets, templates, etc) needed for the hack in their `/HackName/Student/Resources` folder.
+Many hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) provide resources (code snippets, templates, scripts, sample applications, etc.) needed for the hack in their `/HackName/Student/Resources` folder.
 
-The lead coach should copy the contents of this folder from the repo and then upload them into the General Channel's Files tab. This will provide the files to the attendees in Microsoft Teams without them needing to visit the What The Hack repo on GitHub.
+There are multiple ways to provide these resources to attendees during a hack event. The method you choose depends on whether the hack supports GitHub Codespaces and the needs of your attendees.
 
-Some hacks have provided a link to download these resources from the What The Hack repo within their Challenge instructions. If this is the case, you do not need to upload the resources into Microsoft Teams.
+##### Option 1: GitHub Codespaces (Recommended)
 
-You should also upload both the Event Kickoff presentation and any lecture presentations into Microsoft Teams too so that they are available to attendees during the event.
+For hacks that support GitHub Codespaces, students can access all of the resources they need through a pre-configured cloud-hosted development environment in their browser. This is the recommended approach because it provides a consistent environment for all students without requiring them to install any software on their local workstation.
+
+If the hack you are hosting supports Codespaces, the student guide's Challenge 0 will include instructions for students on how to launch their Codespace. As a coach, you do not need to distribute any resource files to the students.
+
+**NOTE:** Not all hacks support GitHub Codespaces yet. Check the hack's `/Student/Resources/.devcontainer` folder for a `devcontainer.json` file to confirm Codespaces support.
+
+##### Option 2: Local DevContainers
+
+If students prefer to work on their local workstation (or if Codespaces is not available), they can use the same DevContainer configuration to run the hack's environment locally. This requires students to have [Docker](https://www.docker.com/products/docker-desktop/) and [Visual Studio Code](https://code.visualstudio.com/) with the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed.
+
+To support this option, the lead coach should:
+1. Export the hack's `/Student/Resources` folder as a ZIP file using the **Student Resources export tool** described below.
+2. Distribute the ZIP file to attendees via the Files tab in the event's Microsoft Teams General channel.
+3. Instruct students to extract the ZIP file on their local machine and open the folder in VS Code, which will prompt them to reopen in the DevContainer.
+
+##### Option 3: Manual Distribution via Microsoft Teams
+
+For hacks that do not have a DevContainer configuration, or if students cannot use Codespaces or local DevContainers, the lead coach should distribute the resource files manually:
+
+1. Export the hack's `/Student/Resources` folder as a ZIP file using the **Student Resources export tool** described below.
+2. Upload the ZIP file (or its contents) to the Files tab of the General channel for the WTH event Teams site.
+3. Direct students to download the resource files from the Files tab in Microsoft Teams.
+
+This approach avoids directing students to the What The Hack repo during the event.
+
+You should also upload both the Event Kickoff presentation and any lecture presentations into Microsoft Teams so that they are available to attendees during the event.
 
 **Example of Student Resources**
 

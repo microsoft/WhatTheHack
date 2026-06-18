@@ -1,5 +1,7 @@
 # What The Hack - Author's Guide
 
+This guide focuses on **what** makes a great hack — content design, challenge structure, templates, and resources. For the step-by-step **process** of setting up your environment and contributing to the repo (forking, scaffolding, pull requests), see the [Contribution Guide](../CONTRIBUTING.md#contribute-a-new-hack-to-what-the-hack).
+
 Developing a new What The Hack is a great way to get your content out to the world. Chances are if you've done workshops or PoCs in the past, you already have the material on which to base a What The Hack.
 
 ## Why What The Hack?
@@ -23,6 +25,7 @@ When you design a WTH, these are the things you should consider:
 - [Presentation Lectures](#presentation-lectures) (optional)
 - [Coach's Guide](#coaches-guide)
 - [Coach Solutions](#coach-solutions)
+- [Hack Folder Structure](#hack-folder-structure)
 
 If you create things in this order, you will be able to flush out a new hack rapidly. 
 
@@ -125,35 +128,51 @@ Please copy this template into your hack's `../Student` folder, rename it to "Ch
 
 ## Student Resources
 
-It is common to provide attendees with resources in order to complete the hack's challenges.  One example is to provide the code for an application that the hack's challenges are based on. Another example might be to provide sample code files, artifacts, or templates that provide guidance for completing the hack's challenges.
+It is common to provide attendees with resources in order to complete the hack's challenges. One example is to provide the code for an application that the hack's challenges are based on. Another example might be to provide sample code files, artifacts, or templates that provide guidance for completing the hack's challenges.
 
 If your hack provides attendees with code or resources, they should be included with your hack's contents in the `../Student/Resources` folder.
 
-During a WTH event, it is recommended that you have attendees download any provided resources as a zip file instead of having them clone the entire WTH repo onto their computer.
+### GitHub Codespaces & DevContainers
 
-This has the benefit of not having to direct the attendees to the WTH repo during your hack. Remember, attendees can always find the WTH repo.  However, remind your attendees that they are cheating themselves out of an education if they go foraging around in the WTH repo for the answers.
+[GitHub Codespaces](https://docs.github.com/en/codespaces) provides a cloud-hosted development environment that students can access directly from their browser. A Codespace is powered by a [DevContainer](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers), which is a configuration file (`devcontainer.json`) that defines the tools, extensions, and settings for the development environment.
 
-### DownGit
+We strongly encourage all new hacks to support GitHub Codespaces. This provides students with a consistent, pre-configured environment that includes all the tools and resources they need to complete the hack without installing anything on their local workstation. Students who prefer to work locally can use the same DevContainer configuration to run the environment on their own machine.
 
-One recommended way to enable attendees to easily download hack resources is using DownGit. DownGit is a clever utility that lets you create a download link to any GitHub public directory or file. 
+#### How It Works
 
-You can view the DownGit project on GitHub here: <https://github.com/MinhasKamal/DownGit>
+Each hack that supports Codespaces has **two copies** of its `devcontainer.json` file in the repo:
 
-And you can use DownGit from its website here: <https://minhaskamal.github.io/DownGit/#/home>
+1. **`/.devcontainer/xxx-HackName/devcontainer.json`** (root-level copy)
+   - This is the copy you will work with and test during development.
+   - It contains `workspaceFolder` and `workspaceMount` settings that point to your hack's `/Student/Resources` folder within the repo.
+   - This allows you to quickly launch a Codespace from your fork of the WTH repo to test your hack's environment as you are authoring it.
 
-To enable attendees to download hack resources using DownGit:
-1. As mentioned above, publish your resources in the WTH repo under the `..Student/Resources` folder of your hack
-2. Create a DownGit link to the "Resources" folder (or whatever sub-folder you want your attendees to download)
-3. Use the DownGit link you created in your Challenge text to provide the link to the attendees.
+2. **`../Student/Resources/.devcontainer/devcontainer.json`** (hack-level copy)
+   - This copy is used when students run the DevContainer on their local workstation.
+   - The `workspaceFolder` and `workspaceMount` settings should remain commented out in this copy, as they are not needed for local use.
 
-### Pre-load Resources into Microsoft Teams
+The **"Create New Hack" GitHub Action** automatically creates both copies from the [DevContainer Template](devcontainerTEMPLATE.json) when you scaffold a new hack. The Action takes care of uncommenting the workspace settings in the root-level copy and leaving them commented out in the hack-level copy.
 
-Our recommended method of providing resource files to attendees is for the WTH event host to pre-load them into the Microsoft Teams team for the WTH event. 
+**IMPORTANT:** While authoring your hack, you must keep both copies of `devcontainer.json` in sync. When you make changes to customize your devcontainer (adding tools, extensions, etc.), update the root-level copy first (since that is the one you test with), and then copy those changes to the hack-level copy.
 
-To pre-load resources into the event team, the host should:
-1. Use DownGit to download the Zip file of resources from the WTH repo.
-2. Upload the zip file (or its contents) to the Files tab of the General channel for the WTH event Teams site.
-3. Direct users to download the resource files from Files tab in Microsot Teams.
+#### Customizing Your DevContainer
+
+The scaffolded `devcontainer.json` provides a baseline configuration. You should customize it for your hack's specific needs:
+
+- **`name`**: Update with your hack's number and name (e.g., `"042-SAPOnAzure"`)
+- **`features`**: Add or remove development tools your hack requires (e.g., Azure CLI, kubectl, Python, .NET, Terraform, etc.)
+- **`customizations.vscode.extensions`**: Add VS Code extensions that are useful for your hack (e.g., Bicep, Python, Docker, etc.)
+- **`customizations.codespaces.openFiles`**: List files that should automatically open when a student launches the Codespace (e.g., a README or getting-started guide in your Resources folder)
+
+#### Referencing Resource Files in Challenge Text
+
+When writing your challenge descriptions, refer to resource files using their path relative to the Codespace root. Since the Codespace opens to the `/Student/Resources` folder, reference files relative to that location.
+
+For example, given a file at `../Student/Resources/infra/deploy.sh` in the repo, your challenge text should refer to it as:
+
+> *"The `deploy.sh` file in the `/infra` folder of your Codespace"*
+
+Do **NOT** reference file paths relative to the WTH repo or assume students will unpack a zip file.
 
 ## Presentation Lectures
 
@@ -214,31 +233,10 @@ If your hack provides Coach Solutions with code, templates, etc, it is recommend
 
 **NOTE:** This content is not intended for hack attendees to see before or during a hack event. The content IS available publicly and thus an attendee can and WILL find it if they are determined enough. It is important to stress to the attendees that they should not cheat themselves out of an education by looking at the solutions.
 
-## Preparing Your Environment
+## Hack Folder Structure
 
-Okay, ready to get started creating your own What The Hack?
+The "Create New Hack" GitHub Action scaffolds the following folder structure for your hack. Here is what each folder will contain:
 
-First we create a fork of the main WTH repo and then clone it to disk and create a branch to work in. The instructions below assume you have the git command line on your machine. If you're more comfortable in a GUI git client, you can use that too (we recommend SourceTree).
-1. Create a fork of the WTH repo
-   - Navigate to the WTH git repo at: <https://aka.ms/wth>
-   - Click the Fork button at the top right of the page and then choose the account you want to create the fork in. 
-2. Clone your new fork to your local machine
-   - `git clone https://github.com/myname/WhatTheHack.git`
-   - `cd WhatTheHack`
-3. Create a new branch for your work. It is a best practice to never work directly on the master branch
-   - `git branch MyWork`
-   - `git checkout MyWork`
-4. Add a new top level folder to the WTH repo using the next available number in sequence
-   - `mkdir 067-IoTCentury`
-5. Within your new folder, create the following directory structure:
-	- `../Coach`
-		- `/Solutions`
-	- `../Student`
-		- `/Resources`
-
-
-### Files and Folders
-Now that you've created the directory structure above, here is what each of them will contain:
 - `../`
 	- Hack Description (README.md)
 - `../Coach`
@@ -249,3 +247,9 @@ Now that you've created the directory structure above, here is what each of them
 	- The Challenge markdown files
 	- `/Resources` 
 		- The code and supporting files the students will need throughout the hack.
+		- `/.devcontainer`
+			- The `devcontainer.json` file for local DevContainer use.
+
+There is also a root-level devcontainer entry for your hack at `/.devcontainer/xxx-HackName/` which is used for launching Codespaces from the WTH repo during development. See the [Student Resources](#student-resources) section for details.
+
+For instructions on how to get started with the "Create New Hack" GitHub Action, see the [Contribution Guide](../CONTRIBUTING.md#development-process).
