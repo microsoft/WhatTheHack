@@ -2,7 +2,7 @@
 // This is a template devcontainer.json for What The Hack hackathons.
 // It provides a baseline configuration for GitHub Codespaces and VS Code Dev Containers.
 //
-// Instructions for hackathon authors adding Codespace support to an existing hack:
+// Instructions for hackathon authors adding Codespaces support to an existing hack:
 // 1. Copy this file to the following two locations:
 //    a. Your hack's /Student/Resources/.devcontainer/ folder as devcontainer.json
 //    b. Under the root-level /.devcontainer/ folder, create a folder with the same

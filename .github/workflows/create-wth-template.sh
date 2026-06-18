@@ -60,7 +60,7 @@ CreateCodespaceConfig() {
   local -r templateFile="$pathToTemplateDirectory/devcontainerTEMPLATE.json"
 
   if $verbosityArg; then
-    echo "Creating Codespace configuration for $wthDirectoryName..."
+    echo "Creating Codespaces configuration for $wthDirectoryName..."
   fi
 
   # Create the Student/Resources/.devcontainer directory
@@ -71,7 +71,7 @@ CreateCodespaceConfig() {
 
   # Create Student/Resources copy: strip template instructions, update "name", leave workspace lines commented
   sed -e '/TEMPLATE_INSTRUCTIONS_START/,/TEMPLATE_INSTRUCTIONS_END/d' \
-    -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
+    -e "s/\"xxx-HackName\"/\"${wthDirectoryName//&/\\&}\"/" \
     "$templateFile" | sed "1i\\
 // Customize this devcontainer.json with features and extensions for your hackathon.\\
 // See: https://containers.dev/implementors/json_reference/" \
@@ -86,8 +86,8 @@ CreateCodespaceConfig() {
 
   # Create root-level copy: strip template instructions, update "name", uncomment and populate workspace settings
   sed -e '/TEMPLATE_INSTRUCTIONS_START/,/TEMPLATE_INSTRUCTIONS_END/d' \
-    -e "s/\"xxx-HackName\"/\"$wthDirectoryName\"/" \
-    -e "s|// \"workspaceFolder\": \"/workspace/XXX-HackathonName/Student/Resources\"|\"workspaceFolder\": \"/workspace/$wthDirectoryName/Student/Resources\"|" \
+    -e "s/\"xxx-HackName\"/\"${wthDirectoryName//&/\\&}\"/" \
+    -e "s|// \"workspaceFolder\": \"/workspace/XXX-HackathonName/Student/Resources\"|\"workspaceFolder\": \"/workspace/${wthDirectoryName//&/\\&}/Student/Resources\"|" \
     -e "s|// \"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|\"workspaceMount\": \"source=\${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached\"|" \
     "$templateFile" | sed "1i\\
 // Customize this devcontainer.json with features and extensions for your hackathon.\\
