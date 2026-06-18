@@ -17,19 +17,42 @@ What The Hack is all about being "for the people, by the people". This repo was 
 
 ## What Does It Take To Create a What The Hack?
 
-When you design a WTH, these are the things you should consider:
+The **"Create New Hack" GitHub Action** scaffolds out all of the elements you need for a hack from a set of template files. Once you have run the Action (see the [Contribution Guide](../CONTRIBUTING.md#development-process) for instructions), your hack folder will contain templates for each of the following elements that you will customize with your content:
 
+- [Hack Folder Structure](#hack-folder-structure)
 - [Hack Description](#hack-description) (aka "The One Pager")
 - [Challenge Design](#challenge-design)
 - [Student Resources](#student-resources)
 - [Presentation Lectures](#presentation-lectures) (optional)
 - [Coach's Guide](#coaches-guide)
 - [Coach Solutions](#coach-solutions)
-- [Hack Folder Structure](#hack-folder-structure)
 
-If you create things in this order, you will be able to flush out a new hack rapidly. 
+If you work through these in order, you will be able to flesh out a new hack rapidly. 
 
 **HINT:** The Coach's guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach's Guide as a post-mortem from their first run of the hack.
+
+## Hack Folder Structure
+
+The "Create New Hack" GitHub Action scaffolds the following folder structure for your hack:
+
+```
+xxx-HackName/
+├── README.md                        # Hack Description ("The One Pager")
+├── Coach/
+│   ├── Solution-XX.md               # Coach's Guide with solution steps per challenge
+│   └── Solutions/                   # Solution code for the coach only
+└── Student/
+    ├── Challenge-00.md              # Challenge 0 (prerequisites)
+    ├── Challenge-01.md              # Challenge 1
+    ├── Challenge-XX.md              # Additional challenges
+    └── Resources/                   # Files and resources for students
+        └── .devcontainer/
+            └── devcontainer.json    # DevContainer config for local use
+```
+
+There is also a root-level devcontainer entry created at `/.devcontainer/xxx-HackName/devcontainer.json` which is used for launching Codespaces from the WTH repo during development. See the [Student Resources](#student-resources) section for details.
+
+Each of the templates contains in-line instructions and sample text to guide you. The sections below describe what each element should contain and how to customize it.
 
 ## Hack Description
 
@@ -37,7 +60,7 @@ Why should someone take the time to deliver or participate in your hack?  This i
 
 **HINT:** The "Hack Description" can serve a dual purpose. If you take the time to write it first, it can be the outline or specification for your hack before you develop the actual content.
 
-The "Hack Description" shall be the README.md that lives in the root of your hack's top level folder.
+The "Hack Description" is the `README.md` in the root of your hack's top level folder. The Action scaffolds this file from the [Hack Description Template](WTH-HackDescription-Template.md).
 
 The "Hack Description" must include the following:
 
@@ -84,10 +107,10 @@ Finally, give yourself and your fellow hack authors some credit. List the names 
 
 ### Hack Description Template
 
-To help you get started, we have provided a sample template for a Hack Description / "one pager" here:
-- [Hack Description Template](WTH-HackDescription-Template.md). 
+The template for the Hack Description is available here for reference:
+- [Hack Description Template](WTH-HackDescription-Template.md)
 
-Please copy this template into your hack's root folder, rename it to "README.md", and customize it for your hack.
+The Action has already placed this template as the `README.md` in your hack's root folder. Open it and replace the sample text with your own content.
 
 ## Challenge Design
 
@@ -119,12 +142,13 @@ Once you have decided what type of hack you want to create, you should follow th
 - Do **NOT** provide a list of step-by-step instructions. These are challenges designed to make the attendees learn by solving problems, not blindly following instructions.
 
 ### Challenge Template
-To help you get started, we have provided a sample markdown template for a hack Challenge here:
-- [Challenge Template](WTH-Challenge-Template.md). 
 
-Please copy this template into your hack's `../Student` folder, rename it to "ChallengeXX.md", where "XX" is the challenge number, and customize it for each challenge. 
+The template for each challenge is available here for reference:
+- [Challenge Template](WTH-Challenge-Template.md)
 
-**NOTE:** In each challenge's markdown file, you should create navigation links to/from the previous & next challenges. Please use relative links (eg. `"/ChallengeXX.md"`) instead of absolute links (eg. `"http://github.com/Microsoft/WhatTheHack/000-YourAwesomeHack/Student/ChallengeXX.md"`)  
+The Action has placed challenge templates in your hack's `../Student` folder as `Challenge-00.md`, `Challenge-01.md`, etc. Open each one and replace the sample text with your challenge content.
+
+**NOTE:** In each challenge's markdown file, you should create navigation links to/from the previous & next challenges. Please use relative links (eg. `"/Challenge-XX.md"`) instead of absolute links (eg. `"http://github.com/Microsoft/WhatTheHack/000-YourAwesomeHack/Student/Challenge-XX.md"`)  
 
 ## Student Resources
 
@@ -180,7 +204,7 @@ You may be wondering why there is a section called "Presentation Lectures" when 
 
 When you host a What The Hack event, there is always a kick off meeting where the attendees are welcomed and then introduced to the logistics of the hack. The best way to do that is with a *short* PowerPoint delivered a few slides at a time.
 
-We have provided an Event Kickoff presentation template that you can customize for your hack and use to cover attendee logistics for a WTH event here:
+We have provided Event Kickoff presentation templates that you can customize for your hack and use to cover attendee logistics for a WTH event. These are available for reference here:
 - [Event Kickoff Presentation Template (Virtual)](WTH-EventKickoff-Virtual-Template.pptx)
 - [Event Kickoff Presentation Template (In-Person)](WTH-EventKickoff-InPerson-Template.pptx)
 
@@ -196,11 +220,14 @@ It is OK and encouraged to offer a collection of "mini" presentation lectures if
 
 We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
-Please publish any presentations in your hack's `../Coach` folder.
+Publish any presentations in your hack's `../Coach` folder.
 
 ## Coaches Guide
 
-Every WTH should come with a Coach's guide. The simple way to think of the Coach's guide is that should be the document with all of "the answers". The reality is, doing so would turn it into a giant step-by-step document loaded with detailed commands, screenshots, and other resources that are certain to be obsolete the minute you publish it. No one wants to maintain a document like that. 
+Every WTH should come with a Coach's guide. The Action has placed a Coach's Guide template in your hack's `../Coach` folder. The template is available here for reference:
+- [Coach's Guide Template](WTH-CoachGuide-Template.md)
+
+The simple way to think of the Coach's guide is that it should be the document with all of "the answers". The reality is, doing so would turn it into a giant step-by-step document loaded with detailed commands, screenshots, and other resources that are certain to be obsolete the minute you publish it. No one wants to maintain a document like that. 
 
 Instead of treating the Coach's guide like a step-by-step document, treat it as the "owner's manual" you would want to provide to future coaches so they can host and deliver your WTH to others. 
 
@@ -229,27 +256,6 @@ Examples of Coach Solutions are:
 - Scripts/templates/etc for some challenges that can be shared with attendees if they get really stuck
     - Example: If challenges 1 through 3 build something (i.e. an ARM template) that is needed for challenge 4, you could “give” a stuck team the template so they could skip to challenge 4.
 
-If your hack provides Coach Solutions with code, templates, etc, it is recommended that you publish those resources as part of your hack's contents in the `../Coach/Solutions` folder.
+The Action has created a `../Coach/Solutions` folder for your hack. Place your solution code, templates, and other resources there.
 
 **NOTE:** This content is not intended for hack attendees to see before or during a hack event. The content IS available publicly and thus an attendee can and WILL find it if they are determined enough. It is important to stress to the attendees that they should not cheat themselves out of an education by looking at the solutions.
-
-## Hack Folder Structure
-
-The "Create New Hack" GitHub Action scaffolds the following folder structure for your hack. Here is what each folder will contain:
-
-- `../`
-	- Hack Description (README.md)
-- `../Coach`
-	- The Coach's Guide, Lecture presentations, and any supporting files.
-	- `/Solutions`
-		- Solution code for the coach only. These are the answers and should not be shared with students.
-- `../Student`
-	- The Challenge markdown files
-	- `/Resources` 
-		- The code and supporting files the students will need throughout the hack.
-		- `/.devcontainer`
-			- The `devcontainer.json` file for local DevContainer use.
-
-There is also a root-level devcontainer entry for your hack at `/.devcontainer/xxx-HackName/` which is used for launching Codespaces from the WTH repo during development. See the [Student Resources](#student-resources) section for details.
-
-For instructions on how to get started with the "Create New Hack" GitHub Action, see the [Contribution Guide](../CONTRIBUTING.md#development-process).
