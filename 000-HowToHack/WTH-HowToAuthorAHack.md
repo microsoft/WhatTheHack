@@ -24,6 +24,8 @@ The **"Create New Hack" GitHub Action** scaffolds out all of the elements you ne
 - [Student Resources](#student-resources)
 - [Presentation Lectures](#presentation-lectures) (optional)
 - [Coach's Guide](#coaches-guide)
+  - [Coach Guide Home Page](#coach-guide-home-page)
+  - [Challenge Coach Guides](#challenge-coach-guides)
 - [Coach Solutions](#coach-solutions)
 
 If you work through these in order, you will be able to flesh out a new hack rapidly. 
@@ -233,26 +235,40 @@ We have more guidance on how and when to deliver mini presentation lectures for 
 
 ## Coaches Guide
 
-Every WTH should come with a Coach's guide. The Action has placed a Coach's Guide template in your hack's `../Coach` folder. The template is available here for reference:
-- [Coach's Guide Template](WTH-CoachGuide-Template.md)
+Every WTH must include a Coach's Guide. The Coach's Guide is the "owner's manual" for future coaches so they can host and deliver your hack to others. The Action scaffolds the Coach's Guide files in your hack's `../Coach` folder, consisting of a home page and individual challenge coach guides.
 
-The simple way to think of the Coach's guide is that it should be the document with all of "the answers". The reality is, doing so would turn it into a giant step-by-step document loaded with detailed commands, screenshots, and other resources that are certain to be obsolete the minute you publish it. No one wants to maintain a document like that. 
+### Coach Guide Home Page
 
-Instead of treating the Coach's guide like a step-by-step document, treat it as the "owner's manual" you would want to provide to future coaches so they can host and deliver your WTH to others. 
+The `README.md` in your hack's `../Coach` folder is the Coach Guide home page. The Action scaffolds this file from the [Coach's Guide Home Page Template](WTH-CoachGuide-Template.md).
 
-The Coach's guide should include the following:
+The Coach Guide home page contains both boilerplate guidance that applies to all hacks and sections specific to your hack that you need to fill out. The major sections include:
 
-- List of high-level solution steps to each challenge
-- List of known blockers (things attendees will get hung up on) and recommended hints for solving them. For example:
+- **Introduction** — A brief welcome and overview of the hack for coaches.
+- **Coach's Guides (Table of Contents)** — Links to each of the challenge coach guide files (`Solution-XX.md`). Like the Hack Description page, the Action has pre-created these links for the number of challenges you requested. Fill in the challenge titles and descriptions to match the table of contents on your Hack Description page.
+- **Coach Prerequisites** — Guidance for coaches on what they need to prepare before hosting an event, including how to handle student resources and any additional setup steps specific to your hack.
+- **Azure Requirements** — Azure subscription requirements and permissions that should be shared with the organization providing Azure access for the hack.
+- **Suggested Hack Agenda** (optional) — An estimate of how long each challenge should take and/or a suggested session structure for multi-day events.
+- **Repository Contents** — A catalog of the files and folders in your hack.
+
+### Challenge Coach Guides
+
+For each challenge, the Action creates a `Solution-XX.md` file in your hack's `../Coach` folder. These are the individual coach guides for each challenge. The Action scaffolds these files from the [Challenge Coach Guide Template](WTH-Challenge-Solution-Template.md).
+
+The simple way to think of each challenge coach guide is that it should be the document with all of "the answers" for that challenge. The reality is, making it a giant step-by-step document loaded with detailed commands, screenshots, and other resources would be certain to be obsolete the minute you publish it. No one wants to maintain a document like that.
+
+Instead, treat each challenge coach guide as practical guidance for a coach to help attendees through that specific challenge. The structure of the solution files is less strict than the challenge templates, but each one should include:
+
+- High-level solution steps for the challenge
+- Known blockers (things attendees will get hung up on) and recommended hints for solving them. For example:
     - Resources that will take a long time to deploy in Azure: Go get a coffee.
     - If installing the Azure CLI on Windows, install it in the Windows Subsystem for Linux instead of just Windows itself
     - Permission issues to be aware of, etc
-- List of key concepts that should be explained to/understood by attendees before a given challenge (perhaps with a presentation lecture)
-- List of reference links/articles/documentation that can be shared when attendees get stuck
-- Estimated time it would take an attendee to complete each challenge. This will help coaches track progress against expectation. It should NOT to be shared with attendees.
+- Key concepts that should be explained to/understood by attendees before the challenge (perhaps with a presentation lecture)
+- Reference links/articles/documentation that can be shared when attendees get stuck
+- Estimated time it would take an attendee to complete the challenge. This will help coaches track progress against expectation. It should NOT be shared with attendees.
 - Suggested time a coach should wait before helping out if a team is not progressing past known blockers
 
-The Coach's guide should be updated during & post event with key learnings, such as all the gotchas, snags, and other unexpected blockers that your attendees hit.
+The challenge coach guides should be updated during & post event with key learnings, such as all the gotchas, snags, and other unexpected blockers that your attendees hit.
 
 ## Coach Solutions
 
