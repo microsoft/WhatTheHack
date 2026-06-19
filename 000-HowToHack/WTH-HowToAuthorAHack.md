@@ -19,7 +19,6 @@ What The Hack is all about being "for the people, by the people". This repo was 
 
 The **"Create New Hack" GitHub Action** scaffolds out all of the elements you need for a hack from a set of template files. Once you have run the Action (see the [Contribution Guide](../CONTRIBUTING.md#development-process) for instructions), your hack folder will contain templates for each of the following elements that you will customize with your content:
 
-- [Hack Folder Structure](#hack-folder-structure)
 - [Hack Description](#hack-description) (aka "The One Pager")
 - [Challenge Design](#challenge-design)
 - [Student Resources](#student-resources)
@@ -156,13 +155,23 @@ It is common to provide attendees with resources in order to complete the hack's
 
 If your hack provides attendees with code or resources, they should be included with your hack's contents in the `../Student/Resources` folder.
 
+There are two options for making these resource files available to students during a hack event:
+
+1. **GitHub Codespaces / DevContainers (Recommended)** — Students access a pre-configured cloud-hosted development environment in their browser with all resource files and tools ready to use. See [GitHub Codespaces & DevContainers](#github-codespaces--devcontainers) below.
+2. **Resources.zip Distribution** — A coach packages the contents of the `/Student/Resources` folder into a `Resources.zip` file and distributes it to students. Students unpack the zip file on their local workstation and are responsible for installing any required tools themselves.
+
+We strongly encourage all new hacks to use **Option 1** (Codespaces/DevContainers). If you choose Option 2 instead, you are responsible for documenting all prerequisites and any software installations required on the student's local workstation in Challenge 0.
+
 ### GitHub Codespaces & DevContainers
 
 [GitHub Codespaces](https://docs.github.com/en/codespaces) provides a cloud-hosted development environment that students can access directly from their browser. A Codespace is powered by a [DevContainer](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers), which is a configuration file (`devcontainer.json`) that defines the tools, extensions, and settings for the development environment.
 
-We strongly encourage all new hacks to support GitHub Codespaces. This provides students with a consistent, pre-configured environment that includes all the tools and resources they need to complete the hack without installing anything on their local workstation. Students who prefer to work locally can use the same DevContainer configuration to run the environment on their own machine.
+When a student launches a Codespace for your hack, they will open VS Code in a browser window with:
+- All of the files from your hack's `/Student/Resources` folder available in the file explorer
+- Any command line tools specified in the devcontainer (e.g., Azure CLI, kubectl, Python, etc.) pre-installed and ready to use
+- Any VS Code extensions specified in the devcontainer (e.g., Bicep, Python, etc.) pre-installed
 
-If you choose **NOT** to use Codespaces/DevContainers for your hack, you are responsible for documenting all prerequisites and any software installations required on the student's local workstation in Challenge 0.
+Students who prefer to work locally can use the same DevContainer configuration to run the environment on their own machine with Docker and VS Code.
 
 #### How It Works
 
@@ -226,8 +235,6 @@ We have also provided Event Kickoff presentation templates that coaches can cust
 Some hack challenges are easy to jump right into. Others are more complex and are better preceded by a brief introduction presentation. It is OK and encouraged to offer a collection of "mini" presentation lectures if necessary for your hack's challenges. Try to limit the lectures to **5-10 minutes** per challenge.
 
 We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
-
-Publish any presentations in your hack's `../Coach` folder.
 
 ## Coaches Guide
 
