@@ -23,14 +23,14 @@ The **"Create New Hack" GitHub Action** scaffolds out all of the elements you ne
 - [Challenge Design](#challenge-design)
 - [Student Resources](#student-resources)
 - [Presentation Lectures](#presentation-lectures) (optional)
-- [Coach's Guide](#coaches-guide)
+- [Coach Guide](#coach-guide)
   - [Coach Guide Home Page](#coach-guide-home-page)
   - [Challenge Coach Guides](#challenge-coach-guides)
 - [Coach Solutions](#coach-solutions)
 
 If you work through these in order, you will be able to flesh out a new hack rapidly. 
 
-**HINT:** The Coach's guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach's Guide as a post-mortem from their first run of the hack.
+**HINT:** The Coach Guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach Guide as a post-mortem from their first run of the hack.
 
 ## Hack Folder Structure
 
@@ -40,7 +40,7 @@ The "Create New Hack" GitHub Action scaffolds the following folder structure for
 xxx-HackName/
 ├── README.md                        # Hack Description ("The One Pager")
 ├── Coach/
-│   ├── README.md                    # Coach's Guide home page & table of contents
+│   ├── README.md                    # Coach Guide home page & table of contents
 │   ├── Solution-XX.md               # Solution steps per challenge
 │   ├── Lectures.pptx                # Lecture presentation deck (optional)
 │   └── Solutions/                   # Solution code for the coach only
@@ -210,7 +210,7 @@ Instead, refer to resource files based on where students will access them. There
 
 > *Example:* For the same file, your challenge text should say: *"Run the `deploy.sh` script in the `/infra` folder of your Resources directory."*
 
-**NOTE:** It is the coach's responsibility to package and distribute the `Resources.zip` file to students. This process is documented in the hack's Coach's Guide and the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
+**NOTE:** It is the coach's responsibility to package and distribute the `Resources.zip` file to students. This process is documented in the hack's Coach Guide and the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
 ## Presentation Lectures
 
@@ -233,18 +233,18 @@ Some hack challenges are easy to jump right into. Others are more complex and ar
 
 We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
-## Coaches Guide
+## Coach Guide
 
-Every WTH must include a Coach's Guide. The Coach's Guide is the "owner's manual" for future coaches so they can host and deliver your hack to others. The Action scaffolds the Coach's Guide files in your hack's `../Coach` folder, consisting of a home page and individual challenge coach guides.
+Every WTH must include a Coach Guide. The Coach Guide is the "owner's manual" for future coaches so they can host and deliver your hack to others. The Action scaffolds the Coach Guide files in your hack's `../Coach` folder, consisting of a home page and individual challenge coach guides.
 
 ### Coach Guide Home Page
 
-The `README.md` in your hack's `../Coach` folder is the Coach Guide home page. The Action scaffolds this file from the [Coach's Guide Home Page Template](WTH-CoachGuide-Template.md).
+The `README.md` in your hack's `../Coach` folder is the Coach Guide home page. The Action scaffolds this file from the [Coach Guide Home Page Template](WTH-CoachGuide-Template.md).
 
 The Coach Guide home page contains both boilerplate guidance that applies to all hacks and sections specific to your hack that you need to fill out. The major sections include:
 
 - **Introduction** — A brief welcome and overview of the hack for coaches.
-- **Coach's Guides (Table of Contents)** — Links to each of the challenge coach guide files (`Solution-XX.md`). Like the Hack Description page, the Action has pre-created these links for the number of challenges you requested. Fill in the challenge titles and descriptions to match the table of contents on your Hack Description page.
+- **Coach Guides (Table of Contents)** — Links to each of the challenge coach guide files (`Solution-XX.md`). Like the Hack Description page, the Action has pre-created these links for the number of challenges you requested. Fill in the challenge titles and descriptions to match the table of contents on your Hack Description page.
 - **Coach Prerequisites** — Guidance for coaches on what they need to prepare before hosting an event, including how to handle student resources and any additional setup steps specific to your hack.
 - **Azure Requirements** — Azure subscription requirements and permissions that should be shared with the organization providing Azure access for the hack.
 - **Suggested Hack Agenda** (optional) — An estimate of how long each challenge should take and/or a suggested session structure for multi-day events.
