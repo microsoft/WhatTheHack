@@ -39,18 +39,22 @@ The "Create New Hack" GitHub Action scaffolds the following folder structure for
 xxx-HackName/
 ├── README.md                        # Hack Description ("The One Pager")
 ├── Coach/
-│   ├── Solution-XX.md               # Coach's Guide with solution steps per challenge
+│   ├── README.md                    # Coach's Guide home page & table of contents
+│   ├── Solution-XX.md               # Solution steps per challenge
+│   ├── Lectures.pptx                # Lecture presentation deck (optional)
 │   └── Solutions/                   # Solution code for the coach only
 └── Student/
-    ├── Challenge-00.md              # Challenge 0 (prerequisites)
+    ├── Challenge-00.md              # Challenge 0 (environment setup)
     ├── Challenge-01.md              # Challenge 1
     ├── Challenge-XX.md              # Additional challenges
     └── Resources/                   # Files and resources for students
-        └── .devcontainer/
-            └── devcontainer.json    # DevContainer config for local use
+        └── .devcontainer/           # (optional) DevContainer config
+            └── devcontainer.json
 ```
 
-There is also a root-level devcontainer entry created at `/.devcontainer/xxx-HackName/devcontainer.json` which is used for launching Codespaces from the WTH repo during development. See the [Student Resources](#student-resources) section for details.
+**NOTE:** GitHub Codespaces/DevContainer support is optional when running the "Create New Hack" Action. If you choose not to enable Codespaces support, the `.devcontainer` folder and its `devcontainer.json` file will not be created. You can always add Codespaces support later by manually creating these files from the [DevContainer Template](devcontainerTEMPLATE.json).
+
+If you do enable Codespaces support, there is also a root-level devcontainer entry created at `/.devcontainer/xxx-HackName/devcontainer.json` which is used for launching Codespaces from the WTH repo during development. See the [Student Resources](#student-resources) section for details.
 
 Each of the templates contains in-line instructions and sample text to guide you. The sections below describe what each element should contain and how to customize it.
 
@@ -82,24 +86,20 @@ This is where you describe the outcomes a hack attendee should have. Provide a s
 
 ### Challenges
 
-Every WTH is made up of a collection of technical challenges. For the one pager, you should list out your challenges by name, with no more than a single sentence description for each unless the challenge title is descriptive enough on its own.
+This section serves as the **table of contents** for your hackathon. The "Create New Hack" Action has already created links for the number of challenges you requested when running the Action. Each link points to its corresponding challenge markdown file in the `/Student` folder.
 
-For most this page will act as a "Table of Contents" for your hack. We recommend that you create links for each challenge to its respective challenge page.
+Fill in the template with your challenge titles. Each link can include 1-2 sentences describing the challenge, or the challenge title alone may be descriptive enough on its own.
 
 ### Prerequisites
 
-Provide a list of technical prerequisites for your hack here.  List out assumed knowledge attendees should have to be successful with the hack. For example, if the hack is an "Introduction to Kubernetes", the attendee should have a basic understanding of containers.  However, if it is an "Advanced Kubernetes" hack, then the attendee should know the basics of Kubernetes and not ask you what a "pod" or "deployment" is.
+Keep this section short. List out the assumed knowledge attendees should have to be successful with the hack. For example, if the hack is an "Introduction to Kubernetes", the attendee should have a basic understanding of containers. However, if it is an "Advanced Kubernetes" hack, then the attendee should know the basics of Kubernetes and not ask you what a "pod" or "deployment" is.
 
-Provide a list of tools/software that the attendee needs to install on their machine to complete the hack. 
+For the full list of tools, software, and environment setup steps, refer the reader to Challenge 0. For example: *"See Challenge 0 for a full list of tools and setup steps required for this hack."*
 
 We have compiled a list of common tool pre-requisites needed for most of the Azure related hacks here:
 - [What The Hack Common Prerequisites](WTH-Common-Prerequisites.md). 
 
 You can provide a link to it in your hack's prerequisites section in addition to any unique prerequisites for your hack.
-
-### Repository Contents (Optional)
-
-While optional, it is a good idea to provide a catalog of the files you are providing with your hack. 
 
 ### Contributors
 
@@ -127,7 +127,7 @@ You can use the same patterns when designing a What The Hack.
 
 Once you have decided what type of hack you want to create, you should follow these guidelines when designing the challenges:
 
-- Include a “Challenge 0” that helps attendees install all of the prerequisites that  are required on their computer, environment or Azure account.
+- The Action has already scaffolded a "Challenge 0" for your hack. Challenge 0 is where attendees set up their development environment (using GitHub Codespaces or their local workstation) and provision any required cloud resources (e.g., Azure subscriptions, resource groups). Customize the Challenge 0 template with the specific setup steps for your hack.
 - Challenge descriptions should be shorter than this section on how to design challenges. Keep it to a couple of sentences or bullet points stating the goal(s) and perhaps a hint at the skill(s) needed.
 - Think through what skills/experience you want attendees to walk away with by completing each challenge
 - Challenges should be cumulative, building upon each other and they should:
@@ -148,7 +148,7 @@ The template for each challenge is available here for reference:
 
 The Action has placed challenge templates in your hack's `../Student` folder as `Challenge-00.md`, `Challenge-01.md`, etc. Open each one and replace the sample text with your challenge content.
 
-**NOTE:** In each challenge's markdown file, you should create navigation links to/from the previous & next challenges. Please use relative links (eg. `"/Challenge-XX.md"`) instead of absolute links (eg. `"http://github.com/Microsoft/WhatTheHack/000-YourAwesomeHack/Student/Challenge-XX.md"`)  
+**NOTE:** The Action has already created navigation links in each challenge file that link to the preceding challenge, the hack home page, and the next challenge. If you need to add additional challenges beyond what was scaffolded, copy the [Challenge Template](WTH-Challenge-Template.md) into your `../Student` folder and update the navigation links to follow the same pattern. Always use relative links (e.g., `"Challenge-XX.md"`) instead of absolute links (e.g., `"http://github.com/Microsoft/WhatTheHack/000-YourAwesomeHack/Student/Challenge-XX.md"`).
 
 ## Student Resources
 
@@ -161,6 +161,8 @@ If your hack provides attendees with code or resources, they should be included 
 [GitHub Codespaces](https://docs.github.com/en/codespaces) provides a cloud-hosted development environment that students can access directly from their browser. A Codespace is powered by a [DevContainer](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers), which is a configuration file (`devcontainer.json`) that defines the tools, extensions, and settings for the development environment.
 
 We strongly encourage all new hacks to support GitHub Codespaces. This provides students with a consistent, pre-configured environment that includes all the tools and resources they need to complete the hack without installing anything on their local workstation. Students who prefer to work locally can use the same DevContainer configuration to run the environment on their own machine.
+
+If you choose **NOT** to use Codespaces/DevContainers for your hack, you are responsible for documenting all prerequisites and any software installations required on the student's local workstation in Challenge 0.
 
 #### How It Works
 
@@ -190,13 +192,19 @@ The scaffolded `devcontainer.json` provides a baseline configuration. You should
 
 #### Referencing Resource Files in Challenge Text
 
-When writing your challenge descriptions, refer to resource files using their path relative to the Codespace root. Since the Codespace opens to the `/Student/Resources` folder, reference files relative to that location.
+It is important to **never link directly to files in the WTH repo** from your challenge text. Students should not be directed to the repo during a hack event.
 
-For example, given a file at `../Student/Resources/infra/deploy.sh` in the repo, your challenge text should refer to it as:
+Instead, refer to resource files based on where students will access them. There are two scenarios depending on whether your hack uses Codespaces or not:
 
-> *"The `deploy.sh` file in the `/infra` folder of your Codespace"*
+**If using Codespaces:** Refer to files relative to the Codespace root. Since the Codespace opens to the `/Student/Resources` folder, reference files relative to that location.
 
-Do **NOT** reference file paths relative to the WTH repo or assume students will unpack a zip file.
+> *Example:* Given a file at `../Student/Resources/infra/deploy.sh` in the repo, your challenge text should say: *"Run the `deploy.sh` script in the `/infra` folder of your Codespace."*
+
+**If NOT using Codespaces:** Students will receive a `Resources.zip` file from their coach that contains the contents of the `/Student/Resources` folder. Refer to files relative to where the student has unpacked the zip file.
+
+> *Example:* For the same file, your challenge text should say: *"Run the `deploy.sh` script in the `/infra` folder of your Resources directory."*
+
+**NOTE:** It is the coach's responsibility to package and distribute the `Resources.zip` file to students. This process is documented in the hack's Coach's Guide and the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
 ## Presentation Lectures
 
@@ -204,19 +212,18 @@ You may be wondering why there is a section called "Presentation Lectures" when 
 
 When you host a What The Hack event, there is always a kick off meeting where the attendees are welcomed and then introduced to the logistics of the hack. The best way to do that is with a *short* PowerPoint delivered a few slides at a time.
 
-We have provided Event Kickoff presentation templates that you can customize for your hack and use to cover attendee logistics for a WTH event. These are available for reference here:
+The Action has placed a template lecture deck (`Lectures.pptx`) in your hack's `../Coach` folder. Filling it out is optional, but **highly recommended**. The template includes slides for:
+
+- A brief overview of the challenge scenario & success criteria
+- A brief overview of concepts needed to complete the challenge
+- "Reference" slides that you might not present, but will have on hand if attendees need additional guidance
+- A slide with the challenge description that can be displayed when attendees are working on that challenge
+
+We have also provided Event Kickoff presentation templates that coaches can customize for your hack to cover attendee logistics for a WTH event. These are available for reference here:
 - [Event Kickoff Presentation Template (Virtual)](WTH-EventKickoff-Virtual-Template.pptx)
 - [Event Kickoff Presentation Template (In-Person)](WTH-EventKickoff-InPerson-Template.pptx)
 
-After the kickoff meeting, its up to the hack authors if they want to provide any presentation lectures.  Some hack challenges are easy to jump right into.  Others are more complex and are better preceded by a brief introduction presentation.
-
-It is OK and encouraged to offer a collection of "mini" presentation lectures if necessary for your hack's challenges. If you do provide a presentation lecture, consider these guidelines for each challenge:
-
-- Try to limit the lectures to **5-10 minutes** per challenge.
-- Provide a brief overview of the challenge scenario & success criteria
-- Provide a brief overview of concepts needed to complete the challenge
-- Provide "reference" slides that you might not present, but will have on hand if attendees need additional guidance
-- Provide a slide with the challenge description that can be displayed when attendees are working on that challenge
+Some hack challenges are easy to jump right into. Others are more complex and are better preceded by a brief introduction presentation. It is OK and encouraged to offer a collection of "mini" presentation lectures if necessary for your hack's challenges. Try to limit the lectures to **5-10 minutes** per challenge.
 
 We have more guidance on how and when to deliver mini presentation lectures for your challenges during your event in the [How To Host a What The Hack](WTH-HowToHostAHack.md) guide.
 
