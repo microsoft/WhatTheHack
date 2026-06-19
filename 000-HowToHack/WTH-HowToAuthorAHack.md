@@ -95,11 +95,6 @@ Keep this section short. List out the assumed knowledge attendees should have to
 
 For the full list of tools, software, and environment setup steps, refer the reader to Challenge 0. For example: *"See Challenge 0 for a full list of tools and setup steps required for this hack."*
 
-We have compiled a list of common tool pre-requisites needed for most of the Azure related hacks here:
-- [What The Hack Common Prerequisites](WTH-Common-Prerequisites.md). 
-
-You can provide a link to it in your hack's prerequisites section in addition to any unique prerequisites for your hack.
-
 ### Contributors
 
 Finally, give yourself and your fellow hack authors some credit. List the names and optionally contact info for all of the authors that have contributed to this hack.
