@@ -23,7 +23,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - run: echo "TAG=${{ inputs.hackathonName }}-$(date +'%Y.%m.%d')" >> $GITHUB_ENV
       - run: |
           cd ${{ inputs.hackathonName }}/${{ inputs.pathToStudentResources }}
