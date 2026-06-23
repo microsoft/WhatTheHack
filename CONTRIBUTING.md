@@ -8,18 +8,7 @@ What The Hack is all about being "for the people, by the people". This repo was 
   - Submitting a [pull request for updated content](#contribute-an-update-to-an-existing-hack) is encouraged.
 - The content can always be shared with hack attendees **(AFTER your event)**.
 
-This document provides the general guidelines for how to contribute to the What The Hack project.
-
-## Documentation Map
-
-Depending on your role, here are the key documents you should read:
-
-| I want to... | Read this |
-|---|---|
-| **Author a new hack** | This guide (contribution process) + [Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (content design) |
-| **Host/deliver a hack event** | [How To Host a What The Hack](./000-HowToHack/WTH-HowToHostAHack.md) |
-| **Review a Pull Request** | [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) |
-| **Report a bug or propose an improvement** | This guide ([Report a Bug](#report-a-bug-in-an-existing-hack) or [Propose an Improvement](#propose-new-hack-topic-or-improvement-to-existing-hack)) |
+This document provides the general guidelines for how to contribute to the What The Hack project. For guidance on designing hack content (challenges, student resources, coach guides, etc.), see the [Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
 
 ## How Can I Contribute?
 
@@ -32,6 +21,7 @@ There are multiple ways to contribute:
 - [Contribute a new hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
 - [Contribute an update to an existing hack](#contribute-an-update-to-an-existing-hack)
 - [Ask for help hosting a What The Hack](#ask-for-help-hosting-a-what-the-hack)
+- [Help review hack content](#help-review-hack-content)
 - [Let us know where you have used What The Hack](#let-us-know-where-you-have-used-what-the-hack)
 
 ### Before You Start
@@ -270,6 +260,10 @@ The BEST feedback you could share is to let us know how and where you have used 
 If you have found this content useful, or hosted a WTH event, please go to the Issues page for the WTH repo and create an ["Issue/Report"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=report&template=report.yml&title=%5BReport%5D%3A+).
 
 **NOTE: Reporting that you hosted a What The Hack event this way will be publicly viewable. You should NOT share the name of the organization you hosted an event with unless the organization has given permission to share its name publicly.**
+
+## Help Review Hack Content
+
+We welcome community help reviewing hack content, whether it's a brand new hack or an update to an existing one. Any GitHub user can submit a review on a pull request. Before submitting a review, please read the [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) guide so you know what the repo maintainers look for when reviewing hack content.
 
 ## Thank You!
  Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.
