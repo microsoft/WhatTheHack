@@ -12,6 +12,10 @@ on:
         description: The number of challenges you want (note that it is better to auto-generate more challenges than you think you will need, you can always delete the files later)
         required: true
         default: '3'
+      includeCodespace:
+        description: Include a GitHub Codespaces configuration?
+        type: boolean
+        default: false
 jobs:
   createNewWhatTheHackTemplate:
     runs-on: ubuntu-latest
@@ -27,10 +31,18 @@ jobs:
           git config user.email "<>"
           git checkout -b ${{ env.BRANCH_NAME }}
       - name: Generate WhatTheHack template stubs
-        run: ${{ github.workspace }}/.github/workflows/create-wth-template.sh -p ${{ github.workspace }} -c ${{ github.event.inputs.numberOfChallenges}} -n ${{ github.event.inputs.hackName }} -v -d
+        run: |
+          CODESPACE_FLAG=""
+          if [ "${{ github.event.inputs.includeCodespace }}" = "true" ]; then
+            CODESPACE_FLAG="-s"
+          fi
+          ${{ github.workspace }}/.github/workflows/create-wth-template.sh -p ${{ github.workspace }} -c ${{ github.event.inputs.numberOfChallenges}} -n ${{ github.event.inputs.hackName }} -v -d $CODESPACE_FLAG
       - name: Push branch
         run: |
           git add *
+          if [ "${{ github.event.inputs.includeCodespace }}" = "true" ]; then
+            git add .devcontainer
+          fi
           git commit -m 'Created WhatTheHack template stub'
           git push -u origin ${{ env.BRANCH_NAME }}
 

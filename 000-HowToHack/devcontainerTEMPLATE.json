@@ -1,16 +1,27 @@
+// TEMPLATE_INSTRUCTIONS_START
 // This is a template devcontainer.json for What The Hack hackathons.
 // It provides a baseline configuration for GitHub Codespaces and VS Code Dev Containers.
 //
-// Instructions for hackathon authors:
-// 1. Copy this file to your hack's .devcontainer folder as devcontainer.json
-// 2. Uncomment and update "workspaceFolder" and "workspaceMount" with your hack's folder name
-// 3. Add any additional features or extensions specific to your hackathon
-//
+// Instructions for hackathon authors adding Codespaces support to an existing hack:
+// 1. Copy this file to the following two locations:
+//    a. Your hack's /Student/Resources/.devcontainer/ folder as devcontainer.json
+//    b. Under the root-level /.devcontainer/ folder, create a folder with the same
+//       name as your hack's folder (e.g., "xxx-HackName") and add a copy there.
+// 2. In both copies, update the "name" field with your hack's folder name.
+// 3. Only in the root-level /.devcontainer/xxx-HackName/ copy, uncomment and update
+//    "workspaceFolder" and "workspaceMount" with your hack's folder name.
+// 4. Add any additional features or extensions specific to your hackathon.
+//    See: https://containers.dev/implementors/json_reference/
+// TEMPLATE_INSTRUCTIONS_END
 {
+  // TEMPLATE_INSTRUCTIONS_START
   // Update "name" with your hack's number and name (e.g., "042-SAPOnAzure")
+  // TEMPLATE_INSTRUCTIONS_END
   "name": "xxx-HackName",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  // TEMPLATE_INSTRUCTIONS_START
   // Uncomment and update the following two properties with your hack's folder name:
+  // TEMPLATE_INSTRUCTIONS_END
   // "workspaceFolder": "/workspace/XXX-HackathonName/Student/Resources",
   // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
