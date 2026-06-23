@@ -30,7 +30,7 @@ The **"Create New Hack" GitHub Action** scaffolds out all of the elements you ne
 
 If you work through these in order, you will be able to flesh out a new hack rapidly. 
 
-**HINT:** The Coach Guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach Guide as a postmortem from their first run of the hack.
+**HINT:** The Coach Guide and Coach Solutions are the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach Guide as a postmortem from their first run of the hack.
 
 ## Hack Folder Structure
 
