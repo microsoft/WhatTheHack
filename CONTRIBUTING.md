@@ -8,7 +8,7 @@ What The Hack is all about being "for the people, by the people". This repo was 
   - Submitting a [pull request for updated content](#contribute-an-update-to-an-existing-hack) is encouraged.
 - The content can always be shared with hack attendees **(AFTER your event)**.
 
-This document provides the general guidelines for how to contribute to the What The Hack project. For guidance on designing hack content (challenges, student resources, coach guides, etc.), see the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
+This document provides the guidelines and processes for how to contribute to the What The Hack project. For guidance on designing hack content (challenges, student resources, coach guides, etc.), see the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
 
 ## How Can I Contribute?
 
