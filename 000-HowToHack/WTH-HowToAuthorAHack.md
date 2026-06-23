@@ -2,7 +2,7 @@
 
 This guide focuses on **what** makes a great hack — content design, challenge structure, templates, and resources. For the step-by-step **process** of setting up your environment and contributing to the repo (forking, scaffolding, pull requests), see the [Contribution Guide](../CONTRIBUTING.md#contribute-a-new-hack-to-what-the-hack).
 
-Developing a new What The Hack is a great way to get your content out to the world. Chances are if you've done workshops or PoCs in the past, you already have the material on which to base a What The Hack.
+Developing a new What The Hack is a great way to get your content out to the world. Chances are if you've done workshops or proof-of-concepts in the past, you already have the material on which to base a What The Hack.
 
 ## Why What The Hack?
 
@@ -30,7 +30,7 @@ The **"Create New Hack" GitHub Action** scaffolds out all of the elements you ne
 
 If you work through these in order, you will be able to flesh out a new hack rapidly. 
 
-**HINT:** The Coach Guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach Guide as a post-mortem from their first run of the hack.
+**HINT:** The Coach Guide and Coach Solutions is the most detail oriented & time consuming item to produce.  Shhh...  don't say we told you this, but hack authors have been known to write the Coach Guide as a postmortem from their first run of the hack.
 
 ## Hack Folder Structure
 
@@ -119,7 +119,7 @@ There are different approaches to designing a hackathon. If you are familiar wit
 You can use the same patterns when designing a What The Hack.
 
 - Singleton Hack - A hack designed to give in-depth hands-on experience with a specific technology and maybe a "sidekick technology" or two included.
-- Solution Hack - A hack designed to give experience solving a real-world scenario that involves using multiple technolgies together for the solution.
+- Solution Hack - A hack designed to give experience solving a real-world scenario that involves using multiple technologies together for the solution.
 
 Once you have decided what type of hack you want to create, you should follow these guidelines when designing the challenges:
 
