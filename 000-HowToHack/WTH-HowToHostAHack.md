@@ -190,7 +190,7 @@ If the challenges are published in Markdown files, we recommend pinning the hack
 
 #### Student Resources
 
-Many hacks in the [What The Hack Collection](../readme.md#what-the-hack-collection) provide resources (code snippets, templates, scripts, sample applications, etc.) needed for the hack in their `/HackName/Student/Resources` folder.
+Many hacks in the [What The Hack Collection](../README.md#what-the-hack-collection) provide resources (code snippets, templates, scripts, sample applications, etc.) needed for the hack in their `/HackName/Student/Resources` folder.
 
 There are multiple ways to provide these resources to attendees during a hack event. The method you choose depends on whether the hack supports GitHub Codespaces and the needs of your attendees.
 
