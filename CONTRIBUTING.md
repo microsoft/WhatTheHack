@@ -253,6 +253,10 @@ If you have further questions, or want to get in touch with the What The Hack te
 
 **NOTE:** What The Hack is self-serve content. The WTH team does not offer logistical support or Azure environments. The WTH team will make its best effort to connect you with hack authors for details on the technical content, or answer any other questions you have about hosting an event.
 
+## Help Review Hack Content
+
+We welcome community help reviewing hack content, whether it's a brand new hack or an update to an existing one. Any GitHub user can submit a review on a pull request. Before submitting a review, please read the [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) guide so you know what the repo maintainers look for when reviewing hack content.
+
 ## Let Us Know Where You Have Used What The Hack
 
 The BEST feedback you could share is to let us know how and where you have used What The Hack content. Our hacks' authors are always excited to learn if their content is being used. We would love to know delivery dates, # of attendees, locations (if in-person), and how it impacted your attendees' technical readiness.
@@ -261,9 +265,6 @@ If you have found this content useful, or hosted a WTH event, please go to the I
 
 **NOTE: Reporting that you hosted a What The Hack event this way will be publicly viewable. You should NOT share the name of the organization you hosted an event with unless the organization has given permission to share its name publicly.**
 
-## Help Review Hack Content
-
-We welcome community help reviewing hack content, whether it's a brand new hack or an update to an existing one. Any GitHub user can submit a review on a pull request. Before submitting a review, please read the [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) guide so you know what the repo maintainers look for when reviewing hack content.
 
 ## Thank You!
  Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.
