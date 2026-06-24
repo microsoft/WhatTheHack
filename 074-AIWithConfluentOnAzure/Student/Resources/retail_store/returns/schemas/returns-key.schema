@@ -1,0 +1,6 @@
+{
+    "type": "string",
+    "title": "Returns Transaction Identifier Key",
+    "description": "A unique identifier for the returns transaction",
+    "pattern": "^[0-9]+$"
+}

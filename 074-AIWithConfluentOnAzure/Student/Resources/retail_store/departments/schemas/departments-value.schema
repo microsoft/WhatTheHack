@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "title": "Departments Value",
+    "description": "Contains the department and description of the product SKU.",
+    "properties": {
+      "department": {
+        "type": "string",
+        "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "required": ["department", "description"],
+    "additionalProperties": false
+  }

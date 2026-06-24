@@ -1,0 +1,6 @@
+{
+    "type": "string",
+    "title": "Departments Key",
+    "description": "A unique identifier for the department",
+    "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
+}

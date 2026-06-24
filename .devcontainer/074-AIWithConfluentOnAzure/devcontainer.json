@@ -1,0 +1,33 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+    "workspaceFolder": "/workspace/074-AIWithConfluentOnAzure/Student/Resources",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "hostRequirements": {
+      "cpus": 2,
+      "memory": "4gb"  
+    },
+    "waitFor": "onCreateCommand",
+    "updateContentCommand": "python3 -m pip install -r requirements.txt",
+    "postCreateCommand": "",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers/features/terraform:1": {}
+      },
+    "customizations": {
+      "codespaces": {
+        "openFiles": []
+      },
+      "vscode": {
+        "extensions": [
+          "ms-toolsai.jupyter",
+          "ms-python.python",
+          "github.copilot",
+          "github.copilot-chat",
+          "HashiCorp.terraform",
+          "humao.rest-client",
+          "ms-azuretools.vscode-docker"  
+        ]
+      }
+    }
+  }

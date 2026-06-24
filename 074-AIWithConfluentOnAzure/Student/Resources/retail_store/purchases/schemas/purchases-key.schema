@@ -1,0 +1,6 @@
+{
+    "type": "string",
+    "title": "Purchases Identifier Key",
+    "description": "A unique identifier for the purchase transaction",
+    "pattern": "^[0-9]+$"
+}

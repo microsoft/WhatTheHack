@@ -1,0 +1,9 @@
+{
+    "id": "1001",
+    "receipt_id": "1001",
+    "transaction_date": "2025-04-02 08:30:00",
+    "customer_id": "50001",
+    "items": [
+        {"sku_id": "201", "units": 5.0, "unit_price": 9.99, "discounts": 0.00}
+    ]
+}

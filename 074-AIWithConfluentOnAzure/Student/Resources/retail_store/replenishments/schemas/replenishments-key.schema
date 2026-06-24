@@ -1,0 +1,6 @@
+{
+    "type": "string",
+    "title": "Replenishment Identifier Key",
+    "description": "A unique identifier for the replenishment transaction",
+    "pattern": "^[0-9]+$"
+}

@@ -1,0 +1,8 @@
+{
+    "sku_id": "102",
+    "inventory_level": 55.00,
+    "unit_price": 29.95,
+    "name": "Microwave Oven",
+    "description": "A solar-powered Microwave oven",
+    "department":"appliance"
+}

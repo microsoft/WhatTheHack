@@ -1,0 +1,25 @@
+{
+    "title": "Net Sales for the Product SKU",
+    "description": "Schema for a sales record containing SKU ID, product name, department, and cummulative net sales amount.",
+    "type": "object",
+    "properties": {
+      "sku_id": {
+        "type": "string",
+        "description": "Unique identifier for the stock keeping unit (SKU)."
+      },
+      "name": {
+        "type": "string",
+        "description": "Name of the Product"
+      },
+      "department": {
+        "type": "string",
+        "enum": ["appliance", "cleaning", "dairy", "deli", "meat", "pharmacy", "produce", "seafood"]
+      },
+      "net_sales": {
+        "type": "number",
+        "description": "Net sales amount for the transaction."
+      }
+    },
+    "required": ["sku_id", "name", "department", "net_sales"]
+  }
+  

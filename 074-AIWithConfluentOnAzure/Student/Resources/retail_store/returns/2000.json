@@ -1,0 +1,12 @@
+{
+    "id": "2000",
+    "return_id": "2000",
+    "receipt_id": "1000",
+    "transaction_date": "2025-04-02 10:30:00",
+    "customer_id": "50001",
+    "items": [
+        {"sku_id": "101", "units": 1.0, "unit_price": 9.99},
+        {"sku_id": "201", "units": 1.0, "unit_price": 9.99},
+        {"sku_id": "301", "units": 1.0, "unit_price": 9.99}
+    ]
+}

@@ -1,0 +1,18 @@
+# Base Container image from Ubuntu 24.04
+FROM izzyacademy/confluent-hackathon:3.2.1
+
+# Set working directory inside the container
+WORKDIR /software
+
+# Copy everything from the current folder into /software in the image
+COPY . .
+
+# Copy over the specific entrypoint script
+COPY entrypoints/entrypoint.mcp-shopping.sh /software/entrypoint.sh
+
+# Make the entrypoint script executable
+RUN chmod 0775 /software/entrypoint.sh
+
+EXPOSE 8082
+
+ENTRYPOINT ["/software/entrypoint.sh"]

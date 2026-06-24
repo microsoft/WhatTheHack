@@ -1,0 +1,65 @@
+{
+  "title": "ReplenishmentTransaction",
+  "description": "Schema for a replenishment transaction including ID, transaction date, SKU ID, and units replenished.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Unique identifier for the replenishment transaction."
+    },
+    "replenishment_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "Identifier linking to the replenishment event."
+    },
+    "transaction_date": {
+      "type": "string",
+      "description": "Date and time of the transaction in YYYY-MM-DD HH:MM:SS format."
+    },
+    "sku_id": {
+      "type": "string",
+      "description": "Stock keeping unit (SKU) identifier for the replenished product."
+    },
+    "units": {
+      "type": "number",
+      "description": "Number of units replenished during the transaction."
+    },
+    "vendor_id": {
+      "type": "string",
+      "description": "Unique identifier for the vendor supplying the product."
+    },
+    "_attachments": {
+      "type": "string",
+      "description": "A link to the documents attachments (e.g., media, binary data) if any exist. In most cases, it will just be an empty string unless you actually upload attachments."
+    },
+    "_etag": {
+      "type": "string",
+      "description": "The entity tag for optimistic concurrency control. It changes every time the document is updated. Cosmos DB uses it to check if the document has changed since a client last read it."
+    },
+    "_lsn": {
+      "type": "number",
+      "description": "Logical Sequence Number. It represents the order in which operations (insert/update/delete) were performed. Used internally for replication and change feed processing."
+    },
+    "_rid": {
+      "type": "string",
+      "description": "The resource ID of the document — a unique, internal identifier that Cosmos DB uses to find the document quickly inside its physical storage"
+    },
+    "_self": {
+      "type": "string",
+      "description": "A URI path to the document within the Cosmos DB REST API. You can use it to directly operate (read/update/delete) on the document via the API."
+    },
+    "_ts": {
+      "type": "number",
+      "description": "The timestamp (in UNIX epoch seconds) of when the document was last modified"
+    }
+  },
+  "required": [
+    "id",
+    "replenishment_id",
+    "transaction_date",
+    "sku_id",
+    "units",
+    "vendor_id"
+  ]
+}

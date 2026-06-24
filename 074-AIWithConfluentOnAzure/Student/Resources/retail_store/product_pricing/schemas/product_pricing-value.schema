@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "description": "A unique identifier for the department in the retail store.",
+    "title": "Product Pricing Value",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "sku_id": {
+        "type": "string"
+      },
+      "unit_price": {
+        "type": "number"
+      }
+    },
+    "required": ["id", "sku_id", "unit_price"],
+    "additionalProperties": false
+  }
+  
