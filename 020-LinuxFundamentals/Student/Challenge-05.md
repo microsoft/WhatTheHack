@@ -16,7 +16,7 @@ In this challenge you will learn about the Linux standard file permissions and u
 
 ## Success Criteria
 
-1. Check if the directory was sucessfully created
+1. Check if the directory was successfully created
 2. Confirm the file created under `~permissions`
 3. Check the file inside your permissions directory. Who is the new owner of this file now?
 4. Make sure you have created the file as the user root in the `/home/student/permissions` directory
