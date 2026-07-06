@@ -31,3 +31,7 @@ autoscaling
 AKV
 IOPS
 png
+podman
+osm
+YADA
+rootful
