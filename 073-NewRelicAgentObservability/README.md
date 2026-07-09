@@ -120,3 +120,4 @@ Approximately 3-5 hours, depending on your familiarity with the technologies inv
 ## Contributors
 
 - [Harry Kimpel (New Relic)](https://github.com/harrykimpel)
+- [Peter Laudati](https://github.com/jrzyshr)
