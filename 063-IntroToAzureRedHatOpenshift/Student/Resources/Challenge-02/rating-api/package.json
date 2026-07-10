@@ -15,7 +15,7 @@
     "express": "^4.22.1",
     "hbs": "~4.2.1",
     "mongoose": "^8.22.1",
-    "morgan": "~1.10.1",
+    "morgan": "~1.11.0",
     "serve-favicon": "~2.4.5"
   }
 }
