@@ -15,5 +15,5 @@ langchain-openai == 1.1.14
 azure-monitor-opentelemetry == 1.6.7
 azure-monitor-events-extension == 0.1.0
 # MCP dependencies for weather integration
-mcp == 1.23.0
+mcp == 1.27.2
 httpx == 0.28.1
