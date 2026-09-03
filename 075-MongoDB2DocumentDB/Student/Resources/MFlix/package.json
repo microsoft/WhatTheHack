@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.25.1",
-    "@faker-js/faker": "^9.2.0",
+    "@faker-js/faker": "^10.5.0",
     "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.18.3",
