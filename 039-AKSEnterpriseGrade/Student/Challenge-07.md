@@ -14,8 +14,6 @@ You need to fulfill these requirements to complete this challenge:
 
 Consider whether your chosen service mesh is compatible with the ingress configuration from Challenge 2.
 
-**Advanced (optional):** Explore sidecarless mTLS using Azure Kubernetes Application Network (preview) on a separate supported public AKS cluster; private clusters are not currently supported.
-
 ## Success Criteria
 
 - The application is fully functional
@@ -28,4 +26,3 @@ These docs might help you achieving these objectives:
 - [AKS Overview](https://learn.microsoft.com/azure/aks/)
 - [About service meshes](https://learn.microsoft.com/azure/aks/servicemesh-about)
 - [Istio-based service mesh add-on for AKS](https://learn.microsoft.com/azure/aks/istio-about)
-- [Azure Kubernetes Application Network overview (preview)](https://learn.microsoft.com/azure/application-network/overview)
