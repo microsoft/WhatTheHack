@@ -1,0 +1,46 @@
+{
+  "name": "023-AdvancedKubernetes",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "installBicep": true
+    },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "version": "latest",
+      "helm": "latest",
+      "minikube": "none"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {},
+    "ghcr.io/devcontainers-extra/features/kubectx-kubens:1": {},
+    "ghcr.io/devcontainers-extra/features/gh-release:1": {
+      "repo": "derailed/k9s",
+      "binaryNames": "k9s",
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": []
+    },
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-azuretools.vscode-bicep",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "redhat.vscode-yaml",
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    }
+  }
+}
