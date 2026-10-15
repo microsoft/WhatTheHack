@@ -12,6 +12,9 @@
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "codespace"
     },
+    "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+      "packages": "curl"
+    },
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "installBicep": true
     },
