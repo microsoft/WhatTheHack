@@ -17,6 +17,12 @@ When scaling in Kubernetes, there are some considerations:
 
 ## Description
 
+### Choose a node scaling approach
+
+- In capacity-constrained regions, prefer Karpenter-based [node auto-provisioning (NAP)](https://learn.microsoft.com/en-us/azure/aks/node-auto-provisioning) over a single-SKU autoscaled pool. NAP is managed Karpenter on AKS; allow multiple VM sizes/families so it can select available capacity for pending pods. Right-sizing and consolidation can reduce costs, but capacity and savings aren't guaranteed.
+- [Virtual Machines node pools](https://learn.microsoft.com/en-us/azure/aks/virtual-machines-node-pools) are another option: configure multiple compatible VM sizes and enable the cluster autoscaler for multi-SKU scaling.
+- The steps below use the existing cluster autoscaler approach. If choosing NAP instead, check its prerequisites and follow the [enablement guide](https://learn.microsoft.com/en-us/azure/aks/use-node-auto-provisioning); use the same HPA/load test and success criteria.
+
 ### Enable the cluster autoscaler on the user nodepool
 
 #### Using az cli:

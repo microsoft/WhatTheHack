@@ -32,9 +32,9 @@ Before starting this hack you should have hands-on experience with the following
 1. [Helm](./Student/02-helm.md)
    1. Create a new Helm chart
    1. Install Helm chart on AKS cluster
-   1. Install Kubernetes Ingress using Helm
-   1. Update Helm release to use Ingress
-   1. Delete Kubernetes Ingress Helm Release
+   1. Enable managed application routing with Istio
+   1. Update Helm release to use Gateway API (approuting-istio)
+   1. Clean up the release and managed application routing
 1. [Resiliency](./Student/03-resiliency.md)
    1. Define Readiness Probe
    1. Define Liveness Probe

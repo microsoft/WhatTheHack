@@ -18,6 +18,7 @@ When scaling in Kubernetes, there are some considerations:
 ## Description
 
 - Enable the cluster autoscaler on the user nodepool
+    - **Optional challenge (bonus points):** In capacity-constrained regions, prefer Karpenter-based [node auto-provisioning (NAP)](https://learn.microsoft.com/en-us/azure/aks/node-auto-provisioning) as an alternative; flexible VM selection can also offer cost savings. [Virtual Machines node pools](https://learn.microsoft.com/en-us/azure/aks/virtual-machines-node-pools) with multiple VM sizes are another option. *If you are already comfortable using the VMSS cluster autoscaler, consider this an another solution to the challenge.*
 - Create a deployment and service using the container image `k8s.gcr.io/hpa-example`
     - Any web request this receives will run a CPU intensive computation (calculates Pi)
     - HINT: Don't forget about requests/limits
