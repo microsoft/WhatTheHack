@@ -1,40 +1,55 @@
-resource "azurerm_mysql_server" "example" {
-  name = random_string.random.result
-  #location            = azurerm_resource_group.example.location
-  location            = "eastus"
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_subnet" "mysql" {
+  name                 = "mysql"
+  resource_group_name  = azurerm_resource_group.example.name
+  virtual_network_name = module.network.vnet_name
+  address_prefixes     = ["10.52.2.0/24"]
 
-  administrator_login          = "mysqlazureadmin"
-  administrator_login_password = var.databasepassword
-
-  sku_name   = "GP_Gen5_2"
-  storage_mb = 5120
-  version    = "5.7"
-
-  auto_grow_enabled                 = true
-  backup_retention_days             = 7
-  geo_redundant_backup_enabled      = false
-  infrastructure_encryption_enabled = false
-  public_network_access_enabled     = false
-  ssl_enforcement_enabled           = false
-}
-
-resource "azurerm_private_endpoint" "example" {
-  name                = "${random_string.random.result}-endpoint"
-  location            = "westeurope"
-  resource_group_name = azurerm_resource_group.example.name
-  subnet_id           = module.network.vnet_subnets[0]
-
-  private_service_connection {
-    name                           = "${random_string.random.result}-privateserviceconnection"
-    private_connection_resource_id = azurerm_mysql_server.example.id
-    subresource_names              = ["mysqlServer"]
-    is_manual_connection           = false
+  delegation {
+    name = "mysql"
+    service_delegation {
+      name    = "Microsoft.DBforMySQL/flexibleServers"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    }
   }
 }
 
-variable "databasepassword" {
+resource "azurerm_private_dns_zone" "mysql" {
+  name                = "private.mysql.database.azure.com"
+  resource_group_name = azurerm_resource_group.example.name
+}
 
+resource "azurerm_private_dns_zone_virtual_network_link" "mysql" {
+  name                  = "mysql-vnet-link"
+  resource_group_name   = azurerm_resource_group.example.name
+  private_dns_zone_name = azurerm_private_dns_zone.mysql.name
+  virtual_network_id    = module.network.vnet_id
+}
+
+resource "random_password" "mysql" {
+  length  = 20
+  special = true
+}
+
+resource "azurerm_mysql_flexible_server" "example" {
+  name                   = "mysql-${random_string.random.result}"
+  location               = azurerm_resource_group.example.location
+  resource_group_name    = azurerm_resource_group.example.name
+  administrator_login    = "mysqlazureadmin"
+  administrator_password = var.databasepassword != "" ? var.databasepassword : random_password.mysql.result
+  sku_name               = "B_Standard_B1ms"
+  version                = "8.0.21"
+  delegated_subnet_id    = azurerm_subnet.mysql.id
+  private_dns_zone_id    = azurerm_private_dns_zone.mysql.id
+
+  storage {
+    size_gb = 20
+  }
+
+  depends_on = [azurerm_private_dns_zone_virtual_network_link.mysql]
+}
+
+variable "databasepassword" {
   type      = string
   sensitive = true
+  default   = ""
 }

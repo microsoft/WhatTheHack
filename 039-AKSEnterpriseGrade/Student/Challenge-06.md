@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This challenge will cover the basics of Kubernetes persistent volumes.
+This challenge will cover the basics of Kubernetes persistent volumes using Azure Container Storage.
 
 ## Description
 

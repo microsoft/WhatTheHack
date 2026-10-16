@@ -1,6 +1,6 @@
-
 module "network" {
   source              = "Azure/network/azurerm"
+  use_for_each        = false
   resource_group_name = azurerm_resource_group.example.name
   address_space       = "10.52.0.0/16"
   subnet_prefixes     = ["10.52.0.0/24"]
@@ -18,8 +18,29 @@ resource "azurerm_container_registry" "example" {
   sku                 = "Basic"
 }
 
+resource "azurerm_log_analytics_workspace" "aks" {
+  name                = "default-workspace"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  sku                 = "PerGB2018"
+  retention_in_days   = 30
+}
+
+resource "azurerm_log_analytics_solution" "aks" {
+  solution_name         = "ContainerInsights"
+  location              = azurerm_resource_group.example.location
+  resource_group_name   = azurerm_resource_group.example.name
+  workspace_name        = azurerm_log_analytics_workspace.aks.name
+  workspace_resource_id = azurerm_log_analytics_workspace.aks.id
+
+  plan {
+    publisher = "Microsoft"
+    product   = "OMSGallery/ContainerInsights"
+  }
+}
+
 resource "azurerm_role_assignment" "example" {
-  principal_id                     = module.aks.kubelet_identity[0].object_id
+  principal_id                     = module.aks.kubelet_identity.object_id
   role_definition_name             = "AcrPull"
   scope                            = azurerm_container_registry.example.id
   skip_service_principal_aad_check = true
@@ -28,59 +49,63 @@ resource "azurerm_role_assignment" "example" {
 
 # Grant AKS cluster access to use AKS subnet
 resource "azurerm_role_assignment" "aks" {
-  principal_id         = module.aks.system_assigned_identity[0].principal_id
+  principal_id         = module.aks.identity_principal_id
   role_definition_name = "Network Contributor"
   scope                = module.network.vnet_subnets[0]
   depends_on           = [module.aks]
 }
 
 module "aks" {
-  source                           = "Azure/aks/azurerm"
-  version                          = "4.16.0"
-  resource_group_name              = azurerm_resource_group.example.name
-  client_id                        = var.client_id
-  client_secret                    = var.client_secret
-  kubernetes_version               = "1.23.5"
-  orchestrator_version             = "1.23.5"
-  prefix                           = "default"
-  cluster_name                     = var.cluster_name
-  network_plugin                   = "azure"
-  vnet_subnet_id                   = module.network.vnet_subnets[0]
-  os_disk_size_gb                  = 50
-  sku_tier                         = "Paid" # defaults to Free
-  enable_role_based_access_control = true
-  rbac_aad_admin_group_object_ids  = var.rbac_aad_admin_group_object_ids
-  rbac_aad_managed                 = true
-  private_cluster_enabled          = false
-  enable_http_application_routing  = true
-  enable_azure_policy              = true
-  enable_auto_scaling              = true
-  enable_host_encryption           = false
-  agents_min_count                 = 1
-  agents_max_count                 = 1
-  agents_count                     = null # Please set `agents_count` `null` while `enable_auto_scaling` is `true` to avoid possible `agents_count` changes.
-  agents_max_pods                  = 100
-  agents_pool_name                 = "exnodepool"
-  agents_availability_zones        = ["1", "2"]
-  agents_type                      = "VirtualMachineScaleSets"
-  agents_size                      = "standard_dc2s_v2"
+  source    = "Azure/avm-res-containerservice-managedcluster/azurerm"
+  version   = "0.8.3"
+  name      = coalesce(var.cluster_name, "default-aks")
+  location  = azurerm_resource_group.example.location
+  parent_id = azurerm_resource_group.example.id
 
-  agents_labels = {
-    "nodepool" : "defaultnodepool"
+  sku         = { name = "Base", tier = "Standard" }
+  enable_rbac = true
+  aad_profile = {
+    managed                = true
+    admin_group_object_ids = var.rbac_aad_admin_group_object_ids
+  }
+  addon_profile_azure_policy = { enabled = true }
+  addon_profile_oms_agent = {
+    enabled = true
+    config  = { log_analytics_workspace_resource_id = azurerm_log_analytics_workspace.aks.id }
+  }
+  network_profile = {
+    network_plugin      = "azure"
+    network_plugin_mode = "overlay"
+    network_policy      = "azure"
+    dns_service_ip      = "10.0.0.10"
+    service_cidr        = "10.0.0.0/16"
+  }
+  default_agent_pool = {
+    name                  = "exnodepool"
+    vm_size               = "Standard_D2s_v5"
+    os_disk_size_gb       = 50
+    enable_auto_scaling   = true
+    min_count             = 1
+    max_count             = 1
+    max_pods              = 100
+    availability_zones    = ["1", "2"]
+    type                  = "VirtualMachineScaleSets"
+    vnet_subnet_id        = module.network.vnet_subnets[0]
+    node_labels           = { nodepool = "defaultnodepool" }
+    tags                  = { Agent = "defaultnodepoolagent" }
+  }
+  ingress_profile = {
+    gateway_api = { installation = "Standard" }
+    web_app_routing = {
+      enabled = true
+      gateway_api_implementations = {
+        app_routing_istio = { mode = "Enabled" }
+      }
+      nginx = { default_ingress_controller_type = "None" }
+    }
   }
 
-  agents_tags = {
-    "Agent" : "defaultnodepoolagent"
-  }
-
-  enable_ingress_application_gateway      = true
-  ingress_application_gateway_name        = "aks-agw"
-  ingress_application_gateway_subnet_cidr = "10.52.1.0/24"
-
-  network_policy                 = "azure"
-  net_profile_dns_service_ip     = "10.0.0.10"
-  net_profile_docker_bridge_cidr = "172.16.0.1/16"
-  net_profile_service_cidr       = "10.0.0.0/16"
+  dns_prefix = "default"
 
   depends_on = [module.network]
 }
@@ -90,3 +115,4 @@ resource "random_string" "random" {
   special = false
   upper   = false
 }
+

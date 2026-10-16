@@ -2,7 +2,7 @@
 
 ## Usage
 
-Here you can find the source files to build this container. The container is a web API that returns JSON payload. It offers the following endpoints:
+Here you can find the source files to build this container. The image uses Ubuntu 24.04, its packaged Python dependencies, and Microsoft ODBC Driver 18 for SQL Server. The container is a web API that returns JSON payload. It offers the following endpoints:
 
 * `/api/healthcheck`: returns a basic JSON code to verify if the application is running, it can be used for liveliness probes
 * `/api/sqlversion`: returns the results of a SQL query (`SELECT @@VERSION` for SQL Server or `SELECT VERSION();` for MySQL/Postgres) against a SQL database. You can override the value of the `SQL_SERVER_FQDN` via a query parameter
@@ -29,16 +29,16 @@ Note that environment variables can also be injected as files in the `/secrets` 
 
 ## Build
 
-You can build the image locally with:
+From this directory, build and tag the image locally with Docker (this does not push it to ACR):
 
 ```bash
-docker build -t fasthack/sqlapi:1.0 .
+docker build -t whatthehack.azurecr.io/whatthehackmsft/api:1.0 .
 ```
 
-or in a registry such as Azure Container Registry with:
+Alternatively, when you are ready to publish, ACR can build and store the same image directly:
 
 ```bash
-az acr build -r <your_acr_registry> -g <your_azure_resource_group> -t sqlapi:1.0 .
+az acr build -r whatthehack -g <your_azure_resource_group> -t whatthehackmsft/api:1.0 .
 ```
 
 ## Deploy
@@ -74,8 +74,10 @@ Replace the image and the variables with the relevant values for your environmen
 
 ```bash
 # Deploy API on Docker
-docker run -d -p 8080:8080 -e "SQL_SERVER_FQDN=yourdatabase.com" -e "SQL_SERVER_USERNAME=your_db_admin_user" -e "SQL_SERVER_PASSWORD=your_db_admin_password" --name api fasthacks/sqlapi:1.0
+docker run -d -p 8080:8080 -e "SQL_SERVER_FQDN=yourdatabase.com" -e "SQL_SERVER_USERNAME=your_db_admin_user" -e "SQL_SERVER_PASSWORD=your_db_admin_password" --name api whatthehack.azurecr.io/whatthehackmsft/api:1.0
 ```
+
+Check `http://localhost:8080/api/healthcheck` to verify the API without a database. The SQL endpoints require a reachable database and valid credentials.
 
 ### Run this image in Azure Container Instances
 
@@ -89,7 +91,7 @@ sql_username=your_db_admin_user
 sql_password=your_db_admin_password
 az container create -n api -g $rg \
     -e "SQL_SERVER_USERNAME=$sql_username" "SQL_SERVER_PASSWORD=$sql_password" "SQL_SERVER_FQDN=$sql_server_fqdn" \
-    --image fasthacks/sqlapi:1.0 --ip-address public --ports 8080
+    --image whatthehack.azurecr.io/whatthehackmsft/api:1.0 --ip-address public --ports 8080
 ```
 
 ### Run this image in Kubernetes
@@ -122,7 +124,7 @@ spec:
         run: api
     spec:
       containers:
-      - image: fasthacks/sqlapi:1.0
+      - image: whatthehack.azurecr.io/whatthehackmsft/api:1.0
         name: api
         ports:
         - containerPort: 8080
@@ -165,7 +167,7 @@ sql_password=your_db_admin_password
 svcplan_name=webappplan
 app_name_api=api-$RANDOM
 az appservice plan create -n $svcplan_name -g $rg --sku B1 --is-linux
-az webapp create -n $app_name_api -g $rg -p $svcplan_name --deployment-container-image-name fasthacks/sqlapi:1.0
+az webapp create -n $app_name_api -g $rg -p $svcplan_name --deployment-container-image-name whatthehack.azurecr.io/whatthehackmsft/api:1.0
 az webapp config appsettings set -n $app_name_api -g $rg --settings "WEBSITES_PORT=8080" "SQL_SERVER_USERNAME=$sql_username" "SQL_SERVER_PASSWORD=$sql_password" "SQL_SERVER_FQDN=${sql_server_fqdn}"
 az webapp restart -n $app_name_api -g $rg
 app_url_api=$(az webapp show -n $app_name_api -g $rg --query defaultHostName -o tsv) && echo $app_url_api
