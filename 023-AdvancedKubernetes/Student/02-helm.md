@@ -29,6 +29,7 @@ In this challenge, you will create and deploy a Helm chart for a sample app, the
    - HINT: Recent versions of `helm create` include an HTTPRoute template, but not a Gateway template; add the Gateway manually using the `approuting-istio` GatewayClass
    - HINT: Keep the generated Ingress template disabled; using Ingress is discouraged in favor of Gateway API
    - HINT: Use nip.io for DNS resolution
+   - HINT: OR, instead of nip.io, write a curl request with a custom host header
 1. Verify App is available at myapp.$INGRESS_IP.nip.io
    - HINT: Find the external address in the Gateway status
 
