@@ -16,13 +16,13 @@ You need to fulfill these requirements to complete this challenge:
 
 - Deploy an AKS cluster integrated in an existing VNet (you need to create the VNet in advance)
 - Deploy as few nodes as possible
-- Attach the cluster to the Azure Container Registry you created in the previous challenge.
+- Attach the cluster to the Azure Container Registry you created in the previous challenge **or create one if you have not already**.
 
 **NOTE:** If you do not have "Owner" permissions on your Azure subscription, you will not have permission to attach your AKS cluster to your ACR.  We have staged the sample application on Docker Hub so that you can use the container images at these locations:
 - **API app:** `whatthehackmsft/api`
 - **Web app:** `whatthehackmsft/web`
 
-**HINT:** If you decide to use your own ACR with the images for api and web, you must fully qualify the name of your ACR. An image with a non-fully qualified registry name is assumed to be in Docker Hub. 
+**HINT:** It is strongly suggested to import these images into your own ACR for these challenges, as Docker Hub has a limit on the number of pulls made per IP. You must fully qualify the name of your ACR. An image with a non-fully qualified registry name is assumed to be in Docker Hub. 
 
 ### Deploy the sample application
 
