@@ -633,7 +633,7 @@ do
     sleep 5
     web_svc_ip=$(remote "kubectl get svc/web -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
 done
-remote "curl -s http://${web_svc_ip} | grep Healthcheck"
+remote "curl -s http://${web_svc_ip}:8080 | grep Healthcheck"
 ```
 
 We can now configure the Database firewall to accept connections from our pod:

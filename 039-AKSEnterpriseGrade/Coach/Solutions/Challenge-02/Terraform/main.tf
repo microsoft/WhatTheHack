@@ -40,7 +40,7 @@ resource "azurerm_log_analytics_solution" "aks" {
 }
 
 resource "azurerm_role_assignment" "example" {
-  principal_id                     = module.aks.kubelet_identity.object_id
+  principal_id                     = module.aks.kubelet_identity.objectId
   role_definition_name             = "AcrPull"
   scope                            = azurerm_container_registry.example.id
   skip_service_principal_aad_check = true
