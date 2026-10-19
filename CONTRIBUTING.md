@@ -8,7 +8,7 @@ What The Hack is all about being "for the people, by the people". This repo was 
   - Submitting a [pull request for updated content](#contribute-an-update-to-an-existing-hack) is encouraged.
 - The content can always be shared with hack attendees **(AFTER your event)**.
 
-This document provides the general guidelines for how to contribute to the What The Hack project.
+This document provides the guidelines and processes for how to contribute to the What The Hack project. For guidance on designing hack content (challenges, student resources, coach guides, etc.), see the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md).
 
 ## How Can I Contribute?
 
@@ -21,6 +21,7 @@ There are multiple ways to contribute:
 - [Contribute a new hack to What The Hack](#contribute-a-new-hack-to-what-the-hack)
 - [Contribute an update to an existing hack](#contribute-an-update-to-an-existing-hack)
 - [Ask for help hosting a What The Hack](#ask-for-help-hosting-a-what-the-hack)
+- [Help review hack content](#help-review-hack-content)
 - [Let us know where you have used What The Hack](#let-us-know-where-you-have-used-what-the-hack)
 
 ### Before You Start
@@ -129,6 +130,11 @@ The instructions below assume you have the [Git command line tool](https://git-s
     - Create a new branch in your fork with the name of your hack prefixed with "xxx-". For example: `xxx-MyAwesomeHack`
     - Create a new folder in the new branch with the same name as the branch: `xxx-MyAwesomeHack`
     - Create templated markdown files in the new folder for your hack as per the [WTH Author's Guide](https://aka.ms/wthauthor).
+    - Create two copies of the `devcontainer.json` file for GitHub Codespaces and local DevContainer support:
+      - `/.devcontainer/xxx-MyAwesomeHack/devcontainer.json` — for launching a Codespace from your fork during development
+      - `xxx-MyAwesomeHack/Student/Resources/.devcontainer/devcontainer.json` — for local DevContainer use by students
+    
+    See the [Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md#student-resources) for details on customizing and working with these files.
 1. When the GitHub Action has completed running, clone your new fork to your local machine.
     - Open a command prompt with access to the Git CLI and navigate to a folder location on your local workstation where you would like to clone it to.
     - **WARNING:** Never clone a Git repo to a folder location that is synchronized by cloud service such as OneDrive, Google Drive, etc.
@@ -154,6 +160,10 @@ The instructions below assume you have the [Git command line tool](https://git-s
         - The Student guide's Challenge markdown files
         - `/Resources` 
             - The code and supporting files the students will need throughout the hack.
+            - `/.devcontainer`
+                - The `devcontainer.json` file for local DevContainer use.
+    
+    You will also find a root-level devcontainer entry at `/.devcontainer/xxx-MyAwesomeHack/devcontainer.json` for launching Codespaces from your fork during development.
 1. Re-read the [What The Hack Author's Guide](./000-HowToHack/WTH-HowToAuthorAHack.md) (seriously) and make sure your hack follows the templates & styles for consistency.  The templates contain in-line instructions and sample text to help guide you. 
 
 **NOTE:** If you have any questions regarding how to use Git/GitHub (commits/push/pull/etc), the WTH V-Team will be happy to help you.
@@ -243,6 +253,10 @@ If you have further questions, or want to get in touch with the What The Hack te
 
 **NOTE:** What The Hack is self-serve content. The WTH team does not offer logistical support or Azure environments. The WTH team will make its best effort to connect you with hack authors for details on the technical content, or answer any other questions you have about hosting an event.
 
+## Help Review Hack Content
+
+We welcome community help reviewing hack content, whether it's a brand new hack or an update to an existing one. Any GitHub user can submit a review on a pull request. Before submitting a review, please read the [PR Review Process](./000-HowToHack/WTH-PRReviewProcess.md) guide so you know what the repo maintainers look for when reviewing hack content.
+
 ## Let Us Know Where You Have Used What The Hack
 
 The BEST feedback you could share is to let us know how and where you have used What The Hack content. Our hacks' authors are always excited to learn if their content is being used. We would love to know delivery dates, # of attendees, locations (if in-person), and how it impacted your attendees' technical readiness.
@@ -250,6 +264,7 @@ The BEST feedback you could share is to let us know how and where you have used 
 If you have found this content useful, or hosted a WTH event, please go to the Issues page for the WTH repo and create an ["Issue/Report"](https://github.com/microsoft/WhatTheHack/issues/new?assignees=&labels=report&template=report.yml&title=%5BReport%5D%3A+).
 
 **NOTE: Reporting that you hosted a What The Hack event this way will be publicly viewable. You should NOT share the name of the organization you hosted an event with unless the organization has given permission to share its name publicly.**
+
 
 ## Thank You!
  Your contributions to open source, large or small, make projects like this possible. Thank you for taking the time to contribute.

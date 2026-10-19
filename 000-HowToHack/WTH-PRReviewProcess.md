@@ -32,6 +32,11 @@ Reviewers should always be on the lookout for the common issues for all PRs:
 - Verify that file/folder structure match the WTH templates & all navigation links work
 - Verify that Student & Coach content remains separate (i.e. No links to the WTH repo from student guide!)
 - Verify no grammar/spelling/template consistency issues
+- Verify DevContainer configuration:
+  - A `devcontainer.json` file exists in both `/.devcontainer/xxx-HackName/` and `../Student/Resources/.devcontainer/`
+  - Both copies are in sync (same features, extensions, and settings)
+  - The root-level copy (`/.devcontainer/xxx-HackName/devcontainer.json`) has `workspaceFolder` and `workspaceMount` settings uncommented and pointing to the correct hack folder
+  - The hack-level copy (`../Student/Resources/.devcontainer/devcontainer.json`) has `workspaceFolder` and `workspaceMount` lines commented out
 
 ## Pull Request Types
 
