@@ -51,7 +51,7 @@ For help explaining how secrets are managed in Kubernetes, you can present the o
 
 We have included two sample YAML files that demonstrate how to solve this challenge:
 
-[secretproviderclass.yaml](./Solutions/Challenge-04/secretproviderclass.yaml) - This file configures:
+[`secretproviderclass.yaml`](./Solutions/Challenge-04/secretproviderclass.yaml) - This file configures:
   - The Azure Key Vault CSI Driver to retrieve a secret named `sqlpassword` from Key Vault, and mount it as a file named `SQL_SERVER_PASSWORD`.
   - This file has placeholders that must be replaced with the workload identity's client ID, as well as the Key Vault name and tenant ID.
 
@@ -68,7 +68,7 @@ You can find these files in the [Solutions/Challenge-04](./Solutions/Challenge-0
 
 Here are links to relevant documentation:
 - [Using the Azure Key Vault Provider](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/getting-started/usage/)
-  - This link has the definitive guide to all of the settings in the SecretProviderClass manifest.
+  - This link has the definitive guide to all of the settings in the `SecretProviderClass` manifest.
 - [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
   - This is a good overview of the whole process, but then has you switch context midway through the document to the link below regarding how to choose one of the different identity types for access to Azure Key Vault.
 - [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-identity-access)
@@ -91,7 +91,7 @@ Students may get hung up on choosing the correct identity to use for accessing A
 
 Coaches should recommend Workload Identity with a dedicated user-assigned managed identity. Enable the AKS OIDC issuer, Workload Identity, and Key Vault CSI add-on. Create a federated identity credential with the cluster's OIDC issuer, subject `system:serviceaccount:default:sqlapi`, and audience `api://AzureADTokenExchange`. If using a different namespace, update the subject and deploy the service account and manifests into that namespace.
 
-Use the same managed identity client ID in the service account annotation and SecretProviderClass `clientID`. Mount the password directly; do not configure `secretObjects` synchronization into a Kubernetes Secret for this challenge.
+Use the same managed identity client ID in the service account annotation and `SecretProviderClass` `clientID`. Mount the password directly; do not configure `secretObjects` synchronization into a Kubernetes Secret for this challenge.
 
 #### Mounting Azure Key Vault Secrets as a File Volume
 
@@ -107,7 +107,7 @@ For example, if the CSI Driver is configured to bring back secrets named `secret
 cat secretname1
 Pa55w0rd123!
 ```
-In the SecretProviderClass manifest for the CSI Driver, you can optionally specify to bring back multiple versions of a secret (if there are multiple versions in Azure Key Vault).
+In the `SecretProviderClass` manifest for the CSI Driver, you can optionally specify to bring back multiple versions of a secret (if there are multiple versions in Azure Key Vault).
 
 For example:
 
