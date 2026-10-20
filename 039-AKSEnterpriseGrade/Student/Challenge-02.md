@@ -32,7 +32,7 @@ You need to fulfill these requirements to complete this challenge:
 
 ## Success Criteria
 
-- Verify the application is reachable over the ingress controller, and the API can read the database version successfully
+- Verify the application is reachable over the ingress controller (such as managed app routing), and the API can read the database version successfully
 - Verify the links in the `Direct access to API` section of the frontend are working
 
 ## Advanced Challenges (Optional)
