@@ -2,7 +2,7 @@
 
 ## Usage
 
-Here you can find the source files to build this container. The image uses Ubuntu 24.04, its packaged Python dependencies, and Microsoft ODBC Driver 18 for SQL Server. The container is a web API that returns JSON payload. It offers the following endpoints:
+Here you can find the source files to build this container. The image uses Ubuntu 24.04, its packaged Python dependencies, and Microsoft ODBC Driver 18 for SQL Server. The container is a web API that returns a JSON payload. It offers the following endpoints:
 
 * `/api/healthcheck`: returns a basic JSON code to verify if the application is running, it can be used for liveliness probes
 * `/api/sqlversion`: returns the results of a SQL query (`SELECT @@VERSION` for SQL Server or `SELECT VERSION();` for MySQL/Postgres) against a SQL database. You can override the value of the `SQL_SERVER_FQDN` via a query parameter

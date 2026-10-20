@@ -27,7 +27,7 @@ You need to fulfill these requirements to complete this challenge:
 ### Deploy the sample application
 
 - Deploy an Azure SQL Database if you did not have one from the previous challenge
-- Deploy the API and Web containers, expose them through a Gateway API implementation (consider AKS application routing with managed Istio ingress for simplicity, although it is not required).
+- Deploy the API and Web containers and expose them through a Gateway API implementation (consider AKS application routing with managed Istio ingress for simplicity, although it is not required).
     - Make sure the links in the section `Direct access to API` of the web page exposed by the Web container are working, as well as the links in the Web menu bar (`Info`, `Healthcheck`, `Node.js info`, etc.)
 
 ## Success Criteria
