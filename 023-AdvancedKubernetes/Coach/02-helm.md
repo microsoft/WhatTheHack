@@ -14,7 +14,7 @@ Helm is the package manager for Kubernetes.  It was created by Deis (now a part 
 
 ## Description
 
-In this challenge, you will create a new chart, deploy it and then also deploy an existing chart from a remote repository.  These charts will setup an Ingress Controller as well as a sample app.
+In this challenge, you will create and deploy a Helm chart for a sample app, then expose it using the managed application routing add-on with Istio and Kubernetes Gateway API.
 
 ### Create a new chart
 
@@ -22,7 +22,7 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 helm create myapp
 ```
 
-Helm should automatically create the following files and folder structure:
+Helm should automatically create the following files and folder structure (depending on version). The solution chart was refreshed using Helm 4.3.0. Recent versions also include an HTTPRoute template, but no Gateway template; add the Gateway manually.
 
 ```
 myapp
@@ -33,6 +33,7 @@ myapp
     |---_helpers.tpl
     |---deployment.yaml
     |---hpa.yaml
+    |---httproute.yaml
     |---ingress.yaml
     |---NOTES.txt
     |---service.yaml
@@ -114,65 +115,58 @@ Modify the deployment.yaml file:
 helm upgrade myapp myapp
 ```
 
-### Install NGINX Ingress Controller using Helm
+### Enable managed application routing with Istio
 
-Follow the instructions [here](https://docs.microsoft.com/en-us/azure/aks/ingress-basic):
+Follow the [application routing Gateway API guide](https://learn.microsoft.com/en-us/azure/aks/app-routing-gateway-api). Use Azure CLI 2.86.0 or later. This implementation cannot be enabled alongside the Istio service mesh add-on.
 
-``` bash
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
+Set `$clusterName` and `$group` to the cluster and resource group created in Challenge 1.
 
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
-    --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
+``` powershell
+az aks update -n $clusterName -g $group --enable-gateway-api --enable-app-routing-istio
+kubectl get gatewayclass approuting-istio
 ```
 
-You can see all of your helm deployments:
+The GatewayClass should report `Accepted=True`. The controller is managed by AKS, not installed as a separate Helm release.
 
-``` bash
-helm ls --all-namespaces
-```
+### Update the chart and add a Gateway and HTTPRoute
 
-### Update the chart and add Ingress route
-
-Get the ingress ip:
-
-``` bash
-INGRESS_IP=$(kubectl get service -n ingress-basic nginx-ingress-ingress-nginx-controller -o json |
- jq '.status.loadBalancer.ingress[0].ip' -r)
-echo $INGRESS_IP
-```
-
-Enable ingress in values.yaml, setting hostname to refer to the ingress ip:
+Keep the generated Ingress template, but leave `ingress.enabled: false`; using Ingress is discouraged in favor of Gateway API. Add the solution's [Gateway](./Solutions/02-helm/myapp/templates/gateway.yaml) template manually and configure the generated HTTPRoute template (or add the solution's [HTTPRoute](./Solutions/02-helm/myapp/templates/httproute.yaml) template on older Helm versions). Keep both resources and the app Service in the same namespace. Configure these settings in values.yaml:
 
 ``` yaml
 ingress:
-  enabled: true # change this
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: myapp.52.141.219.8.nip.io # change to your ingress ip
-      paths: ["/"] # change this
+  enabled: false
+gateway:
+  enabled: true
+  className: approuting-istio
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: myapp
+      sectionName: http
+  hostnames: [] # set after the Gateway receives an external IP
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
 ```
 
-Upgrade the Helm deployment
+Upgrade the release, wait for the Gateway, and use its external address to configure the route hostname:
 
-``` bash
+``` powershell
 helm upgrade myapp myapp
+kubectl wait --for=condition=Programmed gateway/myapp --timeout=180s
+$ingressIp = kubectl get gateway myapp -o jsonpath='{.status.addresses[0].value}'
+helm upgrade myapp myapp --set "httpRoute.hostnames[0]=myapp.$ingressIp.nip.io"
+kubectl get httproute myapp -o yaml
 ```
+
+Confirm the HTTPRoute reports `Accepted=True` and `ResolvedRefs=True`. It routes `/` to the chart's Service on port 80; the Service forwards to podinfo on port 9898. The solution uses release name `myapp` and the current namespace.
 
 ### Verify App is available
 
 ``` bash
-$ curl myapp.$INGRESS_IP.nip.io
+$ curl "http://myapp.$ingressIp.nip.io"
 
 {
   "hostname": "myapp-5569b97dd-xgf8s",
@@ -189,16 +183,20 @@ $ curl myapp.$INGRESS_IP.nip.io
 }
 ```
 
-### Uninstall the ingress controller from your cluster
+### Clean up application routing
 
-``` bash
-helm uninstall nginx-ingress --namespace nginx-ingress
+Uninstall the app release to remove its Gateway and HTTPRoute, then disable the managed implementation:
+
+``` powershell
+helm uninstall myapp
+az aks update -n $clusterName -g $group --disable-app-routing-istio
 ```
 
 ## Success Criteria
 
-* `helm ls --all-namespaces` shows your chart and the Ingress controller
-* `curl myapp.$INGRESS_IP.nip.io` returns a valid reponse
+* `helm ls --all-namespaces` shows your chart (before cleanup)
+* Your Gateway is programmed and your HTTPRoute reports `Accepted=True` and `ResolvedRefs=True`
+* `curl "http://myapp.$ingressIp.nip.io"` returns HTTP 200 with the podinfo response
 
 ## Hints
 

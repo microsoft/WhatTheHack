@@ -14,7 +14,7 @@ Helm is the package manager for Kubernetes.  It was created by Deis (now a part 
 
 ## Description
 
-In this challenge, you will create a new chart, deploy it and then also deploy an existing chart from a remote repository.  These charts will setup an Ingress Controller as well as a sample app.
+In this challenge, you will create and deploy a Helm chart for a sample app, then expose it using the managed application routing add-on with Istio and Kubernetes Gateway API.
 
 1. Create a new chart
    - HINT: Use `helm template <chart>` to render a chart locally and display the output
@@ -22,22 +22,22 @@ In this challenge, you will create a new chart, deploy it and then also deploy a
 1. Override default nginx image with <https://hub.docker.com/r/stefanprodan/podinfo>
    - HINT: note that this application runs on port 9898
    - HINT: You will need to replace the appVersion in the Chart.yaml to match the tag version from Dockerhub
-1. Install NGINX Ingress Controller using Helm
-   - HINT: This will be a separate chart and release than the one you created
-   - HINT: [Make sure to add an initial repo](https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository)
-1. Update your created chart to add the Ingress route
+1. Enable the [managed application routing add-on with Istio](https://learn.microsoft.com/en-us/azure/aks/app-routing-gateway-api)
+   - HINT: Enable managed Gateway API support as well
+1. Update your created chart to add a Gateway and HTTPRoute
    - HINT: This updates the original chart you created
-   - HINT: You only need to modify the values.yaml file
-   - HINT: The default annotations need to be commented back in
+   - HINT: Recent versions of `helm create` include an HTTPRoute template, but not a Gateway template; add the Gateway manually using the `approuting-istio` GatewayClass
+   - HINT: Keep the generated Ingress template disabled; using Ingress is discouraged in favor of Gateway API
    - HINT: Use nip.io for DNS resolution
+   - HINT: OR, instead of nip.io, write a curl request with a custom host header
 1. Verify App is available at myapp.$INGRESS_IP.nip.io
-   - HINT: `INGRESS_IP=$(kubectl get service -n ingress-basic nginx-ingress-ingress-nginx-controller -o json |
- jq '.status.loadBalancer.ingress[0].ip' -r)`
+   - HINT: Find the external address in the Gateway status
 
 
 ## Success Criteria
 
-* `helm ls --all-namespaces` shows your chart and the Ingress controller
+* `helm ls --all-namespaces` shows your chart
+* Your Gateway is programmed and your HTTPRoute is accepted with resolved backend references
 * `curl myapp.$INGRESS_IP.nip.io` returns an HTTP 200 reponse
 
 ## Hints

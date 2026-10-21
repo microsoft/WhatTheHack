@@ -5,7 +5,7 @@
 ## Prerequisites
 
 1. Your laptop: Windows/Linux/OSX
-1. Bash Shell (e.g. WSL)
+1. Powershell or Bash (if using local workstation)
 1. Your Azure Subscription
 
 
@@ -13,17 +13,17 @@
 
 The first challenge is to setup your local environment as well as the AKS cluster you will be running on.
 
+*You may optionally choose to use the Github Codespace for this challenge. The Codespace already has the required tools installed and would only require you to log into Azure to verify connectivity.*
+
 ## Description
 
 Install each of the CLI tools and ensure you can login to each of the online services.  We will be using these later in the challenges
 
-All challenges will be run using Bash.
-
 ## Challenge
 
 1. Latest Azure CLI
-    - Verified with 2.7.0
 1. Install Docker
+1. Install kubectl
 1. Install Helm 3
 1. Create a Github Account
 1. Create an ACR
@@ -34,8 +34,8 @@ All challenges will be run using Bash.
     - Managed Identity enabled
 1. Attach ACR to the AKS cluster
 1. Install Curl
-1. Install JQ
-1. [OPTIONAL] Install kubectx/kubens/kube-aliases
+1. [OPTIONAL] Install JQ
+1. [OPTIONAL] Install kubectx/kubens/kube-aliases (already included in the Codespace)
 
 ## Success Criteria
 
@@ -48,7 +48,7 @@ All challenges will be run using Bash.
 1. Running `curl -s https://api.github.com/users/octocat/repos | jq '.'`  shows you a pretty-printed JSON doc
 1. [OPTIONAL] Running `kubectx` lets you switch between K8S clusters
 1. [OPTIONAL] Running `kubens` lets you switch between namespaces
-1. [OPTIONAL] Running `ksysgpo` shows all pods in your system namespace
+
 
 ## Hints
 
