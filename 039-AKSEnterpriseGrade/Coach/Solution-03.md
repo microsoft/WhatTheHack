@@ -4,76 +4,58 @@
 
 ## Notes and Guidance
 
-* Participants will have to decide when installing Prometheus whether using the Prometheus Operator or installing Prometheus and Grafana manually, both approaches should work.
-* This is just an introductory level. Make participants understand the overall structure of each tool (Azure Monitor and Prometheus/Grafana), and some pros/cons of both of them.
+* Recommend **Azure Monitor managed service for Prometheus** and the built-in **Azure Monitor dashboards with Grafana**. Azure Managed Grafana is another managed visualization option; self-hosted Prometheus/Grafana is optional, not the recommended solution. Avoid exposing Grafana with a public LoadBalancer or firewall DNAT just for this challenge.
+* Distinguish the three signals: managed Prometheus collects Kubernetes metrics in an **Azure Monitor workspace**; Container Insights collects container logs in a **Log Analytics workspace**; **workspace-based Application Insights** collects web/API request and dependency telemetry. Enabling one does not automatically enable the others.
+* Require evidence of Application Insights requests from **both** services. AKS autoinstrumentation for Node.js is public preview; Python is **limited preview** and requires access to that preview. Do not suggest that the Python AKS feature is generally available.
 
 ## Solution Guide
 
-The script blocks below demonstrate how you can solve this challenge.  They are not the only solutions. 
+These are examples, not the only solutions. Azure CLI cluster operations can run locally; `kubectl` against a private AKS cluster must run from a host with private API access (see [Challenge 2](./Solution-02.md)).
 
-If the students deployed a private AKS cluster, the way they access and administer it is different than if it is not a private AKS cluster.  Commands will need to be run remotely through a jumpbox. You will observe in the sample solution script blocks below that the commands for private/non-private cluster are encapsulated in if/then/else blocks.
+### Managed metrics and container logs
 
-```bash
-# Azure Monitor
-az aks enable-addons -n $aks_name -g $rg -a monitoring --workspace-resource-id $logws_id
-```
-
-If you are using a jump host to a private cluster and egress firewall:
+Enable managed Prometheus for cluster metrics and Container Insights for logs. Set `monitorWorkspaceId` to an existing Azure Monitor workspace resource ID and `logws_id` to an existing Log Analytics workspace resource ID; if no Azure Monitor workspace exists, omit its resource-ID argument to use the default. The two workspace types are distinct.
 
 ```bash
-# Deploy Prometheus/Grafana
-remote "helm repo add stable https://charts.helm.sh/stable"
-remote "helm repo add prometheus-community https://prometheus-community.github.io/helm-charts"
-remote "helm repo update"
-remote "helm install prometheus prometheus-community/kube-prometheus-stack"
-remote "kubectl patch svc prometheus-grafana -p '{\"spec\": {\"type\": \"LoadBalancer\"}}'"
-remote "kubectl patch svc prometheus-grafana -p '{\"metadata\": {\"annotations\": {\"service.beta.kubernetes.io/azure-load-balancer-internal\": \"true\"}}}'"
-grafana_admin_password=$(remote "kubectl get secret --namespace default prometheus-grafana -o jsonpath=\"{.data.admin-password}\" | base64 --decode")
-sleep 60 # Wait 60 secs until the svc changes from public to private
-grafana_ip=$(remote "kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null")
-# NAT rule
-az network firewall nat-rule create -f azfw -g $rg -n nginx \
-    --source-addresses '*' --protocols TCP \
-    --destination-addresses $azfw_ip --translated-address $grafana_ip \
-    --destination-ports 8080 --translated-port 80 \
-    -c Grafana --action Dnat --priority 110
-echo "You can browse now to http://${azfw_ip}:8080 and use the credentials admin/${grafana_admin_password}"
+# use an existing Azure Monitor workspace for Prometheus, or omit the ID to use the default
+az aks update -n "$aks_name" -g "$rg" --enable-azure-monitor-metrics --azure-monitor-workspace-resource-id "$monitorWorkspaceId"
+
+# use an existing Log Analytics workspace for Container Insights
+az aks enable-addons -n "$aks_name" -g "$rg" -a monitoring --workspace-resource-id "$logws_id"
 ```
 
-If using a public cluster and no egress firewall:
+Find cluster, node, and container charts under **AKS > Monitoring > Dashboards with Grafana** in the Azure portal; select a dashboard backed by the Azure Monitor workspace. See [AKS dashboards with Grafana](https://learn.microsoft.com/azure/azure-monitor/visualize/grafana-kubernetes). For logs, open **AKS > Insights > Containers** and inspect the API container logs. Optionally link an [Azure Managed Grafana workspace](https://learn.microsoft.com/azure/azure-monitor/containers/kubernetes-monitoring-enable) to the Azure Monitor workspace for more dashboards. No in-cluster Prometheus or Grafana Helm release is required.
+
+### Application Insights for web and API
+
+Create a [workspace-based Application Insights resource](https://learn.microsoft.com/azure/azure-monitor/app/create-workspace-resource) and copy its connection string from **Overview**. The web deployment is Node.js and the API deployment is Python/Flask. The [AKS autoinstrumentation guide](https://learn.microsoft.com/azure/azure-monitor/containers/kubernetes-codeless) supports Node.js without source changes on Linux nodes (public preview); it requires Azure CLI 2.60.0 or later. Enable cluster support:
 
 ```bash
-# Deploy Prometheus/Grafana
-helm repo add stable https://charts.helm.sh/stable
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm install prometheus prometheus-community/kube-prometheus-stack
-kubectl patch svc prometheus-grafana -p '{"spec": {"type": "LoadBalancer"}}'
-grafana_admin_password=$(kubectl get secret --namespace default prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode)
-sleep 60 # Wait 60 secs until the svc changes from public to private
-grafana_ip=$(kubectl get svc/prometheus-grafana -n default -o json | jq -rc '.status.loadBalancer.ingress[0].ip' 2>/dev/null)
-echo "You can browse now to http://${grafana_ip}:80 and use the credentials admin/${grafana_admin_password}"
+az aks update -n "$aks_name" -g "$rg" --enable-azure-monitor-app-monitoring
 ```
 
-We will now connect Grafana with Prometheus, and add a dashboard (credits to Mel Cone, more info in her gist [here](https://gist.github.com/melmaliacone/c5d2ef9e390ec3f2d4e510c304fe7bb0)):
+Create an `Instrumentation` custom resource in the **same namespace** as the deployments, pointing to the Application Insights connection string. Use a non-`default` name for per-deployment onboarding, for example:
 
-1. Add a data source
+```yaml
+apiVersion: monitor.azure.com/v1
+kind: Instrumentation
+metadata:
+  name: app-insights
+  namespace: default
+spec:
+  settings:
+    autoInstrumentationPlatforms: []
+  destination:
+    applicationInsightsConnectionString: "<APPLICATION_INSIGHTS_CONNECTION_STRING>"
+```
 
-    a. There should already be an existing data source like `http://prometheus-kube-prometheus-prometheus.default:9090` (check the name of your k8s services on port 9090)
+Apply this resource from a host that can reach the cluster. In the **pod template** (`spec.template.metadata.annotations`, not top-level Deployment metadata), annotate the web deployment with `instrumentation.opentelemetry.io/inject-nodejs: "app-insights"`. Follow [per-deployment onboarding](https://learn.microsoft.com/azure/azure-monitor/containers/kubernetes-codeless#per-deployment-onboarding), restart the web deployment if needed, and verify requests in Application Insights.
 
-    You can test the data source, the result should be `Data source is working`.
+**Python access gate:** [AKS Python autoinstrumentation](https://learn.microsoft.com/azure/azure-monitor/containers/kubernetes-codeless-python-net) is a **limited preview** (no SLA; not recommended for production), not the same public-preview onboarding as Node.js. If access is granted, annotate the API pod template with `instrumentation.opentelemetry.io/private-preview-inject-python: "app-insights"`, **not** `inject-python`; namespace-wide Python onboarding is unavailable. Restart the API deployment after onboarding, generate traffic, wait a few minutes, and verify telemetry. These annotations and the custom resource change Kubernetes configuration, not application source code.
 
-2. Add a Kubernetes Cluster Grafana dashboard
+If Python preview access is **not** available, do not claim the annotation works. The API still needs Application Insights requests to pass the challenge: use a Python OpenTelemetry instrumentation/export approach supported in your environment, such as packaging the [Azure Monitor OpenTelemetry Python distro](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable) in a new image and initializing it before Flask imports, or an OpenTelemetry auto-instrumentation deployment with a verified Azure Monitor export path. This may require a container image/startup or application entry-point change; it is **not** a turnkey AKS no-change solution. Coaches should arrange preview access or test and document the alternate API path before running the hack.
 
-    a. Hover over the plus sign in the panel on the left hand side and click `Import`.
-
-    b. In the `Grafana.com Dashboard` text box enter `7249` and then click `Load` next to the text box. This will import [this Grafana dashboard](https://grafana.com/grafana/dashboards/7249) and take you to a new page titled `Import`.
-
-    > If you have a firewall filtering AKS egress traffic, you need to allow HTTPS to grafana.net.
-
-    c. Under the `Options` section click the `Select a Prometheus data source` and select the data source, which should only have one option.
-
-    Now you should see your dashboard!
+Generate requests to the web and `/api/pi` endpoints. In **Application Insights > Logs**, check `AppRequests` for requests from **both** workloads (and `AppDependencies` for web-to-API calls if captured); the **Application Map** can also show the two cloud roles. Check role names so the web and API are distinguishable. Container Insights logs and Prometheus CPU charts alone do **not** satisfy this application telemetry criterion.
 
 ### CPU utilization
 
@@ -87,8 +69,8 @@ if [[ "$aks_outbound" == "userDefinedRouting" ]]; then
   endpoint_ip=$azfw_ip
   echo "Using Azure Firewall's IP $azfw_ip as endpoint..."
 else
-  endpoint_ip=$nginx_svc_ip
-  echo "Using Ingress Controller's IP $nginx_svc_ip as endpoint..."
+  endpoint_ip=$ingress_svc_ip
+  echo "Using managed gateway's IP $ingress_svc_ip as endpoint..."
 fi
 # Tests
 echo "Testing if API is reachable (no stress test yet)..."
@@ -188,23 +170,6 @@ else
 fi
 ```
 
-If you are doing this after the service mesh challenge, you might need to uninject the linkerd containers (see [https://github.com/linkerd/linkerd2/issues/2596](https://github.com/linkerd/linkerd2/issues/2596)).
-
-```bash
-# Uninject linkerd, re-inject using --proxy-cpu-request/limit:
-aks_is_private=$(az aks show -n "$aks_name" -g "$rg" --query apiServerAccessProfile.enablePrivateCluster -o tsv)
-# If cluster is private, go over jump host
-if [[ "$aks_is_private" == "true" ]]; then
-    remote "kubectl get deploy -o yaml | linkerd uninject - | kubectl apply -f -"
-    remote "kubectl get deploy -o yaml | linkerd inject --proxy-cpu-request 25m --proxy-cpu-limit 500m  - | kubectl apply -f -"
-    remote "kubectl rollout restart deploy/api"
-    remote "kubectl rollout restart deploy/web"
-else
-    kubectl get deploy -o yaml | linkerd uninject - | kubectl apply -f -
-    kubectl get deploy -o yaml | linkerd inject --proxy-cpu-request 25m --proxy-cpu-limit 500m  - | kubectl apply -f -
-    kubectl rollout restart deploy/api
-    kubectl rollout restart deploy/web
-fi
-```
+If revisiting this challenge after the service mesh exercise, follow the [AKS-managed Istio guidance in Challenge 7](./Solution-07.md). Check that the web and API pods have ready sidecars after changing resource settings; injection is managed by the namespace's mesh revision label, not by manually transforming Deployment manifests.
 
 
