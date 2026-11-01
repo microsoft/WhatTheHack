@@ -18,11 +18,11 @@ The AI Index exposes three new MCP tools:
 - `platform.context_engine.describe_ai_index`
 - `platform.context_engine.query_ai_indices`
 
-These tools are available to any agent that can call the MCP endpoint for your Elasticsearch database. In Azure AI Foundry, you need to expose them through whatever Elastic tool interface you connect it with, which this repo does not cover:
+These tools are available to any agent that can call the MCP endpoint for your Elasticsearch database. 
 
-		○ Your agent can call ANY of these tools, but we want to restrict the agent to only using the AI Index tools, and a core ES|QL execute tool.
-		○ If we don't restrict the agent, it can all the tools which Agent Mole uses for discovery
-			§ (this applies for Agent Mole too. There's nothing preventing Agent Mole from seeing and accessing the AI Index tools!  If you go back and re-read/inspect Mole's system prompt, you'll see that we give it instructions to NOT use the AI Index tools!  (which didn't exist when you implemented Mole, but Mole knew not to try anything funny like that.
+Your agent can call ANY of these tools, but we want to restrict the agent to only using the AI Index tools, and a core ES|QL execute tool.
+
+If we don't restrict the agent, it can all the tools which Agent Mole uses for discovery. This applies for Agent Mole too. There's nothing preventing Agent Mole from seeing and accessing the AI Index tools!  If you go back and re-read/inspect Mole's system prompt, you'll see that we give it instructions to NOT use the AI Index tools! (which didn't exist when you implemented Mole, but Mole knew not to try anything funny like that.)
 
 
 Building and refreshing context has a cost, so reduced per-question discovery is a hypothesis to measure, not a given.
@@ -39,11 +39,21 @@ Building and refreshing context has a cost, so reduced per-question discovery is
 ```
 You are a customer-success analyst for Precision Labs. Answer questions about accounts, support tickets, and knowledge-base articles using the data available to you. Show your reasoning. Before querying data, retrieve relevant Knowledge Indicators to learn which index to use and what fields mean. Your Knowledge Indicators are in AI Index precision-corpus (ES|QL target: ai-index-idx-precision-corpus). KI fields: type (index_metadata or playbook), title, content. Go directly to query_ai_indices — skip list_ai_indices, describe_ai_index, list_indices, and get_index_mapping. The KIs already tell you the index names and schemas.
 ```
+- Back in your agent in Foundry, open **Tools** and select **Add tool** (or **+ Add**).
+  - In the tool catalog, choose **Elasticsearch** if it is listed. The Elasticsearch tool includes a dedicated configuration form for the MCP connection.
+  - Fill in the connection fields with your Kibana MCP settings:
+    - Name: `elastic-mcp` (or similar)
+    - MCP server URL / endpoint: paste the **MCP server URL** from Kibana
+    - Authentication: **API key** / **Key-based**
+    - Header name: `Authorization`
+    - Header value: `ApiKey <your Elastic API key>` (replace the placeholder with your encoded key from Challenge 00; keep the word `ApiKey` and the space)
+  
+    ![Screenshot of the completed MCP tool connection in Foundry](../images/foundry-add-elasticsearch-tool.png)
 
-- Add a **Custom** **Model Context Protocol (MCP)** tool:
-  - Use the **Context Engine MCP endpoint** you retrieved in Challenge 02 as the remote MCP endpoint.
-  - Use **Key-based** authentication with the key name `Authorization` and the value `ApiKey <your Elastic API key>`.
-  - Confirm the Context Engine tools are listed, and leave tool approval enabled.
+  - If you do not see an Elasticsearch entry in the catalog, choose **Model Context Protocol (MCP)** or **Custom** from the catalog and enter the same MCP endpoint URL and API key. The configuration flow is the same.
+  - Select **Connect** (or **Create**) and confirm the Elastic tools are listed. If the tool list shows an error, re-check the URL and key.
+  - Leave tool approval enabled so that you can inspect each call.
+
 
 ### Test Agent "Optimus"
 
