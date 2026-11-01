@@ -4,17 +4,23 @@
 
 ## Pre-requisites
 
-- Completed Challenge 00: your Elastic sample indices and ES|QL MCP tools exist in Kibana.
+- Completed Challenge 00: your Elastic sample indices and ES\|QL MCP tools exist in Kibana.
 - Your Elastic **Kibana URL** and **Elastic API key** from Challenge 00.
 - Your Azure lab credentials.
 
 ## Introduction
 
-A support agent must decide which data to use before it can answer. Index names and mappings describe structure, but they do not always explain business meaning. The Model Context Protocol (MCP) lets Microsoft Foundry call Elastic tools without embedding a database client in the model.
+In this challenge, you will create a support agent in Microsoft Foundry to connect to the Elasticsearch instance you created in Challenge 00. We'll call it "Agent Mole". The Model Context Protocol (MCP) lets Microsoft Foundry agents call Elastic tools without embedding a database client in the model.
 
-Agent Mole is going to have to dig around blindly in your data to find the answers. It is our baseline, not a deliberately bad agent. It is connected to the Elastic MCP endpoint that exposes the individual workshop indices, so it has to discover which data to query before it can answer. In this challenge you will build it in the Microsoft Foundry portal, test it, and measure what it costs to answer questions.
+When you create an Elasticsearch project, it comes with a set of built-in MCP tools, so nothing has to be generated or deployed. The core tools (named `platform.core.*`) cover the basic ways an AI agent works with your data. They can list the indices, read an index's mapping (its structure), fetch a document by ID, run a search in plain English, and write and run ES\|QL queries. Elastic maintains these tools, so you can't edit them. You can add your own custom tools, such as a saved ES\|QL query with parameters, and they appear right next to the built-in ones.
 
-> **Draft notice:** Portal menu labels change frequently. If a label below does not match what you see, look for the closest equivalent or ask your coach.
+Kibana makes all of these tools available from one MCP server endpoint: `{KIBANA_URL}/api/agent_builder/mcp`. If you're working in a Kibana Space other than the default one, use `{KIBANA_URL}/s/{space-id}/api/agent_builder/mcp`. Any MCP-compatible agent, including a Microsoft Foundry agent, can connect to that URL with an Elasticsearch API key. The agent then discovers the available tools and calls them as needed to answer questions about your data. 
+
+**NOTE**: The API key controls what the agent can do: tools run with that key's permissions, so a read-only key limited to your workshop index keeps the agent from changing or seeing anything else.
+
+Agent Mole is going to have to dig around blindly in your data to find the answers. It is our baseline, not a deliberately bad agent. It will be connected to the Elastic MCP endpoint that exposes the individual workshop indices, so it has to discover which data to query before it can answer. Index names and mappings describe structure, but they do not always explain business meaning. In this challenge you will build it in the Microsoft Foundry portal, test it, and measure what it costs to answer questions.
+
+> **NOTE:** Both the Microsoft Foundry Portal and Elastic Kibana menu labels change frequently. If a label below does not match what you see, look for the closest equivalent or ask your coach.
 
 ## Description
 
@@ -93,22 +99,18 @@ Agent Mole is going to have to dig around blindly in your data to find the answe
 - Ask the agent each of these sample queries in a **new conversation** each time:
 
 **Prioritize At-Risk Customers**
-  ```text 
-  Find Enterprise customers with a churn risk score of at least 0.7 and unresolved integration or performance tickets. Rank customers by annual recurring revenue, show their critical or high-priority tickets, and recommend next steps using relevant knowledge base articles.
-  ```
-
-**Knowledge Base: Okta SSO**
-```text
-Our Okta SSO login fails with a provisioning error. Which SAML attributes are required, and how should we test the configuration before rolling it out?
 ```
+Which Enterprise accounts have the highest churn risk, and what are they mostly calling us about?
+```
+
 **Support Tickets: Unresolved Integration Issues**
-```text
-Find unresolved critical and high-priority integration tickets. Show ticket ID, account ID, company, assigned support agent, and a short issue summary.
+```
+Which Enterprise accounts renewing in the next 60 days have open critical tickets, and which knowledge base articles cover their issues?
 ```
 
-**Support Tickets and Knowledge Base: Conflicting API Key Rotation Guidance**
-  ```text
-  Compare historical ticket resolutions about API key rotation with the knowledge base article. Do they disagree about the grace period? Cite both sources and flag what needs confirmation before we advise a customer.`
+**Financial Impact of at risk customers**
+```
+What is the total ARR of the five accounts you just listed?
 ```
 
 - When the agent asks for approval to run an MCP tool, expand the request, review the tool name and arguments, and approve it only if it is a read-only call against your workshop data.
