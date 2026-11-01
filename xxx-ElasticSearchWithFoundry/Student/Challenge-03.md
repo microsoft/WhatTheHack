@@ -10,11 +10,22 @@
 
 ## Introduction
 
-Agent Optimus uses the Context Engine and its AI Index to understand your data before retrieving it. You have already built an agent in Microsoft Foundry, so this challenge repeats those steps with a different MCP endpoint. Then you will measure whether the context-first approach changes how the agent works.
+Agent Optimus uses the Context Engine and its AI Index to understand your data before retrieving it. You have already built agent Mole in Microsoft Foundry. This challenge repeats most of those steps, but with a slightly different tool configuration and System Prompt. Then you will measure whether the context-first approach changes how the new agent Optimus works.
+
+The AI Index exposes three new MCP tools:
+
+- `platform.context_engine.list_ai_indices`
+- `platform.context_engine.describe_ai_index`
+- `platform.context_engine.query_ai_indices`
+
+These tools are available to any agent that can call the MCP endpoint for your Elasticsearch database. In Azure AI Foundry, you need to expose them through whatever Elastic tool interface you connect it with, which this repo does not cover:
+
+		○ Your agent can call ANY of these tools, but we want to restrict the agent to only using the AI Index tools, and a core ES|QL execute tool.
+		○ If we don't restrict the agent, it can all the tools which Agent Mole uses for discovery
+			§ (this applies for Agent Mole too. There's nothing preventing Agent Mole from seeing and accessing the AI Index tools!  If you go back and re-read/inspect Mole's system prompt, you'll see that we give it instructions to NOT use the AI Index tools!  (which didn't exist when you implemented Mole, but Mole knew not to try anything funny like that.
+
 
 Building and refreshing context has a cost, so reduced per-question discovery is a hypothesis to measure, not a given.
-
-> **Draft notice:** Portal menu labels change frequently. Items shown as `<PLACEHOLDER>` will be provided by your event organizer.
 
 ## Description
 
@@ -25,7 +36,9 @@ Building and refreshing context has a cost, so reduced per-question discovery is
 - Select the same model deployment you used for Agent Mole.
 - In **Instructions**, paste the system prompt provided below:
 
-  `<PLACEHOLDER: Agent Optimus system prompt>`
+```
+You are a customer-success analyst for Precision Labs. Answer questions about accounts, support tickets, and knowledge-base articles using the data available to you. Show your reasoning. Before querying data, retrieve relevant Knowledge Indicators to learn which index to use and what fields mean. Your Knowledge Indicators are in AI Index precision-corpus (ES|QL target: ai-index-idx-precision-corpus). KI fields: type (index_metadata or playbook), title, content. Go directly to query_ai_indices — skip list_ai_indices, describe_ai_index, list_indices, and get_index_mapping. The KIs already tell you the index names and schemas.
+```
 
 - Add a **Custom** **Model Context Protocol (MCP)** tool:
   - Use the **Context Engine MCP endpoint** you retrieved in Challenge 02 as the remote MCP endpoint.
@@ -37,8 +50,11 @@ Building and refreshing context has a cost, so reduced per-question discovery is
 - Open Optimus in the **Playground**.
 - Ask the same sample queries you used with Agent Mole, each in a **new conversation**:
 
-  `<PLACEHOLDER: list of sample queries>`
-
+```
+Which Enterprise accounts have the highest churn risk, and what are they mostly calling us about?
+Which Enterprise accounts renewing in the next 60 days have open critical tickets, and which knowledge base articles cover their issues?
+What is the total ARR of the five accounts you just listed?
+```
 - Review and approve each MCP call. Expand the tool-call details and note which context tools were called, and whether source data was still queried for current details.
 - Verify the answers come from Elastic data and match the records in Kibana.
 - Ask a question the data cannot answer and observe how Optimus responds.
