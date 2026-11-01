@@ -1,5 +1,5 @@
-# Replace <YOUR_LLM_CONNECTOR_ID> with the id of a chat-completion connector in your project
-# (Kibana > Stack Management > Connectors; the id is shown in the connector's details).
+# Replace <YOUR_LLM_CONNECTOR_ID> (line 69) with the id of a chat-completion connector in your project
+# (Kibana > Admin and settings > Elastic Inference; the id is shown in the connector's details for the LLM).
 version: "1"
 name: Precision Labs index metadata KIs
 description: >
@@ -66,7 +66,7 @@ steps:
 
       - name: generate_index_profile
         type: ai.prompt
-        connector-id: <YOUR_LLM_CONNECTOR_ID>
+        connector-id: .anthropic-claude-5-sonnet-chat_completion
         on-failure:
           retry:
             max-attempts: 3

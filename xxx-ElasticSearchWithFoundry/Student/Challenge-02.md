@@ -55,7 +55,7 @@ Click **Save**. Sources should show 3.
 
 - In the **Automations** section of the Overview tab, click **Add automation** and select **Create workflow**. Kibana Workflows opens with a scaffolded workflow:
 - Select all the scaffold text and delete it.
-- Copy the contents of the `plan-b-write-kis-no-llm.yml` file from the `workflows/` folder of your Codespace and paste it into the workflow editor. This assumes the AI Index is named `precision-corpus`.
+- Copy the contents of the `precision-index-metadata-kis.yml` file from the `workflows/` folder of your Codespace and paste it into the workflow editor. This assumes the AI Index is named `precision-corpus`.
 - Click **Save**, then **Run workflow**.
 
 The workflow runs once per source index. It fetches the mapping, samples 20 random documents, runs grounding ES|QL aggregations (counts by category), renders that into a KI, and writes it to the AI Index with `context-engine.createKi`. Three indices finish in about a minute.
