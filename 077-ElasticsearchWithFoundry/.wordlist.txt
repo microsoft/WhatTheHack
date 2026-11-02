@@ -30,3 +30,5 @@ Jira
 Zendesk
 CUST
 Northstar
+ish
+schedulable
