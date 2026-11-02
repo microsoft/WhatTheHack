@@ -58,7 +58,7 @@ Click **Save**. Sources should show 3.
 - Copy the contents of the `precision-index-metadata-kis.yml` file from the `workflows/` folder of your Codespace and paste it into the workflow editor. This assumes the AI Index is named `precision-corpus`.
 - Click **Save**, then **Run workflow**.
 
-The workflow runs once per source index. It fetches the mapping, samples 20 random documents, runs grounding ES|QL aggregations (counts by category), renders that into a KI, and writes it to the AI Index with `context-engine.createKi`. Three indices finish in about a minute.
+The workflow runs once per source index. It fetches the mapping, samples 20 random documents, runs grounding ES\|QL aggregations (counts by category), renders that into a KI, and writes it to the AI Index with `context-engine.createKi`. Three indices finish in about a minute.
 
 - To check the result, open the `precision-corpus` AI Index, switch to the **Knowledge Indicators** tab. You should see KIs for all three indices. Open one and read `content`.
 
