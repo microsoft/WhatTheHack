@@ -685,3 +685,9 @@ backticks
 backtick
 Agam
 Makkar
+ElasticsearchWithFoundry
+MyNewHack
+untracked
+worktree
+devcontainer's
+JsonConvert
