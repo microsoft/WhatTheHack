@@ -1,4 +1,3 @@
-# Draft candidate versions/ranges, not a tested lockfile.
 # Freeze transitive dependencies after the pre-delivery compatibility pilot.
 azure-ai-projects==2.8.0
 azure-identity>=1.25,<2

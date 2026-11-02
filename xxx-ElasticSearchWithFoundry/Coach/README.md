@@ -12,11 +12,14 @@ The core targets the requested 2-3-hour event format through pre-event account r
 
 ## Coach's Guides
 
-- **[Challenge 00 - Ready, Set, Connect](./Solution-00.md)** - Access checks, deployment/attach paths, and scoped connections.
-- **[Challenge 01 - Connect Foundry Agent to Elastic](./Solution-01.md)** - Baseline agent, source references, and traces.
-- **[Challenge 02 - Build the Context Engine](./Solution-02.md)** - Native AI Index/KIs and MCP endpoint.
-- **[Challenge 03 - Rise of Agent Optimus](./Solution-03.md)** - Optimus agent, routing, and fair comparison.
-- **[Challenge 04 - Trust the Evidence](./Solution-04.md)** - Captured tool context, hosted evaluation, and trust boundaries.
+- Challenge 00: **[Ready, Set, Connect](./Solution-00.md)**
+  - Prepare your own environments and launch the supplied notebook workspace.
+- Challenge 01: **[Connect Foundry Agent to Elastic](./Solution-01.md)**
+  - Build a Foundry agent with Elastic MCP and collect a discovery baseline.
+- Challenge 02: **[Build the Context Engine](./Solution-02.md)**
+  - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
+- Challenge 03: **[Rise of Agent Optimus](./Solution-03.md)**
+  - Build a Foundry agent on the Context Engine and compare it with Agent Mole.
 
 ## Coach Prerequisites
 

@@ -18,27 +18,25 @@ Meet **Agent Mole**, measure its discovery work, and help **Agent Optimus** use 
 
 ## Challenges
 
-- Challenge 00: **[Ready, Set, Connect](Student/Challenge-00.md)** - Prepare your own environments and launch the supplied notebook workspace.
-- Challenge 01: **[Connect Foundry Agent to Elastic](Student/Challenge-01.md)** - Build a Foundry agent with Elastic MCP and collect a discovery baseline.
-- Challenge 02: **[Build the Context Engine](Student/Challenge-02.md)** - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
-- Challenge 03: **[Rise of Agent Optimus](Student/Challenge-03.md)** - Build a Foundry agent on the Context Engine and compare it with Agent Mole.
-- Challenge 04: **[Trust the Evidence, Not Its Instructions](Student/Challenge-04.md)** - Evaluate prompt-injection resistance using retrieved Elastic data.
+- Challenge 00: **[Ready, Set, Connect](Student/Challenge-00.md)**
+  - Prepare your own environments and launch the supplied notebook workspace.
+- Challenge 01: **[Connect Foundry Agent to Elastic](Student/Challenge-01.md)**
+  - Build a Foundry agent with Elastic MCP and collect a discovery baseline.
+- Challenge 02: **[Build the Context Engine](Student/Challenge-02.md)**
+  - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
+- Challenge 03: **[Rise of Agent Optimus](Student/Challenge-03.md)**
+  - Build a Foundry agent on the Context Engine and compare it with Agent Mole.
 
 ## Prerequisites
 
-- Basic Python, Jupyter notebook, JSON, and search concepts; no deep Elasticsearch experience is assumed.
-- A GitHub account with access to GitHub Codespaces and a modern browser.
-- Your own enabled Azure subscription, suitable model quota, and permission to create or use a Microsoft Foundry project.
-- Your own Elastic Cloud Serverless project with native Context Engine, workflow, and inference access.
-- Account signup, access verification, and quota checks completed before the event. Challenge 00 contains the preparation details.
-
-Free trials may help with setup, but credits, quotas, supported regions, and experimental-feature eligibility are not guaranteed. Azure, Elastic inference, and Codespaces may incur charges. Use synthetic workshop data, not company or customer information.
-
-## Repository Contents
-
-Student resources include starter notebooks, bundled synthetic data, deployment assets, and a Codespaces configuration. The coach provides a student-only resource workspace or Resources.zip. Core challenges are cumulative; advanced tasks are optional.
+- Access to an Azure subscription with Owner access
+	- If you don’t have one, Sign Up for Azure [HERE](https://azure.microsoft.com/en-us/free/)
+- A GitHub account with access to [GitHub Codespaces](https://github.com/features/codespaces) as a developer workspace in the cloud
+- Access to an Elastic Cloud Serverless project with native Context Engine, workflow, and inference access.
+  - If you don't have one, Sign up for a free Elastic trial [HERE](https://elastic.co)
 
 ## Contributors
 
 - [Peter Laudati](https://github.com/jrzyshr) 
+- [Jeff Vestal](https://github.com/jeffvestal)
 - GitHub Copilot (drafting assistance)
