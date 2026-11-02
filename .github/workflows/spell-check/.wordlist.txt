@@ -690,4 +690,4 @@ MyNewHack
 untracked
 worktree
 devcontainer's
-JsonConvert
+JSONC
