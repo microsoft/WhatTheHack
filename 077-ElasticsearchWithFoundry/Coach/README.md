@@ -6,7 +6,7 @@
 
 Welcome to the coach's guide for the Intro To Kubernetes What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an [optional lecture presentation](Lectures.pptx) that features short presentations to introduce key topics associated with each challenge. It is recommended that the host present each short presentation before attendees kick off that challenge.
+This hack includes an [optional lecture presentation](Lectures.pptx) with an introduction and one key-task summary slide for each student challenge (00–04). Present each summary before attendees start the challenge, then leave it displayed while they work. Speaker notes include the corresponding student guide and success criteria; the Challenge 04 notes also flag the evaluation checks coaches must confirm before delivery.
 
 Coach students toward evidence, not a predetermined token-saving result. This workshop uses a fictional customer-support scenario to connect Microsoft Foundry with Elastic MCP, generate reusable context using native Context Engine, and evaluate prompt-injection resistance.
 
