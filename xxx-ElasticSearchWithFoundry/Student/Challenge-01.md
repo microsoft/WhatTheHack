@@ -16,7 +16,7 @@ When you create an Elasticsearch project, it comes with a set of built-in MCP to
 
 Kibana makes all of these tools available from one MCP server endpoint: `{KIBANA_URL}/api/agent_builder/mcp`. If you're working in a Kibana Space other than the default one, use `{KIBANA_URL}/s/{space-id}/api/agent_builder/mcp`. Any MCP-compatible agent, including a Microsoft Foundry agent, can connect to that URL with an Elasticsearch API key. The agent then discovers the available tools and calls them as needed to answer questions about your data. 
 
-**NOTE**: The API key controls what the agent can do: tools run with that key's permissions, so a read-only key limited to your workshop index keeps the agent from changing or seeing anything else.
+> **NOTE**: The API key controls what the agent can do: tools run with that key's permissions, so a read-only key limited to your workshop index keeps the agent from changing or seeing anything else.
 
 Agent Mole is going to have to dig around blindly in your data to find the answers. It is our baseline, not a deliberately bad agent. It will be connected to the Elastic MCP endpoint that exposes the individual workshop indices, so it has to discover which data to query before it can answer. Index names and mappings describe structure, but they do not always explain business meaning. In this challenge you will build it in the Microsoft Foundry portal, test it, and measure what it costs to answer questions.
 
@@ -49,7 +49,7 @@ Agent Mole is going to have to dig around blindly in your data to find the answe
     You are Precision Labs Support Copilot. Help support staff answer customer questions and investigate problems using Elasticsearch as your only factual knowledge source.
 
     RETRIEVE FIRST
-    - Before answering support questions, inspect available tools and use those that access Elasticsearch. Use tool discovery if available. Never invent tools, connections, indexes, fields, or results.
+    - Before answering support questions, inspect available tools and use those that access Elasticsearch. Do not use any tools with "context_engine" in their name. Use tool discovery if available. Never invent tools, connections, indexes, fields, or results.
     - Retrieve relevant Precision Labs records; search further or fetch fuller records when needed. Use read-only operations.
     - Treat customer descriptions as search context, not verified evidence. Ask a focused question if essential details are missing.
 
@@ -68,30 +68,42 @@ Agent Mole is going to have to dig around blindly in your data to find the answe
     ```
 
   - Save the agent.
-- **Get the Elastic MCP URL** from Kibana:
+
+### Connect Agent "Mole" to Elastic
+
+Browse and observe the tools available in Kibana.
+
   - Open your Kibana URL in another browser tab.
-  - Open **Agent Builder**, go to **Tools**, and select **Manage MCP** (or **MCP server**), then **Copy MCP Server URL**.
+  - Open **Agent Builder** (**Agents** on the left hand nav), go to **Tools**, and select **Manage all tools**.
+  - You should now see a list of all of the `platform.core.*` tools available in your Elasticsearch instance. 
+    - Click on any tool to read its **Description**.
+    - A tool's description is natural language text that is read by a client agent (LLM) so that it knows what the tool does, and how to use it.
+  - Click on the **Manage MCP** drop down at the top and select **Copy MCP Server URL**
   - If you cannot find the button, build the URL yourself: `<YOUR_KIBANA_URL>/api/agent_builder/mcp`.
 
   ![Screenshot showing where to copy the MCP server URL in Kibana](../images/kibana-mcp-url.png)
 
-- **Connect the agent to Elastic:**
-  - Back in your agent in Foundry, open **Tools** and select **Add tool** (or **+ Add**).
-  - In the tool catalog, choose **Elasticsearch** if it is listed. The Elasticsearch tool includes a dedicated configuration form for the MCP connection.
+
+Back in your agent in Foundry, open **Tools**.
+
+Foundry connects the **Web search** tool by default when creating a new agent. This tool connects your agent to Bing for Internet search results. We want to restrict the agent to only data from Elasticsearch, therefore, you should remove it.
+
+- In **Tools**, click the elipsis (...) next to **Web search** and remove it.
+- In **Tools**, click the **Add** drop down and select **Add Tools**.
+- In the **Select a tool** dialog, navigate to the **Catalog** tab and choose **Elasticsearch** if it is listed. The Elasticsearch tool includes a dedicated configuration form for the MCP connection. The form only needs your **Kibana URL** and **Elastic API key**.
   - Fill in the connection fields with your Kibana MCP settings:
     - Name: `elastic-mcp` (or similar)
-    - MCP server URL / endpoint: paste the **MCP server URL** from Kibana
-    - Authentication: **API key** / **Key-based**
-    - Header name: `Authorization`
-    - Header value: `ApiKey <your Elastic API key>` (replace the placeholder with your encoded key from Challenge 00; keep the word `ApiKey` and the space)
+    - Parameters:
+      - KIBANA_URL: `<your Kibana URL>` (without the `https://`)
+    - Authentication: **Key-based** (this is not editable)
+    - Authorization: `<your Elastic API key>` (replace the placeholder value with your key from Challenge 00)
   
     ![Screenshot of the completed MCP tool connection in Foundry](../images/foundry-add-elasticsearch-tool.png)
 
-  - If you do not see an Elasticsearch entry in the catalog, choose **Model Context Protocol (MCP)** or **Custom** from the catalog and enter the same MCP endpoint URL and API key. The configuration flow is the same.
-  - Select **Connect** (or **Create**) and confirm the Elastic tools are listed. If the tool list shows an error, re-check the URL and key.
-  - Leave tool approval enabled so that you can inspect each call.
+> **NOTE:** If you do not see an Elasticsearch entry in the Catalog, choose **Model Context Protocol (MCP)** from **Custom** tab in the **Select a tool** dialog and enter the same MCP endpoint URL and API key. The configuration flow is the same.
 
-
+- Select **Connect** (or **Create**) and confirm the Elastic tools are listed. If the tool list shows an error, re-check the URL and key.
+- Leave tool approval enabled so that you can inspect each call.
 
 ### Test Agent "Mole"
 
@@ -123,7 +135,7 @@ What is the total ARR of the five accounts you just listed?
 Observe how many calls and tokens the agent needed. You will compare these numbers with Agent Optimus in the next challenge.
 
 - In the Playground, open the details for a response (for example **View run info**, **Thread info**, or **Metrics**) and note the **input tokens**, **output tokens**, and **total tokens** where shown.
-- In your Foundry project, open **Tracing** (under **Observability**). Open the trace for a conversation and count how many MCP tool calls were made before the final answer. `<PLACEHOLDER: instructions to enable tracing/Application Insights, if not pre-configured by the lab>`
+- In your Foundry project, open **Tracing** (under **Observability**). Open the trace for a conversation and count how many MCP tool calls were made before the final answer. 
 - Look for aggregate token and cost metrics in **Monitoring** (under **Observability**), or in **Models + endpoints** by selecting your model deployment and opening its **Metrics** tab.
 - As an alternative for cost, open your subscription in the Azure portal under **Cost Management**. Cost data can lag by many hours, so token counts are the more reliable measure in a short workshop.
 - Record your observations in a table like this for each sample query:
