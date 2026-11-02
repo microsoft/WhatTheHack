@@ -4,35 +4,80 @@
 
 ## Notes & Guidance
 
-Setup should remove toil, not become the central lesson. Account/signup and native feature eligibility are pre-event work. This draft has not been tested; resolve the release gates in the coach guide before students arrive.
+This challenge prepares three independent environments: an Azure lab subscription, an Elastic Cloud Serverless project, and a GitHub Codespace. Success means that students can authenticate to the right environments and find the loaded sample data, not that they have already created a Foundry agent. Follow the current [student challenge](../Student/Challenge-00.md); older notebooks and draft resource descriptions are not the delivery path for challenges 00-03.
 
-### One solution path
+### Prepare before the event
 
-- Publish the allowlisted student package with its contents at the Codespaces repository root.
-- Have students create a unique `.env`, sign in using Azure CLI, and choose attach-existing or explicitly run the provided Bicep deployment.
-- Supply an administrator-approved project role GUID, region, model version, and quota configuration. Do not assume a subscription-level Contributor role grants all data-plane permissions.
-- Load the three bundled sources: expected counts are 3 accounts, 4 tickets, and 7 KB articles. Reruns upsert stable IDs and refuse unowned indices.
-- Enable native Context Engine in the intended Kibana space. Verify workflow and inference access, not merely whether the landing page loads.
-- Configure two remote MCP project connections targeting Elastic's hosted endpoint. Header `Authorization` must contain the `ApiKey` scheme and the encoded runtime key.
-- Discover actual tool wire names using each runtime key. Save names in `.env`; select only discovery and read-only source tools for the baseline.
+- **Pilot both portals shortly before delivery.** Microsoft Foundry and Elastic Kibana are changing rapidly. Verify the current menu names, connection forms, screenshots, and feature availability. Keep notes on differences so coaches can help students navigate by purpose rather than by an exact button label.
+- Coordinate with the lab proctor on the Azure launch procedure and Spektra credentials. The student guide still contains a launch-instructions placeholder; know what students will actually be given and how to recover an expired or inaccessible lab.
+  - Use separate browser profiles or private windows for lab identities. A student may be signed into Azure with a personal or corporate account while the terminal uses the lab account.
+  - Test device-code sign-in from the actual Codespace with a lab identity. Conditional Access policy can block it. The documented desktop alternative, `CODESPACES=false az login`, still requires an approved sign-in path; it does not bypass policy.
+- Test the published Codespace link with a personal GitHub account, not just an organizer account. Verify that the hack's dev container is selected and that the resource files are where the student commands expect them.
+  - The [dev container configuration](../Student/Resources/.devcontainer/devcontainer.json) is nested in the content repository. Opening a generic Codespace at the full repository root does not automatically select it.
+  - Identify the student resource root: the directory containing [`.env.sample`](../Student/Resources/.env.sample), [`data/`](../Student/Resources/data/), and [`workflows/`](../Student/Resources/workflows/). Help students find it rather than assuming a particular terminal starting directory.
+  - The current container configuration does not automatically install the loader's Python packages. Keep the student's `python3 -m pip install elasticsearch python-dotenv` step until the distributed environment has been verified to include them.
+- Confirm trial signup, project provisioning, and native Context Engine/workflow access in the intended Elastic environment. An Elasticsearch project is required; an Observability or Security project is not the instructed choice.
+  - Context Engine is experimental in the documentation reviewed for this guide. Trial access to Elasticsearch alone is not proof that the later challenges will work.
+  - Preflight the LLM connector and external MCP tools needed in challenges 02 and 03. Resolve missing features with the organizer before delivery; do not discover eligibility problems halfway through the event.
+- Confirm Azure resource-creation permissions, Foundry project access, model availability, and quota for Challenge 01. Recommend `gpt-5-mini`, but pilot its deployment in the actual lab subscription and region. Prepare an available alternative and use the same deployment for both agents.
+- Allow time for account verification, Codespace startup, and provisioning. Check GitHub usage limits and Azure/Elastic trial expiry. Free trials and credits do not guarantee every operation is free.
 
-### Permission boundaries
+### Keep endpoints and credentials straight
 
-Setup needs workshop source creation/write access plus native Context Engine/workflow management. Baseline runtime access must exclude AI Index backing data. Optimus adds Context Engine read and backing-index read/metadata access. Both runtime keys may read the exact safety index after activation, but neither may write.
+Students often have the right information in the wrong field. Have them identify what each value is for without displaying the secret itself.
 
-Use the service's supported Serverless role/key configuration. An AI Index description is not access control, and a Foundry tool allowlist does not prevent a general query tool from reading data authorized by its key.
+| Value | Used for | Common mistake |
+| --- | --- | --- |
+| Azure lab identity | Azure CLI and Foundry portal sign-in | Using the personal Azure identity instead |
+| Elasticsearch endpoint | Loading data and Elasticsearch APIs | Supplying the Kibana browser URL |
+| Kibana URL | Browsing data, Context Engine, and the MCP endpoint | Supplying the Elasticsearch endpoint |
+| Encoded Elastic setup API key | Creating and populating workshop indices | Copying only the key ID, a masked value, or the wrong key type |
 
-### Progressive hints
+- Copy the encoded key when it is created; it is shown only once. If lost, create a replacement and revoke the unused key. Do not ask students to paste credentials into chat, projected terminals, or screenshots.
+- Keep the `.env` file local and private. Save it before running the loader, skip the copy command if it already exists, and never commit it. The sample's other settings can remain unchanged for the default Kibana space.
+- Use a dedicated workshop project. The setup key has write privileges; it is not an appropriate general-purpose agent credential. Before Challenge 01, prepare a scoped, read-only runtime key with the necessary Kibana Agent Builder access as well as source-index access.
+  - Context Engine retrieval later also needs its feature privilege and access to the AI Index's backing data. Elasticsearch index permissions alone do not grant all Kibana capabilities.
+  - Shared Foundry project connections contain shared credentials. Restrict who can access the project and revoke event keys afterward.
 
-- Authentication failures: check which endpoint is being called and whether the key has Kibana/space privileges, not only Elasticsearch index privileges.
-- Context API 404: check the setting in the exact space and feature eligibility; do not assume the resource is missing.
-- Foundry connection failures: local MCP discovery is not evidence of service-to-service reachability. Inspect the project connection and network path.
-- Deployment failures: inspect the model/version/SKU availability, quota, role-assignment permission, and active subscription. Do not repeatedly change regions without checking evaluation support.
+### Data loading and recovery
 
-### Evidence and recovery
+The current [loader](../Student/Resources/data/load_data.sh) runs three seeded generators and then checks counts. The expected result is:
 
-Ask students to identify the model request, local seed operation, and eventual Foundry MCP call as three different paths. An empty native AI Index list is possible before Challenge 02 and does not verify KI generation.
+| Index | Documents |
+| --- | --- |
+| `precision-crm-accounts` | 500 |
+| `precision-support-tickets` | 3,000 |
+| `precision-kb-articles` | 150 |
 
-If a student lacks Context Engine access, record the native objective as blocked. They can still explore baseline agents and safety; do not fabricate completion or give them an unlabeled simulation.
+- **Every run deletes and recreates these three exact indices.** This is not an upsert-only operation and has no workshop-ownership safeguard. Confirm the endpoint belongs to the student's disposable workshop project before rerunning. Reloading also removes any manual changes students made to source records.
+- The default data is deterministic, using seed 42. It is not the old tiny fixture containing a few accounts and tickets. Do not use older expected-answer files as the answer key for this dataset.
+- Exported environment variables override `.env`, and legacy `ES_URL` / `ES_API_KEY` exports take precedence over `ELASTICSEARCH_URL` / `ELASTIC_API_KEY`. If editing `.env` appears to have no effect, inspect which variable names are set without printing key values.
+- If a run fails, read the first failing operation. Resolve missing packages, a wrong URL, an expired key, or insufficient privileges before retrying. A partial run can leave only some of the indices populated.
+- **Do not accept the final banner or exit status alone as success.** The count loop can print `ERR` and continue. Require all three numeric counts and confirm the documents in Kibana.
+- Useful recovery checks:
+  - `az account show`: verify the subscription is the lab subscription. If needed, use `az account set --subscription <lab-subscription-id>`, then verify again.
+  - `401`: inspect the key value/type and expiration; `403`: inspect permissions on the operation that failed.
+  - HTML instead of an Elasticsearch response: check for a Kibana URL or a proxy/login page.
+  - Missing records in Discover: check the selected index/data view and time range before reloading. The tickets and articles contain historical dates, so a default "last 15 minutes" view can hide valid data.
 
-See the [native quickstart](https://www.elastic.co/docs/explore-analyze/ai-features/context-engine/quickstart) and [Foundry MCP authentication guidance](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/mcp-authentication).
+### Dataset concepts to introduce
+
+- CRM has one record per account; tickets link to it through **CRM `customer_id` = ticket `account_id`**. Company names can repeat and are not reliable join keys.
+- `arr` means **annual recurring revenue in USD**, not an array. The source mapping already contains that definition; a baseline agent that reads metadata well may understand it without KIs.
+- Dates are synthetic and fixed: account renewals are in 2026, ticket creation dates span January 2025 through August 2026, and article updates are historical. Use the actual event date for relative-date questions and accept a verified empty result. Do not secretly shift the scenario clock or alter the dataset to force a result.
+- Only the supplied fictional data belongs in this lab. Later MCP calls send retrieved source content to Foundry; connecting a real customer datastore would introduce a different data-handling decision.
+
+### What to ask students to demonstrate
+
+- The terminal is authenticated to the lab subscription, and both browser portals are accessible with the intended identities.
+- The resource workspace and private configuration are ready, without exposing the key.
+- The loader produced all three expected counts, and Kibana shows actual records.
+- Students can distinguish Elasticsearch, Kibana, and Azure endpoints and explain why rerunning the loader requires care.
+
+### Product references for coaches
+
+- [Sign in with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli)
+- [GitHub Codespaces overview](https://docs.github.com/en/codespaces/overview)
+- [Elastic Cloud Serverless](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/serverless)
+- [Authenticate Elastic MCP clients with API keys](https://www.elastic.co/docs/explore-analyze/ai-features/agent-builder/mcp-server-api-keys)
+- [Context Engine quickstart and prerequisites](https://www.elastic.co/docs/explore-analyze/ai-features/context-engine/quickstart)
