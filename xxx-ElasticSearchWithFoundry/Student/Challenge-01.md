@@ -92,7 +92,7 @@ Foundry connects the **Web search** tool by default when creating a new agent. T
 - In **Tools**, click the **Add** drop down and select **Add Tools**.
 - In the **Select a tool** dialog, navigate to the **Catalog** tab and choose **Elasticsearch** if it is listed. The Elasticsearch tool includes a dedicated configuration form for the MCP connection. The form only needs your **Kibana URL** and **Elastic API key**.
   - Fill in the connection fields with your Kibana MCP settings:
-    - Name: `elastic-mcp` (or similar)
+    - Name: `Precision-Labs-Elastic` (or similar)
     - Parameters:
       - KIBANA_URL: `<your Kibana URL>` (without the `https://`)
     - Authentication: **Key-based** (this is not editable)
