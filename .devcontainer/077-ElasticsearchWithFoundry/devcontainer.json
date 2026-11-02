@@ -1,9 +1,9 @@
 // Customize this devcontainer.json with features and extensions for your hackathon.
 // See: https://containers.dev/implementors/json_reference/
 {
-  "name": "xxx-ElasticSearchWithFoundry",
+  "name": "077-ElasticsearchWithFoundry",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
-  "workspaceFolder": "/workspace/xxx-ElasticSearchWithFoundry/Student/Resources",
+  "workspaceFolder": "/workspace/077-ElasticsearchWithFoundry/Student/Resources",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
     "cpus": 2
