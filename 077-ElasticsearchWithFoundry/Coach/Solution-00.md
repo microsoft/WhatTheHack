@@ -22,6 +22,21 @@ This challenge prepares three independent environments: an Azure lab subscriptio
 - Confirm Azure resource-creation permissions, Foundry project access, model availability, and quota for Challenge 01. Recommend `gpt-5-mini`, but pilot its deployment in the actual lab subscription and region. Prepare an available alternative and use the same deployment for both agents.
 - Allow time for account verification, Codespace startup, and provisioning. Check GitHub usage limits and Azure/Elastic trial expiry. Free trials and credits do not guarantee every operation is free.
 
+### When students share an Azure subscription
+
+Some labs require two students to share one Azure subscription and its lab identity. Confirm this arrangement with the proctor before setup.
+
+- Advise the pair to share the **event-provided Azure lab credentials** privately with each other. Both students use those same credentials for Azure CLI sign-in and the Microsoft Foundry portal. This is a lab-specific arrangement, not a recommendation to share personal or corporate passwords.
+- Each student must create their **own Foundry project**, using their name or initials to differentiate it, for example `precision-support-alex` and `precision-support-jb`.
+  - Both students will see each other's projects because they use the same identity. Check the selected project before creating agents, connections, or deployments. Separate projects organize the work; they do not isolate permissions for a shared identity.
+  - Each student keeps Mole and Optimus in their own project throughout the hack. Subscription-level model quota and costs are still shared, so coordinate deployment capacity with the proctor.
+- An Elastic Marketplace trial is limited to **one per Azure subscription**. Do not have both students attempt to provision a Marketplace trial against the shared subscription.
+  - The first student provisions Elasticsearch through Microsoft Marketplace.
+  - The second student signs up for a separate trial directly at [Elastic.co](https://cloud.elastic.co/registration), using their own Elastic account.
+  - Confirm that each provisioning route provides an **Elasticsearch Serverless project** with the Context Engine features needed for this hack; a hosted deployment is not automatically equivalent.
+- Each student must have their **own Elastic Serverless environment**, endpoints, and API keys. Each loads the sample data into their own environment and connects only that environment to their own Foundry project. Do not copy one student's Elastic `.env` file or reuse their MCP connection for the other student.
+- During cleanup, remove only the student's own resources. Do not delete a shared subscription's resource group or other resources that the partner still needs.
+
 ### Keep endpoints and credentials straight
 
 Students often have the right information in the wrong field. Have them identify what each value is for without displaying the secret itself.

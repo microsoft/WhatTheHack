@@ -9,6 +9,9 @@ The objective is a working Foundry-to-Elastic connection and an evidence-based b
 ### Prepare the Foundry environment
 
 - Verify the current **New Foundry** experience before delivery. Project creation, model deployment, agent tools, and tracing may have moved or been renamed. Keep a coach note of the current navigation and test the Elasticsearch catalog form as well as the generic MCP alternative.
+- If two students share an Azure lab subscription, both sign in with the same privately shared, event-provided lab credentials, but **each creates a separate Foundry project**. Include the student's name or initials in its name, such as `precision-support-alex`.
+  - Both students can see each other's projects. Verify the selected project before every configuration change, and keep that student's Mole, Optimus, and Elastic connection in their own project.
+  - Connect to the student's own Elastic environment: the first student's trial comes from Marketplace; the second student's separate trial comes directly from Elastic.co because the shared subscription supports only one Marketplace trial. See [shared-subscription setup guidance](./Solution-00.md#when-students-share-an-azure-subscription).
 - Recommend `gpt-5-mini` with **Global Standard**, subject to availability and quota in the lab. A deployment name is not necessarily the model's catalog name: students must select the deployment they actually created.
   - If unavailable, use a coach-approved supported alternative, record it, and retain it for Optimus. Repeatedly changing regions or models makes troubleshooting and later comparisons harder.
   - Confirm resource group/subscription selection before provisioning. Creating a project does not prove a model is deployed and ready.
