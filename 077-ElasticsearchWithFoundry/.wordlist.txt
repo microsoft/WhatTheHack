@@ -20,3 +20,13 @@ scaffolded
 tradeoff
 Okta
 instruqt
+Preflight
+upsert
+reachability
+verifiers
+KI's
+Inflight
+Jira
+Zendesk
+CUST
+Northstar
