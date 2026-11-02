@@ -16,34 +16,80 @@ Precision Labs' Support Copilot is built and hosted in Microsoft Foundry, and ne
 
 ### Launch the Azure Lab Environment
 
-The in-person lab proctor will tell you how to launch your Azure lab environment and will provide your lab credentials.
+Today's hack event is providing you with a temporary Azure Lab environment powered by CloudLabs. To use CloudLabs you must register for the event at the following link:
 
-`<PLACEHOLDER: Azure lab launch instructions provided by the lab proctor>`
+[Register for Azure Lab Environment from Microsoft powered by CloudLabs](https://aka.ms/Elastic_WTH)
+
+Once registered, you will receive a confirmation email from: `microsoftevents@cloudlabs.ai`
+
+> **NOTE:** If you do not see the email in your inbox, please be sure to check your Spam or Junk folders.
+
+When you receive the confirmation email:
+- Click the **"Attend Event"** link in it. 
+- Click **"Launch Lab"** in the browser window that opens.
+- The lab will take 3-5 minutes to provision
+- Once the lab has been provisioned, click the **"Environment"** tab and you should see a set of Azure login credentials.
 
 Gather the following from the lab environment and keep them handy. You will use them in the Codespace terminal:
 
-1. Azure username (Spektra credentials)
+1. Azure username (example: `odl_user_xxxxx@aiw-ds.cloudlabs.ai`)
 2. Azure password
-3. Azure subscription ID (if shown by the lab environment)
+
+Keep these credentials handy as you will need them to log into the [Microsoft Foundry portal](https://ai.azure.com).
 
 ### Create an Elastic Serverless Trial Environment
 
-1. Go to [Elastic Cloud trial account](https://cloud.elastic.co/registration) and sign up for a free Elastic Cloud trial.
-2. When prompted to create a project, choose **Elasticsearch** as the project type and use the default settings.
-3. Wait for the project to finish creating, then open it.
-4. Gather your **Elasticsearch endpoint URL** and your **Kibana URL**. They are different URLs, and you will need both.
+The following steps guide you to create a Elastic Serverless trial via the Microsoft Marketplace in the Azure Portal.
 
-   `<PLACEHOLDER: Screenshot showing where to find the Elasticsearch endpoint and Kibana URL>`
+1. Go to [Elasticsearch (7-day free trial)](https://ela.st/azure-marketplace) in the Microsoft Marketplace.
+2. Click the **Get it now** button.
+3. You will be prompted to log-in to the Azure portal. Use the Azure username (`odl_userxxxxx@aiw-ds.cloudlabs.ai`) and password you were provided from the lab environment.
+4. On the **Basics** tab:
+   - Choose **"Create new"** for **Resource Group** and give it a name (example: `rg-elastic-hack-john`).
+   - For **Resource Name**, use `elastic-wth`
+   - For **Hosting Type**, choose **Serverless**. 
+   - Use the default **Region** (`(US) East US`).
+> **WARNING:** Do NOT choose **"Cloud Hosted"** for the **Hosting Type** as it will not support the features required for this hack. 
 
-5. Create an **API key** for the deployment script:
+5. Click **Review + Create**. Your Elasticsearch trial deployment will start.
+6. When the deployment is complete, click the **Go to resource** button. This will open the **Elastic Cloud Resource** pane in the Azure portal where you can view your deployment.
+7. In the **Elastic Cloud Resource** pane, click the **View in Elastic** link (on the lower right side of the window). This will launch the Elastic Kibana portal.
+8. **Kibana** will prompt you to log-in. Click the **SSO** link and log-in using your Azure credentials (`odl_userxxxxx@aiw-us.cloudlabs.ai`). 
+9. In **Kibana**, gather your **Elasticsearch endpoint URL** and your **Kibana URL**. They are different URLs, and you will need both.
+1. Create an **API key** for the deployment script:
    - In the project, go to **Developer Tools / API keys** (or search for "API keys" in the top search bar).
    - Click **Create API key**, give it a name such as `wth-setup`, and keep the default privileges.
    - Copy the **encoded** key value immediately. It is shown only once.
    - Keep it available until you create your local `.env` file in the deployment section below. You will paste it into `ELASTIC_API_KEY`.
 
-   `<PLACEHOLDER: Screenshot showing where to create and copy the Elastic API key>`
+> **Warning:** Treat API keys like passwords. Do not paste them in chat, screenshots, or Git.
+
+If you are not able to provision Elastic via the Microsoft Marketplace, expand and follow the instructions below to create a trial directly on Elastic's website:
+
+<details markdown=1>
+<summary markdown="span"><strong>Click to expand/collapse Create Elastic Serverless Non-Marketplace Trial</strong></summary>
+
+#### Create Elastic Serverless Non-Marketplace Trial
+
+1. Go to [Elastic Cloud trial account](https://cloud.elastic.co/registration) and sign up for a free Elastic Cloud trial using a personal email address.
+2. Check your inbox for a verification email to launch the new trial.
+3. When prompted to create a project, choose **Elasticsearch** as the project type. 
+
+> **WARNING**: Choosing a different project type may impact how this lab works!
+
+4. Give your project a name (example: `elastic-wth`)
+5. Choose **Azure** for your Cloud provider and **Virginia (eastus)** or **Washington (westus2)** for your Region.
+6. Wait for the project to finish creating, then open it.
+7. Gather your **Elasticsearch endpoint URL** and your **Kibana URL**. They are different URLs, and you will need both.
+8. Create an **API key** for the deployment script:
+   - In the project, go to **Developer Tools / API keys** (or search for "API keys" in the top search bar).
+   - Click **Create API key**, give it a name such as `wth-setup`, and keep the default privileges.
+   - Copy the **encoded** key value immediately. It is shown only once.
+   - Keep it available until you create your local `.env` file in the deployment section below. You will paste it into `ELASTIC_API_KEY`.
 
 > **Warning:** Treat API keys like passwords. Do not paste them in chat, screenshots, or Git.
+
+</details>
 
 ### Launch Development Environment
 
@@ -62,25 +108,15 @@ GitHub Codespaces is available to every personal GitHub.com account, which inclu
 
 In this section, you will deploy the sample data for this hackathon.
 
-From the **Terminal** in your Codespace, complete the following. Run the commands from the student resource root, the folder containing `.env.sample` and `data/`:
+From the **Terminal** in your Codespace, complete the following:
 
-1. Log in to Azure with your lab credentials:
-
-   ```bash
-   az login
-   ```
-
-   **NOTE:** The Codespace uses a device code. Open the URL shown, enter the code, and sign in with the Azure username and password from your lab environment. If your organization's policy blocks device-code login, open the Codespace in VS Code Desktop and run `CODESPACES=false az login`.
-
-2. Add your Elastic values to the configuration file used by the setup scripts:
+1. Add your Elastic values to the configuration file used by the setup scripts. Rename the `env.sample` file to `.env`:
 
    ```bash
    cp .env.sample .env
    chmod 600 .env
    code .env
    ```
-
-   If you already have a `.env` file, skip the copy command so you do not overwrite your settings.
 
    Replace the values of these three entries with the URLs and **encoded setup API key** you copied from your Elastic project:
 
@@ -90,7 +126,9 @@ From the **Terminal** in your Codespace, complete the following. Run the command
    ELASTIC_API_KEY=<your-encoded-setup-api-key>
    ```
 
-   Save the file before continuing. Leave the other entries unchanged for now. Keep `.env` private and never commit it to Git.
+   Save the file before continuing. 
+   
+   > **WARNING:** Keep `.env` private and never commit it to Git.
 
 3. Run the data loader:
 
@@ -99,13 +137,12 @@ From the **Terminal** in your Codespace, complete the following. Run the command
    bash data/load_data.sh
    ```
 
-   The loader automatically reads the settings from `.env`
+   The loader automatically reads the settings from `.env`.
 
-   **TODO:** The Codespace will be updated to run `python3 -m pip install elasticsearch python-dotenv`. Then we can remove this step for the students.
 
-   **Warning:** Every run deletes and recreates the three workshop sample indices. Wait for the generators to finish and check that the final document counts are **500 accounts**, **3,000 tickets**, and **150 articles**. 
+   > **Warning:** Every run deletes and recreates the three workshop sample indices. Wait for the generators to finish and check that the final document counts are **500 accounts**, **3,000 tickets**, and **150 articles**. 
    
-   **NOTE:** If the script fails or prints `ERR`, read the error, check your `.env` settings and project access, and run it again.
+   > **NOTE:** If the script fails or prints `ERR`, read the error, check your `.env` settings and project access, and run it again.
 
 ### Verify Your Elastic Environment in Kibana
 
@@ -114,11 +151,8 @@ From the **Terminal** in your Codespace, complete the following. Run the command
    - Open **Index Management** (search for "Index Management" in the top search bar) and select the **Indices** tab.
    - Find `precision-crm-accounts`, `precision-support-tickets`, and `precision-kb-articles`. Click each one and open the **Documents** tab (or use **Discover**) to confirm it contains records.
 
-   `<PLACEHOLDER: Screenshot of the workshop indices in Index Management>`
-
 ## Success Criteria
 
-- Verify that you can sign in to the Azure lab environment and that `az account show` in the Codespace shows the lab subscription.
 - Verify that your Elastic trial project exists and that you have your Elasticsearch URL, Kibana URL, and API key.
 - Verify that your Codespace is running and that your `.env` file contains your Elastic values.
 - Verify that `bash data/load_data.sh` completed without errors and printed the expected document counts.
@@ -130,7 +164,6 @@ From the **Terminal** in your Codespace, complete the following. Run the command
 - [Elastic Cloud Serverless](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/serverless)
 - [Elastic Agent Builder tools](https://www.elastic.co/docs/explore-analyze/ai-features/agent-builder/tools)
 - [Elastic API keys](https://www.elastic.co/docs/deploy-manage/api-keys/elasticsearch-api-keys)
-- [Sign in with Azure CLI](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli)
 
 ## Tips
 
