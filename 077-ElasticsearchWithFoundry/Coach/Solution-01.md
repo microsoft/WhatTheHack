@@ -6,9 +6,6 @@
 
 The objective is a working Foundry-to-Elastic connection and an evidence-based baseline for Agent Mole. Coach students to distinguish discovering a dataset, executing a query, and grounding an answer. Mole is not supposed to be deliberately inefficient, and a successful baseline may already make few discovery calls. Use the current [student challenge](../Student/Challenge-01.md), not the earlier notebook-based implementation.
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
 ### Prepare the Foundry environment
 
 - Verify the current **New Foundry** experience before delivery. Project creation, model deployment, agent tools, and tracing may have moved or been renamed. Keep a coach note of the current navigation and test the Elasticsearch catalog form as well as the generic MCP alternative.
