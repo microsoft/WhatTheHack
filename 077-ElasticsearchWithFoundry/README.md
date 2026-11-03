@@ -24,7 +24,7 @@ You will build two agents to answer support questions using Precision Labs' data
 - Challenge 02: **[Build the Context Engine](Student/Challenge-02.md)**
   - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
 - Challenge 03: **[Rise of Agent Optimus](Student/Challenge-03.md)**
-  - Build a Foundry agent on the Context Engine and compare it with Agent Mole.
+  - Build a Foundry agent that uses Knowledge Indicators and compare it with Agent Mole.
 
 ## Prerequisites
 
