@@ -71,7 +71,7 @@ Requirements:
 3. Store notes only in the application's in-memory state.
 4. Do not use a backend, database, persistent storage, or automated tests.
 
-Implement the complete application in local machine.
+Implement the complete application on the local machine.
 ```
 
 ### Step 3 - Record the Run
