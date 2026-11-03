@@ -36,7 +36,7 @@ Agent Mole is going to have to dig around blindly in your data to find the answe
 - If a project already exists for your lab, select it instead of creating a new one.
 - **Deploy a model** to power the agent:
   - Go to **Models + endpoints** (or **Model catalog**) and select **Deploy a base model**.
-  - Search for `gpt-5-mini` (a small, low-cost reasoning model) and select **Confirm**. If it is unavailable in your lab region or quota, use the model your coach recommends. `<PLACEHOLDER: confirmed model for the lab>`
+  - Search for `gpt-5-mini` (a small, low-cost reasoning model) and select **Confirm**. If it is unavailable in your lab region or quota, use the model your coach recommends.
   - Select **Deploy** using the **Global Standard** deployment type and the default settings.
   - Wait until the deployment status is **Succeeded**.
 - **Create the agent:**
@@ -88,7 +88,7 @@ Back in your agent in Foundry, open **Tools**.
 
 Foundry connects the **Web search** tool by default when creating a new agent. This tool connects your agent to Bing for Internet search results. We want to restrict the agent to only data from Elasticsearch, therefore, you should remove it.
 
-- In **Tools**, click the elipsis (...) next to **Web search** and remove it.
+- In **Tools**, click the ellipsis (...) next to **Web search** and remove it.
 - In **Tools**, click the **Add** drop down and select **Add Tools**.
 - In the **Select a tool** dialog, navigate to the **Catalog** tab and choose **Elasticsearch** if it is listed. The Elasticsearch tool includes a dedicated configuration form for the MCP connection. The form only needs your **Kibana URL** and **Elastic API key**.
   - Fill in the connection fields with your Kibana MCP settings:
@@ -132,9 +132,10 @@ What is the total ARR of the five accounts you just listed?
 
 ### Observe Agent "Mole"
 
-Observe how many calls and tokens the agent needed. You will compare these numbers with Agent Optimus in the next challenge.
+Observe how many calls and tokens the agent needed. You will compare these numbers with Agent Optimus in Challenge 03.
 
 - In the Playground, open the details for a response (for example **View run info**, **Thread info**, or **Metrics**) and note the **input tokens**, **output tokens**, and **total tokens** where shown.
+- If tracing is not configured, open **Agents > Traces > Connect** and connect an Application Insights resource to your project, then generate a new test response and allow time for traces to appear. Ask your coach for help if you lack the required permissions. If traces or per-response token counts remain unavailable, record them as **unavailable**, not zero.
 - In your Foundry project, open **Tracing** (under **Observability**). Open the trace for a conversation and count how many MCP tool calls were made before the final answer. 
 - Look for aggregate token and cost metrics in **Monitoring** (under **Observability**), or in **Models + endpoints** by selecting your model deployment and opening its **Metrics** tab.
 - As an alternative for cost, open your subscription in the Azure portal under **Cost Management**. Cost data can lag by many hours, so token counts are the more reliable measure in a short workshop.

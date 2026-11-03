@@ -11,9 +11,9 @@
 
 ## Introduction
 
-In Challenge 01, you observed how Agent Mole had to dig around blindly in your data on EVERY query to discover your data before it could answer. In this challenge, we're going to create a new agent named "Agent Optimus" that will not be running blind!
+In Challenge 01, you observed how Agent Mole had to dig around blindly in your data on almost EVERY query to discover your data before it could answer. In this challenge, we're going to create a new agent named "Agent Optimus" that will not be running blind!
 
-The AI Index you created in Challenge 02 exposes several new MCP tools, all pre-fixed: `platform.context_engine.*`
+The AI Index you created in Challenge 02 exposes several new MCP tools, all prefixed with `platform.context_engine.*`:
 
 - `platform.context_engine.list_ai_indices`
 - `platform.context_engine.describe_ai_index`
@@ -31,7 +31,7 @@ You have already built Agent Mole in Microsoft Foundry. This challenge repeats m
 
 - Open [Microsoft Foundry](https://ai.azure.com) and select your project. You should use the same project that you used in Challenge 01 to build Agent Mole.
 - Go to **Agents** and create a new agent named `Optimus`.
-- Select the same model deployment you used for Agent Mole. (`gpt-5-mini`)
+- Select the same model deployment you used for Agent Mole, including any coach-approved alternative chosen in Challenge 01.
 - In **Instructions**, paste the system prompt provided below:
 
 ```text
@@ -54,7 +54,7 @@ Since you connected Agent Mole to Elasticsearch using the same project in Foundr
 
 Foundry connects the **Web search** tool by default when creating a new agent. We want to restrict the agent to only data from Elasticsearch, therefore, you should remove it.
 
-- In **Tools**, click the elipsis (...) next to **Web search** and remove it.
+- In **Tools**, click the ellipsis (...) next to **Web search** and remove it.
 
 > **NOTE:** If you do not see your Elasticsearch connection under **"Recently Used"**, review the instructions in Challenge 01 for connecting to the Elastic MCP server.
 
@@ -66,15 +66,13 @@ In the agent's **Instructions**, we used the system prompt to *guide* Agent Opti
 
 Microsoft Foundry allows you to configure the MCP connection to allow the agent access to only specific tools. This is a stricter way of controlling tool access than with only a system prompt.
 
-- In **Tools**, click the elipsis (...) next to **Elasticsearch** and select **Configure**.
+- In **Tools**, click the ellipsis (...) next to **Elasticsearch** and select **Configure**.
 - In the **Allowed Precision Labs Elastic tools** box, enter the following list of allowed tools (comma delimited):
 
 ```text
 platform_context_engine_list_ai_indices, 
 platform_context_engine_describe_ai_index, 
 platform_context_engine_query_ai_indices, 
-platform_context_engine_run_automation, 
-platform_context_engine_save_automation, 
 platform_core_execute_esql, 
 platform_core_generate_esql
 ```

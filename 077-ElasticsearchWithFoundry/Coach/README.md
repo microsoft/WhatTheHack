@@ -16,11 +16,11 @@ Coach students toward evidence, not a predetermined token-saving result. This wo
 ## Coach's Guides
 
 - Challenge 00: **[Ready, Set, Connect](./Solution-00.md)**
-  - Prepare your own environments and launch the supplied notebook workspace.
+  - Prepare your environments, launch your Codespace, and load the sample data.
 - Challenge 01: **[Connect Foundry Agent to Elastic](./Solution-01.md)**
   - Build a Foundry agent with Elastic MCP and collect a discovery baseline.
 - Challenge 02: **[Build the Context Engine](./Solution-02.md)**
-  - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
+  - Create an AI Index and Knowledge Indicators for use through the existing Kibana MCP endpoint.
 - Challenge 03: **[Rise of Agent Optimus](./Solution-03.md)**
   - Build a Foundry agent that uses Knowledge Indicators and compare it with Agent Mole.
 
@@ -68,7 +68,7 @@ Use these coach-only facilitation budgets after accounts are ready. Adjust from 
 | Challenge 04 | 30 minutes | 45 minutes |
 | Evidence demos and optional extensions | 10 minutes | 20 minutes |
 | Cleanup | 5 minutes | 10 minutes |
-| Total | 120 minutes | 180 minutes |
+| Total | 130 minutes | 195 minutes |
 
 
 

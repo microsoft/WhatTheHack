@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Agent Mole had to discover (and rediscover) your indices, mappings, and joins before it could answer EVERY query. Elastic's **Context Engine**, available as **Context** in Kibana, moves that recurring interpretation out of the agent's question-answering loop. It lets you create **AI Indices**, attach source indices, and run automations using Kibana Workflows to generate reusable context.
+Agent Mole may need to discover your indices, mappings, and joins before answering a query, and may repeat that work across conversations. Elastic's **Context Engine**, available as **Context** in Kibana, moves that recurring interpretation out of the agent's question-answering loop. It lets you create **AI Indices**, attach source indices, and run automations using Kibana Workflows to generate reusable context.
 
 An **AI Index** is a special index (named `ai-index-idx-<name>`) that holds **Knowledge Indicators (KIs)** for agents to consult before querying source data. Each KI has a `type`, `title`, `description`, and `content`. In this challenge, you will create `index_metadata` KIs describing each source's purpose, key fields, join keys, known gaps, and verified ES\|QL access patterns. An AI Index does not merge or replace source documents.
 
@@ -21,7 +21,7 @@ In this challenge you will build an AI Index and KIs for Precision Labs data tha
 
 Use Kibana and the workflow files in the `workflows/` folder in your GitHub Codespace, or in the Resources.zip file provided by your coach.
 
-**NOTE:** As of October 2026, Context-Engine is an Experimental feature. You will need to enable it in Kibana before you can use it.
+**NOTE:** As of October 2026, Context Engine is an experimental feature. You will need to enable it in Kibana before you can use it.
 
 ### Enable Context Engine
 
@@ -31,7 +31,7 @@ Use Kibana and the workflow files in the `workflows/` folder in your GitHub Code
 
 ### Create the AI Index
 
-- Open **Context** (Context Engine) in Kibana and create an AI Index named `precision-corpus`. (The backing index will be `ai-index-idx-precision-corpus`.).
+- Open **Context** (Context Engine) in Kibana and create an AI Index named `precision-corpus`. The backing index will be named `ai-index-idx-precision-corpus`.
 - Use the text below for the **Description**. The description text shapes the automations that Context Engine generates and helps agents decide when the index is relevant.
 
 ```text
@@ -39,7 +39,7 @@ Routing context for Precision Labs customer-success data in three Elasticsearch 
 ```
 - Click **Create AI index** to complete the creation.
 
-### Add The Source Indices
+### Add the Source Indices
 
 On the `precision-corpus` AI Index's **Overview** tab, find **Sources**, click **Edit**, and under the **Elasticsearch data** tab add each index:
 
@@ -96,7 +96,7 @@ POST ai-index-idx-precision-corpus/_update/precision-crm-accounts
 }
 ```
 
-Re-run the workflow whenever source schemas or data distributions change. It is idempotent and schedulable.
+Re-run the workflow whenever source schemas or data distributions change. It uses stable KI IDs to target the same logical KIs, but regenerated content can differ and replace manual corrections. The supplied workflow runs manually; scheduling requires separate configuration.
 
 ## Success Criteria
 

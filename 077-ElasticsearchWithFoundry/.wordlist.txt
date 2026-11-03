@@ -15,7 +15,6 @@ precomputed
 evaluator's
 overbroad
 automations
-elipsis
 scaffolded
 tradeoff
 Okta

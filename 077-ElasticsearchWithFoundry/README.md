@@ -18,21 +18,21 @@ You will build two agents to answer support questions using Precision Labs' data
 ## Challenges
 
 - Challenge 00: **[Ready, Set, Connect](Student/Challenge-00.md)**
-  - Prepare your own environments and launch the supplied notebook workspace.
+  - Prepare your environments, launch your Codespace, and load the sample data.
 - Challenge 01: **[Connect Foundry Agent to Elastic](Student/Challenge-01.md)**
   - Build a Foundry agent with Elastic MCP and collect a discovery baseline.
 - Challenge 02: **[Build the Context Engine](Student/Challenge-02.md)**
-  - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
+  - Create an AI Index and Knowledge Indicators for use through the existing Kibana MCP endpoint.
 - Challenge 03: **[Rise of Agent Optimus](Student/Challenge-03.md)**
   - Build a Foundry agent that uses Knowledge Indicators and compare it with Agent Mole.
 
 ## Prerequisites
 
 - Access to an Azure subscription with Owner access
-	- If you don’t have one, Sign Up for Azure [HERE](https://azure.microsoft.com/en-us/free/)
+  - If you don't have one, [sign up for a free Azure account](https://azure.microsoft.com/en-us/free/).
 - A GitHub account with access to [GitHub Codespaces](https://github.com/features/codespaces) as a developer workspace in the cloud
 - Access to an Elastic Cloud Serverless project with native Context Engine, workflow, and inference access.
-  - If you don't have one, Sign up for a free Elastic trial [HERE](https://elastic.co)
+  - If you don't have one, [sign up for a free Elastic trial](https://elastic.co).
 
 ## Contributors
 

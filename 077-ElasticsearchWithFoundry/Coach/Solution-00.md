@@ -9,13 +9,13 @@ This challenge prepares three independent environments: an Azure lab subscriptio
 ### Prepare before the event
 
 - **Pilot both portals shortly before delivery.** Microsoft Foundry and Elastic Kibana are changing rapidly. Verify the current menu names, connection forms, screenshots, and feature availability. Keep notes on differences so coaches can help students navigate by purpose rather than by an exact button label.
-- Coordinate with the lab proctor on the Azure launch procedure and Spektra credentials. The student guide still contains a launch-instructions placeholder; know what students will actually be given and how to recover an expired or inaccessible lab.
+- Coordinate with the lab proctor on the Azure launch procedure and Spektra credentials. Verify the CloudLabs registration and launch instructions in the student guide and know how to recover an expired or inaccessible lab.
   - Use separate browser profiles or private windows for lab identities. A student may be signed into Azure with a personal or corporate account while the terminal uses the lab account.
-  - Test device-code sign-in from the actual Codespace with a lab identity. Conditional Access policy can block it. The documented desktop alternative, `CODESPACES=false az login`, still requires an approved sign-in path; it does not bypass policy.
+  - Students sign in to the Foundry portal in Challenge 01. Azure CLI sign-in is not required for the Elastic data-loading commands in Challenge 00.
 - Test the published Codespace link with a personal GitHub account, not just an organizer account. Verify that the hack's dev container is selected and that the resource files are where the student commands expect them.
   - The [dev container configuration](../Student/Resources/.devcontainer/devcontainer.json) is nested in the content repository. Opening a generic Codespace at the full repository root does not automatically select it.
   - Identify the student resource root: the directory containing [`.env.sample`](../Student/Resources/.env.sample), [`data/`](../Student/Resources/data/), and [`workflows/`](../Student/Resources/workflows/). Help students find it rather than assuming a particular terminal starting directory.
-  - The current container configuration does not automatically install the loader's Python packages. Keep the student's `python3 -m pip install elasticsearch python-dotenv` step until the distributed environment has been verified to include them.
+  - The current container configuration automatically installs `elasticsearch` and `python-dotenv`. Verify that the post-create command completes successfully before students run the loader.
 - Confirm trial signup, project provisioning, and native Context Engine/workflow access in the intended Elastic environment. An Elasticsearch project is required; an Observability or Security project is not the instructed choice.
   - Context Engine is experimental in the documentation reviewed for this guide. Trial access to Elasticsearch alone is not proof that the later challenges will work.
   - Preflight the LLM connector and external MCP tools needed in challenges 02 and 03. Resolve missing features with the organizer before delivery; do not discover eligibility problems halfway through the event.

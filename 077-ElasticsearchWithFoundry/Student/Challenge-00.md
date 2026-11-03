@@ -39,11 +39,11 @@ Keep these credentials handy as you will need them to log into the [Microsoft Fo
 
 ### Create an Elastic Serverless Trial Environment
 
-The following steps guide you to create a Elastic Serverless trial via the Microsoft Marketplace in the Azure Portal.
+The following steps guide you to create an Elastic Serverless trial via the Microsoft Marketplace in the Azure portal.
 
 1. Go to [Elasticsearch (7-day free trial)](https://ela.st/azure-marketplace) in the Microsoft Marketplace.
 2. Click the **Get it now** button.
-3. You will be prompted to log-in to the Azure portal. Use the Azure username (`odl_userxxxxx@aiw-ds.cloudlabs.ai`) and password you were provided from the lab environment.
+3. You will be prompted to log in to the Azure portal. Use the Azure username (`odl_userxxxxx@aiw-ds.cloudlabs.ai`) and password you were provided from the lab environment.
 4. On the **Basics** tab:
    - Choose **"Create new"** for **Resource Group** and give it a name (example: `rg-elastic-hack-john`).
    - For **Resource Name**, use `elastic-wth`
@@ -54,7 +54,7 @@ The following steps guide you to create a Elastic Serverless trial via the Micro
 5. Click **Review + Create**. Your Elasticsearch trial deployment will start.
 6. When the deployment is complete, click the **Go to resource** button. This will open the **Elastic Cloud Resource** pane in the Azure portal where you can view your deployment.
 7. In the **Elastic Cloud Resource** pane, click the **View in Elastic** link (on the lower right side of the window). This will launch the Elastic Kibana portal.
-8. **Kibana** will prompt you to log-in. Click the **SSO** link and log-in using your Azure credentials (`odl_userxxxxx@aiw-us.cloudlabs.ai`). 
+8. **Kibana** will prompt you to log in. Click the **SSO** link and log in using your Azure credentials (`odl_userxxxxx@aiw-us.cloudlabs.ai`).
 9. In **Kibana**, gather your **Elasticsearch endpoint URL** and your **Kibana URL**. They are different URLs, and you will need both.
 1. Create an **API key** for the deployment script:
    - In the project, go to **Developer Tools / API keys** (or search for "API keys" in the top search bar).
@@ -93,7 +93,7 @@ If you are not able to provision Elastic via the Microsoft Marketplace, expand a
 
 ### Launch Development Environment
 
-You will use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) as your development environment. A GitHub Codespace is a development environment hosted in the cloud that you access via a browser. All of the developer tools for this hack, including the Azure CLI and Python/Jupyter, are pre-installed.
+You will use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) as your development environment. A GitHub Codespace is a development environment hosted in the cloud that you access via a browser. The Azure CLI and Python are pre-installed, and the Codespace installs the sample data loader's Python packages during creation.
 
 GitHub Codespaces is available to every personal GitHub.com account, which includes a monthly free usage quota. You can check your balance on the [GitHub billing page](https://github.com/settings/billing/summary).
 
@@ -110,7 +110,7 @@ In this section, you will deploy the sample data for this hackathon.
 
 From the **Terminal** in your Codespace, complete the following:
 
-1. Add your Elastic values to the configuration file used by the setup scripts. Rename the `env.sample` file to `.env`:
+1. Add your Elastic values to the configuration file used by the setup scripts. Copy the `.env.sample` file to `.env`:
 
    ```bash
    cp .env.sample .env
