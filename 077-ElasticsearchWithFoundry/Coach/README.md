@@ -4,9 +4,9 @@
 
 ## Introduction
 
-Welcome to the coach's guide for the Intro To Kubernetes What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
+Welcome to the coach's guide for the Optimizing AI Agents with Microsoft Foundry and Elastic Context Engine What The Hack. Here you will find links to specific guidance for coaches for each of the challenges.
 
-This hack includes an [optional lecture presentation](Lectures.pptx) with an introduction and one key-task summary slide for each student challenge (00–04). Present each summary before attendees start the challenge, then leave it displayed while they work. Speaker notes include the corresponding student guide and success criteria; the Challenge 04 notes also flag the evaluation checks coaches must confirm before delivery.
+This hack includes an [optional lecture presentation](Lectures.pptx) with an introduction and one key-task summary slide for each student challenge. Present each summary before attendees start the challenge, then leave it displayed while they work. 
 
 Coach students toward evidence, not a predetermined token-saving result. This workshop uses a fictional customer-support scenario to connect Microsoft Foundry with Elastic MCP, generate reusable context using native Context Engine, and evaluate prompt-injection resistance.
 
@@ -22,7 +22,7 @@ Coach students toward evidence, not a predetermined token-saving result. This wo
 - Challenge 02: **[Build the Context Engine](./Solution-02.md)**
   - Create an AI Index and Knowledge Indicators, and retrieve the Context Engine MCP endpoint.
 - Challenge 03: **[Rise of Agent Optimus](./Solution-03.md)**
-  - Build a Foundry agent on the Context Engine and compare it with Agent Mole.
+  - Build a Foundry agent that uses Knowledge Indicators and compare it with Agent Mole.
 
 ## Coach Prerequisites
 
@@ -34,7 +34,7 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 This hack uses GitHub Codespaces for all student resources. Students should use their personal GitHub accounts to access Codespaces which will provide a configured VS Code developer environment for them that runs in a browser, hosted in the cloud.
 
-Alternatively, students may download the Student Resources package: [Resources.zip](https://aka.ms/wth/elasticwithfoundry/resources) and use the DevContainer in it to load the pre-configured developer environment on their local workstation.
+Alternatively, students may download the Student Resources package: [Resources.zip](https://aka.ms/wth/elasticfoundry/resources) and use the DevContainer in it to load the pre-configured developer environment on their local workstation.
 
 Always refer students to the [What The Hack website](https://aka.ms/wth) for the student guide: [https://aka.ms/wth](https://aka.ms/wth)
 
