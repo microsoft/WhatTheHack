@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.sample
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+outputs/
+infra/*.parameters.json

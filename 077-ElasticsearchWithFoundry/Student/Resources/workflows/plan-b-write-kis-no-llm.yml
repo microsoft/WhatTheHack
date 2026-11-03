@@ -1,0 +1,70 @@
+# Fallback: writes the three index_metadata KIs directly, no LLM step.
+version: '1'
+name: ce-plan-b-trace-tuned-kis
+description: Write three trace-tuned index_metadata KIs. No LLM step.
+enabled: false
+triggers:
+  - type: manual
+steps:
+  - name: write_ki_crm
+    type: elasticsearch.request
+    with:
+      method: PUT
+      path: '/ai-index-idx-precision-corpus/_doc/precision-crm-accounts'
+      body:
+        type: index_metadata
+        title: 'Precision CRM Accounts'
+        description: 'Stores master account records for customer success and sales operations.'
+        content: |
+          Purpose: Stores master account records for customer success and sales operations, focusing on financial health, ownership, and contract status.
+
+          Key Joins:
+          - customer_id -> precision-support-tickets.customer_id
+
+          Access patterns:
+          - Lookup account by name: FROM "precision-crm-accounts" | WHERE company_name == "Vertex Group" | LIMIT 1
+          - Identify high-risk accounts by owner: FROM "precision-crm-accounts" | WHERE account_owner == "Priya Nair" AND churn_risk_score > 0.8 | SORT churn_risk_score DESC | LIMIT 10
+          - Revenue aggregation by category: FROM "precision-crm-accounts" | STATS total_arr = SUM(arr) BY industry | SORT total_arr DESC
+          - Upcoming renewals for VIP accounts: FROM "precision-crm-accounts" | WHERE renewal_date <= NOW() + 90d AND account_tier == "Enterprise" | SORT renewal_date ASC | LIMIT 20
+        tags: ['precision-crm-accounts', 'index_metadata']
+  - name: write_ki_tickets
+    type: elasticsearch.request
+    with:
+      method: PUT
+      path: '/ai-index-idx-precision-corpus/_doc/precision-support-tickets'
+      body:
+        type: index_metadata
+        title: 'Customer Support Tickets'
+        description: 'Stores customer support interactions, issue descriptions, and resolutions.'
+        content: |
+          Purpose: Stores customer support interactions, issue descriptions, and resolutions to assist in troubleshooting and monitoring customer satisfaction.
+
+          Key Joins:
+          - account_id -> precision-crm-accounts.account_id
+
+          Access patterns:
+          - List high priority open issues: FROM precision-support-tickets | WHERE status == "open" AND priority == "critical" | KEEP created_date, subject, company_name, assigned_agent | SORT created_date DESC | LIMIT 10
+          - Check account ticket history: FROM precision-support-tickets | WHERE account_id == "CUST-0220" | KEEP created_date, subject, status, resolution_notes | SORT created_date DESC | LIMIT 5
+          - Agent performance metrics: FROM precision-support-tickets | STATS avg_csat = AVG(csat_score) BY assigned_agent | SORT avg_csat ASC
+          - Search resolutions by keyword: FROM precision-support-tickets | WHERE body LIKE "*Snowflake*" OR subject LIKE "*Snowflake*" | KEEP ticket_id, subject, resolution_notes | LIMIT 5
+        tags: ['precision-support-tickets', 'index_metadata']
+  - name: write_ki_kb
+    type: elasticsearch.request
+    with:
+      method: PUT
+      path: '/ai-index-idx-precision-corpus/_doc/precision-kb-articles'
+      body:
+        type: index_metadata
+        title: 'Precision Labs Knowledge Base'
+        description: 'Contains how-to guides, troubleshooting runbooks, API references, and onboarding documentation.'
+        content: |
+          Purpose: Contains internal how-to guides, troubleshooting runbooks, API references, and onboarding documentation for the Precision Labs platform.
+
+          Key Joins:
+          - No direct join to accounts or tickets; topically related by category/tags vocabulary.
+
+          Access patterns:
+          - Top troubleshooting guides: FROM precision-kb-articles | WHERE category == "troubleshooting" | KEEP title, content, helpful_votes | SORT helpful_votes DESC | LIMIT 5
+          - Find articles by topic tags: FROM precision-kb-articles | WHERE tags == "rbac" OR tags == "permissions" | KEEP article_id, title, last_updated | SORT last_updated DESC | LIMIT 10
+          - Category performance: FROM precision-kb-articles | WHERE view_count > 1000 | STATS avg_votes = AVG(helpful_votes) BY category | SORT avg_votes DESC
+        tags: ['precision-kb-articles', 'index_metadata']

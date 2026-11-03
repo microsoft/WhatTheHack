@@ -1,0 +1,10 @@
+# Freeze transitive dependencies after the pre-delivery compatibility pilot.
+azure-ai-projects==2.8.0
+azure-identity>=1.25,<2
+openai>=2,<3
+elasticsearch>=9,<10
+mcp>=1.20,<2
+requests>=2.32,<3
+python-dotenv>=1.1,<2
+ipykernel>=6.30,<8
+nbformat>=5.10,<6
