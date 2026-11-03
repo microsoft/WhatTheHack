@@ -3,6 +3,8 @@
 {
   "name": "077-ElasticsearchWithFoundry",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "postCreateCommand": "python3 -m pip install elasticsearch python-dotenv",
+  "waitFor": "postCreateCommand",
   "hostRequirements": {
     "cpus": 2
   },

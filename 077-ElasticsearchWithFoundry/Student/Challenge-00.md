@@ -100,7 +100,7 @@ GitHub Codespaces is available to every personal GitHub.com account, which inclu
 1. Open the Codespace for this hack: [Elasticsearch with Foundry Codespace](https://aka.ms/wth/elasticfoundry/codespace)
 2. Sign in with your **personal** GitHub account.
 3. Verify the `Dev container configuration` is set to the one for this hack, then click **Create Codespace**.
-4. Wait for Visual Studio Code to load in your browser. The first launch takes approximately 3-5 minutes.
+4. Wait for Visual Studio Code to load in your browser. The first launch takes approximately 3-5 minutes. The Codespace automatically installs the `elasticsearch` and `python-dotenv` Python packages during creation.
 
 **NOTE:** If you close the Codespace, return to [GitHub Codespaces](https://github.com/codespaces) to find and re-launch it.
 
@@ -133,7 +133,6 @@ From the **Terminal** in your Codespace, complete the following:
 3. Run the data loader:
 
    ```bash
-   python3 -m pip install elasticsearch python-dotenv
    bash data/load_data.sh
    ```
 
