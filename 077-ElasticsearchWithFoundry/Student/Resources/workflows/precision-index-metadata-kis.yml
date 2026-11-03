@@ -1,0 +1,224 @@
+# Replace <YOUR_LLM_CONNECTOR_ID> (line 69) with the id of a chat-completion connector in your project
+# (Kibana > Admin and settings > Elastic Inference; the id is shown in the connector's details for the LLM).
+version: "1"
+name: Precision Labs index metadata KIs
+description: >
+  Profiles indices (mapping + random sample + grounding aggregations) into index_metadata
+  Knowledge Indicators carrying verified, parameterized ES|QL access patterns.
+enabled: true
+
+consts:
+  ai_index_id: precision-corpus
+  indices:
+    - name: precision-crm-accounts
+      category_field: account_tier
+      extra_agg_field: industry
+    - name: precision-kb-articles
+      category_field: category
+      extra_agg_field: null
+    - name: precision-support-tickets
+      category_field: status
+      extra_agg_field: priority
+
+triggers:
+  - type: manual
+
+steps:
+  - name: loop_indices
+    type: foreach
+    foreach: "${{ consts.indices }}"
+    steps:
+      - name: fetch_mapping
+        type: elasticsearch.request
+        with:
+          method: GET
+          path: "/{{ foreach.item.name }}/_mapping"
+
+      - name: sample_documents
+        type: elasticsearch.search
+        with:
+          index: "{{ foreach.item.name }}"
+          size: 20
+          query:
+            function_score:
+              query:
+                match_all: {}
+              random_score: {}
+
+      - name: esql_category_counts
+        type: elasticsearch.esql.query
+        with:
+          format: json
+          query: "FROM {{ foreach.item.name }} | STATS count = COUNT(*) BY {{ foreach.item.category_field }} | SORT count DESC | LIMIT 50"
+
+      - name: esql_extra_counts
+        if: "foreach.item.extra_agg_field != null"
+        type: elasticsearch.esql.query
+        with:
+          format: json
+          query: "FROM {{ foreach.item.name }} | STATS count = COUNT(*) BY {{ foreach.item.extra_agg_field }} | SORT count DESC | LIMIT 50"
+
+      - name: esql_totals
+        type: elasticsearch.esql.query
+        with:
+          format: json
+          query: "FROM {{ foreach.item.name }} | STATS total = COUNT(*), distinct_categories = COUNT_DISTINCT({{ foreach.item.category_field }})"
+
+      - name: generate_index_profile
+        type: ai.prompt
+        connector-id: .anthropic-claude-5-sonnet-chat_completion
+        on-failure:
+          retry:
+            max-attempts: 3
+            delay: "5s"
+            strategy: exponential
+            jitter: true
+        with:
+          prompt: |
+            You are documenting an Elasticsearch index for an AI Context Engine knowledge base.
+
+            Index name: {{ foreach.item.name }}
+
+            Elasticsearch mapping:
+            {{ steps.fetch_mapping.output | json }}
+
+            Sample of ~20 random documents from the index:
+            {{ steps.sample_documents.output.hits.hits | json }}
+
+            Grounding aggregation — document count by {{ foreach.item.category_field }}:
+            {{ steps.esql_category_counts.output | json }}
+
+            {%- if foreach.item.extra_agg_field %}
+            Grounding aggregation — document count by {{ foreach.item.extra_agg_field }}:
+            {{ steps.esql_extra_counts.output | json }}
+            {%- endif %}
+
+            Grounding totals — total document count and distinct {{ foreach.item.category_field }} count:
+            {{ steps.esql_totals.output | json }}
+
+            Using ONLY the information above, produce a structured index profile describing this index
+            end to end for someone who needs to know how and when to query it. Never state a number
+            that does not appear in the grounding data above.
+            Index names in ES|QL must be unquoted. Never wrap index names in backticks or quotes.
+            Only reference fields that appear in the mapping above. Do not invent fields.
+
+            Populate purpose, does_not_contain, key_fields, joins, when_to_use, and access_patterns.
+            Access patterns MUST include parameterized ES|QL templates and real examples.
+          schema:
+            type: object
+            properties:
+              display_name:
+                type: string
+              purpose:
+                type: string
+              does_not_contain:
+                type: array
+                items:
+                  type: string
+              key_fields:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    field:
+                      type: string
+                    meaning:
+                      type: string
+                  required:
+                    - field
+                    - meaning
+              joins:
+                type: array
+                items:
+                  type: string
+              when_to_use:
+                type: string
+              answers_questions:
+                type: array
+                items:
+                  type: string
+              access_patterns:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    question_type:
+                      type: string
+                    esql_template:
+                      type: string
+                    esql_example:
+                      type: string
+                    returns:
+                      type: string
+                  required:
+                    - question_type
+                    - esql_template
+                    - esql_example
+                    - returns
+            required:
+              - display_name
+              - purpose
+              - does_not_contain
+              - key_fields
+              - joins
+              - when_to_use
+              - answers_questions
+              - access_patterns
+
+      - name: assemble_ki
+        type: data.set
+        with:
+          ki:
+            type: index_metadata
+            title: "{{ steps.generate_index_profile.output.content.display_name }}"
+            description: "{{ steps.generate_index_profile.output.content.purpose }}"
+            content: |
+              Purpose:
+              {{ steps.generate_index_profile.output.content.purpose }}
+
+              Key fields:
+              {%- for kf in steps.generate_index_profile.output.content.key_fields %}
+              - {{ kf.field }}: {{ kf.meaning }}
+              {%- endfor %}
+
+              Joins:
+              {%- for join in steps.generate_index_profile.output.content.joins %}
+              - {{ join }}
+              {%- else %}
+              - none; this index stands alone.
+              {%- endfor %}
+
+              Does not contain:
+              {%- for item in steps.generate_index_profile.output.content.does_not_contain %}
+              - {{ item }}
+              {%- endfor %}
+
+              When to use:
+              {{ steps.generate_index_profile.output.content.when_to_use }}
+
+              Answers questions:
+              {%- for q in steps.generate_index_profile.output.content.answers_questions %}
+              - {{ q }}
+              {%- endfor %}
+
+              Access patterns:
+              {%- for ap in steps.generate_index_profile.output.content.access_patterns %}
+              - {{ ap.question_type }}: {{ ap.returns }}
+                Template: {{ ap.esql_template }}
+                Example: {{ ap.esql_example }}
+              {%- endfor %}
+            tags:
+              - "{{ foreach.item.name }}"
+              - index_metadata
+            references:
+              - uri: "index://{{ foreach.item.name }}"
+                relation: derived_from
+            attributes:
+              esql: "${{ steps.generate_index_profile.output.content.access_patterns | map: 'esql_example' | default: nil }}"
+
+      - name: create_ki
+        type: context-engine.createKi
+        with:
+          ai_index_id: "{{ consts.ai_index_id }}"
+          ki_id: "{{ foreach.item.name }}"
+          ki: "${{ steps.assemble_ki.output.ki }}"
