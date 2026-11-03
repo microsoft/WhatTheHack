@@ -6,7 +6,7 @@ Precision Labs sells a business-to-business operations intelligence platform tha
 
 We're going to learn how to connect a Foundry agent to an Elasticsearch datastore using the Model Context Protocol (MCP). And then we're going to learn how you can use Elastic Context Engine to optimize your agent's performance and token usage.
 
-You'll build two agents to answer support questions using Precision Labs' data. First, connect **Agent Mole** directly to Elasticsearch and measure the work it does to discover and query the available data. Then, use Elastic's Context Engine to build an AI Index with Knowledge Indicators (KIs). **Agent Optimus** will use that AI Index and its KIs to help it navigate the same sources. Run the same questions through both agents and compare their discovery calls, token usage, answer correctness, and latency to see how added context changes their behavior.
+You will build two agents to answer support questions using Precision Labs' data. First, connect **Agent Mole** directly to Elasticsearch and measure the work it does to discover and query the available data. Then, use Elastic's Context Engine to build an AI Index with Knowledge Indicators (KIs). **Agent Optimus** will use that AI Index and its KIs to help it navigate the same sources. Run the same questions through both agents and compare their discovery calls, token usage, answer correctness, and latency to see how added context changes their behavior.
 
 ## Learning Objectives
 
