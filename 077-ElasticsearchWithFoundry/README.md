@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Your fictional company, Precision Labs, keeps CRM accounts, support tickets, and knowledge base (KB) articles in Elasticsearch. Precision's Support Copilot is built and hosted in Microsoft Foundry.
+Precision Labs sells a business-to-business operations intelligence platform that customers use for analytics dashboards, workflow automation, and data reporting. Precision Labs keeps CRM accounts, support tickets, and knowledge base (KB) articles in Elasticsearch. Precision's Support Copilot is built and hosted in Microsoft Foundry.
 
 We're going to learn how to connect a Foundry agent to an Elasticsearch datastore using the Model Context Protocol (MCP). And then we're going to learn how you can use Elastic Context Engine to optimize your agent's performance and token usage.
 
-Meet **Agent Mole**, measure its discovery work, and help **Agent Optimus** use Knowledge Indicators (KIs) from a single AI Index to navigate multiple sources. Then introduce a harmless instruction hidden in a retrieved document: can your agent use the facts without following the document's commands? Use Microsoft Foundry evaluation to investigate. Your goal is a grounded, explainable support answer, not just a smaller token count.
+You'll build two agents to answer support questions using Precision Labs' data. First, connect **Agent Mole** directly to Elasticsearch and measure the work it does to discover and query the available data. Then, use Elastic's Context Engine to build an AI Index with Knowledge Indicators (KIs). **Agent Optimus** will use that AI Index and its KIs to help it navigate the same sources. Run the same questions through both agents and compare their discovery calls, token usage, answer correctness, and latency to see how added context changes their behavior.
 
 ## Learning Objectives
 
@@ -14,7 +14,6 @@ Meet **Agent Mole**, measure its discovery work, and help **Agent Optimus** use 
 - Explain how native Context Engine automations turn source data into reusable KIs in an AI Index.
 - Use one AI Index to describe multiple source indices while preserving access to current source records.
 - Compare discovery calls, service-reported tokens, answer correctness, and latency without assuming guaranteed savings.
-- Evaluate an agent response to an indirect prompt injection and distinguish evaluation from runtime filtering.
 
 ## Challenges
 
