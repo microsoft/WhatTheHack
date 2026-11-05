@@ -6,12 +6,8 @@
 
 - Dedicated subnets per nodepool in preview at the time of this writing
 - Understand how taints/tolerations work for nodepool scheduling
-- When using Kubenet networking, only Calico networking policy is currently available in AKS (this may change in the future)
-- When using Azure CNI networking, you may use either Calico or Azure networking policy.
-- Switching between kubenet and Azure CNI networking is not possible after a cluster has been deployed. 
-  - Students will need to re-deploy a new cluster to change the networking type OR apply a networking policy!
-  - If the students have used "infrastructure as code" and created their cluster from the Azure CLI using the "az aks create" command, this should not be a "painful" event.
-  - It is a good lesson for students to see that with a combination of Azure CLI commands, YAML files, and/or Helm charts, that re-deploying a new cluster is easy.
+- When using Azure CNI networking, you may use either Calico, Cilium, or Azure networking policy.
+- Student clusters should already be using Azure CNI Overlay. Clusters using the legacy kubenet plugin should migrate to Azure CNI Overlay before continuing.
 - AKS will have the ability for users to "bring their own" networking policy in the future. This may change the possible solutions for this challenge.
 - To demonstrate that the network policies work:
   - Students can create a jumpbox VM on the VNet where the AKS cluster is deployed
@@ -105,7 +101,7 @@ Network policy to protect the web pod:
 
 ```bash
 # Network policy
-remote "kubectl label ns/nginx name=nginx"
+remote "kubectl get pods -n default -l gateway.networking.k8s.io/gateway-name=web-gateway --show-labels"
 scp ./Solutions/netpol.yaml $vm_pip_ip:netpol.yaml
 remote "kubectl apply -f ./netpol.yaml"
 ```
@@ -119,46 +115,17 @@ remote "curl http://$api_svc_ip:8080/api/healthcheck"
 
 ### TLS
 
-```bash
-# cert-manager
-remote "kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml"
-remote "kubectl label namespace nginx cert-manager.io/disable-validation=true"
-remote "helm repo add jetstack https://charts.jetstack.io"
-remote "helm repo update"
-remote "helm install cert-manager --namespace nginx \
---version v0.13.0 jetstack/cert-manager"
-```
+Provision a certificate for `${azfw_ip}.nip.io` in Azure Key Vault and sync it into a Kubernetes TLS Secret named `tls-secret` in the `default` namespace. The AKS-managed Istio Gateway references that Secret with `certificateRefs`. Follow [the managed Gateway API TLS instructions](https://learn.microsoft.com/azure/aks/app-routing-gateway-api-tls) for Key Vault permissions, `SecretProviderClass`, and the pod required to sync the Secret. The old Ingress-based ACME solver does not configure Gateway API routes.
 
 ```bash
-# Cluster issuer
-az_user=$(az account show --query 'user.name' -o tsv)
-remote "cat <<EOF | kubectl apply -f -
-apiVersion: cert-manager.io/v1alpha2
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: $az_user
-    privateKeySecretRef:
-      name: letsencrypt
-    solvers:
-    - http01:
-        ingress:
-          class: nginx
-EOF"
-```
-
-```bash
-# Redeploy ingress
-tmp_file=/tmp/ingress_tls.yaml
-file=ingress_tls.yaml
-cp ./Solutions/$file $tmp_file
-sed -i "s|__ingress_class__|nginx|g" $tmp_file
+# Update the existing Gateway with an HTTPS listener
+tmp_file=/tmp/gateway_tls.yaml
+file=gateway_tls.yaml
+cp ./Solutions/Challenge-05/$file $tmp_file
 sed -i "s|__ingress_ip__|${azfw_ip}|g" $tmp_file
 scp $tmp_file $vm_pip_ip:$file
 remote "kubectl apply -f ./$file"
+remote "kubectl wait --for=condition=programmed gateway/web-gateway --timeout=180s"
 echo "You can browse to https://${azfw_ip}.nip.io"
 ```
 
@@ -180,9 +147,9 @@ And create a new DNAT rule in the firewall for port 443:
 
 ```bash
 # FW DNAT rule for 443
-az network firewall nat-rule create -f azfw -g $rg -n nginxTLS \
+az network firewall nat-rule create -f azfw -g $rg -n istioTLS \
     --source-addresses '*' --protocols TCP \
-    --destination-addresses $azfw_ip --translated-address $nginx_svc_ip \
+    --destination-addresses $azfw_ip --translated-address $ingress_svc_ip \
     --destination-ports 443 --translated-port 443 \
     -c IngressController
 ```
@@ -272,7 +239,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
   selector:
     run: web
 EOF"

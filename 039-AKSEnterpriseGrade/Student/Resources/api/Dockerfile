@@ -1,19 +1,21 @@
-FROM ubuntu:18.04
-MAINTAINER Jose Moreno "jose.moreno@microsoft.com"
+FROM ubuntu:24.04
+LABEL maintainer="Jose Moreno <jose.moreno@microsoft.com>"
 
-RUN apt-get update -y && apt-get install -y python3-pip python3-dev build-essential curl libssl1.0.0 libssl-dev libpq-dev
-# See about installing ODBC drivers here: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017
-# Note that the driver version installed needs to match the version used in the code
+# Install ODBC Driver 18 from the Microsoft Ubuntu 24.04 repository.
+# https://learn.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	python3 python3-flask python3-dnspython python3-requests python3-pymysql \
+	python3-pyodbc python3-psycopg2 curl ca-certificates \
+	&& curl -fsSLo /tmp/packages-microsoft-prod.deb \
+		https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb \
+	&& dpkg -i /tmp/packages-microsoft-prod.deb \
+	&& apt-get update \
+	&& ACCEPT_EULA=Y apt-get install -y --no-install-recommends msodbcsql18 unixodbc-dev mssql-tools18 \
+	&& rm -rf /var/lib/apt/lists/* /tmp/packages-microsoft-prod.deb
 
-# Ubuntu 18.04 (ODBC SQL driver 17.0)
-RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-RUN apt-get update -y --fix-missing
-RUN ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev mssql-tools
-
-COPY . /app
 WORKDIR /app
-RUN pip3 install -r requirements.txt
-CMD ["sh", "-c", "python3 sql_api.py"]
+COPY . .
+
+CMD ["python3", "sql_api.py"]
 
 EXPOSE 8080

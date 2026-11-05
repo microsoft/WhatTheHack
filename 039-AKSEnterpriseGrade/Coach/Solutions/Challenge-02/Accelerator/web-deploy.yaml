@@ -18,7 +18,7 @@ spec:
       - image: whatthehackmsft/web:1.0
         name: web
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           protocol: TCP
         env:
         - name: API_URL
@@ -30,9 +30,9 @@ kind: Service
 metadata:
   name: web
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8080
+    targetPort: 8080
   selector:
     run: web

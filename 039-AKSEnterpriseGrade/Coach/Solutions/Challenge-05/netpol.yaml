@@ -8,9 +8,9 @@ spec:
       run: api
   ingress:
   - from:
-      - namespaceSelector:
+      - podSelector:
           matchLabels:
-            name: nginx
+            gateway.networking.k8s.io/gateway-name: web-gateway
       - podSelector:
           matchLabels:
             run: web
@@ -25,6 +25,6 @@ spec:
       run: web
   ingress:
   - from:
-    - namespaceSelector:
+    - podSelector:
         matchLabels:
-          name: nginx
+          gateway.networking.k8s.io/gateway-name: web-gateway

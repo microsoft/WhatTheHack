@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sqlapi
+  annotations:
+    azure.workload.identity/client-id: "__identity_client_id__"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,8 +22,9 @@ spec:
     metadata:
       labels:
         run: api
-        aadpodidbinding: "__identity_name__"
+        azure.workload.identity/use: "true"
     spec:
+      serviceAccountName: sqlapi
       containers:
       - image: __acr_name__.azurecr.io/hack/sqlapi:1.0
         imagePullPolicy: Always

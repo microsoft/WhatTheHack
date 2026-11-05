@@ -45,7 +45,7 @@ curl "127.0.0.1:8080/api/healthcheck"
 # Run Web frontend
 cd ../web
 docker build -t web:1.0 .
-docker run -d -p 8081:80 -e "API_URL=http://${api_ip}:8080" --name web web:1.0
+docker run -d -p 8081:8080 -e "API_URL=http://${api_ip}:8080" --name web web:1.0
 $web_ip=$(docker inspect web | jq -r '.[0].NetworkSettings.Networks.bridge.IPAddress')
 Write-Host "You can point your browser to http://127.0.0.1:8081 to verify the app"
 ```
@@ -110,10 +110,10 @@ echo "The output of the previous command should have been ${sqlapi_source_ip}"
 
 ```bash
 # Create Web container
-az container create -n web -g $rg -e "API_URL=http://${sqlapi_ip}:8080" --image "${acr_name}.azurecr.io/hack/web:1.0" --ip-address public --ports 80 \
+az container create -n web -g $rg -e "API_URL=http://${sqlapi_ip}:8080" --image "${acr_name}.azurecr.io/hack/web:1.0" --ip-address public --ports 8080 \
   --registry-username "$acr_usr" --registry-password "$acr_pwd"
 web_ip=$(az container show -n web -g "$rg" --query ipAddress.ip -o tsv)
-echo "Please connect your browser to http://${web_ip} to test the correct deployment"
+echo "Please connect your browser to http://${web_ip}:8080 to test the correct deployment"
 ```
 
 The web GUI should look something like this:

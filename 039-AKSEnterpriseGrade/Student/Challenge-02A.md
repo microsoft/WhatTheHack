@@ -14,29 +14,18 @@ Your coach will provide you with a `Accelerator.zip` file that contains a set of
 
 If you plan to use the Azure Cloud Shell, you should upload the `Accelerator.zip` file to your cloud shell first and then unpack it there.
 
-These files assume you have ALREADY deployed an AKS cluster with the Nginx Ingress Controller that is currently running in Azure. 
+These files assume you have ALREADY deployed an AKS cluster. Use the AKS [application routing Gateway API implementation](https://learn.microsoft.com/azure/aks/app-routing-gateway-api?pivots=azure-cli) for managed Istio ingress; it is distinct from the Istio service mesh add-on.
 
-### Install NGINX Ingress Controller using Helm
+### Enable managed Istio ingress
 
-If your AKS cluster already has the Nginx Ingress Controller installed, skip to [Deploy the Whoami App](#deploy-the-whoami-app).
+If your cluster already has the `approuting-istio` GatewayClass, skip to [Deploy the Whoami App](#deploy-the-whoami-app).
 
-If your AKS cluster does not have the Nginx Ingress Controller installed, please install it by running the following commands:
+For an existing AKS cluster, use Azure CLI 2.86.0 or newer to enable the managed Gateway API CRDs and application-routing Istio implementation (do not enable the separate Istio service mesh add-on at the same time):
 
-``` bash
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
-# Add the ingress-nginx repository
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-
-# Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
-    --set controller.replicaCount=2 \
-    --set controller.nodeSelector."kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+```bash
+az aks update -g <RESOURCE_GROUP> -n <AKS_CLUSTER> --enable-gateway-api --enable-app-routing-istio
+az aks get-credentials -g <RESOURCE_GROUP> -n <AKS_CLUSTER>
+kubectl get gatewayclass approuting-istio
 ```
 ### Deploy the Whoami App
 
@@ -57,12 +46,12 @@ Follow these steps to deploy the "Whoami" app:
         - **NOTE:** This is a terrible ANTI-PATTERN of what NOT to do in the real world (hard code a password!)  Don't worry, you will fix this later during the hack.
 5. Deploy the api file: `kubectl apply -f api-deploy.yaml`
 6. Deploy the web file: `kubectl apply -f web-deploy.yaml`
-7. EDIT the `ingress.yaml` file and modify line 11 with the Public IP address of your Ingress controller.
-8. Deploy the ingress file: `kubectl apply -f ingress.yaml`
+7. Deploy the Gateway: `kubectl apply -f gateway.yaml`. Wait for its public IP: `kubectl wait --for=condition=programmed gateway/web-gateway` then `kubectl get gateway web-gateway`.
+8. Edit `httproute.yaml`, replacing `__ingress_ip__` with the Gateway's public IP address, then run `kubectl apply -f httproute.yaml`.
 
 ## Success Criteria
 
-- Verify that you are able to view the sample app in a web browser by going to the address you put in line 11 of the `ingress.yaml` file!
+- Verify that you can view the sample app at `http://<GATEWAY_PUBLIC_IP>.nip.io` in a web browser.
 - Verify that the links to the `API Health Status` and the `SQL Server Version` work.
 
 The sample application should look similar to the screenshot below:
