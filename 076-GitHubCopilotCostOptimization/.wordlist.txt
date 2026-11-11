@@ -31,3 +31,4 @@ priceLevel
 bestFor
 walkability
 ROI
+preconfigured
