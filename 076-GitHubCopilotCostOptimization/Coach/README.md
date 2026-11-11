@@ -33,7 +33,11 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, it is the Coach's responsibility to download and package up the contents of the `/Student/Resources` folder of this hack into a "Resources.zip" file. The coach should then provide a copy of the Resources.zip file to all students at the start of the hack.
+Before the hack, package the contents of the `/Student/Resources` folder into a Resources.zip file for students who work locally.
+
+For students using GitHub Codespaces, prepare a student-facing repository containing the student resources and a dev container configuration. Verify that students can create a Codespace with the resources and the `076-GitHubCopilotCostOptimization` configuration, then provide the creation link and branch, if needed. Do not direct students to the What The Hack repository.
+
+If publishing only the contents of `Student/Resources`, use its `.devcontainer/devcontainer.json` at the root of the student-facing repository. The repository-root configuration instead expects the `076-GitHubCopilotCostOptimization/Student/Resources` folder layout.
 
 The Student/Resources folder should contain:
 
@@ -65,7 +69,7 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ## Azure Requirements
 
-This hack does not require Azure resources. All work is done locally with GitHub Copilot in Visual Studio Code.
+This hack does not require Azure resources. Students can work with GitHub Copilot in Visual Studio Code using a GitHub Codespace or a local workstation.
 
 ## Suggested Hack Agenda
 
