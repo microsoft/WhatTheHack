@@ -40,15 +40,11 @@ In this hack, you will learn practical techniques to optimize GitHub Copilot usa
 - GitHub Copilot Fundamentals
 - Visual Studio Code OR IDE of choice with GitHub Copilot extension installed
 
-## Repository Contents
-
-- `Student/Resources/` - Starter codebase with intentionally sub-optimal Copilot configuration for teams to optimize
-- `Coach/Solutions/` - Reference implementations and measurement data for each challenge
 
 ## Contributors
 
-- Andy Huang
-- Andressa Siqueira
-- Anastasia Nefedova
-- Anahita Afshari
-- Devanshi Thakar
+- [Andy Huang](https://github.com/whowong)
+- [Andressa Siqueira](https://github.com/AndressaSiqueira)
+- [Anastasia Nefedova](https://github.com/ana-codes-1)
+- [Anahita Afshari](https://github.com/anahitaafsh)
+- [Devanshi Thakar](https://github.com/devanshithakar12)

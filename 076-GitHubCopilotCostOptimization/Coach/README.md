@@ -56,12 +56,6 @@ Always refer students to the [What The Hack website](https://aka.ms/wth) for the
 
 ### Additional Coach Prerequisites
 
-**Coach must complete Challenge 06 (Token Golf) before the hack:**
-
-- Complete the Token Golf coding task yourself to establish "par" score
-- Document your credit spend and techniques used
-- This "par" becomes the benchmark teams compete against
-
 **Prepare measurement tools:**
 
 - Verify token visibility in VS Code Output panel (GitHub Copilot Chat)
@@ -105,32 +99,3 @@ This hack can be delivered as a half-day or full-day event:
   - Student's Challenge Guide
 - `./Student/Resources`
   - Starter codebase, baseline task, Token Golf specification (Must be packaged up by the coach and provided to students at start of event)
-
-- Azure resources that will be consumed by a student implementing the hack's challenges
-- Azure permissions required by a student to complete the hack's challenges.
-
-## Suggested Hack Agenda (Optional)
-
-_This section is optional. You may wish to provide an estimate of how long each challenge should take for an average squad of students to complete and/or a proposal of how many challenges a coach should structure each session for a multi-session hack event. For example:_
-
-- Sample Day 1
-  - Challenge 1 (1 hour)
-  - Challenge 2 (30 mins)
-  - Challenge 3 (2 hours)
-- Sample Day 2
-  - Challenge 4 (45 mins)
-  - Challenge 5 (1 hour)
-  - Challenge 6 (45 mins)
-
-## Repository Contents
-
-_The default files & folders are listed below. You may add to this if you want to specify what is in additional sub-folders you may add._
-
-- `./Coach`
-  - Coach's Guide and related files
-- `./Coach/Solutions`
-  - Solution files with completed example answers to a challenge
-- `./Student`
-  - Student's Challenge Guide
-- `./Student/Resources`
-  - Resource files, sample code, scripts, etc meant to be provided to students. (Must be packaged up by the coach and provided to students at start of event)
