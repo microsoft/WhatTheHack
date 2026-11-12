@@ -19,7 +19,7 @@ In this hack, you will learn practical techniques to optimize GitHub Copilot usa
 
 ## Challenges
 
-- Challenge 00: **[Prerequisites](Student/Challenge-00.md)**
+- Challenge 00: **[Prerequisites and Baseline](Student/Challenge-00.md)**
    - Set up the hack environment
 - Challenge 01: **[Spec-Driven Development](Student/Challenge-01.md)**
    - Demonstrate that deterministic controls (tests, specs) reduce trial-and-error token burn

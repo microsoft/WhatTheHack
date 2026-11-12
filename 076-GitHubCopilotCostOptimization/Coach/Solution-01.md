@@ -1,8 +1,8 @@
-# Challenge 01 - Spec-Driven Development with Spec Kit - Coach's Guide
+# Challenge 01 - Spec-Driven Development - Coach's Guide
 
 [< Previous Solution](./Solution-00.md) - **[Home](./README.md)** - [Next Solution >](./Solution-02.md)
 
-# Coach Guide: Direct Prompt vs. Spec-Driven Development
+# Coach Guide: Spec-Driven Development
 
 ## Purpose
 

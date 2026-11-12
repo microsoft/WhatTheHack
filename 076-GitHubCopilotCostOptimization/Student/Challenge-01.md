@@ -1,4 +1,4 @@
-# Challenge 01 - Direct Prompt vs. Spec-Driven Development
+# Challenge 01 - Spec-Driven Development
 
 [< Previous Challenge](./Challenge-00.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-02.md)
 

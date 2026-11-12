@@ -10,20 +10,20 @@ This hack teaches teams to maximize code quality while minimizing GitHub Copilot
 
 ## Coach's Guides
 
-- Challenge 00: **[Prerequisites & Baseline](./Solution-00.md)**
-   - Set up the hack environment and establish baseline credit spend measurements
+- Challenge 00: **[Prerequisites and Baseline](./Solution-00.md)**
+   - Set up the hack environment
 - Challenge 01: **[Spec-Driven Development](./Solution-01.md)**
-   - Leverage deterministic controls as token controls
+   - Demonstrate that deterministic controls (tests, specs) reduce trial-and-error token burn
 - Challenge 02: **[Context Engineering](./Solution-02.md)**
-   - Optimize instruction architecture and attachment precision
+   - Audit and restructure global instructions into scoped files, and replace broad references with pinned attachments
 - Challenge 03: **[Model Selection & Output Constraints](./Solution-03.md)**
-   - Compare models and apply output constraints to reduce costs
+   - Compare credit costs across models and reasoning levels, and apply output constraints to reduce token spend
 - Challenge 04: **[Session Configuration (Tools + Cache)](./Solution-04.md)**
-   - Manage MCP tool sprawl and understand cache invalidation
+   - Prune unused MCP tools and understand cache invalidation patterns
 - Challenge 05: **[Context Window Management](./Solution-05.md)**
-   - Use /compact proactively to maintain quality and control costs
+   - Use /compact proactively to manage growing context windows and avoid context rot
 - Challenge 06: **[Token Golf Competition](./Solution-06.md)**
-   - Competitive coding challenge optimizing for lowest credit spend
+   - Complete a coding task with the lowest credit spend while meeting all acceptance criteria
 
 ## Coach Prerequisites
 
@@ -70,7 +70,7 @@ This hack does not require Azure resources. Students can work with GitHub Copilo
 This hack can be delivered as a half-day or full-day event:
 
 ### Half-Day Format (4 hours)
-- Challenge 00: Prerequisites & Baseline (30 minutes)
+- Challenge 00: Prerequisites and Baseline (30 minutes)
 - Challenge 01: Spec-Driven Development (45 minutes)
 - Challenge 02: Context Engineering (45 minutes)
 - Challenge 03: Model Selection & Output Constraints (45 minutes)
@@ -78,7 +78,7 @@ This hack can be delivered as a half-day or full-day event:
 - Challenge 06: Token Golf Competition (45 minutes)
 
 ### Full-Day Format (6-7 hours)
-- Challenge 00: Prerequisites & Baseline (45 minutes)
+- Challenge 00: Prerequisites and Baseline (45 minutes)
 - Challenge 01: Spec-Driven Development (60 minutes)
 - Challenge 02: Context Engineering (60 minutes)
 - Break (15 minutes)

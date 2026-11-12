@@ -1,4 +1,4 @@
-# Challenge 02 - Context Engineering (NYC App)
+# Challenge 02 - Context Engineering
 
 [< Previous Challenge](./Challenge-01.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-03.md)
 

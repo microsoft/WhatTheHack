@@ -1,4 +1,4 @@
-# Challenge 00 - Prerequisites & Baseline
+# Challenge 00 - Prerequisites and Baseline
 
 **[Home](../README.md)** - [Next Challenge >](./Challenge-01.md)
 
