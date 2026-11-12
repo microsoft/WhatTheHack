@@ -56,6 +56,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
 - [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
 - [GitHub Copilot](/071-GitHubCopilot/README.md)
+- [GitHub Copilot Cost Optimization](/076-GitHubCopilotCostOptimization/README.md)
 - [New Relic Agent Observability](/073-NewRelicAgentObservability/README.md)
 - [Optimizing AI Agents with Microsoft Foundry and Elasticsearch](/077-ElasticsearchWithFoundry/README.md)
 
@@ -82,6 +83,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [SAP On Azure](/042-SAPOnAzure/README.md)
 
 ## Application Development
+- [GitHub Copilot Cost Optimization](/076-GitHubCopilotCostOptimization/README.md)
 - [Java on Azure App Service](/040-JavaOnAppService/README.md)
 - [Rock, Paper, Scissors, Boom!](/005-RockPaperScissorsBoom/README.md)
 - [App Modernization](/006-AppModernization/README.md)
