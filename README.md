@@ -57,6 +57,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
 - [GitHub Copilot](/071-GitHubCopilot/README.md)
 - [New Relic Agent Observability](/073-NewRelicAgentObservability/README.md)
+- [Optimizing AI Agents with Microsoft Foundry and Elasticsearch](/077-ElasticsearchWithFoundry/README.md)
 
 ## Infrastructure
 - [Intro To Kubernetes](/001-IntroToKubernetes/README.md)
@@ -116,6 +117,7 @@ Here is the current list of What The Hack hackathons available in this repositor
 - [Azure OpenAI Fundamentals](/066-OpenAIFundamentals/README.md)
 - [Building AI Apps with Azure OpenAI & the Azure Ecosystem](/068-AzureOpenAIApps/README.md)
 - [Build Your Own Copilot](/070-BuildYourOwnCopilot/README.md)
+- [Optimizing AI Agents with Microsoft Foundry and Elasticsearch](/077-ElasticsearchWithFoundry/README.md)
 - [MongoDB To DocumentDB Migration](/075-MongoDB2DocumentDB/README.md)
 - [Fabric Real-time Intelligence](/069-FabricRealTimeIntelligence/README.md)
 - [Cosmic Troubleshooting](/056-CosmicTroubleshooting/README.md)
