@@ -33,13 +33,13 @@ The guide covers the common preparation steps a coach needs to do before any Wha
 
 ### Student Resources
 
-Before the hack, package the contents of the `/Student/Resources` folder into a Resources.zip file for students who work locally.
+This hack uses GitHub Codespaces for all student resources. Students should use their personal GitHub accounts to access Codespaces which will provide a configured VS Code developer environment for them that runs in a browser, hosted in the cloud.
 
-For students using GitHub Codespaces, prepare a student-facing repository containing the student resources and a dev container configuration. Verify that students can create a Codespace with the resources and the `076-GitHubCopilotCostOptimization` configuration, then provide the creation link and branch, if needed. Do not direct students to the What The Hack repository.
+Alternatively, students may download the Student Resources package: [Resources.zip](https://aka.ms/wth/ghcpcostoptimization/resources) and use the DevContainer in it to load the pre-configured developer environment on their local workstation.
 
-If publishing only the contents of `Student/Resources`, use its `.devcontainer/devcontainer.json` at the root of the student-facing repository. The repository-root configuration instead expects the `076-GitHubCopilotCostOptimization/Student/Resources` folder layout.
+The links for the Codespace and Student Resources package are in Challenge 00 of the student guide.
 
-The Student/Resources folder should contain:
+The Codespace (and Student Resources package) contains:
 
 - **Starter codebase** with intentionally sub-optimal GitHub Copilot configuration:
   - Bloated `.github/copilot-instructions.md` (~1500 tokens) for Challenge 02
