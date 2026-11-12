@@ -695,6 +695,7 @@ WTHAuthor
 invocable
 dispatchable
 subtree
+subtrees
 redispatch
 SHAs
 symlinks
