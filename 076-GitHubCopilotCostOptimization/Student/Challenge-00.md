@@ -29,8 +29,9 @@ You need a GitHub account with access to GitHub Copilot and permission to use Gi
 
 ### Use a local workstation
 
-1. Extract the Resources.zip file provided by your coach.
-2. Open the extracted folder in Visual Studio Code and install or update the GitHub Copilot and GitHub Copilot Chat extensions.
+1. [Download `Resources.zip`](https://aka.ms/wth/ghcpcostoptimization/resources), the student resources package. 
+2. Extract the Resources.zip file on your local workstation.
+3. Open the extracted folder in Visual Studio Code and install or update the GitHub Copilot and GitHub Copilot Chat extensions.
 
 ### Set up GitHub Copilot
 
