@@ -691,3 +691,15 @@ untracked
 worktree
 devcontainer's
 JSONC
+WTHAuthor
+invocable
+dispatchable
+subtree
+redispatch
+SHAs
+symlinks
+frontmatter
+unmerged
+unescaped
+shortener
+unrequested
