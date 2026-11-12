@@ -20,10 +20,12 @@ GitHub Codespaces provides a cloud-hosted Visual Studio Code environment that yo
 
 You need a GitHub account with access to GitHub Copilot and permission to use GitHub Codespaces. Codespaces compute and storage normally incur charges separately from GitHub Copilot, depending on your account's included usage and billing settings.  All personal GitHub.com accounts include a monthly quota of free usage each month. GitHub will provide users in the Free plan 120 core hours, or 60 hours of run time on a 2 core codespace, plus 15 GB of storage each month.
 
-1. Open the student Codespace creation link provided by your coach and sign in to GitHub.
-2. Select the branch provided by your coach, if needed, and select `076-GitHubCopilotCostOptimization` as the **Dev container configuration**.
-3. Select **Create codespace**. Once it opens, confirm that the student resources and GitHub Copilot extensions are available.
-4. To return to your environment later, open [Your Codespaces](https://github.com/codespaces) and select your existing Codespace.
+1. Open the Codespace for this hack: [GitHub Copilot Cost Optimization Codespace](https://aka.ms/wth/ghcpcostoptimization/codespace)
+2. Sign in with your **personal** GitHub account.
+3. Verify the `Dev container configuration` is set to the one for this hack, then click **Create Codespace**.
+4. Wait for Visual Studio Code to load in your browser. The first launch takes approximately 3-5 minutes. Once it opens, confirm that the student resources and GitHub Copilot extensions are available.
+
+> **NOTE:** To return to your environment later, open [Your Codespaces](https://github.com/codespaces) and select your existing Codespace.
 
 ### Use a local workstation
 
