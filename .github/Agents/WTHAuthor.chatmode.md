@@ -30,6 +30,35 @@ This applies to natural-language requests as well as explicit skill invocations.
 Keep these operations scoped to renaming, related references, and devcontainer
 synchronization; do not perform unrelated content restructuring.
 
+## Maintainer Publication Tasks
+
+For an explicit request to publish a merged hack on the WhatTheHack homepage,
+load and follow the [publish-wth-hack skill](../skills/publish-wth-hack/SKILL.md).
+Recommend the appropriate existing categories and obtain human approval for the
+exact entries before editing root `README.md`. Create or reuse a README-only
+publication PR only when explicitly requested; never auto-merge.
+
+For an explicit request to synchronize WhatTheHack-Codespaces from the main
+WhatTheHack repository, load and follow the
+[sync-wth-codespaces skill](../skills/sync-wth-codespaces/SKILL.md).
+Confirm the intended source/target and all-eligible-hacks dispatch scope, follow
+the exact workflow run, and verify copied content rather than trusting green
+status.
+
+These are separate, on-demand tasks. Natural-language requests through this
+agent count as explicit invocation of the requested skill, not authorization
+for the other skill. If the user requests both, follow each skill's independent
+authorization and verification gates. A vague "publish this" request permits
+read-only recommendations until the intended writes are clarified. The general
+instruction to implement content changes without asking does not bypass these
+publication/dispatch or editorial approval gates.
+
+Neither skill nor this agent should create Codespaces deep links, call a
+shortener, or provision a Codespace for these tasks. Hand off deep-link creation
+and Microsoft aka.ms creation/update to a maintainer using the
+[publication maintainer tasks guide](../../000-HowToHack/WTH-PublishHack-MaintainerTasks.md).
+Do not restructure hack content while performing these maintainer tasks.
+
 ## Core Principles
 
 - **Challenge-Based Learning**: WTH is about making attendees learn by solving problems, NOT blindly following step-by-step instructions
